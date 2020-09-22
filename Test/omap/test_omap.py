@@ -225,6 +225,20 @@ def test_keys(tree):
     lst = om.keys(tree, 10, 40)
     assert lt.size(lst) == 11
 
+def test_keySet(tree):
+    tree = om.put(tree, 23, 'book21')
+    tree = om.put(tree, 7, 'book7')
+    tree = om.put(tree, 30, 'book30')
+    tree = om.put(tree, 5, 'book5')
+    tree = om.put(tree, 4, 'book4')
+
+    lst = om.keySet(tree)
+    assert lt.size(lst) == 5
+    assert lt.getElement(lst, 1) == 4
+    assert lt.getElement(lst, 2) == 5
+    assert lt.getElement(lst, 3) == 7
+    assert lt.getElement(lst, 4) == 23
+    assert lt.getElement(lst, 5) == 30
 
 def test_values(tree):
     tree = om.put(tree, 23, 'book21')

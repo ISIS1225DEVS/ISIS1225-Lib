@@ -179,7 +179,8 @@ def keySet(bst):
     """
     try:
         klist = lt.newList()
-        klist = keySetTree(bst, klist)
+        if 'root' in bst:
+            klist = keySetTree(bst['root'], klist)
         return klist
     except Exception as exp:
         error.reraise(exp, 'BST:KeySet')

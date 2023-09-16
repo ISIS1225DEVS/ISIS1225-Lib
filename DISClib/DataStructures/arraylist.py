@@ -25,12 +25,12 @@
  """
 
 import config
-from DISClib.Utils import error as error
+from DISClib.Utils.error import handle_error
 import csv
 # import dataclass for defining the node type
 from dataclasses import dataclass, field
 # import typing for defining the type of the element stored at the node
-from typing import Generic, TypeVar, Optional, List, Callable
+from typing import List, Optional, Callable, Generic, TypeVar
 import inspect
 assert config
 
@@ -83,89 +83,222 @@ class array_list(Generic[T]):
     # using default_factory to generate an empty list
     elements: List[T] = field(default_factory=list)
     _size: int = 0
-    type: str = "ARRAY_LIST"
+    # type: str = "ARRAY_LIST"
     # using a default_cmp_function to compare elements
     cmp_function: Optional[Callable[[T, T], int]] = default_cmp_function
     key: Optional[str] = None
     data_struct: Optional[str] = None
-    
+
     def __post_init__(self):
-        pass
-    
-    def _handle_error(self, exp, msg):
+        # TODO maybe i need it in the future
         pass
 
-    def add_first(self, element: T):
+    def _handle_error(self, err: Exception) -> None:
+        """_handle_error _summary_
+
+        Args:
+            err (Exception): _description_
+        """
+        cur_function = inspect.currentframe().f_code.co_name
+        cur_context = self.__class__.__name__
+        handle_error(cur_context, cur_function, err)
+
+    def is_empty(self) -> bool:
+        try:
+            return self._size == 0
+        except Exception as exp:
+            self._handle_error(exp)
+
+    def size(self) -> int:
+        try:
+            return self._size
+        except Exception as exp:
+            self._handle_error(exp)
+
+    def add_first(self, element: T) -> None:
         try:
             self.elements.insert(0, element)
             self._size += 1
         except Exception as exp:
-            error.reraise(exp, 'arraylist->addFirst: ')
+            self._handle_error(exp)
 
-    def add_last(self, element: T):
-        pass
+    def add_last(self, element: T) -> None:
+        try:
+            self.elements.append(element)
+            self._size += 1
+        except Exception as exp:
+            self._handle_error(exp)
 
-    def is_empty(self):
-        pass
+    def add_element(self, element: T, pos: int) -> None:
+        try:
+            self.elements.insert(pos-1, element)
+            self._size += 1
+        except Exception as exp:
+            self._handle_error(exp)
 
-    def size(self):
-        pass
+    def get_first(self) -> T:
+        try:
+            return self.elements[0]
+        except Exception as exp:
+            self._handle_error(exp)
 
-    def first_element(self):
-        pass
+    def get_last(self) -> T:
+        try:
+            return self.elements[self._size-1]
+        except Exception as exp:
+            self._handle_error(exp)
 
-    def last_element(self):
-        pass
+    def get_element(self, pos: int) -> T:
+        try:
+            return self.elements[pos-1]
+        except Exception as exp:
+            self._handle_error(exp)
 
-    def get_element(self, pos: int):
-        pass
+    def remove_element(self, pos: int) -> T:
+        try:
+            element = self.elements.pop(pos-1)
+            self._size -= 1
+            return element
+        except Exception as exp:
+            self._handle_error(exp)
 
-    def delete_element(self, pos: int):
-        pass
+    def remove_first(self) -> T:
+        try:
+            element = self.elements.pop(0)
+            self._size -= 1
+            return element
+        except Exception as exp:
+            self._handle_error(exp)
 
-    def remove_first(self):
-        pass
+    def remove_last(self) -> T:
+        try:
+            element = self.elements.pop(self._size-1)
+            self._size -= 1
+            return element
+        except Exception as exp:
+            self._handle_error(exp)
 
-    def remove_last(self):
-        pass
+    def compare_elements(self, element: T, info: T) -> int:
+        try:
+            if self.key is not None:
+                return self.cmp_function(element[self.key], info[self.key])
+            else:
+                return self.cmp_function(element, info)
+        except Exception as exp:
+            self._handle_error(exp)
 
-    def insert_element(self, element: T, pos: int):
-        pass
+    def is_present(self, element: T) -> int:
+        try:
+            lt_size = self.size()
+            pos = -1
+            if lt_size > 0:
+                found = False
+                i = 0
+                # print("inside is present!!!")
+                while not found and i < lt_size:
+                    data = self.get_element(i)
+                    if self.compare_elements(element, data) == 0:
+                        found = True
+                        pos = i
+                    i += 1
+            return pos
+        except Exception as exp:
+            self._handle_error(exp)
 
-    def is_present(self, element: T):
-        pass
+    def change_info(self, pos: int, new_info: T) -> None:
+        try:
+            self.elements[pos] = new_info
+        except Exception as exp:
+            self._handle_error(exp)
 
-    def change_info(self, pos: int, new_info: T):
-        pass
+    def exchange(self, pos1: int, pos2: int) -> None:
+        try:
+            info_pos1 = self.get_element(pos1)
+            info_pos2 = self.get_element(pos2)
+            self.change_info(pos1, info_pos2)
+            self.change_info(pos2, info_pos1)
+            # return self
+        except Exception as exp:
+            self._handle_error(exp)
 
-    def exchange(self, pos1: int, pos2: int):
-        pass
+    def create_sublist(self, start: int, end: int) -> "array_list[T]":
+        try:
+            if start < 0 or end > self.size() or start > end:
+                raise Exception("Invalid range")
+            else:
+                sub_lt = array_list(cmp_function=self.cmp_function)
+                for i in range(start, end):
+                    sub_lt.add_last(self.get_element(i))
+                return sub_lt
+                # sub_lt = copy.deepcopy(self)
+                # sub_lt.elements = sub_lt.elements[start:end]
+                # sub_lt._size = end - start
+                # return sub_lt
+        except Exception as exp:
+            self._handle_error(exp)
 
-    def sub_list(self, pos: int, num_elem: int):
-        pass
+    def concatenate(self, lst: "array_list[T]") -> "array_list[T]":
+        try:
+            if not isinstance(lst, array_list):
+                raise Exception("Invalid list type")
+            # else:
+            concat_lt = array_list(cmp_function=self.cmp_function)
+            concat_lt.elements = self.elements + lst.elements
+            concat_lt._size = self.size() + lst.size()
+            return concat_lt
+        except Exception as exp:
+            self._handle_error(exp)
 
-    def iterator(self):
-        pass
+    def __iter__(self):
+        try:
+            return iter(self.elements)
+        except Exception as exp:
+            self._handle_error(exp)
 
-    def compare_elements(self, element: T, info: T):
-        pass
 
+def cmp_test(e1, e2):
+    try:
+        if e1["id"] > e2["id"]:
+            return 1
+        elif e1["id"] < e2["id"]:
+            return -1
+        elif e1["id"] == e2["id"]:
+            return 0
+    except Exception:
+        raise Exception("Invalid comparison in cmp_test")
 
-def concat_lists(lst1: array_list[T], lst2: array_list[T]):
-    pass
-    
-    
-
-      
-    
-    
 
 if __name__ == "__main__":
 
     a = array_list()
     print(type(a))
     print(type(a.elements))
-    print(inspect.getmembers(__name__))
+    # print(inspect.getmembers(__name__))
+    a.add_first({"data": "a", "id": 1})
+    a.add_first({"data": "b", "id": 2})
+    a.add_first({"data": "c", "id": 3})
+    a.add_last({"data": "d", "id": 4})
+    a.add_last({"data": "e", "id": 5})
+    # a.add_first("bla")
+
+    for i in a:
+        print(i, type(i))
+
+    print(a.get_first())
+    print(a.get_last())
+    print(a.size())
+    print(a.is_present({"id": 2}))
+
+    b = array_list(cmp_function=cmp_test)
+    b.add_first({"data": "d", "id": 4})
+    b.add_last({"data": "e", "id": 5})
+
+    b = a.concatenate(b)
+    print(b.size())
+
+    c = a.create_sublist(1, 3)
+    print(c.size())
+    
 
 #TODO Eliminar la carga de datos de la función newList
 #FIXME Cambiar el nombre de la funcion para usar snake_case

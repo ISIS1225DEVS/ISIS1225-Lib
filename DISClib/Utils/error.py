@@ -20,15 +20,24 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  """
 
-"""
-  Estructura utilizada para el manejo de los errores durante la manipulación
-  de estructuras de datos y TADs
-"""
 
+def handle_error(context: str, func_name: str, err: Exception) -> None:
+    """handle_error _summary_
 
-def reraise(excp, *args):
-    """
-    Estructura que contiene la información a guardar en una lista encadenada
-    """
-    excp.args = args + excp.args
-    raise excp.with_traceback(excp.__traceback__)
+    Args:
+        context (str): _description_
+        func_name (str): _description_
+        err (Exception): _description_
+
+    Raises:
+        type: _description_
+    """    
+    err_msg = f"Error in {context}.{func_name}: {err}"
+    raise type(err)(err_msg).with_traceback(err.__traceback__)
+
+# def reraise(excp, *args):
+#     """
+#     Estructura que contiene la información a guardar en una lista encadenada
+#     """
+#     excp.args = args + excp.args
+#     raise excp.with_traceback(excp.__traceback__)

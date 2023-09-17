@@ -235,24 +235,36 @@ class array_list(Generic[T]):
     def get_first(self) -> T:
         """get_first _summary_
 
+        Raises:
+            Exception: _description_
+
         Returns:
             T: _description_
         """
         # TODO add docstring
         try:
-            return self.elements[0]
+            if self.is_empty():
+                raise Exception("Empty data structure")
+            else:
+                return self.elements[0]
         except Exception as exp:
             self._handle_error(exp)
 
     def get_last(self) -> T:
         """get_last _summary_
 
+        Raises:
+            Exception: _description_
+
         Returns:
             T: _description_
         """
         # TODO add docstring
         try:
-            return self.elements[self._size-1]
+            if self.is_empty():
+                raise Exception("Empty data structure")
+            else:
+                return self.elements[self._size-1]
         except Exception as exp:
             self._handle_error(exp)
 
@@ -264,14 +276,17 @@ class array_list(Generic[T]):
 
         Raises:
             Exception: _description_
+            Exception: _description_
 
         Returns:
             T: _description_
         """
         # TODO add docstring
         try:
-            if pos < 0 or pos > self._size-1:
-                raise Exception("Invalid position")
+            if self.is_empty():
+                raise Exception("Empty data structure")
+            elif pos < 0 or pos > self._size-1:
+                raise Exception("Index", pos, "is an invalid position")
             else:
                 return self.elements[pos]
         except Exception as exp:

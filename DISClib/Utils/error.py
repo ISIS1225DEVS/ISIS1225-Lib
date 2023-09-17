@@ -43,7 +43,7 @@ VALID_DATA_TYPE_LT = [
 ]
 
 # generic error message for invalid data type
-TYPE_ERR_MSG = "Invalid info data type"
+TYPE_ERR_MSG = "Invalid datatype"
 
 
 def error_handler(context: str,
@@ -78,15 +78,6 @@ def type_checker(context: str,
         TypeError: _description_
     """
     # TODO add docstring
-    # valid_types =
     if not any(isinstance(info, t) for t in VALID_DATA_TYPE_LT):
         err_msg = f"Error in {context}.{func_name}: {TYPE_ERR_MSG}"
         raise TypeError(err_msg)
-
-
-# def reraise(excp, *args):
-#     """
-#     Estructura que contiene la información a guardar en una lista encadenada
-#     """
-#     excp.args = args + excp.args
-#     raise excp.with_traceback(excp.__traceback__)

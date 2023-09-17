@@ -72,7 +72,7 @@ class array_list(Generic[T]):
         # TODO add docstring
         # if the key is not defined, use the default
         if self.key is None:
-            self.jey = "id"
+            self.key = "id"
         # if the comparison function is not defined, use the default
         if self.cmp_function is None and self.key is not None:
             self.cmp_function = self.default_cmp_function
@@ -139,9 +139,12 @@ class array_list(Generic[T]):
         """
         # TODO add docstring
         try:
-            lt_type = type(self.elements[0])
-            if self._size > 0 or isinstance(element, lt_type):
+            if self._size == 0 and len(self.elements) == 0:
                 return True
+            elif self._size > 0:
+                lt_type = type(self.elements[0])
+                if isinstance(element, lt_type):
+                    return True
             else:
                 return False
         except Exception as exp:
@@ -492,6 +495,7 @@ if __name__ == "__main__":
     print(type(a))
     print(type(a.elements))
     # print(inspect.getmembers(__name__))
+    print("adding elements")
     a.add_first({"data": "a", "id": 1})
     a.add_first({"data": "b", "id": 2})
     a.add_first({"data": "c", "id": 3})
@@ -499,13 +503,15 @@ if __name__ == "__main__":
     a.add_last({"data": "e", "id": 5})
     # a.add_first("bla")
 
+    print("iterating over elements")
     for i in a:
         print(i, type(i))
 
-    print(a.get_first())
-    print(a.get_last())
-    print(a.size())
-    print(a.is_present({"id": 2}))
+    print("getting elements")
+    print("first:", a.get_first())
+    print("last", a.get_last())
+    print("size", a.size(), len(a.elements), a._size)
+    print("is present?", a.is_present({"id": 2}))
 
     b = array_list(cmp_function=cmp_test)
     b.add_first({"data": "d", "id": 4})
@@ -743,7 +749,6 @@ def changeInfo(lst, pos, newinfo):
     pass
 
 
-# TODO Verificar que las posiciones que se pasan por parametro estén dentro del rango de la lista
 def exchange(lst, pos1, pos2):
     """ Intercambia la informacion en las posiciones pos1 y pos2 de la lista.
 
@@ -803,8 +808,4 @@ def compareElements(lst, element, info):
     Raises:
         Exception
     # """
-    # if(lst['key'] is not None):
-    #     return lst['cmpfunction'](element[lst['key']], info[lst['key']])
-    # else:
-    #     return lst['cmpfunction'](element, info)
     pass

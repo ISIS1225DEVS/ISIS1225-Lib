@@ -20,9 +20,36 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  """
 
+# import dataclass for defining the node type
+from dataclasses import dataclass
+# import typing for defining the type of the element stored at the node
+from typing import TypeVar      # , Generic, Optional
 
-def handle_error(context: str, func_name: str, err: Exception) -> None:
-    """handle_error _summary_
+
+# Type for the element stored at the node
+T = TypeVar("T")    # T can be any type
+
+# valid data types for the node
+VALID_DATA_TYPE_LT = [
+    int,
+    float,
+    str,
+    bool,
+    dict,
+    list,
+    tuple,
+    set,
+    dataclass,
+]
+
+# generic error message for invalid data type
+TYPE_ERR_MSG = "Invalid info data type"
+
+
+def error_handler(context: str,
+                  func_name: str,
+                  err: Exception) -> None:
+    """error_handler _summary_
 
     Args:
         context (str): _description_
@@ -31,9 +58,31 @@ def handle_error(context: str, func_name: str, err: Exception) -> None:
 
     Raises:
         type: _description_
-    """    
+    """
+    # TODO add docstring
     err_msg = f"Error in {context}.{func_name}: {err}"
     raise type(err)(err_msg).with_traceback(err.__traceback__)
+
+
+def type_checker(context: str,
+                 func_name: str,
+                 info: T) -> None:
+    """type_checker _summary_
+
+    Args:
+        context (str): _description_
+        func_name (str): _description_
+        info (T): _description_
+
+    Raises:
+        TypeError: _description_
+    """
+    # TODO add docstring
+    # valid_types =
+    if not any(isinstance(info, t) for t in VALID_DATA_TYPE_LT):
+        err_msg = f"Error in {context}.{func_name}: {TYPE_ERR_MSG}"
+        raise TypeError(err_msg)
+
 
 # def reraise(excp, *args):
 #     """

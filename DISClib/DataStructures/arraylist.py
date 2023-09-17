@@ -18,15 +18,14 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * Contribución de:
+ * Contribució n de:
  *
  * Dario Correal
  *
  """
 
 import config
-from DISClib.Utils.error import handle_error
-import csv
+from DISClib.Utils.error import error_handler
 # import dataclass for defining the node type
 from dataclasses import dataclass, field
 # import typing for defining the type of the element stored at the node
@@ -37,19 +36,6 @@ assert config
 
 # Type for the element stored at the node
 T = TypeVar("T")    # T can be any type
-
-# valid data types for the node
-VALID_DATA_TYPE_LT = [
-    int,
-    float,
-    str,
-    bool,
-    dict,
-    list,
-    tuple,
-    set,
-    dataclass,
-]
 
 """
   Este módulo implementa una estructura de datos lineal,
@@ -62,17 +48,6 @@ VALID_DATA_TYPE_LT = [
 """
 
 
-def default_cmp_function(id1, id2):
-    if id1 > id2:
-        return 1
-    elif id1 < id2:
-        return -1
-    elif id1 == id2:
-        return 0
-    else:
-        raise Exception("Invalid comparison")
-
-
 @dataclass
 class array_list(Generic[T]):
     """array_list _summary_
@@ -80,18 +55,67 @@ class array_list(Generic[T]):
     Args:
         Generic (_type_): _description_
     """
+    # TODO add docstring
     # using default_factory to generate an empty list
     elements: List[T] = field(default_factory=list)
     _size: int = 0
-    # type: str = "ARRAY_LIST"
-    # using a default_cmp_function to compare elements
-    cmp_function: Optional[Callable[[T, T], int]] = default_cmp_function
+
+    # leaving the following attributes as optional
+    cmp_function: Optional[Callable[[T, T], int]] = None
     key: Optional[str] = None
+    # FIXME deprecate this attribute!!!
     data_struct: Optional[str] = None
 
-    def __post_init__(self):
-        # TODO maybe i need it in the future
-        pass
+    def __post_init__(self) -> None:
+        """__post_init__ _summary_
+        """
+        # TODO add docstring
+        # if the key is not defined, use the default
+        if self.key is None:
+            self.jey = "id"
+        # if the comparison function is not defined, use the default
+        if self.cmp_function is None and self.key is not None:
+            self.cmp_function = self.default_cmp_function
+
+    def default_cmp_function(self, elm1, elm2) -> int:
+        """default_cmp_function _summary_
+
+        Args:
+            elm1 (_type_): _description_
+            elm2 (_type_): _description_
+
+        Raises:
+            Exception: _description_
+            Exception: _description_
+
+        Returns:
+            int: _description_
+        """
+        # TODO add docstring
+        try:
+            # using the key to compare elements
+            if self.key is not None:
+                key1 = elm1.get(self.key)
+                key2 = elm2.get(self.key)
+                # check if the key is present in both elements
+                if None in [key1, key2]:
+                    raise Exception("Invalid key")
+                # comparing elements
+                else:
+                    # if one is greater than the other, return 1
+                    if key1 > key2:
+                        return 1
+                    # if one is less than the other, return -1
+                    elif key1 < key2:
+                        return -1
+                    # if they are equal, return 0
+                    elif key1 == key2:
+                        return 0
+                    # otherwise, raise an exception
+                    else:
+                        raise Exception("Invalid comparison")
+        except Exception as exp:
+            self._handle_error(exp)
 
     def _handle_error(self, err: Exception) -> None:
         """_handle_error _summary_
@@ -99,62 +123,167 @@ class array_list(Generic[T]):
         Args:
             err (Exception): _description_
         """
+        # TODO add docstring
         cur_function = inspect.currentframe().f_code.co_name
         cur_context = self.__class__.__name__
-        handle_error(cur_context, cur_function, err)
+        error_handler(cur_context, cur_function, err)
+
+    def _check_type(self, element: T) -> bool:
+        """_check_type _summary_
+
+        Args:
+            element (T): _description_
+
+        Returns:
+            bool: _description_
+        """
+        # TODO add docstring
+        try:
+            lt_type = type(self.elements[0])
+            if self._size > 0 or isinstance(element, lt_type):
+                return True
+            else:
+                return False
+        except Exception as exp:
+            self._handle_error(exp)
 
     def is_empty(self) -> bool:
+        """is_empty _summary_
+
+        Returns:
+            bool: _description_
+        """
+        # TODO add docstring
         try:
             return self._size == 0
         except Exception as exp:
             self._handle_error(exp)
 
     def size(self) -> int:
+        """size _summary_
+
+        Returns:
+            int: _description_
+        """
+        # TODO add docstring
         try:
             return self._size
         except Exception as exp:
             self._handle_error(exp)
 
     def add_first(self, element: T) -> None:
+        """add_first _summary_
+
+        Args:
+            element (T): _description_
+
+        Raises:
+            Exception: _description_
+        """
+        # TODO add docstring
         try:
-            self.elements.insert(0, element)
-            self._size += 1
+            if self._check_type(element):
+                self.elements.insert(0, element)
+                self._size += 1
+            else:
+                raise Exception("Invalid element type")
         except Exception as exp:
             self._handle_error(exp)
 
     def add_last(self, element: T) -> None:
+        """add_last _summary_
+
+        Args:
+            element (T): _description_
+
+        Raises:
+            Exception: _description_
+        """
+        # TODO add docstring
         try:
-            self.elements.append(element)
-            self._size += 1
+            if self._check_type(element):
+                self.elements.append(element)
+                self._size += 1
+            else:
+                raise Exception("Invalid element type")
         except Exception as exp:
             self._handle_error(exp)
 
     def add_element(self, element: T, pos: int) -> None:
+        """add_element _summary_
+
+        Args:
+            element (T): _description_
+            pos (int): _description_
+
+        Raises:
+            Exception: _description_
+        """
+        # TODO add docstring
         try:
-            self.elements.insert(pos-1, element)
-            self._size += 1
+            if self._check_type(element):
+                self.elements.insert(pos-1, element)
+                self._size += 1
+            else:
+                raise Exception("Invalid element type")
         except Exception as exp:
             self._handle_error(exp)
 
     def get_first(self) -> T:
+        """get_first _summary_
+
+        Returns:
+            T: _description_
+        """
+        # TODO add docstring
         try:
             return self.elements[0]
         except Exception as exp:
             self._handle_error(exp)
 
     def get_last(self) -> T:
+        """get_last _summary_
+
+        Returns:
+            T: _description_
+        """
+        # TODO add docstring
         try:
             return self.elements[self._size-1]
         except Exception as exp:
             self._handle_error(exp)
 
     def get_element(self, pos: int) -> T:
+        """get_element _summary_
+
+        Args:
+            pos (int): _description_
+
+        Raises:
+            Exception: _description_
+
+        Returns:
+            T: _description_
+        """
+        # TODO add docstring
         try:
-            return self.elements[pos-1]
+            if pos < 0 or pos > self._size-1:
+                raise Exception("Invalid position")
+            else:
+                return self.elements[pos]
         except Exception as exp:
             self._handle_error(exp)
 
     def remove_element(self, pos: int) -> T:
+        """remove_element _summary_
+
+        Args:
+            pos (int): _description_
+
+        Returns:
+            T: _description_
+        """
+        # TODO add docstring
         try:
             element = self.elements.pop(pos-1)
             self._size -= 1
@@ -163,6 +292,12 @@ class array_list(Generic[T]):
             self._handle_error(exp)
 
     def remove_first(self) -> T:
+        """remove_first _summary_
+
+        Returns:
+            T: _description_
+        """
+        # TODO add docstring
         try:
             element = self.elements.pop(0)
             self._size -= 1
@@ -171,6 +306,12 @@ class array_list(Generic[T]):
             self._handle_error(exp)
 
     def remove_last(self) -> T:
+        """remove_last _summary_
+
+        Returns:
+            T: _description_
+        """
+        # TODO add docstring
         try:
             element = self.elements.pop(self._size-1)
             self._size -= 1
@@ -178,16 +319,37 @@ class array_list(Generic[T]):
         except Exception as exp:
             self._handle_error(exp)
 
-    def compare_elements(self, element: T, info: T) -> int:
+    def compare_elements(self, current: T, temp: T) -> int:
+        """compare_elements _summary_
+
+        Args:
+            current (T): _description_
+            temp (T): _description_
+
+        Returns:
+            int: _description_
+        """
+        # TODO add docstring
         try:
-            if self.key is not None:
-                return self.cmp_function(element[self.key], info[self.key])
+            if self.key is not None and self.cmp_function is None:
+                # FIXME check the key in both elements!!!
+                # return self.cmp_function(current[self.key], temp[self.key])
+                return self.default_cmp_function(current, temp)
             else:
-                return self.cmp_function(element, info)
+                return self.cmp_function(current, temp)
         except Exception as exp:
             self._handle_error(exp)
 
     def is_present(self, element: T) -> int:
+        """is_present _summary_
+
+        Args:
+            element (T): _description_
+
+        Returns:
+            int: _description_
+        """
+        # TODO add docstring
         try:
             lt_size = self.size()
             pos = -1
@@ -206,38 +368,86 @@ class array_list(Generic[T]):
             self._handle_error(exp)
 
     def change_info(self, pos: int, new_info: T) -> None:
+        """change_info _summary_
+
+        Args:
+            pos (int): _description_
+            new_info (T): _description_
+
+        Raises:
+            Exception: _description_
+        """
+        # TODO add docstring
         try:
-            self.elements[pos] = new_info
+            if self._check_type(new_info):
+                self.elements[pos] = new_info
+            else:
+                raise Exception("Invalid element type")
         except Exception as exp:
             self._handle_error(exp)
 
     def exchange(self, pos1: int, pos2: int) -> None:
+        """exchange _summary_
+
+        Args:
+            pos1 (int): _description_
+            pos2 (int): _description_
+        """
+        # TODO add docstring
         try:
-            info_pos1 = self.get_element(pos1)
-            info_pos2 = self.get_element(pos2)
-            self.change_info(pos1, info_pos2)
-            self.change_info(pos2, info_pos1)
-            # return self
+            val1 = (pos1 < 0) or (pos1 > self._size-1)
+            val2 = (pos2 < 0) or (pos2 > self._size-1)
+            if val1 or val2:
+                raise Exception("Invalid position")
+            else:
+                info_pos1 = self.get_element(pos1)
+                info_pos2 = self.get_element(pos2)
+                self.change_info(pos1, info_pos2)
+                self.change_info(pos2, info_pos1)
+                # FIXME check if i need the return in tests!!!
+                # return self
         except Exception as exp:
             self._handle_error(exp)
 
     def create_sublist(self, start: int, end: int) -> "array_list[T]":
+        """create_sublist _summary_
+
+        Args:
+            start (int): _description_
+            end (int): _description_
+
+        Raises:
+            Exception: _description_
+
+        Returns:
+            array_list[T]: _description_
+        """
+        # TODO add docstring
         try:
             if start < 0 or end > self.size() or start > end:
                 raise Exception("Invalid range")
             else:
-                sub_lt = array_list(cmp_function=self.cmp_function)
+                sub_lt = array_list(cmp_function=self.cmp_function,
+                                    key=self.key)
                 for i in range(start, end):
                     sub_lt.add_last(self.get_element(i))
                 return sub_lt
-                # sub_lt = copy.deepcopy(self)
-                # sub_lt.elements = sub_lt.elements[start:end]
-                # sub_lt._size = end - start
-                # return sub_lt
         except Exception as exp:
             self._handle_error(exp)
 
     def concatenate(self, lst: "array_list[T]") -> "array_list[T]":
+        """concatenate _summary_
+
+        Args:
+            lst (array_list[T]): _description_
+
+        Raises:
+            Exception: _description_
+
+        Returns:
+            array_list[T]: _description_
+        """
+        # TODO add docstring
         try:
             if not isinstance(lst, array_list):
                 raise Exception("Invalid list type")
@@ -250,6 +460,12 @@ class array_list(Generic[T]):
             self._handle_error(exp)
 
     def __iter__(self):
+        """__iter__ _summary_
+
+        Returns:
+            _type_: _description_
+        """
+        # TODO add docstring
         try:
             return iter(self.elements)
         except Exception as exp:
@@ -269,8 +485,10 @@ def cmp_test(e1, e2):
 
 
 if __name__ == "__main__":
-
-    a = array_list()
+    print("Testing array_list")
+    td = {"b": 7}
+    print(td.get("a"))
+    a = array_list[dict]()
     print(type(a))
     print(type(a.elements))
     # print(inspect.getmembers(__name__))
@@ -298,12 +516,9 @@ if __name__ == "__main__":
 
     c = a.create_sublist(1, 3)
     print(c.size())
-    
 
-#TODO Eliminar la carga de datos de la función newList
-#FIXME Cambiar el nombre de la funcion para usar snake_case
-#TODO Mejorar la documentación para especificar el uso del parámetro "key" en listas
 
+# TODO Mejorar la documentación para especificar el uso del parámetro "key"
 def newList(cmpfunction, module, key, filename, delim):
     """Crea una lista vacia.
 
@@ -315,31 +530,10 @@ def newList(cmpfunction, module, key, filename, delim):
     Raises:
 
     """
-    newlist = {'elements': [],
-               'size': 0,
-               'type': 'ARRAY_LIST',
-               'cmpfunction': cmpfunction,
-               'key': key,
-               'datastructure': module
+    pass
 
-               }
 
-    if(cmpfunction is None):
-        newlist['cmpfunction'] = defaultfunction
-    else:
-        newlist['cmpfunction'] = cmpfunction
-
-    if (filename is not None):
-        input_file = csv.DictReader(open(filename, encoding="utf-8"),
-                                    delimiter=delim)
-        for line in input_file:
-            addLast(newlist, line)
-    return (newlist)
-
-#FIXME Cambiar el nombre de la funcion para usar snake_case
-#FIXME Arreglar la documentación del código
-#TODO Implementar manejo más detallado de excepciones con mensajes más especificos
-#TODO Verificar que el elemento que se esta agregando no sea None
+# FIXME Arreglar la documentación del código
 def addFirst(lst, element):
     """Agrega un elemento a la lista en la primera posicion.
 
@@ -357,15 +551,9 @@ def addFirst(lst, element):
     Raises:
         Exception
     """
-    try:
-        lst['elements'].insert(0, element)
-        lst['size'] += 1
-    except Exception as exp:
-        error.reraise(exp, 'arraylist->addFirst: ')
+    pass
 
-#FIXME Cambiar el nombre de la funcion para usar snake_case
-#TODO Implementar manejo más detallado de excepciones con mensajes más especificos
-#TODO Verificar que el elemento que se esta agregando no sea None
+
 def addLast(lst, element):
     """ Agrega un elemento en la última posición de la lista.
 
@@ -379,14 +567,9 @@ def addLast(lst, element):
     Raises:
         Exception
     """
-    try:
-        lst['elements'].append(element)
-        lst['size'] += 1
-    except Exception as exp:
-        error.reraise(exp, 'arraylist->addLast: ')
+    pass
 
-#FIXME Cambiar el nombre de la funcion para usar snake_case
-#TODO Implementar manejo más detallado de excepciones con mensajes más especificos
+
 def isEmpty(lst):
     """ Indica si la lista está vacía
 
@@ -396,12 +579,9 @@ def isEmpty(lst):
     Raises:
         Exception
     """
-    try:
-        return lst['size'] == 0
-    except Exception as exp:
-        error.reraise(exp, 'arraylist->isEmpty: ')
+    pass
 
-#TODO Implementar manejo más detallado de excepciones con mensajes más especificos
+
 def size(lst):
     """ Informa el número de elementos de la lista.
 
@@ -411,14 +591,10 @@ def size(lst):
     Raises:
         Exception
     """
-    try:
-        return lst['size']
-    except Exception as exp:
-        error.reraise(exp, 'arraylist->size: ')
+    pass
 
-#FIXME Cambiar el nombre de la funcion para usar snake_case
-#TODO Implementar manejo más detallado de excepciones con mensajes más especificos
-#TODO Verificar que la lista no sea vacía antes de obtener el primer elemento
+
+# TODO Verificar que la lista no sea vacía antes de obtener el primer elemento
 def firstElement(lst):
     """ Retorna el primer elemento de una lista no vacía.
         No se elimina el elemento.
@@ -429,13 +605,9 @@ def firstElement(lst):
     Raises:
         Exception
     """
-    try:
-        return lst['elements'][0]
-    except Exception as exp:
-        error.reraise(exp, 'arraylist->firstElement: ')
+    pass
 
-#FIXME Cambiar el nombre de la funcion para usar snake_case
-#TODO Implementar manejo más detallado de excepciones con mensajes más especificos
+
 def lastElement(lst):
     """ Retorna el último elemento de una  lista no vacia.
         No se elimina el elemento.
@@ -446,13 +618,9 @@ def lastElement(lst):
     Raises:
         Exception
     """
-    try:
-        return lst['elements'][lst['size']-1]
-    except Exception as exp:
-        error.reraise(exp, 'arraylist->lastElement: ')
+    pass
 
-#FIXME Cambiar el nombre de la funcion para usar snake_case
-#TODO Implementar manejo más detallado de excepciones con mensajes más especificos
+
 def getElement(lst, pos):
     """ Retorna el elemento en la posición pos de la lista.
 
@@ -468,13 +636,9 @@ def getElement(lst, pos):
     Raises:
         Exception
     """
-    try:
-        return lst['elements'][pos-1]
-    except Exception as exp:
-        error.reraise(exp, 'arraylist->getElement: ')
+    pass
 
-#FIXME Cambiar el nombre de la funcion para usar snake_case
-#TODO Implementar manejo más detallado de excepciones con mensajes más especificos
+
 def deleteElement(lst, pos):
     """ Elimina el elemento en la posición pos de la lista.
 
@@ -490,14 +654,9 @@ def deleteElement(lst, pos):
     Raises:
         Exception
     """
-    try:
-        lst['elements'].pop(pos-1)
-        lst['size'] -= 1
-    except Exception as exp:
-        error.reraise(exp, 'arraylist->deleteElement: ')
+    pass
 
-#FIXME Cambiar el nombre de la funcion para usar snake_case
-#TODO Implementar manejo más detallado de excepciones con mensajes más especificos
+
 def removeFirst(lst):
     """ Remueve el primer elemento de la lista.
 
@@ -511,15 +670,9 @@ def removeFirst(lst):
     Raises:
         Exception
     """
-    try:
-        element = lst['elements'].pop(0)
-        lst['size'] -= 1
-        return element
-    except Exception as exp:
-        error.reraise(exp, 'arraylist->removeFirst: ')
+    pass
 
-#FIXME Cambiar el nombre de la funcion para usar snake_case
-#TODO Implementar manejo más detallado de excepciones con mensajes más especificos
+
 def removeLast(lst):
     """ Remueve el último elemento de la lista.
 
@@ -533,16 +686,9 @@ def removeLast(lst):
     Raises:
         Exception
     """
-    try:
-        element = lst['elements'].pop(lst['size']-1)
-        lst['size'] -= 1
-        return element
-    except Exception as exp:
-        error.reraise(exp, 'arraylist->remoLast: ')
+    pass
 
-#FIXME Cambiar el nombre de la funcion para usar snake_case
-#TODO Implementar manejo más detallado de excepciones con mensajes más especificos
-#TODO Verificar que el elemento que se esta agregando no sea None
+
 def insertElement(lst, element, pos):
     """ Inserta el elemento element en la posición pos de la lista.
 
@@ -559,14 +705,9 @@ def insertElement(lst, element, pos):
     Raises:
         Exception
     """
-    try:
-        lst['elements'].insert(pos-1, element)
-        lst['size'] += 1
-    except Exception as exp:
-        error.reraise(exp, 'arraylist->insertElement: ')
+    pass
 
-#FIXME Cambiar el nombre de la funcion para usar snake_case
-#TODO Implementar manejo más detallado de excepciones con mensajes más especificos
+
 def isPresent(lst, e):
     """ Informa si el elemento element esta presente en la lista.
 
@@ -583,24 +724,9 @@ def isPresent(lst, e):
     Raises:
         Exception
     """
-    try:
-        size = lst['size']
-        if size > 0:
-            keyexist = False
-            for keypos in range(1, size+1):
-                info = lst['elements'][keypos-1]
-                if (compareElements(lst, e, info) == 0):
-                    keyexist = True
-                    break
-            if keyexist:
-                return keypos
-        return 0
-    except Exception as exp:
-        error.reraise(exp, 'arraylist->isPresent: ')
+    pass
 
-#FIXME Cambiar el nombre de la funcion para usar snake_case
-#TODO Implementar manejo más detallado de excepciones con mensajes más especificos
-#TODO Verificar que el elemento que se esta agregando no sea None
+
 def changeInfo(lst, pos, newinfo):
     """ Cambia la informacion contenida en el nodo de la lista
         que se encuentra en la posicion pos.
@@ -614,13 +740,10 @@ def changeInfo(lst, pos, newinfo):
     Raises:
         Exception
     """
-    try:
-        lst['elements'][pos-1] = newinfo
-    except Exception as exp:
-        error.reraise(exp, 'arraylist->changeInfo: ')
+    pass
 
-#TODO Implementar manejo más detallado de excepciones con mensajes más especificos
-#TODO Verificar que las posiciones que se pasan por parametro estén dentro del rango de la lista
+
+# TODO Verificar que las posiciones que se pasan por parametro estén dentro del rango de la lista
 def exchange(lst, pos1, pos2):
     """ Intercambia la informacion en las posiciones pos1 y pos2 de la lista.
 
@@ -632,17 +755,9 @@ def exchange(lst, pos1, pos2):
     Raises:
         Exception
     """
-    try:
-        infopos1 = getElement(lst, pos1)
-        infopos2 = getElement(lst, pos2)
-        changeInfo(lst, pos1, infopos2)
-        changeInfo(lst, pos2, infopos1)
-        return lst
-    except Exception as exp:
-        error.reraise(exp, 'arraylist->exchange: ')
+    pass
 
-#FIXME Cambiar el nombre de la funcion para usar snake_case
-#TODO Implementar manejo más detallado de excepciones con mensajes más especificos
+
 def subList(lst, pos, numelem):
     """ Retorna una sublista de la lista lst.
 
@@ -658,25 +773,9 @@ def subList(lst, pos, numelem):
     Raises:
         Exception
     """
-    try:
-        sublst = {'elements': [],
-                  'size': 0,
-                  'type': 'ARRAY_LIST',
-                  'key': lst['key'],
-                  'datastructure': lst['datastructure'],
-                  'cmpfunction': lst['cmpfunction']}
-        elem = pos-1
-        cont = 1
-        while cont <= numelem:
-            sublst['elements'].append(lst['elements'][elem])
-            sublst['size'] += 1
-            elem += 1
-            cont += 1
-        return sublst
-    except Exception as exp:
-        error.reraise(exp, 'arraylist->subList: ')
+    pass
 
-#TODO Implementar manejo más detallado de excepciones con mensajes más especificos
+
 def iterator(lst):
     """ Retorna un iterador para la lista.
     Args:
@@ -685,15 +784,10 @@ def iterator(lst):
     Raises:
         Exception
     """
-    try:
-        if(lst is not None):
-            for pos in range(0, lst['size']):
-                yield lst['elements'][pos]
-    except Exception as exp:
-        error.reraise(exp, 'arraylist->Iterator')
+    pass
 
-#FIXME Cambiar el nombre de la funcion para usar snake_case
-#TODO Mejorar la documentacion para el return en caso de que no sean iguales
+
+# TODO Mejorar la documentacion para el return en caso de que no sean iguales
 def compareElements(lst, element, info):
     """ Compara dos elementos
 
@@ -708,18 +802,9 @@ def compareElements(lst, element, info):
 
     Raises:
         Exception
-    """
-    if(lst['key'] is not None):
-        return lst['cmpfunction'](element[lst['key']], info[lst['key']])
-    else:
-        return lst['cmpfunction'](element, info)
-
-#FIXME Cambiar el nombre de la funcion para que referencie mejor a una compare function
-#FIXME Cambiar el nombre de la funcion para usar snake_case
-
-def defaultfunction(id1, id2):
-    if id1 > id2:
-        return 1
-    elif id1 < id2:
-        return -1
-    return 0
+    # """
+    # if(lst['key'] is not None):
+    #     return lst['cmpfunction'](element[lst['key']], info[lst['key']])
+    # else:
+    #     return lst['cmpfunction'](element, info)
+    pass

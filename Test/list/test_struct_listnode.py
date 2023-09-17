@@ -5,12 +5,14 @@ import unittest
 import config
 from DISClib.DataStructures.listnode import single_node
 from DISClib.DataStructures.listnode import double_node
-from DISClib.DataStructures.listnode import get_element
+from DISClib.DataStructures.listnode import _get_element
+from DISClib.DataStructures.listnode import _set_element
 # asserting module imports
 assert config
 assert single_node
 assert double_node
-assert get_element
+assert _get_element
+assert _set_element
 
 
 @pytest.fixture(scope="module")
@@ -93,12 +95,30 @@ class test_single_node(unittest.TestCase):
         test_str = self.global_params.get("TEST_STR")
         # create a single linked list node
         node = single_node(test_str)
-        # get the node data with class function
-        data = get_element(node)
+        # get the node data with module function
+        data = _get_element(node)
         # assert that the node data is not None
         assert data == test_str
+        # assert that the data can be retrieved with the class function
+        assert node.get_element() == test_str
+
+    def test_set_element(self):
+        """test_set_element _summary_
+        """
+        # getting the global variables
+        test_str = self.global_params.get("TEST_STR")
+        # create a single linked list node
+        node = single_node()
+        # set the node data with module function
+        _set_element(node, test_str)
+        # assert that the node data is not None
+        assert node.info == test_str
+        # reset test string
+        node.info = ""
+        #  set node wit the class function
+        node.set_element(test_str)
         # assert that the data can be retrieved with the get_element function
-        assert get_element(node) == test_str
+        assert node.get_element() == test_str
 
     def test_next(self):
         """test_next _summary_
@@ -253,11 +273,29 @@ class test_double_node(unittest.TestCase):
         # create a double linked list node
         node = double_node(test_str)
         # get the node data with class function
-        data = node.get_element()
+        data = _get_element(node)
         # assert that the node data is not None
         assert data == test_str
         # assert that the data can be retrieved with the get_element function
-        assert get_element(node) == test_str
+        assert node.get_element() == test_str
+
+    def test_set_element(self):
+        """test_set_element _summary_
+        """
+        # getting the global variables
+        test_str = self.global_params.get("TEST_STR")
+        # create a double linked list node
+        node = double_node()
+        # set the node data with module function
+        _set_element(node, test_str)
+        # assert that the node data is not None
+        assert node.info == test_str
+        # reset test string
+        node.info = ""
+        #  set node wit the class function
+        node.set_element(test_str)
+        # assert that the data can be retrieved with the get_element function
+        assert node.get_element() == test_str
 
     def test_node_type(self):
         """test_node_type _summary_

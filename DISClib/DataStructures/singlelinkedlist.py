@@ -23,11 +23,27 @@
  *
  """
 
+# native python modules
+# import dataclass to define the single linked list
+from dataclasses import dataclass
+# import modules for defining the element's type in the list
+from typing import Optional, Callable, Generic, TypeVar
+# import inspect for getting the name of the current function
+import inspect
+
+# importing DISClib type + error handling
+# custom modules
 import config
-from DISClib.DataStructures import listnode as node
-from DISClib.Utils import error as error
-import csv
+# generic error message and type checking
+from DISClib.Utils.error import error_handler
+from DISClib.Utils.error import type_checker
+# single linked list node
+from DISClib.DataStructures.listnode import single_node as node
+
+# checking costum modules
 assert config
+assert error_handler
+assert type_checker
 
 """
   Este módulo implementa una estructura de datos lineal mediante una lista
@@ -38,6 +54,593 @@ assert config
   propuesta por R.Sedgewick y Kevin Wayne en su libro
   Algorithms, 4th Edition
 """
+
+
+# Type for the element stored in the list
+T = TypeVar("T")    # T can be any type
+
+
+class sll_iterator:
+    """ _summary_
+
+    Raises:
+        StopIteration: _description_
+
+    Returns:
+        _type_: _description_
+    """
+    # TODO add docstring
+    def __init__(self, current: Optional[node[T]]) -> None:
+        """__init__ _summary_
+
+        Args:
+            current (Optional[node[T]]): _description_
+        """
+        # TODO add docstring
+        self._current = current
+
+    def __iter__(self) -> "sll_iterator[T]":
+        """__iter__ _summary_
+
+        Returns:
+            sll_iterator[T]: _description_
+        """
+        # TODO add docstring
+        return self
+
+    def __next__(self) -> T:
+        """__next__ _summary_
+
+        Raises:
+            StopIteration: _description_
+
+        Returns:
+            T: _description_
+        """
+        # TODO add docstring
+        if self._current is None:
+            raise StopIteration
+        else:
+            ans = self._current.get_info()
+            self._current = self._current.next()
+            return ans
+
+
+@dataclass
+class single_linked(Generic[T]):
+    """single_linked _summary_
+
+    Args:
+        Generic (_type_): _description_
+    """    
+    # TODO add docstring
+    first: Optional[node[T]] = None
+    last: Optional[node[T]] = None
+    # by default, the list is empty
+    _size: int = 0
+    # the cmp_function is used to compare elements, not defined by default
+    cmp_function: Optional[Callable[[T, T], int]] = None
+    # the key is used to compare elements, not defined by default
+    key: Optional[str] = None
+
+    def __post_init__(self) -> None:
+        """__post_init__ _summary_
+        """
+        # TODO add docstring
+        # if the key is not defined, use the default
+        if self.key is None:
+            self.key = "id"
+        # if the comparison function is not defined, use the default
+        if self.cmp_function is None and self.key is not None:
+            self.cmp_function = self.default_cmp_function
+
+    def default_cmp_function(self, elm1, elm2) -> int:
+        """default_cmp_function _summary_
+
+        Args:
+            elm1 (_type_): _description_
+            elm2 (_type_): _description_
+
+        Raises:
+            Exception: _description_
+            Exception: _description_
+
+        Returns:
+            int: _description_
+        """
+        # TODO add docstring
+        try:
+            # using the key to compare elements
+            if self.key is not None:
+                key1 = elm1.get(self.key)
+                key2 = elm2.get(self.key)
+                # check if the key is present in both elements
+                if None in [key1, key2]:
+                    raise Exception("Invalid key")
+                # comparing elements
+                else:
+                    # if one is greater than the other, return 1
+                    if key1 > key2:
+                        return 1
+                    # if one is less than the other, return -1
+                    elif key1 < key2:
+                        return -1
+                    # if they are equal, return 0
+                    elif key1 == key2:
+                        return 0
+                    # otherwise, raise an exception
+                    else:
+                        raise Exception("Invalid comparison")
+        except Exception as exp:
+            self._handle_error(exp)
+
+    def _handle_error(self, err: Exception) -> None:
+        """_handle_error _summary_
+
+        Args:
+            err (Exception): _description_
+        """
+        # TODO add docstring
+        cur_function = inspect.currentframe().f_code.co_name
+        cur_context = self.__class__.__name__
+        error_handler(cur_context, cur_function, err)
+
+    def _check_type(self, element: T) -> bool:
+        """_check_type _summary_
+
+        Args:
+            element (T): _description_
+
+        Returns:
+            bool: _description_
+        """
+        # TODO add docstring
+        try:
+
+            if self._size == 0 and None in (self.first, self.last):
+                return True
+            elif self._size > 0:
+                # get the type of the first element
+                cur_context = self.__class__.__name__
+                cur_function = inspect.currentframe().f_code.co_name
+                # check if the type of the element is valid
+                type_checker(cur_context, cur_function, element)
+                lt_type = type(self.first.get_info())
+                # check if element type and list type are the same
+                if isinstance(element, lt_type):
+                    return True
+            else:
+                return False
+        except Exception as exp:
+            self._handle_error(exp)
+
+    def is_empty(self) -> bool:
+        """is_empty _summary_
+
+        Returns:
+            bool: _description_
+        """
+        # TODO add docstring
+        try:
+            null_node = all([self.first is None,
+                             self.last is None])
+            return self._size == 0 and null_node
+        except Exception as exp:
+            self._handle_error(exp)
+
+    def size(self) -> int:
+        """size _summary_
+
+        Returns:
+            int: _description_
+        """
+        # TODO add docstring
+        try:
+            return self._size
+        except Exception as exp:
+            self._handle_error(exp)
+
+    def add_first(self, element: T) -> None:
+        """add_first _summary_
+
+        Args:
+            element (T): _description_
+
+        Raises:
+            Exception: _description_
+        """
+        # TODO add docstring
+        try:
+            if self._check_type(element):
+                # create a new node
+                new_node = node(element)
+                new_node._next = self.first
+                self.first = new_node
+                if self._size == 0:
+                    self.last = self.first
+                self._size += 1
+            else:
+                raise Exception("Invalid node type")
+        except Exception as exp:
+            self._handle_error(exp)
+
+    def add_last(self, element: T) -> None:
+        """add_last _summary_
+
+        Args:
+            element (T): _description_
+
+        Raises:
+            Exception: _description_
+        """
+        # TODO add docstring
+        try:
+            if self._check_type(element):
+                # create a new node
+                new_node = node(element)
+                if self._size == 0:
+                    self.first = new_node
+                else:
+                    self.last._next = new_node
+                self.last = new_node
+                self._size += 1
+            else:
+                raise Exception("Invalid node type")
+        except Exception as exp:
+            self._handle_error(exp)
+
+    def add_element(self, element: T, pos: int) -> None:
+        """add_element _summary_
+
+        Args:
+            element (T): _description_
+            pos (int): _description_
+
+        Raises:
+            Exception: _description_
+        """
+        # TODO add docstring
+        try:
+            if self._check_type(element):
+                new_node = node(element)
+
+                if self._size == 0:
+                    self.first = new_node
+                    self.last = new_node
+
+                elif pos == 0 and self._size > 0:
+                    new_node._next = self.first
+                    self.first = new_node
+
+                else:
+                    idx = 1
+                    prev = self.first
+                    current = self.first
+
+                    while idx < pos:
+                        prev = current
+                        current = current.next()
+                        idx += 1
+                    new_node._next = current
+                    prev._next = new_node
+                self._size += 1
+            else:
+                raise Exception("Invalid node type")
+        except Exception as exp:
+            self._handle_error(exp)
+
+    def get_first(self) -> Optional[T]:
+        """get_first _summary_
+
+        Raises:
+            Exception: _description_
+
+        Returns:
+            Optional[T]: _description_
+        """
+        # TODO add docstring
+        # TODO check algorithm
+        try:
+            ans = None
+            if self.is_empty():
+                raise Exception("Empty data structure")
+            if self.first is not None:
+                ans = self.first.get_info()
+            return ans
+        except Exception as exp:
+            self._handle_error(exp)
+
+    def get_last(self) -> Optional[T]:
+        """get_last _summary_
+
+        Raises:
+            Exception: _description_
+
+        Returns:
+            Optional[T]: _description_
+        """
+        # TODO add docstring
+        # TODO check algorithm
+        try:
+            ans = None
+            if self.is_empty():
+                raise Exception("Empty data structure")
+            if self.last is not None:
+                ans = self.last.get_info()
+            return ans
+        except Exception as exp:
+            self._handle_error(exp)
+
+    def get_element(self, pos: int) -> Optional[T]:
+        """get_element _summary_
+
+        Args:
+            pos (int): _description_
+
+        Raises:
+            Exception: _description_
+
+        Returns:
+            Optional[T]: _description_
+        """
+        # TODO add docstring
+        # TODO check algorithm
+        try:
+            if self.is_empty():
+                raise Exception("Empty data structure")
+            if pos > self._size or pos < 1:
+                raise Exception("Index", pos, "is an invalid position")
+            else:
+                current = self.first
+                idx = 1
+                while idx < pos:
+                    current = current.next()
+                    idx += 1
+                return current.get_info()
+        except Exception as exp:
+            self._handle_error(exp)
+
+    def remove_first(self) -> Optional[T]:
+        """remove_first _summary_
+
+        Raises:
+            Exception: _description_
+
+        Returns:
+            Optional[T]: _description_
+        """
+        # TODO add docstring
+        # TODO check algorithm
+        try:
+            if self.is_empty():
+                raise Exception("Empty data structure")
+            if self._size > 0 and self.first is not None:
+                temp = self.first.next()
+                node = self.first
+                self.first = temp
+                self._size -= 1
+                if self._size == 0:
+                    # self.last = self.first
+                    self.last = None
+                    self.first = None
+                return node.get_info()
+            else:
+                return None
+        except Exception as exp:
+            self._handle_error(exp)
+
+    def remove_last(self) -> Optional[T]:
+        """remove_last _summary_
+
+        Raises:
+            Exception: _description_
+
+        Returns:
+            Optional[T]: _description_
+        """
+        # TODO add docstring
+        # TODO check algorithm
+        try:
+            if self.is_empty():
+                raise Exception("Empty data structure")
+            if self._size > 0 and self.last is not None:
+                if self.first == self.last:
+                    node = self.first
+                    self.last = None
+                    self.first = None
+                else:
+                    temp = self.first
+                    while temp.next() != self.last:
+                        temp = temp.next()
+                    node = self.last
+                    self.last = temp
+                    self.last._next = None
+                self._size -= 1
+                return node.get_info()
+            else:
+                return None
+        except Exception as exp:
+            self._handle_error(exp)
+
+    def remove_element(self, pos: int) -> Optional[T]:
+        """remove_element _summary_
+
+        Args:
+            pos (int): _description_
+
+        Raises:
+            Exception: _description_
+
+        Returns:
+            Optional[T]: _description_
+        """
+        # TODO add docstring
+        # TODO check algorithm
+        try:
+            if self.is_empty():
+                raise Exception("Empty data structure")
+            if pos < 0 or pos > self._size-1:
+                raise Exception("Index", pos, "is an invalid position")
+            current = self.first
+            prev = self.first
+            idx = 0
+            if pos == 1:
+                self.first = self.first.next()
+                self._size -= 1
+            elif pos > 1:
+                while idx < pos:
+                    idx += 1
+                    prev = current
+                    current = current.next()
+                prev._next = current.next()
+                self._size -= 1
+            return current.get_info()
+        except Exception as exp:
+            self._handle_error(exp)
+
+    def compare_elements(self, current: T, temp: T) -> int:
+        """compare_elements _summary_
+
+        Args:
+            current (T): _description_
+            temp (T): _description_
+
+        Returns:
+            int: _description_
+        """
+        # TODO add docstring
+        try:
+            if self.key is not None and self.cmp_function is None:
+                return self.default_cmp_function(current, temp)
+            else:
+                return self.cmp_function(current, temp)
+        except Exception as exp:
+            self._handle_error(exp)
+
+    def is_present(self, element: T) -> int:
+        
+        
+        """is_present _summary_
+
+        Args:
+            element (T): _description_
+
+        Returns:
+            int: _description_
+        """
+        # TODO add docstring
+        try:
+            lt_size = self._size
+            pos = -1
+            if lt_size > 0:
+                node = self.first
+                found = False
+                idx = 0
+                while not found and idx < lt_size:
+                    data = node.get_info()
+                    if self.compare_elements(element, data) == 0:
+                        found = True
+                        pos = idx
+                    idx += 1
+                    if node.next() is not None:
+                        node = node.next()
+            return pos
+        except Exception as exp:
+            self._handle_error(exp)
+
+    def change_info(self, pos: int, new_info: T) -> None:
+        """change_info _summary_
+
+        Args:
+            pos (int): _description_
+            new_info (T): _description_
+
+        Raises:
+            Exception: _description_
+            Exception: _description_
+        """
+        # TODO add docstring
+        try:
+            if self.is_empty():
+                raise Exception("Empty data structure")
+            if pos > self._size or pos < 1:
+                raise Exception("Index", pos, "is an invalid position")
+            current = self.first
+            idx = 1
+            while idx < pos:
+                current = current.next()
+                idx += 1
+            current.set_info(new_info)
+        except Exception as exp:
+            self._handle_error(exp)
+
+    def exchange(self, pos1: int, pos2: int) -> None:
+        """exchange _summary_
+
+        Args:
+            pos1 (int): _description_
+            pos2 (int): _description_
+
+        Raises:
+            Exception: _description_
+            Exception: _description_
+            Exception: _description_
+        """
+        # TODO add docstring
+        try:
+            if self.is_empty():
+                raise Exception("Empty data structure")
+            if pos1 > self._size or pos1 < 1:
+                raise Exception("Index", pos1, "is an invalid position")
+            if pos2 > self._size or pos2 < 1:
+                raise Exception("Index", pos2, "is an invalid position")
+            else:
+                info_pos1 = self.get_element(pos1)
+                info_pos2 = self.get_element(pos2)
+                self.change_info(pos1, info_pos2)
+                self.change_info(pos2, info_pos1)
+                # FIXME check if i need the return in tests!!!
+                # return self
+        except Exception as exp:
+            self._handle_error(exp)
+
+    def create_sublist(self, start: int, end: int) -> "single_linked[T]":
+        # TODO add docstring
+        try:
+            if start < 0 or end > self._size or start > end:
+                raise Exception("Invalid sublist")
+            else:
+                sub_lt = single_linked(cmp_function=self.cmp_function,
+                                       key=self.key)
+                for i in range(start, end):
+                    sub_lt.add_last(self.get_element(i))
+                return sub_lt
+        except Exception as exp:
+            self._handle_error(exp)
+
+    def concatenate(self, lst: "single_linked[T]") -> "single_linked[T]":
+        # TODO add docstring
+        # FIXXME check the algorithm complexity
+        try:
+            if not isinstance(lst, single_linked):
+                raise Exception("Invalid list type")
+            else:
+                concat_lt = single_linked(cmp_function=self.cmp_function,
+                                          key=self.key)
+                concat_lt.first = self.first
+                concat_lt.last = self.last
+                concat_lt.last._next = lst.first
+                concat_lt.last = lst.last
+                concat_lt._size = self.size() + lst.size()
+                return concat_lt
+        except Exception as exp:
+            self._handle_error(exp)
+
+    def __iter__(self) -> sll_iterator[T]:
+        # TODO add docstring
+        return sll_iterator(self.first)
+
+
 
 
 # TODO documentar el uso especifico del parámetro "key" en listas

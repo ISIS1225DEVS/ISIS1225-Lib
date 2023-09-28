@@ -24,17 +24,27 @@
  *
  """
 
-import config
-from DISClib.Utils.error import error_handler
-# import dataclass for defining the node type
+# native python modules
+# import dataclass to define the array list
 from dataclasses import dataclass, field
-# import typing for defining the type of the element stored at the node
+# import modules for defining the element's type in the array
 from typing import List, Optional, Callable, Generic, TypeVar
+# import inspect for getting the name of the current function
 import inspect
+
+# custom modules
+import config
+# generic error handling and type checking
+from DISClib.Utils.error import error_handler
+from DISClib.Utils.error import type_checker
+
+# checking costum modules
 assert config
+assert error_handler
+assert type_checker
 
 
-# Type for the element stored at the node
+# Type for the element stored in the list
 T = TypeVar("T")    # T can be any type
 
 """
@@ -58,13 +68,12 @@ class array_list(Generic[T]):
     # TODO add docstring
     # using default_factory to generate an empty list
     elements: List[T] = field(default_factory=list)
+    # by default, the list is empty
     _size: int = 0
-
-    # leaving the following attributes as optional
+    # the cmp_function is used to compare elements, not defined by default
     cmp_function: Optional[Callable[[T, T], int]] = None
+    # the key is used to compare elements, not defined by default
     key: Optional[str] = None
-    # FIXME deprecate this attribute!!!
-    data_struct: Optional[str] = None
 
     def __post_init__(self) -> None:
         """__post_init__ _summary_
@@ -124,8 +133,8 @@ class array_list(Generic[T]):
             err (Exception): _description_
         """
         # TODO add docstring
-        cur_function = inspect.currentframe().f_code.co_name
         cur_context = self.__class__.__name__
+        cur_function = inspect.currentframe().f_code.co_name
         error_handler(cur_context, cur_function, err)
 
     def _check_type(self, element: T) -> bool:
@@ -142,7 +151,13 @@ class array_list(Generic[T]):
             if self._size == 0 and len(self.elements) == 0:
                 return True
             elif self._size > 0:
+                # get the type of the first element
+                cur_context = self.__class__.__name__
+                cur_function = inspect.currentframe().f_code.co_name
+                # check if the type of the element is valid
+                type_checker(cur_context, cur_function, element)
                 lt_type = type(self.elements[0])
+                # check if element type and list type are the same
                 if isinstance(element, lt_type):
                     return True
             else:
@@ -158,7 +173,7 @@ class array_list(Generic[T]):
         """
         # TODO add docstring
         try:
-            return self._size == 0
+            return self._size == 0 and len(self.elements) == 0
         except Exception as exp:
             self._handle_error(exp)
 
@@ -225,7 +240,7 @@ class array_list(Generic[T]):
         # TODO add docstring
         try:
             if self._check_type(element):
-                self.elements.insert(pos-1, element)
+                self.elements.insert(pos, element)
                 self._size += 1
             else:
                 raise Exception("Invalid element type")
@@ -292,48 +307,68 @@ class array_list(Generic[T]):
         except Exception as exp:
             self._handle_error(exp)
 
-    def remove_element(self, pos: int) -> T:
-        """remove_element _summary_
-
-        Args:
-            pos (int): _description_
-
-        Returns:
-            T: _description_
-        """
-        # TODO add docstring
-        try:
-            element = self.elements.pop(pos-1)
-            self._size -= 1
-            return element
-        except Exception as exp:
-            self._handle_error(exp)
-
     def remove_first(self) -> T:
         """remove_first _summary_
 
+        Raises:
+            Exception: _description_
+
         Returns:
             T: _description_
         """
         # TODO add docstring
         try:
-            element = self.elements.pop(0)
-            self._size -= 1
-            return element
+            if self.is_empty():
+                raise Exception("Empty data structure")
+            else:
+                element = self.elements.pop(0)
+                self._size -= 1
+                return element
         except Exception as exp:
             self._handle_error(exp)
 
     def remove_last(self) -> T:
         """remove_last _summary_
 
+        Raises:
+            Exception: _description_
+
         Returns:
             T: _description_
         """
         # TODO add docstring
         try:
-            element = self.elements.pop(self._size-1)
-            self._size -= 1
-            return element
+            if self.is_empty():
+                raise Exception("Empty data structure")
+            else:
+                element = self.elements.pop(self._size-1)
+                self._size -= 1
+                return element
+        except Exception as exp:
+            self._handle_error(exp)
+
+    def remove_element(self, pos: int) -> T:
+        """remove_element _summary_
+
+        Args:
+            pos (int): _description_
+
+        Raises:
+            Exception: _description_
+
+        Returns:
+            T: _description_
+        """
+        # TODO add docstring
+        try:
+            if self.is_empty():
+                raise Exception("Empty data structure")
+            if pos < 0 or pos > self._size-1:
+                raise Exception("Index", pos, "is an invalid position")
+            else:
+                element = self.elements.pop(pos-1)
+                self._size -= 1
+                return element
         except Exception as exp:
             self._handle_error(exp)
 
@@ -350,7 +385,6 @@ class array_list(Generic[T]):
         # TODO add docstring
         try:
             if self.key is not None and self.cmp_function is None:
-                # FIXME check the key in both elements!!!
                 # return self.cmp_function(current[self.key], temp[self.key])
                 return self.default_cmp_function(current, temp)
             else:
@@ -369,7 +403,7 @@ class array_list(Generic[T]):
         """
         # TODO add docstring
         try:
-            lt_size = self.size()
+            lt_size = self._size
             pos = -1
             if lt_size > 0:
                 found = False
@@ -410,13 +444,20 @@ class array_list(Generic[T]):
         Args:
             pos1 (int): _description_
             pos2 (int): _description_
+
+        Raises:
+            Exception: _description_
+            Exception: _description_
+            Exception: _description_
         """
         # TODO add docstring
         try:
-            val1 = (pos1 < 0) or (pos1 > self._size-1)
-            val2 = (pos2 < 0) or (pos2 > self._size-1)
-            if val1 or val2:
-                raise Exception("Invalid position")
+            if self.is_empty():
+                raise Exception("Empty data structure")
+            if pos1 > self._size or pos1 < 1:
+                raise Exception("Index", pos1, "is an invalid position")
+            if pos2 > self._size or pos2 < 1:
+                raise Exception("Index", pos2, "is an invalid position")
             else:
                 info_pos1 = self.get_element(pos1)
                 info_pos2 = self.get_element(pos2)
@@ -442,7 +483,7 @@ class array_list(Generic[T]):
         """
         # TODO add docstring
         try:
-            if start < 0 or end > self.size() or start > end:
+            if start < 0 or end > self._size or start > end:
                 raise Exception("Invalid range")
             else:
                 sub_lt = array_list(cmp_function=self.cmp_function,
@@ -466,14 +507,16 @@ class array_list(Generic[T]):
             array_list[T]: _description_
         """
         # TODO add docstring
+        # FIXME check if the list is empty!!!
         try:
             if not isinstance(lst, array_list):
                 raise Exception("Invalid list type")
-            # else:
-            concat_lt = array_list(cmp_function=self.cmp_function)
-            concat_lt.elements = self.elements + lst.elements
-            concat_lt._size = self.size() + lst.size()
-            return concat_lt
+            else:
+                concat_lt = array_list(cmp_function=self.cmp_function,
+                                       key=self.key)
+                concat_lt.elements = self.elements + lst.elements
+                concat_lt._size = self.size() + lst.size()
+                return concat_lt
         except Exception as exp:
             self._handle_error(exp)
 
@@ -488,55 +531,6 @@ class array_list(Generic[T]):
             return iter(self.elements)
         except Exception as exp:
             self._handle_error(exp)
-
-
-def cmp_test(e1, e2):
-    try:
-        if e1["id"] > e2["id"]:
-            return 1
-        elif e1["id"] < e2["id"]:
-            return -1
-        elif e1["id"] == e2["id"]:
-            return 0
-    except Exception:
-        raise Exception("Invalid comparison in cmp_test")
-
-
-if __name__ == "__main__":
-    print("Testing array_list")
-    td = {"b": 7}
-    print(td.get("a"))
-    a = array_list[dict]()
-    print(type(a))
-    print(type(a.elements))
-    # print(inspect.getmembers(__name__))
-    print("adding elements")
-    a.add_first({"data": "a", "id": 1})
-    a.add_first({"data": "b", "id": 2})
-    a.add_first({"data": "c", "id": 3})
-    a.add_last({"data": "d", "id": 4})
-    a.add_last({"data": "e", "id": 5})
-    # a.add_first("bla")
-
-    print("iterating over elements")
-    for i in a:
-        print(i, type(i))
-
-    print("getting elements")
-    print("first:", a.get_first())
-    print("last", a.get_last())
-    print("size", a.size(), len(a.elements), a._size)
-    print("is present?", a.is_present({"id": 2}))
-
-    b = array_list(cmp_function=cmp_test)
-    b.add_first({"data": "d", "id": 4})
-    b.add_last({"data": "e", "id": 5})
-
-    b = a.concatenate(b)
-    print(b.size())
-
-    c = a.create_sublist(1, 3)
-    print(c.size())
 
 
 # TODO Mejorar la documentación para especificar el uso del parámetro "key"

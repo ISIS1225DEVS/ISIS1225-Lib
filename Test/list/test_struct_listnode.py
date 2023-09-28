@@ -100,7 +100,7 @@ class test_single_node(unittest.TestCase):
         # assert that the node data is not None
         assert data == test_str
         # assert that the data can be retrieved with the class function
-        assert node.get_element() == test_str
+        assert node.get_info() == test_str
 
     def test_set_element(self):
         """test_set_element _summary_
@@ -116,9 +116,9 @@ class test_single_node(unittest.TestCase):
         # reset test string
         node.info = ""
         #  set node wit the class function
-        node.set_element(test_str)
-        # assert that the data can be retrieved with the get_element function
-        assert node.get_element() == test_str
+        node.set_info(test_str)
+        # assert that the data can be retrieved with the get_info function
+        assert node.get_info() == test_str
 
     def test_next(self):
         """test_next _summary_
@@ -276,8 +276,8 @@ class test_double_node(unittest.TestCase):
         data = _get_element(node)
         # assert that the node data is not None
         assert data == test_str
-        # assert that the data can be retrieved with the get_element function
-        assert node.get_element() == test_str
+        # assert that the data can be retrieved with the get_info function
+        assert node.get_info() == test_str
 
     def test_set_element(self):
         """test_set_element _summary_
@@ -293,9 +293,9 @@ class test_double_node(unittest.TestCase):
         # reset test string
         node.info = ""
         #  set node wit the class function
-        node.set_element(test_str)
-        # assert that the data can be retrieved with the get_element function
-        assert node.get_element() == test_str
+        node.set_info(test_str)
+        # assert that the data can be retrieved with the get_info function
+        assert node.get_info() == test_str
 
     def test_node_type(self):
         """test_node_type _summary_

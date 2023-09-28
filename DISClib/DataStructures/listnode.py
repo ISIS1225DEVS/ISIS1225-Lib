@@ -2,10 +2,11 @@
 from dataclasses import dataclass
 # import typing for defining the type of the element stored at the node
 from typing import Generic, TypeVar, Optional, Union
+# import inspect for getting the name of the current function
 import inspect
-
 # importing DISClib type + error handling
 import config
+# importing DISClib error handling
 from DISClib.Utils.error import error_handler
 from DISClib.Utils.error import type_checker
 assert config
@@ -74,24 +75,24 @@ class single_node(Generic[T]):
         # TODO add docstring
         return self._next
 
-    def get_element(self) -> T:
-        """get_element _summary_
+    def get_info(self) -> T:
+        """get_info _summary_
 
         Returns:
             T: _description_
         """
         # TODO add docstring
-        return _get_element(self)
+        return _get_info(self)
 
-    def set_element(self, element: T) -> None:
-        """set_element _summary_
+    def set_info(self, element: T) -> None:
+        """set_info _summary_
 
         Args:
             element (T): _description_
         """
         # TODO add docstring
         try:
-            _set_element(self, element)
+            _set_info(self, element)
         except Exception as exp:
             self._handle_error(exp)
 
@@ -149,24 +150,24 @@ class double_node(Generic[T]):
         # TODO add docstring
         return self._prev
 
-    def get_element(self) -> T:
-        """get_element _summary_
+    def get_info(self) -> T:
+        """get_info _summary_
 
         Returns:
             T: _description_
         """
         # TODO add docstring
-        return _get_element(self)
+        return _get_info(self)
 
-    def set_element(self, element: T) -> None:
-        """set_element _summary_
+    def set_info(self, element: T) -> None:
+        """set_info _summary_
 
         Args:
             element (T): _description_
         """
         # TODO add docstring
         try:
-            _set_element(self, element)
+            _set_info(self, element)
         except Exception as exp:
             self._handle_error(exp)
 
@@ -175,8 +176,8 @@ class double_node(Generic[T]):
 NODE_TP_LT = Union[single_node[T], double_node[T]]
 
 
-def _get_element(node: NODE_TP_LT) -> T:
-    """_get_element _summary_
+def _get_info(node: NODE_TP_LT) -> T:
+    """_get_info _summary_
 
     Args:
         node (NODE_TP_LT): _description_
@@ -188,8 +189,8 @@ def _get_element(node: NODE_TP_LT) -> T:
     return node.info
 
 
-def _set_element(node: NODE_TP_LT, element: T) -> None:
-    """_set_element _summary_
+def _set_info(node: NODE_TP_LT, element: T) -> None:
+    """_set_info _summary_
 
     Args:
         node (NODE_TP_LT): _description_

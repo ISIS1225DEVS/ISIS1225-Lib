@@ -17,6 +17,12 @@ assert _set_element
 
 @pytest.fixture(scope="module")
 def global_params():
+    """global_params _summary_
+
+    Returns:
+        _type_: _description_
+    """
+    # TODO add docstring
     parameters = dict(
         # global variables for testing
         TEST_STR="Hello Node!",
@@ -70,11 +76,18 @@ class test_single_node(unittest.TestCase):
 
     @pytest.fixture(autouse=True)
     def inject_fixtures(self, global_params):
+        """inject_fixtures _summary_
+
+        Args:
+            global_params (_type_): _description_
+        """
+        # TODO add docstring
         self.global_params = global_params
 
     def test_new_node(self):
-        """new_node _summary_
+        """test_new_node _summary_
         """
+        # TODO add docstring
         # getting the global variables
         test_str = self.global_params.get("TEST_STR")
         # create an empty single linked list node
@@ -91,6 +104,7 @@ class test_single_node(unittest.TestCase):
     def test_get_element(self):
         """test_get_element _summary_
         """
+        # TODO add docstring
         # getting the global variables
         test_str = self.global_params.get("TEST_STR")
         # create a single linked list node
@@ -123,6 +137,7 @@ class test_single_node(unittest.TestCase):
     def test_next(self):
         """test_next _summary_
         """
+        # TODO add docstring
         # getting the global variables
         test_str = self.global_params.get("TEST_STR")
         # create a single linked list node
@@ -133,6 +148,7 @@ class test_single_node(unittest.TestCase):
     def test_node_type(self):
         """test_node_type _summary_
         """
+        # TODO add docstring
         # getting the global variables
         test_str = self.global_params.get("TEST_STR")
         test_int = self.global_params.get("TEST_INT")
@@ -194,6 +210,7 @@ class test_single_node(unittest.TestCase):
     def test_node_ref(self):
         """test_node_ref _summary_
         """
+        # TODO add docstring
         # getting the global variables
         test_str = self.global_params.get("TEST_STR")
         # create two different single linked list nodes
@@ -210,6 +227,7 @@ class test_single_node(unittest.TestCase):
     def test_node_typerr(self):
         """test_node_typerr _summary_
         """
+        # TODO add docstring
         # getting the global variables
         # type error test data list
         type_err_lt = [
@@ -245,11 +263,18 @@ class test_double_node(unittest.TestCase):
 
     @pytest.fixture(autouse=True)
     def inject_fixtures(self, global_params):
+        """inject_fixtures _summary_
+
+        Args:
+            global_params (_type_): _description_
+        """
+        # TODO add docstring
         self.global_params = global_params
 
     def test_new_node(self):
         """test_new_node _summary_
         """
+        # TODO add docstring
         # getting the global variables
         test_str = self.global_params.get("TEST_STR")
         # create a double linked list node
@@ -268,6 +293,7 @@ class test_double_node(unittest.TestCase):
     def test_get_element(self):
         """test_get_element _summary_
         """
+        # TODO add docstring
         # getting the global variables
         test_str = self.global_params.get("TEST_STR")
         # create a double linked list node
@@ -282,6 +308,7 @@ class test_double_node(unittest.TestCase):
     def test_set_element(self):
         """test_set_element _summary_
         """
+        # TODO add docstring
         # getting the global variables
         test_str = self.global_params.get("TEST_STR")
         # create a double linked list node
@@ -300,6 +327,7 @@ class test_double_node(unittest.TestCase):
     def test_node_type(self):
         """test_node_type _summary_
         """
+        # TODO add docstring
         # getting the global variables
         test_str = self.global_params.get("TEST_STR")
         test_int = self.global_params.get("TEST_INT")
@@ -364,6 +392,7 @@ class test_double_node(unittest.TestCase):
     def test_node_ref(self):
         """test_node_ref _summary_
         """
+        # TODO add docstring
         # getting the global variables
         test_str = self.global_params.get("TEST_STR")
         # create three different double linked list nodes
@@ -387,6 +416,7 @@ class test_double_node(unittest.TestCase):
     def test_node_typerr(self):
         """test_node_typerr _summary_
         """
+        # TODO add docstring
         # getting the global variables
         # type error test data list
         type_err_lt = [

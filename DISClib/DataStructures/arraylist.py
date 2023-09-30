@@ -82,6 +82,12 @@ class array_list(Generic[T]):
         # if the key is not defined, use the default
         if self.key is None:
             self.key = "id"
+        # if elements are in list, convert them to a array_list
+        if isinstance(self.elements, list):
+            elements = self.elements
+            self.elements = list()
+            for elm in elements:
+                self.add_last(elm)
         # if the comparison function is not defined, use the default
         if self.cmp_function is None and self.key is not None:
             self.cmp_function = self.default_cmp_function
@@ -123,6 +129,66 @@ class array_list(Generic[T]):
                     # otherwise, raise an exception
                     else:
                         raise Exception("Invalid comparison")
+        except Exception as exp:
+            self._handle_error(exp)
+
+    def default_cmp_function_v2(self, elm1, elm2) -> int:
+        """default_cmp_function _summary_
+
+        Args:
+            elm1 (_type_): _description_
+            elm2 (_type_): _description_
+
+        Raises:
+            Exception: _description_
+            Exception: _description_
+
+        Returns:
+            int: _description_
+        """
+        # TODO add docstring
+        try:
+            py_type = (int, float, str, bool)
+            elm1_type = isinstance(elm1, py_type)
+            elm2_type = isinstance(elm2, py_type)
+            none_type = (self.key is None)
+            # using the key to compare elements
+            if self.key is not None:
+                # if the elements are dict, compare their main key
+                if isinstance(elm1, dict) and isinstance(elm2, dict):
+                    key1 = elm1.get(self.key)
+                    key2 = elm2.get(self.key)
+                    # check if the key is present in both elements
+                    if None in [key1, key2]:
+                        raise Exception("Invalid key")
+                    # comparing elements
+                    else:
+                        # if one is greater than the other, return 1
+                        if key1 > key2:
+                            return 1
+                        # if one is less than the other, return -1
+                        elif key1 < key2:
+                            return -1
+                        # if they are equal, return 0
+                        elif key1 == key2:
+                            return 0
+                        # otherwise, raise an exception
+                        else:
+                            raise Exception("Invalid comparison")
+            # if elements are native types, compare them
+            elif all([none_type, elm1_type, elm2_type]):
+                # if one is greater than the other, return 1
+                if elm1 > elm2:
+                    return 1
+                # if one is less than the other, return -1
+                elif elm1 < elm2:
+                    return -1
+                # if they are equal, return 0
+                elif elm1 == elm2:
+                    return 0
+                # otherwise, raise an exception
+                else:
+                    raise Exception("Invalid comparison")
         except Exception as exp:
             self._handle_error(exp)
 

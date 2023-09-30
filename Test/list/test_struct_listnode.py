@@ -53,11 +53,12 @@ def global_params():
             True,
             ],
         CHECK_ERR_LT=[
-            float,
+            str,
             int,
+            float,
+            bool,
             dict,
             list,
-            bool,
             ]
     )
     return parameters
@@ -80,7 +81,18 @@ class test_single_node(unittest.TestCase):
         # TODO add docstring
         self.global_params = global_params
 
-    def test_new_node(self):
+    def test_new_default_node(self):
+        """test_new_default_node _summary_
+        """
+        # TODO add docstring
+        # create an empty single linked list node
+        node = single_node()
+        # assert that the node data is None
+        assert node.info is None
+        # assert that the node _next() is None or a single_node
+        assert (node.next() is None) and (node._next is None)
+
+    def test_new_custom_node(self):
         """test_new_node _summary_
         """
         # TODO add docstring
@@ -96,6 +108,8 @@ class test_single_node(unittest.TestCase):
         assert node.info == test_str
         # assert that the node _next() is None or a single_node
         assert (node.next() is None) and (node._next is None)
+
+
 
     def test_get_element(self):
         """test_get_element _summary_
@@ -226,6 +240,11 @@ class test_single_node(unittest.TestCase):
         # TODO add docstring
         # getting the global variables
         # type error test data list
+        with pytest.raises(TypeError) as excinfo:
+        
+        
+        
+        
         type_err_lt = [
             self.global_params.get("TEST_STR"),
             self.global_params.get("TEST_INT"),
@@ -439,5 +458,5 @@ class test_double_node(unittest.TestCase):
                 assert exc.args[0] == "Invalid data type for node info"
 
 
-if __name__ == "__main__":
-    pytest.main(["-v", "-s", "test_struct_listnode.py"])
+# if __name__ == "__main__":
+#     pytest.main(["-v", "-s", "test_struct_listnode.py"])

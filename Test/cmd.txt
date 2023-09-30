@@ -1,0 +1,9 @@
+﻿TEST COVERARE commands
+To execute coverage tests, run this in terminal:
+    + coverage run -m pytest
+To generate the report in HTML, run this in terminal:
+    + pytest --cov --cov-report=html:coverage_re
+    
+REF:
+
+[1] How To Generate Pytest Code Coverage Report, URL: https://www.lambdatest.com/blog/pytest-code-coverage-report/

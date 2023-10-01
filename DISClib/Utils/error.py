@@ -30,7 +30,7 @@ from typing import TypeVar      # , Generic, Optional
 T = TypeVar("T")    # T can be any type
 
 # valid data types for the node
-VALID_DATA_TYPE_LT = [
+VALID_DATA_TYPE_LT = (
     int,
     float,
     str,
@@ -40,7 +40,7 @@ VALID_DATA_TYPE_LT = [
     tuple,
     set,
     dataclass,
-]
+)
 
 # generic error message for invalid data type
 TYPE_ERR_MSG = "Invalid datatype"
@@ -78,6 +78,6 @@ def type_checker(context: str,
         TypeError: _description_
     """
     # TODO add docstring
-    if not any(isinstance(info, t) for t in VALID_DATA_TYPE_LT):
+    if not isinstance(info, VALID_DATA_TYPE_LT):
         err_msg = f"Error in {context}.{func_name}: {TYPE_ERR_MSG}"
         raise TypeError(err_msg)

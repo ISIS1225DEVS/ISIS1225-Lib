@@ -59,7 +59,15 @@ def global_params():
             bool,
             dict,
             list,
-            ]
+            ],
+        CHECK_TYPE_LT=[
+            str,
+            int,
+            float,
+            bool,
+            dict,
+            list
+        ]
     )
     return parameters
 
@@ -97,63 +105,84 @@ class test_single_node(unittest.TestCase):
         """
         # TODO add docstring
         # getting the global variables
-        test_str = self.global_params.get("TEST_STR")
-        # create an empty single linked list node
-        node = single_node()
-        # assert that the node data is None
-        assert node.info is None
-        # create a single linked list node
-        node = single_node(test_str)
-        # assert that the node data is not None
-        assert node.info == test_str
-        # assert that the node _next() is None or a single_node
-        assert (node.next() is None) and (node._next is None)
-
-
+        dtype_lt = self.global_params.get("CHECK_TYPE_LT")
+        # iterate over the type error list and create a node for each type
+        for key, dtype in zip(self.global_params.keys(), dtype_lt):
+            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT"):
+                test_data = self.global_params.get(key)
+                # create a single linked list node
+                node = single_node(test_data)
+                # assert that the node data is not None
+                assert node.info == test_data
+                # assert the node data is the same type as the test data
+                assert isinstance(node.info, dtype)
+                # assert that the node _next() is None or a single_node
+                assert (node.next() is None) and (node._next is None)
 
     def test_get_element(self):
         """test_get_element _summary_
         """
         # TODO add docstring
         # getting the global variables
-        test_str = self.global_params.get("TEST_STR")
-        # create a single linked list node
-        node = single_node(test_str)
-        # get the node data with module function
-        data = node.get_info()
-        # assert that the node data is not None
-        assert data == test_str
-        # assert that the data can be retrieved with the class function
-        assert node.get_info() == test_str
+        dtype_lt = self.global_params.get("CHECK_ERR_LT")
+        # iterate over the type error list and create a node for each type
+        for key, dtype in zip(self.global_params.keys(), dtype_lt):
+            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT"):
+                test_data = self.global_params.get(key)
+                # create a single linked list node with test data
+                node = single_node(test_data)
+                # assert that the node info is the test data
+                assert node.info == test_data
+                # assert that the data can be retrieved with the class function
+                assert node.get_info() == test_data
+                # assert the class function returns the same type as test data
+                assert isinstance(node.get_info(), dtype)
 
     def test_set_element(self):
         """test_set_element _summary_
         """
+        # TODO add docstring
         # getting the global variables
-        test_str = self.global_params.get("TEST_STR")
-        # create a single linked list node
-        node = single_node()
-        # set the node data with module function
-        node.set_info(test_str)
-        # assert that the node data is not None
-        assert node.info == test_str
-        # reset test string
-        node.info = ""
-        #  set node wit the class function
-        node.set_info(test_str)
-        # assert that the data can be retrieved with the get_info function
-        assert node.get_info() == test_str
+        dtype_lt = self.global_params.get("CHECK_ERR_LT")
+        # iterate over the type error list and create a node for each type
+        for key, dtype in zip(self.global_params.keys(), dtype_lt):
+            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT"):
+                test_data = self.global_params.get(key)
+                # create a single linked list node with test data
+                node = single_node()
+                node.set_info(test_data)
+                # assert that the node info is the test data
+                assert node.info == test_data
+                # assert that the get_info function returns the test data
+                assert node.get_info() == test_data
+                # assert the class function returns the same type as test data
+                c1 = isinstance(node.get_info(), dtype)
+                c2 = isinstance(test_data, dtype)
+                assert all([c1, c2])
 
     def test_next(self):
         """test_next _summary_
         """
-        # TODO add docstring
         # getting the global variables
-        test_str = self.global_params.get("TEST_STR")
-        # create a single linked list node
-        node = single_node(test_str)
-        # assert that the node _next() is None or a single_node
-        assert (node.next() is None) and (node._next is None)
+        dtype_lt = self.global_params.get("CHECK_TYPE_LT")
+        # iterate over the type error list and create a node for each type
+        for key, dtype in zip(self.global_params.keys(), dtype_lt):
+            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT"):
+                test_data = self.global_params.get(key)
+                # create 2 single linked list node
+                node1 = single_node(test_data)
+                node2 = single_node(test_data)
+                # assert the node _next and next() func is None in both nodes
+                c1 = (node1.next() is None) and (node1._next is None)
+                c2 = (node2.next() is None) and (node2._next is None)
+                assert all([c1, c2])
+                # concatenate the nodes
+                node1._next = node2
+                # assert the node _next and next() func is node2 in node1
+                c1 = (node1.next() is not None) and (node1._next is not None)
+                # assert the node _next and next() func is None in node2
+                c2 = (node1.next() is node2) and (node1._next is node2)
+                c3 = (node2.next() is None) and (node2._next is None)
 
     def test_node_type(self):
         """test_node_type _summary_
@@ -240,33 +269,35 @@ class test_single_node(unittest.TestCase):
         # TODO add docstring
         # getting the global variables
         # type error test data list
+        a = self.global_params.get("TEST_STR")
         with pytest.raises(TypeError) as excinfo:
+            node = single_node(a)
+            node.info = 42
+        assert "Invalid datatype" in str(excinfo.value)
         
         
-        
-        
-        type_err_lt = [
-            self.global_params.get("TEST_STR"),
-            self.global_params.get("TEST_INT"),
-            self.global_params.get("TEST_FLOAT"),
-            self.global_params.get("TEST_BOOL"),
-            self.global_params.get("TEST_DICT"),
-            self.global_params.get("TEST_LT"),
-            ]
-        # list to check the type error
-        check_err_lt = self.global_params.get("CHECK_ERR_LT")
+        # type_err_lt = [
+        #     self.global_params.get("TEST_STR"),
+        #     self.global_params.get("TEST_INT"),
+        #     self.global_params.get("TEST_FLOAT"),
+        #     self.global_params.get("TEST_BOOL"),
+        #     self.global_params.get("TEST_DICT"),
+        #     self.global_params.get("TEST_LT"),
+        #     ]
+        # # list to check the type error
+        # check_err_lt = self.global_params.get("CHECK_ERR_LT")
 
-        # iterate over the type error list
-        for dtype, check in zip(type_err_lt, check_err_lt):
-            # create a single linked list node with type error data
-            node = single_node(dtype)
-            try:
-                # try to change the node info to a different type
-                node.info = check
-            except Exception as exc:
-                # assert if the type error is raised
-                assert isinstance(exc, TypeError)
-                assert exc.args[0] == "Invalid data type for node info"
+        # # iterate over the type error list
+        # for dtype, check in zip(type_err_lt, check_err_lt):
+        #     # create a single linked list node with type error data
+        #     node = single_node(dtype)
+        #     try:
+        #         # try to change the node info to a different type
+        #         node.info = check
+        #     except Exception as exc:
+        #         # assert if the type error is raised
+        #         assert isinstance(exc, TypeError)
+        #         assert exc.args[0] == "Invalid data type for node info"
 
 
 class test_double_node(unittest.TestCase):

@@ -7,3 +7,4 @@ To generate the report in HTML, run this in terminal:
 REF:
 
 [1] How To Generate Pytest Code Coverage Report, URL: https://www.lambdatest.com/blog/pytest-code-coverage-report/
+[2] How To Test Python Exception Handling Using Pytest Assert (A Simple Guide), URL: https://pytest-with-eric.com/introduction/pytest-assert-exception/

@@ -27,9 +27,7 @@
 
 # FIXME agregar el manejo de excepciones de la libreria
 # TODO crear consistencia en para importar modulos
-import config
 import importlib
-assert config
 
 """
 Este archivo contiene la implementación del TAD grafo no dirigido

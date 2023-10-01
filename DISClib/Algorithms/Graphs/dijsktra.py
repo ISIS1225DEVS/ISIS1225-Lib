@@ -25,7 +25,6 @@
  """
 
 
-import config
 from DISClib.DataStructures import edge as e
 from DISClib.ADT import list as lt
 from DISClib.ADT import indexminpq as iminpq
@@ -34,7 +33,6 @@ from DISClib.ADT import graph as g
 from DISClib.ADT import stack
 from DISClib.Utils import error as error
 import math
-assert config
 
 
 def Dijkstra(graph, source):

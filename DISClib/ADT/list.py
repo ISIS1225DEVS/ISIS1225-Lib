@@ -24,10 +24,8 @@
  *
  """
 
-import config
 import importlib
 from DISClib.Utils import error as error
-assert config
 
 
 """

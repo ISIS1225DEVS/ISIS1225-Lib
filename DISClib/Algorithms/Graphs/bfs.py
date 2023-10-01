@@ -24,7 +24,6 @@
  *
  """
 
-import config
 from DISClib.ADT import graph as g
 from DISClib.ADT import queue
 from DISClib.ADT import map as map
@@ -32,7 +31,6 @@ from DISClib.ADT import list as lt
 from DISClib.ADT import stack
 from DISClib.ADT import list as lt
 from DISClib.Utils import error as error
-assert config
 
 #FIXME Cambiar todas las funciones y variables al formato snake_case
 #FIXME Tener consistencia con el nombre de las importaciones

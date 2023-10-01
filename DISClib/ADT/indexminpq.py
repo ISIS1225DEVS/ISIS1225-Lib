@@ -26,9 +26,7 @@
 
 # FIXME agregar el manejo de excepciones de la libreria
 # TODO crear consistencia en para importar modulos
-import config
 from DISClib.DataStructures import indexheap as h
-assert config
 
 """
 Implementación de una cola de prioridad indexada orientada a menor

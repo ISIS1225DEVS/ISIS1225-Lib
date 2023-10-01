@@ -25,14 +25,12 @@
 """
 
 
-import config
 from DISClib.DataStructures import edge as e
 from DISClib.ADT import list as lt
 from DISClib.ADT import stack as st
 from DISClib.ADT import map as map
 from DISClib.ADT import graph as g
 from DISClib.Utils import error as error
-assert config
 
 
 def DirectedCycle(graph):

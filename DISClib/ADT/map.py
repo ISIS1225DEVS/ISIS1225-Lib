@@ -25,9 +25,7 @@
  *
  """
 
-import config
 import importlib
-assert config
 
 """
   Este módulo implementa el tipo abstracto de datos

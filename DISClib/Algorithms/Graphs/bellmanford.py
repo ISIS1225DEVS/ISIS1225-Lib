@@ -25,7 +25,6 @@
 """
 
 
-import config
 from DISClib.DataStructures import edge as e
 from DISClib.ADT import list as lt
 from DISClib.ADT import queue as q
@@ -35,7 +34,6 @@ from DISClib.ADT import stack as st
 from DISClib.Algorithms.Graphs import cycles as c
 from DISClib.Utils import error as error
 import math
-assert config
 
 
 def BellmanFord(graph, source):

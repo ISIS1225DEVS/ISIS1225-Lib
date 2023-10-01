@@ -25,7 +25,6 @@
 """
 
 
-import config
 from DISClib.DataStructures import edge as e
 from DISClib.ADT import list as lt
 from DISClib.ADT import indexminpq as pq
@@ -35,7 +34,6 @@ from DISClib.ADT import graph as g
 from DISClib.Utils import error as error
 import math
 
-assert config
 
 """ Cambios generales """
 # FIXME Pasar los mombres de las funciones a snake_case

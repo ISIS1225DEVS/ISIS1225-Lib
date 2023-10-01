@@ -25,9 +25,7 @@
  *
  """
 
-import config as cf
 from DISClib.ADT import list as lt
-assert cf
 
 """
   Los algoritmos de este libro están basados en la implementación

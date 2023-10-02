@@ -17,19 +17,20 @@ T = TypeVar("T")    # T can be any type
 
 
 @dataclass
-class SingleNode(Generic[T]):
-    """SingleNode data class to represents a node of a single linked list.
+class Node(Generic[T]):
+    """Node generic class for defining a node of a list.
 
     Args:
-        Generic (T): type of the information stored at the node.
+        Generic (T): can be any python type.
+
+    Raises:
+        TypeError: only valid data types are allowed.
 
     Returns:
-        SingleNode: node of a single linked list.
+        Node: generic node of a list.
     """
     # optional information of any type
     info: Optional[T] = None
-    # optional reference to the next node of the same type
-    _next: Optional["SingleNode[T]"] = None
 
     def __post_init__(self):
         """__post_init__ the function checks the type of the information after
@@ -52,10 +53,40 @@ class SingleNode(Generic[T]):
         Args:
             err (Exception): received error to handle.
         """
-        # TODO add docstring
         cur_function = inspect.currentframe().f_code.co_name
         cur_context = self.__class__.__name__
         error_handler(cur_context, cur_function, err)
+
+    def _check_type(self, element: T) -> None:
+        """_check_type the function checks the type of the information received
+            as an argument.
+
+        Args:
+            element (T): information to check its type.
+
+        Raises:
+            TypeError: exception raised if the type of the new information is
+                different from the type of the current information.
+
+        Returns:
+            bool: returns True if the type of the new information is the same
+                as the type of the current information.
+        """
+        if element is not None and not isinstance(element, type(self.info)):
+            err_msg = f"Invalid data type: {type(self.info)} "
+            err_msg += f"for element info: {type(element)}"
+            raise TypeError(err_msg)
+        return True
+
+    def set_info(self, element: T) -> None:
+        """set_info the function sets the new information inside the node.
+
+        Args:
+            element (T): new information for the node.
+        """
+        if self.info is not None:
+            self._check_type(element)
+        self.info = element
 
     def get_info(self) -> T:
         """get_info the function returns the information inside the node.
@@ -63,26 +94,23 @@ class SingleNode(Generic[T]):
         Returns:
             T: information of the node.
         """
-        # TODO add docstring
         return self.info
 
-    def set_info(self, element: T) -> None:
-        """set_info the function sets the new information inside the node.
 
-        Args:
-            element (T): new information for the node.
+@dataclass
+class SingleNode(Node, Generic[T]):
+    """SingleNode generic class for defining a node of a single linked list.
+    extends Node class.
 
-        Raises:
-            TypeError: exception raised if the type of the new information is
-                different from the type of the current information.
-        """
+    Args:
+        Node (dataclass): generic node of a list.
+        Generic (T): can be any python type.
 
-        # TODO add docstring
-        if not isinstance(element, type(self.info)):
-            err_msg = f"Invalid data type: {type(self.info)} "
-            err_msg += f"for element info: {type(element)}"
-            raise TypeError(err_msg)
-        self.info = element
+    Returns:
+        SingleNode: generic node of a single linked list.
+    """
+    # optional reference to the next node of the same type
+    _next: Optional["SingleNode[T]"] = None
 
     def next(self) -> Optional["SingleNode[T]"]:
         """next the function returns the next node of the list.
@@ -90,60 +118,23 @@ class SingleNode(Generic[T]):
         Returns:
             SingleNode[T]: next node of the list, if it exists.
         """
-        # TODO add docstring
         return self._next
 
 
 @dataclass
-class DoubleNode(Generic[T]):
-    """DoubleNode data class to represents a node of a double linked list.
+class DoubleNode(SingleNode, Generic[T]):
+    """DoubleNode generic class for defining a node of a double linked list.
+    extends SingleNode class.
 
     Args:
-        Generic (T): type of the information stored at the node.
+        SingleNode (dataclass): generic node of a single linked list.
+        Generic (T): can be any python type.
 
     Returns:
-        DoubleNode: node of a double linked list.
+        DoubleNode: generic node of a double linked list.
     """
-    # optional information of any type
-    info: Optional[T] = None
-    # optional reference to the next node of the same type
-    _next: Optional["DoubleNode[T]"] = None
     # optional reference to the previous node of the same type
     _prev: Optional["DoubleNode[T]"] = None
-
-    def __post_init__(self):
-        """__post_init__ the function checks the type of the information after
-            the data structure initialization.
-        """
-        # TODO add docstring
-        try:
-            if self.info is not None:
-                cur_function = inspect.currentframe().f_code.co_name
-                cur_context = self.__class__.__name__
-                init_type_checker(cur_context, cur_function, self.info)
-        except Exception as exp:
-            self._handle_error(exp)
-
-    def _handle_error(self, err: Exception) -> None:
-        """_handle_error the generic function handles the error received as
-            an argument.
-
-        Args:
-            err (Exception): received error to handle.
-        """
-        # TODO add docstring
-        cur_function = inspect.currentframe().f_code.co_name
-        cur_context = self.__class__.__name__
-        error_handler(cur_context, cur_function, err)
-
-    def next(self) -> Optional["DoubleNode[T]"]:
-        """next the function returns the next node of the list.
-
-        Returns:
-            DoubleNode[T]: the next node of the list, if it exists.
-        """
-        # TODO add docstring
-        return self._next
 
     def prev(self) -> Optional["DoubleNode[T]"]:
         """prev the function returns the previous node of the list.
@@ -151,31 +142,4 @@ class DoubleNode(Generic[T]):
         Returns:
             DoubleNode[T]: the previous node of the list, if it exists.
         """
-        # TODO add docstring
         return self._prev
-
-    def get_info(self) -> T:
-        """get_info the function returns the information inside the node.
-
-        Returns:
-            T: information of the node.
-        """
-        # TODO add docstring
-        return self.info
-
-    def set_info(self, element: T) -> None:
-        """set_info the function sets the new information inside the node.
-
-        Args:
-            element (T): new information for the node.
-
-        Raises:
-            TypeError: exception raised if the type of the new information is
-                different from the type of the current information.
-        """
-        # TODO add docstring
-        if not isinstance(element, type(self.info)):
-            err_msg = f"Invalid data type: {type(self.info)} "
-            err_msg += f"for element info: {type(element)}"
-            raise TypeError(err_msg)
-        self.info = element

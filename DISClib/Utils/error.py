@@ -59,7 +59,6 @@ def error_handler(context: str,
     Raises:
         type: exception with the error message and traceback.
     """
-    # TODO add docstring
     err_msg = f"Error in {context}.{func_name}: {err}"
     raise type(err)(err_msg).with_traceback(err.__traceback__)
 
@@ -78,7 +77,6 @@ def init_type_checker(context: str,
     Raises:
         TypeError: exception with the type error message.
     """
-    # TODO add docstring
     if not isinstance(info, VALID_DATA_TYPE_LT):
         err_msg = f"Error in {context}.{func_name}: {TYPE_ERR_MSG}"
         raise TypeError(err_msg)

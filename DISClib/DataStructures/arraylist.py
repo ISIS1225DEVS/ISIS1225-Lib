@@ -36,12 +36,12 @@ import inspect
 import config
 # generic error handling and type checking
 from DISClib.Utils.error import error_handler
-from DISClib.Utils.error import type_checker
+from DISClib.Utils.error import init_type_checker
 
 # checking costum modules
 assert config
 assert error_handler
-assert type_checker
+assert init_type_checker
 
 
 # Type for the element stored in the list
@@ -80,59 +80,22 @@ class array_list(Generic[T]):
         """
         # TODO add docstring
         # if the key is not defined, use the default
-        if self.key is None:
-            self.key = "id"
-        # if elements are in list, convert them to a array_list
-        if isinstance(self.elements, list):
-            elements = self.elements
-            self.elements = list()
-            for elm in elements:
-                self.add_last(elm)
-        # if the comparison function is not defined, use the default
-        if self.cmp_function is None and self.key is not None:
-            self.cmp_function = self.default_cmp_function
-
-    def default_cmp_function(self, elm1, elm2) -> int:
-        """default_cmp_function _summary_
-
-        Args:
-            elm1 (_type_): _description_
-            elm2 (_type_): _description_
-
-        Raises:
-            Exception: _description_
-            Exception: _description_
-
-        Returns:
-            int: _description_
-        """
-        # TODO add docstring
         try:
-            # using the key to compare elements
-            if self.key is not None:
-                key1 = elm1.get(self.key)
-                key2 = elm2.get(self.key)
-                # check if the key is present in both elements
-                if None in [key1, key2]:
-                    raise Exception("Invalid key")
-                # comparing elements
-                else:
-                    # if one is greater than the other, return 1
-                    if key1 > key2:
-                        return 1
-                    # if one is less than the other, return -1
-                    elif key1 < key2:
-                        return -1
-                    # if they are equal, return 0
-                    elif key1 == key2:
-                        return 0
-                    # otherwise, raise an exception
-                    else:
-                        raise Exception("Invalid comparison")
+            if self.key is None:
+                self.key = "id"
+            # if elements are in list, convert them to a array_list
+            if isinstance(self.elements, list):
+                elements = self.elements
+                self.elements = list()
+                for elm in elements:
+                    self.add_last(elm)
+            # if the comparison function is not defined, use the default
+            if self.cmp_function is None and self.key is not None:
+                self.cmp_function = self.default_cmp_function
         except Exception as exp:
             self._handle_error(exp)
 
-    def default_cmp_function_v2(self, elm1, elm2) -> int:
+    def default_cmp_function(self, elm1, elm2) -> int:
         """default_cmp_function _summary_
 
         Args:
@@ -213,23 +176,17 @@ class array_list(Generic[T]):
             bool: _description_
         """
         # TODO add docstring
-        try:
-            if self._size == 0 and len(self.elements) == 0:
-                return True
-            elif self._size > 0:
-                # get the type of the first element
-                cur_context = self.__class__.__name__
-                cur_function = inspect.currentframe().f_code.co_name
-                # check if the type of the element is valid
-                type_checker(cur_context, cur_function, element)
-                lt_type = type(self.elements[0])
-                # check if element type and list type are the same
-                if isinstance(element, lt_type):
-                    return True
-            else:
-                return False
-        except Exception as exp:
-            self._handle_error(exp)
+        # if the structure is not empty, check the first element type
+        if not self.is_empty():
+            # get the type of the first element
+            lt_type = type(self.elements[0])
+            # raise an exception if the type is not valid
+            if not isinstance(element, type(lt_type)):
+                err_msg = f"Invalid data type: {type(lt_type)} "
+                err_msg += f"for element info: {type(element)}"
+                raise TypeError(err_msg)
+        # otherwise, any type is valid
+        return True
 
     def is_empty(self) -> bool:
         """is_empty _summary_

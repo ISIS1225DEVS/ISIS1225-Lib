@@ -135,6 +135,45 @@ def cmp_test_function(elm1, elm2):
             raise Exception("Invalid comparison")
 
 
+    def test_node_typerr(self):
+        """test_node_typerr _summary_
+        """
+        # TODO add docstring
+        # getting the global variables
+        # type error test data list
+        a = self.global_params.get("TEST_STR")
+        # with pytest.raises(TypeError) as excinfo:
+        #     node = single_node(a)
+        #     node.info = 42
+        # assert "Invalid datatype" in str(excinfo.value)
+        
+        
+        # type_err_lt = [
+        #     self.global_params.get("TEST_STR"),
+        #     self.global_params.get("TEST_INT"),
+        #     self.global_params.get("TEST_FLOAT"),
+        #     self.global_params.get("TEST_BOOL"),
+        #     self.global_params.get("TEST_DICT"),
+        #     self.global_params.get("TEST_LT"),
+        #     ]
+        # # list to check the type error
+        # check_err_lt = self.global_params.get("CHECK_ERR_LT")
+
+        # # iterate over the type error list
+        # for dtype, check in zip(type_err_lt, check_err_lt):
+        #     # create a single linked list node with type error data
+        #     node = single_node(dtype)
+        #     try:
+        #         # try to change the node info to a different type
+        #         node.info = check
+        #     except Exception as exc:
+        #         # assert if the type error is raised
+        #         assert isinstance(exc, TypeError)
+        #         assert exc.args[0] == "Invalid data type for node info"
+
+
+
+
 class test_array_list(unittest.TestCase):
     """test_array_list _summary_
 

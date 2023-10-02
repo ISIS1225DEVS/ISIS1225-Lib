@@ -43,39 +43,40 @@ VALID_DATA_TYPE_LT = (
 )
 
 # generic error message for invalid data type
-TYPE_ERR_MSG = "Invalid datatype"
+TYPE_ERR_MSG = "Invalid data type"
 
 
 def error_handler(context: str,
                   func_name: str,
                   err: Exception) -> None:
-    """error_handler _summary_
+    """error_handler receives the context, function name and error to raise.
 
     Args:
-        context (str): _description_
-        func_name (str): _description_
-        err (Exception): _description_
+        context (str): name of the class where the error occurred.
+        func_name (str): name of the function where the error occurred.
+        err (Exception): exception raised.
 
     Raises:
-        type: _description_
+        type: exception with the error message and traceback.
     """
     # TODO add docstring
     err_msg = f"Error in {context}.{func_name}: {err}"
     raise type(err)(err_msg).with_traceback(err.__traceback__)
 
 
-def type_checker(context: str,
-                 func_name: str,
-                 info: T) -> None:
-    """type_checker _summary_
+def init_type_checker(context: str,
+                      func_name: str,
+                      info: T) -> None:
+    """init_type_checker receives the context, function name and info to check
+        its type after class initialization.
 
     Args:
-        context (str): _description_
-        func_name (str): _description_
-        info (T): _description_
+        context (str): name of the class where the check is performed.
+        func_name (str): name of the function where the check is performed.
+        info (T): info to check its type.
 
     Raises:
-        TypeError: _description_
+        TypeError: exception with the type error message.
     """
     # TODO add docstring
     if not isinstance(info, VALID_DATA_TYPE_LT):

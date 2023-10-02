@@ -4,21 +4,22 @@ import pytest
 import random
 # importing the class to be tested
 import config
-from DISClib.DataStructures.arraylist import array_list
+from DISClib.DataStructures.arraylist import ArrayList
 # as al
 # asserting module existence
 assert config
 # assert al
-assert array_list
+assert ArrayList
 
 
 @pytest.fixture(scope="module")
 def global_params():
-    """global_params _summary_
+    """global_params the function returns a dictionary with the global
+        parameters for testing.
 
     Returns:
-        _type_: _description_
-    """    
+        dict: dictionary with the global parameters for testing.
+    """
     parameters = dict(
         TEST_STR_LT=[
             "a",
@@ -101,18 +102,56 @@ def global_params():
             {16, 17, 18},
             {19, 20, 21},
         ],
+        CHECK_TYPE_LT=[
+            str,
+            int,
+            float,
+            bool,
+            dict,
+            dict,
+            list,
+            tuple,
+            set,
+        ],
+        CHECK_ERR_LT=[
+            set,
+            tuple,
+            list,
+            dict,
+            bool,
+            float,
+            int,
+            str,
+            dict,
+        ],
     )
-    TEST_AL_LT = list()
+    # FIXME do we need this? it is okey?
+    TEST_ARRAY_LIST_LT = list()
     for i in parameters.get("TEST_INT_LT"):
         temp_lt = parameters.get("TEST_DICT_LT")
-        tal = array_list(temp_lt)
-        TEST_AL_LT.append(tal)
-    parameters["TEST_AL_LT"] = TEST_AL_LT
+        tal = ArrayList(temp_lt)
+        TEST_ARRAY_LIST_LT.append(tal)
+    parameters["TEST_AL_LT"] = TEST_ARRAY_LIST_LT
     return parameters
 
 
 # @pytest.fixture(scope="module")
-def cmp_test_function(elm1, elm2):
+def cmp_test_function(elm1: dict, elm2: dict) -> int:
+    """cmp_test_function test function for comparing elements.
+    only works for dictionaries with a key "uuid".
+
+    Args:
+        elm1 (dict): first element to compare.
+        elm2 (dict): second element to compare.
+
+    Raises:
+        Exception: error if the key is not present in both elements.
+        Exception: error if the comparison is invalid.
+
+    Returns:
+        int: 1 if the first element is greater than the second, -1 if the
+            first element is less than the second, 0 if they are equal.
+    """
     key = "uuid"
     key1 = elm1.get(key)
     key2 = elm2.get(key)
@@ -135,2241 +174,283 @@ def cmp_test_function(elm1, elm2):
             raise Exception("Invalid comparison")
 
 
-    def test_node_typerr(self):
-        """test_node_typerr _summary_
-        """
-        # TODO add docstring
-        # getting the global variables
-        # type error test data list
-        a = self.global_params.get("TEST_STR")
-        # with pytest.raises(TypeError) as excinfo:
-        #     node = single_node(a)
-        #     node.info = 42
-        # assert "Invalid datatype" in str(excinfo.value)
-        
-        
-        # type_err_lt = [
-        #     self.global_params.get("TEST_STR"),
-        #     self.global_params.get("TEST_INT"),
-        #     self.global_params.get("TEST_FLOAT"),
-        #     self.global_params.get("TEST_BOOL"),
-        #     self.global_params.get("TEST_DICT"),
-        #     self.global_params.get("TEST_LT"),
-        #     ]
-        # # list to check the type error
-        # check_err_lt = self.global_params.get("CHECK_ERR_LT")
-
-        # # iterate over the type error list
-        # for dtype, check in zip(type_err_lt, check_err_lt):
-        #     # create a single linked list node with type error data
-        #     node = single_node(dtype)
-        #     try:
-        #         # try to change the node info to a different type
-        #         node.info = check
-        #     except Exception as exc:
-        #         # assert if the type error is raised
-        #         assert isinstance(exc, TypeError)
-        #         assert exc.args[0] == "Invalid data type for node info"
-
-
-
-
-class test_array_list(unittest.TestCase):
-    """test_array_list _summary_
+class TestArrayList(unittest.TestCase):
+    """TestArrayList test class testing for the ArrayList class.
 
     Args:
-        unittest (_type_): _description_
+        unittest (class): python class for unit testing.
     """
 
     @pytest.fixture(autouse=True)
     def inject_fixtures(self, global_params):
-        """inject_fixtures _summary_
+        """inject_fixtures it injects the global parameters as a fixture.
 
         Args:
-            global_param (_type_): _description_
+            global_params (dict): global parameters for testing.
         """
-        # TODO add docstring
         self.global_params = global_params
 
-    def test_empty_init(self):
-        """test_init _summary_
+    def test_new_default_arraylist(self):
+        """test_init test the initialization of an empty array list.
         """
-        # TODO add docstring
-        test_al = array_list()
-        assert test_al is not None
-        assert test_al._size == 0
-        assert test_al.elements == []
+        # create a new empty arraylist
+        ar_lt = ArrayList()
+        # assert for the arraylist is not None
+        c1 = ar_lt is not None
+        # assert for the arraylist is empty
+        c2 = ar_lt._size == 0
+        # assert if the arraylist elements is empty
+        c3 = ar_lt.elements == []
+        # assert if the arraylist key is "id"
+        c4 = ar_lt.key == "id"
+        # assert if the arraylist cmp_function is default_cmp_function
+        c5 = ar_lt.cmp_function == ar_lt.default_cmp_function
+        # assert if the arraylist is an instance of ArrayList
+        c6 = isinstance(ar_lt, ArrayList)
+        # assert all 6 conditions are true
+        assert all([c1, c2, c3, c4, c5, c6])
 
-    def test_fill_init(self):
-        """test_init _summary_
+    def test_new_custom_arraylist(self):
+        """test_new_custom_arraylist test the initialization of a custom
+            array list with elements of different types.
         """
-        # TODO add docstring
-        test_data = self.global_params.get("TEST_DICT_LT")
-        test_al = array_list(test_data)
-        assert test_al is not None
-        assert test_al._size == len(test_data)
-        assert test_al.elements == test_data
+        # getting the global variables
+        dtype_lt = self.global_params.get("CHECK_TYPE_LT")
+        # iterate over tglobal params and create single linked list node
+        for key, dtype in zip(self.global_params.keys(), dtype_lt):
+            # ignore 2 keys from the global params
+            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT"):
+                test_data = self.global_params.get(key)
+                # create a new arraylist with the test data
+                ar_lt = ArrayList(test_data)
+                # assert for the arraylist is not None
+                c1 = ar_lt is not None
+                # assert for the arraylist size is equal to test_data
+                c2 = ar_lt._size == len(test_data)
+                # assert for the arraylist elements is equal to test_data
+                c3 = ar_lt.elements == test_data
+                # assert for the arraylist key is "id"
+                c4 = ar_lt.key == "id"
+                # assert for the arraylist cmp_function is default_cmp_function
+                c5 = ar_lt.cmp_function == ar_lt.default_cmp_function
+                # assert for the arraylist is an instance of ArrayList
+                c6 = isinstance(ar_lt, ArrayList)
+                # assert for the arraylist elements are of the same type
+                c7 = isinstance(ar_lt.elements[0], dtype)
+                # assert all 7 conditions are true
+                assert all([c1, c2, c3, c4, c5, c6, c7])
 
-    def test_custom_key_init(self):
-        """test_custom_init _summary_
+    def test_custom_key(self):
+        """test_custom_key test the initialization of a custom arraylist
+            with elements and a custom key.
         """
-        # TODO add docstring
-        test_data = self.global_params.get("TEST_CUSTOM_DICT_LT")
-        test_al = array_list(elements=test_data,
-                             key="uuid")
-        assert test_al is not None
-        assert test_al._size == len(test_data)
-        assert test_al.elements == test_data
-        assert test_al.key == "uuid"
+        # getting the global variables
+        dtype_lt = self.global_params.get("CHECK_TYPE_LT")
+        # iterate over tglobal params and create single linked list node
+        for key, dtype in zip(self.global_params.keys(), dtype_lt):
+            # ignore 2 keys from the global params
+            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT"):
+                test_data = self.global_params.get(key)
+                ar_lt = ArrayList(elements=test_data,
+                                  key="uuid")
+                # assert for the arraylist is not None
+                c1 = ar_lt is not None
+                # assert for the arraylist size is equal to test_data
+                c2 = ar_lt._size == len(test_data)
+                # assert for the arraylist elements is equal to test_data
+                c3 = ar_lt.elements == test_data
+                # assert for the arraylist key is "uuid"
+                c4 = ar_lt.key == "uuid"
+                # assert for the arraylist cmp_function is default_cmp_function
+                c5 = ar_lt.cmp_function == ar_lt.default_cmp_function
+                # assert for the arraylist is an instance of ArrayList
+                c6 = isinstance(ar_lt, ArrayList)
+                # assert for the arraylist elements are of the same type
+                c7 = isinstance(ar_lt.elements[0], dtype)
+                # assert all 7 conditions are true
+                assert all([c1, c2, c3, c4, c5, c6, c7])
 
-    def test_custom_cmp_init(self):
-        """test_custom_init _summary_
+    def test_custom_cmp_function(self):
+        """test_custom_cmp_function test the initialization of a custom
+            arraylist with elements and a custom cmp_function.
         """
-        # TODO add docstring
-        test_data = self.global_params.get("TEST_CUSTOM_DICT_LT")
-        test_al = array_list(elements=test_data,
-                             cmp_function=cmp_test_function)
-        assert test_al is not None
-        assert test_al._size == len(test_data)
-        assert test_al.elements == test_data
-        assert test_al.cmp_function == cmp_test_function
-
-    def test_post_init(self):
-        """test_post_init _summary_
-        """
-        # TODO add docstring
-        # FIXME do we need this?
-
-    def test_handle_error(self):
-        """test_handle_error _summary_
-        """
-        # TODO add docstring
-        # FIXME do we need this?
+        # getting the global variables
+        dtype_lt = self.global_params.get("CHECK_TYPE_LT")
+        # iterate over tglobal params and create single linked list node
+        for key, dtype in zip(self.global_params.keys(), dtype_lt):
+            # ignore 2 keys from the global params
+            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT"):
+                test_data = self.global_params.get(key)
+                ar_lt = ArrayList(elements=test_data,
+                                  cmp_function=cmp_test_function)
+                # assert for the arraylist is not None
+                c1 = ar_lt is not None
+                # assert for the arraylist size is equal to test_data
+                c2 = ar_lt._size == len(test_data)
+                # assert for the arraylist elements is equal to test_data
+                c3 = ar_lt.elements == test_data
+                # assert for the arraylist key is the default "id"
+                c4 = ar_lt.key == "id"
+                # assert for the arraylist cmp_function is the custom function
+                c5 = ar_lt.cmp_function == cmp_test_function
+                # assert for the arraylist is an instance of ArrayList
+                c6 = isinstance(ar_lt, ArrayList)
+                # assert for the arraylist elements are of the same type
+                c7 = isinstance(ar_lt.elements[0], dtype)
+                # assert all 7 conditions are true
+                assert all([c1, c2, c3, c4, c5, c6, c7])
 
     def test_size(self):
-        """test_get_size _summary_
+        """test_get_size test the size method of the arraylist. with empty
+            and non-empty arraylists.
         """
-        # TODO add docstring
-        test_al = array_list()
-        assert test_al.size() == 0
-        assert test_al._size == 0
+        # create a new empty arraylist
+        ar_lt = ArrayList()
+        # assert for the arraylist size is 0 with size method
+        c1 = ar_lt.size() == 0
+        # assert for the arraylist size is 0 with _size attribute
+        c2 = ar_lt._size == 0
+        # check if the arraylist elements is empty
+        c3 = ar_lt.elements == []
+        # assert all 3 conditions are true
+        assert all([c1, c2, c3])
+        # iterates over global params and create filled arraylist
         for key in self.global_params.keys():
+            # getting the test data
             test_data = self.global_params.get(key)
-            test_al = array_list(elements=test_data)
-            # assert test_al.size() == len(test_data)
-            # assert test_al._size == len(test_data)
+            # create a new arraylist with the test data
+            ar_lt = ArrayList(elements=test_data)
+            # assert for the arraylist size() is equal to test_data
+            c1 = ar_lt.size() == len(test_data)
+            # assert for the arraylist _size is equal to test_data
+            c2 = ar_lt._size == len(test_data)
+            # assert for the arraylist elements is equal to test_data
+            c3 = ar_lt.elements == test_data
+            # assert all 3 conditions are true
+            assert all([c1, c2, c3])
 
     def test_is_empty(self):
-        """test_is_empty _summary_
+        """test_is_empty test the is_empty method of the arraylist with empty
+            and non-empty arraylists.
         """
-        # TODO add docstring
-        test_al = array_list()
-        assert test_al.is_empty() is True
+        # create a new empty arraylist
+        ar_lt = ArrayList()
+        # assert for the arraylist is empty
+        c1 = ar_lt.is_empty() is True
+        # assert for the arraylist elements is empty
+        c2 = ar_lt.elements == []
+        # assert all 2 conditions are true
+        assert all([c1, c2])
+        # iterates over global params and create filled arraylist
         for key in self.global_params.keys():
+            # get the test data
             test_data = self.global_params.get(key)
-            test_al = array_list(elements=test_data)
-            assert test_al.is_empty() is False
-            assert test_al._size == len(test_data)
+            # create a new arraylist with the test data
+            ar_lt = ArrayList(elements=test_data)
+            # assert for the arraylist is not empty
+            c1 = ar_lt.is_empty() is False
+            # assert for the arraylist elements is equal to test_data
+            c2 = ar_lt.elements == test_data
+            # assert all 2 conditions are true
+            assert all([c1, c2])
 
     def test_get_first(self):
-        """test_get_first _summary_
+        """test_get_first test the get_first method of the arraylist with empty
+            and non-empty arraylists.
         """
-        # TODO add docstring
+        # create a new empty arraylist
+        ar_lt = ArrayList()
+        # force an exception in the get_first method
+        with pytest.raises(Exception) as excinfo:
+            ar_lt.get_first()
+        # assert for the exception type
+        c1 = excinfo.type == Exception
+        # assert for the exception message
+        c2 = "Empty data structure" in str(excinfo.value)
+        # assert all 2 conditions are true
+        assert all([c1, c2])
+        # iterates over global params and create filled arraylist
         for key in self.global_params.keys():
-            test_data = self.global_params.get(key)
-            test_len = len(test_data)
-            test_al = array_list(elements=test_data)
-            assert test_al.get_first() == test_data[0]
-            a = (test_al._size == test_len)
-            b = (test_al.size() == test_len)
-            assert all([a, b])
+            # ignore 2 keys from the global params
+            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT"):
+                # get the test data
+                test_data = self.global_params.get(key)
+                # get the length of the test data
+                test_len = len(test_data)
+                # create a new arraylist with the test data
+                ar_lt = ArrayList(elements=test_data)
+                # assert for the arraylist get_first() is equal to test_data
+                c1 = ar_lt.get_first() == test_data[0]
+                # assert if arraylist size() is equal to test_len
+                c2 = (ar_lt.size() == test_len)
+                # assert all 2 conditions are true
+                assert all([c1, c2])
 
     def test_get_last(self):
-        """test_get_last _summary_
+        """test_get_last test the get_last method of the arraylist with empty
+            and non-empty arraylists.
         """
-        # TODO add docstring
+        # create a new empty arraylist
+        ar_lt = ArrayList()
+        # force an exception in the get_last method
+        with pytest.raises(Exception) as excinfo:
+            ar_lt.get_last()
+        # assert for the exception type
+        c1 = excinfo.type == Exception
+        # assert for the exception message
+        c2 = "Empty data structure" in str(excinfo.value)
+        # assert all 2 conditions are true
+        assert all([c1, c2])
+        # iterates over global params and create filled arraylist
         for key in self.global_params.keys():
-            test_data = self.global_params.get(key)
-            test_len = len(test_data)
-            test_al = array_list(elements=test_data)
-            assert test_al.get_last() == test_data[-1]
-            a = (test_al._size == test_len)
-            b = (test_al.size() == test_len)
-            assert all([a, b])
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            # ignore 2 keys from the global params
+            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT"):
+                # get the test data
+                test_data = self.global_params.get(key)
+                # get the length of the test data
+                test_len = len(test_data)
+                # create a new arraylist with the test data
+                ar_lt = ArrayList(elements=test_data)
+                # assert for the arraylist get_last() is equal to test_data
+                c1 = ar_lt.get_last() == test_data[-1]
+                # assert if arraylist size() is equal to test_len
+                c2 = (ar_lt.size() == test_len)
+                # assert all 2 conditions are true
+                assert all([c1, c2])
+
+    def test_get_element(self):
         """test_get_element _summary_
         """
-        # TODO add docstring
+        # create a new empty arraylist
+        ar_lt = ArrayList()
+        # force an exception in the get_element method
+        with pytest.raises(Exception) as excinfo:
+            i = random.randint(0, 100)
+            ar_lt.get_element(i)
+        # assert for the exception type
+        c1 = excinfo.type == Exception
+        # assert for the exception message
+        c2 = "Empty data structure" in str(excinfo.value)
+        # assert all 2 conditions are true
+        assert all([c1, c2])
+        # iterates over global params and create filled arraylist
         for key in self.global_params.keys():
-            test_data = self.global_params.get(key)
-            test_al = array_list(elements=test_data)
-            for i in range(len(test_data)):
-                assert test_al.get_element(i) == test_data[i]
+            # ignore 2 keys from the global params
+            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT"):
+                # get the test data
+                test_data = self.global_params.get(key)
+                # get the length of the test data
+                test_len = len(test_data)
+                # create a new arraylist with the test data
+                ar_lt = ArrayList(elements=test_data)
+                # iterate over the test data
+                for i in range(len(test_data)):
+                    # assert for get_element(i) is equal to test_data[i]
+                    c1 = ar_lt.get_element(i) == test_data[i]
+                    # assert if arraylist size() is equal to test_len
+                    c2 = (ar_lt.size() == test_len)
+                    # assert all 2 conditions are true
+                    assert all([c1, c2])
 
     def test_remove_first(self):
         """test_remove_first _summary_
@@ -2378,7 +459,7 @@ class test_array_list(unittest.TestCase):
         for key in self.global_params.keys():
             test_data = self.global_params.get(key)
             test_len = len(test_data)
-            test_al = array_list(elements=test_data)
+            test_al = ArrayList(elements=test_data)
             for i in range(len(test_data)):
                 t_data = test_data[i]
                 t_elm = test_al.remove_first()

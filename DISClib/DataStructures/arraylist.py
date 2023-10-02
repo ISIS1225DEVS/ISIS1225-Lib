@@ -59,8 +59,8 @@ T = TypeVar("T")    # T can be any type
 
 
 @dataclass
-class array_list(Generic[T]):
-    """array_list _summary_
+class ArrayList(Generic[T]):
+    """ArrayList _summary_
 
     Args:
         Generic (_type_): _description_
@@ -79,19 +79,20 @@ class array_list(Generic[T]):
         """__post_init__ _summary_
         """
         # TODO add docstring
-        # if the key is not defined, use the default
         try:
+            # if the key is not defined, use the default
             if self.key is None:
                 self.key = "id"
-            # if elements are in list, convert them to a array_list
+            # if the compare function is not defined, use the default
+            if self.cmp_function is None:
+                self.cmp_function = self.default_cmp_function
+            # if elements are in a list, add them to the ArrayList
             if isinstance(self.elements, list):
                 elements = self.elements
                 self.elements = list()
                 for elm in elements:
                     self.add_last(elm)
-            # if the comparison function is not defined, use the default
-            if self.cmp_function is None and self.key is not None:
-                self.cmp_function = self.default_cmp_function
+
         except Exception as exp:
             self._handle_error(exp)
 
@@ -181,7 +182,7 @@ class array_list(Generic[T]):
             # get the type of the first element
             lt_type = type(self.elements[0])
             # raise an exception if the type is not valid
-            if not isinstance(element, type(lt_type)):
+            if not isinstance(element, lt_type):
                 err_msg = f"Invalid data type: {type(lt_type)} "
                 err_msg += f"for element info: {type(element)}"
                 raise TypeError(err_msg)
@@ -491,7 +492,7 @@ class array_list(Generic[T]):
         except Exception as exp:
             self._handle_error(exp)
 
-    def create_sublist(self, start: int, end: int) -> "array_list[T]":
+    def create_sublist(self, start: int, end: int) -> "ArrayList[T]":
         """create_sublist _summary_
 
         Args:
@@ -502,41 +503,41 @@ class array_list(Generic[T]):
             Exception: _description_
 
         Returns:
-            array_list[T]: _description_
+            ArrayList[T]: _description_
         """
         # TODO add docstring
         try:
             if start < 0 or end > self._size or start > end:
                 raise Exception("Invalid range")
             else:
-                sub_lt = array_list(cmp_function=self.cmp_function,
-                                    key=self.key)
+                sub_lt = ArrayList(cmp_function=self.cmp_function,
+                                   key=self.key)
                 for i in range(start, end):
                     sub_lt.add_last(self.get_element(i))
                 return sub_lt
         except Exception as exp:
             self._handle_error(exp)
 
-    def concatenate(self, lst: "array_list[T]") -> "array_list[T]":
+    def concatenate(self, lst: "ArrayList[T]") -> "ArrayList[T]":
         """concatenate _summary_
 
         Args:
-            lst (array_list[T]): _description_
+            lst (ArrayList[T]): _description_
 
         Raises:
             Exception: _description_
 
         Returns:
-            array_list[T]: _description_
+            ArrayList[T]: _description_
         """
         # TODO add docstring
         # FIXME check if the list is empty!!!
         try:
-            if not isinstance(lst, array_list):
+            if not isinstance(lst, ArrayList):
                 raise Exception("Invalid list type")
             else:
-                concat_lt = array_list(cmp_function=self.cmp_function,
-                                       key=self.key)
+                concat_lt = ArrayList(cmp_function=self.cmp_function,
+                                      key=self.key)
                 concat_lt.elements = self.elements + lst.elements
                 concat_lt._size = self.size() + lst.size()
                 return concat_lt

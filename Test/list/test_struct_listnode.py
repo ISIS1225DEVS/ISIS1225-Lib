@@ -92,8 +92,8 @@ class TestNode(unittest.TestCase):
         assert node.info is None
 
     def test_new_custom_node(self):
-        """test_new_custom_node test the creation of a list node with custom
-            data.
+        """test_new_custom_node test the creation of a list node with
+            custom data.
         """
         # getting the global variables
         dtype_lt = self.global_params.get("CHECK_TYPE_LT")

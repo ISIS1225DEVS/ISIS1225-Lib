@@ -37,6 +37,7 @@ import config
 # generic error handling and type checking
 from DISClib.Utils.error import error_handler
 from DISClib.Utils.error import init_type_checker
+from DISClib.Utils.error import VALID_DATA_TYPE_LT
 
 # checking costum modules
 assert config
@@ -112,47 +113,51 @@ class ArrayList(Generic[T]):
         """
         # TODO add docstring
         try:
-            py_type = (int, float, str, bool)
-            elm1_type = isinstance(elm1, py_type)
-            elm2_type = isinstance(elm2, py_type)
-            none_type = (self.key is None)
-            # using the key to compare elements
-            if self.key is not None:
-                # if the elements are dict, compare their main key
+            elm1_type = isinstance(elm1, VALID_DATA_TYPE_LT)
+            elm2_type = isinstance(elm2, VALID_DATA_TYPE_LT)
+            # none_type = (self.key is None)
+            # if the elements are from different types, raise an exception
+            if type(elm1) is not type(elm2):
+                err_msg = f"Invalid comparison between {type(elm1)} and "
+                err_msg += f"{type(elm2)} elements"
+                raise TypeError(err_msg)
+            # if there is a defined key
+            elif self.key is not None:
+                # if elements are dictionaries, compare their main key
                 if isinstance(elm1, dict) and isinstance(elm2, dict):
                     key1 = elm1.get(self.key)
                     key2 = elm2.get(self.key)
-                    # check if the key is present in both elements
                     if None in [key1, key2]:
-                        raise Exception("Invalid key")
+                        err_msg = f"Invalid key: {self.key}, "
+                        err_msg += "Key not found in one or both elements"
+                        raise KeyError(err_msg)
                     # comparing elements
                     else:
-                        # if one is greater than the other, return 1
-                        if key1 > key2:
-                            return 1
                         # if one is less than the other, return -1
-                        elif key1 < key2:
+                        if key1 < key2:
                             return -1
                         # if they are equal, return 0
                         elif key1 == key2:
                             return 0
+                        # if one is greater than the other, return 1
+                        elif key1 > key2:
+                            return 1
                         # otherwise, raise an exception
                         else:
-                            raise Exception("Invalid comparison")
-            # if elements are native types, compare them
-            elif all([none_type, elm1_type, elm2_type]):
-                # if one is greater than the other, return 1
-                if elm1 > elm2:
-                    return 1
-                # if one is less than the other, return -1
-                elif elm1 < elm2:
-                    return -1
-                # if they are equal, return 0
-                elif elm1 == elm2:
-                    return 0
-                # otherwise, raise an exception
-                else:
-                    raise Exception("Invalid comparison")
+                            err_msg = f"Invalid comparison between {key1} and "
+                            err_msg += f"{key2} keys in elements."
+                            raise TypeError(err_msg)
+                # if elements are native types, compare them directly
+                elif elm1_type and elm2_type:
+                    # if one is less than the other, return -1
+                    if elm1 < elm2:
+                        return -1
+                    # if one is greater than the other, return 1
+                    elif elm1 > elm2:
+                        return 1
+                    # otherwise, they are equal, return 0
+                    else:
+                        return 0
         except Exception as exp:
             self._handle_error(exp)
 
@@ -197,7 +202,7 @@ class ArrayList(Generic[T]):
         """
         # TODO add docstring
         try:
-            return self._size == 0 and len(self.elements) == 0
+            return self._size == 0
         except Exception as exp:
             self._handle_error(exp)
 
@@ -227,8 +232,6 @@ class ArrayList(Generic[T]):
             if self._check_type(element):
                 self.elements.insert(0, element)
                 self._size += 1
-            else:
-                raise Exception("Invalid element type")
         except Exception as exp:
             self._handle_error(exp)
 
@@ -246,8 +249,6 @@ class ArrayList(Generic[T]):
             if self._check_type(element):
                 self.elements.append(element)
                 self._size += 1
-            else:
-                raise Exception("Invalid element type")
         except Exception as exp:
             self._handle_error(exp)
 
@@ -266,8 +267,6 @@ class ArrayList(Generic[T]):
             if self._check_type(element):
                 self.elements.insert(pos, element)
                 self._size += 1
-            else:
-                raise Exception("Invalid element type")
         except Exception as exp:
             self._handle_error(exp)
 
@@ -283,9 +282,8 @@ class ArrayList(Generic[T]):
         # TODO add docstring
         try:
             if self.is_empty():
-                raise Exception("Empty data structure")
-            else:
-                return self.elements[0]
+                raise IndexError("Empty data structure")
+            return self.elements[0]
         except Exception as exp:
             self._handle_error(exp)
 
@@ -301,9 +299,8 @@ class ArrayList(Generic[T]):
         # TODO add docstring
         try:
             if self.is_empty():
-                raise Exception("Empty data structure")
-            else:
-                return self.elements[self._size-1]
+                raise IndexError("Empty data structure")
+            return self.elements[self._size-1]
         except Exception as exp:
             self._handle_error(exp)
 
@@ -323,11 +320,10 @@ class ArrayList(Generic[T]):
         # TODO add docstring
         try:
             if self.is_empty():
-                raise Exception("Empty data structure")
+                raise IndexError("Empty data structure")
             elif pos < 0 or pos > self._size-1:
-                raise Exception("Index", pos, "is an invalid position")
-            else:
-                return self.elements[pos]
+                raise IndexError("Index", pos, "is out of range")
+            return self.elements[pos]
         except Exception as exp:
             self._handle_error(exp)
 
@@ -343,11 +339,10 @@ class ArrayList(Generic[T]):
         # TODO add docstring
         try:
             if self.is_empty():
-                raise Exception("Empty data structure")
-            else:
-                element = self.elements.pop(0)
-                self._size -= 1
-                return element
+                raise IndexError("Empty data structure")
+            element = self.elements.pop(0)
+            self._size -= 1
+            return element
         except Exception as exp:
             self._handle_error(exp)
 
@@ -363,11 +358,10 @@ class ArrayList(Generic[T]):
         # TODO add docstring
         try:
             if self.is_empty():
-                raise Exception("Empty data structure")
-            else:
-                element = self.elements.pop(self._size-1)
-                self._size -= 1
-                return element
+                raise IndexError("Empty data structure")
+            element = self.elements.pop(self._size-1)
+            self._size -= 1
+            return element
         except Exception as exp:
             self._handle_error(exp)
 
@@ -386,13 +380,12 @@ class ArrayList(Generic[T]):
         # TODO add docstring
         try:
             if self.is_empty():
-                raise Exception("Empty data structure")
+                raise IndexError("Empty data structure")
             if pos < 0 or pos > self._size-1:
-                raise Exception("Index", pos, "is an invalid position")
-            else:
-                element = self.elements.pop(pos-1)
-                self._size -= 1
-                return element
+                raise IndexError("Index", pos, "is out of range")
+            element = self.elements.pop(pos)
+            self._size -= 1
+            return element
         except Exception as exp:
             self._handle_error(exp)
 
@@ -408,11 +401,14 @@ class ArrayList(Generic[T]):
         """
         # TODO add docstring
         try:
+            # if the key is defined but the cmp is not, use the default
             if self.key is not None and self.cmp_function is None:
-                # return self.cmp_function(current[self.key], temp[self.key])
                 return self.default_cmp_function(current, temp)
-            else:
+            # otherwise, use the custom cmp function
+            elif self.cmp_function is not None:
                 return self.cmp_function(current, temp)
+            # raise an exception if the cmp function is not defined
+            raise TypeError("No comparison function specified")
         except Exception as exp:
             self._handle_error(exp)
 
@@ -427,13 +423,11 @@ class ArrayList(Generic[T]):
         """
         # TODO add docstring
         try:
-            lt_size = self._size
             pos = -1
-            if lt_size > 0:
+            if self.size() > 0:
                 found = False
                 i = 0
-                # print("inside is present!!!")
-                while not found and i < lt_size:
+                while not found and i < self.size():
                     data = self.get_element(i)
                     if self.compare_elements(element, data) == 0:
                         found = True
@@ -455,10 +449,12 @@ class ArrayList(Generic[T]):
         """
         # TODO add docstring
         try:
-            if self._check_type(new_info):
-                self.elements[pos] = new_info
-            else:
-                raise Exception("Invalid element type")
+            if pos < 0 or pos > self._size-1:
+                raise IndexError("Index", pos, "is out of range")
+            # if not self._check_type(new_info):
+            self._check_type(new_info)
+            # raise TypeError("Invalid element type")
+            self.elements[pos] = new_info
         except Exception as exp:
             self._handle_error(exp)
 
@@ -478,21 +474,20 @@ class ArrayList(Generic[T]):
         try:
             if self.is_empty():
                 raise Exception("Empty data structure")
-            if pos1 > self._size or pos1 < 1:
-                raise Exception("Index", pos1, "is an invalid position")
-            if pos2 > self._size or pos2 < 1:
-                raise Exception("Index", pos2, "is an invalid position")
-            else:
-                info_pos1 = self.get_element(pos1)
-                info_pos2 = self.get_element(pos2)
-                self.change_info(pos1, info_pos2)
-                self.change_info(pos2, info_pos1)
-                # FIXME check if i need the return in tests!!!
-                # return self
+            if pos1 < 0 or pos1 > self._size-1:
+                raise Exception("Index", pos1, "is out of range")
+            if pos2 < 0 or pos2 > self._size-1:
+                raise Exception("Index", pos2, "is out of range")
+            info_pos1 = self.get_element(pos1)
+            info_pos2 = self.get_element(pos2)
+            self.change_info(pos1, info_pos2)
+            self.change_info(pos2, info_pos1)
+            # FIXME check if i need the return in tests!!!
+            # return self
         except Exception as exp:
             self._handle_error(exp)
 
-    def create_sublist(self, start: int, end: int) -> "ArrayList[T]":
+    def sub_lt(self, start: int, end: int) -> "ArrayList[T]":
         """create_sublist _summary_
 
         Args:
@@ -507,7 +502,7 @@ class ArrayList(Generic[T]):
         """
         # TODO add docstring
         try:
-            if start < 0 or end > self._size or start > end:
+            if start < 0 or end > self._size-1 or start > end:
                 raise Exception("Invalid range")
             else:
                 sub_lt = ArrayList(cmp_function=self.cmp_function,
@@ -518,8 +513,8 @@ class ArrayList(Generic[T]):
         except Exception as exp:
             self._handle_error(exp)
 
-    def concatenate(self, lst: "ArrayList[T]") -> "ArrayList[T]":
-        """concatenate _summary_
+    def concat(self, lst: "ArrayList[T]") -> "ArrayList[T]":
+        """concat_list _summary_
 
         Args:
             lst (ArrayList[T]): _description_

@@ -2,12 +2,11 @@
 import unittest
 import pytest
 # importing the file(s) to test
-# import config
 from DISClib.DataStructures.listnode import Node
 from DISClib.DataStructures.listnode import SingleNode
 from DISClib.DataStructures.listnode import DoubleNode
 # asserting module imports
-# assert config
+assert Node
 assert SingleNode
 assert DoubleNode
 

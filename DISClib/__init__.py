@@ -1,7 +1,8 @@
+# MAIN __init__ file for the DISCLib package
 # import python modules
 import os
 import sys
-from pkgutil import extend_path
+# from pkgutil import extend_path
 
 # import all the modules in the ADT namespaces
 # M1

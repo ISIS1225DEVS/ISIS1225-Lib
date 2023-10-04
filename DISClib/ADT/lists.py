@@ -32,6 +32,7 @@
 # # assert confc;sig
 # assert ArrayList
 from .dynamic import DynamicImporter
+assert DynamicImporter
 
 # main package data structure path
 ADT_LT_PGk_PATH = "DISClib.DataStructures"
@@ -42,11 +43,7 @@ ADT_LT_MOD_DICT = {
     "SingleLinked": "singlelinkedlist",
     "DoubleLinked": "doublelinkedlist",
 }
-# DISClib\DataStructures\arraylist.py
 
-
-# class List(DynamicImporter):
-#     pass
 
 def List(implementation: str = "ArrayList", **kwargs):
     package = f"{ADT_LT_PGk_PATH}."

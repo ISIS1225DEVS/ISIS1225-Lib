@@ -43,8 +43,8 @@ class Node(Generic[T]):
                 cur_context = self.__class__.__name__
                 init_type_checker(cur_context, cur_function, self.info)
         # if an error occurs, handle it
-        except Exception as exp:
-            self._handle_error(exp)
+        except Exception as err:
+            self._handle_error(err)
 
     def _handle_error(self, err: Exception) -> None:
         """_handle_error the generic function handles the error received as

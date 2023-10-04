@@ -278,6 +278,7 @@ class TestSingleNode(unittest.TestCase):
                 # assert the node _next and next() are None in node2
                 assert (node2.next() is None) and (node2._next is None)
 
+
 class TestDoubleNode(unittest.TestCase):
     """TestDoubleNode test class for testing the DoubleNode class.
 

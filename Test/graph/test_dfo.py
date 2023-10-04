@@ -1,9 +1,9 @@
 import pytest
-import config
+import Test.graph as graph
 from DISClib.ADT import graph as g
 from DISClib.ADT import stack
 from DISClib.Algorithms.Graphs import dfo
-assert config
+assert graph
 
 
 @pytest.fixture

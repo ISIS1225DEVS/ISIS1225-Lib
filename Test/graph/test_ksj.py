@@ -1,8 +1,8 @@
 import pytest
-import config
+import Test.graph as graph
 from DISClib.ADT import graph as g
 from DISClib.Algorithms.Graphs import scc
-assert config
+assert graph
 
 
 @pytest.fixture

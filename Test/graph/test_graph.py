@@ -1,8 +1,8 @@
 import pytest
-import config
+import Test.graph as graph
 from DISClib.DataStructures import edge as e
 from DISClib.ADT import graph as g
-assert config
+assert graph
 
 
 @pytest.fixture

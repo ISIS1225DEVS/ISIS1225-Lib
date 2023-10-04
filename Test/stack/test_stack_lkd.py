@@ -20,9 +20,9 @@
  """
 
 import pytest
-import config
+import Test.stack as stack
 from DISClib.ADT import stack as st
-assert config
+assert stack
 
 
 @pytest.fixture

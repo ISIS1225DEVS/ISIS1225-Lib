@@ -1,8 +1,8 @@
 import pytest
-import config
+import Test.bst as bst
 from DISClib.ADT import orderedmap as omap
 from DISClib.ADT import list as lt
-assert config
+assert bst
 
 
 @pytest.fixture

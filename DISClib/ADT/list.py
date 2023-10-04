@@ -26,14 +26,19 @@
 
 import importlib
 import config
-from DISClib.DataStructures.arraylist import ArrayList
+# from DISClib.DataStructures.arraylist import ArrayList
 assert config
-assert ArrayList
+# assert ArrayList
 
-# dic.DataStructures.arraylist import ArrayList
-# from DataStructures.singlelinkedlist import SingleLinkedList
-# from DataStructures.doublelinkedlist import DoubleLinkedList
-# from DISClib.Utils import error as error
+
+ADT_LT_PGk_PATH = "DISClib.DataStructures"
+
+
+# ADT_LIST_MOD_DICT = {
+#     "ArrayList": "arraylist",
+#     "SingleLinked": "singlelinkedlist",
+#     "DoubleLinked": "doublelinkedlist",
+# }
 
 
 class List(object):
@@ -45,14 +50,14 @@ class List(object):
     implementation_class = None
 
     def __init__(self, implementation: str = "ArrayList", **kwargs):
-        self.implementation = implementation
-        self.module_name = f"{implementation.lower()}"
         try:
+            self.implementation = implementation
+            self.module_name = f"{ADT_LT_PGk_PATH}.{implementation.lower()}"
             self.module = importlib.import_module(self.module_name)
         except ModuleNotFoundError:
             raise ValueError(f"Invalid implementation: {implementation}")
         self.implementation_class = getattr(self.module,
-                                            f"{self.implementation}")
+                                            self.implementation)
         self.instance = self.implementation_class(**kwargs)
 
     def __post_init__(self):
@@ -86,6 +91,49 @@ class List(object):
   Se puede implementar sobre una estructura de datos encadenada de forma
   sencilla, doble o como un arreglo
 """
+
+
+def cmp_test(a, b):
+    key = "testkey"
+    ka = a.get(key)
+    kb = b.get(key)
+    if ka < kb:
+        return -1
+    elif ka > kb:
+        return 1
+    else:
+        return 0
+
+
+test_list = List(implementation="ArrayList").start()
+print(test_list)
+print(type(test_list))
+
+test_data = [1, 2, 3, 4, 5]
+
+for i in test_data:
+    test_list.add_last(i)
+
+print(test_list)
+
+test_data = [
+    {"testkey": 1, "testvalue": "one"},
+    {"testkey": 2, "testvalue": "two"},
+    {"testkey": 3, "testvalue": "three"},
+    {"testkey": 4, "testvalue": "four"},
+    {"testkey": 5, "testvalue": "five"},
+]
+
+test_list = List(implementation="ArrayList",
+                 elements=test_data,
+                 cmp_function=cmp_test).start()
+print(test_list)
+
+for d in test_list:
+    print(d)
+
+
+                #  cmpfunction=None, key=None, filename=None, delimiter=",")
 
 
 # FIXME Cambiar formato de funciones a snake_case

@@ -1,28 +1,42 @@
+""" _summary_
+# TODO add summary
+
+Attributes:
+    T (type): _description_
+
+Class:
+    ArrayList(Generic[T]): _description_
+
+    Functions:
+        - __init__(): _description_
+        - __post_init__(): _description_
+        - default_cmp_function(): _description_
+        - _handle_error(): _description_
+        - _check_type(): _description_
+        - is_empty(): _description_
+        - size(): _description_
+        - add_first(): _description_
+        - add_last(): _description_
+        - add_element(elem, pos): _description_
+        - get_first(): _description_
+        - get_last(): _description_
+        - get_element(pos): _description_
+        - remove_first(): _description_
+        - remove_last(): _description_
+        - remove_element(pos): _description_
+        - compare_elements(elem1, elem2): _description_
+        - is_present(elem): _description_
+        - change_info(new_elem, pos): _description_
+        - exchange(pos1, pos2): _description_
+        - sublist(start, end): _description_
+        - concat(other): _description_
+
+Copyrigth:
+    Universidad de los Andes, Bogotá - Colombia, South America
+    Facultad de Ingeniería, 2023
+    Departamento de Ingeniería de Sistemas y Computación DISC
+    Developed by: Data Structures & Algorithms Group - EDA - ISIS-1225
 """
- * Copyright 2020, Departamento de sistemas y Computación,
- * Universidad de Los Andes
- *
- * Desarrollado para el curso ISIS1225 - Estructuras de Datos y Algoritmos
- *
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- * Contribució n de:
- *
- * Dario Correal
- *
- """
 
 # native python modules
 # import dataclass to define the array list

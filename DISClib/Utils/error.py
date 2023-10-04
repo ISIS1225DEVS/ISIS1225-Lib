@@ -1,33 +1,34 @@
+""" _summary_
+# TODO add summary
+
+Attributes:
+    T (type): _description_
+    TYPE_ERR_MSG (str): _description_
+    VALID_DATA_TYPE_LT (tuple): _description_
+
+Functions:
+    error_handler(context: str, func_name: str, err: Exception) -> None:
+        error_handler receives the context, function name and error to raise.
+    init_type_checker(context: str, func_name: str, info: T) -> None:
+        init_type_checker receives the context, function name and info to check
+            its type after class initialization.
+
+Copyrigth:
+    Universidad de los Andes, Bogotá - Colombia, South America
+    Facultad de Ingeniería, 2023
+    Departamento de Ingeniería de Sistemas y Computación DISC
+    Developed by: Data Structures & Algorithms Group - EDA - ISIS-1225
 """
- * Copyright 2020, Departamento de sistemas y Computación
- * Universidad de Los Andes
- *
- *
- * Desarrolado para el curso ISIS1225 - Estructuras de Datos y Algoritmos
- *
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- """
 
 # import dataclass for defining the node type
 from dataclasses import dataclass
 # import typing for defining the type of the element stored at the node
-from typing import TypeVar      # , Generic, Optional
+from typing import TypeVar
 
 
 # Type for the element stored at the node
 T = TypeVar("T")    # T can be any type
+
 
 # valid data types for the node
 VALID_DATA_TYPE_LT = (

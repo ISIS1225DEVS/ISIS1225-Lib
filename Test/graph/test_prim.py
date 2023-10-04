@@ -1,9 +1,9 @@
 import pytest
-import config
+import Test.graph as graph
 from DISClib.ADT import graph as g
 from DISClib.ADT import queue as q
 from DISClib.Algorithms.Graphs import prim
-assert config
+assert graph
 
 
 @pytest.fixture

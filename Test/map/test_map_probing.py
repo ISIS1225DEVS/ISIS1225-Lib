@@ -1,10 +1,10 @@
 
 import pytest
-import config
+import Test.map as map
 from DISClib.DataStructures import mapentry as me
 from DISClib.ADT import map as ht
 from DISClib.ADT import list as lt
-assert config
+assert map
 
 
 @pytest.fixture

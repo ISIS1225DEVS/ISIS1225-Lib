@@ -21,9 +21,9 @@
  """
 
 import pytest
-import config
+import Test.queue as queue
 from DISClib.ADT import queue as q
-assert config
+assert queue
 
 
 @pytest.fixture

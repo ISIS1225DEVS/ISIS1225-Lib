@@ -1,7 +1,7 @@
 import pytest
 import Test.bst as bst
 from DISClib.ADT import orderedmap as omap
-from DISClib.ADT import list as lt
+from DISClib.ADT import lists as lt
 assert bst
 
 

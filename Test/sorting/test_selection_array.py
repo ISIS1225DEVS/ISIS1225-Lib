@@ -22,7 +22,7 @@
 
 import pytest
 import Test.sorting as cf
-from DISClib.ADT import list as lt
+from DISClib.ADT import lists as lt
 from DISClib.Algorithms.Sorting import selectionsort as sa
 
 

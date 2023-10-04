@@ -3,10 +3,10 @@ import unittest
 import pytest
 import random
 # importing the class to be tested
-import config
+# import config
 from DISClib.DataStructures.arraylist import ArrayList
 # asserting module existence
-assert config
+# assert config
 assert ArrayList
 
 

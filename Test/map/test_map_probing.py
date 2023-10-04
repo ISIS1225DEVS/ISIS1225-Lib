@@ -3,7 +3,7 @@ import pytest
 import Test.map as map
 from DISClib.DataStructures import mapentry as me
 from DISClib.ADT import map as ht
-from DISClib.ADT import list as lt
+from DISClib.ADT import lists as lt
 assert map
 
 

@@ -21,8 +21,8 @@
  """
 
 import pytest
-import config as cf
-from DISClib.ADT import list as lt
+# import config as cf
+from DISClib.ADT import lists as lt
 
 
 @pytest.fixture

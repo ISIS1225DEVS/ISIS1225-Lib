@@ -47,14 +47,12 @@ from typing import List, Optional, Callable, Generic, TypeVar
 import inspect
 
 # custom modules
-import config
 # generic error handling and type checking
 from DISClib.Utils.error import error_handler
 from DISClib.Utils.error import init_type_checker
 from DISClib.Utils.error import VALID_DATA_TYPE_LT
 
 # checking costum modules
-assert config
 assert error_handler
 assert init_type_checker
 

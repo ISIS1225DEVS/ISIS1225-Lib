@@ -26,7 +26,9 @@
 
 # FIXME agregar el manejo de excepciones de la libreria
 # TODO crear consistencia en para importar modulos
-from DISClib.DataStructures import indexheap as h
+# from DISClib.DataStructures import indexheap as h
+# from DataStructures.indexheap import indexheap as h
+import DataStructures.indexheap as h
 
 """
 Implementación de una cola de prioridad indexada orientada a menor

@@ -25,8 +25,8 @@
  
 # FIXME agregar el manejo de excepciones de la libreria
 # TODO crear consistencia en para importar modulos
-import config
-assert config
+# import config
+# assert config
 
 """
 Este código está basado en las implementaciones propuestas en:

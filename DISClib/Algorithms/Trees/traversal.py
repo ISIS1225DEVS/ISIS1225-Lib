@@ -25,7 +25,7 @@
  *
  """
 
-from DISClib.ADT import list as lt
+from DISClib.ADT import lists as lt
 
 
 # FIXME Cambiar todas las funciones y variables al formato snake_case

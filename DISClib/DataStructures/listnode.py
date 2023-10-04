@@ -5,12 +5,12 @@ from typing import Generic, TypeVar, Optional
 # import inspect for getting the name of the current function
 import inspect
 # importing DISClib type + error handling
-import config
+# import config
 from DISClib.Utils.error import error_handler
 from DISClib.Utils.error import init_type_checker
 assert error_handler
 assert init_type_checker
-assert config
+# assert config
 
 # Type for the element stored at the node
 T = TypeVar("T")    # T can be any type

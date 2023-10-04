@@ -33,17 +33,15 @@ import inspect
 
 # importing DISClib type + error handling
 # custom modules
-import config
-# generic error message and type checking
+from .listnode import SingleNode as Node
+# generic error handling and type checking
 from DISClib.Utils.error import error_handler
-from DISClib.Utils.error import type_checker
-# single linked list node
-from DISClib.DataStructures.listnode import single_node as node
+from DISClib.Utils.error import init_type_checker
+from DISClib.Utils.error import VALID_DATA_TYPE_LT
 
 # checking costum modules
-assert config
 assert error_handler
-assert type_checker
+assert init_type_checker
 
 """
   Este módulo implementa una estructura de datos lineal mediante una lista
@@ -60,52 +58,6 @@ assert type_checker
 T = TypeVar("T")    # T can be any type
 
 
-class sll_iterator:
-    """ _summary_
-
-    Raises:
-        StopIteration: _description_
-
-    Returns:
-        _type_: _description_
-    """
-    # TODO add docstring
-    def __init__(self, current: Optional[node[T]]) -> None:
-        """__init__ _summary_
-
-        Args:
-            current (Optional[node[T]]): _description_
-        """
-        # TODO add docstring
-        self._current = current
-
-    def __iter__(self) -> "sll_iterator[T]":
-        """__iter__ _summary_
-
-        Returns:
-            sll_iterator[T]: _description_
-        """
-        # TODO add docstring
-        return self
-
-    def __next__(self) -> T:
-        """__next__ _summary_
-
-        Raises:
-            StopIteration: _description_
-
-        Returns:
-            T: _description_
-        """
-        # TODO add docstring
-        if self._current is None:
-            raise StopIteration
-        else:
-            ans = self._current.get_info()
-            self._current = self._current.next()
-            return ans
-
-
 @dataclass
 class SingleLinked(Generic[T]):
     """SingleLinked _summary_
@@ -114,8 +66,8 @@ class SingleLinked(Generic[T]):
         Generic (_type_): _description_
     """    
     # TODO add docstring
-    first: Optional[node[T]] = None
-    last: Optional[node[T]] = None
+    first: Optional[Node[T]] = None
+    last: Optional[Node[T]] = None
     # by default, the list is empty
     _size: int = 0
     # the cmp_function is used to compare elements, not defined by default
@@ -636,9 +588,13 @@ class SingleLinked(Generic[T]):
         except Exception as exp:
             self._handle_error(exp)
 
-    def __iter__(self) -> sll_iterator[T]:
+    def __iter__(self) -> Node[T]:
         # TODO add docstring
-        return sll_iterator(self.first)
+        # return sll_iterator(self.first)
+        current = self.first
+        while current is not None:
+            yield current.get_info()
+            current = current.next()
 
 
 

@@ -23,74 +23,11 @@
  *
  """
 
-
-# native python modules
-# import dataclass to define the single linked list
-from dataclasses import dataclass
-# import modules for defining the element's type in the list
-from typing import Optional, Callable, Generic, TypeVar
-# import inspect for getting the name of the current function
-import inspect
+# import config
+from DISClib.DataStructures import listnode as lknode
+from DISClib.Utils import error as error
 import csv
-
-# importing DISClib type + error handling
-# custom modules
-from .listnode import DoubleNode as Node
-# generic error handling and type checking
-from DISClib.Utils.error import error_handler
-from DISClib.Utils.error import init_type_checker
-from DISClib.Utils.error import VALID_DATA_TYPE_LT
-
-# checking costum modules
-assert error_handler
-assert init_type_checker
-
-"""
-  Este módulo implementa una estructura de datos lineal mediante una lista
-  encadenada sencillamente para almacenar una colección de elementos.
-  Los elementos se cuentan desde la posición 1.
-
-  Este código está basado en la implementación
-  propuesta por R.Sedgewick y Kevin Wayne en su libro
-  Algorithms, 4th Edition
-"""
-
-
-# Type for the element stored in the list
-T = TypeVar("T")    # T can be any type
-
-
-@dataclass
-class DoubleLinked(Generic[T]):
-    """DoubleLinked _summary_
-
-    Args:
-        Generic (_type_): _description_
-    """    
-    # TODO add docstring
-    first: Optional[Node[T]] = None
-    last: Optional[Node[T]] = None
-    # by default, the list is empty
-    _size: int = 0
-    # the cmp_function is used to compare elements, not defined by default
-    cmp_function: Optional[Callable[[T, T], int]] = None
-    # the key is used to compare elements, not defined by default
-    key: Optional[str] = None
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# assert config
 
 """
   Este módulo implementa una estructura de datos lineal mediante una lista
@@ -168,7 +105,7 @@ def addFirst(lst, element):
         Exception
     """
     try:
-        new_node = Node.newDoubleNode(element)
+        new_node = lknode.newDoubleNode(element)
 
         if (lst['size'] == 0):
             lst['last'] = new_node
@@ -199,7 +136,7 @@ def addLast(lst, element):
         Exception
     """
     try:
-        new_node = Node.newDoubleNode(element)
+        new_node = lknode.newDoubleNode(element)
 
         if lst['size'] == 0:
             lst['first'] = new_node
@@ -436,7 +373,7 @@ def insertElement(lst, element, pos):
         Exception
     """
     try:
-        new_node = Node.newDoubleNode(element)
+        new_node = lknode.newDoubleNode(element)
 
         if (pos == 1):
             new_node['next'] = lst['first']

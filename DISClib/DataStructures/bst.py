@@ -25,11 +25,11 @@
  *
  """
 
-import config
+# import config
 from DISClib.DataStructures import bstnode
 from DISClib.Utils import error as error
-from DISClib.ADT import list as lt
-assert config
+from DISClib.ADT import lists as lt
+# assert config
 
 
 """

@@ -1,0 +1,88 @@
+# import python modules
+import os
+import sys
+from pkgutil import extend_path
+
+# import all the modules in the ADT namespaces
+# M1
+# from ADT import *
+from .ADT.dynamic import DynamicImporter
+from .ADT.lists import List
+# import ADT.queue as queue
+# import ADT.stack as stack
+# # M2
+# import ADT.maps as maps
+# # M3
+# import ADT.orderedmap as orderedmap
+# import ADT.indexminpq as indexminpq
+# import ADT.minpq as minpq
+# # M4
+# import ADT.graph as graph
+
+# asserting modules
+assert DynamicImporter
+assert List
+
+# # import all the modules in the Algorithms namespaces
+# # M1
+# import Algorithms.Sorting.selectionsort as selectionsort
+# import Algorithms.Sorting.insertionsort as insertionsort
+# import Algorithms.Sorting.shellsort as shellsort
+# import Algorithms.Sorting.mergesort as mergesort
+# import Algorithms.Sorting.quicksort as quicksort
+# # M3
+# import Algorithms.Trees.traversal as traversal
+# # M4
+# import Algorithms.Graphs.dfs as dfs
+# import Algorithms.Graphs.bfs as bfs
+# import Algorithms.Graphs.dfo as dfo
+# import Algorithms.Graphs.cycles as cycles
+# import Algorithms.Graphs.scc as scc
+# import Algorithms.Graphs.prim as prim
+# import Algorithms.Graphs.dijsktra as dijsktra
+# import Algorithms.Graphs.bellmanford as bellmanford
+
+# # import all the modules in the DataStructures namespaces
+# # M1
+# import DataStructures.arraylist as arraylist
+# import DataStructures.singlelinkedlist as singlelinkedlist
+# import DataStructures.doublelinkedlist as doublelinkedlist
+# import DataStructures.listnode as listnode
+# # M2
+# import DataStructures.chaininghashmap as chaininghashmap
+# import DataStructures.probinghashmap as probinghashmap
+# import DataStructures.mapentry as mapentry
+# # M3
+# import DataStructures.redblacktree as redblacktree
+# import DataStructures.binarysearchtree as binarysearchtree
+# import DataStructures.nodetree as nodetree
+# import DataStructures.heap as heap
+# import DataStructures.indexheap as indexheap
+# import DataStructures.iminpqnode as iminpqnode
+# # M4
+# import DataStructures.adjlist as adjlist
+# import DataStructures.adjmatrix as adjmatrix
+# import DataStructures.edge as edge
+
+# # import all the modules in the Utils namespaces
+from .Utils import error
+assert error
+
+# config the path to the DISCLib folder
+# TODO this used to be in config.py
+file_path = os.path.join(os.path.dirname(__file__), '..', '..')
+file_dir = os.path.dirname(os.path.realpath('__file__'))
+# impoting the path to the DISCLib folder
+sys.path.insert(0, os.path.abspath(file_path))
+
+# __path__ = sys.path
+# # print(__path__)
+# # print(__name__)
+
+# # add namespace packages
+# __path__ = extend_path(__path__, __name__)
+
+# package details
+__version__ = "0.0.3"
+__author__ = "Uniandes, DISC, EDA team"
+__license__ = "GNU 3.0"

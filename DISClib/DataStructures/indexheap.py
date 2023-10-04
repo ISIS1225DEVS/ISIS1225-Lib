@@ -22,9 +22,15 @@
  """
 
 # TODO crear consistencia en para importar modulos
-from DISClib.ADT import map as map
-from DISClib.ADT import list as lt
-from DISClib.Utils import error as error
+# from DISClib.ADT import map as map
+# from DISClib.ADT import lists as lt
+# from DISClib.Utils import error as error
+import DISClib.ADT.maps as map
+# from DISClib.ADT.maps import Map as map
+from DISClib.ADT.lists import List as lt
+from Utils import error as error
+
+
 
 """
 Estructura que contiene la información de una cola de prioridad indexada,

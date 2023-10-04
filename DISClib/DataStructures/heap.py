@@ -24,10 +24,10 @@
  *
  """
 
-import config
-from DISClib.ADT import list as lt
+# import config
+from DISClib.ADT import lists as lt
 from DISClib.Utils import error as error
-assert config
+# assert config
 
 """
 Implementación de un heap basado en arreglo.

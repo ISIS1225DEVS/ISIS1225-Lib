@@ -1,3 +1,5 @@
+
+
 """
  * Copyright 2020, Departamento de sistemas y Computación,
  * Universidad de Los Andes
@@ -26,7 +28,7 @@
 
 
 from DISClib.DataStructures import edge as e
-from DISClib.ADT import list as lt
+from DISClib.ADT import lists as lt
 from DISClib.ADT import indexminpq as pq
 from DISClib.ADT import queue as q
 from DISClib.ADT import map as map

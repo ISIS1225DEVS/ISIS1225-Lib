@@ -24,7 +24,7 @@
  *
  """
 
-from DISClib.ADT import list as lt
+from DISClib.ADT import lists as lt
 from DISClib.ADT import graph as g
 from DISClib.ADT import queue
 from DISClib.ADT import stack

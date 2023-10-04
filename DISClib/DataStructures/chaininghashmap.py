@@ -28,11 +28,11 @@
 
 import random as rd
 import math
-import config
+# import config
 from DISClib.DataStructures import mapentry as me
-from DISClib.ADT import list as lt
+from DISClib.ADT import lists as lt
 from DISClib.Utils import error as error
-assert config
+# assert config
 
 """
 Implementación de una tabla de hash, utilizando Separate Chaining como

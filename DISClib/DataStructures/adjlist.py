@@ -26,12 +26,12 @@
  """
 
 # TODO crear consistencia en para importar modulos
-import config
+# # import config
 from DISClib.ADT import map as map
-from DISClib.ADT import list as lt
+from DISClib.ADT import lists as lt
 from DISClib.DataStructures import edge as e
 from DISClib.Utils import error as error
-assert config
+# assert config
 
 """
 Este código está basado en las implementaciones propuestas en:

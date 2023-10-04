@@ -25,7 +25,7 @@
  """
 
 from DISClib.DataStructures import adjlist as g
-from DISClib.ADT import list as lt
+from DISClib.ADT import lists as lt
 from DISClib.ADT import map as map
 from DISClib.ADT import stack as stk
 from DISClib.Utils import error as error

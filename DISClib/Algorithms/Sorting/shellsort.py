@@ -26,7 +26,7 @@
  """
 
 
-from DISClib.ADT import list as lt
+from DISClib.ADT import lists as lt
 
 """
 Implementación del algoritmo shellsort, basado en

@@ -26,7 +26,7 @@
 
 
 from DISClib.DataStructures import edge as e
-from DISClib.ADT import list as lt
+from DISClib.ADT import lists as lt
 from DISClib.ADT import indexminpq as iminpq
 from DISClib.ADT import map as map
 from DISClib.ADT import graph as g

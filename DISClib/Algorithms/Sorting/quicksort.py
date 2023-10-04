@@ -25,7 +25,7 @@
  *
  """
 
-from DISClib.ADT import list as lt
+from DISClib.ADT import lists as lt
 
 """
   Los algoritmos de este libro están basados en la implementación

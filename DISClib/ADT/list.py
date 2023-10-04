@@ -25,8 +25,61 @@
  """
 
 import importlib
-from DISClib.Utils import error as error
+import config
+from DISClib.DataStructures.arraylist import ArrayList
+assert config
+assert ArrayList
 
+# dic.DataStructures.arraylist import ArrayList
+# from DataStructures.singlelinkedlist import SingleLinkedList
+# from DataStructures.doublelinkedlist import DoubleLinkedList
+# from DISClib.Utils import error as error
+
+
+class List(object):
+
+    instance = None
+    implementation = None
+    module_name = None
+    module = None
+    implementation_class = None
+
+    def __init__(self, implementation: str = "ArrayList", **kwargs):
+        self.implementation = implementation
+        self.module_name = f"{implementation.lower()}"
+        try:
+            self.module = importlib.import_module(self.module_name)
+        except ModuleNotFoundError:
+            raise ValueError(f"Invalid implementation: {implementation}")
+        self.implementation_class = getattr(self.module,
+                                            f"{self.implementation}")
+        self.instance = self.implementation_class(**kwargs)
+
+    def __post_init__(self):
+        self.__class__.__name__ = self.implementation
+
+    def __repr__(self) -> str:
+        return self.instance.__repr__()
+
+    def __getattr__(self, name):
+        # delegate attribute access to the implementation instance
+        return getattr(self.instance, name)
+
+    def start(self):
+        # FIXME this is a hack!!!
+        return self.instance
+
+    @classmethod
+    def __class__(self) -> type:
+        # FIXME this is not working
+        # delegate type() to the implementation instance
+        return self.instance.__class__
+
+    @classmethod
+    def __instancecheck__(self, instance) -> bool:
+        # check if the instance is an instance of the implementation class
+        # FIXME this is not working
+        return isinstance(instance, self.instance.__class__)
 
 """
   Este módulo implementa el tipo abstracto de datos (TAD) lista.
@@ -82,7 +135,8 @@ def newList(datastructure='SINGLE_LINKED',
         )
         return lst
     except Exception as exp:
-        error.reraise(exp, 'TADList->newList: ')
+        raise Exception('TADList->newList: ' + str(exp))
+        # error.reraise(exp, 'TADList->newList: ')
 
 
 # FIXME Cambiar el nombre de la funcion para usar snake_case
@@ -107,7 +161,8 @@ def addFirst(lst, element):
     try:
         lst['datastructure'].addFirst(lst, element)
     except Exception as exp:
-        error.reraise(exp, 'TADList->addFirst: ')
+        raise Exception('TADList->addFirst: ' + str(exp))
+        # error.reraise(exp, 'TADList->addFirst: ')
 
 
 # FIXME Cambiar el nombre de la funcion para usar snake_case
@@ -128,7 +183,8 @@ def addLast(lst, element):
     try:
         lst['datastructure'].addLast(lst, element)
     except Exception as exp:
-        error.reraise(exp, 'TADList->addLast: ')
+        raise Exception('TADList->addLast: ' + str(exp))
+        # error.reraise(exp, 'TADList->addLast: ')
 
 
 # FIXME Cambiar el nombre de la funcion para usar snake_case
@@ -146,7 +202,8 @@ def isEmpty(lst):
     try:
         return lst['datastructure'].isEmpty(lst)
     except Exception as exp:
-        error.reraise(exp, 'TADList->isEmpty: ')
+        raise Exception('TADList->isEmpty: ' + str(exp))
+        # error.reraise(exp, 'TADList->isEmpty: ')
 
 
 # TODO Implementar manejo más detallado de excepciones
@@ -163,7 +220,8 @@ def size(lst):
     try:
         return lst['datastructure'].size(lst)
     except Exception as exp:
-        error.reraise(exp, 'TADList->size: ')
+        raise Exception('TADList->size: ' + str(exp))
+        # error.reraise(exp, 'TADList->size: ')
 
 
 # FIXME Cambiar el nombre de la funcion para usar snake_case
@@ -181,7 +239,8 @@ def firstElement(lst):
     try:
         return lst['datastructure'].firstElement(lst)
     except Exception as exp:
-        error.reraise(exp, 'TADList->firstElement: ')
+        raise Exception('TADList->firstElement: ' + str(exp))
+        # error.reraise(exp, 'TADList->firstElement: ')
 
 
 # FIXME Cambiar el nombre de la funcion para usar snake_case
@@ -199,7 +258,8 @@ def lastElement(lst):
     try:
         return lst['datastructure'].lastElement(lst)
     except Exception as exp:
-        error.reraise(exp, 'TADList->LastElement: ')
+        raise Exception('TADList->lastElement: ' + str(exp))
+        # error.reraise(exp, 'TADList->LastElement: ')
 
 
 # FIXME Cambiar el nombre de la funcion para usar snake_case
@@ -222,7 +282,8 @@ def getElement(lst, pos):
     try:
         return lst['datastructure'].getElement(lst, pos)
     except Exception as exp:
-        error.reraise(exp, 'List->getElement: ')
+        raise Exception('TADList->getElement: ' + str(exp))
+        # error.reraise(exp, 'List->getElement: ')
 
 
 # FIXME Cambiar el nombre de la funcion para usar snake_case
@@ -245,7 +306,8 @@ def deleteElement(lst, pos):
     try:
         lst['datastructure'].deleteElement(lst, pos)
     except Exception as exp:
-        error.reraise(exp, 'TADList->deleteElement: ')
+        raise Exception('TADList->deleteElement: ' + str(exp))
+        # error.reraise(exp, 'TADList->deleteElement: ')
 
 
 # FIXME Cambiar el nombre de la funcion para usar snake_case
@@ -268,7 +330,8 @@ def removeFirst(lst):
     try:
         return lst['datastructure'].removeFirst(lst)
     except Exception as exp:
-        error.reraise(exp, 'TADList->removeFirst: ')
+        raise Exception('TADList->removeFirst: ' + str(exp))
+        # error.reraise(exp, 'TADList->removeFirst: ')
 
 
 # FIXME Cambiar el nombre de la funcion para usar snake_case
@@ -291,7 +354,8 @@ def removeLast(lst):
     try:
         return lst['datastructure'].removeLast(lst)
     except Exception as exp:
-        error.reraise(exp, 'TADList->removeLast: ')
+        raise Exception('TADList->removeLast: ' + str(exp))
+        # error.reraise(exp, 'TADList->removeLast: ')
 
 
 # FIXME Cambiar el nombre de la funcion para usar snake_case
@@ -315,7 +379,8 @@ def insertElement(lst, element, pos):
     try:
         lst['datastructure'].insertElement(lst, element, pos)
     except Exception as exp:
-        error.reraise(exp, 'TADList->insertElement: ')
+        raise Exception('TADList->insertElement: ' + str(exp))
+        # error.reraise(exp, 'TADList->insertElement: ')
 
 
 # FIXME Cambiar el nombre de la funcion para usar snake_case
@@ -339,7 +404,8 @@ def isPresent(lst, element):
     try:
         return lst['datastructure'].isPresent(lst, element)
     except Exception as exp:
-        error.reraise(exp, 'TADList->isPresent: ')
+        raise Exception('TADList->isPresent: ' + str(exp))
+        # error.reraise(exp, 'TADList->isPresent: ')
 
 
 # TODO Implementar manejo más detallado de excepciones
@@ -357,7 +423,8 @@ def exchange(lst, pos1, pos2):
     try:
         lst['datastructure'].exchange(lst, pos1, pos2)
     except Exception as exp:
-        error.reraise(exp, 'List->exchange: ')
+        raise Exception('List->exchange: ' + str(exp))
+        # error.reraise(exp, 'List->exchange: ')
 
 
 # FIXME Cambiar el nombre de la funcion para usar snake_case
@@ -378,7 +445,8 @@ def changeInfo(lst, pos, element):
     try:
         lst['datastructure'].changeInfo(lst, pos, element)
     except Exception as exp:
-        error.reraise(exp, 'List->changeInfo: ')
+        raise Exception('List->changeInfo: ' + str(exp))
+        # error.reraise(exp, 'List->changeInfo: ')
 
 
 # FIXME Cambiar el nombre de la funcion para usar snake_case
@@ -401,7 +469,8 @@ def subList(lst, pos, numelem):
     try:
         return lst['datastructure'].subList(lst, pos, numelem)
     except Exception as exp:
-        error.reraise(exp, 'List->subList: ')
+        raise Exception('List->subList: ' + str(exp))
+        # error.reraise(exp, 'List->subList: ')
 
 
 # TODO Implementar manejo más detallado de excepciones
@@ -417,7 +486,8 @@ def iterator(lst):
     try:
         return lst['datastructure'].iterator(lst)
     except Exception as exp:
-        error.reraise(exp, 'List->Iterator: ')
+        raise Exception('List->Iterator: ' + str(exp))
+        # error.reraise(exp, 'List->Iterator: ')
 
 
 """

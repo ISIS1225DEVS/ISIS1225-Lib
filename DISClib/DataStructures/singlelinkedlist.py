@@ -107,8 +107,8 @@ class sll_iterator:
 
 
 @dataclass
-class single_linked(Generic[T]):
-    """single_linked _summary_
+class SingleLinked(Generic[T]):
+    """SingleLinked _summary_
 
     Args:
         Generic (_type_): _description_
@@ -604,13 +604,13 @@ class single_linked(Generic[T]):
         except Exception as exp:
             self._handle_error(exp)
 
-    def create_sublist(self, start: int, end: int) -> "single_linked[T]":
+    def create_sublist(self, start: int, end: int) -> "SingleLinked[T]":
         # TODO add docstring
         try:
             if start < 0 or end > self._size or start > end:
                 raise Exception("Invalid sublist")
             else:
-                sub_lt = single_linked(cmp_function=self.cmp_function,
+                sub_lt = SingleLinked(cmp_function=self.cmp_function,
                                        key=self.key)
                 for i in range(start, end):
                     sub_lt.add_last(self.get_element(i))
@@ -618,14 +618,14 @@ class single_linked(Generic[T]):
         except Exception as exp:
             self._handle_error(exp)
 
-    def concatenate(self, lst: "single_linked[T]") -> "single_linked[T]":
+    def concatenate(self, lst: "SingleLinked[T]") -> "SingleLinked[T]":
         # TODO add docstring
-        # FIXXME check the algorithm complexity
+        # FIXME check the algorithm complexity
         try:
-            if not isinstance(lst, single_linked):
+            if not isinstance(lst, SingleLinked):
                 raise Exception("Invalid list type")
             else:
-                concat_lt = single_linked(cmp_function=self.cmp_function,
+                concat_lt = SingleLinked(cmp_function=self.cmp_function,
                                           key=self.key)
                 concat_lt.first = self.first
                 concat_lt.last = self.last

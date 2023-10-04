@@ -557,8 +557,7 @@ class ArrayList(Generic[T]):
             return concat_lt
         except TypeError as err:
             self._handle_error(err)
-    
-    
+
     def __iter__(self):
         """__iter__ _summary_
 
@@ -573,7 +572,7 @@ class ArrayList(Generic[T]):
 
 
 # TODO Mejorar la documentación para especificar el uso del parámetro "key"
-def newList(cmpfunction, module, key, filename, delim):
+# def newList(cmpfunction, module, key, filename, delim):
     """Crea una lista vacia.
 
     Args:
@@ -584,11 +583,11 @@ def newList(cmpfunction, module, key, filename, delim):
     Raises:
 
     """
-    pass
+    # pass
 
 
 # FIXME Arreglar la documentación del código
-def addFirst(lst, element):
+# def addFirst(lst, element):
     """Agrega un elemento a la lista en la primera posicion.
 
     Agrega un elemento en la primera posición de la lista, se incrementa
@@ -605,10 +604,10 @@ def addFirst(lst, element):
     Raises:
         Exception
     """
-    pass
+    # pass
 
 
-def addLast(lst, element):
+# def addLast(lst, element):
     """ Agrega un elemento en la última posición de la lista.
 
     Se adiciona un elemento en la última posición de la lista y se actualiza
@@ -621,10 +620,10 @@ def addLast(lst, element):
     Raises:
         Exception
     """
-    pass
+    # pass
 
 
-def isEmpty(lst):
+# def isEmpty(lst):
     """ Indica si la lista está vacía
 
     Args:
@@ -633,7 +632,7 @@ def isEmpty(lst):
     Raises:
         Exception
     """
-    pass
+    # pass
 
 
 def size(lst):
@@ -645,11 +644,11 @@ def size(lst):
     Raises:
         Exception
     """
-    pass
+    # pass
 
 
 # TODO Verificar que la lista no sea vacía antes de obtener el primer elemento
-def firstElement(lst):
+# def firstElement(lst):
     """ Retorna el primer elemento de una lista no vacía.
         No se elimina el elemento.
 
@@ -659,7 +658,7 @@ def firstElement(lst):
     Raises:
         Exception
     """
-    pass
+    # pass
 
 
 def lastElement(lst):
@@ -672,10 +671,10 @@ def lastElement(lst):
     Raises:
         Exception
     """
-    pass
+    # pass
 
 
-def getElement(lst, pos):
+# def getElement(lst, pos):
     """ Retorna el elemento en la posición pos de la lista.
 
     Se recorre la lista hasta el elemento pos, el cual  debe ser mayor
@@ -690,10 +689,10 @@ def getElement(lst, pos):
     Raises:
         Exception
     """
-    pass
+    # pass
 
 
-def deleteElement(lst, pos):
+# def deleteElement(lst, pos):
     """ Elimina el elemento en la posición pos de la lista.
 
     Elimina el elemento que se encuentra en la posición pos de la lista.
@@ -708,10 +707,10 @@ def deleteElement(lst, pos):
     Raises:
         Exception
     """
-    pass
+    # pass
 
 
-def removeFirst(lst):
+# def removeFirst(lst):
     """ Remueve el primer elemento de la lista.
 
     Elimina y retorna el primer elemento de la lista.
@@ -724,10 +723,10 @@ def removeFirst(lst):
     Raises:
         Exception
     """
-    pass
+    # pass
 
 
-def removeLast(lst):
+# def removeLast(lst):
     """ Remueve el último elemento de la lista.
 
     Elimina el último elemento de la lista  y lo retorna en caso de existir.
@@ -740,10 +739,10 @@ def removeLast(lst):
     Raises:
         Exception
     """
-    pass
+    # pass
 
 
-def insertElement(lst, element, pos):
+# def insertElement(lst, element, pos):
     """ Inserta el elemento element en la posición pos de la lista.
 
     Inserta el elemento en la posición pos de la lista.
@@ -759,10 +758,10 @@ def insertElement(lst, element, pos):
     Raises:
         Exception
     """
-    pass
+    # pass
 
 
-def isPresent(lst, e):
+# def isPresent(lst, e):
     """ Informa si el elemento element esta presente en la lista.
 
     Informa si un elemento está en la lista.
@@ -778,10 +777,10 @@ def isPresent(lst, e):
     Raises:
         Exception
     """
-    pass
+    # pass
 
 
-def changeInfo(lst, pos, newinfo):
+# def changeInfo(lst, pos, newinfo):
     """ Cambia la informacion contenida en el nodo de la lista
         que se encuentra en la posicion pos.
 
@@ -794,10 +793,10 @@ def changeInfo(lst, pos, newinfo):
     Raises:
         Exception
     """
-    pass
+    # pass
 
 
-def exchange(lst, pos1, pos2):
+# def exchange(lst, pos1, pos2):
     """ Intercambia la informacion en las posiciones pos1 y pos2 de la lista.
 
     Args:
@@ -808,10 +807,10 @@ def exchange(lst, pos1, pos2):
     Raises:
         Exception
     """
-    pass
+    # pass
 
 
-def subList(lst, pos, numelem):
+# def subList(lst, pos, numelem):
     """ Retorna una sublista de la lista lst.
 
     Se retorna una lista que contiene los elementos a partir de la posicion
@@ -826,10 +825,10 @@ def subList(lst, pos, numelem):
     Raises:
         Exception
     """
-    pass
+    # pass
 
 
-def iterator(lst):
+# def iterator(lst):
     """ Retorna un iterador para la lista.
     Args:
         lst: La lista a iterar
@@ -837,11 +836,11 @@ def iterator(lst):
     Raises:
         Exception
     """
-    pass
+    # pass
 
 
 # TODO Mejorar la documentacion para el return en caso de que no sean iguales
-def compareElements(lst, element, info):
+# def compareElements(lst, element, info):
     """ Compara dos elementos
 
     Se utiliza la función de comparación por defecto si key es None
@@ -856,4 +855,4 @@ def compareElements(lst, element, info):
     Raises:
         Exception
     # """
-    pass
+    # pass

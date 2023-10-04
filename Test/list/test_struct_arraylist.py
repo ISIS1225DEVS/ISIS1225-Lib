@@ -214,7 +214,7 @@ class TestArrayList(unittest.TestCase):
         ar_lt = ArrayList()
         # iterate over tglobal params and use the default cmp function
         for key in self.global_params.keys():
-            # ignore 2 keys from the global params
+            # ignore 3 keys from the global params
             if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
                 # get the test data
                 test_data = self.global_params.get(key)
@@ -242,8 +242,8 @@ class TestArrayList(unittest.TestCase):
         data_type_lt = self.global_params.get("CHECK_TYPE_LT")
         # iterate over tglobal params and create single linked list node
         for key, data_type in zip(self.global_params.keys(), data_type_lt):
-            # ignore 2 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT"):
+            # ignore 3 keys from the global params
+            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
                 test_data = self.global_params.get(key)
                 # create a new arraylist with the test data
                 ar_lt = ArrayList(test_data)
@@ -270,8 +270,8 @@ class TestArrayList(unittest.TestCase):
         dtype_lt = self.global_params.get("CHECK_TYPE_LT")
         # iterate over tglobal params and create single linked list node
         for key, dtype in zip(self.global_params.keys(), dtype_lt):
-            # ignore 2 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT"):
+            # ignore 3 keys from the global params
+            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
                 test_data = self.global_params.get(key)
                 ar_lt = ArrayList(elements=test_data,
                                   key="uuid")
@@ -298,8 +298,8 @@ class TestArrayList(unittest.TestCase):
         dtype_lt = self.global_params.get("CHECK_TYPE_LT")
         # iterate over tglobal params and create single linked list node
         for key, dtype in zip(self.global_params.keys(), dtype_lt):
-            # ignore 2 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT"):
+            # ignore 3 keys from the global params
+            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
                 test_data = self.global_params.get(key)
                 ar_lt = ArrayList(elements=test_data,
                                   cmp_function=cmp_test_function)
@@ -366,6 +366,148 @@ class TestArrayList(unittest.TestCase):
             # test for the arraylist elements is equal to test_data
             assert ar_lt.elements == test_data
 
+    def test_add_first(self):
+        """test_add_first test the add_first method of the arraylist with empty
+            arraylists with different types of elements.
+        """
+        # testing type handling
+        # getting the global variables
+        # type error test data list
+        type_err_lt = self.global_params.get("CHECK_ERR_LT")
+        # data type list
+        dtype_lt = self.global_params.get("CHECK_TYPE_LT")
+        # global params keys
+        param_keys = self.global_params.keys()
+
+        # iterate over the type error list and create a node for each type
+        for key, dtype, err in zip(param_keys, dtype_lt, type_err_lt):
+            # ignore 3 keys from the global params
+            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+                test_data = self.global_params.get(key)
+                # create a new arraylist with the test data
+                with pytest.raises(TypeError) as excinfo:
+                    ar_lt = ArrayList(test_data)
+                    # induce the error by adding an element of a different type
+                    ar_lt.add_first(err)
+                # assert the type error is raised
+                assert "Invalid data type" in str(excinfo.value)
+                # assert the node info is the same type as test_data
+                assert isinstance(test_data[0], dtype)
+                # assert the node info is not the same type as err
+                assert dtype != err
+
+                # testing add_first method normal behavior
+                ar_lt = ArrayList()
+                # iterate over the test data
+                for i in range(len(test_data)):
+                    # get the first element of the test data
+                    t_data = test_data[i]
+                    # add the element to the arraylist
+                    ar_lt.add_first(t_data)
+                    # get the first element of the arraylist
+                    t_elem = ar_lt.get_first()
+                    # test for the arraylist get_first() is equal to test_data
+                    assert t_elem == t_data
+                    # test if the arraylist size is equal to test_len
+                    assert (ar_lt.size() == i+1)
+
+    def test_add_last(self):
+        """test_add_last test the add_last method of the arraylist with empty
+            arraylists with different types of elements. Checks for TypeError
+            exceptions.
+        """
+        # testing type handling
+        # getting the global variables
+        # type error test data list
+        type_err_lt = self.global_params.get("CHECK_ERR_LT")
+        # data type list
+        dtype_lt = self.global_params.get("CHECK_TYPE_LT")
+        # global params keys
+        param_keys = self.global_params.keys()
+
+        # iterate over the type error list and create a node for each type
+        for key, dtype, err in zip(param_keys, dtype_lt, type_err_lt):
+            # ignore 3 keys from the global params
+            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+                test_data = self.global_params.get(key)
+                # create a new arraylist with the test data
+                with pytest.raises(TypeError) as excinfo:
+                    ar_lt = ArrayList(test_data)
+                    # induce the error by adding an element of a different type
+                    ar_lt.add_last(err)
+                # assert the type error is raised
+                assert "Invalid data type" in str(excinfo.value)
+                # assert the node info is the same type as test_data
+                assert isinstance(test_data[0], dtype)
+                # assert the node info is not the same type as err
+                assert dtype != err
+
+                # testing add_lat method normal behavior
+                ar_lt = ArrayList()
+                # iterate over the test data
+                for i in range(len(test_data)):
+                    # get the first element of the test data
+                    t_data = test_data[i]
+                    # add the element to the arraylist
+                    ar_lt.add_last(t_data)
+                    # get the first element of the arraylist
+                    t_elem = ar_lt.get_last()
+                    # test for the arraylist get_last() is equal to test_data
+                    assert t_elem == t_data
+                    # test if the arraylist size is equal to test_len
+                    assert (ar_lt.size() == i+1)
+
+    def test_add_element(self):
+        """test_add_element test the add_element method of the arraylist with
+            empty and non-empty arraylists. Checks for IndexError exceptions.
+        """
+        # create a new empty arraylist
+        ar_lt = ArrayList()
+        # force an exception in the get_element method
+        with pytest.raises(Exception) as excinfo:
+            i = random.randint(0, 100)
+            ar_lt.add_element(i, i)
+        # test for the exception type
+        assert excinfo.type == IndexError
+        # test for the exception message
+        assert "Empty data structure" in str(excinfo.value)
+
+        # iterates over global params and create filled arraylist
+        for key in self.global_params.keys():
+            # ignore 3 keys from the global params
+            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+                # get the test data
+                test_data = self.global_params.get(key)
+                # get the length of the test data
+                test_len = len(test_data)
+                # create a new arraylist with the test data
+                ar_lt = ArrayList(elements=test_data)
+                # select a random valid index in the test data
+                i = random.randint(0, test_len-1)
+                # get the element in the test data
+                test_elm = test_data[i]
+                # force an exception in the add_element method
+                with pytest.raises(Exception) as excinfo:
+                    i = random.randint(test_len*2, test_len*3)
+                    ar_lt.add_element(test_elm, i)
+                # test for the exception type
+                assert excinfo.type == IndexError
+                # test for the exception message
+                assert "is out of range" in str(excinfo.value)
+
+                # select a random valid index in the test data
+                i = random.randint(0, test_len-1)
+                # get the element in the test data
+                t_data = test_data[i]
+                # add the element in the index of the arraylist
+                ar_lt.add_element(t_data, i)
+                # get the added element in the index of the arraylist
+                t_elem = ar_lt.get_element(i)
+                # test if the removed element is equal to the index
+                assert t_elem == t_data
+                # test if the arraylist size is equal to test_len
+                assert (ar_lt.size() == (test_len + 1))
+
     def test_get_first(self):
         """test_get_first test the get_first method of the arraylist with empty
             and non-empty arraylists. Checks for IndexError exceptions.
@@ -382,8 +524,8 @@ class TestArrayList(unittest.TestCase):
 
         # iterates over global params and create filled arraylist
         for key in self.global_params.keys():
-            # ignore 2 keys from the global params
-            # if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT"):
+            # ignore 3 keys from the global params
+            # if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
             # get the test data
             test_data = self.global_params.get(key)
             # get the length of the test data
@@ -411,8 +553,8 @@ class TestArrayList(unittest.TestCase):
 
         # iterates over global params and create filled arraylist
         for key in self.global_params.keys():
-            # ignore 2 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT"):
+            # ignore 3 keys from the global params
+            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
                 # get the test data
                 test_data = self.global_params.get(key)
                 # get the length of the test data
@@ -441,8 +583,8 @@ class TestArrayList(unittest.TestCase):
 
         # iterates over global params and create filled arraylist
         for key in self.global_params.keys():
-            # ignore 2 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT"):
+            # ignore 3 keys from the global params
+            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
                 # get the test data
                 test_data = self.global_params.get(key)
                 # get the length of the test data
@@ -482,8 +624,8 @@ class TestArrayList(unittest.TestCase):
 
         # iterates over global params and create filled arraylist
         for key in self.global_params.keys():
-            # ignore 2 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT"):
+            # ignore 3 keys from the global params
+            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
                 # get the test data
                 test_data = self.global_params.get(key)
                 # get the length of the test data
@@ -514,8 +656,8 @@ class TestArrayList(unittest.TestCase):
 
         # iterates over global params and create filled arraylist
         for key in self.global_params.keys():
-            # ignore 2 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT"):
+            # ignore 3 keys from the global params
+            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
                 # get the test data
                 test_data = self.global_params.get(key)
                 # get the length of the test data
@@ -550,8 +692,8 @@ class TestArrayList(unittest.TestCase):
 
         # iterates over global params and create filled arraylist
         for key in self.global_params.keys():
-            # ignore 2 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT"):
+            # ignore 3 keys from the global params
+            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
                 # get the test data
                 test_data = self.global_params.get(key)
                 # get the length of the test data
@@ -579,72 +721,345 @@ class TestArrayList(unittest.TestCase):
                 # test if the arraylist size is equal to test_len
                 assert (ar_lt.size() == (test_len - 1))
 
-    def test_add_first(self):
-        """test_add_first test the add_first method of the arraylist with empty
-            arraylists with different types of elements.
+    def test_compare_elements(self):
+        """test_compare_elements test the compare_elements method of the
+            arraylist with empty and non-empty arraylists. Checks for
+            TypeError exceptions. It also checks if the compared elements are
+            equal to the index of the arraylist.
         """
+        ar_lt = ArrayList()
+        # delete the default cmp function
+        ar_lt.cmp_function = None
+        # delete the default key
+        ar_lt.key = None
+        # force an exception in the compare_element method
+        with pytest.raises(Exception) as excinfo:
+            i = random.randint(0, 100)
+            j = random.randint(0, 100)
+            ar_lt.compare_elements(i, j)
+        # test for the exception type
+        assert excinfo.type == TypeError
+        # test for the exception message
+        assert "Undefined compare function" in str(excinfo.value)
+
         # iterates over global params and create filled arraylist
         for key in self.global_params.keys():
-            # ignore 2 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT"):
+            # ignore 3 keys from the global params
+            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
                 # get the test data
                 test_data = self.global_params.get(key)
-                # create a new empty arraylist
-                ar_lt = ArrayList()
+                # create a new arraylist with the test data
+                ar_lt = ArrayList(elements=test_data)
+                # if it is the custom dict, use the custom cmp function
+                if key == "TEST_CUSTOM_DICT_LT":
+                    ar_lt = ArrayList(elements=test_data,
+                                      cmp_function=cmp_test_function)
                 # iterate over the test data
                 for i in range(len(test_data)):
-                    # get the first element of the test data
-                    t_data = test_data[i]
-                    # add the element to the arraylist
-                    ar_lt.add_first(t_data)
-                    # get the first element of the arraylist
-                    t_elem = ar_lt.get_first()
-                    # test for the arraylist get_first() is equal to test_data
-                    assert t_elem == t_data
-                    # test if the arraylist size is equal to test_len
-                    assert (ar_lt.size() == i+1)
-
-    def test_add_last(self):
-        """test_add_last _summary_
-        """
-        # TODO add docstring
-
-    def test_add_element(self):
-        """test_add_element _summary_
-        """
-        # TODO add docstring
-
-    def test_compare_elements(self):
-        """test_compare_elements _summary_
-        """
-        # TODO add docstring
+                    # to avoid index out of range
+                    if i > 1 and i < len(test_data) - 1:
+                        # get current element, previous and next
+                        ce = test_data[i]
+                        pe = test_data[i-1]
+                        ne = test_data[i+1]
+                        # test the result with the default cmp function
+                        exp_res = (-1, 0, 1)
+                        res1 = ar_lt.compare_elements(ce, pe) in exp_res
+                        res2 = ar_lt.compare_elements(ce, ce) in exp_res
+                        res3 = ar_lt.compare_elements(ce, ne) in exp_res
+                        # test all 3 conditions are true
+                        assert all([res1, res2, res3])
 
     def test_is_present(self):
         """test_is_present _summary_
         """
         # TODO add docstring
+        # iterates over global params and create filled arraylist
+        for key in self.global_params.keys():
+            # ignore 3 keys from the global params
+            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+                # get the test data
+                test_data = self.global_params.get(key)
+                # create a new arraylist with the test data
+                test_len = len(test_data)
+                ar_lt = ArrayList(elements=test_data)
+                # if it is the custom dict, use the custom cmp function
+                if key == "TEST_CUSTOM_DICT_LT":
+                    ar_lt = ArrayList(elements=test_data,
+                                      cmp_function=cmp_test_function)
+                # select a random valid index in the test data
+                i = random.randint(0, test_len-1)
+                t_data = test_data[i]
+                # test if the element is present in the arraylist
+                idx = ar_lt.is_present(t_data)
+                # test if the index is valid
+                assert -1 <= idx <= test_len-1
 
     def test_change_info(self):
-        """test_change_element _summary_
+        """test_change_element test the change_element method of the arraylist
+            with empty and non-empty arraylists. Checks for IndexError
+            exceptions. It also checks if the changed elements are equal to the
+            index of the arraylist.
         """
         # TODO add docstring
+        # create a new empty arraylist
+        ar_lt = ArrayList()
+        # force an exception in the get_element method
+        with pytest.raises(Exception) as excinfo:
+            i = random.randint(0, 100)
+            ar_lt.change_info(i, i)
+        # test for the exception type
+        assert excinfo.type == IndexError
+        # test for the exception message
+        assert "Empty data structure" in str(excinfo.value)
+
+        # iterates over global params and create filled arraylist
+        for key in self.global_params.keys():
+            # ignore 3 keys from the global params
+            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+                # get the test data
+                test_data = self.global_params.get(key)
+                # get the length of the test data
+                test_len = len(test_data)
+                # create a new arraylist with the test data
+                ar_lt = ArrayList(elements=test_data)
+                # if it is the custom dict, use the custom cmp function
+                if key == "TEST_CUSTOM_DICT_LT":
+                    ar_lt = ArrayList(elements=test_data,
+                                      cmp_function=cmp_test_function)
+                # select a random valid index in the test data
+                i = random.randint(0, test_len-1)
+                # get the element in the test data
+                test_elm = test_data[i]
+                # force an exception in the change_info method
+                with pytest.raises(Exception) as excinfo:
+                    i = random.randint(test_len*2, test_len*3)
+                    ar_lt.change_info(test_elm, i)
+                # test for the exception type
+                assert excinfo.type == IndexError
+                # test for the exception message
+                assert "is out of range" in str(excinfo.value)
+
+                # select a random valid index in the test data
+                i = random.randint(0, test_len-1)
+                # get the element in the test data
+                t_data = test_data[i]
+                # add the element in the index of the arraylist
+                ar_lt.change_info(t_data, i)
+                # get the added element in the index of the arraylist
+                t_elem = ar_lt.get_element(i)
+                # test if the removed element is equal to the index
+                assert t_elem == t_data
+                # test if the arraylist size is equal to test_len
+                assert (ar_lt.size() == test_len)
 
     def test_exchange(self):
-        """test_exchange _summary_
+        """test_exchange test the exchange method of the arraylist with empty
+            and non-empty arraylists. Checks for IndexError exceptions. It also
+            checks if the exchanged elements are equal to the index of the
+            arraylist.
         """
-        # TODO add docstring
+        # create a new empty arraylist
+        ar_lt = ArrayList()
+        # force an exception in the exchange method
+        with pytest.raises(Exception) as excinfo:
+            i = random.randint(0, 100)
+            i, j = random.sample(range(0, 100), 2)
+            ar_lt.exchange(i, j)
+        # test for the exception type
+        assert excinfo.type == IndexError
+        # test for the exception message
+        assert "Empty data structure" in str(excinfo.value)
 
-    def test_sub_lt(self):
-        """test_create_sublist _summary_
+        # iterates over global params and create filled arraylist
+        for key in self.global_params.keys():
+            # ignore 3 keys from the global params
+            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+                # get the test data
+                test_data = self.global_params.get(key)
+                # get the length of the test data
+                test_len = len(test_data)
+                # create a new arraylist with the test data
+                ar_lt = ArrayList(elements=test_data)
+                # if it is the custom dict, use the custom cmp function
+                if key == "TEST_CUSTOM_DICT_LT":
+                    ar_lt = ArrayList(elements=test_data,
+                                      cmp_function=cmp_test_function)
+
+                # force an exception in the exchange method
+                with pytest.raises(Exception) as excinfo:
+                    i, j = random.sample(range(test_len*2, test_len*3), 2)
+                    ar_lt.exchange(i, j)
+                # test for the exception type
+                assert excinfo.type == IndexError
+                # test for the exception message
+                assert "is out of range" in str(excinfo.value)
+
+                # select a random valid index in the test data
+                i, j = random.sample(range(0, test_len-1), 2)
+                # get the elements in the test data
+                test_elm1 = test_data[i]
+                test_elm2 = test_data[j]
+
+                # exchange the elements in the index of the arraylist
+                ar_lt.exchange(i, j)
+                # get the exchanged elements in the index of the arraylist
+                exch_elm1 = ar_lt.get_element(i)
+                exch_elm2 = ar_lt.get_element(j)
+
+                # test if the removed element is equal to the index
+                assert exch_elm1 == test_elm2
+                assert exch_elm2 == test_elm1
+                # test if the arraylist size is equal to test_len
+                assert (ar_lt.size() == test_len)
+
+    def test_sublist(self):
+        """test_create_sublist test the sublist method of the arraylist with
+            empty and non-empty arraylists. Checks for IndexError exceptions.
+            It also checks if the sublist is an arraylist and if the elements
+            are equal to the sublist of the test data.
         """
-        # TODO add docstring
+        # create a new empty arraylist
+        ar_lt = ArrayList()
+        # force an exception in the sublist method
+        with pytest.raises(Exception) as excinfo:
+            i = random.randint(0, 100)
+            i, j = random.sample(range(0, 100), 2)
+            ar_lt.sublist(i, j)
+        # test for the exception type
+        assert excinfo.type == IndexError
+        # test for the exception message
+        assert "Empty data structure" in str(excinfo.value)
+
+        # iterates over global params and create filled arraylist
+        for key in self.global_params.keys():
+            # ignore 3 keys from the global params
+            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+                # get the test data
+                test_data = self.global_params.get(key)
+                # get the length of the test data
+                test_len = len(test_data)
+                # create a new arraylist with the test data
+                ar_lt = ArrayList(elements=test_data)
+                # if it is the custom dict, use the custom cmp function
+                if key == "TEST_CUSTOM_DICT_LT":
+                    ar_lt = ArrayList(elements=test_data,
+                                      cmp_function=cmp_test_function)
+
+                # force an exception in the sublist method
+                with pytest.raises(Exception) as excinfo:
+                    i, j = random.sample(range(test_len*2, test_len*3), 2)
+                    ar_lt.sublist(i, j)
+                # test for the exception type
+                assert excinfo.type == IndexError
+                # test for the exception message
+                assert "Invalid range: between" in str(excinfo.value)
+
+                # select a random valid a low index in the test data
+                low = random.randint(0, test_len-1)
+                # select a random valid a high index in the test data
+                high = random.randint(low, test_len-1)
+                # get the elements in the test data
+                sub_lt = list(test_data[low:high])
+                # get the elements size in the test data
+                sub_lt_size = len(sub_lt)
+                # create a sublist with the low and high index
+                sub_ar_lt = ar_lt.sublist(low, high)
+                # test for the sublist size is an arraylist
+                assert isinstance(sub_ar_lt, ArrayList)
+                # test for the sublist size is equal to test_len
+                assert sub_lt_size == sub_ar_lt.size()
+                # test for the sublist elements are equal to sub_lt
+                assert sub_lt == sub_ar_lt.elements
 
     def test_concat(self):
-        """test_concatenate _summary_
+        """test_concat test the concat method of the arraylist with two
+            filled arraylists. Checks for TypeError exceptions, it can only
+            concatenate with another arraylist, with the same key and cmp
+            function.
         """
-        # TODO add docstring
+        # iterates over global params and create filled arraylist
+        for key in self.global_params.keys():
+            # ignore 3 keys from the global params
+            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+                # get the test data
+                test_data = self.global_params.get(key)
+                # create a new arraylist with the test data
+                ar_lt1 = ArrayList(elements=test_data)
+                # create a python list with the test data
+                ar_lt2 = test_data.copy()
+
+                # force an exception in the concat method
+                with pytest.raises(Exception) as excinfo:
+                    ar_lt1.concat(ar_lt2)
+                # test for the exception type
+                assert excinfo.type == TypeError
+                # test for the exception message
+                err_msg = "Structure is not an ArrayList:"
+                assert err_msg in str(excinfo.value)
+
+                # create a new arraylist with the wrong key
+                ar_lt2 = ArrayList(elements=test_data,
+                                   key="testid")
+                # force an exception in the concat method
+                with pytest.raises(Exception) as excinfo:
+                    ar_lt1.concat(ar_lt2)
+                # test for the exception type
+                assert excinfo.type == TypeError
+                # test for the exception message
+                assert "Invalid key:" in str(excinfo.value)
+
+                # create a new arraylist with the wrong cmp function
+                ar_lt2 = ArrayList(elements=test_data,
+                                   cmp_function=cmp_test_function)
+                # force an exception in the concat method
+                with pytest.raises(Exception) as excinfo:
+                    ar_lt1.concat(ar_lt2)
+                # test for the exception type
+                assert excinfo.type == TypeError
+                # test for the exception message
+                assert "Invalid cmp_function:" in str(excinfo.value)
+
+                # create a new correct arraylist with the test data
+                ar_lt1 = ArrayList(elements=test_data)
+                ar_lt2 = ArrayList(elements=test_data)
+                # if it is the custom dict, use the custom cmp function
+                if key == "TEST_CUSTOM_DICT_LT":
+                    ar_lt1 = ArrayList(elements=test_data,
+                                       cmp_function=cmp_test_function)
+                    ar_lt2 = ArrayList(elements=test_data,
+                                       cmp_function=cmp_test_function)
+                # create the new concatenated arraylist
+                ans = ar_lt1.concat(ar_lt2)
+                assert isinstance(ans, ArrayList)
+                assert ans.size() == ar_lt1.size() + ar_lt2.size()
+                assert ans.elements == ar_lt1.elements + ar_lt2.elements
+                assert ans.key == ar_lt1.key and ans.key == ar_lt2.key
+                assert ans.cmp_function == ar_lt1.cmp_function
+                assert ans.cmp_function == ar_lt1.cmp_function
 
     def test_iterator(self):
-        """test_iterator _summary_
+        """test_iterator test the iterator method of the arraylist with a
+            filled arraylist. Checks for StopIteration exceptions.
         """
-        # TODO add docstring
+        # iterates over global params and create filled arraylist
+        for key in self.global_params.keys():
+            # ignore 3 keys from the global params
+            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+                # get the test data
+                test_data = self.global_params.get(key)
+                # create a new arraylist with the test data
+                test_len = len(test_data)
+                ar_lt = ArrayList(elements=test_data)
+                # if it is the custom dict, use the custom cmp function
+                if key == "TEST_CUSTOM_DICT_LT":
+                    ar_lt = ArrayList(elements=test_data,
+                                      cmp_function=cmp_test_function)
+                # iterates over the arraylist and the test data and compare
+                for element, data in zip(ar_lt, test_data):
+                    # test for the element is equal to test_data
+                    assert element == data
+                    # test for the element type is equal to test_data
+                    assert type(element) is type(data)
+                # test for the iterator is exhausted and the StopIteration
+                assert ar_lt.size() == test_len

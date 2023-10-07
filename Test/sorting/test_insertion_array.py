@@ -21,7 +21,7 @@
  """
 
 import pytest
-import Test.sorting as cf
+# import Test.sorting as cf
 from DISClib.ADT import lists as lt
 from DISClib.Algorithms.Sorting import insertionsort as sa
 

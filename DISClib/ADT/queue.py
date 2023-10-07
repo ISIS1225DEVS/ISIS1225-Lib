@@ -25,9 +25,40 @@
  *
  """
 
-from Utils import error as error
-from ADT.lists import List as lt
+# native python modules
+# import dataclass to define the array list
+from dataclasses import dataclass, field
+# import modules for defining the element's type in the array
+from typing import List, Optional, Callable, Generic, TypeVar
+# import inspect for getting the name of the current function
+import inspect
+
+# custom modules
 # from DISClib.ADT import list as lt
+from .lists import List as lt
+# generic error handling and type checking
+from DISClib.Utils.error import error_handler
+from DISClib.Utils.error import init_type_checker
+# from DISClib.Utils.error import VALID_DATA_TYPE_LT
+
+# checking costum modules
+assert error_handler
+assert init_type_checker
+
+
+# Type for the element stored in the list
+T = TypeVar("T")    # T can be any type
+
+
+@dataclass
+class Queue(Generic[T]):
+    """ArrayList _summary_
+
+    Args:
+        Generic (_type_): _description_
+    """
+    # TODO add docstring
+    pass
 
 
 """
@@ -53,7 +84,8 @@ def newQueue(datastructure='SINGLE_LINKED'):
     try:
         return lt.newList(datastructure)
     except Exception as exp:
-        error.reraise(exp, 'TADQueue->newQueue: ')
+        raise Exception('TADQueue->newQueue: ' + str(exp))
+        # error.reraise(exp, 'TADQueue->newQueue: ')
 
 
 # FIXME: Cambiar "pila" por "cola" en la documentación
@@ -74,7 +106,8 @@ def enqueue(queue, element):
         lt.addLast(queue, element)
         return queue
     except Exception as ex:
-        error.reraise(ex, 'enqueue ')
+        raise Exception('TADQueue->enqueue: ' + str(ex))
+        # error.reraise(ex, 'enqueue ')
 
 
 # FIXME: Cambiar la descripción para decir qué hace y no qué retorna
@@ -91,7 +124,8 @@ def dequeue(queue):
     try:
         return lt.removeFirst(queue)
     except Exception as exp:
-        error.reraise(exp, 'eTADQueu->dequeue: ')
+        raise Exception('TADQueue->dequeue: ' + str(exp))
+        # error.reraise(exp, 'eTADQueu->dequeue: ')
 
 
 # FIXME Cambiar la descripción para decir qué hace y no qué retorna
@@ -109,7 +143,8 @@ def peek(queue):
     try:
         return lt.firstElement(queue)
     except Exception as exp:
-        error.reraise(exp, 'TADQueue->isEmpty: ')
+        raise Exception('TADQueue->peek: ' + str(exp))
+        # error.reraise(exp, 'TADQueue->isEmpty: ')
 
 
 # FIXME Cambiar el nombre de la función al formato snake_case
@@ -126,7 +161,8 @@ def isEmpty(queue):
     try:
         return lt.isEmpty(queue)
     except Exception as exp:
-        error.reraise(exp, 'TADQueue->isEmpty: ')
+        raise Exception('TADQueue->isEmpty: ' + str(exp))
+        # error.reraise(exp, 'TADQueue->isEmpty: ')
 
 
 def size(queue):
@@ -143,4 +179,5 @@ def size(queue):
     try:
         return lt.size(queue)
     except Exception as exp:
-        error.reraise(exp, 'TADQueue->size: ')
+        raise Exception('TADQueue->size: ' + str(exp))
+        # error.reraise(exp, 'TADQueue->size: ')

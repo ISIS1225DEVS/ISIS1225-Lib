@@ -20,9 +20,9 @@
  """
 
 import pytest
-import Test.stack as stack
+# import Test.stack as stack
 from DISClib.ADT import stack as st
-assert stack
+# assert stack
 
 
 @pytest.fixture
@@ -120,7 +120,7 @@ def test_top_pop(stack, books):
     total = st.size(stack)
     while not (st.isEmpty(stack)):
         top = st.top(stack)
-        assert(st.pop(stack) == top)
+        assert (st.pop(stack) == top)
         total -= 1
         assert (total == st.size(stack))
 
@@ -130,34 +130,34 @@ def test_push_pop(stack, books):
     assert (st.isEmpty(stack))
 
     st.push(stack, books[5])
-    assert(st.size(stack) == 1)
-    assert(st.top(stack) == st.pop(stack))
-    assert(st.size(stack) == 0)
+    assert (st.size(stack) == 1)
+    assert (st.top(stack) == st.pop(stack))
+    assert (st.size(stack) == 0)
 
     st.push(stack, books[6])
-    assert(st.size(stack) == 1)
-    assert(st.top(stack) == st.pop(stack))
-    assert(st.size(stack) == 0)
+    assert (st.size(stack) == 1)
+    assert (st.top(stack) == st.pop(stack))
+    assert (st.size(stack) == 0)
 
     st.push(stack, books[3])
-    assert(st.size(stack) == 1)
-    assert(st.top(stack) == st.pop(stack))
-    assert(st.size(stack) == 0)
+    assert (st.size(stack) == 1)
+    assert (st.top(stack) == st.pop(stack))
+    assert (st.size(stack) == 0)
 
     st.push(stack, books[10])
-    assert(st.size(stack) == 1)
-    assert(st.top(stack) == st.pop(stack))
-    assert(st.size(stack) == 0)
+    assert (st.size(stack) == 1)
+    assert (st.top(stack) == st.pop(stack))
+    assert (st.size(stack) == 0)
 
     st.push(stack, books[1])
-    assert(st.size(stack) == 1)
-    assert(st.top(stack) == st.pop(stack))
-    assert(st.size(stack) == 0)
+    assert (st.size(stack) == 1)
+    assert (st.top(stack) == st.pop(stack))
+    assert (st.size(stack) == 0)
 
     st.push(stack, books[2])
-    assert(st.size(stack) == 1)
-    assert(st.top(stack) == st.pop(stack))
-    assert(st.size(stack) == 0)
+    assert (st.size(stack) == 1)
+    assert (st.top(stack) == st.pop(stack))
+    assert (st.size(stack) == 0)
 
     st.push(stack, books[8])
     st.push(stack, books[4])
@@ -175,7 +175,7 @@ def test_push_pop(stack, books):
 
 def test_error_pop(stack):
     assert (st.size(stack) == 0)
-    assert(st.isEmpty(stack))
+    assert (st.isEmpty(stack))
 
     with pytest.raises(Exception):
         st.pop(stack)

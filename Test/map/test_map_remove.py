@@ -1,9 +1,9 @@
 
 import pytest
-import Test.map as map
+# import Test.map as map
 from DISClib.DataStructures import mapentry as me
-from DISClib.ADT import map as ht
-assert map
+from DISClib.ADT import maps as ht
+# assert map
 
 
 @pytest.fixture

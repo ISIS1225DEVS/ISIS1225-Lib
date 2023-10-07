@@ -1,7 +1,7 @@
 import pytest
-import Test.minpq as minpq
+# import Test.minpq as minpq
 from DISClib.ADT import indexminpq as pq
-assert minpq
+# assert minpq
 
 
 def greater(key1, entry):

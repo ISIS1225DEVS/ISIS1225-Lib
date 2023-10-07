@@ -9,8 +9,8 @@ import sys
 # from ADT import *
 from .ADT.dynamic import DynamicImporter
 from .ADT.lists import List
-# import ADT.queue as queue
-# import ADT.stack as stack
+from .ADT.queue import Queue
+from .ADT.stack import Stack
 # # M2
 # import ADT.maps as maps
 # # M3
@@ -20,11 +20,7 @@ from .ADT.lists import List
 # # M4
 # import ADT.graph as graph
 
-# asserting modules
-assert DynamicImporter
-assert List
-
-# # import all the modules in the Algorithms namespaces
+# import all the modules in the Algorithms namespaces
 # # M1
 # import Algorithms.Sorting.selectionsort as selectionsort
 # import Algorithms.Sorting.insertionsort as insertionsort
@@ -66,8 +62,29 @@ assert List
 # import DataStructures.edge as edge
 
 # # import all the modules in the Utils namespaces
-from .Utils import error
-assert error
+from .Utils.error import error_handler
+from .Utils.error import init_type_checker
+
+# asserting modules
+# M1
+assert DynamicImporter
+assert List
+assert Queue
+assert Stack
+# M2
+# assert maps
+
+# M3
+# assert orderedmap
+# assert indexminpq
+# assert minpq
+
+# M4
+# assert graph
+
+# Utils
+assert error_handler
+assert init_type_checker
 
 # config the path to the DISCLib folder
 # TODO this used to be in config.py

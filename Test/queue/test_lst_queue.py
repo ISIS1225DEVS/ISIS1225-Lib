@@ -21,9 +21,9 @@
  """
 
 import pytest
-import Test.queue as queue
+# import Test.queue as queue
 from DISClib.ADT import queue as q
-assert queue
+# assert queue
 
 
 @pytest.fixture
@@ -151,7 +151,7 @@ def test_peek_dequeue(queue, books):
     total = q.size(queue)
     while not (q.isEmpty(queue)):
         peek = q.peek(queue)
-        assert(q.dequeue(queue) == peek)
+        assert (q.dequeue(queue) == peek)
         total -= 1
         assert (total == q.size(queue))
 
@@ -165,34 +165,34 @@ def test_enqueue_dequeue(queue, books):
     """
 
     q.enqueue(queue, books[5])
-    assert(q.size(queue) == 1)
-    assert(q.peek(queue) == q.dequeue(queue))
-    assert(q.size(queue) == 0)
+    assert (q.size(queue) == 1)
+    assert (q.peek(queue) == q.dequeue(queue))
+    assert (q.size(queue) == 0)
 
     q.enqueue(queue, books[6])
-    assert(q.size(queue) == 1)
-    assert(q.peek(queue) == q.dequeue(queue))
-    assert(q.size(queue) == 0)
+    assert (q.size(queue) == 1)
+    assert (q.peek(queue) == q.dequeue(queue))
+    assert (q.size(queue) == 0)
 
     q.enqueue(queue, books[3])
-    assert(q.size(queue) == 1)
-    assert(q.peek(queue) == q.dequeue(queue))
-    assert(q.size(queue) == 0)
+    assert (q.size(queue) == 1)
+    assert (q.peek(queue) == q.dequeue(queue))
+    assert (q.size(queue) == 0)
 
     q.enqueue(queue, books[10])
-    assert(q.size(queue) == 1)
-    assert(q.peek(queue) == q.dequeue(queue))
-    assert(q.size(queue) == 0)
+    assert (q.size(queue) == 1)
+    assert (q.peek(queue) == q.dequeue(queue))
+    assert (q.size(queue) == 0)
 
     q.enqueue(queue, books[1])
-    assert(q.size(queue) == 1)
-    assert(q.peek(queue) == q.dequeue(queue))
-    assert(q.size(queue) == 0)
+    assert (q.size(queue) == 1)
+    assert (q.peek(queue) == q.dequeue(queue))
+    assert (q.size(queue) == 0)
 
     q.enqueue(queue, books[2])
-    assert(q.size(queue) == 1)
-    assert(q.peek(queue) == q.dequeue(queue))
-    assert(q.size(queue) == 0)
+    assert (q.size(queue) == 1)
+    assert (q.peek(queue) == q.dequeue(queue))
+    assert (q.size(queue) == 0)
 
     q.enqueue(queue, books[8])
     q.enqueue(queue, books[4])

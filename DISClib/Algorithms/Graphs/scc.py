@@ -29,7 +29,7 @@ from DISClib.ADT import graph as g
 from DISClib.ADT import stack
 from DISClib.Algorithms.Graphs import dfo
 from DISClib.Utils import error as error
-from DISClib.ADT import map
+from DISClib.ADT import maps
 
 
 """ Cambios generales """

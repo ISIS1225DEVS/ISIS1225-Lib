@@ -28,6 +28,8 @@
 # TODO crear consistencia en para importar modulos
 # from DISClib.DataStructures import indexheap as h
 # from DataStructures.indexheap import indexheap as h
+from Utils.error import error_handler
+from Utils.error import init_type_checker
 import DataStructures.indexheap as h
 
 """

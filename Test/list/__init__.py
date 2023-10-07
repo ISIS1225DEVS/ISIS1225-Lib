@@ -13,7 +13,6 @@ assert TestNode
 assert TestSingleNode
 assert TestDoubleNode
 
-
 # config the path to the DISCLib folder
 # TODO this used to be in config.py
 file_path = os.path.join(os.path.dirname(__file__), '..', '..')

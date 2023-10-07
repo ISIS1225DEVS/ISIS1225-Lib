@@ -1,9 +1,14 @@
 import pytest
-import Test.graph as graph
+import unittest
+# import Test.graph as graph
 from DISClib.ADT import graph as g
 from DISClib.ADT import stack
 from DISClib.Algorithms.Graphs import cycles as c
-assert graph
+# assert graph
+
+
+class TestCycle(unittest.TestCase):
+    pass
 
 
 @pytest.fixture

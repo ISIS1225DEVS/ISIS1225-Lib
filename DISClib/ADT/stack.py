@@ -25,10 +25,48 @@
  *
  """
 
-from Utils import error as error
-from ADT.lists import List as lt
+# from Utils import error as error
+# from Utils.error import error_handler
+# from Utils.error import init_type_checker
+# from ADT.lists import List as lt
 # from DISClib.Utils import error as error
 # from DISClib.ADT import list as lt
+
+# native python modules
+# import dataclass to define the array list
+from dataclasses import dataclass, field
+# import modules for defining the element's type in the array
+from typing import List, Optional, Callable, Generic, TypeVar
+# import inspect for getting the name of the current function
+import inspect
+
+# custom modules
+# from DISClib.ADT import list as lt
+from .lists import List as lt
+# generic error handling and type checking
+from DISClib.Utils.error import error_handler
+from DISClib.Utils.error import init_type_checker
+from DISClib.Utils.error import VALID_DATA_TYPE_LT
+
+# checking costum modules
+assert error_handler
+assert init_type_checker
+
+
+# Type for the element stored in the list
+T = TypeVar("T")    # T can be any type
+
+
+@dataclass
+class Stack(Generic[T]):
+    """ArrayList _summary_
+
+    Args:
+        Generic (_type_): _description_
+    """
+    # TODO add docstring
+    pass
+
 
 """
   Este módulo implementa el tipo abstracto de datos pila
@@ -52,7 +90,8 @@ def newStack(datastructure='DOUBLE_LINKED'):
     try:
         return lt.newList(datastructure, None)
     except Exception as exp:
-        error.reraise(exp, 'TADStack->newStack: ')
+        raise Exception('TADStack->newStack: ' + str(exp))
+        # error.reraise(exp, 'TADStack->newStack: ')
 
 
 # TODO Especifiar detalladamente los tipos de errores de la Exception
@@ -73,7 +112,8 @@ def push(stack, element):
         lt.addLast(stack, element)
         return stack
     except Exception as exp:
-        error.reraise(exp, 'TADStack->Push: ')
+        raise Exception('TADStack->Push: ' + str(exp))
+        # error.reraise(exp, 'TADStack->Push: ')
 
 
 # TODO Especifiar detalladamente los tipos de errores de la Exception
@@ -95,7 +135,8 @@ def pop(stack):
         else:
             raise Exception
     except Exception as exp:
-        error.reraise(exp, 'TADStack->pop: ')
+        raise Exception('TADStack->pop: ' + str(exp))
+        # error.reraise(exp, 'TADStack->pop: ')
 
 
 # FIXME Cambiar el nombre de la funcion para usar snake_case
@@ -115,7 +156,8 @@ def isEmpty(stack):
     try:
         return lt.isEmpty(stack)
     except Exception as exp:
-        error.reraise(exp, 'TADStack->isEmpty: ')
+        raise Exception('TADStack->isEmpty: ' + str(exp))
+        # error.reraise(exp, 'TADStack->isEmpty: ')
 
 
 # TODO Especifiar detalladamente los tipos de errores de la Exception
@@ -135,7 +177,8 @@ def top(stack):
     try:
         return lt.lastElement(stack)
     except Exception as exp:
-        error.reraise(exp, 'TADStack->top: ')
+        raise Exception('TADStack->top: ' + str(exp))
+        # error.reraise(exp, 'TADStack->top: ')
 
 
 # TODO Especifiar detalladamente los tipos de errores de la Exception
@@ -153,4 +196,5 @@ def size(stack):
     try:
         return lt.size(stack)
     except Exception as exp:
-        error.reraise(exp, 'TADStack->size: ')
+        raise Exception('TADStack->size: ' + str(exp))
+        # error.reraise(exp, 'TADStack->size: ')

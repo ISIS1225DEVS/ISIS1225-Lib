@@ -1,9 +1,15 @@
 import pytest
-import Test.graph as graph
+import unittest
+# import Test.graph as graph
 from DISClib.ADT import graph as g
 from DISClib.ADT import stack
 from DISClib.Algorithms.Graphs import dijsktra as djk
-assert graph
+# assert graph
+
+
+class TestDijkstra(unittest.TestCase):
+    pass
+
 
 
 @pytest.fixture

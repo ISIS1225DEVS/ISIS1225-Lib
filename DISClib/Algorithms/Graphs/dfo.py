@@ -28,7 +28,7 @@ from DISClib.ADT import lists as lt
 from DISClib.ADT import graph as g
 from DISClib.ADT import queue
 from DISClib.ADT import stack
-from DISClib.ADT import map
+from DISClib.ADT import maps
 from DISClib.Utils import error as error
 
 

@@ -1,9 +1,14 @@
 import pytest
-import Test.graph as graph
+import unittest
+# import Test.graph as graph
 from DISClib.ADT import graph as g
 from DISClib.ADT import stack
 from DISClib.Algorithms.Graphs import bellmanford as bf
-assert graph
+# assert graph
+
+
+class TestBellmanFord(unittest.TestCase):
+    pass
 
 
 @pytest.fixture

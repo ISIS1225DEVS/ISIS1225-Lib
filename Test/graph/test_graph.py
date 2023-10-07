@@ -1,8 +1,15 @@
 import pytest
-import Test.graph as graph
+import unittest
+# import Test.graph as graph
 from DISClib.DataStructures import edge as e
 from DISClib.ADT import graph as g
-assert graph
+# assert graph
+
+class TestGraph(unittest.TestCase):
+    pass
+
+
+
 
 
 @pytest.fixture

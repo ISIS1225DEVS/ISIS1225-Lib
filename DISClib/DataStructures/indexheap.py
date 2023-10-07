@@ -22,7 +22,7 @@
  """
 
 # TODO crear consistencia en para importar modulos
-# from DISClib.ADT import map as map
+# from DISClib.ADT import maps as map
 # from DISClib.ADT import lists as lt
 # from DISClib.Utils import error as error
 import DISClib.ADT.maps as map

@@ -1,10 +1,16 @@
 import pytest
-import Test.graph as graph
+import unittest
+# import Test.graph as graph
 from DISClib.DataStructures import edge as e
 from DISClib.ADT import graph as g
 from DISClib.ADT import stack as stk
 from DISClib.Algorithms.Graphs import dfs
-assert graph
+# assert graph
+
+
+class TestDFS(unittest.TestCase):
+    pass
+
 
 
 @pytest.fixture

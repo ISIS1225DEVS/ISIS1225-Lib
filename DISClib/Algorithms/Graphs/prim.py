@@ -31,7 +31,7 @@ from DISClib.DataStructures import edge as e
 from DISClib.ADT import lists as lt
 from DISClib.ADT import indexminpq as pq
 from DISClib.ADT import queue as q
-from DISClib.ADT import map as map
+from DISClib.ADT import maps as map
 from DISClib.ADT import graph as g
 from DISClib.Utils import error as error
 import math

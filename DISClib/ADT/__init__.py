@@ -4,10 +4,10 @@ import sys
 
 # import all the modules to package
 # M1
-from .lists import List
 from .dynamic import DynamicImporter
-# from . import queue
-# from . import stack
+from .lists import List
+from . import queue
+from . import stack
 # M2
 # from . import maps
 # # M3
@@ -17,8 +17,10 @@ from .dynamic import DynamicImporter
 # # M4
 # from . import graph
 
-assert List
 assert DynamicImporter
+assert List
+assert queue
+assert stack
 
 # config the path to the DISCLib folder
 # TODO this used to be in config.py

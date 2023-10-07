@@ -173,7 +173,7 @@ Por el momento, la librería **DISClib** está disponible como una dependencia l
 
    ```python
     from DISClib.ADT import list as lt
-    from DISClib.ADT import map as mp
+    from DISClib.ADT import maps as mp
    ```
 
 1. ¡Empieza a programar!

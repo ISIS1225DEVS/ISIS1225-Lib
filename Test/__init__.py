@@ -13,8 +13,10 @@ assert test_struct_arraylist
 assert test_struct_listnode
 
 # # import all the modules in the Utils namespaces
-from .Utils import error
-assert error
+from DISClib.Utils.error import error_handler
+from DISClib.Utils.error import init_type_checker
+assert error_handler
+assert init_type_checker
 
 # config the path to the DISCLib folder
 # TODO this used to be in config.py

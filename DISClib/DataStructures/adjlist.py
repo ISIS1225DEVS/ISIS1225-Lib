@@ -27,7 +27,7 @@
 
 # TODO crear consistencia en para importar modulos
 # # import config
-from DISClib.ADT import map as map
+from DISClib.ADT import maps as map
 from DISClib.ADT import lists as lt
 from DISClib.DataStructures import edge as e
 from DISClib.Utils import error as error

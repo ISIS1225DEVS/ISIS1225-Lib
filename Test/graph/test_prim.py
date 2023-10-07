@@ -1,9 +1,15 @@
 import pytest
-import Test.graph as graph
+import unittest
+# import Test.graph as graph
 from DISClib.ADT import graph as g
 from DISClib.ADT import queue as q
 from DISClib.Algorithms.Graphs import prim
-assert graph
+# assert graph
+
+
+class TestPrim(unittest.TestCase):
+    pass
+
 
 
 @pytest.fixture

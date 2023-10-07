@@ -1,9 +1,14 @@
 import pytest
-import Test.graph as graph
+import unittest
+# import Test.graph as graph
 from DISClib.ADT import graph as g
 from DISClib.ADT import stack
 from DISClib.Algorithms.Graphs import dfo
-assert graph
+# assert graph
+
+
+class TestDFO(unittest.TestCase):
+    pass
 
 
 @pytest.fixture

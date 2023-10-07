@@ -172,7 +172,7 @@ For the moment the **DISClib** is available as a local dependency in your projec
 
    ```python
     from DISClib.ADT import list as lt
-    from DISClib.ADT import map as mp
+    from DISClib.ADT import maps as mp
    ```
 
 1. Start coding!

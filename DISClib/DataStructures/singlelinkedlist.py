@@ -37,7 +37,7 @@ from .listnode import SingleNode as Node
 # generic error handling and type checking
 from DISClib.Utils.error import error_handler
 from DISClib.Utils.error import init_type_checker
-from DISClib.Utils.error import VALID_DATA_TYPE_LT
+# from DISClib.Utils.error import VALID_DATA_TYPE_LT
 
 # checking costum modules
 assert error_handler
@@ -156,7 +156,7 @@ class SingleLinked(Generic[T]):
                 cur_context = self.__class__.__name__
                 cur_function = inspect.currentframe().f_code.co_name
                 # check if the type of the element is valid
-                type_checker(cur_context, cur_function, element)
+                init_type_checker(cur_context, cur_function, element)
                 lt_type = type(self.first.get_info())
                 # check if element type and list type are the same
                 if isinstance(element, lt_type):
@@ -563,7 +563,7 @@ class SingleLinked(Generic[T]):
                 raise Exception("Invalid sublist")
             else:
                 sub_lt = SingleLinked(cmp_function=self.cmp_function,
-                                       key=self.key)
+                                      key=self.key)
                 for i in range(start, end):
                     sub_lt.add_last(self.get_element(i))
                 return sub_lt
@@ -578,7 +578,7 @@ class SingleLinked(Generic[T]):
                 raise Exception("Invalid list type")
             else:
                 concat_lt = SingleLinked(cmp_function=self.cmp_function,
-                                          key=self.key)
+                                         key=self.key)
                 concat_lt.first = self.first
                 concat_lt.last = self.last
                 concat_lt.last._next = lst.first

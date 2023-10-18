@@ -25,8 +25,8 @@
  """
 
 # from DISClib.Utils import error as error
-from Utils.error import error_handler
-from Utils.error import init_type_checker
+from DISClib.Utils.error import error_handler
+from DISClib.Utils.error import init_type_checker
 from DISClib.DataStructures import heap as h
 
 

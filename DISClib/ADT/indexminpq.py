@@ -28,9 +28,9 @@
 # TODO crear consistencia en para importar modulos
 # from DISClib.DataStructures import indexheap as h
 # from DataStructures.indexheap import indexheap as h
-from Utils.error import error_handler
-from Utils.error import init_type_checker
-import DataStructures.indexheap as h
+from DISClib.Utils.error import error_handler
+from DISClib.Utils.error import init_type_checker
+import DISClib.DataStructures.indexheap as h
 
 """
 Implementación de una cola de prioridad indexada orientada a menor

@@ -28,7 +28,7 @@
 import DISClib.ADT.maps as map
 # from DISClib.ADT.maps import Map as map
 from DISClib.ADT.lists import List as lt
-from Utils import error as error
+from DISClib.Utils import error as error
 
 
 

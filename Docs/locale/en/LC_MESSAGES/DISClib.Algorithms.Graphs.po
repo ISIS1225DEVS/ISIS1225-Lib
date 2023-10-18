@@ -1,0 +1,533 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, ISIS1225 Devs DISC
+# This file is distributed under the same license as the DISClib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: DISClib \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-10-18 15:10-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.12.1\n"
+
+#: ../../DISClib.Algorithms.Graphs.rst:2
+msgid "DISClib.Algorithms.Graphs package"
+msgstr ""
+
+#: ../../DISClib.Algorithms.Graphs.rst:5
+msgid "Submodules"
+msgstr ""
+
+#: ../../DISClib.Algorithms.Graphs.rst:8
+msgid "DISClib.Algorithms.Graphs.bellmanford module"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bellmanford:1 DISClib.Algorithms.Graphs.bfs:1
+#: DISClib.Algorithms.Graphs.cycles:1 DISClib.Algorithms.Graphs.dfo:1
+#: DISClib.Algorithms.Graphs.dfs:1 DISClib.Algorithms.Graphs.dijsktra:1
+#: DISClib.Algorithms.Graphs.prim:1 DISClib.Algorithms.Graphs.scc:1 of
+msgid "Copyright 2020, Departamento de sistemas y Computación,"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bellmanford:2 DISClib.Algorithms.Graphs.bfs:2
+#: DISClib.Algorithms.Graphs.cycles:2 DISClib.Algorithms.Graphs.dfo:2
+#: DISClib.Algorithms.Graphs.dfs:2 DISClib.Algorithms.Graphs.dijsktra:2
+#: DISClib.Algorithms.Graphs.prim:2 DISClib.Algorithms.Graphs.scc:2 of
+msgid "Universidad de Los Andes"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bellmanford:4 DISClib.Algorithms.Graphs.bfs:4
+#: DISClib.Algorithms.Graphs.cycles:4 DISClib.Algorithms.Graphs.dfo:4
+#: DISClib.Algorithms.Graphs.dfs:4 DISClib.Algorithms.Graphs.dijsktra:4
+#: DISClib.Algorithms.Graphs.prim:4 DISClib.Algorithms.Graphs.scc:4 of
+msgid "Desarrollado para el curso ISIS1225 - Estructuras de Datos y Algoritmos"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bellmanford:7 DISClib.Algorithms.Graphs.bfs:7
+#: DISClib.Algorithms.Graphs.cycles:7 DISClib.Algorithms.Graphs.dfo:7
+#: DISClib.Algorithms.Graphs.dfs:7 DISClib.Algorithms.Graphs.dijsktra:7
+#: DISClib.Algorithms.Graphs.prim:7 DISClib.Algorithms.Graphs.scc:7 of
+msgid "This program is free software: you can redistribute it and/or modify"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bellmanford:8 DISClib.Algorithms.Graphs.bfs:8
+#: DISClib.Algorithms.Graphs.cycles:8 DISClib.Algorithms.Graphs.dfo:8
+#: DISClib.Algorithms.Graphs.dfs:8 DISClib.Algorithms.Graphs.dijsktra:8
+#: DISClib.Algorithms.Graphs.prim:8 DISClib.Algorithms.Graphs.scc:8 of
+msgid "it under the terms of the GNU General Public License as published by"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bellmanford:9 DISClib.Algorithms.Graphs.bfs:9
+#: DISClib.Algorithms.Graphs.cycles:9 DISClib.Algorithms.Graphs.dfo:9
+#: DISClib.Algorithms.Graphs.dfs:9 DISClib.Algorithms.Graphs.dijsktra:9
+#: DISClib.Algorithms.Graphs.prim:9 DISClib.Algorithms.Graphs.scc:9 of
+msgid "the Free Software Foundation, either version 3 of the License, or"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bellmanford:10 DISClib.Algorithms.Graphs.bfs:10
+#: DISClib.Algorithms.Graphs.cycles:10 DISClib.Algorithms.Graphs.dfo:10
+#: DISClib.Algorithms.Graphs.dfs:10 DISClib.Algorithms.Graphs.dijsktra:10
+#: DISClib.Algorithms.Graphs.prim:10 DISClib.Algorithms.Graphs.scc:10 of
+msgid "(at your option) any later version."
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bellmanford:12 DISClib.Algorithms.Graphs.bfs:12
+#: DISClib.Algorithms.Graphs.cycles:12 DISClib.Algorithms.Graphs.dfo:12
+#: DISClib.Algorithms.Graphs.dfs:12 DISClib.Algorithms.Graphs.dijsktra:12
+#: DISClib.Algorithms.Graphs.prim:12 DISClib.Algorithms.Graphs.scc:12 of
+msgid "This program is distributed in the hope that it will be useful,"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bellmanford:13 DISClib.Algorithms.Graphs.bfs:13
+#: DISClib.Algorithms.Graphs.cycles:13 DISClib.Algorithms.Graphs.dfo:13
+#: DISClib.Algorithms.Graphs.dfs:13 DISClib.Algorithms.Graphs.dijsktra:13
+#: DISClib.Algorithms.Graphs.prim:13 DISClib.Algorithms.Graphs.scc:13 of
+msgid "but WITHOUT ANY WARRANTY; without even the implied warranty of"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bellmanford:14 DISClib.Algorithms.Graphs.bfs:14
+#: DISClib.Algorithms.Graphs.cycles:14 DISClib.Algorithms.Graphs.dfo:14
+#: DISClib.Algorithms.Graphs.dfs:14 DISClib.Algorithms.Graphs.dijsktra:14
+#: DISClib.Algorithms.Graphs.prim:14 DISClib.Algorithms.Graphs.scc:14 of
+msgid "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bellmanford:15 DISClib.Algorithms.Graphs.bfs:15
+#: DISClib.Algorithms.Graphs.cycles:15 DISClib.Algorithms.Graphs.dfo:15
+#: DISClib.Algorithms.Graphs.dfs:15 DISClib.Algorithms.Graphs.dijsktra:15
+#: DISClib.Algorithms.Graphs.prim:15 DISClib.Algorithms.Graphs.scc:15 of
+msgid "GNU General Public License for more details."
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bellmanford:17 DISClib.Algorithms.Graphs.bfs:17
+#: DISClib.Algorithms.Graphs.cycles:17 DISClib.Algorithms.Graphs.dfo:17
+#: DISClib.Algorithms.Graphs.dfs:17 DISClib.Algorithms.Graphs.dijsktra:17
+#: DISClib.Algorithms.Graphs.prim:17 DISClib.Algorithms.Graphs.scc:17 of
+msgid "You should have received a copy of the GNU General Public License"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bellmanford:18 DISClib.Algorithms.Graphs.bfs:18
+#: DISClib.Algorithms.Graphs.cycles:18 DISClib.Algorithms.Graphs.dfo:18
+#: DISClib.Algorithms.Graphs.dfs:18 DISClib.Algorithms.Graphs.dijsktra:18
+#: DISClib.Algorithms.Graphs.prim:18 DISClib.Algorithms.Graphs.scc:18 of
+msgid "along with this program.  If not, see <http://www.gnu.org/licenses/>."
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bellmanford:20 DISClib.Algorithms.Graphs.bfs:20
+#: DISClib.Algorithms.Graphs.cycles:20 DISClib.Algorithms.Graphs.dfo:20
+#: DISClib.Algorithms.Graphs.dfs:20 DISClib.Algorithms.Graphs.dijsktra:20
+#: DISClib.Algorithms.Graphs.prim:20 DISClib.Algorithms.Graphs.scc:20 of
+msgid "Contribución de:"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bellmanford:22 DISClib.Algorithms.Graphs.bfs:22
+#: DISClib.Algorithms.Graphs.cycles:22 DISClib.Algorithms.Graphs.dfo:22
+#: DISClib.Algorithms.Graphs.dfs:22 DISClib.Algorithms.Graphs.dijsktra:22
+#: DISClib.Algorithms.Graphs.prim:22 DISClib.Algorithms.Graphs.scc:22 of
+msgid "Dario Correal"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bellmanford.BellmanFord:1 of
+msgid "Implementa el algoritmo de Bellman-Ford Args:"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bellmanford.BellmanFord:3
+#: DISClib.Algorithms.Graphs.dijsktra.Dijkstra:3 of
+msgid "graph: El grafo de busqueda source: El vertice de inicio"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bellmanford.BellmanFord:6
+#: DISClib.Algorithms.Graphs.bellmanford.distTo:7
+#: DISClib.Algorithms.Graphs.bellmanford.hasPathTo:6
+#: DISClib.Algorithms.Graphs.bellmanford.initSearch:7
+#: DISClib.Algorithms.Graphs.bellmanford.pathTo:6
+#: DISClib.Algorithms.Graphs.bellmanford.relax:5
+#: DISClib.Algorithms.Graphs.bfs.BreadhtFisrtSearch:6
+#: DISClib.Algorithms.Graphs.bfs.bfsVertex:6
+#: DISClib.Algorithms.Graphs.bfs.hasPathTo:6
+#: DISClib.Algorithms.Graphs.bfs.pathTo:7
+#: DISClib.Algorithms.Graphs.cycles.DirectedCycle:5
+#: DISClib.Algorithms.Graphs.cycles.dfs:5
+#: DISClib.Algorithms.Graphs.cycles.initStructures:4
+#: DISClib.Algorithms.Graphs.dfo.dfsVertex:6
+#: DISClib.Algorithms.Graphs.dfs.DepthFirstSearch:6
+#: DISClib.Algorithms.Graphs.dfs.dfsVertex:6
+#: DISClib.Algorithms.Graphs.dfs.hasPathTo:6
+#: DISClib.Algorithms.Graphs.dfs.pathTo:7
+#: DISClib.Algorithms.Graphs.dijsktra.Dijkstra:6
+#: DISClib.Algorithms.Graphs.dijsktra.distTo:7
+#: DISClib.Algorithms.Graphs.dijsktra.hasPathTo:6
+#: DISClib.Algorithms.Graphs.dijsktra.initSearch:7
+#: DISClib.Algorithms.Graphs.dijsktra.pathTo:6
+#: DISClib.Algorithms.Graphs.dijsktra.relax:6
+#: DISClib.Algorithms.Graphs.prim.PrimMST:5
+#: DISClib.Algorithms.Graphs.prim.edgesMST:4
+#: DISClib.Algorithms.Graphs.prim.initSearch:7
+#: DISClib.Algorithms.Graphs.prim.prim:4 DISClib.Algorithms.Graphs.prim.scan:5
+#: DISClib.Algorithms.Graphs.scc.KosarajuSCC:7 of
+msgid "Returns:"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bellmanford.BellmanFord:7 of
+msgid "La estructura search con los caminos de peso mínimos"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bellmanford.BellmanFord:8
+#: DISClib.Algorithms.Graphs.bellmanford.distTo:9
+#: DISClib.Algorithms.Graphs.bellmanford.hasPathTo:8
+#: DISClib.Algorithms.Graphs.bellmanford.initSearch:9
+#: DISClib.Algorithms.Graphs.bellmanford.pathTo:8
+#: DISClib.Algorithms.Graphs.bellmanford.relax:7
+#: DISClib.Algorithms.Graphs.bfs.BreadhtFisrtSearch:8
+#: DISClib.Algorithms.Graphs.bfs.bfsVertex:8
+#: DISClib.Algorithms.Graphs.bfs.hasPathTo:8
+#: DISClib.Algorithms.Graphs.bfs.pathTo:9
+#: DISClib.Algorithms.Graphs.cycles.DirectedCycle:7
+#: DISClib.Algorithms.Graphs.cycles.dfs:7
+#: DISClib.Algorithms.Graphs.cycles.initStructures:6
+#: DISClib.Algorithms.Graphs.dfo.dfsVertex:8
+#: DISClib.Algorithms.Graphs.dfs.DepthFirstSearch:8
+#: DISClib.Algorithms.Graphs.dfs.dfsVertex:8
+#: DISClib.Algorithms.Graphs.dfs.hasPathTo:8
+#: DISClib.Algorithms.Graphs.dfs.pathTo:9
+#: DISClib.Algorithms.Graphs.dijsktra.Dijkstra:8
+#: DISClib.Algorithms.Graphs.dijsktra.distTo:9
+#: DISClib.Algorithms.Graphs.dijsktra.hasPathTo:8
+#: DISClib.Algorithms.Graphs.dijsktra.initSearch:9
+#: DISClib.Algorithms.Graphs.dijsktra.pathTo:8
+#: DISClib.Algorithms.Graphs.dijsktra.relax:8
+#: DISClib.Algorithms.Graphs.prim.PrimMST:7
+#: DISClib.Algorithms.Graphs.prim.edgesMST:6
+#: DISClib.Algorithms.Graphs.prim.initSearch:9
+#: DISClib.Algorithms.Graphs.prim.prim:6 DISClib.Algorithms.Graphs.prim.scan:7
+#: DISClib.Algorithms.Graphs.scc.KosarajuSCC:9 of
+msgid "Raises:"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bellmanford.BellmanFord:9
+#: DISClib.Algorithms.Graphs.bellmanford.distTo:10
+#: DISClib.Algorithms.Graphs.bellmanford.hasPathTo:9
+#: DISClib.Algorithms.Graphs.bellmanford.initSearch:10
+#: DISClib.Algorithms.Graphs.bellmanford.pathTo:9
+#: DISClib.Algorithms.Graphs.bellmanford.relax:8
+#: DISClib.Algorithms.Graphs.bfs.BreadhtFisrtSearch:9
+#: DISClib.Algorithms.Graphs.bfs.bfsVertex:9
+#: DISClib.Algorithms.Graphs.bfs.hasPathTo:9
+#: DISClib.Algorithms.Graphs.bfs.pathTo:10
+#: DISClib.Algorithms.Graphs.cycles.DirectedCycle:8
+#: DISClib.Algorithms.Graphs.cycles.dfs:8
+#: DISClib.Algorithms.Graphs.cycles.initStructures:7
+#: DISClib.Algorithms.Graphs.dfo.dfsVertex:9
+#: DISClib.Algorithms.Graphs.dfs.DepthFirstSearch:9
+#: DISClib.Algorithms.Graphs.dfs.dfsVertex:9
+#: DISClib.Algorithms.Graphs.dfs.hasPathTo:9
+#: DISClib.Algorithms.Graphs.dfs.pathTo:10
+#: DISClib.Algorithms.Graphs.dijsktra.Dijkstra:9
+#: DISClib.Algorithms.Graphs.dijsktra.distTo:10
+#: DISClib.Algorithms.Graphs.dijsktra.hasPathTo:9
+#: DISClib.Algorithms.Graphs.dijsktra.initSearch:10
+#: DISClib.Algorithms.Graphs.dijsktra.pathTo:9
+#: DISClib.Algorithms.Graphs.dijsktra.relax:9
+#: DISClib.Algorithms.Graphs.prim.PrimMST:8
+#: DISClib.Algorithms.Graphs.prim.edgesMST:7
+#: DISClib.Algorithms.Graphs.prim.initSearch:10
+#: DISClib.Algorithms.Graphs.prim.prim:7 DISClib.Algorithms.Graphs.prim.scan:8
+#: DISClib.Algorithms.Graphs.scc.KosarajuSCC:10 of
+msgid "Exception"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bellmanford.distTo:1
+#: DISClib.Algorithms.Graphs.dijsktra.distTo:1 of
+msgid "Retorna el costo para llegar del vertice source al vertice vertex. Args:"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bellmanford.distTo:4
+#: DISClib.Algorithms.Graphs.dijsktra.distTo:4
+#: DISClib.Algorithms.Graphs.prim.scan:2 of
+msgid "search: La estructura de busqueda vertex: El vertice destino"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bellmanford.distTo:7
+#: DISClib.Algorithms.Graphs.dijsktra.distTo:7
+#: DISClib.Algorithms.Graphs.prim.scan:5 of
+msgid ""
+"El costo total para llegar de source a vertex. Infinito si no existe "
+"camino"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bellmanford.findNegativeCycle:1 of
+msgid "Identifica ciclos negativos en el grafo"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bellmanford.hasPathTo:1
+#: DISClib.Algorithms.Graphs.dijsktra.hasPathTo:1 of
+msgid "Indica si hay camino entre source y vertex Args:"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bellmanford.hasPathTo:4
+#: DISClib.Algorithms.Graphs.bellmanford.pathTo:4
+#: DISClib.Algorithms.Graphs.dijsktra.hasPathTo:4
+#: DISClib.Algorithms.Graphs.dijsktra.pathTo:4
+#: DISClib.Algorithms.Graphs.prim.edgesMST:2 of
+msgid "search: La estructura de busqueda vertex: El vertice de destino"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bellmanford.hasPathTo:7
+#: DISClib.Algorithms.Graphs.dijsktra.hasPathTo:7 of
+msgid "True si existe camino"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bellmanford.initSearch:1
+#: DISClib.Algorithms.Graphs.prim.initSearch:1 of
+msgid ""
+"Inicializa la estructura de busqueda y deja todos los arcos en infinito. "
+"Se inserta en la cola el vertice source Args:"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bellmanford.initSearch:5
+#: DISClib.Algorithms.Graphs.cycles.initStructures:2
+#: DISClib.Algorithms.Graphs.dijsktra.initSearch:5
+#: DISClib.Algorithms.Graphs.prim.initSearch:5 of
+msgid "graph: El grafo a examinar source: El vertice fuente"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bellmanford.initSearch:8
+#: DISClib.Algorithms.Graphs.cycles.initStructures:5
+#: DISClib.Algorithms.Graphs.dijsktra.initSearch:8
+#: DISClib.Algorithms.Graphs.prim.initSearch:8 of
+msgid "Estructura de busqueda inicializada"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bellmanford.pathTo:1
+#: DISClib.Algorithms.Graphs.dijsktra.pathTo:1 of
+msgid "Retorna el camino entre source y vertex en una pila. Args:"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bellmanford.pathTo:7
+#: DISClib.Algorithms.Graphs.dijsktra.pathTo:7
+#: DISClib.Algorithms.Graphs.prim.edgesMST:5 of
+msgid "Una pila con el camino entre source y vertex"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bellmanford.relax:1 of
+msgid "Relaja el peso de los arcos del grafo Args:"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bellmanford.relax:3
+#: DISClib.Algorithms.Graphs.cycles.dfs:3 DISClib.Algorithms.Graphs.prim.prim:2
+#: of
+msgid ""
+"search: La estructura de busqueda v: Vertice desde donde se relajan los "
+"pesos"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bellmanford.relax:6
+#: DISClib.Algorithms.Graphs.dijsktra.relax:7
+#: DISClib.Algorithms.Graphs.prim.prim:5 of
+msgid "El grafo con los arcos relajados"
+msgstr ""
+
+#: ../../DISClib.Algorithms.Graphs.rst:16
+msgid "DISClib.Algorithms.Graphs.bfs module"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bfs.BreadhtFisrtSearch:1 of
+msgid "Genera un recorrido BFS sobre el grafo graph Args:"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bfs.BreadhtFisrtSearch:3
+#: DISClib.Algorithms.Graphs.dfo.dfsVertex:3
+#: DISClib.Algorithms.Graphs.dfs.DepthFirstSearch:3 of
+msgid "graph:  El grafo a recorrer source: Vertice de inicio del recorrido."
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bfs.BreadhtFisrtSearch:6
+#: DISClib.Algorithms.Graphs.bfs.bfsVertex:6
+#: DISClib.Algorithms.Graphs.dfo.dfsVertex:6
+#: DISClib.Algorithms.Graphs.dfs.DepthFirstSearch:6
+#: DISClib.Algorithms.Graphs.dfs.dfsVertex:6 of
+msgid "Una estructura para determinar los vertices conectados a source"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bfs.bfsVertex:1 of
+msgid "Funcion auxiliar para calcular un recorrido BFS Args:"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bfs.bfsVertex:3
+#: DISClib.Algorithms.Graphs.dfs.dfsVertex:3 of
+msgid ""
+"search: Estructura para almacenar el recorrido vertex: Vertice de inicio "
+"del recorrido."
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bfs.hasPathTo:1
+#: DISClib.Algorithms.Graphs.dfs.hasPathTo:1 of
+msgid ""
+"Indica si existe un camino entre el vertice source y el vertice vertex "
+"Args:"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bfs.hasPathTo:4 of
+msgid "search: Estructura de recorrido BFS vertex: Vertice destino"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bfs.hasPathTo:7
+#: DISClib.Algorithms.Graphs.dfs.hasPathTo:7 of
+msgid "True si existe un camino entre source y vertex"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bfs.pathTo:1
+#: DISClib.Algorithms.Graphs.dfs.pathTo:1 of
+msgid "Retorna el camino entre el vertices source y el vertice vertex Args:"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bfs.pathTo:4
+#: DISClib.Algorithms.Graphs.dfs.pathTo:4 of
+msgid "search: La estructura con el recorrido vertex: Vertice de destingo"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.bfs.pathTo:7
+#: DISClib.Algorithms.Graphs.dfs.pathTo:7 of
+msgid "Una pila con el camino entre el vertices source y el vertice vertex"
+msgstr ""
+
+#: ../../DISClib.Algorithms.Graphs.rst:24
+msgid "DISClib.Algorithms.Graphs.cycles module"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.cycles.DirectedCycle:1 of
+msgid "Detecta ciclos en un grafo dirigido Args:"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.cycles.DirectedCycle:3
+#: DISClib.Algorithms.Graphs.prim.PrimMST:3 of
+msgid "graph: El grafo de busqueda"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.cycles.DirectedCycle:6 of
+msgid "El ciclo si existe"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.cycles.dfs:1 of
+msgid "DFS Args:"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.cycles.dfs:6 of
+msgid "El grafo"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.cycles.initStructures:2
+#: DISClib.Algorithms.Graphs.prim.edgesMST:2
+#: DISClib.Algorithms.Graphs.prim.prim:2 DISClib.Algorithms.Graphs.prim.scan:2
+#: of
+msgid "Args:"
+msgstr ""
+
+#: ../../DISClib.Algorithms.Graphs.rst:32
+msgid "DISClib.Algorithms.Graphs.dfo module"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.dfo.dfsVertex:1
+#: DISClib.Algorithms.Graphs.dfs.DepthFirstSearch:1 of
+msgid "Genera un recorrido DFS sobre el grafo graph Args:"
+msgstr ""
+
+#: ../../DISClib.Algorithms.Graphs.rst:40
+msgid "DISClib.Algorithms.Graphs.dfs module"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.dfs.dfsVertex:1 of
+msgid "Funcion auxiliar para calcular un recorrido DFS Args:"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.dfs.hasPathTo:4 of
+msgid "search: Estructura de recorrido DFS vertex: Vertice destino"
+msgstr ""
+
+#: ../../DISClib.Algorithms.Graphs.rst:48
+msgid "DISClib.Algorithms.Graphs.dijsktra module"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.dijsktra.Dijkstra:1 of
+msgid "Implementa el algoritmo de Dijkstra Args:"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.dijsktra.Dijkstra:7 of
+msgid "Un nuevo grafo vacío"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.dijsktra.initSearch:1 of
+msgid ""
+"Inicializa la estructura de busqueda y deja todos los arcos en infinito. "
+"Se inserta en la cola indexada el vertice source Args:"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.dijsktra.relax:1 of
+msgid "Relaja el peso de los arcos del grafo con la nueva de un nuevo arco Args:"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.dijsktra.relax:4 of
+msgid "search: La estructura de busqueda edge: El nuevo arco"
+msgstr ""
+
+#: ../../DISClib.Algorithms.Graphs.rst:56
+msgid "DISClib.Algorithms.Graphs.prim module"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.prim.PrimMST:1 of
+msgid "Implementa el algoritmo de Prim Args:"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.prim.PrimMST:6 of
+msgid "La estructura search con los MST"
+msgstr ""
+
+#: ../../DISClib.Algorithms.Graphs.rst:64
+msgid "DISClib.Algorithms.Graphs.scc module"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.scc.KosarajuSCC:1 of
+msgid ""
+"Implementa el algoritmo de Kosaraju para encontrar los componentes "
+"conectados de un grafo dirigido Args:"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.scc.KosarajuSCC:5 of
+msgid "graph: El grafo a examinar"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.scc.KosarajuSCC:7 of
+msgid "Una estructura con los componentes conectados"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.scc.connectedComponents:1 of
+msgid "Retorna el numero de componentes conectados"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.scc.reverseGraph:1 of
+msgid "Retornar el reverso del grafo graph"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.scc.sccCount:1 of
+msgid ""
+"Este algoritmo cuenta el número de componentes conectados. Deja en idscc,"
+" el número del componente al que pertenece cada vértice"
+msgstr ""
+
+#: DISClib.Algorithms.Graphs.scc.stronglyConnected:1 of
+msgid "Dados dos vértices, informa si están fuertemente conectados o no."
+msgstr ""
+
+#: ../../DISClib.Algorithms.Graphs.rst:72
+msgid "Module contents"
+msgstr ""
+

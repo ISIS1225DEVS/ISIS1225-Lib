@@ -1,0 +1,1128 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, ISIS1225 Devs DISC
+# This file is distributed under the same license as the DISClib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: DISClib \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-10-18 15:10-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.12.1\n"
+
+#: ../../DISClib.ADT.rst:2
+msgid "DISClib ADTs"
+msgstr "SAPO PERRO!!!"
+
+#: ../../DISClib.ADT.rst:5
+msgid "Submodules"
+msgstr ""
+
+#: ../../DISClib.ADT.rst:8
+msgid "Configurador Dinamico para ADTs"
+msgstr ""
+
+#: DISClib.ADT.dynamic.DynamicImporter:1 of
+msgid "Bases: :py:class:`object`"
+msgstr ""
+
+#: ../../DISClib.ADT.rst:16
+msgid "DISClib.ADT.graph module"
+msgstr ""
+
+#: DISClib.ADT.graph:1 of
+msgid ""
+"# TODO cambiar comentarios de lincencia segun estandard del equipo * "
+"Copyright 2020, Departamento de sistemas y Computación, * Universidad de "
+"Los Andes * * Desarrollado para el curso ISIS1225 - Estructuras de Datos "
+"y Algoritmos * * * This program is free software: you can redistribute it"
+" and/or modify * it under the terms of the GNU General Public License as "
+"published by * the Free Software Foundation, either version 3 of the "
+"License, or * (at your option) any later version. * * This program is "
+"distributed in the hope that it will be useful, * but WITHOUT ANY "
+"WARRANTY; without even the implied warranty of * MERCHANTABILITY or "
+"FITNESS FOR A PARTICULAR PURPOSE.  See the * GNU General Public License "
+"for more details. * * You should have received a copy of the GNU General "
+"Public License * along with this program.  If not, see "
+"<http://www.gnu.org/licenses/>. * * Contribución de: * * Dario Correal *"
+msgstr ""
+
+#: DISClib.ADT.graph.addEdge:1 of
+msgid ""
+"Agrega un arco entre los vertices vertexa ---- vertexb, con peso weight. "
+"Si el grafo es no dirigido se adiciona dos veces el mismo arco, en el "
+"mismo orden Si el grafo es dirigido se adiciona solo el arco vertexa --> "
+"vertexb"
+msgstr ""
+
+#: DISClib.ADT.graph.addEdge:10 DISClib.ADT.graph.adjacentEdges:6
+#: DISClib.ADT.graph.adjacents:5 DISClib.ADT.graph.containsVertex:5
+#: DISClib.ADT.graph.degree:5 DISClib.ADT.graph.edges:4
+#: DISClib.ADT.graph.getEdge:6 DISClib.ADT.graph.indegree:5
+#: DISClib.ADT.graph.insertVertex:4 DISClib.ADT.graph.newGraph:6
+#: DISClib.ADT.graph.numEdges:4 DISClib.ADT.graph.numVertices:4
+#: DISClib.ADT.graph.outdegree:5 DISClib.ADT.graph.removeVertex:4
+#: DISClib.ADT.indexminpq.contains:3 DISClib.ADT.indexminpq.decreaseKey:5
+#: DISClib.ADT.indexminpq.delMin:3 DISClib.ADT.indexminpq.increaseKey:5
+#: DISClib.ADT.indexminpq.insert:3 DISClib.ADT.indexminpq.isEmpty:3
+#: DISClib.ADT.indexminpq.min:3 DISClib.ADT.indexminpq.newIndexMinPQ:3
+#: DISClib.ADT.indexminpq.size:3 DISClib.ADT.maps.contains:5
+#: DISClib.ADT.maps.keySet:3 DISClib.ADT.maps.newMap:7 DISClib.ADT.maps.put:6
+#: DISClib.ADT.maps.valueSet:3 DISClib.ADT.minpq.delMin:5
+#: DISClib.ADT.minpq.insert:5 DISClib.ADT.minpq.isEmpty:3
+#: DISClib.ADT.minpq.min:3 DISClib.ADT.minpq.newMinPQ:4
+#: DISClib.ADT.orderedmap.keys:6 DISClib.ADT.orderedmap.values:6
+#: DISClib.ADT.queue.Queue:3 DISClib.ADT.queue.dequeue:3
+#: DISClib.ADT.stack.Stack:3 DISClib.ADT.stack.isEmpty:3
+#: DISClib.ADT.stack.newStack:4 DISClib.ADT.stack.pop:4
+#: DISClib.ADT.stack.push:5 DISClib.ADT.stack.top:4 of
+msgid "Args:"
+msgstr ""
+
+#: DISClib.ADT.graph.addEdge:7 of
+msgid ""
+"graph: El grafo sobre el que se ejecuta la operacion vertexa: Vertice de "
+"inicio vertexb: Vertice de destino wight: peso del arco"
+msgstr ""
+
+#: DISClib.ADT.graph.addEdge:12 DISClib.ADT.graph.adjacentEdges:8
+#: DISClib.ADT.graph.adjacents:7 DISClib.ADT.graph.containsVertex:7
+#: DISClib.ADT.graph.degree:7 DISClib.ADT.graph.edges:6
+#: DISClib.ADT.graph.getEdge:8 DISClib.ADT.graph.indegree:7
+#: DISClib.ADT.graph.insertVertex:6 DISClib.ADT.graph.newGraph:8
+#: DISClib.ADT.graph.numEdges:6 DISClib.ADT.graph.numVertices:6
+#: DISClib.ADT.graph.outdegree:7 DISClib.ADT.graph.removeVertex:6
+#: DISClib.ADT.graph.vertices:5 DISClib.ADT.indexminpq.contains:5
+#: DISClib.ADT.indexminpq.decreaseKey:7 DISClib.ADT.indexminpq.delMin:5
+#: DISClib.ADT.indexminpq.increaseKey:7 DISClib.ADT.indexminpq.insert:5
+#: DISClib.ADT.indexminpq.isEmpty:5 DISClib.ADT.indexminpq.min:5
+#: DISClib.ADT.indexminpq.newIndexMinPQ:5 DISClib.ADT.indexminpq.size:5
+#: DISClib.ADT.maps.contains:7 DISClib.ADT.maps.get:6
+#: DISClib.ADT.maps.isEmpty:5 DISClib.ADT.maps.keySet:5
+#: DISClib.ADT.maps.newMap:9 DISClib.ADT.maps.put:8 DISClib.ADT.maps.remove:6
+#: DISClib.ADT.maps.size:4 DISClib.ADT.maps.valueSet:5
+#: DISClib.ADT.minpq.delMin:7 DISClib.ADT.minpq.insert:7
+#: DISClib.ADT.minpq.isEmpty:5 DISClib.ADT.minpq.min:5
+#: DISClib.ADT.minpq.newMinPQ:6 DISClib.ADT.minpq.size:4
+#: DISClib.ADT.orderedmap.ceiling:6 DISClib.ADT.orderedmap.contains:5
+#: DISClib.ADT.orderedmap.deleteMax:5 DISClib.ADT.orderedmap.deleteMin:5
+#: DISClib.ADT.orderedmap.floor:6 DISClib.ADT.orderedmap.get:5
+#: DISClib.ADT.orderedmap.height:4 DISClib.ADT.orderedmap.isEmpty:4
+#: DISClib.ADT.orderedmap.keySet:4 DISClib.ADT.orderedmap.keys:8
+#: DISClib.ADT.orderedmap.maxKey:4 DISClib.ADT.orderedmap.minKey:4
+#: DISClib.ADT.orderedmap.newMap:5 DISClib.ADT.orderedmap.put:7
+#: DISClib.ADT.orderedmap.rank:5 DISClib.ADT.orderedmap.remove:5
+#: DISClib.ADT.orderedmap.select:5 DISClib.ADT.orderedmap.size:4
+#: DISClib.ADT.orderedmap.valueSet:4 DISClib.ADT.orderedmap.values:8
+#: DISClib.ADT.queue.dequeue:5 DISClib.ADT.queue.enqueue:6
+#: DISClib.ADT.queue.isEmpty:5 DISClib.ADT.queue.newQueue:5
+#: DISClib.ADT.queue.peek:5 DISClib.ADT.queue.size:6
+#: DISClib.ADT.stack.isEmpty:7 DISClib.ADT.stack.newStack:6
+#: DISClib.ADT.stack.pop:7 DISClib.ADT.stack.push:8 DISClib.ADT.stack.size:6
+#: DISClib.ADT.stack.top:7 of
+msgid "Returns:"
+msgstr ""
+
+#: DISClib.ADT.graph.addEdge:13 of
+msgid "El grafo con el nuevo arco"
+msgstr ""
+
+#: DISClib.ADT.graph.addEdge:14 DISClib.ADT.graph.adjacentEdges:10
+#: DISClib.ADT.graph.adjacents:9 DISClib.ADT.graph.containsVertex:9
+#: DISClib.ADT.graph.degree:9 DISClib.ADT.graph.edges:8
+#: DISClib.ADT.graph.getEdge:10 DISClib.ADT.graph.indegree:9
+#: DISClib.ADT.graph.insertVertex:8 DISClib.ADT.graph.newGraph:10
+#: DISClib.ADT.graph.numEdges:8 DISClib.ADT.graph.numVertices:8
+#: DISClib.ADT.graph.outdegree:9 DISClib.ADT.graph.removeVertex:8
+#: DISClib.ADT.graph.vertices:7 DISClib.ADT.indexminpq.contains:7
+#: DISClib.ADT.indexminpq.decreaseKey:9 DISClib.ADT.indexminpq.delMin:7
+#: DISClib.ADT.indexminpq.increaseKey:9 DISClib.ADT.indexminpq.insert:7
+#: DISClib.ADT.indexminpq.isEmpty:7 DISClib.ADT.indexminpq.min:7
+#: DISClib.ADT.indexminpq.newIndexMinPQ:7 DISClib.ADT.indexminpq.size:7
+#: DISClib.ADT.maps.contains:9 DISClib.ADT.maps.get:8
+#: DISClib.ADT.maps.isEmpty:7 DISClib.ADT.maps.keySet:7
+#: DISClib.ADT.maps.newMap:11 DISClib.ADT.maps.put:10 DISClib.ADT.maps.remove:8
+#: DISClib.ADT.maps.size:6 DISClib.ADT.maps.valueSet:7
+#: DISClib.ADT.minpq.delMin:9 DISClib.ADT.minpq.insert:9
+#: DISClib.ADT.minpq.isEmpty:7 DISClib.ADT.minpq.min:7
+#: DISClib.ADT.minpq.newMinPQ:8 DISClib.ADT.minpq.size:6
+#: DISClib.ADT.orderedmap.ceiling:8 DISClib.ADT.orderedmap.contains:7
+#: DISClib.ADT.orderedmap.deleteMax:7 DISClib.ADT.orderedmap.deleteMin:7
+#: DISClib.ADT.orderedmap.floor:8 DISClib.ADT.orderedmap.get:7
+#: DISClib.ADT.orderedmap.height:6 DISClib.ADT.orderedmap.isEmpty:6
+#: DISClib.ADT.orderedmap.keySet:6 DISClib.ADT.orderedmap.keys:10
+#: DISClib.ADT.orderedmap.maxKey:6 DISClib.ADT.orderedmap.minKey:6
+#: DISClib.ADT.orderedmap.newMap:7 DISClib.ADT.orderedmap.put:9
+#: DISClib.ADT.orderedmap.rank:7 DISClib.ADT.orderedmap.remove:7
+#: DISClib.ADT.orderedmap.select:7 DISClib.ADT.orderedmap.size:6
+#: DISClib.ADT.orderedmap.valueSet:6 DISClib.ADT.orderedmap.values:10
+#: DISClib.ADT.queue.dequeue:7 DISClib.ADT.queue.enqueue:8
+#: DISClib.ADT.queue.isEmpty:7 DISClib.ADT.queue.newQueue:7
+#: DISClib.ADT.queue.peek:7 DISClib.ADT.queue.size:8
+#: DISClib.ADT.stack.isEmpty:9 DISClib.ADT.stack.newStack:8
+#: DISClib.ADT.stack.pop:9 DISClib.ADT.stack.push:10 DISClib.ADT.stack.size:8
+#: DISClib.ADT.stack.top:9 of
+msgid "Raises:"
+msgstr ""
+
+#: DISClib.ADT.graph.addEdge:15 DISClib.ADT.graph.adjacentEdges:11
+#: DISClib.ADT.graph.adjacents:10 DISClib.ADT.graph.containsVertex:10
+#: DISClib.ADT.graph.degree:10 DISClib.ADT.graph.edges:9
+#: DISClib.ADT.graph.getEdge:11 DISClib.ADT.graph.indegree:10
+#: DISClib.ADT.graph.insertVertex:9 DISClib.ADT.graph.newGraph:11
+#: DISClib.ADT.graph.numEdges:9 DISClib.ADT.graph.numVertices:9
+#: DISClib.ADT.graph.outdegree:10 DISClib.ADT.graph.removeVertex:9
+#: DISClib.ADT.graph.vertices:8 DISClib.ADT.indexminpq.contains:8
+#: DISClib.ADT.indexminpq.decreaseKey:10 DISClib.ADT.indexminpq.delMin:8
+#: DISClib.ADT.indexminpq.increaseKey:10 DISClib.ADT.indexminpq.insert:8
+#: DISClib.ADT.indexminpq.isEmpty:8 DISClib.ADT.indexminpq.min:8
+#: DISClib.ADT.indexminpq.newIndexMinPQ:8 DISClib.ADT.indexminpq.size:8
+#: DISClib.ADT.maps.contains:10 DISClib.ADT.maps.get:9
+#: DISClib.ADT.maps.isEmpty:8 DISClib.ADT.maps.keySet:8
+#: DISClib.ADT.maps.newMap:12 DISClib.ADT.maps.put:11 DISClib.ADT.maps.remove:9
+#: DISClib.ADT.maps.size:7 DISClib.ADT.maps.valueSet:8
+#: DISClib.ADT.minpq.delMin:10 DISClib.ADT.minpq.insert:10
+#: DISClib.ADT.minpq.isEmpty:8 DISClib.ADT.minpq.min:8
+#: DISClib.ADT.minpq.newMinPQ:9 DISClib.ADT.minpq.size:7
+#: DISClib.ADT.orderedmap.ceiling:9 DISClib.ADT.orderedmap.contains:8
+#: DISClib.ADT.orderedmap.deleteMax:8 DISClib.ADT.orderedmap.deleteMin:8
+#: DISClib.ADT.orderedmap.floor:9 DISClib.ADT.orderedmap.get:8
+#: DISClib.ADT.orderedmap.height:7 DISClib.ADT.orderedmap.isEmpty:7
+#: DISClib.ADT.orderedmap.keySet:7 DISClib.ADT.orderedmap.keys:11
+#: DISClib.ADT.orderedmap.maxKey:7 DISClib.ADT.orderedmap.minKey:7
+#: DISClib.ADT.orderedmap.newMap:8 DISClib.ADT.orderedmap.put:10
+#: DISClib.ADT.orderedmap.rank:8 DISClib.ADT.orderedmap.remove:8
+#: DISClib.ADT.orderedmap.select:8 DISClib.ADT.orderedmap.size:7
+#: DISClib.ADT.orderedmap.valueSet:7 DISClib.ADT.orderedmap.values:11
+#: DISClib.ADT.queue.dequeue:8 DISClib.ADT.queue.enqueue:9
+#: DISClib.ADT.queue.isEmpty:8 DISClib.ADT.queue.newQueue:8
+#: DISClib.ADT.queue.peek:8 DISClib.ADT.queue.size:9
+#: DISClib.ADT.stack.isEmpty:10 DISClib.ADT.stack.newStack:9
+#: DISClib.ADT.stack.pop:10 DISClib.ADT.stack.push:11 DISClib.ADT.stack.size:9
+#: DISClib.ADT.stack.top:10 of
+msgid "Exception"
+msgstr ""
+
+#: DISClib.ADT.graph.adjacentEdges:1 of
+msgid ""
+"Retorna una lista con todos los arcos asociados a los vértices adyacentes"
+" de vertex"
+msgstr ""
+
+#: DISClib.ADT.graph.adjacentEdges:5 DISClib.ADT.graph.adjacents:4 of
+msgid ""
+"graph: El grafo sobre el que se ejecuta la operacion vertex: El vertice "
+"del que se quiere la lista"
+msgstr ""
+
+#: DISClib.ADT.graph.adjacentEdges:9 of
+msgid "La lista de arcos adyacentes"
+msgstr ""
+
+#: DISClib.ADT.graph.adjacents:1 of
+msgid "Retorna una lista con todos los vertices adyacentes al vertice vertex"
+msgstr ""
+
+#: DISClib.ADT.graph.adjacents:8 of
+msgid "La lista de adyacencias"
+msgstr ""
+
+#: DISClib.ADT.graph.containsVertex:1 of
+msgid "Retorna si el vertice vertex esta presente en el grafo"
+msgstr ""
+
+#: DISClib.ADT.graph.containsVertex:4 of
+msgid ""
+"graph: El grafo sobre el que se ejecuta la operacion vertex: Vertice que "
+"se busca"
+msgstr ""
+
+#: DISClib.ADT.graph.containsVertex:8 of
+msgid "True si el vertice esta presente"
+msgstr ""
+
+#: DISClib.ADT.graph.degree:1 of
+msgid "Retorna el numero de arcos asociados al vertice vertex"
+msgstr ""
+
+#: DISClib.ADT.graph.degree:4 DISClib.ADT.graph.indegree:4
+#: DISClib.ADT.graph.outdegree:4 of
+msgid ""
+"graph: El grafo sobre el que se ejecuta la operacion vertex: El vertice "
+"del que se desea conocer el grado"
+msgstr ""
+
+#: DISClib.ADT.graph.degree:8 DISClib.ADT.graph.indegree:8
+#: DISClib.ADT.graph.outdegree:8 of
+msgid "El grado del vertice"
+msgstr ""
+
+#: DISClib.ADT.graph.edges:1 of
+msgid "Retorna una lista con todos los arcos del grafo graph"
+msgstr ""
+
+#: DISClib.ADT.graph.edges:4 DISClib.ADT.graph.numEdges:4
+#: DISClib.ADT.graph.numVertices:4 DISClib.ADT.graph.vertices:3 of
+msgid "graph: El grafo sobre el que se ejecuta la operacion"
+msgstr ""
+
+#: DISClib.ADT.graph.edges:7 of
+msgid "Una lista con los arcos del grafo"
+msgstr ""
+
+#: DISClib.ADT.graph.getEdge:1 of
+msgid "Retorna el arco asociado a los vertices vertexa ---- vertexb"
+msgstr ""
+
+#: DISClib.ADT.graph.getEdge:4 of
+msgid ""
+"graph: El grafo sobre el que se ejecuta la operacion vertexa: Vertice de "
+"inicio vertexb: Vertice destino"
+msgstr ""
+
+#: DISClib.ADT.graph.getEdge:9 of
+msgid "El arco que une los verices vertexa y vertexb"
+msgstr ""
+
+#: DISClib.ADT.graph.graphSelector:1 DISClib.ADT.maps.mapSelector:1
+#: DISClib.ADT.orderedmap.mapSelector:1 of
+msgid "Carga dinamicamente el import de la estructura de datos seleccionada"
+msgstr ""
+
+#: DISClib.ADT.graph.indegree:1 of
+msgid "Retorna el numero de arcos que llegan al vertice vertex"
+msgstr ""
+
+#: DISClib.ADT.graph.insertVertex:1 of
+msgid "Inserta el vertice vertex en el grafo graph"
+msgstr ""
+
+#: DISClib.ADT.graph.insertVertex:4 of
+msgid ""
+"graph: El grafo sobre el que se ejecuta la operacion vertex: El vertice "
+"que se desea insertar"
+msgstr ""
+
+#: DISClib.ADT.graph.insertVertex:7 of
+msgid "El grafo graph con el nuevo vertice"
+msgstr ""
+
+#: DISClib.ADT.graph.newGraph:1 of
+msgid "Crea un grafo vacio"
+msgstr ""
+
+#: DISClib.ADT.graph.newGraph:4 of
+msgid ""
+"size: Tamaño inicial del grafo cmpfunction: Funcion de comparacion "
+"directed: Indica si el grafo es dirigido o no datastructure: Estructura "
+"de datos utilizada"
+msgstr ""
+
+#: DISClib.ADT.graph.newGraph:9 of
+msgid "Un nuevo grafo vacío"
+msgstr ""
+
+#: DISClib.ADT.graph.numEdges:1 of
+msgid "Retorna el numero de arcos en el grafo graph"
+msgstr ""
+
+#: DISClib.ADT.graph.numEdges:7 DISClib.ADT.graph.numVertices:7 of
+msgid "El numero de vertices del grafo"
+msgstr ""
+
+#: DISClib.ADT.graph.numVertices:1 of
+msgid "Retorna el numero de vertices del  grafo graph"
+msgstr ""
+
+#: DISClib.ADT.graph.outdegree:1 of
+msgid "Retorna el numero de arcos que salen del grafo vertex"
+msgstr ""
+
+#: DISClib.ADT.graph.removeVertex:1 of
+msgid "Remueve el vertice vertex del grafo graph"
+msgstr ""
+
+#: DISClib.ADT.graph.removeVertex:4 of
+msgid ""
+"graph: El grafo sobre el que se ejecuta la operacion vertex: El vertice "
+"que se desea remover"
+msgstr ""
+
+#: DISClib.ADT.graph.removeVertex:7 of
+msgid "El grafo sin el vertice vertex"
+msgstr ""
+
+#: DISClib.ADT.graph.vertices:1 of
+msgid "Retorna una lista con todos los vertices del grafo graph Args:"
+msgstr ""
+
+#: DISClib.ADT.graph.vertices:6 of
+msgid "La lista con los vertices del grafo"
+msgstr ""
+
+#: ../../DISClib.ADT.rst:24
+msgid "DISClib.ADT.indexminpq module"
+msgstr ""
+
+#: DISClib.ADT.indexminpq:1 of
+msgid ""
+"# TODO cambiar comentarios de lincencia segun estandard del equipo * "
+"Copyright 2020, Departamento de sistemas y Computación, * Universidad de "
+"Los Andes * * Desarrollado para el curso ISIS1225 - Estructuras de Datos "
+"y Algoritmos * * * This program is free software: you can redistribute it"
+" and/or modify * it under the terms of the GNU General Public License as "
+"published by * the Free Software Foundation, either version 3 of the "
+"License, or * (at your option) any later version. * * This program is "
+"distributed in the hope that it will be useful, * but WITHOUT ANY "
+"WARRANTY; without even the implied warranty of * MERCHANTABILITY or "
+"FITNESS FOR A PARTICULAR PURPOSE.  See the * GNU General Public License "
+"for more details. * * You should have received a copy of the GNU General "
+"Public License * along with this program.  If not, see "
+"<http://www.gnu.org/licenses/>."
+msgstr ""
+
+#: DISClib.ADT.indexminpq:20 DISClib.ADT.maps:21 DISClib.ADT.minpq:20
+#: DISClib.ADT.orderedmap:21 DISClib.ADT.queue:21 DISClib.ADT.stack:21 of
+msgid "Contribución de:"
+msgstr ""
+
+#: DISClib.ADT.indexminpq:22 DISClib.ADT.maps:23 DISClib.ADT.minpq:22
+#: DISClib.ADT.orderedmap:23 DISClib.ADT.queue:23 DISClib.ADT.stack:23 of
+msgid "Dario Correal"
+msgstr ""
+
+#: DISClib.ADT.indexminpq.contains:1 of
+msgid "Indica si la llave key se encuentra en el heap"
+msgstr ""
+
+#: DISClib.ADT.indexminpq.contains:4 DISClib.ADT.indexminpq.delMin:4
+#: DISClib.ADT.indexminpq.min:4 of
+msgid "iheap: El heap a revisar"
+msgstr ""
+
+#: DISClib.ADT.indexminpq.contains:6 DISClib.ADT.indexminpq.decreaseKey:8
+#: DISClib.ADT.indexminpq.delMin:6 DISClib.ADT.indexminpq.increaseKey:8
+#: DISClib.ADT.indexminpq.min:6 DISClib.ADT.indexminpq.size:6 of
+msgid "El numero de elementos"
+msgstr ""
+
+#: DISClib.ADT.indexminpq.decreaseKey:1 of
+msgid "Decrementa el indice de un llave"
+msgstr ""
+
+#: DISClib.ADT.indexminpq.decreaseKey:4 of
+msgid ""
+"iheap: El heap a revisar key: la llave a decrementar newindex: El nuevo "
+"indice de la llave"
+msgstr ""
+
+#: DISClib.ADT.indexminpq.delMin:1 of
+msgid "Elimina el elemento de mayor prioridad"
+msgstr ""
+
+#: DISClib.ADT.indexminpq.increaseKey:1 of
+msgid "Incrementa el indice de un llave"
+msgstr ""
+
+#: DISClib.ADT.indexminpq.increaseKey:4 of
+msgid ""
+"iheap: El heap a revisar key: la llave a incrementar newindex: El nuevo "
+"indice de la llave"
+msgstr ""
+
+#: DISClib.ADT.indexminpq.insert:1 of
+msgid "Inserta la llave key con prioridad index"
+msgstr ""
+
+#: DISClib.ADT.indexminpq.insert:4 of
+msgid "iheap: La cola de prioridad"
+msgstr ""
+
+#: DISClib.ADT.indexminpq.insert:6 of
+msgid "La cola de prioridad con la nueva paraja indexada"
+msgstr ""
+
+#: DISClib.ADT.indexminpq.isEmpty:1 of
+msgid "Informa si una cola de prioridad indexada es vacia"
+msgstr ""
+
+#: DISClib.ADT.indexminpq.isEmpty:4 DISClib.ADT.indexminpq.size:4 of
+msgid "iminpq: La cola de prioridad indexada a revisar"
+msgstr ""
+
+#: DISClib.ADT.indexminpq.isEmpty:6 DISClib.ADT.minpq.isEmpty:6 of
+msgid "True si esta vacia"
+msgstr ""
+
+#: DISClib.ADT.indexminpq.min:1 of
+msgid "Retorna la llave de mayor prioridad"
+msgstr ""
+
+#: DISClib.ADT.indexminpq.newIndexMinPQ:1 of
+msgid "Crea un cola de prioridad indexada orientada a menor"
+msgstr ""
+
+#: DISClib.ADT.indexminpq.newIndexMinPQ:4 of
+msgid "cmpfunction: La funcion de comparacion"
+msgstr ""
+
+#: DISClib.ADT.indexminpq.newIndexMinPQ:6 of
+msgid "Una nueva cola de prioridad indexada"
+msgstr ""
+
+#: DISClib.ADT.indexminpq.size:1 of
+msgid "Retorna el número de elementos en la cola de prioridad indexada"
+msgstr ""
+
+#: ../../DISClib.ADT.rst:32
+msgid "DISClib.ADT.lists module"
+msgstr ""
+
+#: DISClib.ADT.lists:1 DISClib.ADT.minpq:1 DISClib.ADT.queue:1
+#: DISClib.ADT.stack:1 of
+msgid "Copyright 2020, Departamento de sistemas y Computación,"
+msgstr ""
+
+#: DISClib.ADT.lists:2 of
+msgid ""
+"Universidad de Los Andes * * Desarrollado para el curso ISIS1225 - "
+"Estructuras de Datos y Algoritmos * * * This program is free software: "
+"you can redistribute it and/or modify * it under the terms of the GNU "
+"General Public License as published by * the Free Software Foundation, "
+"either version 3 of the License, or * (at your option) any later version."
+" * * This program is distributed in the hope that it will be useful, * "
+"but WITHOUT ANY WARRANTY; without even the implied warranty of * "
+"MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the * GNU "
+"General Public License for more details. * * You should have received a "
+"copy of the GNU General Public License * along with this program.  If "
+"not, see <http://www.gnu.org/licenses/>. * * Contribución de: * * Dario "
+"Correal *"
+msgstr ""
+
+#: ../../DISClib.ADT.rst:40
+msgid "DISClib.ADT.maps module"
+msgstr ""
+
+#: DISClib.ADT.maps:1 DISClib.ADT.orderedmap:1 of
+msgid "Copyright 2020, Departamento de sistemas y Computación"
+msgstr ""
+
+#: DISClib.ADT.maps:2 DISClib.ADT.minpq:2 DISClib.ADT.orderedmap:2
+#: DISClib.ADT.queue:2 DISClib.ADT.stack:2 of
+msgid "Universidad de Los Andes"
+msgstr ""
+
+#: DISClib.ADT.maps:5 DISClib.ADT.orderedmap:5 of
+msgid "Desarrolado para el curso ISIS1225 - Estructuras de Datos y Algoritmos"
+msgstr ""
+
+#: DISClib.ADT.maps:8 DISClib.ADT.minpq:7 DISClib.ADT.orderedmap:8
+#: DISClib.ADT.queue:8 DISClib.ADT.stack:8 of
+msgid "This program is free software: you can redistribute it and/or modify"
+msgstr ""
+
+#: DISClib.ADT.maps:9 DISClib.ADT.minpq:8 DISClib.ADT.orderedmap:9
+#: DISClib.ADT.queue:9 DISClib.ADT.stack:9 of
+msgid "it under the terms of the GNU General Public License as published by"
+msgstr ""
+
+#: DISClib.ADT.maps:10 DISClib.ADT.minpq:9 DISClib.ADT.orderedmap:10
+#: DISClib.ADT.queue:10 DISClib.ADT.stack:10 of
+msgid "the Free Software Foundation, either version 3 of the License, or"
+msgstr ""
+
+#: DISClib.ADT.maps:11 DISClib.ADT.minpq:10 DISClib.ADT.orderedmap:11
+#: DISClib.ADT.queue:11 DISClib.ADT.stack:11 of
+msgid "(at your option) any later version."
+msgstr ""
+
+#: DISClib.ADT.maps:13 DISClib.ADT.minpq:12 DISClib.ADT.orderedmap:13
+#: DISClib.ADT.queue:13 DISClib.ADT.stack:13 of
+msgid "This program is distributed in the hope that it will be useful,"
+msgstr ""
+
+#: DISClib.ADT.maps:14 DISClib.ADT.minpq:13 DISClib.ADT.orderedmap:14
+#: DISClib.ADT.queue:14 DISClib.ADT.stack:14 of
+msgid "but WITHOUT ANY WARRANTY; without even the implied warranty of"
+msgstr ""
+
+#: DISClib.ADT.maps:15 DISClib.ADT.minpq:14 DISClib.ADT.orderedmap:15
+#: DISClib.ADT.queue:15 DISClib.ADT.stack:15 of
+msgid "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the"
+msgstr ""
+
+#: DISClib.ADT.maps:16 DISClib.ADT.minpq:15 DISClib.ADT.orderedmap:16
+#: DISClib.ADT.queue:16 DISClib.ADT.stack:16 of
+msgid "GNU General Public License for more details."
+msgstr ""
+
+#: DISClib.ADT.maps:18 DISClib.ADT.minpq:17 DISClib.ADT.orderedmap:18
+#: DISClib.ADT.queue:18 DISClib.ADT.stack:18 of
+msgid "You should have received a copy of the GNU General Public License"
+msgstr ""
+
+#: DISClib.ADT.maps:19 DISClib.ADT.minpq:18 DISClib.ADT.orderedmap:19
+#: DISClib.ADT.queue:19 DISClib.ADT.stack:19 of
+msgid "along with this program.  If not, see <http://www.gnu.org/licenses/>."
+msgstr ""
+
+#: DISClib.ADT.maps.contains:1 of
+msgid "Retorna True si la llave key se encuentra en el map"
+msgstr ""
+
+#: DISClib.ADT.maps.contains:2 of
+msgid "o False en caso contrario."
+msgstr ""
+
+#: DISClib.ADT.maps.contains:4 DISClib.ADT.maps.get:3 DISClib.ADT.maps.remove:3
+#: of
+msgid "map: El map a donde se guarda la pareja key: la llave asociada a la pareja"
+msgstr ""
+
+#: DISClib.ADT.maps.contains:8 of
+msgid "True / False"
+msgstr ""
+
+#: DISClib.ADT.maps.get:1 of
+msgid "Retorna la pareja llave, valor, cuya llave sea igual a key Args:"
+msgstr ""
+
+#: DISClib.ADT.maps.get:7 of
+msgid "Una pareja <llave,valor>"
+msgstr ""
+
+#: DISClib.ADT.maps.isEmpty:1 of
+msgid "Informa si la tabla de hash se encuentra vacia Args:"
+msgstr ""
+
+#: DISClib.ADT.maps.isEmpty:3 DISClib.ADT.maps.keySet:4 DISClib.ADT.maps.size:3
+#: DISClib.ADT.maps.valueSet:4 of
+msgid "map: El map"
+msgstr ""
+
+#: DISClib.ADT.maps.isEmpty:5 of
+msgid "True: El map esta vacio False: El map no esta vacio"
+msgstr ""
+
+#: DISClib.ADT.maps.keySet:1 of
+msgid "Retorna una lista con todas las llaves de la tabla de hash"
+msgstr ""
+
+#: DISClib.ADT.maps.keySet:6 of
+msgid "lista de llaves"
+msgstr ""
+
+#: DISClib.ADT.maps.newMap:1 of
+msgid "Crea una tabla de simbolos (map) sin orden"
+msgstr ""
+
+#: DISClib.ADT.maps.newMap:4 of
+msgid ""
+"numelements: Tamaño inicial de la tabla prime: Número primo utilizado en "
+"la función MAD maptype: separate chaining ('CHAINING' ) o linear "
+"probing('PROBING') loadfactor: Factor de carga inicial de la tabla "
+"cmpfunction: Funcion de comparación entre llaves"
+msgstr ""
+
+#: DISClib.ADT.maps.newMap:10 of
+msgid "Un nuevo map"
+msgstr ""
+
+#: DISClib.ADT.maps.put:1 of
+msgid ""
+"Ingresa una pareja llave,valor a la tabla de hash. Si la llave ya existe "
+"en la tabla, se reemplaza el valor"
+msgstr ""
+
+#: DISClib.ADT.maps.put:5 of
+msgid ""
+"map: El map a donde se guarda la pareja key: la llave asociada a la "
+"pareja value: el valor asociado a la pareja"
+msgstr ""
+
+#: DISClib.ADT.maps.put:9 DISClib.ADT.maps.remove:7 of
+msgid "El map"
+msgstr ""
+
+#: DISClib.ADT.maps.remove:1 DISClib.ADT.orderedmap.remove:1 of
+msgid "Elimina la pareja llave,valor, donde llave == key. Args:"
+msgstr ""
+
+#: DISClib.ADT.maps.size:1 of
+msgid "Retorna  el número de entradas en la tabla de hash. Args:"
+msgstr ""
+
+#: DISClib.ADT.maps.size:5 of
+msgid "Tamaño del map"
+msgstr ""
+
+#: DISClib.ADT.maps.valueSet:1 of
+msgid "Retorna una lista con todos los valores de la tabla de hash"
+msgstr ""
+
+#: DISClib.ADT.maps.valueSet:6 of
+msgid "lista de valores"
+msgstr ""
+
+#: ../../DISClib.ADT.rst:48
+msgid "DISClib.ADT.minpq module"
+msgstr ""
+
+#: DISClib.ADT.minpq:4 DISClib.ADT.queue:5 DISClib.ADT.stack:5 of
+msgid "Desarrollado para el curso ISIS1225 - Estructuras de Datos y Algoritmos"
+msgstr ""
+
+#: DISClib.ADT.minpq.delMin:1 of
+msgid ""
+"Retorna el menor elemento de la MinPQ y lo elimina. Se reemplaza con el "
+"último elemento y se hace sink."
+msgstr ""
+
+#: DISClib.ADT.minpq.delMin:5 DISClib.ADT.minpq.min:4 of
+msgid "minpq: La cola de prioridad"
+msgstr ""
+
+#: DISClib.ADT.minpq.delMin:8 of
+msgid "El menor elemento eliminado"
+msgstr ""
+
+#: DISClib.ADT.minpq.insert:1 of
+msgid ""
+"Guarda el elemento 'element' en la cola de prioridad. Lo guarda en la "
+"última posición y luego hace swim del elemento"
+msgstr ""
+
+#: DISClib.ADT.minpq.insert:5 of
+msgid "minpq: El arreglo con la informacion element: El elemento a guardar"
+msgstr ""
+
+#: DISClib.ADT.minpq.insert:8 of
+msgid "La MinPQ con el nuevo elemento"
+msgstr ""
+
+#: DISClib.ADT.minpq.isEmpty:1 of
+msgid "Indica si la MinPQ está vacía"
+msgstr ""
+
+#: DISClib.ADT.minpq.isEmpty:4 of
+msgid "heap: El arreglo con la informacion"
+msgstr ""
+
+#: DISClib.ADT.minpq.min:1 of
+msgid "Retorna el primer elemento de la MinPQ, es decir el menor elemento"
+msgstr ""
+
+#: DISClib.ADT.minpq.min:6 of
+msgid "El menor elemento de la MinPQ"
+msgstr ""
+
+#: DISClib.ADT.minpq.newMinPQ:1 of
+msgid "Crea un cola de prioridad orientada a menor"
+msgstr ""
+
+#: DISClib.ADT.minpq.newMinPQ:4 of
+msgid "cmpfunction: La funcion de comparacion size: El numero de elementos"
+msgstr ""
+
+#: DISClib.ADT.minpq.newMinPQ:7 of
+msgid "El heap"
+msgstr ""
+
+#: DISClib.ADT.minpq.size:1 of
+msgid "Retorna el número de elementos en la MinPQ Args:"
+msgstr ""
+
+#: DISClib.ADT.minpq.size:3 of
+msgid "minpq: la cola de prioridad"
+msgstr ""
+
+#: DISClib.ADT.minpq.size:5 of
+msgid "El tamaño de la MinPQ"
+msgstr ""
+
+#: ../../DISClib.ADT.rst:56
+msgid "DISClib.ADT.orderedmap module"
+msgstr ""
+
+#: DISClib.ADT.orderedmap.ceiling:1 of
+msgid ""
+"Retorna la llave mas pequeña en la tabla de simbolos, mayor o igual a la "
+"llave key Args:"
+msgstr ""
+
+#: DISClib.ADT.orderedmap.ceiling:4 of
+msgid "map: La tabla de simbolos key: la llave de búsqueda"
+msgstr ""
+
+#: DISClib.ADT.orderedmap.ceiling:7 DISClib.ADT.orderedmap.rank:6
+#: DISClib.ADT.orderedmap.select:6 of
+msgid "La llave más pequeña mayor o igual a Key"
+msgstr ""
+
+#: DISClib.ADT.orderedmap.contains:1 of
+msgid "Informa si la llave key se encuentra en la tabla de hash Args:"
+msgstr ""
+
+#: DISClib.ADT.orderedmap.contains:3 of
+msgid "map: La tabla de simbolos key: La llave a buscar"
+msgstr ""
+
+#: DISClib.ADT.orderedmap.contains:6 of
+msgid "True si la llave está presente, False en caso contrario"
+msgstr ""
+
+#: DISClib.ADT.orderedmap.deleteMax:1 of
+msgid ""
+"Encuentra y remueve la mayor llave de la tabla de simbolos y su valor "
+"asociado Args:"
+msgstr ""
+
+#: DISClib.ADT.orderedmap.deleteMax:4 DISClib.ADT.orderedmap.deleteMin:4
+#: DISClib.ADT.orderedmap.height:3 DISClib.ADT.orderedmap.isEmpty:3
+#: DISClib.ADT.orderedmap.keySet:3 DISClib.ADT.orderedmap.maxKey:3
+#: DISClib.ADT.orderedmap.minKey:3 DISClib.ADT.orderedmap.size:3 of
+msgid "map: La tabla de simbolos"
+msgstr ""
+
+#: DISClib.ADT.orderedmap.deleteMax:6 of
+msgid "La tabla de simbolos sin la mayor llave"
+msgstr ""
+
+#: DISClib.ADT.orderedmap.deleteMin:1 of
+msgid ""
+"Encuentra y remueve la menor llave de la tabla de simbolos y su valor "
+"asociado Args:"
+msgstr ""
+
+#: DISClib.ADT.orderedmap.deleteMin:6 of
+msgid "La tabla de simbolos sin la menor llave"
+msgstr ""
+
+#: DISClib.ADT.orderedmap.floor:1 of
+msgid ""
+"Retorna la llave mas grande en la tabla de simbolos, menor o igual a la "
+"llave key Args:"
+msgstr ""
+
+#: DISClib.ADT.orderedmap.floor:4 of
+msgid "map: La tabla de simbolos key: La llave de búsqueda"
+msgstr ""
+
+#: DISClib.ADT.orderedmap.floor:7 of
+msgid "La llave más grande menor o igual a key"
+msgstr ""
+
+#: DISClib.ADT.orderedmap.get:1 of
+msgid "Retorna la pareja lleve-valor con llave igual a key Args:"
+msgstr ""
+
+#: DISClib.ADT.orderedmap.get:3 DISClib.ADT.orderedmap.remove:3 of
+msgid "map: La tabla de simbolos key: La llave asociada a la pareja"
+msgstr ""
+
+#: DISClib.ADT.orderedmap.get:6 of
+msgid "La tabla de simbolos con la nueva pareja"
+msgstr ""
+
+#: DISClib.ADT.orderedmap.height:1 of
+msgid "Retorna la altura del arbol de busqueda Args:"
+msgstr ""
+
+#: DISClib.ADT.orderedmap.height:5 of
+msgid "La altura del arbol"
+msgstr ""
+
+#: DISClib.ADT.orderedmap.isEmpty:1 of
+msgid "Informa si la tabla de simbolos se encuentra vacia Args:"
+msgstr ""
+
+#: DISClib.ADT.orderedmap.isEmpty:5 of
+msgid "True si la tabla es vacía, False en caso contrario"
+msgstr ""
+
+#: DISClib.ADT.orderedmap.keySet:1 of
+msgid "Retorna una lista con todas las llaves de la tabla Args:"
+msgstr ""
+
+#: DISClib.ADT.orderedmap.keySet:5 of
+msgid "Una lista con todas las llaves de la tabla"
+msgstr ""
+
+#: DISClib.ADT.orderedmap.keys:1 of
+msgid "Retorna todas las llaves del arbol que se encuentren entre [keylo, keyhi]"
+msgstr ""
+
+#: DISClib.ADT.orderedmap.keys:5 DISClib.ADT.orderedmap.values:5 of
+msgid "map: La tabla de simbolos keylo: limite inferior keylohi: limite superiorr"
+msgstr ""
+
+#: DISClib.ADT.orderedmap.keys:9 DISClib.ADT.orderedmap.values:9 of
+msgid "Las llaves en el rago especificado"
+msgstr ""
+
+#: DISClib.ADT.orderedmap.maxKey:1 of
+msgid "Retorna la mayor llave de la tabla de simbolos Args:"
+msgstr ""
+
+#: DISClib.ADT.orderedmap.maxKey:5 of
+msgid "La mayor llave de la tabla"
+msgstr ""
+
+#: DISClib.ADT.orderedmap.minKey:1 of
+msgid "Retorna la menor llave de la tabla de simbolos Args:"
+msgstr ""
+
+#: DISClib.ADT.orderedmap.minKey:5 of
+msgid "La menor llave de la tabla"
+msgstr ""
+
+#: DISClib.ADT.orderedmap.newMap:1 of
+msgid "Crea una tabla de simbolos ordenada. Args:"
+msgstr ""
+
+#: DISClib.ADT.orderedmap.newMap:3 of
+msgid "maptype: El tipo de map ordenado a utilizar"
+msgstr ""
+
+#: DISClib.ADT.orderedmap.newMap:4 of
+msgid "'BST' o 'RBT'"
+msgstr ""
+
+#: DISClib.ADT.orderedmap.newMap:6 of
+msgid "La tabla de símbolos ordenada sin elementos"
+msgstr ""
+
+#: DISClib.ADT.orderedmap.put:1 of
+msgid ""
+"Ingresa una pareja llave,valor. Si la llave ya existe, se reemplaza el "
+"valor. Args:"
+msgstr ""
+
+#: DISClib.ADT.orderedmap.put:4 of
+msgid ""
+"map: La tabla de simbolos ordenada key: La llave asociada a la pareja "
+"value: El valor asociado a la pareja"
+msgstr ""
+
+#: DISClib.ADT.orderedmap.put:8 DISClib.ADT.orderedmap.remove:6 of
+msgid "La tabla de simbolos"
+msgstr ""
+
+#: DISClib.ADT.orderedmap.rank:1 of
+msgid ""
+"Retorna el número de llaves en la tabla estrictamente menores que key "
+"Args:"
+msgstr ""
+
+#: DISClib.ADT.orderedmap.rank:3 DISClib.ADT.orderedmap.select:3 of
+msgid "map: La tabla de simbolos pos: la pos-esima llave mas pequeña"
+msgstr ""
+
+#: DISClib.ADT.orderedmap.select:1 of
+msgid ""
+"Retorna la siguiente llave a la k-esima llave mas pequeña de la tabla "
+"Args:"
+msgstr ""
+
+#: DISClib.ADT.orderedmap.size:1 of
+msgid "Retorna el número de entradas en la tabla de simbolos Args:"
+msgstr ""
+
+#: DISClib.ADT.orderedmap.size:5 of
+msgid "El número de elementos en la tabla"
+msgstr ""
+
+#: DISClib.ADT.orderedmap.valueSet:1 of
+msgid "Construye una lista con los valores de la tabla Args:"
+msgstr ""
+
+#: DISClib.ADT.orderedmap.valueSet:3 of
+msgid "map: La tabla con los elementos"
+msgstr ""
+
+#: DISClib.ADT.orderedmap.valueSet:5 of
+msgid "Una lista con todos los valores"
+msgstr ""
+
+#: DISClib.ADT.orderedmap.values:1 of
+msgid "Retorna todas los valores del arbol que se encuentren entre [keylo, keyhi]"
+msgstr ""
+
+#: ../../DISClib.ADT.rst:64
+msgid "DISClib.ADT.queue module"
+msgstr ""
+
+#: DISClib.ADT.queue.Queue:1 of
+msgid "Bases: :py:class:`~typing.Generic`\\ [:py:obj:`~DISClib.ADT.queue.T`]"
+msgstr ""
+
+#: DISClib.ADT.queue.Queue:1 DISClib.ADT.stack.Stack:1 of
+msgid "ArrayList _summary_"
+msgstr ""
+
+#: DISClib.ADT.queue.Queue:4 DISClib.ADT.stack.Stack:4 of
+msgid "Generic (_type_): _description_"
+msgstr ""
+
+#: DISClib.ADT.queue.dequeue:3 of
+msgid "Retorna el elemento en la primer posición de la cola, y lo elimina."
+msgstr ""
+
+#: DISClib.ADT.queue.dequeue:3 of
+msgid "queue: La cola donde se eliminará el elemento"
+msgstr ""
+
+#: DISClib.ADT.queue.dequeue:6 of
+msgid "El primer elemento de la cola"
+msgstr ""
+
+#: DISClib.ADT.queue.enqueue:1 of
+msgid "Agrega el elemento element en el tope de la pila Args:"
+msgstr ""
+
+#: DISClib.ADT.queue.enqueue:3 of
+msgid ""
+"queue: La cola donde se insertará el elemento element:  El elemento a "
+"insertar"
+msgstr ""
+
+#: DISClib.ADT.queue.enqueue:7 of
+msgid "La cola modificada"
+msgstr ""
+
+#: DISClib.ADT.queue.isEmpty:1 of
+msgid "Informa si la cola es vacía o no Args:"
+msgstr ""
+
+#: DISClib.ADT.queue.isEmpty:3 DISClib.ADT.queue.peek:3
+#: DISClib.ADT.queue.size:3 of
+msgid "queue: La cola  a examinar"
+msgstr ""
+
+#: DISClib.ADT.queue.isEmpty:6 of
+msgid "True si la cola es vacia, False de lo contrario"
+msgstr ""
+
+#: DISClib.ADT.queue.newQueue:1 of
+msgid "Crea una cola vacia basada en una lista. Args:"
+msgstr ""
+
+#: DISClib.ADT.queue.newQueue:3 DISClib.ADT.stack.newStack:4 of
+msgid "datastructure:  Indica el tipo de estructura de datos a utilizar"
+msgstr ""
+
+#: DISClib.ADT.queue.newQueue:4 of
+msgid "para implementar la cola"
+msgstr ""
+
+#: DISClib.ADT.queue.newQueue:6 of
+msgid "Una cola vacia"
+msgstr ""
+
+#: DISClib.ADT.queue.peek:1 of
+msgid "Retorna el elemento en la primer posición de la cola sin eliminarlo Args:"
+msgstr ""
+
+#: DISClib.ADT.queue.peek:6 of
+msgid "True el primer elemento de cola sin eliminarlo"
+msgstr ""
+
+#: DISClib.ADT.queue.size:1 of
+msgid "Informa el número de elementos en la cola Args:"
+msgstr ""
+
+#: DISClib.ADT.queue.size:6 of
+msgid "Retorna el tamaño de la cola"
+msgstr ""
+
+#: ../../DISClib.ADT.rst:72
+msgid "DISClib.ADT.stack module"
+msgstr ""
+
+#: DISClib.ADT.stack.Stack:1 of
+msgid "Bases: :py:class:`~typing.Generic`\\ [:py:obj:`~DISClib.ADT.stack.T`]"
+msgstr ""
+
+#: DISClib.ADT.stack.isEmpty:3 of
+msgid "Informa si la pila es vacía o no"
+msgstr ""
+
+#: DISClib.ADT.stack.isEmpty:3 DISClib.ADT.stack.top:4 of
+msgid "stack:  La pila a examinar"
+msgstr ""
+
+#: DISClib.ADT.stack.isEmpty:6 of
+msgid "True si la pila es vacia False de lo contrario"
+msgstr ""
+
+#: DISClib.ADT.stack.newStack:1 of
+msgid "Crea una pila vacia."
+msgstr ""
+
+#: DISClib.ADT.stack.newStack:5 of
+msgid "para implementar la pila"
+msgstr ""
+
+#: DISClib.ADT.stack.newStack:7 of
+msgid "Una pila vacia"
+msgstr ""
+
+#: DISClib.ADT.stack.pop:1 of
+msgid "Retorna el elemento  presente en el tope de la pila."
+msgstr ""
+
+#: DISClib.ADT.stack.pop:4 of
+msgid "stack:  La pila de donde se retirara el elemento"
+msgstr ""
+
+#: DISClib.ADT.stack.pop:7 of
+msgid "El elemento del tope de la pila"
+msgstr ""
+
+#: DISClib.ADT.stack.push:1 of
+msgid "Agrega el elemento element en el tope de la pila."
+msgstr ""
+
+#: DISClib.ADT.stack.push:4 of
+msgid ""
+"stack:  La pila donde se insetará el elemento element:  El elemento a "
+"insertar"
+msgstr ""
+
+#: DISClib.ADT.stack.push:8 of
+msgid "La pila modificada"
+msgstr ""
+
+#: DISClib.ADT.stack.size:1 of
+msgid "Informa el número de elementos en la pila Args:"
+msgstr ""
+
+#: DISClib.ADT.stack.size:3 of
+msgid "stack: La pila a examinar"
+msgstr ""
+
+#: DISClib.ADT.stack.size:6 of
+msgid "Retorna el tamaño de la pila"
+msgstr ""
+
+#: DISClib.ADT.stack.top:1 of
+msgid "Retorna el elemento en tope de la pila, sin eliminarlo de la pila"
+msgstr ""
+
+#: DISClib.ADT.stack.top:7 of
+msgid "El primer elemento de la pila, sin eliminarlo"
+msgstr ""
+
+#: ../../DISClib.ADT.rst:80
+msgid "Module contents"
+msgstr ""
+

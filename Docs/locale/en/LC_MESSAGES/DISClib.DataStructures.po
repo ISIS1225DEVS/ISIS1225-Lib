@@ -1,0 +1,3122 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, ISIS1225 Devs DISC
+# This file is distributed under the same license as the DISClib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: DISClib \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-10-18 15:10-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.12.1\n"
+
+#: ../../DISClib.DataStructures.rst:2
+msgid "DISClib.DataStructures package"
+msgstr ""
+
+#: ../../DISClib.DataStructures.rst:5
+msgid "Submodules"
+msgstr ""
+
+#: ../../DISClib.DataStructures.rst:8
+msgid "DISClib.DataStructures.adjlist module"
+msgstr ""
+
+#: DISClib.DataStructures.adjlist:1 of
+msgid ""
+"# TODO cambiar comentarios de lincencia segun estandard del equipo * "
+"Copyright 2020, Departamento de sistemas y Computación, * Universidad de "
+"Los Andes * * Desarrollado para el curso ISIS1225 - Estructuras de Datos "
+"y Algoritmos * * * This program is free software: you can redistribute it"
+" and/or modify * it under the terms of the GNU General Public License as "
+"published by * the Free Software Foundation, either version 3 of the "
+"License, or * (at your option) any later version. * * This program is "
+"distributed in the hope that it will be useful, * but WITHOUT ANY "
+"WARRANTY; without even the implied warranty of * MERCHANTABILITY or "
+"FITNESS FOR A PARTICULAR PURPOSE.  See the * GNU General Public License "
+"for more details. * * You should have received a copy of the GNU General "
+"Public License * along with this program.  If not, see "
+"<http://www.gnu.org/licenses/>. * * Contribución de: * * Dario Correal *"
+msgstr ""
+
+#: DISClib.DataStructures.adjlist.addEdge:1 of
+msgid ""
+"Agrega un arco entre los vertices vertexa ---- vertexb, con peso weight. "
+"Si el grafo es no dirigido se adiciona dos veces el mismo arco, en el "
+"mismo orden Si el grafo es dirigido se adiciona solo el arco vertexa --> "
+"vertexb"
+msgstr ""
+
+#: DISClib.DataStructures.adjlist.addEdge:10
+#: DISClib.DataStructures.adjlist.adjacentEdges:6
+#: DISClib.DataStructures.adjlist.adjacents:5
+#: DISClib.DataStructures.adjlist.containsVertex:5
+#: DISClib.DataStructures.adjlist.degree:5
+#: DISClib.DataStructures.adjlist.edges:4
+#: DISClib.DataStructures.adjlist.getEdge:6
+#: DISClib.DataStructures.adjlist.indegree:5
+#: DISClib.DataStructures.adjlist.insertVertex:4
+#: DISClib.DataStructures.adjlist.newGraph:5
+#: DISClib.DataStructures.adjlist.numEdges:4
+#: DISClib.DataStructures.adjlist.numVertices:4
+#: DISClib.DataStructures.adjlist.outdegree:5
+#: DISClib.DataStructures.adjlist.removeVertex:4
+#: DISClib.DataStructures.arraylist.ArrayList:5
+#: DISClib.DataStructures.arraylist.ArrayList.add_element:5
+#: DISClib.DataStructures.arraylist.ArrayList.add_first:4
+#: DISClib.DataStructures.arraylist.ArrayList.add_last:4
+#: DISClib.DataStructures.arraylist.ArrayList.change_info:5
+#: DISClib.DataStructures.arraylist.ArrayList.compare_elements:5
+#: DISClib.DataStructures.arraylist.ArrayList.concat:4
+#: DISClib.DataStructures.arraylist.ArrayList.default_cmp_function:5
+#: DISClib.DataStructures.arraylist.ArrayList.exchange:5
+#: DISClib.DataStructures.arraylist.ArrayList.get_element:4
+#: DISClib.DataStructures.arraylist.ArrayList.is_present:4
+#: DISClib.DataStructures.arraylist.ArrayList.remove_element:4
+#: DISClib.DataStructures.arraylist.ArrayList.sublist:5
+#: DISClib.DataStructures.arraylist.lastElement:5
+#: DISClib.DataStructures.bst.keys:6 DISClib.DataStructures.bst.values:6
+#: DISClib.DataStructures.chaininghashmap.contains:5
+#: DISClib.DataStructures.chaininghashmap.keySet:3
+#: DISClib.DataStructures.chaininghashmap.newMap:11
+#: DISClib.DataStructures.chaininghashmap.put:6
+#: DISClib.DataStructures.chaininghashmap.valueSet:3
+#: DISClib.DataStructures.doublelinkedlist.DoubleLinked:5
+#: DISClib.DataStructures.doublelinkedlist.addFirst:8
+#: DISClib.DataStructures.doublelinkedlist.changeInfo:8
+#: DISClib.DataStructures.doublelinkedlist.deleteElement:10
+#: DISClib.DataStructures.doublelinkedlist.exchange:6
+#: DISClib.DataStructures.doublelinkedlist.firstElement:5
+#: DISClib.DataStructures.doublelinkedlist.getElement:10
+#: DISClib.DataStructures.doublelinkedlist.insertElement:10
+#: DISClib.DataStructures.doublelinkedlist.isPresent:11
+#: DISClib.DataStructures.doublelinkedlist.lastElement:5
+#: DISClib.DataStructures.doublelinkedlist.removeLast:8
+#: DISClib.DataStructures.doublelinkedlist.subList:10
+#: DISClib.DataStructures.heap.delMin:5 DISClib.DataStructures.heap.insert:5
+#: DISClib.DataStructures.heap.isEmpty:3 DISClib.DataStructures.heap.min:3
+#: DISClib.DataStructures.heap.newHeap:5 DISClib.DataStructures.heap.sink:5
+#: DISClib.DataStructures.heap.size:3 DISClib.DataStructures.heap.swim:6
+#: DISClib.DataStructures.indexheap.contains:3
+#: DISClib.DataStructures.indexheap.decreaseKey:5
+#: DISClib.DataStructures.indexheap.delMin:4
+#: DISClib.DataStructures.indexheap.increaseKey:5
+#: DISClib.DataStructures.indexheap.insert:3
+#: DISClib.DataStructures.indexheap.isEmpty:3
+#: DISClib.DataStructures.indexheap.min:3
+#: DISClib.DataStructures.indexheap.newIndexHeap:4
+#: DISClib.DataStructures.indexheap.sink:5
+#: DISClib.DataStructures.indexheap.size:3
+#: DISClib.DataStructures.indexheap.swim:6
+#: DISClib.DataStructures.listnode.DoubleNode:6
+#: DISClib.DataStructures.listnode.Node:4
+#: DISClib.DataStructures.listnode.Node.set_info:3
+#: DISClib.DataStructures.listnode.SingleNode:6
+#: DISClib.DataStructures.probehashtable.contains:5
+#: DISClib.DataStructures.probehashtable.keySet:3
+#: DISClib.DataStructures.probehashtable.newMap:12
+#: DISClib.DataStructures.probehashtable.put:6
+#: DISClib.DataStructures.probehashtable.valueSet:3
+#: DISClib.DataStructures.probinghashmap.addFirst:8
+#: DISClib.DataStructures.probinghashmap.changeInfo:8
+#: DISClib.DataStructures.probinghashmap.deleteElement:10
+#: DISClib.DataStructures.probinghashmap.exchange:6
+#: DISClib.DataStructures.probinghashmap.firstElement:5
+#: DISClib.DataStructures.probinghashmap.getElement:10
+#: DISClib.DataStructures.probinghashmap.insertElement:10
+#: DISClib.DataStructures.probinghashmap.isPresent:11
+#: DISClib.DataStructures.probinghashmap.lastElement:5
+#: DISClib.DataStructures.probinghashmap.removeLast:8
+#: DISClib.DataStructures.probinghashmap.subList:10
+#: DISClib.DataStructures.rbt.ceilingKey:6
+#: DISClib.DataStructures.rbt.contains:6 DISClib.DataStructures.rbt.deleteMax:6
+#: DISClib.DataStructures.rbt.floor:4 DISClib.DataStructures.rbt.floorKey:6
+#: DISClib.DataStructures.rbt.get:4 DISClib.DataStructures.rbt.getNode:6
+#: DISClib.DataStructures.rbt.height:3 DISClib.DataStructures.rbt.heightTree:3
+#: DISClib.DataStructures.rbt.values:6
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked:5
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.add_element:5
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.add_first:4
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.add_last:4
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.change_info:5
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.compare_elements:5
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.default_cmp_function:5
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.exchange:5
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.get_element:4
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.is_present:4
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_element:4
+#: DISClib.DataStructures.singlelinkedlist.addFirst:8
+#: DISClib.DataStructures.singlelinkedlist.changeInfo:8
+#: DISClib.DataStructures.singlelinkedlist.deleteElement:10
+#: DISClib.DataStructures.singlelinkedlist.exchange:6
+#: DISClib.DataStructures.singlelinkedlist.firstElement:5
+#: DISClib.DataStructures.singlelinkedlist.getElement:10
+#: DISClib.DataStructures.singlelinkedlist.insertElement:10
+#: DISClib.DataStructures.singlelinkedlist.isPresent:11
+#: DISClib.DataStructures.singlelinkedlist.lastElement:5
+#: DISClib.DataStructures.singlelinkedlist.removeLast:8
+#: DISClib.DataStructures.singlelinkedlist.subList:10 of
+msgid "Args:"
+msgstr ""
+
+#: DISClib.DataStructures.adjlist.addEdge:7 of
+msgid ""
+"graph: El grafo sobre el que se ejecuta la operacion vertexa: Vertice de "
+"inicio vertexb: Vertice de destino wight: peso del arco"
+msgstr ""
+
+#: DISClib.DataStructures.adjlist.addEdge:12
+#: DISClib.DataStructures.adjlist.adjacentEdges:8
+#: DISClib.DataStructures.adjlist.adjacents:7
+#: DISClib.DataStructures.adjlist.containsVertex:7
+#: DISClib.DataStructures.adjlist.degree:7
+#: DISClib.DataStructures.adjlist.edges:6
+#: DISClib.DataStructures.adjlist.getEdge:8
+#: DISClib.DataStructures.adjlist.indegree:7
+#: DISClib.DataStructures.adjlist.insertVertex:6
+#: DISClib.DataStructures.adjlist.newGraph:7
+#: DISClib.DataStructures.adjlist.numEdges:6
+#: DISClib.DataStructures.adjlist.numVertices:6
+#: DISClib.DataStructures.adjlist.outdegree:7
+#: DISClib.DataStructures.adjlist.removeVertex:6
+#: DISClib.DataStructures.adjlist.vertices:5
+#: DISClib.DataStructures.arraylist.ArrayList.compare_elements:7
+#: DISClib.DataStructures.arraylist.ArrayList.concat:9
+#: DISClib.DataStructures.arraylist.ArrayList.default_cmp_function:11
+#: DISClib.DataStructures.arraylist.ArrayList.get_element:10
+#: DISClib.DataStructures.arraylist.ArrayList.get_first:6
+#: DISClib.DataStructures.arraylist.ArrayList.get_last:6
+#: DISClib.DataStructures.arraylist.ArrayList.is_empty:3
+#: DISClib.DataStructures.arraylist.ArrayList.is_present:6
+#: DISClib.DataStructures.arraylist.ArrayList.remove_element:9
+#: DISClib.DataStructures.arraylist.ArrayList.remove_first:6
+#: DISClib.DataStructures.arraylist.ArrayList.remove_last:6
+#: DISClib.DataStructures.arraylist.ArrayList.size:3
+#: DISClib.DataStructures.arraylist.ArrayList.sublist:10
+#: DISClib.DataStructures.bst.ceiling:6 DISClib.DataStructures.bst.ceilingKey:6
+#: DISClib.DataStructures.bst.contains:5 DISClib.DataStructures.bst.deleteMax:5
+#: DISClib.DataStructures.bst.deleteMaxTree:5
+#: DISClib.DataStructures.bst.deleteMin:5
+#: DISClib.DataStructures.bst.deleteMinTree:5
+#: DISClib.DataStructures.bst.floor:6 DISClib.DataStructures.bst.floorKey:5
+#: DISClib.DataStructures.bst.get:5 DISClib.DataStructures.bst.getNode:6
+#: DISClib.DataStructures.bst.height:4 DISClib.DataStructures.bst.heightTree:4
+#: DISClib.DataStructures.bst.insertNode:8 DISClib.DataStructures.bst.isEmpty:4
+#: DISClib.DataStructures.bst.keySet:4 DISClib.DataStructures.bst.keySetTree:5
+#: DISClib.DataStructures.bst.keys:8 DISClib.DataStructures.bst.keysRange:6
+#: DISClib.DataStructures.bst.maxKey:4 DISClib.DataStructures.bst.maxKeyNode:4
+#: DISClib.DataStructures.bst.minKey:4 DISClib.DataStructures.bst.minKeyNode:4
+#: DISClib.DataStructures.bst.newMap:4 DISClib.DataStructures.bst.put:7
+#: DISClib.DataStructures.bst.rank:5 DISClib.DataStructures.bst.rankKeys:5
+#: DISClib.DataStructures.bst.remove:5 DISClib.DataStructures.bst.removeNode:5
+#: DISClib.DataStructures.bst.select:5 DISClib.DataStructures.bst.selectKey:5
+#: DISClib.DataStructures.bst.size:4 DISClib.DataStructures.bst.sizeTree:4
+#: DISClib.DataStructures.bst.valueSet:4
+#: DISClib.DataStructures.bst.valueSetTree:5
+#: DISClib.DataStructures.bst.values:8 DISClib.DataStructures.bst.valuesRange:7
+#: DISClib.DataStructures.bstnode.getKey:4
+#: DISClib.DataStructures.bstnode.getValue:4
+#: DISClib.DataStructures.bstnode.newNode:7
+#: DISClib.DataStructures.chaininghashmap.contains:7
+#: DISClib.DataStructures.chaininghashmap.get:6
+#: DISClib.DataStructures.chaininghashmap.isEmpty:5
+#: DISClib.DataStructures.chaininghashmap.keySet:5
+#: DISClib.DataStructures.chaininghashmap.newMap:13
+#: DISClib.DataStructures.chaininghashmap.put:8
+#: DISClib.DataStructures.chaininghashmap.remove:6
+#: DISClib.DataStructures.chaininghashmap.size:4
+#: DISClib.DataStructures.chaininghashmap.valueSet:5
+#: DISClib.DataStructures.doublelinkedlist.addFirst:12
+#: DISClib.DataStructures.doublelinkedlist.newList:21
+#: DISClib.DataStructures.heap.delMin:7 DISClib.DataStructures.heap.insert:7
+#: DISClib.DataStructures.heap.isEmpty:5 DISClib.DataStructures.heap.min:5
+#: DISClib.DataStructures.heap.newHeap:7 DISClib.DataStructures.heap.sink:7
+#: DISClib.DataStructures.heap.size:5 DISClib.DataStructures.heap.swim:8
+#: DISClib.DataStructures.indexheap.contains:5
+#: DISClib.DataStructures.indexheap.decreaseKey:7
+#: DISClib.DataStructures.indexheap.delMin:6
+#: DISClib.DataStructures.indexheap.increaseKey:7
+#: DISClib.DataStructures.indexheap.insert:5
+#: DISClib.DataStructures.indexheap.isEmpty:5
+#: DISClib.DataStructures.indexheap.min:5
+#: DISClib.DataStructures.indexheap.newIndexHeap:6
+#: DISClib.DataStructures.indexheap.sink:7
+#: DISClib.DataStructures.indexheap.size:5
+#: DISClib.DataStructures.indexheap.swim:8
+#: DISClib.DataStructures.listnode.DoubleNode:10
+#: DISClib.DataStructures.listnode.DoubleNode.prev:3
+#: DISClib.DataStructures.listnode.Node:11
+#: DISClib.DataStructures.listnode.Node.get_info:3
+#: DISClib.DataStructures.listnode.SingleNode:10
+#: DISClib.DataStructures.listnode.SingleNode.next:3
+#: DISClib.DataStructures.mapentry.getKey:4
+#: DISClib.DataStructures.mapentry.getValue:4
+#: DISClib.DataStructures.mapentry.newMapEntry:6
+#: DISClib.DataStructures.mapentry.setKey:5
+#: DISClib.DataStructures.mapentry.setValue:5
+#: DISClib.DataStructures.probehashtable.contains:7
+#: DISClib.DataStructures.probehashtable.get:6
+#: DISClib.DataStructures.probehashtable.isEmpty:5
+#: DISClib.DataStructures.probehashtable.keySet:5
+#: DISClib.DataStructures.probehashtable.newMap:14
+#: DISClib.DataStructures.probehashtable.put:8
+#: DISClib.DataStructures.probehashtable.remove:6
+#: DISClib.DataStructures.probehashtable.size:4
+#: DISClib.DataStructures.probehashtable.valueSet:5
+#: DISClib.DataStructures.probinghashmap.addFirst:12
+#: DISClib.DataStructures.probinghashmap.newList:21
+#: DISClib.DataStructures.rbt.ceiling:6 DISClib.DataStructures.rbt.ceilingKey:8
+#: DISClib.DataStructures.rbt.contains:8 DISClib.DataStructures.rbt.deleteMax:8
+#: DISClib.DataStructures.rbt.flipColors:5
+#: DISClib.DataStructures.rbt.flipNodeColor:4
+#: DISClib.DataStructures.rbt.floor:6 DISClib.DataStructures.rbt.floorKey:8
+#: DISClib.DataStructures.rbt.get:6 DISClib.DataStructures.rbt.getNode:8
+#: DISClib.DataStructures.rbt.height:5 DISClib.DataStructures.rbt.heightTree:5
+#: DISClib.DataStructures.rbt.insertNode:8 DISClib.DataStructures.rbt.isEmpty:4
+#: DISClib.DataStructures.rbt.isRed:4 DISClib.DataStructures.rbt.keySet:4
+#: DISClib.DataStructures.rbt.keySetTree:5 DISClib.DataStructures.rbt.keys:7
+#: DISClib.DataStructures.rbt.keysRange:6 DISClib.DataStructures.rbt.maxKey:4
+#: DISClib.DataStructures.rbt.maxKeyTree:4 DISClib.DataStructures.rbt.minKey:4
+#: DISClib.DataStructures.rbt.minKeyTree:4 DISClib.DataStructures.rbt.newMap:4
+#: DISClib.DataStructures.rbt.put:7 DISClib.DataStructures.rbt.rank:5
+#: DISClib.DataStructures.rbt.rankKeys:5 DISClib.DataStructures.rbt.remove:5
+#: DISClib.DataStructures.rbt.removeKey:6
+#: DISClib.DataStructures.rbt.rotateRight:4 DISClib.DataStructures.rbt.select:5
+#: DISClib.DataStructures.rbt.selectKey:5 DISClib.DataStructures.rbt.size:4
+#: DISClib.DataStructures.rbt.sizeTree:4 DISClib.DataStructures.rbt.valueSet:4
+#: DISClib.DataStructures.rbt.valueSetTree:5
+#: DISClib.DataStructures.rbt.values:8 DISClib.DataStructures.rbt.valuesRange:7
+#: DISClib.DataStructures.rbtnode.getKey:4
+#: DISClib.DataStructures.rbtnode.getValue:4
+#: DISClib.DataStructures.rbtnode.isRed:5
+#: DISClib.DataStructures.rbtnode.newNode:9
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.compare_elements:7
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.default_cmp_function:11
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.get_element:9
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.get_first:6
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.get_last:6
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.is_empty:3
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.is_present:6
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_element:9
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_first:6
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_last:6
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.size:3
+#: DISClib.DataStructures.singlelinkedlist.addFirst:12
+#: DISClib.DataStructures.singlelinkedlist.newList:21 of
+msgid "Returns:"
+msgstr ""
+
+#: DISClib.DataStructures.adjlist.addEdge:13 of
+msgid "El grafo con el nuevo arco"
+msgstr ""
+
+#: DISClib.DataStructures.adjlist.addEdge:14
+#: DISClib.DataStructures.adjlist.adjacentEdges:10
+#: DISClib.DataStructures.adjlist.adjacents:9
+#: DISClib.DataStructures.adjlist.containsVertex:9
+#: DISClib.DataStructures.adjlist.degree:9
+#: DISClib.DataStructures.adjlist.edges:8
+#: DISClib.DataStructures.adjlist.getEdge:10
+#: DISClib.DataStructures.adjlist.indegree:9
+#: DISClib.DataStructures.adjlist.insertVertex:8
+#: DISClib.DataStructures.adjlist.newGraph:9
+#: DISClib.DataStructures.adjlist.numEdges:8
+#: DISClib.DataStructures.adjlist.numVertices:8
+#: DISClib.DataStructures.adjlist.outdegree:9
+#: DISClib.DataStructures.adjlist.removeVertex:8
+#: DISClib.DataStructures.adjlist.vertices:7
+#: DISClib.DataStructures.arraylist.ArrayList.add_element:7
+#: DISClib.DataStructures.arraylist.ArrayList.add_first:6
+#: DISClib.DataStructures.arraylist.ArrayList.add_last:6
+#: DISClib.DataStructures.arraylist.ArrayList.change_info:7
+#: DISClib.DataStructures.arraylist.ArrayList.concat:7
+#: DISClib.DataStructures.arraylist.ArrayList.default_cmp_function:9
+#: DISClib.DataStructures.arraylist.ArrayList.exchange:9
+#: DISClib.DataStructures.arraylist.ArrayList.get_element:8
+#: DISClib.DataStructures.arraylist.ArrayList.get_first:4
+#: DISClib.DataStructures.arraylist.ArrayList.get_last:4
+#: DISClib.DataStructures.arraylist.ArrayList.remove_element:7
+#: DISClib.DataStructures.arraylist.ArrayList.remove_first:4
+#: DISClib.DataStructures.arraylist.ArrayList.remove_last:4
+#: DISClib.DataStructures.arraylist.ArrayList.sublist:8
+#: DISClib.DataStructures.arraylist.lastElement:7
+#: DISClib.DataStructures.arraylist.size:6 DISClib.DataStructures.bst.ceiling:8
+#: DISClib.DataStructures.bst.ceilingKey:8
+#: DISClib.DataStructures.bst.contains:7 DISClib.DataStructures.bst.deleteMax:7
+#: DISClib.DataStructures.bst.deleteMaxTree:7
+#: DISClib.DataStructures.bst.deleteMin:7
+#: DISClib.DataStructures.bst.deleteMinTree:7
+#: DISClib.DataStructures.bst.floor:8 DISClib.DataStructures.bst.floorKey:7
+#: DISClib.DataStructures.bst.get:7 DISClib.DataStructures.bst.getNode:8
+#: DISClib.DataStructures.bst.height:6 DISClib.DataStructures.bst.heightTree:6
+#: DISClib.DataStructures.bst.insertNode:10
+#: DISClib.DataStructures.bst.isEmpty:6 DISClib.DataStructures.bst.keySet:6
+#: DISClib.DataStructures.bst.keySetTree:7 DISClib.DataStructures.bst.keys:10
+#: DISClib.DataStructures.bst.keysRange:8 DISClib.DataStructures.bst.maxKey:6
+#: DISClib.DataStructures.bst.maxKeyNode:6 DISClib.DataStructures.bst.minKey:6
+#: DISClib.DataStructures.bst.minKeyNode:6 DISClib.DataStructures.bst.newMap:6
+#: DISClib.DataStructures.bst.put:9 DISClib.DataStructures.bst.rank:7
+#: DISClib.DataStructures.bst.rankKeys:7 DISClib.DataStructures.bst.remove:7
+#: DISClib.DataStructures.bst.removeNode:7 DISClib.DataStructures.bst.select:7
+#: DISClib.DataStructures.bst.selectKey:7 DISClib.DataStructures.bst.size:6
+#: DISClib.DataStructures.bst.sizeTree:6 DISClib.DataStructures.bst.valueSet:6
+#: DISClib.DataStructures.bst.valueSetTree:7
+#: DISClib.DataStructures.bst.values:10
+#: DISClib.DataStructures.bst.valuesRange:9
+#: DISClib.DataStructures.bstnode.getKey:6
+#: DISClib.DataStructures.bstnode.getValue:6
+#: DISClib.DataStructures.bstnode.newNode:9
+#: DISClib.DataStructures.chaininghashmap.contains:9
+#: DISClib.DataStructures.chaininghashmap.get:8
+#: DISClib.DataStructures.chaininghashmap.isEmpty:7
+#: DISClib.DataStructures.chaininghashmap.keySet:7
+#: DISClib.DataStructures.chaininghashmap.newMap:15
+#: DISClib.DataStructures.chaininghashmap.put:10
+#: DISClib.DataStructures.chaininghashmap.remove:8
+#: DISClib.DataStructures.chaininghashmap.size:6
+#: DISClib.DataStructures.chaininghashmap.valueSet:7
+#: DISClib.DataStructures.doublelinkedlist.addFirst:14
+#: DISClib.DataStructures.doublelinkedlist.addLast:10
+#: DISClib.DataStructures.doublelinkedlist.changeInfo:10
+#: DISClib.DataStructures.doublelinkedlist.compareElements:12
+#: DISClib.DataStructures.doublelinkedlist.deleteElement:12
+#: DISClib.DataStructures.doublelinkedlist.exchange:8
+#: DISClib.DataStructures.doublelinkedlist.firstElement:7
+#: DISClib.DataStructures.doublelinkedlist.getElement:12
+#: DISClib.DataStructures.doublelinkedlist.insertElement:12
+#: DISClib.DataStructures.doublelinkedlist.isEmpty:5
+#: DISClib.DataStructures.doublelinkedlist.isPresent:13
+#: DISClib.DataStructures.doublelinkedlist.iterator:5
+#: DISClib.DataStructures.doublelinkedlist.lastElement:7
+#: DISClib.DataStructures.doublelinkedlist.newList:23
+#: DISClib.DataStructures.doublelinkedlist.removeFirst:8
+#: DISClib.DataStructures.doublelinkedlist.removeLast:10
+#: DISClib.DataStructures.doublelinkedlist.size:5
+#: DISClib.DataStructures.doublelinkedlist.subList:12
+#: DISClib.DataStructures.heap.delMin:9 DISClib.DataStructures.heap.insert:9
+#: DISClib.DataStructures.heap.isEmpty:7 DISClib.DataStructures.heap.min:7
+#: DISClib.DataStructures.heap.newHeap:9 DISClib.DataStructures.heap.sink:9
+#: DISClib.DataStructures.heap.size:7 DISClib.DataStructures.heap.swim:10
+#: DISClib.DataStructures.indexheap.contains:7
+#: DISClib.DataStructures.indexheap.decreaseKey:9
+#: DISClib.DataStructures.indexheap.delMin:8
+#: DISClib.DataStructures.indexheap.increaseKey:9
+#: DISClib.DataStructures.indexheap.insert:7
+#: DISClib.DataStructures.indexheap.isEmpty:7
+#: DISClib.DataStructures.indexheap.min:7
+#: DISClib.DataStructures.indexheap.newIndexHeap:8
+#: DISClib.DataStructures.indexheap.sink:9
+#: DISClib.DataStructures.indexheap.size:7
+#: DISClib.DataStructures.indexheap.swim:10
+#: DISClib.DataStructures.listnode.Node:7
+#: DISClib.DataStructures.mapentry.getKey:6
+#: DISClib.DataStructures.mapentry.getValue:6
+#: DISClib.DataStructures.mapentry.newMapEntry:8
+#: DISClib.DataStructures.mapentry.setKey:7
+#: DISClib.DataStructures.mapentry.setValue:7
+#: DISClib.DataStructures.probehashtable.contains:9
+#: DISClib.DataStructures.probehashtable.get:8
+#: DISClib.DataStructures.probehashtable.isEmpty:7
+#: DISClib.DataStructures.probehashtable.keySet:7
+#: DISClib.DataStructures.probehashtable.newMap:16
+#: DISClib.DataStructures.probehashtable.put:10
+#: DISClib.DataStructures.probehashtable.remove:8
+#: DISClib.DataStructures.probehashtable.size:6
+#: DISClib.DataStructures.probehashtable.valueSet:7
+#: DISClib.DataStructures.probinghashmap.addFirst:14
+#: DISClib.DataStructures.probinghashmap.addLast:10
+#: DISClib.DataStructures.probinghashmap.changeInfo:10
+#: DISClib.DataStructures.probinghashmap.compareElements:12
+#: DISClib.DataStructures.probinghashmap.deleteElement:12
+#: DISClib.DataStructures.probinghashmap.exchange:8
+#: DISClib.DataStructures.probinghashmap.firstElement:7
+#: DISClib.DataStructures.probinghashmap.getElement:12
+#: DISClib.DataStructures.probinghashmap.insertElement:12
+#: DISClib.DataStructures.probinghashmap.isEmpty:5
+#: DISClib.DataStructures.probinghashmap.isPresent:13
+#: DISClib.DataStructures.probinghashmap.iterator:5
+#: DISClib.DataStructures.probinghashmap.lastElement:7
+#: DISClib.DataStructures.probinghashmap.newList:23
+#: DISClib.DataStructures.probinghashmap.removeFirst:8
+#: DISClib.DataStructures.probinghashmap.removeLast:10
+#: DISClib.DataStructures.probinghashmap.size:5
+#: DISClib.DataStructures.probinghashmap.subList:12
+#: DISClib.DataStructures.rbt.balance:5 DISClib.DataStructures.rbt.ceiling:8
+#: DISClib.DataStructures.rbt.ceilingKey:10
+#: DISClib.DataStructures.rbt.contains:10
+#: DISClib.DataStructures.rbt.deleteMax:10
+#: DISClib.DataStructures.rbt.deleteMaxTree:7
+#: DISClib.DataStructures.rbt.deleteMin:9
+#: DISClib.DataStructures.rbt.deleteMinTree:7
+#: DISClib.DataStructures.rbt.flipColors:7
+#: DISClib.DataStructures.rbt.flipNodeColor:6
+#: DISClib.DataStructures.rbt.floor:8 DISClib.DataStructures.rbt.floorKey:10
+#: DISClib.DataStructures.rbt.get:8 DISClib.DataStructures.rbt.getNode:10
+#: DISClib.DataStructures.rbt.height:7 DISClib.DataStructures.rbt.heightTree:7
+#: DISClib.DataStructures.rbt.insertNode:10
+#: DISClib.DataStructures.rbt.isEmpty:6 DISClib.DataStructures.rbt.isRed:6
+#: DISClib.DataStructures.rbt.keySet:6 DISClib.DataStructures.rbt.keySetTree:7
+#: DISClib.DataStructures.rbt.keys:9 DISClib.DataStructures.rbt.keysRange:8
+#: DISClib.DataStructures.rbt.maxKey:6 DISClib.DataStructures.rbt.maxKeyTree:6
+#: DISClib.DataStructures.rbt.minKey:6 DISClib.DataStructures.rbt.minKeyTree:6
+#: DISClib.DataStructures.rbt.moveRedLeft:5
+#: DISClib.DataStructures.rbt.moveRedRight:5
+#: DISClib.DataStructures.rbt.newMap:6 DISClib.DataStructures.rbt.put:9
+#: DISClib.DataStructures.rbt.rank:7 DISClib.DataStructures.rbt.rankKeys:7
+#: DISClib.DataStructures.rbt.remove:7 DISClib.DataStructures.rbt.removeKey:8
+#: DISClib.DataStructures.rbt.rotateRight:6 DISClib.DataStructures.rbt.select:7
+#: DISClib.DataStructures.rbt.selectKey:7 DISClib.DataStructures.rbt.size:6
+#: DISClib.DataStructures.rbt.sizeTree:6 DISClib.DataStructures.rbt.valueSet:6
+#: DISClib.DataStructures.rbt.valueSetTree:7
+#: DISClib.DataStructures.rbt.values:10
+#: DISClib.DataStructures.rbt.valuesRange:9
+#: DISClib.DataStructures.rbtnode.getKey:6
+#: DISClib.DataStructures.rbtnode.getValue:6
+#: DISClib.DataStructures.rbtnode.isRed:7
+#: DISClib.DataStructures.rbtnode.newNode:11
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.add_element:7
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.add_first:6
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.add_last:6
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.change_info:8
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.default_cmp_function:9
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.exchange:9
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.get_element:7
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.get_first:4
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.get_last:4
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_element:7
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_first:4
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_last:4
+#: DISClib.DataStructures.singlelinkedlist.addFirst:14
+#: DISClib.DataStructures.singlelinkedlist.addLast:10
+#: DISClib.DataStructures.singlelinkedlist.changeInfo:10
+#: DISClib.DataStructures.singlelinkedlist.compareElements:12
+#: DISClib.DataStructures.singlelinkedlist.deleteElement:12
+#: DISClib.DataStructures.singlelinkedlist.exchange:8
+#: DISClib.DataStructures.singlelinkedlist.firstElement:7
+#: DISClib.DataStructures.singlelinkedlist.getElement:12
+#: DISClib.DataStructures.singlelinkedlist.insertElement:12
+#: DISClib.DataStructures.singlelinkedlist.isEmpty:5
+#: DISClib.DataStructures.singlelinkedlist.isPresent:13
+#: DISClib.DataStructures.singlelinkedlist.iterator:5
+#: DISClib.DataStructures.singlelinkedlist.lastElement:7
+#: DISClib.DataStructures.singlelinkedlist.newList:23
+#: DISClib.DataStructures.singlelinkedlist.removeFirst:8
+#: DISClib.DataStructures.singlelinkedlist.removeLast:10
+#: DISClib.DataStructures.singlelinkedlist.size:5
+#: DISClib.DataStructures.singlelinkedlist.subList:12 of
+msgid "Raises:"
+msgstr ""
+
+#: DISClib.DataStructures.adjlist.addEdge:15
+#: DISClib.DataStructures.adjlist.adjacentEdges:11
+#: DISClib.DataStructures.adjlist.adjacents:10
+#: DISClib.DataStructures.adjlist.containsVertex:10
+#: DISClib.DataStructures.adjlist.degree:10
+#: DISClib.DataStructures.adjlist.edges:9
+#: DISClib.DataStructures.adjlist.getEdge:11
+#: DISClib.DataStructures.adjlist.indegree:10
+#: DISClib.DataStructures.adjlist.insertVertex:9
+#: DISClib.DataStructures.adjlist.newGraph:10
+#: DISClib.DataStructures.adjlist.numEdges:9
+#: DISClib.DataStructures.adjlist.numVertices:9
+#: DISClib.DataStructures.adjlist.outdegree:10
+#: DISClib.DataStructures.adjlist.removeVertex:9
+#: DISClib.DataStructures.adjlist.vertices:8
+#: DISClib.DataStructures.arraylist.lastElement:8
+#: DISClib.DataStructures.arraylist.size:7 DISClib.DataStructures.bst.ceiling:9
+#: DISClib.DataStructures.bst.contains:8 DISClib.DataStructures.bst.deleteMax:8
+#: DISClib.DataStructures.bst.deleteMin:8 DISClib.DataStructures.bst.floor:9
+#: DISClib.DataStructures.bst.get:8 DISClib.DataStructures.bst.getNode:9
+#: DISClib.DataStructures.bst.height:7 DISClib.DataStructures.bst.insertNode:11
+#: DISClib.DataStructures.bst.isEmpty:7 DISClib.DataStructures.bst.keySet:7
+#: DISClib.DataStructures.bst.keySetTree:8 DISClib.DataStructures.bst.keys:11
+#: DISClib.DataStructures.bst.maxKey:7 DISClib.DataStructures.bst.maxKeyNode:7
+#: DISClib.DataStructures.bst.minKey:7 DISClib.DataStructures.bst.minKeyNode:7
+#: DISClib.DataStructures.bst.newMap:7 DISClib.DataStructures.bst.put:10
+#: DISClib.DataStructures.bst.rank:8 DISClib.DataStructures.bst.rankKeys:8
+#: DISClib.DataStructures.bst.remove:8 DISClib.DataStructures.bst.removeNode:8
+#: DISClib.DataStructures.bst.select:8 DISClib.DataStructures.bst.size:7
+#: DISClib.DataStructures.bst.sizeTree:7 DISClib.DataStructures.bst.valueSet:7
+#: DISClib.DataStructures.bst.valueSetTree:8
+#: DISClib.DataStructures.bst.values:11 DISClib.DataStructures.bstnode.getKey:7
+#: DISClib.DataStructures.bstnode.getValue:7
+#: DISClib.DataStructures.bstnode.newNode:10
+#: DISClib.DataStructures.chaininghashmap.contains:10
+#: DISClib.DataStructures.chaininghashmap.get:9
+#: DISClib.DataStructures.chaininghashmap.isEmpty:8
+#: DISClib.DataStructures.chaininghashmap.keySet:8
+#: DISClib.DataStructures.chaininghashmap.newMap:16
+#: DISClib.DataStructures.chaininghashmap.put:11
+#: DISClib.DataStructures.chaininghashmap.remove:9
+#: DISClib.DataStructures.chaininghashmap.size:7
+#: DISClib.DataStructures.chaininghashmap.valueSet:8
+#: DISClib.DataStructures.doublelinkedlist.addFirst:15
+#: DISClib.DataStructures.doublelinkedlist.addLast:11
+#: DISClib.DataStructures.doublelinkedlist.changeInfo:11
+#: DISClib.DataStructures.doublelinkedlist.compareElements:13
+#: DISClib.DataStructures.doublelinkedlist.deleteElement:13
+#: DISClib.DataStructures.doublelinkedlist.exchange:9
+#: DISClib.DataStructures.doublelinkedlist.firstElement:8
+#: DISClib.DataStructures.doublelinkedlist.getElement:13
+#: DISClib.DataStructures.doublelinkedlist.insertElement:13
+#: DISClib.DataStructures.doublelinkedlist.isEmpty:6
+#: DISClib.DataStructures.doublelinkedlist.isPresent:14
+#: DISClib.DataStructures.doublelinkedlist.iterator:6
+#: DISClib.DataStructures.doublelinkedlist.lastElement:8
+#: DISClib.DataStructures.doublelinkedlist.removeFirst:9
+#: DISClib.DataStructures.doublelinkedlist.removeLast:11
+#: DISClib.DataStructures.doublelinkedlist.size:6
+#: DISClib.DataStructures.doublelinkedlist.subList:13
+#: DISClib.DataStructures.heap.delMin:10 DISClib.DataStructures.heap.insert:10
+#: DISClib.DataStructures.heap.isEmpty:8 DISClib.DataStructures.heap.min:8
+#: DISClib.DataStructures.heap.newHeap:10 DISClib.DataStructures.heap.sink:10
+#: DISClib.DataStructures.heap.size:8 DISClib.DataStructures.heap.swim:11
+#: DISClib.DataStructures.indexheap.contains:8
+#: DISClib.DataStructures.indexheap.decreaseKey:10
+#: DISClib.DataStructures.indexheap.delMin:9
+#: DISClib.DataStructures.indexheap.increaseKey:10
+#: DISClib.DataStructures.indexheap.insert:8
+#: DISClib.DataStructures.indexheap.isEmpty:8
+#: DISClib.DataStructures.indexheap.min:8
+#: DISClib.DataStructures.indexheap.newIndexHeap:9
+#: DISClib.DataStructures.indexheap.sink:10
+#: DISClib.DataStructures.indexheap.size:8
+#: DISClib.DataStructures.indexheap.swim:11
+#: DISClib.DataStructures.mapentry.getKey:7
+#: DISClib.DataStructures.mapentry.getValue:7
+#: DISClib.DataStructures.mapentry.newMapEntry:9
+#: DISClib.DataStructures.mapentry.setKey:8
+#: DISClib.DataStructures.mapentry.setValue:8
+#: DISClib.DataStructures.probehashtable.contains:10
+#: DISClib.DataStructures.probehashtable.get:9
+#: DISClib.DataStructures.probehashtable.isEmpty:8
+#: DISClib.DataStructures.probehashtable.keySet:8
+#: DISClib.DataStructures.probehashtable.newMap:17
+#: DISClib.DataStructures.probehashtable.put:11
+#: DISClib.DataStructures.probehashtable.remove:9
+#: DISClib.DataStructures.probehashtable.size:7
+#: DISClib.DataStructures.probehashtable.valueSet:8
+#: DISClib.DataStructures.probinghashmap.addFirst:15
+#: DISClib.DataStructures.probinghashmap.addLast:11
+#: DISClib.DataStructures.probinghashmap.changeInfo:11
+#: DISClib.DataStructures.probinghashmap.compareElements:13
+#: DISClib.DataStructures.probinghashmap.deleteElement:13
+#: DISClib.DataStructures.probinghashmap.exchange:9
+#: DISClib.DataStructures.probinghashmap.firstElement:8
+#: DISClib.DataStructures.probinghashmap.getElement:13
+#: DISClib.DataStructures.probinghashmap.insertElement:13
+#: DISClib.DataStructures.probinghashmap.isEmpty:6
+#: DISClib.DataStructures.probinghashmap.isPresent:14
+#: DISClib.DataStructures.probinghashmap.iterator:6
+#: DISClib.DataStructures.probinghashmap.lastElement:8
+#: DISClib.DataStructures.probinghashmap.removeFirst:9
+#: DISClib.DataStructures.probinghashmap.removeLast:11
+#: DISClib.DataStructures.probinghashmap.size:6
+#: DISClib.DataStructures.probinghashmap.subList:13
+#: DISClib.DataStructures.rbt.balance:6 DISClib.DataStructures.rbt.ceiling:9
+#: DISClib.DataStructures.rbt.ceilingKey:11
+#: DISClib.DataStructures.rbt.contains:11
+#: DISClib.DataStructures.rbt.deleteMax:11
+#: DISClib.DataStructures.rbt.deleteMaxTree:8
+#: DISClib.DataStructures.rbt.deleteMin:10
+#: DISClib.DataStructures.rbt.deleteMinTree:8
+#: DISClib.DataStructures.rbt.flipColors:8
+#: DISClib.DataStructures.rbt.flipNodeColor:7
+#: DISClib.DataStructures.rbt.floor:9 DISClib.DataStructures.rbt.floorKey:11
+#: DISClib.DataStructures.rbt.get:9 DISClib.DataStructures.rbt.getNode:11
+#: DISClib.DataStructures.rbt.height:8 DISClib.DataStructures.rbt.heightTree:8
+#: DISClib.DataStructures.rbt.insertNode:11
+#: DISClib.DataStructures.rbt.isEmpty:7 DISClib.DataStructures.rbt.isRed:7
+#: DISClib.DataStructures.rbt.keySet:7 DISClib.DataStructures.rbt.keySetTree:8
+#: DISClib.DataStructures.rbt.keys:10 DISClib.DataStructures.rbt.keysRange:9
+#: DISClib.DataStructures.rbt.maxKey:7 DISClib.DataStructures.rbt.maxKeyTree:7
+#: DISClib.DataStructures.rbt.minKey:7 DISClib.DataStructures.rbt.minKeyTree:7
+#: DISClib.DataStructures.rbt.moveRedLeft:6
+#: DISClib.DataStructures.rbt.moveRedRight:6
+#: DISClib.DataStructures.rbt.newMap:7 DISClib.DataStructures.rbt.put:10
+#: DISClib.DataStructures.rbt.rank:8 DISClib.DataStructures.rbt.rankKeys:8
+#: DISClib.DataStructures.rbt.remove:8 DISClib.DataStructures.rbt.removeKey:9
+#: DISClib.DataStructures.rbt.rotateRight:7 DISClib.DataStructures.rbt.select:8
+#: DISClib.DataStructures.rbt.selectKey:8 DISClib.DataStructures.rbt.size:7
+#: DISClib.DataStructures.rbt.sizeTree:7 DISClib.DataStructures.rbt.valueSet:7
+#: DISClib.DataStructures.rbt.valueSetTree:8
+#: DISClib.DataStructures.rbt.values:11 DISClib.DataStructures.rbtnode.getKey:7
+#: DISClib.DataStructures.rbtnode.getValue:7
+#: DISClib.DataStructures.rbtnode.isRed:8
+#: DISClib.DataStructures.rbtnode.newNode:12
+#: DISClib.DataStructures.singlelinkedlist.addFirst:15
+#: DISClib.DataStructures.singlelinkedlist.addLast:11
+#: DISClib.DataStructures.singlelinkedlist.changeInfo:11
+#: DISClib.DataStructures.singlelinkedlist.compareElements:13
+#: DISClib.DataStructures.singlelinkedlist.deleteElement:13
+#: DISClib.DataStructures.singlelinkedlist.exchange:9
+#: DISClib.DataStructures.singlelinkedlist.firstElement:8
+#: DISClib.DataStructures.singlelinkedlist.getElement:13
+#: DISClib.DataStructures.singlelinkedlist.insertElement:13
+#: DISClib.DataStructures.singlelinkedlist.isEmpty:6
+#: DISClib.DataStructures.singlelinkedlist.isPresent:14
+#: DISClib.DataStructures.singlelinkedlist.iterator:6
+#: DISClib.DataStructures.singlelinkedlist.lastElement:8
+#: DISClib.DataStructures.singlelinkedlist.removeFirst:9
+#: DISClib.DataStructures.singlelinkedlist.removeLast:11
+#: DISClib.DataStructures.singlelinkedlist.size:6
+#: DISClib.DataStructures.singlelinkedlist.subList:13 of
+msgid "Exception"
+msgstr ""
+
+#: DISClib.DataStructures.adjlist.adjacentEdges:1 of
+msgid ""
+"Retorna una lista con todos los arcos asociados a los vértices adyacentes"
+" de vertex"
+msgstr ""
+
+#: DISClib.DataStructures.adjlist.adjacentEdges:5
+#: DISClib.DataStructures.adjlist.adjacents:4 of
+msgid ""
+"graph: El grafo sobre el que se ejecuta la operacion vertex: El vertice "
+"del que se quiere la lista"
+msgstr ""
+
+#: DISClib.DataStructures.adjlist.adjacentEdges:9 of
+msgid "La lista de arcos adyacentes"
+msgstr ""
+
+#: DISClib.DataStructures.adjlist.adjacents:1 of
+msgid "Retorna una lista con todos los vertices adyacentes al vertice vertex"
+msgstr ""
+
+#: DISClib.DataStructures.adjlist.adjacents:8 of
+msgid "La lista de adyacencias"
+msgstr ""
+
+#: DISClib.DataStructures.adjlist.containsVertex:1 of
+msgid "Retorna si el vertice vertex esta presente en el grafo"
+msgstr ""
+
+#: DISClib.DataStructures.adjlist.containsVertex:4 of
+msgid ""
+"graph: El grafo sobre el que se ejecuta la operacion vertex: Vertice que "
+"se busca"
+msgstr ""
+
+#: DISClib.DataStructures.adjlist.containsVertex:8 of
+msgid "True si el vertice esta presente"
+msgstr ""
+
+#: DISClib.DataStructures.adjlist.degree:1 of
+msgid "Retorna el numero de arcos asociados al vertice vertex"
+msgstr ""
+
+#: DISClib.DataStructures.adjlist.degree:4
+#: DISClib.DataStructures.adjlist.indegree:4
+#: DISClib.DataStructures.adjlist.outdegree:4 of
+msgid ""
+"graph: El grafo sobre el que se ejecuta la operacion vertex: El vertice "
+"del que se desea conocer el grado"
+msgstr ""
+
+#: DISClib.DataStructures.adjlist.degree:8
+#: DISClib.DataStructures.adjlist.indegree:8
+#: DISClib.DataStructures.adjlist.outdegree:8 of
+msgid "El grado del vertice"
+msgstr ""
+
+#: DISClib.DataStructures.adjlist.edges:1 of
+msgid "Retorna una lista con todos los arcos del grafo graph"
+msgstr ""
+
+#: DISClib.DataStructures.adjlist.edges:4
+#: DISClib.DataStructures.adjlist.numEdges:4
+#: DISClib.DataStructures.adjlist.numVertices:4
+#: DISClib.DataStructures.adjlist.vertices:3 of
+msgid "graph: El grafo sobre el que se ejecuta la operacion"
+msgstr ""
+
+#: DISClib.DataStructures.adjlist.edges:7 of
+msgid "Una lista con los arcos del grafo"
+msgstr ""
+
+#: DISClib.DataStructures.adjlist.getEdge:1 of
+msgid "Retorna el arco asociado a los vertices vertexa ---- vertexb"
+msgstr ""
+
+#: DISClib.DataStructures.adjlist.getEdge:4 of
+msgid ""
+"graph: El grafo sobre el que se ejecuta la operacion vertexa: Vertice de "
+"inicio vertexb: Vertice destino"
+msgstr ""
+
+#: DISClib.DataStructures.adjlist.getEdge:9 of
+msgid "El arco que une los verices vertexa y vertexb"
+msgstr ""
+
+#: DISClib.DataStructures.adjlist.indegree:1 of
+msgid "Retorna el numero de arcos que llegan al vertice vertex"
+msgstr ""
+
+#: DISClib.DataStructures.adjlist.insertVertex:1 of
+msgid "Inserta el vertice vertex en el grafo graph"
+msgstr ""
+
+#: DISClib.DataStructures.adjlist.insertVertex:4 of
+msgid ""
+"graph: El grafo sobre el que se ejecuta la operacion vertex: El vertice "
+"que se desea insertar"
+msgstr ""
+
+#: DISClib.DataStructures.adjlist.insertVertex:7 of
+msgid "El grafo graph con el nuevo vertice"
+msgstr ""
+
+#: DISClib.DataStructures.adjlist.newGraph:1 of
+msgid "Crea un grafo vacio"
+msgstr ""
+
+#: DISClib.DataStructures.adjlist.newGraph:4 of
+msgid ""
+"size: Tamaño inicial del grafo cmpfunction: Funcion de comparacion "
+"directed: Indica si el grafo es dirigido o no"
+msgstr ""
+
+#: DISClib.DataStructures.adjlist.newGraph:8 of
+msgid "Un nuevo grafo vacío"
+msgstr ""
+
+#: DISClib.DataStructures.adjlist.numEdges:1 of
+msgid "Retorna el numero de arcos en el grafo graph"
+msgstr ""
+
+#: DISClib.DataStructures.adjlist.numEdges:7
+#: DISClib.DataStructures.adjlist.numVertices:7 of
+msgid "El numero de vertices del grafo"
+msgstr ""
+
+#: DISClib.DataStructures.adjlist.numVertices:1 of
+msgid "Retorna el numero de vertices del  grafo graph"
+msgstr ""
+
+#: DISClib.DataStructures.adjlist.outdegree:1 of
+msgid "Retorna el numero de arcos que salen del grafo vertex"
+msgstr ""
+
+#: DISClib.DataStructures.adjlist.removeVertex:1 of
+msgid "Remueve el vertice vertex del grafo graph"
+msgstr ""
+
+#: DISClib.DataStructures.adjlist.removeVertex:4 of
+msgid ""
+"graph: El grafo sobre el que se ejecuta la operacion vertex: El vertice "
+"que se desea remover"
+msgstr ""
+
+#: DISClib.DataStructures.adjlist.removeVertex:7 of
+msgid "El grafo sin el vertice vertex"
+msgstr ""
+
+#: DISClib.DataStructures.adjlist.vertices:1 of
+msgid "Retorna una lista con todos los vertices del grafo graph Args:"
+msgstr ""
+
+#: DISClib.DataStructures.adjlist.vertices:6 of
+msgid "La lista con los vertices del grafo"
+msgstr ""
+
+#: ../../DISClib.DataStructures.rst:16
+msgid "DISClib.DataStructures.adjmatrix module"
+msgstr ""
+
+#: ../../DISClib.DataStructures.rst:24
+msgid "DISClib.DataStructures.arraylist module"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist:1 of
+msgid "_summary_ # TODO add summary"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist:5 of
+msgid "Attributes:"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist:5 of
+msgid "T (type): _description_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist:32 of
+msgid "Class:"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist:8 of
+msgid "ArrayList(Generic[T]): _description_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist:32 of
+msgid "Functions:"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist:11 of
+msgid "__init__(): _description_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist:12 of
+msgid "__post_init__(): _description_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist:13 of
+msgid "default_cmp_function(): _description_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist:14 of
+msgid "_handle_error(): _description_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist:15 of
+msgid "_check_type(): _description_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist:16 of
+msgid "is_empty(): _description_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist:17 of
+msgid "size(): _description_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist:18 of
+msgid "add_first(): _description_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist:19 of
+msgid "add_last(): _description_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist:20 of
+msgid "add_element(elem, pos): _description_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist:21 of
+msgid "get_first(): _description_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist:22 of
+msgid "get_last(): _description_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist:23 of
+msgid "get_element(pos): _description_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist:24 of
+msgid "remove_first(): _description_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist:25 of
+msgid "remove_last(): _description_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist:26 of
+msgid "remove_element(pos): _description_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist:27 of
+msgid "compare_elements(elem1, elem2): _description_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist:28 of
+msgid "is_present(elem): _description_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist:29 of
+msgid "change_info(new_elem, pos): _description_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist:30 of
+msgid "exchange(pos1, pos2): _description_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist:31 of
+msgid "sublist(start, end): _description_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist:32 of
+msgid "concat(other): _description_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist:37 of
+msgid "Copyrigth:"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist:35 of
+msgid ""
+"Universidad de los Andes, Bogotá - Colombia, South America Facultad de "
+"Ingeniería, 2023 Departamento de Ingeniería de Sistemas y Computación "
+"DISC Developed by: Data Structures & Algorithms Group - EDA - ISIS-1225"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist.ArrayList:1 of
+msgid ""
+"Bases: :py:class:`~typing.Generic`\\ "
+"[:py:obj:`~DISClib.DataStructures.arraylist.T`]"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist.ArrayList:1 of
+msgid "ArrayList _summary_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist.ArrayList:4
+#: DISClib.DataStructures.doublelinkedlist.DoubleLinked:4
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked:4 of
+msgid "Generic (_type_): _description_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist.ArrayList.add_element:1
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.add_element:1 of
+msgid "add_element _summary_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist.ArrayList.add_element:4
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.add_element:4 of
+msgid "element (T): _description_ pos (int): _description_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist.ArrayList.add_element:8
+#: DISClib.DataStructures.arraylist.ArrayList.add_first:7
+#: DISClib.DataStructures.arraylist.ArrayList.add_last:7
+#: DISClib.DataStructures.arraylist.ArrayList.change_info:8
+#: DISClib.DataStructures.arraylist.ArrayList.concat:7
+#: DISClib.DataStructures.arraylist.ArrayList.get_first:4
+#: DISClib.DataStructures.arraylist.ArrayList.get_last:4
+#: DISClib.DataStructures.arraylist.ArrayList.remove_element:7
+#: DISClib.DataStructures.arraylist.ArrayList.remove_first:4
+#: DISClib.DataStructures.arraylist.ArrayList.remove_last:4
+#: DISClib.DataStructures.arraylist.ArrayList.sublist:8
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.add_element:8
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.add_first:7
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.add_last:7
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.get_element:7
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.get_first:4
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.get_last:4
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_element:7
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_first:4
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_last:4 of
+msgid "Exception: _description_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist.ArrayList.add_first:1
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.add_first:1 of
+msgid "add_first _summary_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist.ArrayList.add_first:4
+#: DISClib.DataStructures.arraylist.ArrayList.add_last:4
+#: DISClib.DataStructures.arraylist.ArrayList.is_present:4
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.add_first:4
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.add_last:4
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.is_present:4 of
+msgid "element (T): _description_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist.ArrayList.add_last:1
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.add_last:1 of
+msgid "add_last _summary_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist.ArrayList.change_info:1
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.change_info:1 of
+msgid "change_info _summary_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist.ArrayList.change_info:4 of
+msgid "new_info (T): _description_ pos (int): _description_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist.ArrayList.compare_elements:1
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.compare_elements:1 of
+msgid "compare_elements _summary_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist.ArrayList.compare_elements:4 of
+msgid "elem1 (T): _description_ elem2 (T): _description_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist.ArrayList.compare_elements:8
+#: DISClib.DataStructures.arraylist.ArrayList.default_cmp_function:12
+#: DISClib.DataStructures.arraylist.ArrayList.is_present:7
+#: DISClib.DataStructures.arraylist.ArrayList.size:4
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.compare_elements:8
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.default_cmp_function:12
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.is_present:7
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.size:4 of
+msgid "int: _description_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist.ArrayList.concat:1 of
+msgid "concat_list _summary_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist.ArrayList.concat:4 of
+msgid "other (ArrayList[T]): _description_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist.ArrayList.concat:10
+#: DISClib.DataStructures.arraylist.ArrayList.sublist:11 of
+msgid "ArrayList[T]: _description_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist.ArrayList.default_cmp_function:1
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.default_cmp_function:1
+#: of
+msgid "default_cmp_function _summary_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist.ArrayList.default_cmp_function:4
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.default_cmp_function:4
+#: of
+msgid "elm1 (_type_): _description_ elm2 (_type_): _description_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist.ArrayList.default_cmp_function:8
+#: DISClib.DataStructures.arraylist.ArrayList.get_element:7
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.change_info:8
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.default_cmp_function:8
+#: of
+msgid "Exception: _description_ Exception: _description_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist.ArrayList.exchange:1
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.exchange:1 of
+msgid "exchange _summary_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist.ArrayList.exchange:4
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.exchange:4 of
+msgid "pos1 (int): _description_ pos2 (int): _description_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist.ArrayList.exchange:8
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.exchange:8 of
+msgid "Exception: _description_ Exception: _description_ Exception: _description_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist.ArrayList.get_element:1
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.get_element:1 of
+msgid "get_element _summary_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist.ArrayList.get_element:4
+#: DISClib.DataStructures.arraylist.ArrayList.remove_element:4
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.get_element:4
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_element:4 of
+msgid "pos (int): _description_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist.ArrayList.get_element:11
+#: DISClib.DataStructures.arraylist.ArrayList.get_first:7
+#: DISClib.DataStructures.arraylist.ArrayList.get_last:7
+#: DISClib.DataStructures.arraylist.ArrayList.remove_element:10
+#: DISClib.DataStructures.arraylist.ArrayList.remove_first:7
+#: DISClib.DataStructures.arraylist.ArrayList.remove_last:7 of
+msgid "T: _description_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist.ArrayList.get_first:1
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.get_first:1 of
+msgid "get_first _summary_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist.ArrayList.get_last:1
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.get_last:1 of
+msgid "get_last _summary_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist.ArrayList.is_empty:1
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.is_empty:1 of
+msgid "is_empty _summary_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist.ArrayList.is_empty:4
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.is_empty:4 of
+msgid "bool: _description_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist.ArrayList.is_present:1
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.is_present:1 of
+msgid "is_present _summary_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist.ArrayList.remove_element:1
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_element:1 of
+msgid "remove_element _summary_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist.ArrayList.remove_first:1
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_first:1 of
+msgid "remove_first _summary_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist.ArrayList.remove_last:1
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_last:1 of
+msgid "remove_last _summary_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist.ArrayList.size:1
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.size:1 of
+msgid "size _summary_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist.ArrayList.sublist:1 of
+msgid "create_sublist _summary_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist.ArrayList.sublist:4 of
+msgid "start (int): _description_ end (int): _description_"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist.T:1 of
+msgid ""
+"Este módulo implementa una estructura de datos lineal, como un arreglo de"
+" apuntadores a los nodos de la lista."
+msgstr ""
+
+#: DISClib.DataStructures.arraylist.T:5 of
+msgid ""
+"Este código está basado en la implementación propuesta por R.Sedgewick y "
+"Kevin Wayne en su libro Algorithms, 4th Edition"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist.lastElement:2
+#: DISClib.DataStructures.doublelinkedlist.lastElement:2
+#: DISClib.DataStructures.probinghashmap.lastElement:2
+#: DISClib.DataStructures.singlelinkedlist.lastElement:2 of
+msgid "Retorna el último elemento de una  lista no vacia."
+msgstr ""
+
+#: DISClib.DataStructures.arraylist.lastElement:2
+#: DISClib.DataStructures.doublelinkedlist.firstElement:2
+#: DISClib.DataStructures.doublelinkedlist.lastElement:2
+#: DISClib.DataStructures.probinghashmap.firstElement:2
+#: DISClib.DataStructures.probinghashmap.lastElement:2
+#: DISClib.DataStructures.singlelinkedlist.firstElement:2
+#: DISClib.DataStructures.singlelinkedlist.lastElement:2 of
+msgid "No se elimina el elemento."
+msgstr ""
+
+#: DISClib.DataStructures.arraylist.lastElement:5
+#: DISClib.DataStructures.arraylist.size:4
+#: DISClib.DataStructures.doublelinkedlist.firstElement:5
+#: DISClib.DataStructures.doublelinkedlist.isEmpty:3
+#: DISClib.DataStructures.doublelinkedlist.lastElement:5
+#: DISClib.DataStructures.doublelinkedlist.removeFirst:6
+#: DISClib.DataStructures.doublelinkedlist.removeLast:8
+#: DISClib.DataStructures.doublelinkedlist.size:3
+#: DISClib.DataStructures.probinghashmap.firstElement:5
+#: DISClib.DataStructures.probinghashmap.isEmpty:3
+#: DISClib.DataStructures.probinghashmap.lastElement:5
+#: DISClib.DataStructures.probinghashmap.removeFirst:6
+#: DISClib.DataStructures.probinghashmap.removeLast:8
+#: DISClib.DataStructures.probinghashmap.size:3
+#: DISClib.DataStructures.singlelinkedlist.firstElement:5
+#: DISClib.DataStructures.singlelinkedlist.isEmpty:3
+#: DISClib.DataStructures.singlelinkedlist.lastElement:5
+#: DISClib.DataStructures.singlelinkedlist.removeFirst:6
+#: DISClib.DataStructures.singlelinkedlist.removeLast:8
+#: DISClib.DataStructures.singlelinkedlist.size:3 of
+msgid "lst: La lista a examinar"
+msgstr ""
+
+#: DISClib.DataStructures.arraylist.size:1 of
+msgid "Informa el número de elementos de la lista."
+msgstr ""
+
+#: DISClib.DataStructures.arraylist.size:4 of
+msgid "Args"
+msgstr ""
+
+#: ../../DISClib.DataStructures.rst:32
+msgid "DISClib.DataStructures.binarysearchtree module"
+msgstr ""
+
+#: ../../DISClib.DataStructures.rst:40
+msgid "DISClib.DataStructures.bst module"
+msgstr ""
+
+#: DISClib.DataStructures.bst:1 DISClib.DataStructures.bstnode:1
+#: DISClib.DataStructures.chaininghashmap:1
+#: DISClib.DataStructures.doublelinkedlist:1 DISClib.DataStructures.mapentry:1
+#: DISClib.DataStructures.probehashtable:1
+#: DISClib.DataStructures.probinghashmap:1 DISClib.DataStructures.rbt:1
+#: DISClib.DataStructures.rbtnode:1 DISClib.DataStructures.singlelinkedlist:1
+#: of
+msgid "Copyright 2020, Departamento de sistemas y Computación"
+msgstr ""
+
+#: DISClib.DataStructures.bst:2 DISClib.DataStructures.bstnode:2
+#: DISClib.DataStructures.chaininghashmap:2
+#: DISClib.DataStructures.doublelinkedlist:2 DISClib.DataStructures.heap:2
+#: DISClib.DataStructures.mapentry:2 DISClib.DataStructures.probehashtable:2
+#: DISClib.DataStructures.probinghashmap:2 DISClib.DataStructures.rbt:2
+#: DISClib.DataStructures.rbtnode:2 DISClib.DataStructures.singlelinkedlist:2
+#: of
+msgid "Universidad de Los Andes"
+msgstr ""
+
+#: DISClib.DataStructures.bst:5 DISClib.DataStructures.heap:4
+#: DISClib.DataStructures.iminpqnode:3 of
+msgid "Desarrollado para el curso ISIS1225 - Estructuras de Datos y Algoritmos"
+msgstr ""
+
+#: DISClib.DataStructures.bst:8 DISClib.DataStructures.bstnode:8
+#: DISClib.DataStructures.chaininghashmap:8
+#: DISClib.DataStructures.doublelinkedlist:8 DISClib.DataStructures.heap:7
+#: DISClib.DataStructures.iminpqnode:6 DISClib.DataStructures.mapentry:8
+#: DISClib.DataStructures.probehashtable:8
+#: DISClib.DataStructures.probinghashmap:8 DISClib.DataStructures.rbt:8
+#: DISClib.DataStructures.rbtnode:8 DISClib.DataStructures.singlelinkedlist:8
+#: of
+msgid "This program is free software: you can redistribute it and/or modify"
+msgstr ""
+
+#: DISClib.DataStructures.bst:9 DISClib.DataStructures.bstnode:9
+#: DISClib.DataStructures.chaininghashmap:9
+#: DISClib.DataStructures.doublelinkedlist:9 DISClib.DataStructures.heap:8
+#: DISClib.DataStructures.iminpqnode:7 DISClib.DataStructures.mapentry:9
+#: DISClib.DataStructures.probehashtable:9
+#: DISClib.DataStructures.probinghashmap:9 DISClib.DataStructures.rbt:9
+#: DISClib.DataStructures.rbtnode:9 DISClib.DataStructures.singlelinkedlist:9
+#: of
+msgid "it under the terms of the GNU General Public License as published by"
+msgstr ""
+
+#: DISClib.DataStructures.bst:10 DISClib.DataStructures.bstnode:10
+#: DISClib.DataStructures.chaininghashmap:10
+#: DISClib.DataStructures.doublelinkedlist:10 DISClib.DataStructures.heap:9
+#: DISClib.DataStructures.iminpqnode:8 DISClib.DataStructures.mapentry:10
+#: DISClib.DataStructures.probehashtable:10
+#: DISClib.DataStructures.probinghashmap:10 DISClib.DataStructures.rbt:10
+#: DISClib.DataStructures.rbtnode:10 DISClib.DataStructures.singlelinkedlist:10
+#: of
+msgid "the Free Software Foundation, either version 3 of the License, or"
+msgstr ""
+
+#: DISClib.DataStructures.bst:11 DISClib.DataStructures.bstnode:11
+#: DISClib.DataStructures.chaininghashmap:11
+#: DISClib.DataStructures.doublelinkedlist:11 DISClib.DataStructures.heap:10
+#: DISClib.DataStructures.iminpqnode:9 DISClib.DataStructures.mapentry:11
+#: DISClib.DataStructures.probehashtable:11
+#: DISClib.DataStructures.probinghashmap:11 DISClib.DataStructures.rbt:11
+#: DISClib.DataStructures.rbtnode:11 DISClib.DataStructures.singlelinkedlist:11
+#: of
+msgid "(at your option) any later version."
+msgstr ""
+
+#: DISClib.DataStructures.bst:13 DISClib.DataStructures.bstnode:13
+#: DISClib.DataStructures.chaininghashmap:13
+#: DISClib.DataStructures.doublelinkedlist:13 DISClib.DataStructures.heap:12
+#: DISClib.DataStructures.iminpqnode:11 DISClib.DataStructures.mapentry:13
+#: DISClib.DataStructures.probehashtable:13
+#: DISClib.DataStructures.probinghashmap:13 DISClib.DataStructures.rbt:13
+#: DISClib.DataStructures.rbtnode:13 DISClib.DataStructures.singlelinkedlist:13
+#: of
+msgid "This program is distributed in the hope that it will be useful,"
+msgstr ""
+
+#: DISClib.DataStructures.bst:14 DISClib.DataStructures.bstnode:14
+#: DISClib.DataStructures.chaininghashmap:14
+#: DISClib.DataStructures.doublelinkedlist:14 DISClib.DataStructures.heap:13
+#: DISClib.DataStructures.iminpqnode:12 DISClib.DataStructures.mapentry:14
+#: DISClib.DataStructures.probehashtable:14
+#: DISClib.DataStructures.probinghashmap:14 DISClib.DataStructures.rbt:14
+#: DISClib.DataStructures.rbtnode:14 DISClib.DataStructures.singlelinkedlist:14
+#: of
+msgid "but WITHOUT ANY WARRANTY; without even the implied warranty of"
+msgstr ""
+
+#: DISClib.DataStructures.bst:15 DISClib.DataStructures.bstnode:15
+#: DISClib.DataStructures.chaininghashmap:15
+#: DISClib.DataStructures.doublelinkedlist:15 DISClib.DataStructures.heap:14
+#: DISClib.DataStructures.iminpqnode:13 DISClib.DataStructures.mapentry:15
+#: DISClib.DataStructures.probehashtable:15
+#: DISClib.DataStructures.probinghashmap:15 DISClib.DataStructures.rbt:15
+#: DISClib.DataStructures.rbtnode:15 DISClib.DataStructures.singlelinkedlist:15
+#: of
+msgid "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the"
+msgstr ""
+
+#: DISClib.DataStructures.bst:16 DISClib.DataStructures.bstnode:16
+#: DISClib.DataStructures.chaininghashmap:16
+#: DISClib.DataStructures.doublelinkedlist:16 DISClib.DataStructures.heap:15
+#: DISClib.DataStructures.iminpqnode:14 DISClib.DataStructures.mapentry:16
+#: DISClib.DataStructures.probehashtable:16
+#: DISClib.DataStructures.probinghashmap:16 DISClib.DataStructures.rbt:16
+#: DISClib.DataStructures.rbtnode:16 DISClib.DataStructures.singlelinkedlist:16
+#: of
+msgid "GNU General Public License for more details."
+msgstr ""
+
+#: DISClib.DataStructures.bst:18 DISClib.DataStructures.bstnode:18
+#: DISClib.DataStructures.chaininghashmap:18
+#: DISClib.DataStructures.doublelinkedlist:18 DISClib.DataStructures.heap:17
+#: DISClib.DataStructures.iminpqnode:16 DISClib.DataStructures.mapentry:18
+#: DISClib.DataStructures.probehashtable:18
+#: DISClib.DataStructures.probinghashmap:18 DISClib.DataStructures.rbt:18
+#: DISClib.DataStructures.rbtnode:18 DISClib.DataStructures.singlelinkedlist:18
+#: of
+msgid "You should have received a copy of the GNU General Public License"
+msgstr ""
+
+#: DISClib.DataStructures.bst:19 DISClib.DataStructures.bstnode:19
+#: DISClib.DataStructures.chaininghashmap:19
+#: DISClib.DataStructures.doublelinkedlist:19 DISClib.DataStructures.heap:18
+#: DISClib.DataStructures.iminpqnode:17 DISClib.DataStructures.mapentry:19
+#: DISClib.DataStructures.probehashtable:19
+#: DISClib.DataStructures.probinghashmap:19 DISClib.DataStructures.rbt:19
+#: DISClib.DataStructures.rbtnode:19 DISClib.DataStructures.singlelinkedlist:19
+#: of
+msgid "along with this program.  If not, see <http://www.gnu.org/licenses/>."
+msgstr ""
+
+#: DISClib.DataStructures.bst:21 DISClib.DataStructures.bstnode:21
+#: DISClib.DataStructures.chaininghashmap:21 DISClib.DataStructures.heap:20
+#: DISClib.DataStructures.mapentry:21 DISClib.DataStructures.probehashtable:21
+#: DISClib.DataStructures.rbt:21 of
+msgid "Contribución de:"
+msgstr ""
+
+#: DISClib.DataStructures.bst:23 DISClib.DataStructures.bstnode:23
+#: DISClib.DataStructures.chaininghashmap:23
+#: DISClib.DataStructures.doublelinkedlist:21 DISClib.DataStructures.heap:22
+#: DISClib.DataStructures.mapentry:23 DISClib.DataStructures.probehashtable:23
+#: DISClib.DataStructures.probinghashmap:21 DISClib.DataStructures.rbt:23
+#: DISClib.DataStructures.rbtnode:21 DISClib.DataStructures.singlelinkedlist:21
+#: of
+msgid "Dario Correal"
+msgstr ""
+
+#: DISClib.DataStructures.bst.ceiling:1 DISClib.DataStructures.bst.ceilingKey:1
+#: DISClib.DataStructures.rbt.ceiling:1 of
+msgid ""
+"Retorna la llave mas pequeña en la tabla de simbolos, mayor o igual a la "
+"llave key Args:"
+msgstr ""
+
+#: DISClib.DataStructures.bst.ceiling:4 DISClib.DataStructures.bst.ceilingKey:4
+#: DISClib.DataStructures.bst.selectKey:3 DISClib.DataStructures.rbt.ceiling:4
+#: of
+msgid "bst: La tabla de simbolos key: la llave de búsqueda"
+msgstr ""
+
+#: DISClib.DataStructures.bst.ceiling:7 DISClib.DataStructures.bst.ceilingKey:7
+#: DISClib.DataStructures.bst.select:6 DISClib.DataStructures.bst.selectKey:6
+#: DISClib.DataStructures.rbt.ceiling:7 DISClib.DataStructures.rbt.select:6
+#: DISClib.DataStructures.rbt.selectKey:6 of
+msgid "La llave más pequeña mayor o igual a Key"
+msgstr ""
+
+#: DISClib.DataStructures.bst.ceilingKey:9
+#: DISClib.DataStructures.bst.deleteMaxTree:8
+#: DISClib.DataStructures.bst.deleteMinTree:8
+#: DISClib.DataStructures.bst.floorKey:8
+#: DISClib.DataStructures.bst.heightTree:7
+#: DISClib.DataStructures.bst.keysRange:9
+#: DISClib.DataStructures.bst.selectKey:8
+#: DISClib.DataStructures.bst.valuesRange:10
+#: DISClib.DataStructures.rbt.valuesRange:10 of
+msgid "Excep"
+msgstr ""
+
+#: DISClib.DataStructures.bst.contains:1 of
+msgid "Informa si la llave key se encuentra en la tabla de hash Args:"
+msgstr ""
+
+#: DISClib.DataStructures.bst.contains:3 of
+msgid "bst: El arbol de búsqueda key: La llave a buscar"
+msgstr ""
+
+#: DISClib.DataStructures.bst.contains:6 of
+msgid "True si la llave está presente False en caso contrario"
+msgstr ""
+
+#: DISClib.DataStructures.bst.deleteMax:1
+#: DISClib.DataStructures.bst.deleteMaxTree:1 of
+msgid ""
+"Encuentra y remueve la mayor llave de la tabla de simbolos y su valor "
+"asociado Args:"
+msgstr ""
+
+#: DISClib.DataStructures.bst.deleteMax:4
+#: DISClib.DataStructures.bst.deleteMin:4 DISClib.DataStructures.bst.floorKey:4
+#: DISClib.DataStructures.bst.height:3 DISClib.DataStructures.bst.keySet:3
+#: DISClib.DataStructures.bst.maxKey:3 DISClib.DataStructures.bst.maxKeyNode:3
+#: DISClib.DataStructures.bst.minKey:3 DISClib.DataStructures.rbt.maxKeyTree:3
+#: of
+msgid "bst: La tabla de simbolos"
+msgstr ""
+
+#: DISClib.DataStructures.bst.deleteMax:6 DISClib.DataStructures.bst.floorKey:6
+#: DISClib.DataStructures.rbt.deleteMax:9 of
+msgid "La tabla de simbolos sin la mayor llave"
+msgstr ""
+
+#: DISClib.DataStructures.bst.deleteMaxTree:4 of
+msgid "root: el arbol de busqueda"
+msgstr ""
+
+#: DISClib.DataStructures.bst.deleteMaxTree:6 of
+msgid "El árbol de búsqueda sin la mayor llave"
+msgstr ""
+
+#: DISClib.DataStructures.bst.deleteMin:1
+#: DISClib.DataStructures.bst.deleteMinTree:1 of
+msgid ""
+"Encuentra y remueve la menor llave de la tabla de simbolos y su valor "
+"asociado Args:"
+msgstr ""
+
+#: DISClib.DataStructures.bst.deleteMin:6
+#: DISClib.DataStructures.rbt.deleteMaxTree:6
+#: DISClib.DataStructures.rbt.deleteMin:8
+#: DISClib.DataStructures.rbt.deleteMinTree:6 of
+msgid "La tabla de simbolos sin la menor llave"
+msgstr ""
+
+#: DISClib.DataStructures.bst.deleteMinTree:4
+#: DISClib.DataStructures.bst.minKeyNode:3
+#: DISClib.DataStructures.rbt.minKeyTree:3 of
+msgid "root: La raiz del arbol de busqueda"
+msgstr ""
+
+#: DISClib.DataStructures.bst.deleteMinTree:6 of
+msgid "El arbol de busqueda"
+msgstr ""
+
+#: DISClib.DataStructures.bst.floor:1 DISClib.DataStructures.bst.floorKey:1 of
+msgid ""
+"Retorna la llave mas grande en la tabla de simbolos, menor o igual a la "
+"llave key Args:"
+msgstr ""
+
+#: DISClib.DataStructures.bst.floor:4 DISClib.DataStructures.bst.rank:3 of
+msgid "bst: La tabla de simbolos key: La llave de búsqueda"
+msgstr ""
+
+#: DISClib.DataStructures.bst.floor:7 of
+msgid "La llave más grande menor o igual a key"
+msgstr ""
+
+#: DISClib.DataStructures.bst.get:1 DISClib.DataStructures.bst.getNode:1 of
+msgid "Retorna la pareja lleve-valor con llave igual  a key Args:"
+msgstr ""
+
+#: DISClib.DataStructures.bst.get:3 DISClib.DataStructures.bst.remove:3
+#: DISClib.DataStructures.bst.removeNode:3 of
+msgid "bst: El arbol de búsqueda key: La llave asociada a la pareja"
+msgstr ""
+
+#: DISClib.DataStructures.bst.get:6 DISClib.DataStructures.rbt.get:7 of
+msgid "La pareja llave-valor en caso de que haya sido encontrada"
+msgstr ""
+
+#: DISClib.DataStructures.bst.getNode:3 of
+msgid ""
+"root: El arbol de búsqueda key: La llave asociada a la pareja "
+"cmpfunction: Función de comparación"
+msgstr ""
+
+#: DISClib.DataStructures.bst.getNode:7 DISClib.DataStructures.bst.insertNode:9
+#: DISClib.DataStructures.bst.put:8 DISClib.DataStructures.rbt.insertNode:9 of
+msgid "El arbol con la nueva pareja"
+msgstr ""
+
+#: DISClib.DataStructures.bst.height:1 DISClib.DataStructures.bst.heightTree:1
+#: of
+msgid "Retorna la altura del arbol de busqueda Args:"
+msgstr ""
+
+#: DISClib.DataStructures.bst.height:5 DISClib.DataStructures.bst.heightTree:5
+#: DISClib.DataStructures.rbt.height:6 DISClib.DataStructures.rbt.heightTree:6
+#: of
+msgid "La altura del arbol"
+msgstr ""
+
+#: DISClib.DataStructures.bst.heightTree:3 of
+msgid "root: La tabla de simbolos"
+msgstr ""
+
+#: DISClib.DataStructures.bst.insertNode:1 DISClib.DataStructures.bst.put:1
+#: DISClib.DataStructures.rbt.insertNode:1 DISClib.DataStructures.rbt.put:1 of
+msgid ""
+"Ingresa una pareja llave,valor. Si la llave ya existe, se reemplaza el "
+"valor. Args:"
+msgstr ""
+
+#: DISClib.DataStructures.bst.insertNode:4
+#: DISClib.DataStructures.rbt.insertNode:4 of
+msgid ""
+"root: La raiz del arbol key: La llave asociada a la pareja value: El "
+"valor asociado a la pareja cmpfunction : Función de comparación"
+msgstr ""
+
+#: DISClib.DataStructures.bst.isEmpty:1 DISClib.DataStructures.rbt.isEmpty:1 of
+msgid "Informa si la tabla de simbolos se encuentra vacia Args:"
+msgstr ""
+
+#: DISClib.DataStructures.bst.isEmpty:3 DISClib.DataStructures.bst.size:3
+#: DISClib.DataStructures.rbt.isEmpty:3 of
+msgid "bst: El arbol de búsqueda"
+msgstr ""
+
+#: DISClib.DataStructures.bst.isEmpty:5 DISClib.DataStructures.rbt.isEmpty:5 of
+msgid "True si la tabla es vacía, False en caso contrario"
+msgstr ""
+
+#: DISClib.DataStructures.bst.keySet:1 DISClib.DataStructures.rbt.keySet:1 of
+msgid "Retorna una lista con todas las llaves de la tabla Args:"
+msgstr ""
+
+#: DISClib.DataStructures.bst.keySet:5 DISClib.DataStructures.rbt.keySet:5 of
+msgid "Una lista con todas las llaves de la tabla"
+msgstr ""
+
+#: DISClib.DataStructures.bst.keySetTree:1
+#: DISClib.DataStructures.rbt.keySetTree:1 of
+msgid "Construye una lista con las llaves de la tabla Args:"
+msgstr ""
+
+#: DISClib.DataStructures.bst.keySetTree:3
+#: DISClib.DataStructures.bst.valueSetTree:3
+#: DISClib.DataStructures.rbt.keySetTree:3
+#: DISClib.DataStructures.rbt.valueSetTree:3 of
+msgid "root: El arbol con los elementos klist: La lista de respuesta"
+msgstr ""
+
+#: DISClib.DataStructures.bst.keySetTree:6
+#: DISClib.DataStructures.rbt.keySetTree:6 of
+msgid "Una lista con todos las llaves"
+msgstr ""
+
+#: DISClib.DataStructures.bst.keys:1 of
+msgid "Retorna todas las llaves del arbol que se encuentren entre [keylo, keyhi]"
+msgstr ""
+
+#: DISClib.DataStructures.bst.keys:5 DISClib.DataStructures.bst.keysRange:3
+#: DISClib.DataStructures.bst.values:5 DISClib.DataStructures.rbt.keys:4
+#: DISClib.DataStructures.rbt.keysRange:3 DISClib.DataStructures.rbt.values:5
+#: of
+msgid "bst: La tabla de simbolos keylo: limite inferior keylohi: limite superiorr"
+msgstr ""
+
+#: DISClib.DataStructures.bst.keys:9 DISClib.DataStructures.bst.keysRange:7
+#: DISClib.DataStructures.bst.values:9 DISClib.DataStructures.bst.valuesRange:8
+#: DISClib.DataStructures.rbt.keys:8 DISClib.DataStructures.rbt.keysRange:7
+#: DISClib.DataStructures.rbt.values:9 of
+msgid "Las llaves en el rago especificado"
+msgstr ""
+
+#: DISClib.DataStructures.bst.keysRange:1
+#: DISClib.DataStructures.rbt.keysRange:1 of
+msgid "Retorna todas las llaves del arbol en un rango dado Args:"
+msgstr ""
+
+#: DISClib.DataStructures.bst.maxKey:1 DISClib.DataStructures.bst.maxKeyNode:1
+#: DISClib.DataStructures.rbt.maxKey:1 DISClib.DataStructures.rbt.maxKeyTree:1
+#: of
+msgid "Retorna la mayor llave de la tabla de simbolos Args:"
+msgstr ""
+
+#: DISClib.DataStructures.bst.maxKey:5 of
+msgid "La mayor llave de la tabla"
+msgstr ""
+
+#: DISClib.DataStructures.bst.maxKeyNode:5
+#: DISClib.DataStructures.rbt.maxKeyTree:5 of
+msgid "El elemento mas derecho del árbol"
+msgstr ""
+
+#: DISClib.DataStructures.bst.minKey:1 DISClib.DataStructures.bst.minKeyNode:1
+#: DISClib.DataStructures.rbt.minKey:1 DISClib.DataStructures.rbt.minKeyTree:1
+#: of
+msgid "Retorna la menor llave de la tabla de simbolos Args:"
+msgstr ""
+
+#: DISClib.DataStructures.bst.minKey:5 of
+msgid "La menor llave de la tabla"
+msgstr ""
+
+#: DISClib.DataStructures.bst.minKeyNode:5
+#: DISClib.DataStructures.rbt.minKeyTree:5 of
+msgid "El elemento mas izquierdo del arbol"
+msgstr ""
+
+#: DISClib.DataStructures.bst.newMap:1 DISClib.DataStructures.rbt.newMap:1 of
+msgid "Crea una tabla de simbolos ordenada. Args:"
+msgstr ""
+
+#: DISClib.DataStructures.bst.newMap:3 DISClib.DataStructures.rbt.newMap:3 of
+msgid "compfunction: La funcion de comparacion"
+msgstr ""
+
+#: DISClib.DataStructures.bst.newMap:5 DISClib.DataStructures.rbt.flipColors:6
+#: DISClib.DataStructures.rbt.newMap:5 of
+msgid "La tabla de símbolos ordenada sin elementos"
+msgstr ""
+
+#: DISClib.DataStructures.bst.put:4 of
+msgid ""
+"bst: El BST key: La llave asociada a la pareja value: El valor asociado a"
+" la pareja"
+msgstr ""
+
+#: DISClib.DataStructures.bst.rank:1 DISClib.DataStructures.bst.rankKeys:1
+#: DISClib.DataStructures.rbt.rank:1 DISClib.DataStructures.rbt.rankKeys:1 of
+msgid ""
+"Retorna el número de llaves en la tabla estrictamente menores que key "
+"Args:"
+msgstr ""
+
+#: DISClib.DataStructures.bst.rank:6 DISClib.DataStructures.rbt.rank:6 of
+msgid "El nuemero de llaves encontradas"
+msgstr ""
+
+#: DISClib.DataStructures.bst.rankKeys:3 of
+msgid "bst: La tabla de simbolos key: la llave de busqueda"
+msgstr ""
+
+#: DISClib.DataStructures.bst.rankKeys:6 DISClib.DataStructures.rbt.rankKeys:6
+#: of
+msgid "El numero de llaves"
+msgstr ""
+
+#: DISClib.DataStructures.bst.remove:1 DISClib.DataStructures.bst.removeNode:1
+#: DISClib.DataStructures.chaininghashmap.remove:1
+#: DISClib.DataStructures.probehashtable.remove:1
+#: DISClib.DataStructures.rbt.remove:1 DISClib.DataStructures.rbt.removeKey:1
+#: of
+msgid "Elimina la pareja llave,valor, donde llave == key. Args:"
+msgstr ""
+
+#: DISClib.DataStructures.bst.remove:6 DISClib.DataStructures.bst.removeNode:6
+#: DISClib.DataStructures.rbt.remove:6 DISClib.DataStructures.rbt.removeKey:7
+#: of
+msgid "El arbol sin la pareja key-value"
+msgstr ""
+
+#: DISClib.DataStructures.bst.select:1 DISClib.DataStructures.rbt.select:1
+#: DISClib.DataStructures.rbt.selectKey:1 of
+msgid ""
+"Retorna la siguiente llave a la k-esima llave mas pequeña de la tabla "
+"Args:"
+msgstr ""
+
+#: DISClib.DataStructures.bst.select:3 of
+msgid "bst: La tabla de simbolos pos: la pos-esima llave mas pequeña"
+msgstr ""
+
+#: DISClib.DataStructures.bst.selectKey:1 of
+msgid "Retorna la k-esima llave mas pequeña de la tabla Args:"
+msgstr ""
+
+#: DISClib.DataStructures.bst.size:1 DISClib.DataStructures.rbt.size:1 of
+msgid "Retorna el número de entradas en la tabla de simbolos Args:"
+msgstr ""
+
+#: DISClib.DataStructures.bst.size:5 DISClib.DataStructures.bst.sizeTree:5
+#: DISClib.DataStructures.rbt.size:5 DISClib.DataStructures.rbt.sizeTree:5 of
+msgid "El número de elementos en la tabla"
+msgstr ""
+
+#: DISClib.DataStructures.bst.sizeTree:1 of
+msgid "Retornar el número de entradas en la a partir un punto dado Args:"
+msgstr ""
+
+#: DISClib.DataStructures.bst.sizeTree:3 DISClib.DataStructures.rbt.sizeTree:3
+#: of
+msgid "root: El arbol de búsqueda"
+msgstr ""
+
+#: DISClib.DataStructures.bst.valueSet:1 DISClib.DataStructures.rbt.valueSet:1
+#: of
+msgid "Construye una lista con los valores de la tabla Args:"
+msgstr ""
+
+#: DISClib.DataStructures.bst.valueSet:3 of
+msgid "bst: La tabla con los elementos"
+msgstr ""
+
+#: DISClib.DataStructures.bst.valueSet:5
+#: DISClib.DataStructures.bst.valueSetTree:6
+#: DISClib.DataStructures.rbt.valueSet:5
+#: DISClib.DataStructures.rbt.valueSetTree:6 of
+msgid "Una lista con todos los valores"
+msgstr ""
+
+#: DISClib.DataStructures.bst.valueSetTree:1
+#: DISClib.DataStructures.rbt.valueSetTree:1 of
+msgid "Construye una lista con los valorers de la tabla Args:"
+msgstr ""
+
+#: DISClib.DataStructures.bst.values:1 DISClib.DataStructures.rbt.values:1 of
+msgid "Retorna todas los valores del arbol que se encuentren entre [keylo, keyhi]"
+msgstr ""
+
+#: DISClib.DataStructures.bst.valuesRange:1
+#: DISClib.DataStructures.rbt.valuesRange:1 of
+msgid ""
+"Retorna todas los valores del arbol en un rango dado por [keylo, keyhi] "
+"Args:"
+msgstr ""
+
+#: DISClib.DataStructures.bst.valuesRange:4
+#: DISClib.DataStructures.rbt.valuesRange:4 of
+msgid "bst: La tabla de simbolos keylo: limite inferior keylohi: limite superior"
+msgstr ""
+
+#: ../../DISClib.DataStructures.rst:48
+msgid "DISClib.DataStructures.bstnode module"
+msgstr ""
+
+#: DISClib.DataStructures.bstnode:5 DISClib.DataStructures.chaininghashmap:5
+#: DISClib.DataStructures.doublelinkedlist:5 DISClib.DataStructures.mapentry:5
+#: DISClib.DataStructures.probehashtable:5
+#: DISClib.DataStructures.probinghashmap:5 DISClib.DataStructures.rbt:5
+#: DISClib.DataStructures.rbtnode:5 DISClib.DataStructures.singlelinkedlist:5
+#: of
+msgid "Desarrolado para el curso ISIS1225 - Estructuras de Datos y Algoritmos"
+msgstr ""
+
+#: DISClib.DataStructures.bstnode.getKey:1
+#: DISClib.DataStructures.rbtnode.getKey:1 of
+msgid "Retorna la llave asociado a una pareja llave valor Args:"
+msgstr ""
+
+#: DISClib.DataStructures.bstnode.getKey:3
+#: DISClib.DataStructures.bstnode.getValue:3
+#: DISClib.DataStructures.rbtnode.getKey:3
+#: DISClib.DataStructures.rbtnode.getValue:3 of
+msgid "node: El nodo con la pareja llave-valor"
+msgstr ""
+
+#: DISClib.DataStructures.bstnode.getKey:5
+#: DISClib.DataStructures.rbtnode.getKey:5 of
+msgid "La llave almacenada en el nodo"
+msgstr ""
+
+#: DISClib.DataStructures.bstnode.getValue:1
+#: DISClib.DataStructures.rbtnode.getValue:1 of
+msgid "Retorna el valor asociado a una pareja llave valor Args:"
+msgstr ""
+
+#: DISClib.DataStructures.bstnode.getValue:5
+#: DISClib.DataStructures.rbtnode.getValue:5 of
+msgid "El valor almacenado en el nodo"
+msgstr ""
+
+#: DISClib.DataStructures.bstnode.newNode:1 of
+msgid "Crea un nuevo nodo para un árbol binario y lo retorna Args:"
+msgstr ""
+
+#: DISClib.DataStructures.bstnode.newNode:3 of
+msgid ""
+"value: El valor asociado a la llave key: la llave asociada a la pareja "
+"size: El tamaño del subarbol que cuelga de este nodo"
+msgstr ""
+
+#: DISClib.DataStructures.bstnode.newNode:8
+#: DISClib.DataStructures.rbtnode.newNode:10 of
+msgid "Un nodo con la pareja <llave, valor>"
+msgstr ""
+
+#: ../../DISClib.DataStructures.rst:56
+msgid "DISClib.DataStructures.chaininghashmap module"
+msgstr ""
+
+#: DISClib.DataStructures.chaininghashmap.contains:1
+#: DISClib.DataStructures.probehashtable.contains:1 of
+msgid "Retorna True si la llave key se encuentra en el map"
+msgstr ""
+
+#: DISClib.DataStructures.chaininghashmap.contains:2
+#: DISClib.DataStructures.probehashtable.contains:2 of
+msgid "o False en caso contrario."
+msgstr ""
+
+#: DISClib.DataStructures.chaininghashmap.contains:4
+#: DISClib.DataStructures.chaininghashmap.get:3
+#: DISClib.DataStructures.chaininghashmap.remove:3
+#: DISClib.DataStructures.probehashtable.contains:4
+#: DISClib.DataStructures.probehashtable.get:3
+#: DISClib.DataStructures.probehashtable.remove:3 of
+msgid "map: El map a donde se guarda la pareja key: la llave asociada a la pareja"
+msgstr ""
+
+#: DISClib.DataStructures.chaininghashmap.contains:8
+#: DISClib.DataStructures.probehashtable.contains:8
+#: DISClib.DataStructures.rbt.isRed:5 of
+msgid "True / False"
+msgstr ""
+
+#: DISClib.DataStructures.chaininghashmap.get:1
+#: DISClib.DataStructures.probehashtable.get:1 of
+msgid "Retorna la pareja llave, valor, cuya llave sea igual a key Args:"
+msgstr ""
+
+#: DISClib.DataStructures.chaininghashmap.get:7
+#: DISClib.DataStructures.probehashtable.get:7 of
+msgid "Una pareja <llave,valor>"
+msgstr ""
+
+#: DISClib.DataStructures.chaininghashmap.hashValue:1
+#: DISClib.DataStructures.probehashtable.hashValue:1 of
+msgid ""
+"Calcula un hash para una llave, utilizando el método MAD : hashValue(y) ="
+" ((ay + b) % p) % M. Donde: M es el tamaño de la tabla, primo p es un "
+"primo mayor a M, a y b enteros aleatoreos dentro del intervalo [0,p-1], "
+"con a>0"
+msgstr ""
+
+#: DISClib.DataStructures.chaininghashmap.isEmpty:1
+#: DISClib.DataStructures.probehashtable.isEmpty:1 of
+msgid "Informa si la tabla de hash se encuentra vacia Args:"
+msgstr ""
+
+#: DISClib.DataStructures.chaininghashmap.isEmpty:3
+#: DISClib.DataStructures.chaininghashmap.keySet:4
+#: DISClib.DataStructures.chaininghashmap.size:3
+#: DISClib.DataStructures.chaininghashmap.valueSet:4
+#: DISClib.DataStructures.probehashtable.isEmpty:3
+#: DISClib.DataStructures.probehashtable.keySet:4
+#: DISClib.DataStructures.probehashtable.size:3
+#: DISClib.DataStructures.probehashtable.valueSet:4 of
+msgid "map: El map"
+msgstr ""
+
+#: DISClib.DataStructures.chaininghashmap.isEmpty:5
+#: DISClib.DataStructures.probehashtable.isEmpty:5 of
+msgid "True: El map esta vacio False: El map no esta vacio"
+msgstr ""
+
+#: DISClib.DataStructures.chaininghashmap.keySet:1
+#: DISClib.DataStructures.probehashtable.keySet:1 of
+msgid "Retorna una lista con todas las llaves de la tabla de hash"
+msgstr ""
+
+#: DISClib.DataStructures.chaininghashmap.keySet:6
+#: DISClib.DataStructures.probehashtable.keySet:6 of
+msgid "lista de llaves"
+msgstr ""
+
+#: DISClib.DataStructures.chaininghashmap.newMap:1
+#: DISClib.DataStructures.probehashtable.newMap:1 of
+msgid "Crea una tabla de simbolos (map) sin orden"
+msgstr ""
+
+#: DISClib.DataStructures.chaininghashmap.newMap:3
+#: DISClib.DataStructures.probehashtable.newMap:3 of
+msgid ""
+"Crea una tabla de hash con capacidad igual a nuelements (primo mas "
+"cercano al doble de numelements). prime es un número primo utilizado para"
+"  el cálculo de los codigos de hash, si no es provisto se  utiliza el "
+"primo 109345121."
+msgstr ""
+
+#: DISClib.DataStructures.chaininghashmap.newMap:9 of
+msgid ""
+"numelements: Tamaño inicial de la tabla prime: Número primo utilizado en "
+"la función MAD loadfactor: Factor de carga inicial de la tabla cmpfunc: "
+"Funcion de comparación entre llaves"
+msgstr ""
+
+#: DISClib.DataStructures.chaininghashmap.newMap:14
+#: DISClib.DataStructures.probehashtable.newMap:15 of
+msgid "Un nuevo map"
+msgstr ""
+
+#: DISClib.DataStructures.chaininghashmap.put:1
+#: DISClib.DataStructures.probehashtable.put:1 of
+msgid ""
+"Ingresa una pareja llave,valor a la tabla de hash. Si la llave ya existe "
+"en la tabla, se reemplaza el valor"
+msgstr ""
+
+#: DISClib.DataStructures.chaininghashmap.put:5
+#: DISClib.DataStructures.probehashtable.put:5 of
+msgid ""
+"map: El map a donde se guarda la pareja key: la llave asociada a la "
+"pareja value: el valor asociado a la pareja"
+msgstr ""
+
+#: DISClib.DataStructures.chaininghashmap.put:9
+#: DISClib.DataStructures.chaininghashmap.remove:7
+#: DISClib.DataStructures.probehashtable.put:9
+#: DISClib.DataStructures.probehashtable.remove:7 of
+msgid "El map"
+msgstr ""
+
+#: DISClib.DataStructures.chaininghashmap.rehash:1 of
+msgid ""
+"Se aumenta la capacida de la tabla al doble y se hace rehash de todos los"
+" elementos de la tabla"
+msgstr ""
+
+#: DISClib.DataStructures.chaininghashmap.size:1
+#: DISClib.DataStructures.probehashtable.size:1 of
+msgid "Retorna  el número de entradas en la tabla de hash. Args:"
+msgstr ""
+
+#: DISClib.DataStructures.chaininghashmap.size:5
+#: DISClib.DataStructures.probehashtable.size:5 of
+msgid "Tamaño del map"
+msgstr ""
+
+#: DISClib.DataStructures.chaininghashmap.valueSet:1
+#: DISClib.DataStructures.probehashtable.valueSet:1 of
+msgid "Retorna una lista con todos los valores de la tabla de hash"
+msgstr ""
+
+#: DISClib.DataStructures.chaininghashmap.valueSet:6
+#: DISClib.DataStructures.probehashtable.valueSet:6 of
+msgid "lista de valores"
+msgstr ""
+
+#: ../../DISClib.DataStructures.rst:64
+msgid "DISClib.DataStructures.doublelinkedlist module"
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.DoubleLinked:1 of
+msgid ""
+"Bases: :py:class:`~typing.Generic`\\ "
+"[:py:obj:`~DISClib.DataStructures.doublelinkedlist.T`]"
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.DoubleLinked:1 of
+msgid "DoubleLinked _summary_"
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.addFirst:1
+#: DISClib.DataStructures.probinghashmap.addFirst:1
+#: DISClib.DataStructures.singlelinkedlist.addFirst:1 of
+msgid "Agrega un elemento a la lista en la primera posicion."
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.addFirst:3
+#: DISClib.DataStructures.probinghashmap.addFirst:3
+#: DISClib.DataStructures.singlelinkedlist.addFirst:3 of
+msgid ""
+"Agrega un elemento en la primera posición de la lista, ajusta el "
+"apuntador al primer elemento e incrementa el tamaño de la lista."
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.addFirst:7
+#: DISClib.DataStructures.probinghashmap.addFirst:7
+#: DISClib.DataStructures.singlelinkedlist.addFirst:7 of
+msgid ""
+"lst:  La lista don de inserta el elemento element:  El elemento a "
+"insertar en la lista"
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.addFirst:11
+#: DISClib.DataStructures.probinghashmap.addFirst:11
+#: DISClib.DataStructures.singlelinkedlist.addFirst:11 of
+msgid ""
+"La lista con el nuevo elemento en la primera posición, si el proceso fue "
+"exitoso"
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.addLast:1
+#: DISClib.DataStructures.probinghashmap.addLast:1
+#: DISClib.DataStructures.singlelinkedlist.addLast:1 of
+msgid "Agrega un elemento en la última posición de la lista."
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.addLast:3
+#: DISClib.DataStructures.probinghashmap.addLast:3
+#: DISClib.DataStructures.singlelinkedlist.addLast:3 of
+msgid "Se adiciona un elemento en la última posición de la lista y se actualiza"
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.addLast:4
+#: DISClib.DataStructures.probinghashmap.addLast:4
+#: DISClib.DataStructures.singlelinkedlist.addLast:4 of
+msgid "el apuntador a la útima posición."
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.addLast:5
+#: DISClib.DataStructures.probinghashmap.addLast:5
+#: DISClib.DataStructures.singlelinkedlist.addLast:5 of
+msgid "Se incrementa el tamaño de la lista en 1 Args:"
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.addLast:7
+#: DISClib.DataStructures.probinghashmap.addLast:7
+#: DISClib.DataStructures.singlelinkedlist.addLast:7 of
+msgid ""
+"lst: La lista en la que se inserta el elemento element: El elemento a "
+"insertar"
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.changeInfo:2
+#: DISClib.DataStructures.probinghashmap.changeInfo:2
+#: DISClib.DataStructures.singlelinkedlist.changeInfo:2 of
+msgid "Cambia la informacion contenida en el nodo de la lista que se encuentra"
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.changeInfo:2
+#: DISClib.DataStructures.probinghashmap.changeInfo:2
+#: DISClib.DataStructures.singlelinkedlist.changeInfo:2 of
+msgid "en la posicion pos."
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.changeInfo:5
+#: DISClib.DataStructures.probinghashmap.changeInfo:5
+#: DISClib.DataStructures.singlelinkedlist.changeInfo:5 of
+msgid ""
+"lst: La lista a examinar pos: la posición de la lista con la información "
+"a cambiar newinfo: La nueva información que se debe poner en el nodo de "
+"la posición pos"
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.compareElements:1
+#: DISClib.DataStructures.probinghashmap.compareElements:1
+#: DISClib.DataStructures.singlelinkedlist.compareElements:1 of
+msgid "Compara dos elementos"
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.compareElements:3
+#: DISClib.DataStructures.probinghashmap.compareElements:3
+#: DISClib.DataStructures.singlelinkedlist.compareElements:3 of
+msgid ""
+"Se utiliza la función de comparación por defecto si key es None o la "
+"función provista por el usuario en caso contrario Args:"
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.compareElements:6
+#: DISClib.DataStructures.probinghashmap.compareElements:6
+#: DISClib.DataStructures.singlelinkedlist.compareElements:6 of
+msgid ""
+"lst: La lista con los elementos element:  El elemento que se esta "
+"buscando en la lista info: El elemento de la lista que se está analizando"
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.compareElements:10
+#: DISClib.DataStructures.probinghashmap.compareElements:10
+#: DISClib.DataStructures.singlelinkedlist.compareElements:10 of
+msgid "Returns:  0 si los elementos son iguales"
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.deleteElement:1
+#: DISClib.DataStructures.probinghashmap.deleteElement:1
+#: DISClib.DataStructures.singlelinkedlist.deleteElement:1 of
+msgid "Elimina el elemento en la posición pos de la lista."
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.deleteElement:3
+#: DISClib.DataStructures.probinghashmap.deleteElement:3
+#: DISClib.DataStructures.singlelinkedlist.deleteElement:3 of
+msgid ""
+"Elimina el elemento que se encuentra en la posición pos de la lista. Pos "
+"debe ser mayor que cero y menor o igual al tamaño de la lista. Se "
+"decrementa en un uno el tamñao de la lista. La lista no puede estar "
+"vacia."
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.deleteElement:9
+#: DISClib.DataStructures.probinghashmap.deleteElement:9
+#: DISClib.DataStructures.singlelinkedlist.deleteElement:9 of
+msgid "lst: La lista a retoranr pos: Posición del elemento a eliminar."
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.exchange:1
+#: DISClib.DataStructures.probinghashmap.exchange:1
+#: DISClib.DataStructures.singlelinkedlist.exchange:1 of
+msgid "Intercambia la informacion en las posiciones pos1 y pos2 de la lista."
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.exchange:4
+#: DISClib.DataStructures.probinghashmap.exchange:4
+#: DISClib.DataStructures.singlelinkedlist.exchange:4 of
+msgid ""
+"lst: La lista a examinar pos1: Posición del primer elemento pos2: "
+"Posiocion del segundo elemento"
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.firstElement:2
+#: DISClib.DataStructures.probinghashmap.firstElement:2
+#: DISClib.DataStructures.singlelinkedlist.firstElement:2 of
+msgid "Retorna el primer elemento de una lista no vacía."
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.getElement:1
+#: DISClib.DataStructures.probinghashmap.getElement:1
+#: DISClib.DataStructures.singlelinkedlist.getElement:1 of
+msgid "Retorna el elemento en la posición pos de la lista."
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.getElement:3
+#: DISClib.DataStructures.probinghashmap.getElement:3
+#: DISClib.DataStructures.singlelinkedlist.getElement:3 of
+msgid ""
+"Se recorre la lista hasta el elemento pos, el cual  debe ser mayor que "
+"cero y menor o igual al tamaño de la lista. Se retorna el elemento en "
+"dicha posición sin eleminarlo. La lista no puede ser vacia."
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.getElement:9
+#: DISClib.DataStructures.probinghashmap.getElement:9
+#: DISClib.DataStructures.singlelinkedlist.getElement:9 of
+msgid "lst: La lista a examinar pos: Posición del elemento a retornar"
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.insertElement:1
+#: DISClib.DataStructures.probinghashmap.insertElement:1
+#: DISClib.DataStructures.singlelinkedlist.insertElement:1 of
+msgid "Inserta el elemento element en la posición pos de la lista."
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.insertElement:3
+#: DISClib.DataStructures.probinghashmap.insertElement:3
+#: DISClib.DataStructures.singlelinkedlist.insertElement:3 of
+msgid ""
+"Inserta el elemento en la posición pos de la lista. La lista puede ser "
+"vacía.  Se incrementa en 1 el tamaño de la lista."
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.insertElement:7
+#: DISClib.DataStructures.probinghashmap.insertElement:7
+#: DISClib.DataStructures.singlelinkedlist.insertElement:7 of
+msgid ""
+"lst: La lista en la que se va a insertar el elemento element: El elemento"
+" a insertar pos: posición en la que se va a insertar el elemento, 0 < pos"
+" <= size(lst)"
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.isEmpty:1
+#: DISClib.DataStructures.probinghashmap.isEmpty:1
+#: DISClib.DataStructures.singlelinkedlist.isEmpty:1 of
+msgid "Indica si la lista está vacía Args:"
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.isPresent:1
+#: DISClib.DataStructures.probinghashmap.isPresent:1
+#: DISClib.DataStructures.singlelinkedlist.isPresent:1 of
+msgid "Informa si el elemento element esta presente en la lista."
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.isPresent:3
+#: DISClib.DataStructures.probinghashmap.isPresent:3
+#: DISClib.DataStructures.singlelinkedlist.isPresent:3 of
+msgid ""
+"Informa si un elemento está en la lista.  Si esta presente, retorna la "
+"posición en la que se encuentra  o cero (0) si no esta presente. Se "
+"utiliza la función de comparación utilizada durante la creación de la "
+"lista para comparar los elementos. La cual debe retornar cero en caso de "
+"que los elementos sean iguales."
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.isPresent:10
+#: DISClib.DataStructures.probinghashmap.isPresent:10
+#: DISClib.DataStructures.singlelinkedlist.isPresent:10 of
+msgid "lst: La lista a examinar element: El elemento a buscar"
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.iterator:1
+#: DISClib.DataStructures.probinghashmap.iterator:1
+#: DISClib.DataStructures.singlelinkedlist.iterator:1 of
+msgid "Retorna un iterador para la lista. Args:"
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.iterator:3
+#: DISClib.DataStructures.probinghashmap.iterator:3
+#: DISClib.DataStructures.singlelinkedlist.iterator:3 of
+msgid "lst: La lista a iterar"
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.newList:1
+#: DISClib.DataStructures.probinghashmap.newList:1
+#: DISClib.DataStructures.singlelinkedlist.newList:1 of
+msgid "Crea una lista vacia."
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.newList:3
+#: DISClib.DataStructures.probinghashmap.newList:3
+#: DISClib.DataStructures.singlelinkedlist.newList:3 of
+msgid ""
+"Se inicializan los apuntadores a la primera y ultima posicion en None. El"
+" tipo de la listase inicializa como SINGLE_LINKED Args:"
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.newList:6
+#: DISClib.DataStructures.probinghashmap.newList:6
+#: DISClib.DataStructures.singlelinkedlist.newList:6 of
+msgid ""
+"cmpfunction: Función de comparación para los elementos de la lista. Si no"
+" se provee una función de comparación, se utilizará la función de "
+"comparación por defecto pero se debe suministrar un valor para key"
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.newList:10
+#: DISClib.DataStructures.probinghashmap.newList:10
+#: DISClib.DataStructures.singlelinkedlist.newList:10 of
+msgid ""
+"key: Identificador que se debe utilizar para la comparación de elementos "
+"de la lista"
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.newList:13
+#: DISClib.DataStructures.probinghashmap.newList:13
+#: DISClib.DataStructures.singlelinkedlist.newList:13 of
+msgid ""
+"filename: Si se provee este valor, se creará una lista a partir de la "
+"informacion que se encuentra en el archivo CSV"
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.newList:16
+#: DISClib.DataStructures.probinghashmap.newList:16
+#: DISClib.DataStructures.singlelinkedlist.newList:16 of
+msgid ""
+"delimiter: Si se provee un archivo para crear la lista, indica el "
+"delimitador a usar para separar los campos del archivo CSV"
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.newList:20
+#: DISClib.DataStructures.probinghashmap.newList:20
+#: DISClib.DataStructures.singlelinkedlist.newList:20 of
+msgid ""
+"Un diccionario que representa la estructura de datos de una lista "
+"encadanada vacia."
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.removeFirst:1
+#: DISClib.DataStructures.probinghashmap.removeFirst:1
+#: DISClib.DataStructures.singlelinkedlist.removeFirst:1 of
+msgid ""
+"Remueve el primer elemento de la lista. Elimina y retorna el primer "
+"elemento de la lista. El tamaño de la lista se decrementa en uno.  Si la "
+"lista es vacía se retorna None. Args:"
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.removeLast:1
+#: DISClib.DataStructures.probinghashmap.removeLast:1
+#: DISClib.DataStructures.singlelinkedlist.removeLast:1 of
+msgid "Remueve el último elemento de la lista."
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.removeLast:3
+#: DISClib.DataStructures.probinghashmap.removeLast:3
+#: DISClib.DataStructures.singlelinkedlist.removeLast:3 of
+msgid ""
+"Elimina el último elemento de la lista  y lo retorna en caso de existir. "
+"El tamaño de la lista se decrementa en 1. Si la lista es vacía  retorna "
+"None."
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.size:1
+#: DISClib.DataStructures.probinghashmap.size:1
+#: DISClib.DataStructures.singlelinkedlist.size:1 of
+msgid "Informa el número de elementos de la lista. Args"
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.subList:1
+#: DISClib.DataStructures.probinghashmap.subList:1
+#: DISClib.DataStructures.singlelinkedlist.subList:1 of
+msgid "Retorna una sublista de la lista lst."
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.subList:3
+#: DISClib.DataStructures.probinghashmap.subList:3
+#: DISClib.DataStructures.singlelinkedlist.subList:3 of
+msgid ""
+"Se retorna una lista que contiene los elementos a partir de la posicion "
+"pos,con una longitud de numelem elementos. Se crea una copia de dichos "
+"elementos y se retorna una lista nueva."
+msgstr ""
+
+#: DISClib.DataStructures.doublelinkedlist.subList:8
+#: DISClib.DataStructures.probinghashmap.subList:8
+#: DISClib.DataStructures.singlelinkedlist.subList:8 of
+msgid ""
+"lst: La lista a examinar pos: Posición a partir de la que se desea "
+"obtener la sublista numelem: Numero de elementos a copiar en la sublista"
+msgstr ""
+
+#: ../../DISClib.DataStructures.rst:72
+msgid "DISClib.DataStructures.edge module"
+msgstr ""
+
+#: DISClib.DataStructures.edge:1 of
+msgid ""
+"# TODO cambiar comentarios de lincencia segun estandard del equipo * "
+"Copyright 2020, Departamento de sistemas y Computación, * Universidad de "
+"Los Andes * * Desarrollado para el curso ISIS1225 - Estructuras de Datos "
+"y Algoritmos * * * This program is free software: you can redistribute it"
+" and/or modify * it under the terms of the GNU General Public License as "
+"published by * the Free Software Foundation, either version 3 of the "
+"License, or * (at your option) any later version. * * This program is "
+"distributed in the hope that it will be useful, * but WITHOUT ANY "
+"WARRANTY; without even the implied warranty of * MERCHANTABILITY or "
+"FITNESS FOR A PARTICULAR PURPOSE.  See the * GNU General Public License "
+"for more details. * * You should have received a copy of the GNU General "
+"Public License * along with this program.  If not, see "
+"<http://www.gnu.org/licenses/>. * * Contribución de: * Darío Correal"
+msgstr ""
+
+#: DISClib.DataStructures.edge.compareedges:1 of
+msgid "Compara dos arcos y retorna True si son iguales"
+msgstr ""
+
+#: DISClib.DataStructures.edge.either:1 of
+msgid "Retorna el vertice A del arco"
+msgstr ""
+
+#: DISClib.DataStructures.edge.newEdge:1 of
+msgid "Crea un nuevo arco entrelos vertices va y vb"
+msgstr ""
+
+#: DISClib.DataStructures.edge.other:1 of
+msgid "Retorna el vertice B del arco"
+msgstr ""
+
+#: DISClib.DataStructures.edge.weight:1 of
+msgid "Retorna el peso de un arco"
+msgstr ""
+
+#: ../../DISClib.DataStructures.rst:80
+msgid "DISClib.DataStructures.heap module"
+msgstr ""
+
+#: DISClib.DataStructures.heap:1 of
+msgid "Copyright 2020, Departamento de sistemas y Computación,"
+msgstr ""
+
+#: DISClib.DataStructures.heap.delMin:1
+#: DISClib.DataStructures.indexheap.delMin:1 of
+msgid ""
+"Retorna el menor elemento del heap y lo elimina. Se reemplaza con el "
+"último elemento y se hace sink."
+msgstr ""
+
+#: DISClib.DataStructures.heap.delMin:5 DISClib.DataStructures.heap.isEmpty:4
+#: DISClib.DataStructures.heap.min:4 DISClib.DataStructures.heap.size:4 of
+msgid "heap: El arreglo con la informacion"
+msgstr ""
+
+#: DISClib.DataStructures.heap.delMin:8 of
+msgid "El menor elemento eliminado"
+msgstr ""
+
+#: DISClib.DataStructures.heap.exchange:1 of
+msgid "Intercambia los elementos en las posiciones posa y posb del heap"
+msgstr ""
+
+#: DISClib.DataStructures.heap.greater:1 of
+msgid "Indica si el elemento 1 es mayor que el elemento 2"
+msgstr ""
+
+#: DISClib.DataStructures.heap.insert:1 of
+msgid ""
+"Guarda la pareja llave-valor en el heap. Lo guarda en la última posición "
+"y luego hace swim del elemento"
+msgstr ""
+
+#: DISClib.DataStructures.heap.insert:5 of
+msgid "heap: El arreglo con la informacion element: El elemento a guardar"
+msgstr ""
+
+#: DISClib.DataStructures.heap.insert:8 of
+msgid "El heap con el nuevo elemento"
+msgstr ""
+
+#: DISClib.DataStructures.heap.isEmpty:1 of
+msgid "Indica si el heap está vacío"
+msgstr ""
+
+#: DISClib.DataStructures.heap.isEmpty:6 of
+msgid "True si el heap es vacio"
+msgstr ""
+
+#: DISClib.DataStructures.heap.min:1 DISClib.DataStructures.indexheap.min:1 of
+msgid "Retorna el primer elemento del heap, es decir el menor elemento"
+msgstr ""
+
+#: DISClib.DataStructures.heap.min:6 of
+msgid "El menor elemento del heap"
+msgstr ""
+
+#: DISClib.DataStructures.heap.newHeap:1 of
+msgid ""
+"Crea un nuevo heap basado en un arreglo, cuyo primer elemento es "
+"inicializado en None y no será utilizado"
+msgstr ""
+
+#: DISClib.DataStructures.heap.newHeap:5
+#: DISClib.DataStructures.indexheap.newIndexHeap:4 of
+msgid "cmpfunction: La funcion de comparacion size: El numero de elementos"
+msgstr ""
+
+#: DISClib.DataStructures.heap.newHeap:8 of
+msgid "El heap"
+msgstr ""
+
+#: DISClib.DataStructures.heap.sink:1 of
+msgid "Ubica en la posición correcta un elemento ubicado en la raíz del heap"
+msgstr ""
+
+#: DISClib.DataStructures.heap.sink:4 DISClib.DataStructures.heap.swim:5
+#: DISClib.DataStructures.indexheap.sink:4
+#: DISClib.DataStructures.indexheap.swim:5 of
+msgid "heap: El arreglo con la informacion pos: posicion en el arreglo a revisar"
+msgstr ""
+
+#: DISClib.DataStructures.heap.sink:8 DISClib.DataStructures.heap.swim:9
+#: DISClib.DataStructures.indexheap.sink:8
+#: DISClib.DataStructures.indexheap.swim:9 of
+msgid "El arreglo en forma de heap"
+msgstr ""
+
+#: DISClib.DataStructures.heap.size:1 DISClib.DataStructures.indexheap.size:1
+#: of
+msgid "Retorna el número de elementos en el heap"
+msgstr ""
+
+#: DISClib.DataStructures.heap.size:6 of
+msgid "El tamaño del heap"
+msgstr ""
+
+#: DISClib.DataStructures.heap.swim:1 of
+msgid "Ubica en el lugar indicado un elemento adicionado en la última posición"
+msgstr ""
+
+#: ../../DISClib.DataStructures.rst:88
+msgid "DISClib.DataStructures.iminpqnode module"
+msgstr ""
+
+#: DISClib.DataStructures.iminpqnode:1 of
+msgid ""
+"Copyright 2020, Departamento de sistemas y Computación, Universidad de "
+"Los Andes"
+msgstr ""
+
+#: ../../DISClib.DataStructures.rst:96
+msgid "DISClib.DataStructures.indexheap module"
+msgstr ""
+
+#: DISClib.DataStructures.indexheap:1 of
+msgid ""
+"# TODO cambiar comentarios de lincencia segun estandard del equipo * "
+"Copyright 2020, Departamento de sistemas y Computación, * Universidad de "
+"Los Andes * * * Desarrolado para el curso ISIS1225 - Estructuras de Datos"
+" y Algoritmos * * * This program is free software: you can redistribute "
+"it and/or modify * it under the terms of the GNU General Public License "
+"as published by * the Free Software Foundation, either version 3 of the "
+"License, or * (at your option) any later version. * * This program is "
+"distributed in the hope that it will be useful, * but WITHOUT ANY "
+"WARRANTY; without even the implied warranty of * MERCHANTABILITY or "
+"FITNESS FOR A PARTICULAR PURPOSE.  See the * GNU General Public License "
+"for more details. * * You should have received a copy of the GNU General "
+"Public License * along with this program.  If not, see "
+"<http://www.gnu.org/licenses/>."
+msgstr ""
+
+#: DISClib.DataStructures.indexheap.contains:1 of
+msgid "Indica si la llave key se encuentra en el heap"
+msgstr ""
+
+#: DISClib.DataStructures.indexheap.contains:4
+#: DISClib.DataStructures.indexheap.delMin:5
+#: DISClib.DataStructures.indexheap.min:4
+#: DISClib.DataStructures.indexheap.size:4 of
+msgid "iheap: El heap a revisar"
+msgstr ""
+
+#: DISClib.DataStructures.indexheap.contains:6
+#: DISClib.DataStructures.indexheap.decreaseKey:8
+#: DISClib.DataStructures.indexheap.increaseKey:8
+#: DISClib.DataStructures.indexheap.min:6
+#: DISClib.DataStructures.indexheap.size:6 of
+msgid "El numero de elementos"
+msgstr ""
+
+#: DISClib.DataStructures.indexheap.decreaseKey:1 of
+msgid "Decrementa el indice de un llave"
+msgstr ""
+
+#: DISClib.DataStructures.indexheap.decreaseKey:4 of
+msgid ""
+"iheap: El heap a revisar key: la llave a decrementar newindex: El nuevo "
+"indice de la llave"
+msgstr ""
+
+#: DISClib.DataStructures.indexheap.delMin:7 of
+msgid "La llave asociada al mayor indice"
+msgstr ""
+
+#: DISClib.DataStructures.indexheap.exchange:1 of
+msgid "Intercambia los elementos en las posiciones i y j del heap"
+msgstr ""
+
+#: DISClib.DataStructures.indexheap.greater:1 of
+msgid "Indica si el index de parent es mayor que index de element"
+msgstr ""
+
+#: DISClib.DataStructures.indexheap.increaseKey:1 of
+msgid "Incrementa el indice de un llave"
+msgstr ""
+
+#: DISClib.DataStructures.indexheap.increaseKey:4 of
+msgid ""
+"iheap: El heap a revisar key: la llave a incrementar newindex: El nuevo "
+"indice de la llave"
+msgstr ""
+
+#: DISClib.DataStructures.indexheap.insert:1 of
+msgid "Inserta la llave key con prioridad index"
+msgstr ""
+
+#: DISClib.DataStructures.indexheap.insert:4 of
+msgid "iheap: El heap indexado"
+msgstr ""
+
+#: DISClib.DataStructures.indexheap.insert:6 of
+msgid "El iheap con la nueva paraja indexada"
+msgstr ""
+
+#: DISClib.DataStructures.indexheap.isEmpty:1 of
+msgid "Informa si una cola de prioridad indexada es vacia"
+msgstr ""
+
+#: DISClib.DataStructures.indexheap.isEmpty:4 of
+msgid "iheap: El heap indexado a revisar"
+msgstr ""
+
+#: DISClib.DataStructures.indexheap.isEmpty:6 of
+msgid "True si esta vacia"
+msgstr ""
+
+#: DISClib.DataStructures.indexheap.newIndexHeap:1 of
+msgid "Crea un cola de prioridad indexada orientada a menor"
+msgstr ""
+
+#: DISClib.DataStructures.indexheap.newIndexHeap:7 of
+msgid "Una nueva cola de prioridad indexada"
+msgstr ""
+
+#: DISClib.DataStructures.indexheap.sink:1 of
+msgid "Deja en la posición correcta un elemento ubicado en la raíz del heap"
+msgstr ""
+
+#: DISClib.DataStructures.indexheap.swim:1 of
+msgid "Deja en el lugar indicado un elemento adicionado en la última posición"
+msgstr ""
+
+#: ../../DISClib.DataStructures.rst:104
+msgid "DISClib.DataStructures.listnode module"
+msgstr ""
+
+#: DISClib.DataStructures.listnode.DoubleNode:1 of
+msgid ""
+"Bases: :py:class:`~DISClib.DataStructures.listnode.SingleNode`, "
+":py:class:`~typing.Generic`\\ "
+"[:py:obj:`~DISClib.DataStructures.listnode.T`]"
+msgstr ""
+
+#: DISClib.DataStructures.listnode.DoubleNode:1 of
+msgid ""
+"DoubleNode generic class for defining a node of a double linked list. "
+"extends SingleNode class."
+msgstr ""
+
+#: DISClib.DataStructures.listnode.DoubleNode:5 of
+msgid ""
+"SingleNode (dataclass): generic node of a single linked list. Generic "
+"(T): can be any python type."
+msgstr ""
+
+#: DISClib.DataStructures.listnode.DoubleNode:9 of
+msgid "DoubleNode: generic node of a double linked list."
+msgstr ""
+
+#: DISClib.DataStructures.listnode.DoubleNode.prev:1 of
+msgid "prev the function returns the previous node of the list."
+msgstr ""
+
+#: DISClib.DataStructures.listnode.DoubleNode.prev:4 of
+msgid "DoubleNode[T]: the previous node of the list, if it exists."
+msgstr ""
+
+#: DISClib.DataStructures.listnode.Node:1 of
+msgid ""
+"Bases: :py:class:`~typing.Generic`\\ "
+"[:py:obj:`~DISClib.DataStructures.listnode.T`]"
+msgstr ""
+
+#: DISClib.DataStructures.listnode.Node:1 of
+msgid "Node generic class for defining a node of a list."
+msgstr ""
+
+#: DISClib.DataStructures.listnode.Node:4 of
+msgid "Generic (T): can be any python type."
+msgstr ""
+
+#: DISClib.DataStructures.listnode.Node:7 of
+msgid "TypeError: only valid data types are allowed."
+msgstr ""
+
+#: DISClib.DataStructures.listnode.Node:10 of
+msgid "Node: generic node of a list."
+msgstr ""
+
+#: DISClib.DataStructures.listnode.Node.get_info:1 of
+msgid "get_info the function returns the information inside the node."
+msgstr ""
+
+#: DISClib.DataStructures.listnode.Node.get_info:4 of
+msgid "T: information of the node."
+msgstr ""
+
+#: DISClib.DataStructures.listnode.Node.set_info:1 of
+msgid "set_info the function sets the new information inside the node."
+msgstr ""
+
+#: DISClib.DataStructures.listnode.Node.set_info:4 of
+msgid "element (T): new information for the node."
+msgstr ""
+
+#: DISClib.DataStructures.listnode.SingleNode:1 of
+msgid ""
+"Bases: :py:class:`~DISClib.DataStructures.listnode.Node`, "
+":py:class:`~typing.Generic`\\ "
+"[:py:obj:`~DISClib.DataStructures.listnode.T`]"
+msgstr ""
+
+#: DISClib.DataStructures.listnode.SingleNode:1 of
+msgid ""
+"SingleNode generic class for defining a node of a single linked list. "
+"extends Node class."
+msgstr ""
+
+#: DISClib.DataStructures.listnode.SingleNode:5 of
+msgid ""
+"Node (dataclass): generic node of a list. Generic (T): can be any python "
+"type."
+msgstr ""
+
+#: DISClib.DataStructures.listnode.SingleNode:9 of
+msgid "SingleNode: generic node of a single linked list."
+msgstr ""
+
+#: DISClib.DataStructures.listnode.SingleNode.next:1 of
+msgid "next the function returns the next node of the list."
+msgstr ""
+
+#: DISClib.DataStructures.listnode.SingleNode.next:4 of
+msgid "SingleNode[T]: next node of the list, if it exists."
+msgstr ""
+
+#: ../../DISClib.DataStructures.rst:112
+msgid "DISClib.DataStructures.mapentry module"
+msgstr ""
+
+#: DISClib.DataStructures.mapentry.getKey:1 of
+msgid "Retorna la llave de una pareja de un Map Args:"
+msgstr ""
+
+#: DISClib.DataStructures.mapentry.getKey:3
+#: DISClib.DataStructures.mapentry.getValue:3 of
+msgid "entry: la pareja llave valor"
+msgstr ""
+
+#: DISClib.DataStructures.mapentry.getKey:5
+#: DISClib.DataStructures.mapentry.getValue:5 of
+msgid "La llave de la pareja"
+msgstr ""
+
+#: DISClib.DataStructures.mapentry.getValue:1 of
+msgid "Retorna el valor de una pareja de un Map Args:"
+msgstr ""
+
+#: DISClib.DataStructures.mapentry.newMapEntry:1 of
+msgid "Retorna una pareja llave valor para ser guardada en un Map Args:"
+msgstr ""
+
+#: DISClib.DataStructures.mapentry.newMapEntry:4 of
+msgid "key: llave value: valor"
+msgstr ""
+
+#: DISClib.DataStructures.mapentry.newMapEntry:7 of
+msgid "una entrada con la pareja llave-valor"
+msgstr ""
+
+#: DISClib.DataStructures.mapentry.setKey:1 of
+msgid "Asigna una llave a una pareja de un Map Args:"
+msgstr ""
+
+#: DISClib.DataStructures.mapentry.setKey:3 of
+msgid "entry: la pareja llave valor key: la nueva llave"
+msgstr ""
+
+#: DISClib.DataStructures.mapentry.setKey:6
+#: DISClib.DataStructures.mapentry.setValue:6 of
+msgid "La pareja modificada"
+msgstr ""
+
+#: DISClib.DataStructures.mapentry.setValue:1 of
+msgid "Asigna un nuevo valor a una pareja de un Map Args:"
+msgstr ""
+
+#: DISClib.DataStructures.mapentry.setValue:3 of
+msgid "entry: la pareja llave valor value: el nuevo valor"
+msgstr ""
+
+#: ../../DISClib.DataStructures.rst:120
+msgid "DISClib.DataStructures.nodetree module"
+msgstr ""
+
+#: ../../DISClib.DataStructures.rst:128
+msgid "DISClib.DataStructures.probehashtable module"
+msgstr ""
+
+#: DISClib.DataStructures.probehashtable.findSlot:1 of
+msgid ""
+"Encuentra una posición libre en la tabla de hash. map: la tabla de hash "
+"key: la llave hashvalue: La posición inicial de la llave cmpfunction: "
+"funcion de comparación para la búsqueda de la llave"
+msgstr ""
+
+#: DISClib.DataStructures.probehashtable.isAvailable:1 of
+msgid ""
+"Informa si la posición pos esta disponible en la tabla de hash. Se "
+"entiende que una posición está disponible si su contenido es igual a None"
+" (no se ha usado esa posicion) o a __EMPTY__ (la posición fue liberada)"
+msgstr ""
+
+#: DISClib.DataStructures.probehashtable.newMap:9 of
+msgid ""
+"numelements: Tamaño inicial de la tabla prime: Número primo utilizado en "
+"la función MAD loadfactor: Factor de carga maximo de la tabla "
+"cmpfunction: Funcion de comparación entre llaves datastructure: "
+"estructura de datos seleccionada"
+msgstr ""
+
+#: DISClib.DataStructures.probehashtable.rehash:1 of
+msgid ""
+"Se aumenta la capacidad de la tabla al doble y se hace rehash de todos "
+"los elementos de la tabla."
+msgstr ""
+
+#: ../../DISClib.DataStructures.rst:136
+msgid "DISClib.DataStructures.probinghashmap module"
+msgstr ""
+
+#: ../../DISClib.DataStructures.rst:144
+msgid "DISClib.DataStructures.rbt module"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.balance:1 of
+msgid "Balancea el arbol root: Raiz del arbol a balancear Returns:"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.balance:4 of
+msgid "El arbol balanceado"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.ceilingKey:1 of
+msgid ""
+"Retorna la llave mas pequeña en la tabla de simbolos, mayor o igual a la "
+"llave key"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.ceilingKey:5
+#: DISClib.DataStructures.rbt.floorKey:5 of
+msgid ""
+"rbt: El arbol de búsqueda key: La llave cmpfunction: Funcion de "
+"comparacion"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.ceilingKey:9 DISClib.DataStructures.rbt.floor:7
+#: DISClib.DataStructures.rbt.floorKey:9 DISClib.DataStructures.rbt.maxKey:5 of
+msgid "Retorna la mayor llave de la tabla"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.contains:1 of
+msgid ""
+"Retorna True si la llave key se encuentra en la tabla o False en caso "
+"contrario. Es necesario proveer la función de comparación entre llaves."
+msgstr ""
+
+#: DISClib.DataStructures.rbt.contains:6 of
+msgid "rbt: El arbol de búsqueda key: La llave a buscar"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.contains:9 of
+msgid "True si la llave se encuentra en la tabla"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.deleteMax:1
+#: DISClib.DataStructures.rbt.deleteMaxTree:1 of
+msgid ""
+"Encuentra y remueve la mayor llave de la tabla de simbolos y su valor "
+"asociado"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.deleteMax:4
+#: DISClib.DataStructures.rbt.deleteMin:4 of
+msgid "TODO: No implementada en esta versión"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.deleteMax:7 DISClib.DataStructures.rbt.keySet:3
+#: of
+msgid "rbt: La tabla de simbolos"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.deleteMaxTree:4
+#: DISClib.DataStructures.rbt.deleteMinTree:4 of
+msgid "root: La tabla de simbolos Returns:"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.deleteMin:1
+#: DISClib.DataStructures.rbt.deleteMinTree:1 of
+msgid ""
+"Encuentra y remueve la menor  llave de la tabla de simbolos y su valor "
+"asociado"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.deleteMin:6 of
+msgid "rbt: La tabla de simbolos Returns:"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.flipColors:1 of
+msgid "Cambia el color de un nodo y de sus dos hijos Args:"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.flipColors:3 of
+msgid "maptype: El tipo de map ordenado a utilizar"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.flipColors:4 of
+msgid "'BST' o 'RBT'"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.flipNodeColor:1 of
+msgid "Cambia el color de un nodo Args:"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.flipNodeColor:3 of
+msgid "rbnode: El nodo a cambiar"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.flipNodeColor:5 of
+msgid "El nodo con el color opuesto"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.floor:1 DISClib.DataStructures.rbt.floorKey:1 of
+msgid ""
+"Retorna la llave mas grande en la tabla de simbolos, menor o igual a la "
+"llave key"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.floor:5 DISClib.DataStructures.rbt.maxKey:3
+#: DISClib.DataStructures.rbt.minKey:3 DISClib.DataStructures.rbt.size:3 of
+msgid "rbt: El arbol de búsqueda"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.get:1 of
+msgid "Retorna la pareja llave, valor, cuya llave sea igual a key."
+msgstr ""
+
+#: DISClib.DataStructures.rbt.get:4 DISClib.DataStructures.rbt.remove:3 of
+msgid "rbt: El arbol de búsqueda key: La llave asociada a la pareja"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.getNode:1 of
+msgid ""
+"Retorna la pareja llave, valor, cuya llave sea igual a key. Es necesario "
+"proveer una función de comparación para las llaves."
+msgstr ""
+
+#: DISClib.DataStructures.rbt.getNode:5 of
+msgid ""
+"root: El arbol rojo-negro key: La llave de busqueda cmpfunction: funcion "
+"de comparación"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.getNode:9 of
+msgid "La pareja llave-valor"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.height:1 DISClib.DataStructures.rbt.heightTree:1
+#: of
+msgid "Retorna la altura del arbol"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.height:4 of
+msgid "rbt: El arbol con las parejas"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.heightTree:4 of
+msgid "root: El arbol con las parejas"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.isRed:1 of
+msgid "Indica si un nodo del arbol es rojo Args:"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.isRed:3 of
+msgid "rbnode:  El nodo a examinar"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.keys:1 of
+msgid ""
+"Retorna todas las llaves del arbol que se encuentren entre [keylo, keyhi]"
+" Args:"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.minKey:5 of
+msgid "Retorna la menor llave de la tabla"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.moveRedLeft:1
+#: DISClib.DataStructures.rbt.moveRedRight:1 of
+msgid ""
+"Cambio de color durante el proceso de eliminacion root: La tabla de "
+"simbolos Returns:"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.moveRedLeft:4
+#: DISClib.DataStructures.rbt.moveRedRight:4 of
+msgid "El arbol con un hijo iquierdo de root en negro"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.put:4 of
+msgid ""
+"map: La tabla de simbolos ordenada key: La llave asociada a la pareja "
+"value: El valor asociado a la pareja"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.put:8 of
+msgid "La tabla de simbolos"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.rank:3 of
+msgid "rbt: La tabla de simbolos key: La llave de búsqueda"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.rankKeys:3 of
+msgid "rbt: La tabla de simbolos key: La llave de busqueda"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.removeKey:3 of
+msgid ""
+"root: El arbol de búsqueda key: La llave asociada a la pareja cmpfunction"
+" : La funcion de comparacion"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.rotateLeft:1 of
+msgid "rotación izquierda para compensar dos enlaces rojos consecutivos"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.rotateRight:1 of
+msgid "Rotación a la derecha para compensar un hijo rojo a la derecha Args:"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.rotateRight:3 of
+msgid "rbt: El arbol a rotar"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.rotateRight:5 of
+msgid "El arbol rotado"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.select:3 of
+msgid "rbt: La tabla de simbolos pos: la pos-esima llave mas pequeña"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.selectKey:3 of
+msgid "root: La tabla de simbolos key: la llave de búsqueda"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.sizeTree:1 of
+msgid "Retorna el número de entradas en la a partir un punto dado Args:"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.valueSet:3 of
+msgid "rbt: La tabla con los elementos"
+msgstr ""
+
+#: DISClib.DataStructures.rbt.valuesRange:8 of
+msgid "Las llaves en el rango especificado"
+msgstr ""
+
+#: ../../DISClib.DataStructures.rst:152
+msgid "DISClib.DataStructures.rbtnode module"
+msgstr ""
+
+#: DISClib.DataStructures.rbtnode.isRed:1 of
+msgid "Informa si un nodo es rojo Args:"
+msgstr ""
+
+#: DISClib.DataStructures.rbtnode.isRed:3 of
+msgid "node: El nodo a revisar"
+msgstr ""
+
+#: DISClib.DataStructures.rbtnode.isRed:6 of
+msgid "True si el nodo es rojo, False de lo contrario"
+msgstr ""
+
+#: DISClib.DataStructures.rbtnode.newNode:1 of
+msgid ""
+"Crea un nuevo nodo para un árbol rojo-negro  y lo retorna. color:0 - rojo"
+"  color:1 - negro Args:"
+msgstr ""
+
+#: DISClib.DataStructures.rbtnode.newNode:4 of
+msgid ""
+"value: El valor asociado a la llave key: la llave asociada a la pareja "
+"size: El tamaño del subarbol que cuelga de este nodo color: El color "
+"inicial del nodo"
+msgstr ""
+
+#: ../../DISClib.DataStructures.rst:160
+msgid "DISClib.DataStructures.redblacktree module"
+msgstr ""
+
+#: ../../DISClib.DataStructures.rst:168
+msgid "DISClib.DataStructures.singlelinkedlist module"
+msgstr ""
+
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked:1 of
+msgid ""
+"Bases: :py:class:`~typing.Generic`\\ "
+"[:py:obj:`~DISClib.DataStructures.singlelinkedlist.T`]"
+msgstr ""
+
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked:1 of
+msgid "SingleLinked _summary_"
+msgstr ""
+
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.change_info:4 of
+msgid "pos (int): _description_ new_info (T): _description_"
+msgstr ""
+
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.compare_elements:4 of
+msgid "current (T): _description_ temp (T): _description_"
+msgstr ""
+
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.get_element:10
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.get_first:7
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.get_last:7
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_element:10
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_first:7
+#: DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_last:7 of
+msgid "Optional[T]: _description_"
+msgstr ""
+
+#: ../../DISClib.DataStructures.rst:176
+msgid "Module contents"
+msgstr ""
+

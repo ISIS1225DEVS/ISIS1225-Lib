@@ -1,0 +1,118 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, ISIS1225 Devs DISC
+# This file is distributed under the same license as the DISClib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: DISClib \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-10-18 15:10-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.12.1\n"
+
+#: ../../DISClib.Utils.rst:2
+msgid "DISClib.Utils package"
+msgstr ""
+
+#: ../../DISClib.Utils.rst:5
+msgid "Submodules"
+msgstr ""
+
+#: ../../DISClib.Utils.rst:8
+msgid "DISClib.Utils.error module"
+msgstr ""
+
+#: DISClib.Utils.error:1 of
+msgid "_summary_ # TODO add summary"
+msgstr ""
+
+#: DISClib.Utils.error:7 of
+msgid "Attributes:"
+msgstr ""
+
+#: DISClib.Utils.error:5 of
+msgid ""
+"T (type): _description_ TYPE_ERR_MSG (str): _description_ "
+"VALID_DATA_TYPE_LT (tuple): _description_"
+msgstr ""
+
+#: DISClib.Utils.error:14 of
+msgid "Functions:"
+msgstr ""
+
+#: DISClib.Utils.error:10 of
+msgid "error_handler(context: str, func_name: str, err: Exception) -> None:"
+msgstr ""
+
+#: DISClib.Utils.error:11 DISClib.Utils.error.error_handler:1 of
+msgid "error_handler receives the context, function name and error to raise."
+msgstr ""
+
+#: DISClib.Utils.error:14 of
+msgid "init_type_checker(context: str, func_name: str, info: T) -> None:"
+msgstr ""
+
+#: DISClib.Utils.error:14 DISClib.Utils.error.init_type_checker:2 of
+msgid "init_type_checker receives the context, function name and info to check"
+msgstr ""
+
+#: DISClib.Utils.error:14 DISClib.Utils.error.init_type_checker:2 of
+msgid "its type after class initialization."
+msgstr ""
+
+#: DISClib.Utils.error:19 of
+msgid "Copyrigth:"
+msgstr ""
+
+#: DISClib.Utils.error:17 of
+msgid ""
+"Universidad de los Andes, Bogotá - Colombia, South America Facultad de "
+"Ingeniería, 2023 Departamento de Ingeniería de Sistemas y Computación "
+"DISC Developed by: Data Structures & Algorithms Group - EDA - ISIS-1225"
+msgstr ""
+
+#: DISClib.Utils.error.error_handler:6 DISClib.Utils.error.init_type_checker:7
+#: of
+msgid "Args:"
+msgstr ""
+
+#: DISClib.Utils.error.error_handler:4 of
+msgid ""
+"context (str): name of the class where the error occurred. func_name "
+"(str): name of the function where the error occurred. err (Exception): "
+"exception raised."
+msgstr ""
+
+#: DISClib.Utils.error.error_handler:8 DISClib.Utils.error.init_type_checker:9
+#: of
+msgid "Raises:"
+msgstr ""
+
+#: DISClib.Utils.error.error_handler:9 of
+msgid "type: exception with the error message and traceback."
+msgstr ""
+
+#: DISClib.Utils.error.init_type_checker:5 of
+msgid ""
+"context (str): name of the class where the check is performed. func_name "
+"(str): name of the function where the check is performed. info (T): info "
+"to check its type."
+msgstr ""
+
+#: DISClib.Utils.error.init_type_checker:10 of
+msgid "TypeError: exception with the type error message."
+msgstr ""
+
+#: ../../DISClib.Utils.rst:16
+msgid "Module contents"
+msgstr ""
+

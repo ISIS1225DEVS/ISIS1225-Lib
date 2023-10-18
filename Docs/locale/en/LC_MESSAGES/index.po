@@ -1,0 +1,45 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, ISIS1225 Devs DISC
+# This file is distributed under the same license as the DISClib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: DISClib \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-10-18 15:10-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.12.1\n"
+
+#: ../../index.rst:9
+msgid "Contents:"
+msgstr ""
+
+#: ../../index.rst:7
+msgid "Welcome to DISClib's documentation!"
+msgstr ""
+
+#: ../../index.rst:16
+msgid "Indices and tables"
+msgstr ""
+
+#: ../../index.rst:18
+msgid ":ref:`genindex`"
+msgstr ""
+
+#: ../../index.rst:19
+msgid ":ref:`modindex`"
+msgstr ""
+
+#: ../../index.rst:20
+msgid ":ref:`search`"
+msgstr ""
+

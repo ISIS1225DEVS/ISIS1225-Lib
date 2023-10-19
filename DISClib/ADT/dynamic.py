@@ -28,6 +28,17 @@ import importlib
 
 
 class DynamicImporter(object):
+    """DynamicImporter _summary_
+
+    Args:
+        object (_type_): _description_
+
+    Raises:
+        ValueError: _description_
+
+    Returns:
+        _type_: _description_
+    """    
     package: str = ""
     implementation: str = ""
     _module = None
@@ -35,6 +46,15 @@ class DynamicImporter(object):
     _instance = None
 
     def __init__(self, implementation: str, package: str, **kwargs):
+        """__init__ _summary_
+
+        Args:
+            implementation (str): _description_
+            package (str): _description_
+
+        Raises:
+            ValueError: _description_
+        """
         try:
             self.package = package   # __import__(package)
             self.implementation = implementation
@@ -49,27 +69,60 @@ class DynamicImporter(object):
         self._instance = self._class(**kwargs)
 
     def __post_init__(self):
+        """__post_init__ _summary_
+        """
         self.__class__.__name__ = self.implementation
 
     def __repr__(self) -> str:
+        """__repr__ _summary_
+
+        Returns:
+            str: _description_
+        """
         return self._instance.__repr__()
 
     def __getattr__(self, name):
+        """__getattr__ _summary_
+
+        Args:
+            name (_type_): _description_
+
+        Returns:
+            _type_: _description_
+        """
         # delegate attribute access to the implementation instance
         return getattr(self._instance, name)
 
     def start(self):
+        """start _summary_
+
+        Returns:
+            _type_: _description_
+        """
         # FIXME this is a hack!!!
         return self._instance
 
     @classmethod
     def __class__(self) -> type:
+        """__class__ _summary_
+
+        Returns:
+            type: _description_
+        """
         # FIXME this is not working
         # delegate type() to the implementation instance
         return self._instance.__class__
 
     @classmethod
     def __instancecheck__(self, instance) -> bool:
+        """__instancecheck__ _summary_
+
+        Args:
+            instance (_type_): _description_
+
+        Returns:
+            bool: _description_
+        """
         # check if the instance is an instance of the implementation class
         # FIXME this is not working
         return isinstance(instance, self._instance.__class__)

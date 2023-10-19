@@ -11,6 +11,7 @@ Welcome to DISClib's documentation!
    :caption: Contents:
    
    modules
+
    testmd
 
 Indices and tables

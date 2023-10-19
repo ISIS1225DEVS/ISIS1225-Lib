@@ -5,3 +5,4 @@ DISClib
    :maxdepth: 4
 
    DISClib
+   testmd

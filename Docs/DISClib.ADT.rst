@@ -1,4 +1,4 @@
-DISClib ADTs
+ADTs DISClib
 ===================
 
 Submodules

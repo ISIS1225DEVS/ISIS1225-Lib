@@ -24,6 +24,7 @@ release = "0.0.1"
 extensions = [
     # "sphinx.ext.autodoc",
     # "sphinx.ext.autodoc.typehints",
+    "sphinx.ext.autosummary",
     "sphinx.ext.napoleon",
     "sphinx.ext.viewcode",
     "autoapi.extension",
@@ -31,7 +32,7 @@ extensions = [
     "sphinx.ext.intersphinx",
     "sphinx.ext.graphviz",
     "sphinx.ext.duration",
-    # "sphinx.ext.inheritance_diagram",
+    "sphinx.ext.inheritance_diagram",
     "sphinx_markdown_builder",
     "sphinx_copybutton",
     "sphinx_favicon",
@@ -134,12 +135,12 @@ html_search_options = {"type": "default"}
 html_search_scorer = ""
 
 
-# # configuration for sphinx inheritance diagram
-# inheritance_graph_attrs = dict(rankdir="LR", size='"6.0, 8.0"',
-#                                fontsize=14, ratio='compress')
+# configuration for sphinx inheritance diagram
+inheritance_graph_attrs = dict(rankdir="LR", size='"6.0, 8.0"',
+                               fontsize=14, ratio='compress')
 
-# inheritance_node_attrs = dict(shape='ellipse', fontsize=14, height=0.75,
-#                               color='dodgerblue1', style='filled')
+inheritance_node_attrs = dict(shape='ellipse', fontsize=14, height=0.75,
+                              color='dodgerblue1', style='filled')
 
 
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output

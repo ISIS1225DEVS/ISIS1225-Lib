@@ -1,145 +1,106 @@
-# import dataclass for defining the node type
+""" Estas clases representan los nodos para una lista sencillamente
+    encadenada (SingleNode) y una lista doblemente encadenada (DoubleNode).
+    estos nodos se utilizan respectivamente en las estructuras dinamicas
+    de lista sencillamente encadenada (LinkedList) y lista doblemente
+    encadenada (DoubleLinkedList). Las cuales NO tienen un tamaño fijo y
+    pueden crecer indefinidamente en la memoria disponible.
+
+    Este código está basado en la implementación propuesta por los libros
+    con algunas modificaciones para adaptarlo a Python.
+        1) Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.
+        2) Data Structures and Algorithms in Python, Michael T. Goodrich,
+            Roberto Tamassia y Michael H. Goldwasser.
+
+Attributes:
+    T (type): variable que representa el tipo de dato de los elementos
+        contenidos en el Node, SingleNode o DoubleNode.
+
+Class:
+    SingleNode(Node, Generic[T]): representa un nodo de una lista
+        sencillamente encadenada.+
+
+    Funciones:
+        - next: retorna el siguiente nodo de la lista.
+
+    DoubleNode(SingleNode, Generic[T]): representa un nodo de una lista
+        doblemente encadenada.
+
+    Funciones:
+        - prev: retorna el nodo anterior de la lista.
+
+Copyrigth:
+    Universidad de los Andes, Bogotá - Colombia, South America
+    Facultad de Ingeniería,
+    Departamento de Ingeniería de Sistemas y Computación DISC
+    Developed by: Data Structures & Algorithms Group - EDA - ISIS-1225
+"""
+
+
+# native python modules
+# import dataclass for defining the node class
 from dataclasses import dataclass
-# import typing for defining the type of the element stored at the node
-from typing import Generic, TypeVar, Optional
-# import inspect for getting the name of the current function
-import inspect
-# importing DISClib type + error handling
-# import config
+# import modules for defining the Node type
+from typing import Generic, Optional
+
+# custom modules
+# generic error handling and type checking
 from DISClib.Utils.error import error_handler
 from DISClib.Utils.error import init_type_checker
+from DISClib.Utils.default import T
+from DISClib.DataStructures.node import Node
+
+# checking costum modules
 assert error_handler
 assert init_type_checker
-# assert config
-
-# Type for the element stored at the node
-T = TypeVar("T")    # T can be any type
-
-
-@dataclass
-class Node(Generic[T]):
-    """Node generic class for defining a node of a list.
-
-    Args:
-        Generic (T): can be any python type.
-
-    Raises:
-        TypeError: only valid data types are allowed.
-
-    Returns:
-        Node: generic node of a list.
-    """
-    # optional information of any type
-    info: Optional[T] = None
-
-    def __post_init__(self):
-        """__post_init__ the function checks the type of the information after
-            the data structure initialization.
-        """
-        try:
-            # if the info attribute is not None, check its type
-            if self.info is not None:
-                cur_function = inspect.currentframe().f_code.co_name
-                cur_context = self.__class__.__name__
-                init_type_checker(cur_context, cur_function, self.info)
-        # if an error occurs, handle it
-        except Exception as err:
-            self._handle_error(err)
-
-    def _handle_error(self, err: Exception) -> None:
-        """_handle_error the generic function handles the error received as
-            an argument.
-
-        Args:
-            err (Exception): received error to handle.
-        """
-        cur_function = inspect.currentframe().f_code.co_name
-        cur_context = self.__class__.__name__
-        error_handler(cur_context, cur_function, err)
-
-    def _check_type(self, element: T) -> None:
-        """_check_type the function checks the type of the information received
-            as an argument.
-
-        Args:
-            element (T): information to check its type.
-
-        Raises:
-            TypeError: exception raised if the type of the new information is
-                different from the type of the current information.
-
-        Returns:
-            bool: returns True if the type of the new information is the same
-                as the type of the current information.
-        """
-        if element is not None and not isinstance(element, type(self.info)):
-            err_msg = f"Invalid data type: {type(self.info)} "
-            err_msg += f"for element info: {type(element)}"
-            raise TypeError(err_msg)
-        return True
-
-    def set_info(self, element: T) -> None:
-        """set_info the function sets the new information inside the node.
-
-        Args:
-            element (T): new information for the node.
-        """
-        if self.info is not None:
-            self._check_type(element)
-        self.info = element
-
-    def get_info(self) -> T:
-        """get_info the function returns the information inside the node.
-
-        Returns:
-            T: information of the node.
-        """
-        return self.info
+assert T
 
 
 @dataclass
 class SingleNode(Node, Generic[T]):
-    """SingleNode generic class for defining a node of a single linked list.
-    extends Node class.
+    """SingleNode Clase que representa un nodo de una lista sencillamente
+        encadenada. Extiende la clase Node y contiene la información del nodo.
 
     Args:
-        Node (dataclass): generic node of a list.
-        Generic (T): can be any python type.
+        Node (dataclass): Clase base para implementar un nodo de una lista
+        Generic (T): TAD/ADT que representa el tipo de dato de la
+            información dentro del nodo.
 
     Returns:
-        SingleNode: generic node of a single linked list.
+        SingleNode: ADT para un nodo de una lista sencillamente encadenada.
     """
     # optional reference to the next node of the same type
     _next: Optional["SingleNode[T]"] = None
 
     def next(self) -> Optional["SingleNode[T]"]:
-        """next the function returns the next node of the list.
+        """next recupera el siguiente nodo de la lista si existe.
 
         Returns:
-            SingleNode[T]: next node of the list, if it exists.
+            SingleNode: referencia al siguiente nodo de la lista.
         """
         return self._next
 
 
 @dataclass
 class DoubleNode(SingleNode, Generic[T]):
-    """DoubleNode generic class for defining a node of a double linked list.
-    extends SingleNode class.
+    """DoubleNode Clase que representa un nodo de una lista doblemente
+        encadenada. Extiende las clases SingleNode y Node.
 
     Args:
-        SingleNode (dataclass): generic node of a single linked list.
-        Generic (T): can be any python type.
+        SingleNode (Dataclass): Calse base para implementar un nodo de una
+            lista sencillamente encadenada.
+        Generic (T): TAD/ADT que representa el tipo de dato de la
+            información dentro del nodo.
 
     Returns:
-        DoubleNode: generic node of a double linked list.
+        DoubleNode: ADT para un nodo de una lista doblemente encadenada.
     """
     # optional reference to the previous node of the same type
     _prev: Optional["DoubleNode[T]"] = None
 
     def prev(self) -> Optional["DoubleNode[T]"]:
-        """prev the function returns the previous node of the list.
+        """prev recupera el nodo anterior de la lista si existe.
 
         Returns:
-            DoubleNode[T]: the previous node of the list, if it exists.
+            _type_: referencia al nodo anterior de la lista.
         """
         return self._prev

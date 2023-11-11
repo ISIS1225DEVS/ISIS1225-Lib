@@ -22,19 +22,23 @@ T = TypeVar("T")    # T can be any type
 
 
 def lt_default_cmp_funcion(self, elm1, elm2) -> int:
-    """lt_default_cmp_funcion _summary_
+    """lt_default_cmp_funcion función de comparación por defecto para
+        los elementos del ADT List (ArrayList, LinkedList, DoublyLinkedList).
+        pueden ser de tipo nativo o definido por el usuario.
 
     Args:
-        elm1 (_type_): _description_
-        elm2 (_type_): _description_
+        elm1 (any): primer elemento a comparar.
+        elm2 (any): segundo elemento a comparar.
 
     Raises:
-        TypeError: _description_
-        KeyError: _description_
-        TypeError: _description_
+        TypeError: error de tipo de dato si los elementos de tipo nativo en
+            Python no son comparables.
+        KeyError: error de clave si la llave para comparar los diccionarios
+            no existe.
+        TypeError: error de tipo de dato si los elementos no son comparables.
 
     Returns:
-        int: _description_
+        int: retorna -1 si elm1 es menor que elm2, 0 si son iguales y 1 si
     """
     # TODO add documentation
     elm1_type = isinstance(elm1, VALID_DATA_TYPE_LT)

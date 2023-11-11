@@ -21,7 +21,7 @@ Copyrigth:
 """
 # native python modules
 # import typing for defining the type of the elements
-# from typing import TxzypeVar
+# from typing import TypeVar
 
 # custom modules
 # import global variables

@@ -1,39 +1,55 @@
-""" _summary_
-# TODO add summary
+""" Esta clase representa una estructura de datos lineal, específicamente un
+    arreglo dinámico (Array List). El arreglo dinámico es una estructura de
+    datos que permite almacenar un conjunto de elementos del mismo tipo, en
+    la cual se puede acceder y procesar sus elementos utilizando las
+    funciones/métodos propios de la estructura.
+
+    Este código está basado en la implementación propuesta por los libros
+    con algunas modificaciones para adaptarlo a Python.
+        1) Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.
+        2) Data Structures and Algorithms in Python, Michael T. Goodrich,
+            Roberto Tamassia y Michael H. Goldwasser.
 
 Attributes:
-    T (type): _description_
+    T (type): variable que representa el tipo de dato de los elementos
+        contenidos en el ArrayList.
 
 Class:
-    ArrayList(Generic[T]): _description_
+    ArrayList(Generic[T]): Esta clase representa una estructura de datos de
+        tipo Array List o Arreglo Dinámico.
 
     Functions:
-        - __init__(): _description_
-        - __post_init__(): _description_
-        - default_cmp_function(): _description_
-        - _handle_error(): _description_
-        - _check_type(): _description_
-        - is_empty(): _description_
-        - size(): _description_
-        - add_first(): _description_
-        - add_last(): _description_
-        - add_element(elem, pos): _description_
-        - get_first(): _description_
-        - get_last(): _description_
-        - get_element(pos): _description_
-        - remove_first(): _description_
-        - remove_last(): _description_
-        - remove_element(pos): _description_
-        - compare_elements(elem1, elem2): _description_
-        - is_present(elem): _description_
-        - change_info(new_elem, pos): _description_
-        - exchange(pos1, pos2): _description_
-        - sublist(start, end): _description_
-        - concat(other): _description_
+        - __init__(): inicializa la estructura ArrayList (autogenerado).
+        - __post_init__(): configura los valores por defecto para el ArrayList.
+        - default_cmp_function(): función de comparación por defecto.
+        - _handle_error(): función privada que maneja los errores.
+        - _check_type(): función privada que verifica el tipo de dato en el
+            ArrayList.
+        - is_empty(): revisa si la estructura está vacía.
+        - size(): devuelve el numero de elementos que contiene la estructura.
+        - add_first(): adiciona un elemento al inicio de la estructura.
+        - add_last(): adiciona un elemento al final de la estructura.
+        - add_element(elem, pos): adiciona un elemento en una posición dada.
+        - get_first(): lee el primer elemento de la estructura.
+        - get_last(): lee el último elemento de la estructura.
+        - get_element(pos): lee un elemento en una posición dada.
+        - remove_first(): elimina el primer elemento de la estructura.
+        - remove_last(): elimina el último elemento de la estructura.
+        - remove_element(pos): elimina un elemento en una posición dada.
+        - compare_elements(elem1, elem2): compara dos elementos en dos
+            posiciones dadas.
+        - is_present(elem): revisa si un elemento está en la estructura.
+        - change_info(new_elem, pos): cambia la información de un elemento
+            dado.
+        - exchange(pos1, pos2): intercambia la información de dos elementos en
+            Sdos posiciones dadas.
+        - sublist(start, end): crea una sublista de la estructura según unas
+            posiciones dadas.
+        - concat(other): une dos estructuras de datos ArrayList.
 
 Copyrigth:
     Universidad de los Andes, Bogotá - Colombia, South America
-    Facultad de Ingeniería, 2023
+    Facultad de Ingeniería,
     Departamento de Ingeniería de Sistemas y Computación DISC
     Developed by: Data Structures & Algorithms Group - EDA - ISIS-1225
 """
@@ -42,7 +58,7 @@ Copyrigth:
 # import dataclass to define the array list
 from dataclasses import dataclass, field
 # import modules for defining the element's type in the array
-from typing import List, Optional, Callable, Generic, TypeVar
+from typing import List, Optional, Callable, Generic
 # import inspect for getting the name of the current function
 import inspect
 
@@ -50,35 +66,37 @@ import inspect
 # generic error handling and type checking
 from DISClib.Utils.error import error_handler
 from DISClib.Utils.error import init_type_checker
-from DISClib.Utils.error import VALID_DATA_TYPE_LT
+# from DISClib.Utils.error import VALID_DATA_TYPE_LT
+from DISClib.Utils.default import lt_default_cmp_funcion
+from DISClib.Utils.default import T
 
 # checking costum modules
 assert error_handler
 assert init_type_checker
-
-
-# Type for the element stored in the list
-T = TypeVar("T")    # T can be any type
-
-"""
-  Este módulo implementa una estructura de datos lineal,
-  como un arreglo de apuntadores a los nodos de la lista.
-
-
-  Este código está basado en la implementación
-  propuesta por R.Sedgewick y Kevin Wayne en su libro
-  Algorithms, 4th Edition
-"""
+assert lt_default_cmp_funcion
+assert T
 
 
 @dataclass
 class ArrayList(Generic[T]):
-    """ArrayList _summary_
+    """ArrayList Clase que representa una estructura de datos de tipo
+        ArrayList con la anotación '@dataclass' de python y el decorador
+        'Generic[T]' para indicar que es una estructura de datos genérica.
 
     Args:
-        Generic (_type_): _description_
+        Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type)
+            que representa un ArrayList o Arreglo Dinámico generico.
+        elements (List[T]): lista nativa de python que contiene los elementos
+            de la estructura de datos.
+        _size (int): propiedad privada que representa el tamaño de la lista.
+            cmp_function (Optional[Callable[[T, T], int]]): función de
+            comparación opcional que se utiliza para comparar los elementos
+            del ArrayList, por defecto es None y el __post_init__ configura la
+            función por defecto lt_default_cmp_funcion().
+        key (Optional[str]): nombre de la llave opcional que se utiliza para
+            comparar los elementos del ArrayList, Por defecto es None y el
+            __post_init__ configura la llave por defecto la llave "id".
     """
-    # TODO add docstring
     # using default_factory to generate an empty list
     elements: List[T] = field(default_factory=list)
     # by default, the list is empty
@@ -89,9 +107,11 @@ class ArrayList(Generic[T]):
     key: Optional[str] = None
 
     def __post_init__(self) -> None:
-        """__post_init__ _summary_
+        """__post_init__ configura los valores por defecto para la llave (key)
+                y la función de comparación (cmp_function). Si el usuario
+                incluye una lista nativa de python como argumento, se agrega
+                a la lista de elementos del ArrayList.
         """
-        # TODO add docstring
         try:
             # if the key is not defined, use the default
             if self.key is None:
@@ -105,79 +125,40 @@ class ArrayList(Generic[T]):
                 self.elements = list()
                 for elm in elements:
                     self.add_last(elm)
-
         except Exception as err:
             self._handle_error(err)
 
     def default_cmp_function(self, elm1, elm2) -> int:
-        """default_cmp_function _summary_
+        """default_cmp_function procesa con algoritmica por defecto la lista
+            der elementos que procesa el ArrayList. Es una función crucial para
+            que la estructura de datos funcione correctamente.
 
         Args:
-            elm1 (_type_): _description_
-            elm2 (_type_): _description_
-
-        Raises:
-            Exception: _description_
-            Exception: _description_
+            elm1 (Any): primer elemento a comparar.
+            elm2 (Any): segundo elemento a comparar.
 
         Returns:
-            int: _description_
+            int: respuesta de la comparación entre los elementos, 0 si son
+                iguales, 1 si elm1 es mayor que elm2, -1 si elm1 es menor.
         """
-        # TODO add docstring
         try:
-            elm1_type = isinstance(elm1, VALID_DATA_TYPE_LT)
-            elm2_type = isinstance(elm2, VALID_DATA_TYPE_LT)
-            # none_type = (self.key is None)
-            # if the elements are from different types, raise an exception
-            if type(elm1) is not type(elm2):
-                err_msg = f"Invalid comparison between {type(elm1)} and "
-                err_msg += f"{type(elm2)} elements"
-                raise TypeError(err_msg)
-            # if there is a defined key
-            elif self.key is not None:
-                # if elements are dictionaries, compare their main key
-                if isinstance(elm1, dict) and isinstance(elm2, dict):
-                    key1 = elm1.get(self.key)
-                    key2 = elm2.get(self.key)
-                    if None in [key1, key2]:
-                        err_msg = f"Invalid key: {self.key}, "
-                        err_msg += "Key not found in one or both elements"
-                        raise KeyError(err_msg)
-                    # comparing elements
-                    else:
-                        # if one is less than the other, return -1
-                        if key1 < key2:
-                            return -1
-                        # if they are equal, return 0
-                        elif key1 == key2:
-                            return 0
-                        # if one is greater than the other, return 1
-                        elif key1 > key2:
-                            return 1
-                        # otherwise, raise an exception
-                        else:
-                            err_msg = f"Invalid comparison between {key1} and "
-                            err_msg += f"{key2} keys in elements."
-                            raise TypeError(err_msg)
-                # if elements are native types, compare them directly
-                elif elm1_type and elm2_type:
-                    # if one is less than the other, return -1
-                    if elm1 < elm2:
-                        return -1
-                    # if one is greater than the other, return 1
-                    elif elm1 > elm2:
-                        return 1
-                    # otherwise, they are equal, return 0
-                    else:
-                        return 0
+            # passing self as the first argument to simulate a method
+            ans = lt_default_cmp_funcion(self, elm1, elm2)
+            return ans
         except Exception as err:
             self._handle_error(err)
 
     def _handle_error(self, err: Exception) -> None:
-        """_handle_error _summary_
+        """_handle_error función privada que maneja los errores que se pueden
+            presentar en el ArrayList.
+
+            Si se presenta un error en el ArrayList, se formatea el error según
+            el contexto (paquete/clase) y la función que lo generó, y lo
+            reenvia al componente superior en la jerarquía de llamados para
+            manejarlo segun se considere conveniente.
 
         Args:
-            err (Exception): _description_
+            err (Exception): Excepción que se generó en el ArrayList.
         """
         # TODO add docstring
         cur_context = self.__class__.__name__
@@ -185,15 +166,19 @@ class ArrayList(Generic[T]):
         error_handler(cur_context, cur_function, err)
 
     def _check_type(self, element: T) -> bool:
-        """_check_type _summary_
+        """_check_type función privada que verifica que el tipo de dato del
+            elemento que se quiere agregar al ArrayList sea del mismo tipo
+            contenido dentro de los elementos del ArrayList.
 
         Args:
-            element (T): _description_
+            element (T): elemento que se quiere agregar a la estructura de
+                datos.
 
         Returns:
-            bool: _description_
+            bool: operador que indica si el tipo de dato del elemento
+                es el mismo que el tipo de dato de los elementos que ya
+                contiene la estructura de datos.
         """
-        # TODO add docstring
         # if the structure is not empty, check the first element type
         if not self.is_empty():
             # get the type of the first element
@@ -207,40 +192,40 @@ class ArrayList(Generic[T]):
         return True
 
     def is_empty(self) -> bool:
-        """is_empty _summary_
+        """is_empty revisa si el ArrayList está vacía.
 
         Returns:
-            bool: _description_
+            bool: operador que indica si la estructura ArrayList está vacía.
         """
-        # TODO add docstring
         try:
             return self._size == 0
         except Exception as err:
             self._handle_error(err)
 
     def size(self) -> int:
-        """size _summary_
+        """size devuelve el numero de elementos que actualmente contiene el
+            ArrayList.
 
         Returns:
-            int: _description_
+            int: tamaño de la estructura ArrayList.
         """
-        # TODO add docstring
         try:
             return self._size
         except Exception as err:
             self._handle_error(err)
 
     def add_first(self, element: T) -> None:
-        """add_first _summary_
+        """add_first adiciona un elemento al inicio del ArrayList.
 
         Args:
-            element (T): _description_
+            element (T): elemento que se quiere agregar a la estructura.
 
         Raises:
-            Exception: _description_
+            Exception: si la operación no se puede realizar, se invoca la
+                función _handle_error() para manejar el error.
         """
-        # TODO add docstring
         try:
+            # if the element type is valid, add it to the list
             if self._check_type(element):
                 self.elements.insert(0, element)
                 self._size += 1
@@ -248,16 +233,17 @@ class ArrayList(Generic[T]):
             self._handle_error(err)
 
     def add_last(self, element: T) -> None:
-        """add_last _summary_
+        """add_last adiciona un elemento al final del ArrayList.
 
         Args:
-            element (T): _description_
+            element (T): elemento que se quiere agregar a la estructura.
 
         Raises:
-            Exception: _description_
+            Exception: si la operación no se puede realizar, se invoca la
+                función _handle_error() para manejar el error.
         """
-        # TODO add docstring
         try:
+            # if the element type is valid, add it to the list
             if self._check_type(element):
                 self.elements.append(element)
                 self._size += 1
@@ -265,16 +251,16 @@ class ArrayList(Generic[T]):
             self._handle_error(err)
 
     def add_element(self, element: T, pos: int) -> None:
-        """add_element _summary_
+        """add_element adiciona un elemento en una posición dada del ArrayList.
 
         Args:
-            element (T): _description_
-            pos (int): _description_
+            element (T): elemento que se quiere agregar a la estructura.
+            pos (int): índice en la que se quiere agregar el elemento.
 
         Raises:
-            Exception: _description_
+            IndexError: error si la posición es inválida.
+            IndexError: error si la estructura está vacía.
         """
-        # TODO add docstring
         try:
             if not self.is_empty():
                 if self._check_type(element):
@@ -288,15 +274,14 @@ class ArrayList(Generic[T]):
             self._handle_error(err)
 
     def get_first(self) -> T:
-        """get_first _summary_
+        """get_first lee el primer elemento del ArrayList.
 
         Raises:
-            Exception: _description_
+            Exception: error si la estructura está vacía.
 
         Returns:
-            T: _description_
+            T: el primer elemento del ArrayList.
         """
-        # TODO add docstring
         try:
             if self.is_empty():
                 raise IndexError("Empty data structure")
@@ -305,15 +290,14 @@ class ArrayList(Generic[T]):
             self._handle_error(err)
 
     def get_last(self) -> T:
-        """get_last _summary_
+        """get_last lrr el último elemento del ArrayList.
 
         Raises:
-            Exception: _description_
+            Exception: error si la estructura está vacía.
 
         Returns:
-            T: _description_
+            T: el ultimo elemento del ArrayList.
         """
-        # TODO add docstring
         try:
             if self.is_empty():
                 raise IndexError("Empty data structure")
@@ -322,19 +306,18 @@ class ArrayList(Generic[T]):
             self._handle_error(err)
 
     def get_element(self, pos: int) -> T:
-        """get_element _summary_
+        """get_element lee un elemento en una posición dada del ArrayList.
 
         Args:
-            pos (int): _description_
+            pos (int): índice en la que se quiere agregar el elemento.
 
         Raises:
-            Exception: _description_
-            Exception: _description_
+            Exception: error si la estructura está vacía.
+            Exception: error si la posición es inválida.
 
         Returns:
-            T: _description_
+            T: el elemento en la posición dada del ArrayList.
         """
-        # TODO add docstring
         try:
             if self.is_empty():
                 raise IndexError("Empty data structure")
@@ -345,15 +328,14 @@ class ArrayList(Generic[T]):
             self._handle_error(err)
 
     def remove_first(self) -> T:
-        """remove_first _summary_
+        """remove_first elimina el primer elemento del ArrayList.
 
         Raises:
-            Exception: _description_
+            Exception: error si la estructura está vacía.
 
         Returns:
-            T: _description_
+            T: el primer elemento eliminado del ArrayList.
         """
-        # TODO add docstring
         try:
             if self.is_empty():
                 raise IndexError("Empty data structure")
@@ -364,15 +346,14 @@ class ArrayList(Generic[T]):
             self._handle_error(err)
 
     def remove_last(self) -> T:
-        """remove_last _summary_
+        """remove_last elimina el último elemento del ArrayList.
 
         Raises:
-            Exception: _description_
+            Exception: error si la estructura está vacía.
 
         Returns:
-            T: _description_
+            T: el ultimo elemento eliminado del ArrayList.
         """
-        # TODO add docstring
         try:
             if self.is_empty():
                 raise IndexError("Empty data structure")
@@ -383,18 +364,19 @@ class ArrayList(Generic[T]):
             self._handle_error(err)
 
     def remove_element(self, pos: int) -> T:
-        """remove_element _summary_
+        """remove_element elimina un elemento en una posición dada del
+            ArrayList.
 
         Args:
-            pos (int): _description_
+            pos (int): índice del que se quiere eliminar el elemento.
 
         Raises:
-            Exception: _description_
+            IndexError: error si la estructura está vacía.
+            IndexError: error si la posición es inválida.
 
         Returns:
-            T: _description_
+            T: el elemento eliminado del ArrayList.
         """
-        # TODO add docstring
         try:
             if self.is_empty():
                 raise IndexError("Empty data structure")
@@ -407,16 +389,22 @@ class ArrayList(Generic[T]):
             self._handle_error(err)
 
     def compare_elements(self, elem1: T, elem2: T) -> int:
-        """compare_elements _summary_
+        """compare_elements compara dos elementos dentro del ArrayList según
+            la función de comparación definida por el usuario o la función
+            por defecto.
 
         Args:
-            elem1 (T): _description_
-            elem2 (T): _description_
+            elem1 (T): Primer elemento a comparar.
+            elem2 (T): Segundo elemento a comparar.
+
+        Raises:
+            TypeError: error si la función de comparación no está definida.
 
         Returns:
-            int: _description_
+            int: -1 si elem1 es menor que elem2, 0 si son iguales, 1 si elem1
+                es mayor que elem2.
         """
-        # TODO add docstring
+        # FIXME check if I need 2 ifs or just one
         try:
             # if the key is defined but the cmp is not, use the default
             if self.key is not None and self.cmp_function is None:
@@ -430,16 +418,16 @@ class ArrayList(Generic[T]):
             self._handle_error(err)
 
     def is_present(self, element: T) -> int:
-        """is_present _summary_
+        """is_present revisa si un elemento está en el ArrayList.
 
         Args:
-            element (T): _description_
+            element (T): elemento que se quiere revisar en el ArrayList.
 
         Returns:
-            int: _description_
+            int: la posición del elemento en el ArrayList, -1 si no está.
         """
-        # TODO add docstring
         # TODO change the method name to "find" or "present_in"?
+        # is_present() get confused with the boolean operator not an integer
         try:
             pos = -1
             if self._size > 0:
@@ -456,14 +444,17 @@ class ArrayList(Generic[T]):
             self._handle_error(err)
 
     def change_info(self, new_info: T, pos: int) -> None:
-        """change_info _summary_
+        """change_info cambia la información de un elemento en una posición
+            dada.
 
         Args:
-            new_info (T): _description_
-            pos (int): _description_
+            new_info (T): nueva información que se quiere agregar en el
+                elemento.
+            pos (int): posición del elemento que se quiere cambiar.
 
         Raises:
-            Exception: _description_
+            IndexError: error si la estructura está vacía.
+            IndexError: error si la posición es inválida.
         """
         # TODO add docstring
         try:
@@ -479,18 +470,18 @@ class ArrayList(Generic[T]):
             self._handle_error(err)
 
     def exchange(self, pos1: int, pos2: int) -> None:
-        """exchange _summary_
+        """exchange intercambia la información de dos elementos en dos
+            posiciones dadas.
 
         Args:
-            pos1 (int): _description_
-            pos2 (int): _description_
+            pos1 (int): posición del primer elemento.
+            pos2 (int): posición del segundo elemento.
 
         Raises:
-            Exception: _description_
-            Exception: _description_
-            Exception: _description_
+            Exception: error si la estructura está vacía.
+            Exception: error si la posición del primer elemento es inválida.
+            Exception: error si la posición del segundo elemento es inválida.
         """
-        # TODO add docstring
         try:
             if self.is_empty():
                 raise IndexError("Empty data structure")
@@ -508,19 +499,21 @@ class ArrayList(Generic[T]):
             self._handle_error(err)
 
     def sublist(self, start: int, end: int) -> "ArrayList[T]":
-        """create_sublist _summary_
+        """sublist crea una sublista de la estructura según unas posiciones
+            dentro del ArrayList original.
 
         Args:
-            start (int): _description_
-            end (int): _description_
+            start (int): índice inicial de la sublista.
+            end (int): índice final de la sublista.
 
         Raises:
-            Exception: _description_
+            IndexError: error si la estructura está vacía.
+            IndexError: error si la posición inicial o final son inválidas.
 
         Returns:
-            ArrayList[T]: _description_
+            ArrayList[T]: una sublista de la estructura original con la
+                función de comparación y la llave de la estructura original.
         """
-        # TODO add docstring
         try:
             if self.is_empty():
                 raise IndexError("Empty data structure")
@@ -537,18 +530,26 @@ class ArrayList(Generic[T]):
             self._handle_error(err)
 
     def concat(self, other: "ArrayList[T]") -> "ArrayList[T]":
-        """concat_list _summary_
+        """concat concatena dos estructuras de datos ArrayList para crear una
+            nueva estructura de datos.
 
         Args:
-            other (ArrayList[T]): _description_
+            other (ArrayList[T]): estructura de datos ArrayList que se quiere
+                concatenar con la estructura original.
 
         Raises:
-            Exception: _description_
+            TypeError: error si la estructura que se quiere concatenar no es
+                un ArrayList.
+            TypeError: error si la llave de la estructura que se quiere unir
+                no es la misma que la llave de la estructura original.
+            TypeError: error si la función de comparación de la estructura que
+                se quiere unir no es la misma que la función de comparación de
+                la estructura original.
 
         Returns:
-            ArrayList[T]: _description_
+            ArrayList[T]: nueva estructura de datos ArrayList que contiene los
+                elementos de las dos estructuras originales.
         """
-        # TODO add docstring
         try:
             if not isinstance(other, ArrayList):
                 err_msg = f"Structure is not an ArrayList: {type(other)}"
@@ -562,6 +563,7 @@ class ArrayList(Generic[T]):
                 err_msg = f"Invalid cmp_function: {self.cmp_function}"
                 err_msg += f" != {other.cmp_function}"
                 raise TypeError(err_msg)
+            # FIXME maybe I can use the original ArrayList to concatenate
             concat_lt = ArrayList(cmp_function=self.cmp_function,
                                   key=self.key)
             concat_lt.elements = self.elements + other.elements
@@ -571,300 +573,13 @@ class ArrayList(Generic[T]):
             self._handle_error(err)
 
     def __iter__(self):
-        """__iter__ _summary_
+        """__iter__ iterador que permite recorrer el ArrayList con un ciclo
+            'for' de python tradicional.
 
         Returns:
-            _type_: _description_
+            iterador: iterador sobre los elementos del ArrayList.
         """
-        # TODO add docstring
         try:
             return iter(self.elements)
         except Exception as err:
             self._handle_error(err)
-
-
-# TODO Mejorar la documentación para especificar el uso del parámetro "key"
-# def newList(cmpfunction, module, key, filename, delim):
-    """Crea una lista vacia.
-
-    Args:
-        cmpfunction: Función de comparación para los elementos de la lista
-    Returns:
-        Un diccionario que representa la estructura de datos de una lista
-
-    Raises:
-
-    """
-    # pass
-
-
-# FIXME Arreglar la documentación del código
-# def addFirst(lst, element):
-    """Agrega un elemento a la lista en la primera posicion.
-
-    Agrega un elemento en la primera posición de la lista, se incrementa
-    el tamaño de la lista en uno.
-
-    Args:
-        lst:  La lista don de inserta el elemento
-        element:  El elemento a insertar en la lista
-
-    Returns:
-        La lista con el nuevo elemento en la primera posición, si el proceso
-        fue exitoso
-
-    Raises:
-        Exception
-    """
-    # pass
-
-
-# def addLast(lst, element):
-    """ Agrega un elemento en la última posición de la lista.
-
-    Se adiciona un elemento en la última posición de la lista y se actualiza
-    el apuntador a la útima posición. Se incrementa el tamaño de la lista en 1
-
-    Args:
-        lst: La lista en la que se inserta el elemento
-        element: El elemento a insertar
-
-    Raises:
-        Exception
-    """
-    # pass
-
-
-# def isEmpty(lst):
-    """ Indica si la lista está vacía
-
-    Args:
-        lst: La lista a examinar
-
-    Raises:
-        Exception
-    """
-    # pass
-
-
-def size(lst):
-    """ Informa el número de elementos de la lista.
-
-    Args
-        lst: La lista a examinar
-
-    Raises:
-        Exception
-    """
-    # pass
-
-
-# TODO Verificar que la lista no sea vacía antes de obtener el primer elemento
-# def firstElement(lst):
-    """ Retorna el primer elemento de una lista no vacía.
-        No se elimina el elemento.
-
-    Args:
-        lst: La lista a examinar
-
-    Raises:
-        Exception
-    """
-    # pass
-
-
-def lastElement(lst):
-    """ Retorna el último elemento de una  lista no vacia.
-        No se elimina el elemento.
-
-    Args:
-        lst: La lista a examinar
-
-    Raises:
-        Exception
-    """
-    # pass
-
-
-# def getElement(lst, pos):
-    """ Retorna el elemento en la posición pos de la lista.
-
-    Se recorre la lista hasta el elemento pos, el cual  debe ser mayor
-    que cero y menor o igual al tamaño de la lista.
-    Se retorna el elemento en dicha posición sin eleminarlo.
-    La lista no puede ser vacia.
-
-    Args:
-        lst: La lista a examinar
-        pos: Posición del elemento a retornar
-
-    Raises:
-        Exception
-    """
-    # pass
-
-
-# def deleteElement(lst, pos):
-    """ Elimina el elemento en la posición pos de la lista.
-
-    Elimina el elemento que se encuentra en la posición pos de la lista.
-    Pos debe ser mayor que cero y menor  o igual al tamaño de la lista.
-    Se decrementa en un uno el tamñao de la lista.
-    La lista no puede estar vacia.
-
-    Args:
-        lst: La lista a retoranr
-        pos: Posición del elemento a eliminar.
-
-    Raises:
-        Exception
-    """
-    # pass
-
-
-# def removeFirst(lst):
-    """ Remueve el primer elemento de la lista.
-
-    Elimina y retorna el primer elemento de la lista.
-    El tamaño de la lista se decrementa en uno.  Si la lista
-    es vacía se retorna None.
-
-    Args:
-        lst: La lista a examinar
-
-    Raises:
-        Exception
-    """
-    # pass
-
-
-# def removeLast(lst):
-    """ Remueve el último elemento de la lista.
-
-    Elimina el último elemento de la lista  y lo retorna en caso de existir.
-    El tamaño de la lista se decrementa en 1.
-    Si la lista es vacía  retorna None.
-
-    Args:
-        lst: La lista a examinar
-
-    Raises:
-        Exception
-    """
-    # pass
-
-
-# def insertElement(lst, element, pos):
-    """ Inserta el elemento element en la posición pos de la lista.
-
-    Inserta el elemento en la posición pos de la lista.
-    La lista puede ser vacía.
-    Se incrementa en 1 el tamaño de la lista.
-
-    Args:
-        lst: La lista en la que se va a insertar el elemento
-        element: El elemento a insertar
-        pos: posición en la que se va a insertar el elemento,
-        0 < pos <= size(lst)
-
-    Raises:
-        Exception
-    """
-    # pass
-
-
-# def isPresent(lst, e):
-    """ Informa si el elemento element esta presente en la lista.
-
-    Informa si un elemento está en la lista.
-    Si esta presente, retorna la posición en la que se encuentra
-    o cero (0) si no esta presente. Se utiliza la función de comparación
-    utilizada durante la creación de la lista para comparar los elementos,
-    la cual debe retornan cero si los elementos son iguales.
-
-    Args:
-        lst: La lista a examinar
-        element: El elemento a buscar
-
-    Raises:
-        Exception
-    """
-    # pass
-
-
-# def changeInfo(lst, pos, newinfo):
-    """ Cambia la informacion contenida en el nodo de la lista
-        que se encuentra en la posicion pos.
-
-    Args:
-        lst: La lista a examinar
-        pos: la posición de la lista con la información a cambiar
-        newinfo: La nueva información que se debe poner en el
-        nodo de la posición pos
-
-    Raises:
-        Exception
-    """
-    # pass
-
-
-# def exchange(lst, pos1, pos2):
-    """ Intercambia la informacion en las posiciones pos1 y pos2 de la lista.
-
-    Args:
-        lst: La lista a examinar
-        pos1: Posición del primer elemento
-        pos2: Posiocion del segundo elemento
-
-    Raises:
-        Exception
-    """
-    # pass
-
-
-# def subList(lst, pos, numelem):
-    """ Retorna una sublista de la lista lst.
-
-    Se retorna una lista que contiene los elementos a partir de la posicion
-    pos, con una longitud de numelem elementos.
-    Se crea una copia de dichos elementos y se retorna una lista nueva.
-
-    Args:
-        lst: La lista a examinar
-        pos: Posición a partir de la que se desea obtener la sublista
-        numelem: Numero de elementos a copiar en la sublista
-
-    Raises:
-        Exception
-    """
-    # pass
-
-
-# def iterator(lst):
-    """ Retorna un iterador para la lista.
-    Args:
-        lst: La lista a iterar
-
-    Raises:
-        Exception
-    """
-    # pass
-
-
-# TODO Mejorar la documentacion para el return en caso de que no sean iguales
-# def compareElements(lst, element, info):
-    """ Compara dos elementos
-
-    Se utiliza la función de comparación por defecto si key es None
-    o la función provista por el usuario en caso contrario
-    Args:
-        lst: La lista con los elementos
-        element:  El elemento que se esta buscando en la lista
-        info: El elemento de la lista que se está analizando
-
-    Returns:  0 si los elementos son iguales
-
-    Raises:
-        Exception
-    # """
-    # pass

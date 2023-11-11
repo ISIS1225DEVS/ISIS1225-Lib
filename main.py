@@ -1,4 +1,5 @@
 ﻿from DISClib.ADT.lists import List
+# from DISClib.ADT.lists import List2
 
 
 def cmp_test(a, b):
@@ -16,6 +17,12 @@ def cmp_test(a, b):
 # main del ejercicio
 if __name__ == "__main__":
     test_list = List(implementation="ArrayList")
+    # test_list = List2.new(implementation="ArrayList")
+
+    print(test_list)
+    print(type(test_list))
+    print("----------- config -----------")
+    # test_list = test_list.config()
     print(test_list)
     print(type(test_list))
 
@@ -39,8 +46,15 @@ if __name__ == "__main__":
                      cmp_function=cmp_test)
     print(test_list)
     print(type(test_list))
+    print("----------- config -----------")
+    # test_list = test_list.config()
+    # print(test_list)
+    # print(type(test_list))
     print("iterating ADT List")
     for d in test_list:
         print(d)
+    
+    a = test_list.get_first()
+    print(a)
 
     print(test_list.get_last())

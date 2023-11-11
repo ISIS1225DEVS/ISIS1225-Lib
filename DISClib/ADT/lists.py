@@ -32,10 +32,18 @@
 # # assert confc;sig
 # assert ArrayList
 from .dynamic import DynamicImporter
+
+# custom modules
+# generic error handling and type checking
+from DISClib.Utils.default import T
+
+# checking costum modules and functions
 assert DynamicImporter
+assert T
+
 
 # main package data structure path
-ADT_LT_PGk_PATH = "DISClib.DataStructures"
+ADT_LT_PGK_PATH = "DISClib.DataStructures"
 
 # posible implementations for the ADT
 ADT_LT_MOD_DICT = {
@@ -45,11 +53,23 @@ ADT_LT_MOD_DICT = {
 }
 
 
-def List(implementation: str = "ArrayList", **kwargs):
-    package = f"{ADT_LT_PGk_PATH}."
-    package += f"{ADT_LT_MOD_DICT.get(implementation)}"
-    adt_list = DynamicImporter(implementation, package, **kwargs)
-    return adt_list.start()
+def List(implementation: str = "ArrayList", **kwargs) -> T:
+    try:
+        package = f"{ADT_LT_PGK_PATH}."
+        package += f"{ADT_LT_MOD_DICT.get(implementation)}"
+        adt_list = DynamicImporter(implementation, package, **kwargs)
+        adt_instance = adt_list.start()
+        return adt_instance
+    except Exception as exp:
+        # raise ValueError("Invalid list type: " + str(exp))
+        err_msg = f"List type '{implementation}' not found"
+        err_msg += f" in {ADT_LT_PGK_PATH}"
+        err_msg += str(exp)
+        raise ValueError(err_msg)
+
+
+def translate(src_list: T, tgt_implementation: str) -> T:
+    pass
 
 
 """

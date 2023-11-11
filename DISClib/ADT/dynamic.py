@@ -38,7 +38,8 @@ class DynamicImporter(object):
 
     Returns:
         _type_: _description_
-    """    
+    """
+    # TODO add docstring
     package: str = ""
     implementation: str = ""
     _module = None
@@ -55,8 +56,9 @@ class DynamicImporter(object):
         Raises:
             ValueError: _description_
         """
+        # TODO add docstring
         try:
-            self.package = package   # __import__(package)
+            self.package = package
             self.implementation = implementation
             self._module = importlib.import_module(self.package)
             self._class = None
@@ -71,6 +73,7 @@ class DynamicImporter(object):
     def __post_init__(self):
         """__post_init__ _summary_
         """
+        # TODO add docstring
         self.__class__.__name__ = self.implementation
 
     def __repr__(self) -> str:
@@ -99,6 +102,7 @@ class DynamicImporter(object):
         Returns:
             _type_: _description_
         """
+        # TODO add docstring
         # FIXME this is a hack!!!
         return self._instance
 
@@ -109,6 +113,7 @@ class DynamicImporter(object):
         Returns:
             type: _description_
         """
+        # TODO add docstring
         # FIXME this is not working
         # delegate type() to the implementation instance
         return self._instance.__class__
@@ -123,6 +128,7 @@ class DynamicImporter(object):
         Returns:
             bool: _description_
         """
-        # check if the instance is an instance of the implementation class
+        # TODO add docstring
         # FIXME this is not working
+        # check if the instance is an instance of the implementation class
         return isinstance(instance, self._instance.__class__)

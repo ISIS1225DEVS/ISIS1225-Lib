@@ -61,9 +61,11 @@ from .ADT.stack import Stack
 # import DataStructures.adjmatrix as adjmatrix
 # import DataStructures.edge as edge
 
-# # import all the modules in the Utils namespaces
+# import all the modules in the Utils namespaces
 from .Utils.error import error_handler
 from .Utils.error import init_type_checker
+# import all the modules in the Default namespaces
+from .Utils.default import T
 
 # asserting modules
 # M1
@@ -85,6 +87,8 @@ assert Stack
 # Utils
 assert error_handler
 assert init_type_checker
+# Default
+assert T
 
 # config the path to the DISCLib folder
 # TODO this used to be in config.py

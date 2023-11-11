@@ -7,6 +7,8 @@ import sys
 from .arraylist import ArrayList
 from .singlelinkedlist import SingleLinked
 from .doublelinkedlist import DoubleLinked
+
+# checking modules in M1 namespace
 assert ArrayList
 assert SingleLinked
 assert DoubleLinked

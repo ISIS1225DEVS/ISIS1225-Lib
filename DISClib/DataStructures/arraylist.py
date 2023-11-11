@@ -66,7 +66,6 @@ import inspect
 # generic error handling and type checking
 from DISClib.Utils.error import error_handler
 from DISClib.Utils.error import init_type_checker
-# from DISClib.Utils.error import VALID_DATA_TYPE_LT
 from DISClib.Utils.default import lt_default_cmp_funcion
 from DISClib.Utils.default import T
 
@@ -86,6 +85,8 @@ class ArrayList(Generic[T]):
     Args:
         Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type)
             que representa un ArrayList o Arreglo Dinámico generico.
+
+    Attributes:
         elements (List[T]): lista nativa de python que contiene los elementos
             de la estructura de datos.
         _size (int): propiedad privada que representa el tamaño de la lista.
@@ -96,6 +97,10 @@ class ArrayList(Generic[T]):
         key (Optional[str]): nombre de la llave opcional que se utiliza para
             comparar los elementos del ArrayList, Por defecto es None y el
             __post_init__ configura la llave por defecto la llave "id".
+
+    Returns:
+        ArrayList: ADT de tipo ArrayList o Arreglo Dinámico.
+
     """
     # using default_factory to generate an empty list
     elements: List[T] = field(default_factory=list)
@@ -170,14 +175,17 @@ class ArrayList(Generic[T]):
             elemento que se quiere agregar al ArrayList sea del mismo tipo
             contenido dentro de los elementos del ArrayList.
 
+        Raises:
+            TypeError: error si el tipo de dato del elemento que se quiere
+                agregar no es el mismo que el tipo de dato de los elementos
+                que ya contiene el ArrayList.
+
         Args:
-            element (T): elemento que se quiere agregar a la estructura de
-                datos.
+            element (T): elemento que se quiere procesar en ArrayList.
 
         Returns:
-            bool: operador que indica si el tipo de dato del elemento
-                es el mismo que el tipo de dato de los elementos que ya
-                contiene la estructura de datos.
+            bool: operador que indica si el ADT ArrayList es del mismo tipo
+                que el elemento que se quiere procesar.
         """
         # if the structure is not empty, check the first element type
         if not self.is_empty():

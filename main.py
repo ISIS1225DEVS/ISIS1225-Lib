@@ -16,7 +16,8 @@ def cmp_test(a, b):
 
 # main del ejercicio
 if __name__ == "__main__":
-    test_list = List(implementation="ArrayList")
+    imp = "SingleLinked"    # "ArrayList"
+    test_list = List(implementation=imp)
     # test_list = List2.new(implementation="ArrayList")
 
     print(test_list)
@@ -41,8 +42,8 @@ if __name__ == "__main__":
         {"testkey": 5, "testvalue": "five"},
     ]
 
-    test_list = List(implementation="ArrayList",
-                     elements=test_data,
+    test_list = List(implementation=imp,
+                     io=test_data,
                      cmp_function=cmp_test)
     print(test_list)
     print(type(test_list))
@@ -53,7 +54,6 @@ if __name__ == "__main__":
     print("iterating ADT List")
     for d in test_list:
         print(d)
-    
     a = test_list.get_first()
     print(a)
 

@@ -97,6 +97,9 @@ class ArrayList(Generic[T]):
         key (Optional[str]): nombre de la llave opcional que se utiliza para
             comparar los elementos del ArrayList, Por defecto es None y el
             __post_init__ configura la llave por defecto la llave "id".
+        io (Optional[List[T]]): lista nativa de python que contiene los
+            elementos de la estructura de datos, por defecto es None y el
+            usuario puede incluir una lista nativa de python como argumento
 
     Returns:
         ArrayList: ADT de tipo ArrayList o Arreglo Dinámico.
@@ -110,6 +113,8 @@ class ArrayList(Generic[T]):
     cmp_function: Optional[Callable[[T, T], int]] = None
     # the key is used to compare elements, not defined by default
     key: Optional[str] = None
+    # input elements from python list
+    io: Optional[List[T]] = None
 
     def __post_init__(self) -> None:
         """__post_init__ configura los valores por defecto para la llave (key)
@@ -125,11 +130,12 @@ class ArrayList(Generic[T]):
             if self.cmp_function is None:
                 self.cmp_function = self.default_cmp_function
             # if elements are in a list, add them to the ArrayList
-            if isinstance(self.elements, list):
-                elements = self.elements
-                self.elements = list()
-                for elm in elements:
+            if isinstance(self.io, list):
+                # elements = self.elements
+                # self.elements = list()
+                for elm in self.io:
                     self.add_last(elm)
+                self.io = None
         except Exception as err:
             self._handle_error(err)
 

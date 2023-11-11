@@ -1,6 +1,17 @@
-﻿from classa import ClassA
+﻿from abc import ABC, abstractmethod
+from classa import ClassA
 from classb import ClassB
 import importlib
+
+
+class AbsNode(ABC):
+    @abstractmethod
+    def __init__(self, *args, **kwargs):
+        pass
+
+    @abstractmethod
+    def start(self):
+        pass
 
 
 class NodeAB:
@@ -54,7 +65,9 @@ class NodeAB:
 
 # DYANMIC
 # create a NodeAB instance with ClassA implementation
-node_a = NodeAB(implementation="ClassA", info="hello", alpha=1.0)
+node_a = NodeAB(implementation="ClassA",
+                info="hello",
+                alpha=1.0)
 node_a = node_a.start()
 # print(type(a))
 print(node_a)
@@ -68,7 +81,9 @@ print(node_a.add(2.0))  # prints "3.0"
 # print(dir(node_a))
 
 # create a NodeAB instance with ClassB implementation
-node_b = NodeAB(implementation="ClassB", info="world", beta=2)
+node_b = NodeAB(implementation="ClassB",
+                info="world",
+                beta=2)
 node_b = node_b.start()
 print(node_b)
 # print(type(node_b.instance))  # prints "ClassB"
@@ -78,3 +93,6 @@ print(isinstance(node_b, (ClassB)))
 print(node_b.info)  # prints "world"
 print(node_b.beta)  # prints "2"
 print(node_b.add(3))  # prints "5"
+
+# abstract class
+abs_node = AbsNode()

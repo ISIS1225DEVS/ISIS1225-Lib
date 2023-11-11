@@ -3,10 +3,19 @@ import os
 import sys
 
 # import all the modules to package
+# error module
 from . import error
 from .error import error_handler, init_type_checker
+# default module
+from . import default
+from .default import VALID_DATA_TYPE_LT, lt_default_cmp_funcion, T
+
+# assert import
 assert error_handler
 assert init_type_checker
+assert lt_default_cmp_funcion
+assert VALID_DATA_TYPE_LT
+assert T
 
 __all__ = ["error"]
 

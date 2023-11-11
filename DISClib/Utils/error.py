@@ -19,29 +19,15 @@ Copyrigth:
     Departamento de Ingeniería de Sistemas y Computación DISC
     Developed by: Data Structures & Algorithms Group - EDA - ISIS-1225
 """
+# native python modules
+# import typing for defining the type of the elements
+# from typing import TxzypeVar
 
-# import dataclass for defining the node type
-from dataclasses import dataclass
-# import typing for defining the type of the element stored at the node
-from typing import TypeVar
+# custom modules
+# import global variables
+from DISClib.Utils.default import VALID_DATA_TYPE_LT
+from DISClib.Utils.default import T
 
-
-# Type for the element stored at the node
-T = TypeVar("T")    # T can be any type
-
-
-# valid data types for the node
-VALID_DATA_TYPE_LT = (
-    int,
-    float,
-    str,
-    bool,
-    dict,
-    list,
-    tuple,
-    set,
-    dataclass,
-)
 
 # generic error message for invalid data type
 TYPE_ERR_MSG = "Invalid data type"
@@ -50,7 +36,8 @@ TYPE_ERR_MSG = "Invalid data type"
 def error_handler(context: str,
                   func_name: str,
                   err: Exception) -> None:
-    """error_handler receives the context, function name and error to raise.
+    """error_handler receives the context, function name and error to raise
+    inside an specific module or class.
 
     Args:
         context (str): name of the class where the error occurred.

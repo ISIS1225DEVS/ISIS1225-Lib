@@ -68,12 +68,14 @@ from DISClib.Utils.error import error_handler
 from DISClib.Utils.error import init_type_checker
 from DISClib.Utils.default import lt_default_cmp_funcion
 from DISClib.Utils.default import T
+from DISClib.Utils.default import DEFAULT_DICT_KEY
 
 # checking costum modules
 assert error_handler
 assert init_type_checker
 assert lt_default_cmp_funcion
 assert T
+assert DEFAULT_DICT_KEY
 
 
 @dataclass
@@ -96,7 +98,8 @@ class ArrayList(Generic[T]):
             función por defecto lt_default_cmp_funcion().
         key (Optional[str]): nombre de la llave opcional que se utiliza para
             comparar los elementos del ArrayList, Por defecto es None y el
-            __post_init__ configura la llave por defecto la llave "id".
+            __post_init__ configura la llave por defecto la llave "id" en
+            DEFAULT_DICT_KEY.
         io (Optional[List[T]]): lista nativa de python que contiene los
             elementos de la estructura de datos, por defecto es None y el
             usuario puede incluir una lista nativa de python como argumento
@@ -125,17 +128,16 @@ class ArrayList(Generic[T]):
         try:
             # if the key is not defined, use the default
             if self.key is None:
-                self.key = "id"
+                self.key = DEFAULT_DICT_KEY     # its "id" by default
             # if the compare function is not defined, use the default
             if self.cmp_function is None:
                 self.cmp_function = self.default_cmp_function
             # if elements are in a list, add them to the ArrayList
-            if isinstance(self.io, list):
-                # elements = self.elements
-                # self.elements = list()
+            if isinstance(self.io, (list, tuple, set)):
                 for elm in self.io:
                     self.add_last(elm)
-                self.io = None
+            self._size = len(self.elements)
+            self.io = None
         except Exception as err:
             self._handle_error(err)
 
@@ -154,7 +156,7 @@ class ArrayList(Generic[T]):
         """
         try:
             # passing self as the first argument to simulate a method
-            ans = lt_default_cmp_funcion(self, elm1, elm2)
+            ans = lt_default_cmp_funcion(self.key, elm1, elm2)
             return ans
         except Exception as err:
             self._handle_error(err)
@@ -171,7 +173,6 @@ class ArrayList(Generic[T]):
         Args:
             err (Exception): Excepción que se generó en el ArrayList.
         """
-        # TODO add docstring
         cur_context = self.__class__.__name__
         cur_function = inspect.currentframe().f_code.co_name
         error_handler(cur_context, cur_function, err)
@@ -216,6 +217,7 @@ class ArrayList(Generic[T]):
         except Exception as err:
             self._handle_error(err)
 
+    # @property
     def size(self) -> int:
         """size devuelve el numero de elementos que actualmente contiene el
             ArrayList.
@@ -223,6 +225,7 @@ class ArrayList(Generic[T]):
         Returns:
             int: tamaño de la estructura ArrayList.
         """
+        # FIXME check if I need the property decorator and the setter?
         try:
             return self._size
         except Exception as err:
@@ -279,7 +282,7 @@ class ArrayList(Generic[T]):
             if not self.is_empty():
                 if self._check_type(element):
                     if pos < 0 or pos > self._size:
-                        raise IndexError("Position is out of range")
+                        raise IndexError(f"Index {pos} is out of range")
                     self.elements.insert(pos, element)
                     self._size += 1
             else:
@@ -336,7 +339,7 @@ class ArrayList(Generic[T]):
             if self.is_empty():
                 raise IndexError("Empty data structure")
             elif pos < 0 or pos > self._size-1:
-                raise IndexError("Index", pos, "is out of range")
+                raise IndexError(f"Index {pos} is out of range")
             return self.elements[pos]
         except Exception as err:
             self._handle_error(err)
@@ -395,7 +398,7 @@ class ArrayList(Generic[T]):
             if self.is_empty():
                 raise IndexError("Empty data structure")
             elif pos < 0 or pos > self._size-1:
-                raise IndexError("Index", pos, "is out of range")
+                raise IndexError(f"Index {pos} is out of range")
             element = self.elements.pop(pos)
             self._size -= 1
             return element
@@ -440,8 +443,8 @@ class ArrayList(Generic[T]):
         Returns:
             int: la posición del elemento en el ArrayList, -1 si no está.
         """
-        # TODO change the method name to "find" or "present_in"?
-        # is_present() get confused with the boolean operator not an integer
+        # TODO change the method name to "find"?
+        # because is_present() indicates a bool return not an int
         try:
             pos = -1
             if self._size > 0:
@@ -470,12 +473,11 @@ class ArrayList(Generic[T]):
             IndexError: error si la estructura está vacía.
             IndexError: error si la posición es inválida.
         """
-        # TODO add docstring
         try:
             if self.is_empty():
                 raise IndexError("Empty data structure")
             elif pos < 0 or pos > self._size-1:
-                raise IndexError("Index", pos, "is out of range")
+                raise IndexError(f"Index {pos} is out of range")
             # if not self._check_type(new_info):
             elif self._check_type(new_info):
                 # raise TypeError("Invalid element type")
@@ -500,9 +502,9 @@ class ArrayList(Generic[T]):
             if self.is_empty():
                 raise IndexError("Empty data structure")
             elif pos1 < 0 or pos1 > self._size-1:
-                raise IndexError("Index", pos1, "is out of range")
+                raise IndexError(f"Index {pos1} is out of range")
             elif pos2 < 0 or pos2 > self._size-1:
-                raise IndexError("Index", pos2, "is out of range")
+                raise IndexError(f"Index {pos2} is out of range")
             info_pos1 = self.get_element(pos1)
             info_pos2 = self.get_element(pos2)
             self.change_info(info_pos2, pos1)
@@ -531,14 +533,16 @@ class ArrayList(Generic[T]):
         try:
             if self.is_empty():
                 raise IndexError("Empty data structure")
-            elif start < 0 or end > self._size-1 or start > end:
+            elif (start > end) or ((start < 0) or (end > self._size-1)):
                 raise IndexError(f"Invalid range: between [{start}, {end}]")
             sub_lt = ArrayList(cmp_function=self.cmp_function,
                                key=self.key)
-            for i in range(start, end):
+            i = start
+            while i < end + 1:
                 element = self.get_element(i)
                 if self._check_type(element):
                     sub_lt.add_last(element)
+                i += 1
             return sub_lt
         except (IndexError, TypeError) as err:
             self._handle_error(err)
@@ -570,7 +574,8 @@ class ArrayList(Generic[T]):
                 raise TypeError(err_msg)
             if self.key != other.key:
                 raise TypeError(f"Invalid key: {self.key} != {other.key}")
-            # checking function code
+            # checking functional code of the cmp function
+
             code1 = self.cmp_function.__code__.co_code
             code2 = other.cmp_function.__code__.co_code
             if code1 != code2:

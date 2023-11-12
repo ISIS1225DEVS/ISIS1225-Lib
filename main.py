@@ -1,4 +1,5 @@
 ﻿from DISClib.ADT.lists import List
+import random
 # from DISClib.ADT.lists import List2
 
 
@@ -16,45 +17,83 @@ def cmp_test(a, b):
 
 # main del ejercicio
 if __name__ == "__main__":
-    imp = "SingleLinked"    # "ArrayList"
-    test_list = List(implementation=imp)
-    # test_list = List2.new(implementation="ArrayList")
+    imp = "ArrayList"   # "SingleLinked", "DoubleLinked", "ArrayList"
+    print(f"Testing '{imp}' implementation of ADT List")
+    test_lt_1 = List(implementation=imp)
+    # test_lt_1 = List2.new(implementation="ArrayList")
 
-    print(test_list)
-    print(type(test_list))
     print("----------- config -----------")
-    # test_list = test_list.config()
-    print(test_list)
-    print(type(test_list))
+    # test_lt_1 = test_lt_1.config()
+    print(test_lt_1)
+    print(type(test_lt_1))
 
-    test_data = [1, 2, 3, 4, 5]
+    print("----------- int list -----------")
+    test_data = (1, 2, 3, 4, 5)
 
     for i in test_data:
-        test_list.add_last(i)
+        test_lt_1.add_last(i)
 
-    print(test_list)
+    print(test_lt_1)
+    test_lt_2 = List(implementation=imp,
+                     io=test_data,
+                     cmp_function=cmp_test)
+    print(test_lt_2)
+    print(type(test_lt_2))
 
-    test_data = [
+    print("----------- dict list -----------")
+    test_data = (
         {"testkey": 1, "testvalue": "one"},
         {"testkey": 2, "testvalue": "two"},
         {"testkey": 3, "testvalue": "three"},
         {"testkey": 4, "testvalue": "four"},
         {"testkey": 5, "testvalue": "five"},
-    ]
+    )
 
-    test_list = List(implementation=imp,
+    test_lt_3 = List(implementation=imp,
                      io=test_data,
                      cmp_function=cmp_test)
-    print(test_list)
-    print(type(test_list))
+    print(test_lt_3)
+    print(type(test_lt_3))
     print("----------- config -----------")
-    # test_list = test_list.config()
-    # print(test_list)
-    # print(type(test_list))
+    # test_lt_1 = test_lt_1.config()
+    # print(test_lt_1)
+    # print(type(test_lt_1))
     print("iterating ADT List")
-    for d in test_list:
+    for d in test_lt_3:
         print(d)
-    a = test_list.get_first()
-    print(a)
+    a = test_lt_3.sublist(0, 4)
+    print("sublist created", a)
 
-    print(test_list.get_last())
+    print(test_lt_3._size)
+    print(test_lt_3.size)
+
+    print("----------- str list -----------")
+    test_data = ("one", "two", "three", "four", "five")
+    test_lt_4 = List(implementation=imp,
+                     io=test_data,
+                     cmp_function=cmp_test)
+    print(test_lt_4)
+    print(type(test_lt_4))
+
+    test_len = len(test_lt_4.elements)
+    i, j = random.choices(range(0, test_len), k=2)
+    # sample(range(test_len*2, test_len*3), 2)
+    print(f"i: {i}, j: {j}")
+    sub = test_lt_4.sublist(0, 1)
+    print(sub)
+
+    print("----------- concat list -----------")
+    test_data = (1, 2, 3, 4, 5)
+    test_lt_5 = List(implementation=imp,
+                     io=test_data,
+                     cmp_function=cmp_test)
+
+    test_data = (6, 7, 8, 9, 10)
+    test_lt_6 = List(implementation=imp,
+                     io=test_data,
+                     cmp_function=cmp_test)
+
+    test_lt_7 = test_lt_5.concat(test_lt_6)
+    print(test_lt_7)
+    print(type(test_lt_7))
+    # test_lt_7 = test_lt_5 + test_lt_6

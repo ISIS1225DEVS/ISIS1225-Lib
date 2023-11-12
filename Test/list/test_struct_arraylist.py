@@ -1,4 +1,5 @@
 ﻿# impoting testing framework
+from typing import Literal
 import unittest
 import pytest
 import random
@@ -178,9 +179,10 @@ class TestArrayList(unittest.TestCase):
     Args:
         unittest (class): python class for unit testing.
     """
+    # test_lt = None
 
     @pytest.fixture(autouse=True)
-    def inject_fixtures(self, global_params):
+    def inject_fixtures(self, global_params: dict[str, list[str] | list[int] | list[float] | list[dict[str, int]] | list[list[int]] | list[tuple[Literal[1], Literal[2], Literal[3]] | tuple[Literal[4], Literal[5], Literal[6]] | tuple[Literal[7], Literal[8], Literal[9]] | tuple[Literal[10], Literal[11], Literal[12]] | tuple[Literal[13], Literal[14], Literal[15]] | tuple[Literal[16], Literal[17], Literal[18]] | tuple[Literal[19], Literal[20], Literal[21]]] | list[set[int]] | list[type[str] | type[int] | type[float] | type[bool] | type[dict] | type[list] | type[tuple] | type[set]]]):
         """inject_fixtures it injects the global parameters as a fixture.
 
         Args:
@@ -249,8 +251,6 @@ class TestArrayList(unittest.TestCase):
                 ar_lt = ArrayList(test_data)
                 # test for the arraylist is not None
                 assert ar_lt is not None
-                # test for the arraylist size is equal to test_data
-                assert ar_lt._size == len(test_data)
                 # test for the arraylist elements is equal to test_data
                 assert ar_lt.elements == test_data
                 # test for the arraylist key is "id"
@@ -261,6 +261,8 @@ class TestArrayList(unittest.TestCase):
                 assert isinstance(ar_lt, ArrayList)
                 # test for the arraylist elements are of the same type
                 assert isinstance(ar_lt.elements[0], data_type)
+                # test for the arraylist size is equal to test_data
+                assert ar_lt._size == len(test_data)
 
     def test_custom_key(self):
         """test_custom_key test the initialization of a custom arraylist
@@ -633,7 +635,7 @@ class TestArrayList(unittest.TestCase):
                 # create a new arraylist with the test data
                 ar_lt = ArrayList(elements=test_data)
                 for i in range(len(test_data)):
-                    t_data = test_data[i]
+                    t_data = test_data[0]
                     t_elem = ar_lt.remove_first()
                     # test if the removed element is equal to the first
                     assert t_elem == t_data
@@ -667,7 +669,8 @@ class TestArrayList(unittest.TestCase):
                 # iterate over the test data
                 for i in range(len(test_data)):
                     # get the last element of the test data
-                    t_data = test_data[test_len-i-1]
+
+                    t_data = test_data[test_len - 1 - i]
                     # remove the last element of the arraylist
                     t_elem = ar_lt.remove_last()
                     # test if the removed element is equal to the last
@@ -930,25 +933,25 @@ class TestArrayList(unittest.TestCase):
         assert excinfo.type == IndexError
         # test for the exception message
         assert "Empty data structure" in str(excinfo.value)
-
         # iterates over global params and create filled arraylist
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
             if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
                 # get the test data
                 test_data = self.global_params.get(key)
-                # get the length of the test data
-                test_len = len(test_data)
                 # create a new arraylist with the test data
                 ar_lt = ArrayList(elements=test_data)
                 # if it is the custom dict, use the custom cmp function
                 if key == "TEST_CUSTOM_DICT_LT":
                     ar_lt = ArrayList(elements=test_data,
                                       cmp_function=cmp_test_function)
-
+                # get the length of the test data
+                test_len = len(test_data)
+                i = random.randint(test_len*2, test_len*3)
+                j = random.randint(test_len*2, test_len*3)
+                # sample(range(test_len*2, test_len*3), 2)
                 # force an exception in the sublist method
                 with pytest.raises(Exception) as excinfo:
-                    i, j = random.sample(range(test_len*2, test_len*3), 2)
                     ar_lt.sublist(i, j)
                 # test for the exception type
                 assert excinfo.type == IndexError
@@ -960,7 +963,11 @@ class TestArrayList(unittest.TestCase):
                 # select a random valid a high index in the test data
                 high = random.randint(low, test_len-1)
                 # get the elements in the test data
-                sub_lt = list(test_data[low:high])
+                sub_lt = list()
+                i = low
+                while i < high+1:
+                    sub_lt.append(test_data[i])
+                    i += 1
                 # get the elements size in the test data
                 sub_lt_size = len(sub_lt)
                 # create a sublist with the low and high index

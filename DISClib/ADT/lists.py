@@ -68,8 +68,19 @@ def List(implementation: str = "ArrayList", **kwargs) -> T:
         raise ValueError(err_msg)
 
 
-def translate(src_list: T, tgt_implementation: str) -> T:
-    pass
+def transform(src_lt: T, tgt_implementation: str = "SingleLinked") -> T:
+    try:
+        tgt_lt = List(implementation=tgt_implementation)
+        for e in src_lt:
+            tgt_lt.add_last(e)
+        tgt_lt.cmp_function = src_lt.cmp_function
+        tgt_lt.key = src_lt.key
+        return tgt_lt
+    except Exception as exp:
+        err_msg = f"List type '{tgt_implementation}' not found"
+        err_msg += f" in {ADT_LT_PGK_PATH}"
+        err_msg += str(exp)
+        raise ValueError(err_msg)
 
 
 """

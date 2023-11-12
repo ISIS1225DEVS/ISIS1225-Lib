@@ -17,16 +17,19 @@ VALID_DATA_TYPE_LT = (
     dataclass,
 )
 
+DEFAULT_DICT_KEY = "id"  # default key for comparing dictionaries
+
 # Type for the element stored in the list
 T = TypeVar("T")    # T can be any type
 
 
-def lt_default_cmp_funcion(self, elm1, elm2) -> int:
+def lt_default_cmp_funcion(key, elm1, elm2) -> int:
     """lt_default_cmp_funcion función de comparación por defecto para
         los elementos del ADT List (ArrayList, LinkedList, DoublyLinkedList).
         pueden ser de tipo nativo o definido por el usuario.
 
     Args:
+        key (str): llave para comparar los elementos de tipo diccionario.
         elm1 (any): primer elemento a comparar.
         elm2 (any): segundo elemento a comparar.
 
@@ -43,20 +46,19 @@ def lt_default_cmp_funcion(self, elm1, elm2) -> int:
     # TODO add documentation
     elm1_type = isinstance(elm1, VALID_DATA_TYPE_LT)
     elm2_type = isinstance(elm2, VALID_DATA_TYPE_LT)
-    # none_type = (self.key is None)
     # if the elements are from different types, raise an exception
     if type(elm1) is not type(elm2):
         err_msg = f"Invalid comparison between {type(elm1)} and "
         err_msg += f"{type(elm2)} elements"
         raise TypeError(err_msg)
     # if there is a defined key
-    elif self.key is not None:
+    elif key is not None:
         # if elements are dictionaries, compare their main key
         if isinstance(elm1, dict) and isinstance(elm2, dict):
-            key1 = elm1.get(self.key)
-            key2 = elm2.get(self.key)
+            key1 = elm1.get(DEFAULT_DICT_KEY)
+            key2 = elm2.get(DEFAULT_DICT_KEY)
             if None in [key1, key2]:
-                err_msg = f"Invalid key: {self.key}, "
+                err_msg = f"Invalid key: {DEFAULT_DICT_KEY}, "
                 err_msg += "Key not found in one or both elements"
                 raise KeyError(err_msg)
             # comparing elements

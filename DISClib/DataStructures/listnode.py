@@ -35,7 +35,6 @@ Copyrigth:
     Developed by: Data Structures & Algorithms Group - EDA - ISIS-1225
 """
 
-
 # native python modules
 # import dataclass for defining the node class
 from dataclasses import dataclass

@@ -73,6 +73,7 @@ from DISClib.Utils.error import error_handler
 from DISClib.Utils.error import init_type_checker
 from DISClib.Utils.default import lt_default_cmp_funcion
 from DISClib.Utils.default import T
+from DISClib.Utils.default import DEFAULT_DICT_KEY
 
 # checking costum modules
 assert error_handler
@@ -100,8 +101,9 @@ class SingleLinked(Generic[T]):
             del SingleLinked, por defecto es None y el __post_init__ configura
             la función por defecto lt_default_cmp_funcion().
         key (Optional[str]): nombre de la llave opcional que se utiliza para
-            comparar los elementos del SingleLinked, Por defecto es None y el
-            __post_init__ configura la llave por defecto la llave "id".
+            comparar los elementos del ArrayList, Por defecto es None y el
+            __post_init__ configura la llave por defecto la llave "id" en
+            DEFAULT_DICT_KEY.
         io (Optional[List[T]]): lista nativa de python que contiene los
             elementos de la estructura de datos, por defecto es None y el
             usuario puede incluir una lista nativa de python como argumento
@@ -133,7 +135,7 @@ class SingleLinked(Generic[T]):
         try:
             # if the key is not defined, use the default
             if self.key is None:
-                self.key = "id"
+                self.key = DEFAULT_DICT_KEY
             # if the compare function is not defined, use the default
             if self.cmp_function is None:
                 self.cmp_function = self.default_cmp_function
@@ -162,7 +164,7 @@ class SingleLinked(Generic[T]):
         """
         try:
             # passing self as the first argument to simulate a method
-            ans = lt_default_cmp_funcion(self, elm1, elm2)
+            ans = lt_default_cmp_funcion(self.key, elm1, elm2)
             return ans
         except Exception as err:
             self._handle_error(err)
@@ -179,7 +181,6 @@ class SingleLinked(Generic[T]):
         Args:
             err (Exception): Excepción que se generó en el SingleLinked.
         """
-        # TODO add docstring
         cur_context = self.__class__.__name__
         cur_function = inspect.currentframe().f_code.co_name
         error_handler(cur_context, cur_function, err)
@@ -667,7 +668,8 @@ class SingleLinked(Generic[T]):
                 raise TypeError(err_msg)
             if self.key != other.key:
                 raise TypeError(f"Invalid key: {self.key} != {other.key}")
-            # checking function code
+            # checking functional code of the cmp function
+
             code1 = self.cmp_function.__code__.co_code
             code2 = other.cmp_function.__code__.co_code
             if code1 != code2:

@@ -1,17 +1,24 @@
-""" _summary_
-# TODO add summary
+""" Módulo con funciones para manejo de errores genericas para
+    todo DISClib.
+
+    Este código y sus modificaciones para Python está basado en la
+    implementación propuesta por los siguientes autores/libros:
+        1) Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.
+        2) Data Structures and Algorithms in Python, Michael T. Goodrich,
+            Roberto Tamassia y Michael H. Goldwasser.
 
 Attributes:
-    T (type): _description_
-    TYPE_ERR_MSG (str): _description_
-    VALID_DATA_TYPE_LT (tuple): _description_
+    T (type): marca nativa de Python para definir un tipo de @dataclass
+        genérico.
+    TYPE_ERR_MSG (str): mensaje de error para tipo de dato inválido.
+    VALID_DATA_TYPE_LT (tuple): tupla con los tipos de datos nativos en Python
+        que son comparables en los ADTs.
 
 Functions:
-    error_handler(context: str, func_name: str, err: Exception) -> None:
-        error_handler receives the context, function name and error to raise.
-    init_type_checker(context: str, func_name: str, info: T) -> None:
-        init_type_checker receives the context, function name and info to check
-            its type after class initialization.
+    - error_handler(): manejo de errores genérico.
+    - init_type_checker(): chequeo de tipo de dato genérico al inicializar
+        un ADT.
+    # TODO add documentation
 
 Copyrigth:
     Universidad de los Andes, Bogotá - Colombia, South America

@@ -1,4 +1,35 @@
-﻿# python native modules
+﻿""" Módulo con variables globales y funciones de comparación por defecto
+    para uso por todo DISClib y sus ADTs.
+
+    Este código y sus modificaciones para Python está basado en la
+    implementación propuesta por los siguientes autores/libros:
+        1) Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.
+        2) Data Structures and Algorithms in Python, Michael T. Goodrich,
+            Roberto Tamassia y Michael H. Goldwasser.
+
+Attributes:
+    VALID_DATA_TYPE_LT (tuple): tupla con los tipos de datos nativos en Python
+        que son comparables en los ADTs.
+    DEFAULT_DICT_KEY (str): llave por defecto para comparar diccionarios en los
+        ADTs.
+    T (type): marca nativa de Python para definir un tipo de @dataclass
+        genérico.
+    VALID_IO_TYPE (tuple): tupla con los tipos de datos nativos en Python
+        que son válidos para entrada y salida al inicializar un ADT.
+
+Functions:
+    - lt_default_cmp_funcion(): comparación por defecto para dos elementos
+        en el ADT List (ArrayList, LinkedList, DoublyLinkedList).
+    # TODO add documentation
+
+Copyrigth:
+    Universidad de los Andes, Bogotá - Colombia, South America
+    Facultad de Ingeniería, 2023
+    Departamento de Ingeniería de Sistemas y Computación DISC
+    Developed by: Data Structures & Algorithms Group - EDA - ISIS-1225
+"""
+
+# python native modules
 # import dataclass for defining the node type
 from dataclasses import dataclass
 # import typing for defining the type of the node
@@ -17,7 +48,15 @@ VALID_DATA_TYPE_LT = (
     dataclass,
 )
 
-DEFAULT_DICT_KEY = "id"  # default key for comparing dictionaries
+# default key for comparing dictionaries
+DEFAULT_DICT_KEY = "id"
+
+# allowed input/output types for the ADTs
+VALID_IO_TYPE = (
+    list,
+    tuple,
+    set,
+)
 
 # Type for the element stored in the list
 T = TypeVar("T")    # T can be any type

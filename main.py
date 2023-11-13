@@ -17,7 +17,7 @@ def cmp_test(a, b):
 
 # main del ejercicio
 if __name__ == "__main__":
-    imp = "ArrayList"   # "SingleLinked", "DoubleLinked", "ArrayList"
+    imp = "SingleLinked"   # "SingleLinked", "DoubleLinked", "ArrayList"
     print(f"Testing '{imp}' ds_config of ADT List")
     test_lt_1 = List(dstruct=imp)
     # test_lt_1 = List2.new(dstruct="ArrayList")
@@ -71,35 +71,42 @@ if __name__ == "__main__":
                      cmp_function=cmp_test)
 
     test_lt_7 = test_lt_5.concat(test_lt_6)
+    print(test_lt_5)
+    print(test_lt_6)
     print(test_lt_7)
     print(type(test_lt_7))
     # test_lt_7 = test_lt_5 + test_lt_6
 
-    start = 1
-    end = 1
-    a = (start, end)
-    MIN = 0
-    MAX = 5
-    test = (MIN <= start <= end <= MAX)
-    print(test)
+    # start = 1
+    # end = 1
+    # a = (start, end)
+    # MIN = 0
+    # MAX = 5
+    # test = (MIN <= start <= end <= MAX)
+    # print(test)
 
-    a = test_lt_3.sublist(1, 3)
-    print("sublist created", a)
+    # a = test_lt_3.sublist(1, 3)
+    # print("sublist created", a)
 
-    print(test_lt_3._size)
-    print(test_lt_3.size)
+    # print(test_lt_3._size)
+    # print(test_lt_3.size)
 
-    print("----------- str list -----------")
-    test_data = ("one", "two", "three", "four", "five")
-    test_lt_4 = List(dstruct=imp,
-                     indata=test_data,
-                     cmp_function=cmp_test)
-    print(test_lt_4)
-    print(type(test_lt_4))
+    # print("----------- str list -----------")
+    # test_data = ("one", "two", "three", "four", "five")
+    # test_lt_4 = List(dstruct=imp,
+    #                  indata=test_data,
+    #                  cmp_function=cmp_test)
+    # print(test_lt_4)
+    # print(type(test_lt_4))
 
-    test_len = len(test_lt_4.elements)
-    i, j = random.choices(range(0, test_len), k=2)
-    # sample(range(test_len*2, test_len*3), 2)
-    print(f"i: {i}, j: {j}")
-    sub = test_lt_4.sublist(1, 1)
-    print(sub)
+    # test_len = test_lt_4.size()
+    # i, j = random.choices(range(0, test_len), k=2)
+    # # sample(range(test_len*2, test_len*3), 2)
+    # print(f"i: {i}, j: {j}")
+    # sub = test_lt_4.sublist(1, 1)
+    # print(sub)
+
+    # print("changing info")
+    # print(test_lt_2)
+    # test_lt_2.exchange(i, j)
+    # print(test_lt_2)

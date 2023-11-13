@@ -74,7 +74,7 @@ def List(dstruct: str = "ArrayList", **kwargs) -> T:
     except Exception as exp:
         # raise ValueError("Invalid list type: " + str(exp))
         err_msg = f"List type '{dstruct}' not found"
-        err_msg += f" in {ADT_LT_PGK_PATH}"
+        err_msg += f" in {ADT_LT_PGK_PATH}, "
         err_msg += str(exp)
         raise ValueError(err_msg)
 
@@ -102,7 +102,7 @@ def transform(src_lt: T, tgt_dstruct: str = "SingleLinked") -> T:
         return tgt_lt
     except Exception as exp:
         err_msg = f"List type '{tgt_dstruct}' not found"
-        err_msg += f" in {ADT_LT_PGK_PATH}"
+        err_msg += f" in {ADT_LT_PGK_PATH}, "
         err_msg += str(exp)
         raise ValueError(err_msg)
 

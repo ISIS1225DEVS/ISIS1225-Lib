@@ -7,7 +7,6 @@ import sys
 from . import error
 from .error import error_handler, init_type_checker
 # default module
-from . import default
 from .default import VALID_DATA_TYPE_LT, lt_default_cmp_funcion, T
 
 # assert import

@@ -63,6 +63,8 @@ from dataclasses import dataclass
 from typing import List, Optional, Callable, Generic
 # import inspect for getting the name of the current function
 import inspect
+# import copy for deepcopy the data structure
+import copy
 
 # custom modules
 # node class for the linked list
@@ -95,26 +97,30 @@ class SingleLinked(Generic[T]):
             que representa un SingleLinked o Arreglo Dinámico generico.
 
     Attributes:
-        elements (List[T]): lista nativa de python que contiene los elementos
-            de la estructura de datos.
+        first (Optional[SingleNode[T]]): propiedad privada que representa el
+            primer nodo del SingleLinked.
+        last (Optional[SingleNode[T]]): propiedad privada que representa el
+            último nodo del SingleLinked.
         _size (int): propiedad privada que representa el tamaño de la lista.
-            cmp_function (Optional[Callable[[T, T], int]]): función de
-            comparación opcional que se utiliza para comparar los elementos
-            del SingleLinked, por defecto es None y el __post_init__ configura
-            la función por defecto lt_default_cmp_funcion().
+        cmp_function (Optional[Callable[[T, T], int]]): función de comparación
+            opcional que se utiliza para comparar los elementos del ArrayList,
+            por defecto es None y el __post_init__ configura la función por
+            defecto lt_default_cmp_funcion().
         key (Optional[str]): nombre de la llave opcional que se utiliza para
-            comparar los elementos del ArrayList, Por defecto es None y el
-            __post_init__ configura la llave por defecto la llave "id" en
+            comparar los elementos del SingleLinkedList, Por defecto es None y
+            el __post_init__ configura la llave por defecto la llave "id" en
             DEFAULT_DICT_KEY.
         indata (Optional[List[T]]): lista nativa de python que contiene los
             elementos de la estructura de datos, por defecto es None y el
-            usuario puede incluir una lista nativa de python como argumento
+            usuario puede incluir una lista nativa de python como argumento.
 
     Returns:
         SingleLinked: ADT de tipo SingleLinked o Lista Sensillamente
             Encadenada.
 
     """
+    # input elements from python list
+    indata: Optional[List[T]] = None
     # reference to the first node of the list
     first: Optional[SingleNode[T]] = None
     # reference to the last node of the list
@@ -125,8 +131,6 @@ class SingleLinked(Generic[T]):
     cmp_function: Optional[Callable[[T, T], int]] = None
     # the key is used to compare elements, not defined by default
     key: Optional[str] = None
-    # input elements from python list
-    indata: Optional[List[T]] = None
 
     def __post_init__(self) -> None:
         """__post_init__ configura los valores por defecto para la llave (key)
@@ -135,17 +139,18 @@ class SingleLinked(Generic[T]):
                 a la lista de elementos del SingleLinked.
         """
         try:
+            # counter for elements in the input list
+            # i = 0
             # if the key is not defined, use the default
             if self.key is None:
                 self.key = DEFAULT_DICT_KEY     # its "id" by default
             # if the compare function is not defined, use the default
             if self.cmp_function is None:
                 self.cmp_function = self.default_cmp_function
-            # if elements are in a list, add them to the ArrayList
+            # if input data is iterable add them to the SingleLinkedList
             if isinstance(self.indata, VALID_IO_TYPE):
                 for elm in self.indata:
                     self.add_last(elm)
-            self._size = len(self.elements)
             self.indata = None
         except Exception as err:
             self._handle_error(err)
@@ -312,10 +317,10 @@ class SingleLinked(Generic[T]):
                         new_node._next = self.first
                         self.first = new_node
                     else:
-                        i = 1
+                        i = 0
                         current = self.first
                         previous = self.first
-                        while i < pos:
+                        while i < pos+1:
                             previous = current
                             current = current.next()
                             i += 1
@@ -340,7 +345,7 @@ class SingleLinked(Generic[T]):
         try:
             ans = None
             if self.is_empty():
-                raise Exception("Empty data structure")
+                raise IndexError("Empty data structure")
             if self.first is not None:
                 ans = self.first.get_info()
             return ans
@@ -360,7 +365,7 @@ class SingleLinked(Generic[T]):
         try:
             ans = None
             if self.is_empty():
-                raise Exception("Empty data structure")
+                raise IndexError("Empty data structure")
             if self.last is not None:
                 ans = self.last.get_info()
             return ans
@@ -389,7 +394,7 @@ class SingleLinked(Generic[T]):
             else:
                 current = self.first
                 i = 0
-                while i < pos+1:
+                while i != pos:
                     current = current.next()
                     i += 1
                 return current.get_info()
@@ -433,7 +438,7 @@ class SingleLinked(Generic[T]):
         """
         try:
             if self.is_empty():
-                raise Exception("Empty data structure")
+                raise IndexError("Empty data structure")
             if self._size > 0 and self.last is not None:
                 if self.first == self.last:
                     node = self.first
@@ -469,19 +474,19 @@ class SingleLinked(Generic[T]):
         """
         try:
             if self.is_empty():
-                raise Exception("Empty data structure")
+                raise IndexError("Empty data structure")
             if pos < 0 or pos > self._size-1:
-                raise Exception("Index", pos, "is an invalid position")
+                raise IndexError(f"Index {pos} is out of range")
             current = self.first
             prev = self.first
             i = 0
             if pos == 0:
                 self.first = self.first.next()
             elif pos >= 1:
-                while i <= pos:
-                    i += 1
+                while i != pos:
                     prev = current
                     current = current.next()
+                    i += 1
                 prev._next = current.next()
             self._size -= 1
             return current.get_info()
@@ -531,7 +536,7 @@ class SingleLinked(Generic[T]):
         try:
             lt_size = self.size()
             pos = -1
-            if self.s > 0:
+            if lt_size > 0:
                 node = self.first
                 found = False
                 i = 0
@@ -571,7 +576,7 @@ class SingleLinked(Generic[T]):
                 # raise TypeError("Invalid element type")
                 current = self.first
                 i = 0
-                while i <= pos:
+                while i != pos:
                     current = current.next()
                     i += 1
                 current.set_info(new_info)
@@ -632,7 +637,7 @@ class SingleLinked(Generic[T]):
                                   key=self.key)
             i = 0
             current = self.first
-            while i <= end:
+            while i != end+1:
                 if i >= start:
                     sub_lt.add_last(current.get_info())
                 current = current.next()
@@ -673,17 +678,18 @@ class SingleLinked(Generic[T]):
             code1 = self.cmp_function.__code__.co_code
             code2 = other.cmp_function.__code__.co_code
             if code1 != code2:
-                err_msg = f"Invalid cmp_function: {self.cmp_function}"
+                err_msg = f"Invalid compare function: {self.cmp_function}"
                 err_msg += f" != {other.cmp_function}"
                 raise TypeError(err_msg)
             # FIXME maybe I can use the original SingleLinked to concatenate
             concat_lt = SingleLinked(cmp_function=self.cmp_function,
                                      key=self.key)
-            concat_lt.first = self.first
-            concat_lt.last = self.last
+            concat_lt._size = self.size() + other.size()
+            temp_lt = copy.deepcopy(self)
+            concat_lt.first = temp_lt.first
+            concat_lt.last = temp_lt.last
             concat_lt.last._next = other.first
             concat_lt.last = other.last
-            concat_lt._size = self.size() + other.size()
             return concat_lt
         except TypeError as err:
             self._handle_error(err)
@@ -693,7 +699,7 @@ class SingleLinked(Generic[T]):
             'for' de python tradicional.
 
         Returns:
-            iterador: iterador sobre los elementos del SingleLinked.
+            iterator: iterador sobre los elementos del SingleLinked.
         """
         try:
             # FIXME check algorithm

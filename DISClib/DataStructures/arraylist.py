@@ -104,12 +104,14 @@ class ArrayList(Generic[T]):
             DEFAULT_DICT_KEY.
         indata (Optional[List[T]]): lista nativa de python que contiene los
             elementos de la estructura de datos, por defecto es None y el
-            usuario puede incluir una lista nativa de python como argumento
+            usuario puede incluir una lista nativa de python como argumento.
 
     Returns:
         ArrayList: ADT de tipo ArrayList o Arreglo Dinámico.
 
     """
+    # input elements from python list
+    indata: Optional[List[T]] = None
     # using default_factory to generate an empty list
     elements: List[T] = field(default_factory=list)
     # by default, the list is empty
@@ -118,8 +120,6 @@ class ArrayList(Generic[T]):
     cmp_function: Optional[Callable[[T, T], int]] = None
     # the key is used to compare elements, not defined by default
     key: Optional[str] = None
-    # input elements from python list
-    indata: Optional[List[T]] = None
 
     def __post_init__(self) -> None:
         """__post_init__ configura los valores por defecto para la llave (key)
@@ -128,6 +128,7 @@ class ArrayList(Generic[T]):
                 a la lista de elementos del ArrayList.
         """
         try:
+            # counter for the elements in the input list
             # if the key is not defined, use the default
             if self.key is None:
                 self.key = DEFAULT_DICT_KEY     # its "id" by default
@@ -138,7 +139,8 @@ class ArrayList(Generic[T]):
             if isinstance(self.indata, VALID_IO_TYPE):
                 for elm in self.indata:
                     self.add_last(elm)
-            self._size = len(self.elements)
+                    # self._size += 1
+            # self._size = len(self.elements)
             self.indata = None
         except Exception as err:
             self._handle_error(err)
@@ -448,10 +450,11 @@ class ArrayList(Generic[T]):
         # because is_present() indicates a bool return not an int
         try:
             pos = -1
-            if self._size > 0:
+            lt_size = self.size()
+            if lt_size > 0:
                 found = False
                 i = 0
-                while not found and i < self._size-1:
+                while not found and i < lt_size-1:
                     data = self.get_element(i)
                     if self.compare_elements(element, data) == 0:
                         found = True

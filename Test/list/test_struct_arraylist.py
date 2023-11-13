@@ -182,7 +182,7 @@ class TestArrayList(unittest.TestCase):
     # test_lt = None
 
     @pytest.fixture(autouse=True)
-    def inject_fixtures(self, global_params: dict[str, list[str] | list[int] | list[float] | list[dict[str, int]] | list[list[int]] | list[tuple[Literal[1], Literal[2], Literal[3]] | tuple[Literal[4], Literal[5], Literal[6]] | tuple[Literal[7], Literal[8], Literal[9]] | tuple[Literal[10], Literal[11], Literal[12]] | tuple[Literal[13], Literal[14], Literal[15]] | tuple[Literal[16], Literal[17], Literal[18]] | tuple[Literal[19], Literal[20], Literal[21]]] | list[set[int]] | list[type[str] | type[int] | type[float] | type[bool] | type[dict] | type[list] | type[tuple] | type[set]]]):
+    def inject_fixtures(self, global_params):
         """inject_fixtures it injects the global parameters as a fixture.
 
         Args:
@@ -275,7 +275,7 @@ class TestArrayList(unittest.TestCase):
             # ignore 3 keys from the global params
             if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
                 test_data = self.global_params.get(key)
-                ar_lt = ArrayList(elements=test_data,
+                ar_lt = ArrayList(indata=test_data,
                                   key="uuid")
                 # test for the arraylist is not None
                 assert ar_lt is not None
@@ -303,7 +303,7 @@ class TestArrayList(unittest.TestCase):
             # ignore 3 keys from the global params
             if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
                 test_data = self.global_params.get(key)
-                ar_lt = ArrayList(elements=test_data,
+                ar_lt = ArrayList(indata=test_data,
                                   cmp_function=cmp_test_function)
                 # test for the arraylist is not None
                 assert ar_lt is not None
@@ -338,7 +338,7 @@ class TestArrayList(unittest.TestCase):
             # getting the test data
             test_data = self.global_params.get(key)
             # create a new arraylist with the test data
-            ar_lt = ArrayList(elements=test_data)
+            ar_lt = ArrayList(indata=test_data)
             # test for the arraylist size() is equal to test_data
             assert ar_lt.size() == len(test_data)
             # test for the arraylist _size is equal to test_data
@@ -362,7 +362,7 @@ class TestArrayList(unittest.TestCase):
             # get the test data
             test_data = self.global_params.get(key)
             # create a new arraylist with the test data
-            ar_lt = ArrayList(elements=test_data)
+            ar_lt = ArrayList(indata=test_data)
             # test for the arraylist is not empty
             assert ar_lt.is_empty() is False
             # test for the arraylist elements is equal to test_data
@@ -483,7 +483,7 @@ class TestArrayList(unittest.TestCase):
                 # get the length of the test data
                 test_len = len(test_data)
                 # create a new arraylist with the test data
-                ar_lt = ArrayList(elements=test_data)
+                ar_lt = ArrayList(indata=test_data)
                 # select a random valid index in the test data
                 i = random.randint(0, test_len-1)
                 # get the element in the test data
@@ -533,7 +533,7 @@ class TestArrayList(unittest.TestCase):
             # get the length of the test data
             test_len = len(test_data)
             # create a new arraylist with the test data
-            ar_lt = ArrayList(elements=test_data)
+            ar_lt = ArrayList(indata=test_data)
             # test for the arraylist get_first() is equal to test_data
             assert ar_lt.get_first() == test_data[0]
             # test if arraylist size() is equal to test_len
@@ -562,7 +562,7 @@ class TestArrayList(unittest.TestCase):
                 # get the length of the test data
                 test_len = len(test_data)
                 # create a new arraylist with the test data
-                ar_lt = ArrayList(elements=test_data)
+                ar_lt = ArrayList(indata=test_data)
                 # test for the arraylist get_last() is equal to test_data
                 assert ar_lt.get_last() == test_data[-1]
                 # test if arraylist size() is equal to test_len
@@ -592,7 +592,7 @@ class TestArrayList(unittest.TestCase):
                 # get the length of the test data
                 test_len = len(test_data)
                 # create a new arraylist with the test data
-                ar_lt = ArrayList(elements=test_data)
+                ar_lt = ArrayList(indata=test_data)
 
                 # test get_element with an out-of-range index
                 with pytest.raises(Exception) as excinfo:
@@ -633,9 +633,9 @@ class TestArrayList(unittest.TestCase):
                 # get the length of the test data
                 test_len = len(test_data)
                 # create a new arraylist with the test data
-                ar_lt = ArrayList(elements=test_data)
-                for i in range(len(test_data)):
-                    t_data = test_data[0]
+                ar_lt = ArrayList(indata=test_data)
+                for i in range(0, len(test_data)-1):
+                    t_data = test_data[i]
                     t_elem = ar_lt.remove_first()
                     # test if the removed element is equal to the first
                     assert t_elem == t_data
@@ -665,7 +665,7 @@ class TestArrayList(unittest.TestCase):
                 # get the length of the test data
                 test_len = len(test_data)
                 # create a new arraylist with the test data
-                ar_lt = ArrayList(elements=test_data)
+                ar_lt = ArrayList(indata=test_data)
                 # iterate over the test data
                 for i in range(len(test_data)):
                     # get the last element of the test data
@@ -702,7 +702,7 @@ class TestArrayList(unittest.TestCase):
                 # get the length of the test data
                 test_len = len(test_data)
                 # create a new arraylist with the test data
-                ar_lt = ArrayList(elements=test_data)
+                ar_lt = ArrayList(indata=test_data)
 
                 # force an exception in the get_element method
                 with pytest.raises(Exception) as excinfo:
@@ -752,10 +752,10 @@ class TestArrayList(unittest.TestCase):
                 # get the test data
                 test_data = self.global_params.get(key)
                 # create a new arraylist with the test data
-                ar_lt = ArrayList(elements=test_data)
+                ar_lt = ArrayList(indata=test_data)
                 # if it is the custom dict, use the custom cmp function
                 if key == "TEST_CUSTOM_DICT_LT":
-                    ar_lt = ArrayList(elements=test_data,
+                    ar_lt = ArrayList(indata=test_data,
                                       cmp_function=cmp_test_function)
                 # iterate over the test data
                 for i in range(len(test_data)):
@@ -785,10 +785,10 @@ class TestArrayList(unittest.TestCase):
                 test_data = self.global_params.get(key)
                 # create a new arraylist with the test data
                 test_len = len(test_data)
-                ar_lt = ArrayList(elements=test_data)
+                ar_lt = ArrayList(indata=test_data)
                 # if it is the custom dict, use the custom cmp function
                 if key == "TEST_CUSTOM_DICT_LT":
-                    ar_lt = ArrayList(elements=test_data,
+                    ar_lt = ArrayList(indata=test_data,
                                       cmp_function=cmp_test_function)
                 # select a random valid index in the test data
                 i = random.randint(0, test_len-1)
@@ -825,10 +825,10 @@ class TestArrayList(unittest.TestCase):
                 # get the length of the test data
                 test_len = len(test_data)
                 # create a new arraylist with the test data
-                ar_lt = ArrayList(elements=test_data)
+                ar_lt = ArrayList(indata=test_data)
                 # if it is the custom dict, use the custom cmp function
                 if key == "TEST_CUSTOM_DICT_LT":
-                    ar_lt = ArrayList(elements=test_data,
+                    ar_lt = ArrayList(indata=test_data,
                                       cmp_function=cmp_test_function)
                 # select a random valid index in the test data
                 i = random.randint(0, test_len-1)
@@ -883,10 +883,10 @@ class TestArrayList(unittest.TestCase):
                 # get the length of the test data
                 test_len = len(test_data)
                 # create a new arraylist with the test data
-                ar_lt = ArrayList(elements=test_data)
+                ar_lt = ArrayList(indata=test_data)
                 # if it is the custom dict, use the custom cmp function
                 if key == "TEST_CUSTOM_DICT_LT":
-                    ar_lt = ArrayList(elements=test_data,
+                    ar_lt = ArrayList(indata=test_data,
                                       cmp_function=cmp_test_function)
 
                 # force an exception in the exchange method
@@ -940,26 +940,28 @@ class TestArrayList(unittest.TestCase):
                 # get the test data
                 test_data = self.global_params.get(key)
                 # create a new arraylist with the test data
-                ar_lt = ArrayList(elements=test_data)
-                # if it is the custom dict, use the custom cmp function
-                if key == "TEST_CUSTOM_DICT_LT":
-                    ar_lt = ArrayList(elements=test_data,
-                                      cmp_function=cmp_test_function)
+                ar_lt = ArrayList(indata=test_data)
                 # get the length of the test data
                 test_len = len(test_data)
-                i = random.randint(test_len*2, test_len*3)
-                j = random.randint(test_len*2, test_len*3)
-                # sample(range(test_len*2, test_len*3), 2)
-                # force an exception in the sublist method
+                assert ar_lt.size() == test_len
+                # if it is the custom dict, use the custom cmp function
+                if key == "TEST_CUSTOM_DICT_LT":
+                    ar_lt = ArrayList(indata=test_data,
+                                      cmp_function=cmp_test_function)
+                i = random.randint(test_len*-1, -1)
+                j = random.randint(test_len+1, test_len*2)
+                # # sample(range(test_len*2, test_len*3), 2)
+                # # force an exception in the sublist method
                 with pytest.raises(Exception) as excinfo:
                     ar_lt.sublist(i, j)
                 # test for the exception type
                 assert excinfo.type == IndexError
-                # test for the exception message
+                # # test for the exception message
                 assert "Invalid range: between" in str(excinfo.value)
 
                 # select a random valid a low index in the test data
-                low = random.randint(0, test_len-1)
+                # low = random.randint(0, test_len-1)
+                low = random.randint(0, (test_len-1)//2)
                 # select a random valid a high index in the test data
                 high = random.randint(low, test_len-1)
                 # get the elements in the test data
@@ -992,7 +994,7 @@ class TestArrayList(unittest.TestCase):
                 # get the test data
                 test_data = self.global_params.get(key)
                 # create a new arraylist with the test data
-                ar_lt1 = ArrayList(elements=test_data)
+                ar_lt1 = ArrayList(indata=test_data)
                 # create a python list with the test data
                 ar_lt2 = test_data.copy()
 
@@ -1006,7 +1008,7 @@ class TestArrayList(unittest.TestCase):
                 assert err_msg in str(excinfo.value)
 
                 # create a new arraylist with the wrong key
-                ar_lt2 = ArrayList(elements=test_data,
+                ar_lt2 = ArrayList(indata=test_data,
                                    key="testid")
                 # force an exception in the concat method
                 with pytest.raises(Exception) as excinfo:
@@ -1017,7 +1019,7 @@ class TestArrayList(unittest.TestCase):
                 assert "Invalid key:" in str(excinfo.value)
 
                 # create a new arraylist with the wrong cmp function
-                ar_lt2 = ArrayList(elements=test_data,
+                ar_lt2 = ArrayList(indata=test_data,
                                    cmp_function=cmp_test_function)
                 # force an exception in the concat method
                 with pytest.raises(Exception) as excinfo:
@@ -1025,16 +1027,16 @@ class TestArrayList(unittest.TestCase):
                 # test for the exception type
                 assert excinfo.type == TypeError
                 # test for the exception message
-                assert "Invalid cmp_function:" in str(excinfo.value)
+                assert "Invalid compare function:" in str(excinfo.value)
 
                 # create a new correct arraylist with the test data
-                ar_lt1 = ArrayList(elements=test_data)
-                ar_lt2 = ArrayList(elements=test_data)
+                ar_lt1 = ArrayList(indata=test_data)
+                ar_lt2 = ArrayList(indata=test_data)
                 # if it is the custom dict, use the custom cmp function
                 if key == "TEST_CUSTOM_DICT_LT":
-                    ar_lt1 = ArrayList(elements=test_data,
+                    ar_lt1 = ArrayList(indata=test_data,
                                        cmp_function=cmp_test_function)
-                    ar_lt2 = ArrayList(elements=test_data,
+                    ar_lt2 = ArrayList(indata=test_data,
                                        cmp_function=cmp_test_function)
                 # create the new concatenated arraylist
                 ans = ar_lt1.concat(ar_lt2)
@@ -1057,10 +1059,10 @@ class TestArrayList(unittest.TestCase):
                 test_data = self.global_params.get(key)
                 # create a new arraylist with the test data
                 test_len = len(test_data)
-                ar_lt = ArrayList(elements=test_data)
+                ar_lt = ArrayList(indata=test_data)
                 # if it is the custom dict, use the custom cmp function
                 if key == "TEST_CUSTOM_DICT_LT":
-                    ar_lt = ArrayList(elements=test_data,
+                    ar_lt = ArrayList(indata=test_data,
                                       cmp_function=cmp_test_function)
                 # iterates over the arraylist and the test data and compare
                 for element, data in zip(ar_lt, test_data):

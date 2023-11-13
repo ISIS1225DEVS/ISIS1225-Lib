@@ -18,9 +18,9 @@ def cmp_test(a, b):
 # main del ejercicio
 if __name__ == "__main__":
     imp = "ArrayList"   # "SingleLinked", "DoubleLinked", "ArrayList"
-    print(f"Testing '{imp}' implementation of ADT List")
-    test_lt_1 = List(implementation=imp)
-    # test_lt_1 = List2.new(implementation="ArrayList")
+    print(f"Testing '{imp}' ds_config of ADT List")
+    test_lt_1 = List(dstruct=imp)
+    # test_lt_1 = List2.new(dstruct="ArrayList")
 
     print("----------- config -----------")
     # test_lt_1 = test_lt_1.config()
@@ -34,8 +34,8 @@ if __name__ == "__main__":
         test_lt_1.add_last(i)
 
     print(test_lt_1)
-    test_lt_2 = List(implementation=imp,
-                     io=test_data,
+    test_lt_2 = List(dstruct=imp,
+                     indata=test_data,
                      cmp_function=cmp_test)
     print(test_lt_2)
     print(type(test_lt_2))
@@ -49,19 +49,41 @@ if __name__ == "__main__":
         {"testkey": 5, "testvalue": "five"},
     )
 
-    test_lt_3 = List(implementation=imp,
-                     io=test_data,
+    test_lt_3 = List(dstruct=imp,
+                     indata=test_data,
                      cmp_function=cmp_test)
     print(test_lt_3)
     print(type(test_lt_3))
     print("----------- config -----------")
-    # test_lt_1 = test_lt_1.config()
-    # print(test_lt_1)
-    # print(type(test_lt_1))
     print("iterating ADT List")
     for d in test_lt_3:
         print(d)
-    a = test_lt_3.sublist(0, 4)
+
+    print("----------- concat list -----------")
+    test_data = (1, 2, 3, 4, 5)
+    test_lt_5 = List(dstruct=imp,
+                     indata=test_data,
+                     cmp_function=cmp_test)
+
+    test_data = (6, 7, 8, 9, 10)
+    test_lt_6 = List(dstruct=imp,
+                     indata=test_data,
+                     cmp_function=cmp_test)
+
+    test_lt_7 = test_lt_5.concat(test_lt_6)
+    print(test_lt_7)
+    print(type(test_lt_7))
+    # test_lt_7 = test_lt_5 + test_lt_6
+
+    start = 1
+    end = 1
+    a = (start, end)
+    MIN = 0
+    MAX = 5
+    test = (MIN <= start <= end <= MAX)
+    print(test)
+
+    a = test_lt_3.sublist(1, 3)
     print("sublist created", a)
 
     print(test_lt_3._size)
@@ -69,8 +91,8 @@ if __name__ == "__main__":
 
     print("----------- str list -----------")
     test_data = ("one", "two", "three", "four", "five")
-    test_lt_4 = List(implementation=imp,
-                     io=test_data,
+    test_lt_4 = List(dstruct=imp,
+                     indata=test_data,
                      cmp_function=cmp_test)
     print(test_lt_4)
     print(type(test_lt_4))
@@ -79,21 +101,5 @@ if __name__ == "__main__":
     i, j = random.choices(range(0, test_len), k=2)
     # sample(range(test_len*2, test_len*3), 2)
     print(f"i: {i}, j: {j}")
-    sub = test_lt_4.sublist(0, 1)
+    sub = test_lt_4.sublist(1, 1)
     print(sub)
-
-    print("----------- concat list -----------")
-    test_data = (1, 2, 3, 4, 5)
-    test_lt_5 = List(implementation=imp,
-                     io=test_data,
-                     cmp_function=cmp_test)
-
-    test_data = (6, 7, 8, 9, 10)
-    test_lt_6 = List(implementation=imp,
-                     io=test_data,
-                     cmp_function=cmp_test)
-
-    test_lt_7 = test_lt_5.concat(test_lt_6)
-    print(test_lt_7)
-    print(type(test_lt_7))
-    # test_lt_7 = test_lt_5 + test_lt_6

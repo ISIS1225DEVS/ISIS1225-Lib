@@ -4,8 +4,8 @@
     la cual se puede acceder y procesar sus elementos utilizando las
     funciones/métodos propios de la estructura.
 
-    Este código está basado en la implementación propuesta por los libros
-    con algunas modificaciones para adaptarlo a Python.
+    Este código y sus modificaciones para Python está basado en la
+    implementación propuesta por los siguientes autores/libros:
         1) Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.
         2) Data Structures and Algorithms in Python, Michael T. Goodrich,
             Roberto Tamassia y Michael H. Goldwasser.
@@ -69,6 +69,7 @@ from DISClib.Utils.error import init_type_checker
 from DISClib.Utils.default import lt_default_cmp_funcion
 from DISClib.Utils.default import T
 from DISClib.Utils.default import DEFAULT_DICT_KEY
+from DISClib.Utils.default import VALID_IO_TYPE
 
 # checking costum modules
 assert error_handler
@@ -76,6 +77,7 @@ assert init_type_checker
 assert lt_default_cmp_funcion
 assert T
 assert DEFAULT_DICT_KEY
+assert VALID_IO_TYPE
 
 
 @dataclass
@@ -92,15 +94,15 @@ class ArrayList(Generic[T]):
         elements (List[T]): lista nativa de python que contiene los elementos
             de la estructura de datos.
         _size (int): propiedad privada que representa el tamaño de la lista.
-            cmp_function (Optional[Callable[[T, T], int]]): función de
-            comparación opcional que se utiliza para comparar los elementos
-            del ArrayList, por defecto es None y el __post_init__ configura la
-            función por defecto lt_default_cmp_funcion().
+        cmp_function (Optional[Callable[[T, T], int]]): función de comparación
+            opcional que se utiliza para comparar los elementos del ArrayList,
+            por defecto es None y el __post_init__ configura la función por
+            defecto lt_default_cmp_funcion().
         key (Optional[str]): nombre de la llave opcional que se utiliza para
             comparar los elementos del ArrayList, Por defecto es None y el
             __post_init__ configura la llave por defecto la llave "id" en
             DEFAULT_DICT_KEY.
-        io (Optional[List[T]]): lista nativa de python que contiene los
+        indata (Optional[List[T]]): lista nativa de python que contiene los
             elementos de la estructura de datos, por defecto es None y el
             usuario puede incluir una lista nativa de python como argumento
 
@@ -117,7 +119,7 @@ class ArrayList(Generic[T]):
     # the key is used to compare elements, not defined by default
     key: Optional[str] = None
     # input elements from python list
-    io: Optional[List[T]] = None
+    indata: Optional[List[T]] = None
 
     def __post_init__(self) -> None:
         """__post_init__ configura los valores por defecto para la llave (key)
@@ -133,11 +135,11 @@ class ArrayList(Generic[T]):
             if self.cmp_function is None:
                 self.cmp_function = self.default_cmp_function
             # if elements are in a list, add them to the ArrayList
-            if isinstance(self.io, (list, tuple, set)):
-                for elm in self.io:
+            if isinstance(self.indata, VALID_IO_TYPE):
+                for elm in self.indata:
                     self.add_last(elm)
             self._size = len(self.elements)
-            self.io = None
+            self.indata = None
         except Exception as err:
             self._handle_error(err)
 
@@ -156,8 +158,7 @@ class ArrayList(Generic[T]):
         """
         try:
             # passing self as the first argument to simulate a method
-            ans = lt_default_cmp_funcion(self.key, elm1, elm2)
-            return ans
+            return lt_default_cmp_funcion(self.key, elm1, elm2)
         except Exception as err:
             self._handle_error(err)
 
@@ -533,7 +534,7 @@ class ArrayList(Generic[T]):
         try:
             if self.is_empty():
                 raise IndexError("Empty data structure")
-            elif (start > end) or ((start < 0) or (end > self._size-1)):
+            elif not (0 <= start <= end <= self.size()-1):
                 raise IndexError(f"Invalid range: between [{start}, {end}]")
             sub_lt = ArrayList(cmp_function=self.cmp_function,
                                key=self.key)
@@ -543,6 +544,7 @@ class ArrayList(Generic[T]):
                 if self._check_type(element):
                     sub_lt.add_last(element)
                 i += 1
+            # sub_lt._size = len(sub_lt.elements)
             return sub_lt
         except (IndexError, TypeError) as err:
             self._handle_error(err)
@@ -579,7 +581,7 @@ class ArrayList(Generic[T]):
             code1 = self.cmp_function.__code__.co_code
             code2 = other.cmp_function.__code__.co_code
             if code1 != code2:
-                err_msg = f"Invalid cmp_function: {self.cmp_function}"
+                err_msg = f"Invalid compare function: {self.cmp_function}"
                 err_msg += f" != {other.cmp_function}"
                 raise TypeError(err_msg)
             # FIXME maybe I can use the original ArrayList to concatenate
@@ -596,7 +598,7 @@ class ArrayList(Generic[T]):
             'for' de python tradicional.
 
         Returns:
-            iterador: iterador sobre los elementos del ArrayList.
+            __iter__: iterador Python sobre los elementos del ArrayList.
         """
         try:
             return iter(self.elements)

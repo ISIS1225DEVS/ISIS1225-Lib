@@ -5,9 +5,8 @@
     nodo en la secuencia. Esto le permite a la lista un crecimiento y
     reducción dinámico en la memoria disponible.
 
-
-    Este código está basado en la implementación propuesta por los libros
-    con algunas modificaciones para adaptarlo a Python.
+    Este código y sus modificaciones para Python está basado en la
+    implementación propuesta por los siguientes autores/libros:
         1) Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.
         2) Data Structures and Algorithms in Python, Michael T. Goodrich,
             Roberto Tamassia y Michael H. Goldwasser.
@@ -74,12 +73,15 @@ from DISClib.Utils.error import init_type_checker
 from DISClib.Utils.default import lt_default_cmp_funcion
 from DISClib.Utils.default import T
 from DISClib.Utils.default import DEFAULT_DICT_KEY
+from DISClib.Utils.default import VALID_IO_TYPE
 
 # checking costum modules
 assert error_handler
 assert init_type_checker
 assert lt_default_cmp_funcion
 assert T
+assert DEFAULT_DICT_KEY
+assert VALID_IO_TYPE
 
 
 @dataclass
@@ -104,7 +106,7 @@ class SingleLinked(Generic[T]):
             comparar los elementos del ArrayList, Por defecto es None y el
             __post_init__ configura la llave por defecto la llave "id" en
             DEFAULT_DICT_KEY.
-        io (Optional[List[T]]): lista nativa de python que contiene los
+        indata (Optional[List[T]]): lista nativa de python que contiene los
             elementos de la estructura de datos, por defecto es None y el
             usuario puede incluir una lista nativa de python como argumento
 
@@ -124,7 +126,7 @@ class SingleLinked(Generic[T]):
     # the key is used to compare elements, not defined by default
     key: Optional[str] = None
     # input elements from python list
-    io: Optional[List[T]] = None
+    indata: Optional[List[T]] = None
 
     def __post_init__(self) -> None:
         """__post_init__ configura los valores por defecto para la llave (key)
@@ -135,17 +137,16 @@ class SingleLinked(Generic[T]):
         try:
             # if the key is not defined, use the default
             if self.key is None:
-                self.key = DEFAULT_DICT_KEY
+                self.key = DEFAULT_DICT_KEY     # its "id" by default
             # if the compare function is not defined, use the default
             if self.cmp_function is None:
                 self.cmp_function = self.default_cmp_function
-            # if elements are in a list, add them to the SingleLinked
-            if isinstance(self.io, list):
-                # elements = self.elements
-                # self.elements = list()
-                for elm in self.io:
+            # if elements are in a list, add them to the ArrayList
+            if isinstance(self.indata, VALID_IO_TYPE):
+                for elm in self.indata:
                     self.add_last(elm)
-                self.io = None
+            self._size = len(self.elements)
+            self.indata = None
         except Exception as err:
             self._handle_error(err)
 
@@ -164,8 +165,7 @@ class SingleLinked(Generic[T]):
         """
         try:
             # passing self as the first argument to simulate a method
-            ans = lt_default_cmp_funcion(self.key, elm1, elm2)
-            return ans
+            return lt_default_cmp_funcion(self.key, elm1, elm2)
         except Exception as err:
             self._handle_error(err)
 
@@ -308,17 +308,17 @@ class SingleLinked(Generic[T]):
                     if self.size() == 0:
                         self.first = new_node
                         self.last = new_node
-                    elif self.size() > 0 and pos == 1:
+                    elif self.size() > 0 and pos == 0:
                         new_node._next = self.first
                         self.first = new_node
                     else:
-                        idx = 1
+                        i = 1
                         current = self.first
                         previous = self.first
-                        while idx < pos:
+                        while i < pos:
                             previous = current
                             current = current.next()
-                            idx += 1
+                            i += 1
                         new_node._next = current
                         previous._next = new_node
                     self._size += 1
@@ -388,10 +388,10 @@ class SingleLinked(Generic[T]):
                 raise IndexError("Index", pos, "is out of range")
             else:
                 current = self.first
-                idx = 0
-                while idx <= pos:
+                i = 0
+                while i < pos+1:
                     current = current.next()
-                    idx += 1
+                    i += 1
                 return current.get_info()
         except Exception as err:
             self._handle_error(err)
@@ -474,12 +474,12 @@ class SingleLinked(Generic[T]):
                 raise Exception("Index", pos, "is an invalid position")
             current = self.first
             prev = self.first
-            idx = 0
+            i = 0
             if pos == 0:
                 self.first = self.first.next()
             elif pos >= 1:
-                while idx <= pos:
-                    idx += 1
+                while i <= pos:
+                    i += 1
                     prev = current
                     current = current.next()
                 prev._next = current.next()
@@ -534,13 +534,13 @@ class SingleLinked(Generic[T]):
             if self.s > 0:
                 node = self.first
                 found = False
-                idx = 0
-                while not found and idx < lt_size:
+                i = 0
+                while not found and i < lt_size:
                     data = node.get_info()
                     if self.compare_elements(element, data) == 0:
                         found = True
-                        pos = idx
-                    idx += 1
+                        pos = i
+                    i += 1
                     if node.next() is not None:
                         node = node.next()
             return pos
@@ -570,10 +570,10 @@ class SingleLinked(Generic[T]):
             elif self._check_type(new_info):
                 # raise TypeError("Invalid element type")
                 current = self.first
-                idx = 0
-                while idx <= pos:
+                i = 0
+                while i <= pos:
                     current = current.next()
-                    idx += 1
+                    i += 1
                 current.set_info(new_info)
         except (IndexError, TypeError) as err:
             self._handle_error(err)
@@ -630,13 +630,13 @@ class SingleLinked(Generic[T]):
                 raise IndexError(f"Invalid range: between [{start}, {end}]")
             sub_lt = SingleLinked(cmp_function=self.cmp_function,
                                   key=self.key)
-            idx = 0
+            i = 0
             current = self.first
-            while idx <= end:
-                if idx >= start:
+            while i <= end:
+                if i >= start:
                     sub_lt.add_last(current.get_info())
                 current = current.next()
-                idx += 1
+                i += 1
             return sub_lt
         except (IndexError, TypeError) as err:
             self._handle_error(err)

@@ -53,31 +53,55 @@ ADT_LT_MOD_DICT = {
 }
 
 
-def List(implementation: str = "ArrayList", **kwargs) -> T:
+def List(dstruct: str = "ArrayList", **kwargs) -> T:
+    """List _summary_
+
+    Args:
+        dstruct (str, optional): _description_. Defaults to "ArrayList".
+
+    Raises:
+        ValueError: _description_
+
+    Returns:
+        T: _description_
+    """
     try:
         package = f"{ADT_LT_PGK_PATH}."
-        package += f"{ADT_LT_MOD_DICT.get(implementation)}"
-        adt_list = DynamicImporter(implementation, package, **kwargs)
+        package += f"{ADT_LT_MOD_DICT.get(dstruct)}"
+        adt_list = DynamicImporter(dstruct, package, **kwargs)
         adt_instance = adt_list.start()
         return adt_instance
     except Exception as exp:
         # raise ValueError("Invalid list type: " + str(exp))
-        err_msg = f"List type '{implementation}' not found"
+        err_msg = f"List type '{dstruct}' not found"
         err_msg += f" in {ADT_LT_PGK_PATH}"
         err_msg += str(exp)
         raise ValueError(err_msg)
 
 
-def transform(src_lt: T, tgt_implementation: str = "SingleLinked") -> T:
+def transform(src_lt: T, tgt_dstruct: str = "SingleLinked") -> T:
+    """transform _summary_
+
+    Args:
+        src_lt (T): _description_
+        tgt_dstruct (str, optional): _description_. Defaults to
+        "SingleLinked".
+
+    Raises:
+        ValueError: _description_
+
+    Returns:
+        T: _description_
+    """
     try:
-        tgt_lt = List(implementation=tgt_implementation)
-        for e in src_lt:
-            tgt_lt.add_last(e)
+        tgt_lt = List(dstruct=tgt_dstruct)
+        for elm in src_lt:
+            tgt_lt.add_last(elm)
         tgt_lt.cmp_function = src_lt.cmp_function
         tgt_lt.key = src_lt.key
         return tgt_lt
     except Exception as exp:
-        err_msg = f"List type '{tgt_implementation}' not found"
+        err_msg = f"List type '{tgt_dstruct}' not found"
         err_msg += f" in {ADT_LT_PGK_PATH}"
         err_msg += str(exp)
         raise ValueError(err_msg)
@@ -101,14 +125,14 @@ def transform(src_lt: T, tgt_implementation: str = "SingleLinked") -> T:
 #     """Crea una lista vacia
 
 #     Args:
-#         datastructure:  Tipo de estructura de datos a utilizar para implementar
+#         datastructure:  Tipo de estructura de datos a utilizar
 #         la lista. Los tipos posibles pueden ser: ARRAY_LIST,
 #         SINGLE_LINKED y DOUBLE_LINKED.
 
 #         cmpfunction: Función de comparación para los elementos de la lista.
 #         Si no se provee función de comparación se utiliza la función
 #         por defecto pero se debe proveer un valor para key.
-#         Si se provee una función de comparación el valor de Key debe ser None.
+#         Si se provee una función de comparación el valor de Key debe None.
 
 #         Key:  Identificador utilizado para comparar dos elementos de la lista
 #         con la función de comaparación por defecto.
@@ -172,7 +196,7 @@ def transform(src_lt: T, tgt_implementation: str = "SingleLinked") -> T:
 #     """ Agrega un elemento en la última posición de la lista.
 
 #     Se adiciona un elemento en la última posición de la lista y se actualiza
-#     el apuntador a la útima posición. Se incrementa el tamaño de la lista en 1
+#     el apuntador a la útima posición. Se incrementa el tamaño de la lista 1
 
 #     Args:
 #         lst: La lista en la que se inserta el elemento
@@ -489,27 +513,3 @@ def transform(src_lt: T, tgt_implementation: str = "SingleLinked") -> T:
 #     except Exception as exp:
 #         raise Exception('List->Iterator: ' + str(exp))
 #         # error.reraise(exp, 'List->Iterator: ')
-
-
-"""
-Selector dinamico de la estructua de datos solicitada
-"""
-# # TODO convertir en data class
-# switch_module = {
-#     "ARRAY_LIST": ".arraylist",
-#     "SINGLE_LINKED": ".singlelinkedlist",
-#     "DOUBLE_LINKED": ".doublelinkedlist"
-# }
-
-
-# # FIXME Cambiar el nombre de la funcion para usar snake_case
-# # TODO Implementar manejo de excepciones para switch_module (Raise ValueError)
-# # TODO Especificar los tipos de datos de entrada y salida de cada función
-# def listSelector(datastructure):
-#     """
-#     Carga dinamicamente el import de la estructura de datos
-#     seleccionada
-#     """
-#     ds = switch_module.get(datastructure)
-#     module = importlib.import_module(ds, package="DISClib.DataStructures")
-#     return module

@@ -5,18 +5,12 @@ import os
 import sys
 
 # importing all the test modules to package
-from .list import test_struct_arraylist
-from .list import test_struct_listnode
+from .list import test_struct_list
+from .list import test_struct_nodes
 
 # asserting test packages
-assert test_struct_arraylist
-assert test_struct_listnode
-
-# # import all the modules in the Utils namespaces
-from DISClib.Utils.error import error_handler
-from DISClib.Utils.error import init_type_checker
-assert error_handler
-assert init_type_checker
+assert test_struct_list
+assert test_struct_nodes
 
 # config the path to the DISCLib folder
 # TODO this used to be in config.py

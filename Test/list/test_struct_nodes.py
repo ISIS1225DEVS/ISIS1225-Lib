@@ -109,8 +109,8 @@ class TestNode(unittest.TestCase):
                 # assert for node info is the same type as test_data
                 assert isinstance(node.info, dtype)
 
-    def test_get_element(self):
-        """test_get_element test the retrieval of the list node information.
+    def test_get_info(self):
+        """test_get_info test the retrieval of the list node information.
         """
         # getting the global variables
         dtype_lt = self.global_params.get("CHECK_TYPE_LT")
@@ -129,8 +129,8 @@ class TestNode(unittest.TestCase):
                 # assert get_info() returns the same type as test_data
                 assert isinstance(node.get_info(), dtype)
 
-    def test_set_element(self):
-        """test_set_element test the update of the list node information.
+    def test_set_info(self):
+        """test_set_info test the update of the list node information.
         """
         # getting the global variables
         dtype_lt = self.global_params.get("CHECK_TYPE_LT")

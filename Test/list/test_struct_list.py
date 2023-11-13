@@ -19,6 +19,7 @@ def global_params():
     Returns:
         dict: dictionary with the global parameters for testing.
     """
+    # TODO translate to spanish docstring
     parameters = dict(
         TEST_STR_LT=[
             "a",
@@ -124,7 +125,7 @@ def global_params():
             dict,
         ],
     )
-    # FIXME do we need this? it is okey?
+    # FIXME do we need this? is this okey?
     TEST_ARRAY_LIST_LT = list()
     for i in parameters.get("TEST_INT_LT"):
         temp_lt = parameters.get("TEST_DICT_LT")
@@ -151,6 +152,7 @@ def cmp_test_function(elm1: dict, elm2: dict) -> int:
         int: 1 if the first element is greater than the second, -1 if the
             first element is less than the second, 0 if they are equal.
     """
+    # TODO translate to spanish docstring
     key = "uuid"
     key1 = elm1.get(key)
     key2 = elm2.get(key)
@@ -179,8 +181,7 @@ class TestArrayList(unittest.TestCase):
     Args:
         unittest (class): python class for unit testing.
     """
-    # test_lt = None
-
+    # TODO translate to spanish docstring
     @pytest.fixture(autouse=True)
     def inject_fixtures(self, global_params):
         """inject_fixtures it injects the global parameters as a fixture.
@@ -188,11 +189,13 @@ class TestArrayList(unittest.TestCase):
         Args:
             global_params (dict): global parameters for testing.
         """
+        # TODO translate to spanish docstring
         self.global_params = global_params
 
     def test_new_default_arraylist(self):
         """Tests the initialization of an empty ArrayList.
         """
+        # TODO translate to spanish docstring
         # Test an empty ArrayList
         empty_list = ArrayList()
         # Test if ArrayList is not None
@@ -212,6 +215,7 @@ class TestArrayList(unittest.TestCase):
         """test_default_cmp_function test the default_cmp_function of the
             arraylist with different types of elements.
         """
+        # TODO translate to spanish docstring
         # create a new empty arraylist with the default cmp function
         ar_lt = ArrayList()
         # iterate over tglobal params and use the default cmp function
@@ -240,6 +244,7 @@ class TestArrayList(unittest.TestCase):
         """test_new_custom_arraylist test the initialization of a custom
             array list with elements of different types.
         """
+        # TODO translate to spanish docstring
         # getting the global variables
         data_type_lt = self.global_params.get("CHECK_TYPE_LT")
         # iterate over tglobal params and create single linked list node
@@ -268,6 +273,7 @@ class TestArrayList(unittest.TestCase):
         """test_custom_key test the initialization of a custom arraylist
             with elements and a custom key.
         """
+        # TODO translate to spanish docstring
         # getting the global variables
         dtype_lt = self.global_params.get("CHECK_TYPE_LT")
         # iterate over tglobal params and create single linked list node
@@ -275,7 +281,7 @@ class TestArrayList(unittest.TestCase):
             # ignore 3 keys from the global params
             if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
                 test_data = self.global_params.get(key)
-                ar_lt = ArrayList(indata=test_data,
+                ar_lt = ArrayList(iodata=test_data,
                                   key="uuid")
                 # test for the arraylist is not None
                 assert ar_lt is not None
@@ -296,6 +302,7 @@ class TestArrayList(unittest.TestCase):
         """test_custom_cmp_function test the initialization of a custom
             arraylist with elements and a custom cmp_function.
         """
+        # TODO translate to spanish docstring
         # getting the global variables
         dtype_lt = self.global_params.get("CHECK_TYPE_LT")
         # iterate over tglobal params and create single linked list node
@@ -303,7 +310,7 @@ class TestArrayList(unittest.TestCase):
             # ignore 3 keys from the global params
             if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
                 test_data = self.global_params.get(key)
-                ar_lt = ArrayList(indata=test_data,
+                ar_lt = ArrayList(iodata=test_data,
                                   cmp_function=cmp_test_function)
                 # test for the arraylist is not None
                 assert ar_lt is not None
@@ -324,6 +331,7 @@ class TestArrayList(unittest.TestCase):
         """test_get_size test the size method of the arraylist. with empty
             and non-empty arraylists.
         """
+        # TODO translate to spanish docstring
         # create a new empty arraylist
         ar_lt = ArrayList()
         # test for the arraylist size is 0 with size method
@@ -340,7 +348,7 @@ class TestArrayList(unittest.TestCase):
                 # getting the test data
                 test_data = self.global_params.get(key)
                 # create a new arraylist with the test data
-                ar_lt = ArrayList(indata=test_data)
+                ar_lt = ArrayList(iodata=test_data)
                 # test for the arraylist size() is equal to test_data
                 assert ar_lt.size() == len(test_data)
                 # test for the arraylist _size is equal to test_data
@@ -352,6 +360,7 @@ class TestArrayList(unittest.TestCase):
         """test_is_empty test the is_empty method of the arraylist with empty
             and non-empty arraylists.
         """
+        # TODO translate to spanish docstring
         # create a new empty arraylist
         ar_lt = ArrayList()
         # test for the arraylist is empty
@@ -366,7 +375,7 @@ class TestArrayList(unittest.TestCase):
                 # get the test data
                 test_data = self.global_params.get(key)
                 # create a new arraylist with the test data
-                ar_lt = ArrayList(indata=test_data)
+                ar_lt = ArrayList(iodata=test_data)
                 # test for the arraylist is not empty
                 assert ar_lt.is_empty() is False
                 # test for the arraylist elements is equal to test_data
@@ -376,6 +385,7 @@ class TestArrayList(unittest.TestCase):
         """test_add_first test the add_first method of the arraylist with empty
             arraylists with different types of elements.
         """
+        # TODO translate to spanish docstring
         # testing type handling
         # getting the global variables
         # type error test data list
@@ -422,6 +432,7 @@ class TestArrayList(unittest.TestCase):
             arraylists with different types of elements. Checks for TypeError
             exceptions.
         """
+        # TODO translate to spanish docstring
         # testing type handling
         # getting the global variables
         # type error test data list
@@ -467,6 +478,7 @@ class TestArrayList(unittest.TestCase):
         """test_add_element test the add_element method of the arraylist with
             empty and non-empty arraylists. Checks for IndexError exceptions.
         """
+        # TODO translate to spanish docstring
         # create a new empty arraylist
         ar_lt = ArrayList()
         # force an exception in the get_element method
@@ -487,7 +499,7 @@ class TestArrayList(unittest.TestCase):
                 # get the length of the test data
                 test_len = len(test_data)
                 # create a new arraylist with the test data
-                ar_lt = ArrayList(indata=test_data)
+                ar_lt = ArrayList(iodata=test_data)
                 # select a random valid index in the test data
                 i = random.randint(0, test_len-1)
                 # get the element in the test data
@@ -518,6 +530,7 @@ class TestArrayList(unittest.TestCase):
         """test_get_first test the get_first method of the arraylist with empty
             and non-empty arraylists. Checks for IndexError exceptions.
         """
+        # TODO translate to spanish docstring
         # create a new empty arraylist
         ar_lt = ArrayList()
         # force an exception in the get_first method
@@ -537,7 +550,7 @@ class TestArrayList(unittest.TestCase):
                 # get the length of the test data
                 test_len = len(test_data)
                 # create a new arraylist with the test data
-                ar_lt = ArrayList(indata=test_data)
+                ar_lt = ArrayList(iodata=test_data)
                 # test for the arraylist get_first() is equal to test_data
                 assert ar_lt.get_first() == test_data[0]
                 # test if arraylist size() is equal to test_len
@@ -547,6 +560,7 @@ class TestArrayList(unittest.TestCase):
         """test_get_last test the get_last method of the arraylist with empty
             and non-empty arraylists. Checks for IndexError exceptions.
         """
+        # TODO translate to spanish docstring
         # create a new empty arraylist
         ar_lt = ArrayList()
         # force an exception in the get_last method
@@ -566,7 +580,7 @@ class TestArrayList(unittest.TestCase):
                 # get the length of the test data
                 test_len = len(test_data)
                 # create a new arraylist with the test data
-                ar_lt = ArrayList(indata=test_data)
+                ar_lt = ArrayList(iodata=test_data)
                 # test for the arraylist get_last() is equal to test_data
                 assert ar_lt.get_last() == test_data[-1]
                 # test if arraylist size() is equal to test_len
@@ -576,6 +590,7 @@ class TestArrayList(unittest.TestCase):
         """test_get_element test the get_element method of the arraylist with
         empty and non-empty arraylists. Checks for IndexError exceptions.
         """
+        # TODO translate to spanish docstring
         # create a new empty arraylist
         ar_lt = ArrayList()
         # force an exception in the get_element method
@@ -596,7 +611,7 @@ class TestArrayList(unittest.TestCase):
                 # get the length of the test data
                 test_len = len(test_data)
                 # create a new arraylist with the test data
-                ar_lt = ArrayList(indata=test_data)
+                ar_lt = ArrayList(iodata=test_data)
 
                 # test get_element with an out-of-range index
                 with pytest.raises(Exception) as excinfo:
@@ -618,6 +633,7 @@ class TestArrayList(unittest.TestCase):
         """test_remove_first test the remove_first method of the arraylist with
         empty and non-empty arraylists. Checks for IndexError exceptions.
         """
+        # TODO translate to spanish docstring
         # create a new empty arraylist
         ar_lt = ArrayList()
         # force an exception in the get_first method
@@ -637,7 +653,7 @@ class TestArrayList(unittest.TestCase):
                 # get the length of the test data
                 test_len = len(test_data)
                 # create a new arraylist with the test data
-                ar_lt = ArrayList(indata=test_data)
+                ar_lt = ArrayList(iodata=test_data)
                 for i in range(0, len(test_data)-1):
                     t_data = test_data[i]
                     t_elem = ar_lt.remove_first()
@@ -650,6 +666,7 @@ class TestArrayList(unittest.TestCase):
         """test_remove_last test the remove_last method of the arraylist with
         empty and non-empty arraylists. Checks for IndexError exceptions.
         """
+        # TODO translate to spanish docstring
         # create a new empty arraylist
         ar_lt = ArrayList()
         # force an exception in the get_first method
@@ -669,7 +686,7 @@ class TestArrayList(unittest.TestCase):
                 # get the length of the test data
                 test_len = len(test_data)
                 # create a new arraylist with the test data
-                ar_lt = ArrayList(indata=test_data)
+                ar_lt = ArrayList(iodata=test_data)
                 # iterate over the test data
                 for i in range(0, len(test_data)-1):
                     # get the last element of the test data
@@ -686,6 +703,7 @@ class TestArrayList(unittest.TestCase):
         """test_remove_element test the remove_element method of the arraylist
         with empty and non-empty arraylists. Checks for IndexError exceptions.
         """
+        # TODO translate to spanish docstring
         # create a new empty arraylist
         ar_lt = ArrayList()
         # force an exception in the get_element method
@@ -706,7 +724,7 @@ class TestArrayList(unittest.TestCase):
                 # get the length of the test data
                 test_len = len(test_data)
                 # create a new arraylist with the test data
-                ar_lt = ArrayList(indata=test_data)
+                ar_lt = ArrayList(iodata=test_data)
 
                 # force an exception in the get_element method
                 with pytest.raises(Exception) as excinfo:
@@ -734,6 +752,7 @@ class TestArrayList(unittest.TestCase):
             TypeError exceptions. It also checks if the compared elements are
             equal to the index of the arraylist.
         """
+        # TODO translate to spanish docstring
         ar_lt = ArrayList()
         # delete the default cmp function
         ar_lt.cmp_function = None
@@ -756,10 +775,10 @@ class TestArrayList(unittest.TestCase):
                 # get the test data
                 test_data = self.global_params.get(key)
                 # create a new arraylist with the test data
-                ar_lt = ArrayList(indata=test_data)
+                ar_lt = ArrayList(iodata=test_data)
                 # if it is the custom dict, use the custom cmp function
                 if key == "TEST_CUSTOM_DICT_LT":
-                    ar_lt = ArrayList(indata=test_data,
+                    ar_lt = ArrayList(iodata=test_data,
                                       cmp_function=cmp_test_function)
                 # iterate over the test data
                 for i in range(0, len(test_data)-1):
@@ -780,7 +799,7 @@ class TestArrayList(unittest.TestCase):
     def test_is_present(self):
         """test_is_present _summary_
         """
-        # TODO add docstring
+        # TODO translate to spanish docstring
         # iterates over global params and create filled arraylist
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
@@ -789,10 +808,10 @@ class TestArrayList(unittest.TestCase):
                 test_data = self.global_params.get(key)
                 # create a new arraylist with the test data
                 test_len = len(test_data)
-                ar_lt = ArrayList(indata=test_data)
+                ar_lt = ArrayList(iodata=test_data)
                 # if it is the custom dict, use the custom cmp function
                 if key == "TEST_CUSTOM_DICT_LT":
-                    ar_lt = ArrayList(indata=test_data,
+                    ar_lt = ArrayList(iodata=test_data,
                                       cmp_function=cmp_test_function)
                 # select a random valid index in the test data
                 i = random.randint(0, test_len-1)
@@ -800,6 +819,7 @@ class TestArrayList(unittest.TestCase):
                 # test if the element is present in the arraylist
                 idx = ar_lt.is_present(t_data)
                 # test if the index is valid
+                # FIXME check this tokenization assert
                 assert -1 <= idx <= test_len-1
 
     def test_change_info(self):
@@ -808,7 +828,7 @@ class TestArrayList(unittest.TestCase):
             exceptions. It also checks if the changed elements are equal to the
             index of the arraylist.
         """
-        # TODO add docstring
+        # TODO translate to spanish docstring
         # create a new empty arraylist
         ar_lt = ArrayList()
         # force an exception in the get_element method
@@ -829,10 +849,10 @@ class TestArrayList(unittest.TestCase):
                 # get the length of the test data
                 test_len = len(test_data)
                 # create a new arraylist with the test data
-                ar_lt = ArrayList(indata=test_data)
+                ar_lt = ArrayList(iodata=test_data)
                 # if it is the custom dict, use the custom cmp function
                 if key == "TEST_CUSTOM_DICT_LT":
-                    ar_lt = ArrayList(indata=test_data,
+                    ar_lt = ArrayList(iodata=test_data,
                                       cmp_function=cmp_test_function)
                 # select a random valid index in the test data
                 i = random.randint(0, test_len-1)
@@ -866,6 +886,7 @@ class TestArrayList(unittest.TestCase):
             checks if the exchanged elements are equal to the index of the
             arraylist.
         """
+        # TODO translate to spanish docstring
         # create a new empty arraylist
         ar_lt = ArrayList()
         # force an exception in the exchange method
@@ -887,10 +908,10 @@ class TestArrayList(unittest.TestCase):
                 # get the length of the test data
                 test_len = len(test_data)
                 # create a new arraylist with the test data
-                ar_lt = ArrayList(indata=test_data)
+                ar_lt = ArrayList(iodata=test_data)
                 # if it is the custom dict, use the custom cmp function
                 if key == "TEST_CUSTOM_DICT_LT":
-                    ar_lt = ArrayList(indata=test_data,
+                    ar_lt = ArrayList(iodata=test_data,
                                       cmp_function=cmp_test_function)
 
                 # force an exception in the exchange method
@@ -926,6 +947,7 @@ class TestArrayList(unittest.TestCase):
             It also checks if the sublist is an arraylist and if the elements
             are equal to the sublist of the test data.
         """
+        # TODO translate to spanish docstring
         # create a new empty arraylist
         ar_lt = ArrayList()
         # force an exception in the sublist method
@@ -944,13 +966,13 @@ class TestArrayList(unittest.TestCase):
                 # get the test data
                 test_data = self.global_params.get(key)
                 # create a new arraylist with the test data
-                ar_lt = ArrayList(indata=test_data)
+                ar_lt = ArrayList(iodata=test_data)
                 # get the length of the test data
                 test_len = len(test_data)
                 assert ar_lt.size() == test_len
                 # if it is the custom dict, use the custom cmp function
                 if key == "TEST_CUSTOM_DICT_LT":
-                    ar_lt = ArrayList(indata=test_data,
+                    ar_lt = ArrayList(iodata=test_data,
                                       cmp_function=cmp_test_function)
                 i = random.randint(test_len*-1, -1)
                 j = random.randint(test_len+1, test_len*2)
@@ -991,6 +1013,7 @@ class TestArrayList(unittest.TestCase):
             concatenate with another arraylist, with the same key and cmp
             function.
         """
+        # TODO translate to spanish docstring
         # iterates over global params and create filled arraylist
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
@@ -998,7 +1021,7 @@ class TestArrayList(unittest.TestCase):
                 # get the test data
                 test_data = self.global_params.get(key)
                 # create a new arraylist with the test data
-                ar_lt1 = ArrayList(indata=test_data)
+                ar_lt1 = ArrayList(iodata=test_data)
                 # create a python list with the test data
                 ar_lt2 = test_data.copy()
 
@@ -1012,7 +1035,7 @@ class TestArrayList(unittest.TestCase):
                 assert err_msg in str(excinfo.value)
 
                 # create a new arraylist with the wrong key
-                ar_lt2 = ArrayList(indata=test_data,
+                ar_lt2 = ArrayList(iodata=test_data,
                                    key="testid")
                 # force an exception in the concat method
                 with pytest.raises(Exception) as excinfo:
@@ -1023,7 +1046,7 @@ class TestArrayList(unittest.TestCase):
                 assert "Invalid key:" in str(excinfo.value)
 
                 # create a new arraylist with the wrong cmp function
-                ar_lt2 = ArrayList(indata=test_data,
+                ar_lt2 = ArrayList(iodata=test_data,
                                    cmp_function=cmp_test_function)
                 # force an exception in the concat method
                 with pytest.raises(Exception) as excinfo:
@@ -1034,13 +1057,13 @@ class TestArrayList(unittest.TestCase):
                 assert "Invalid compare function:" in str(excinfo.value)
 
                 # create a new correct arraylist with the test data
-                ar_lt1 = ArrayList(indata=test_data)
-                ar_lt2 = ArrayList(indata=test_data)
+                ar_lt1 = ArrayList(iodata=test_data)
+                ar_lt2 = ArrayList(iodata=test_data)
                 # if it is the custom dict, use the custom cmp function
                 if key == "TEST_CUSTOM_DICT_LT":
-                    ar_lt1 = ArrayList(indata=test_data,
+                    ar_lt1 = ArrayList(iodata=test_data,
                                        cmp_function=cmp_test_function)
-                    ar_lt2 = ArrayList(indata=test_data,
+                    ar_lt2 = ArrayList(iodata=test_data,
                                        cmp_function=cmp_test_function)
                 # create the new concatenated arraylist
                 ans = ar_lt1.concat(ar_lt2)
@@ -1055,6 +1078,7 @@ class TestArrayList(unittest.TestCase):
         """test_iterator test the iterator method of the arraylist with a
             filled arraylist. Checks for StopIteration exceptions.
         """
+        # TODO translate to spanish docstring
         # iterates over global params and create filled arraylist
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
@@ -1063,10 +1087,10 @@ class TestArrayList(unittest.TestCase):
                 test_data = self.global_params.get(key)
                 # create a new arraylist with the test data
                 test_len = len(test_data)
-                ar_lt = ArrayList(indata=test_data)
+                ar_lt = ArrayList(iodata=test_data)
                 # if it is the custom dict, use the custom cmp function
                 if key == "TEST_CUSTOM_DICT_LT":
-                    ar_lt = ArrayList(indata=test_data,
+                    ar_lt = ArrayList(iodata=test_data,
                                       cmp_function=cmp_test_function)
                 # iterates over the arraylist and the test data and compare
                 for element, data in zip(ar_lt, test_data):
@@ -1084,7 +1108,7 @@ class TestSingleLinked(unittest.TestCase):
     Args:
         unittest (class): python class for unit testing.
     """
-    # test_lt = None
+    # TODO translate to spanish docstring
 
     @pytest.fixture(autouse=True)
     def inject_fixtures(self, global_params):
@@ -1093,6 +1117,7 @@ class TestSingleLinked(unittest.TestCase):
         Args:
             global_params (dict): global parameters for testing.
         """
+        # TODO translate to spanish docstring
         self.global_params = global_params
 
     def sll_to_list(self, sl_lt: SingleLinked) -> list:
@@ -1104,6 +1129,7 @@ class TestSingleLinked(unittest.TestCase):
     def test_new_default_singlelinked(self):
         """Tests the initialization of an empty SingleLinked.
         """
+        # TODO translate to spanish docstring
         # Test an empty SingleLinked
         empty_list = SingleLinked()
         # Test if SingleLinked is not None
@@ -1125,6 +1151,7 @@ class TestSingleLinked(unittest.TestCase):
         """test_default_cmp_function test the default_cmp_function of the
             singlelinked with different types of elements.
         """
+        # TODO translate to spanish docstring
         # create a new empty singlelinked with the default cmp function
         sl_lt = SingleLinked()
         # iterate over tglobal params and use the default cmp function
@@ -1153,6 +1180,7 @@ class TestSingleLinked(unittest.TestCase):
         """test_new_custom_singlelinked test the initialization of a custom
             array list with elements of different types.
         """
+        # TODO translate to spanish docstring
         # getting the global variables
         data_type_lt = self.global_params.get("CHECK_TYPE_LT")
         # iterate over tglobal params and create single linked list node
@@ -1161,7 +1189,7 @@ class TestSingleLinked(unittest.TestCase):
             if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
                 test_data = self.global_params.get(key)
                 # create a new singlelinked with the test data
-                sl_lt = SingleLinked(indata=test_data)
+                sl_lt = SingleLinked(iodata=test_data)
                 # testing singlelinked is not None
                 assert sl_lt is not None
                 # testing singlelinked elements is equal to test_data
@@ -1182,6 +1210,7 @@ class TestSingleLinked(unittest.TestCase):
         """test_custom_key test the initialization of a custom singlelinked
             with elements and a custom key.
         """
+        # TODO translate to spanish docstring
         # getting the global variables
         dtype_lt = self.global_params.get("CHECK_TYPE_LT")
         # iterate over tglobal params and create single linked list node
@@ -1189,7 +1218,7 @@ class TestSingleLinked(unittest.TestCase):
             # ignore 3 keys from the global params
             if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
                 test_data = self.global_params.get(key)
-                sl_lt = SingleLinked(indata=test_data,
+                sl_lt = SingleLinked(iodata=test_data,
                                      key="uuid")
                 # testing singlelinked is not None
                 assert sl_lt is not None
@@ -1211,6 +1240,7 @@ class TestSingleLinked(unittest.TestCase):
         """test_custom_cmp_function test the initialization of a custom
             singlelinked with elements and a custom cmp_function.
         """
+        # TODO translate to spanish docstring
         # getting the global variables
         dtype_lt = self.global_params.get("CHECK_TYPE_LT")
         # iterate over tglobal params and create single linked list node
@@ -1218,7 +1248,7 @@ class TestSingleLinked(unittest.TestCase):
             # ignore 3 keys from the global params
             if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
                 test_data = self.global_params.get(key)
-                sl_lt = SingleLinked(indata=test_data,
+                sl_lt = SingleLinked(iodata=test_data,
                                      cmp_function=cmp_test_function)
                 # testing singlelinked is not None
                 assert sl_lt is not None
@@ -1240,6 +1270,7 @@ class TestSingleLinked(unittest.TestCase):
         """test_get_size test the size method of the singlelinked. with empty
             and non-empty singlelinked lists.
         """
+        # TODO translate to spanish docstring
         # create a new empty singlelinked
         sl_lt = SingleLinked()
         # testing singlelinked size is 0 with size method
@@ -1257,7 +1288,7 @@ class TestSingleLinked(unittest.TestCase):
                 # getting the test data
                 test_data = self.global_params.get(key)
                 # create a new singlelinked with the test data
-                sl_lt = SingleLinked(indata=test_data)
+                sl_lt = SingleLinked(iodata=test_data)
                 # testing singlelinked size() is equal to test_data
                 assert sl_lt.size() == len(test_data)
                 # testing singlelinked _size is equal to test_data
@@ -1270,6 +1301,7 @@ class TestSingleLinked(unittest.TestCase):
         """test_is_empty test the is_empty method of the singlelinked with
             empty and non-empty singlelinke lists.
         """
+        # TODO translate to spanish docstring
         # create a new empty singlelinked
         sl_lt = SingleLinked()
         # testing singlelinked is empty
@@ -1285,7 +1317,7 @@ class TestSingleLinked(unittest.TestCase):
                 # get the test data
                 test_data = self.global_params.get(key)
                 # create a new singlelinked with the test data
-                sl_lt = SingleLinked(indata=test_data)
+                sl_lt = SingleLinked(iodata=test_data)
                 # testing singlelinked is not empty
                 assert sl_lt.is_empty() is False
                 # testing singlelinked elements is equal to test_data
@@ -1296,6 +1328,7 @@ class TestSingleLinked(unittest.TestCase):
         """test_add_first test the add_first method of the singlelinked with
         empty singlelinke lists with different types of elements.
         """
+        # TODO translate to spanish docstring
         # testing type handling
         # getting the global variables
         # type error test data list
@@ -1342,6 +1375,7 @@ class TestSingleLinked(unittest.TestCase):
             empty singlelinke lists with different types of elements. Checks
             for TypeError exceptions.
         """
+        # TODO translate to spanish docstring
         # testing type handling
         # getting the global variables
         # type error test data list
@@ -1388,6 +1422,7 @@ class TestSingleLinked(unittest.TestCase):
         with empty and non-empty singlelinke lists. Checks for IndexError
         exceptions.
         """
+        # TODO translate to spanish docstring
         # create a new empty singlelinked
         sl_lt = SingleLinked()
         # force an exception in the get_element method
@@ -1408,7 +1443,7 @@ class TestSingleLinked(unittest.TestCase):
                 # get the length of the test data
                 test_len = len(test_data)
                 # create a new singlelinked with the test data
-                sl_lt = SingleLinked(indata=test_data)
+                sl_lt = SingleLinked(iodata=test_data)
                 # select a random valid index in the test data
                 i = random.randint(0, test_len-1)
                 # get the element in the test data
@@ -1440,6 +1475,7 @@ class TestSingleLinked(unittest.TestCase):
             empty and non-empty singlelinke lists. Checks for IndexError
             exceptions.
         """
+        # TODO translate to spanish docstring
         # create a new empty singlelinked
         sl_lt = SingleLinked()
         # force an exception in the get_first method
@@ -1459,7 +1495,7 @@ class TestSingleLinked(unittest.TestCase):
                 # get the length of the test data
                 test_len = len(test_data)
                 # create a new singlelinked with the test data
-                sl_lt = SingleLinked(indata=test_data)
+                sl_lt = SingleLinked(iodata=test_data)
                 # testing singlelinked get_first() is equal to test_data
                 assert sl_lt.get_first() == test_data[0]
                 # test if singlelinked size() is equal to test_len
@@ -1470,6 +1506,7 @@ class TestSingleLinked(unittest.TestCase):
             empty and non-empty singlelinke lists. Checks for IndexError
             exceptions.
         """
+        # TODO translate to spanish docstring
         # create a new empty singlelinked
         sl_lt = SingleLinked()
         # force an exception in the get_last method
@@ -1489,7 +1526,7 @@ class TestSingleLinked(unittest.TestCase):
                 # get the length of the test data
                 test_len = len(test_data)
                 # create a new singlelinked with the test data
-                sl_lt = SingleLinked(indata=test_data)
+                sl_lt = SingleLinked(iodata=test_data)
                 # testing singlelinked get_last() is equal to test_data
                 assert sl_lt.get_last() == test_data[-1]
                 # test if singlelinked size() is equal to test_len
@@ -1500,6 +1537,7 @@ class TestSingleLinked(unittest.TestCase):
             with empty and non-empty singlelinke lists. Checks for IndexError
             exceptions.
         """
+        # TODO translate to spanish docstring
         # create a new empty singlelinked
         sl_lt = SingleLinked()
         # force an exception in the get_element method
@@ -1520,7 +1558,7 @@ class TestSingleLinked(unittest.TestCase):
                 # get the length of the test data
                 test_len = len(test_data)
                 # create a new singlelinked with the test data
-                sl_lt = SingleLinked(indata=test_data)
+                sl_lt = SingleLinked(iodata=test_data)
 
                 # test get_element with an out-of-range index
                 with pytest.raises(Exception) as excinfo:
@@ -1543,6 +1581,7 @@ class TestSingleLinked(unittest.TestCase):
             with empty and non-empty singlelinke lists. Checks for IndexError
             exceptions.
         """
+        # TODO translate to spanish docstring
         # create a new empty singlelinked
         sl_lt = SingleLinked()
         # force an exception in the get_first method
@@ -1562,7 +1601,7 @@ class TestSingleLinked(unittest.TestCase):
                 # get the length of the test data
                 test_len = len(test_data)
                 # create a new singlelinked with the test data
-                sl_lt = SingleLinked(indata=test_data)
+                sl_lt = SingleLinked(iodata=test_data)
                 for i in range(0, len(test_data)-1):
                     t_data = test_data[i]
                     t_elem = sl_lt.remove_first()
@@ -1576,6 +1615,7 @@ class TestSingleLinked(unittest.TestCase):
             with empty and non-empty singlelinke lists. Checks for IndexError
             exceptions.
         """
+        # TODO translate to spanish docstring
         # create a new empty singlelinked
         sl_lt = SingleLinked()
         # force an exception in the get_first method
@@ -1595,7 +1635,7 @@ class TestSingleLinked(unittest.TestCase):
                 # get the length of the test data
                 test_len = len(test_data)
                 # create a new singlelinked with the test data
-                sl_lt = SingleLinked(indata=test_data)
+                sl_lt = SingleLinked(iodata=test_data)
                 # iterate over the test data
                 for i in range(0, len(test_data)-1):
                     # get the last element of the test data
@@ -1613,6 +1653,7 @@ class TestSingleLinked(unittest.TestCase):
             singlelinked with empty and non-empty singlelinke lists. Checks
             for IndexError exceptions.
         """
+        # TODO translate to spanish docstring
         # create a new empty singlelinked
         sl_lt = SingleLinked()
         # force an exception in the get_element method
@@ -1633,7 +1674,7 @@ class TestSingleLinked(unittest.TestCase):
                 # get the length of the test data
                 test_len = len(test_data)
                 # create a new singlelinked with the test data
-                sl_lt = SingleLinked(indata=test_data)
+                sl_lt = SingleLinked(iodata=test_data)
 
                 # force an exception in the get_element method
                 with pytest.raises(Exception) as excinfo:
@@ -1661,6 +1702,7 @@ class TestSingleLinked(unittest.TestCase):
             TypeError exceptions. It also checks if the compared elements are
             equal to the index of the singlelinked.
         """
+        # TODO translate to spanish docstring
         sl_lt = SingleLinked()
         # delete the default cmp function
         sl_lt.cmp_function = None
@@ -1683,10 +1725,10 @@ class TestSingleLinked(unittest.TestCase):
                 # get the test data
                 test_data = self.global_params.get(key)
                 # create a new singlelinked with the test data
-                sl_lt = SingleLinked(indata=test_data)
+                sl_lt = SingleLinked(iodata=test_data)
                 # if it is the custom dict, use the custom cmp function
                 if key == "TEST_CUSTOM_DICT_LT":
-                    sl_lt = SingleLinked(indata=test_data,
+                    sl_lt = SingleLinked(iodata=test_data,
                                          cmp_function=cmp_test_function)
                 # iterate over the test data
                 for i in range(0, len(test_data)-1):
@@ -1707,7 +1749,7 @@ class TestSingleLinked(unittest.TestCase):
     def test_is_present(self):
         """test_is_present _summary_
         """
-        # TODO add docstring
+        # TODO translate to spanish docstring
         # iterates over global params and create filled singlelinked
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
@@ -1716,10 +1758,10 @@ class TestSingleLinked(unittest.TestCase):
                 test_data = self.global_params.get(key)
                 # create a new singlelinked with the test data
                 test_len = len(test_data)
-                sl_lt = SingleLinked(indata=test_data)
+                sl_lt = SingleLinked(iodata=test_data)
                 # if it is the custom dict, use the custom cmp function
                 if key == "TEST_CUSTOM_DICT_LT":
-                    sl_lt = SingleLinked(indata=test_data,
+                    sl_lt = SingleLinked(iodata=test_data,
                                          cmp_function=cmp_test_function)
                 # select a random valid index in the test data
                 i = random.randint(0, test_len-1)
@@ -1735,7 +1777,7 @@ class TestSingleLinked(unittest.TestCase):
             IndexError exceptions. It also checks if the changed elements are
             equal to the index of the singlelinked.
         """
-        # TODO add docstring
+        # TODO translate to spanish docstring
         # create a new empty singlelinked
         sl_lt = SingleLinked()
         # force an exception in the get_element method
@@ -1756,10 +1798,10 @@ class TestSingleLinked(unittest.TestCase):
                 # get the length of the test data
                 test_len = len(test_data)
                 # create a new singlelinked with the test data
-                sl_lt = SingleLinked(indata=test_data)
+                sl_lt = SingleLinked(iodata=test_data)
                 # if it is the custom dict, use the custom cmp function
                 if key == "TEST_CUSTOM_DICT_LT":
-                    sl_lt = SingleLinked(indata=test_data,
+                    sl_lt = SingleLinked(iodata=test_data,
                                          cmp_function=cmp_test_function)
                 # select a random valid index in the test data
                 i = random.randint(0, test_len-1)
@@ -1793,6 +1835,7 @@ class TestSingleLinked(unittest.TestCase):
             exceptions. It also checks if the exchanged elements are equal to
             the index of the singlelinked.
         """
+        # TODO translate to spanish docstring
         # create a new empty singlelinked
         sl_lt = SingleLinked()
         # force an exception in the exchange method
@@ -1814,10 +1857,10 @@ class TestSingleLinked(unittest.TestCase):
                 # get the length of the test data
                 test_len = len(test_data)
                 # create a new singlelinked with the test data
-                sl_lt = SingleLinked(indata=test_data)
+                sl_lt = SingleLinked(iodata=test_data)
                 # if it is the custom dict, use the custom cmp function
                 if key == "TEST_CUSTOM_DICT_LT":
-                    sl_lt = SingleLinked(indata=test_data,
+                    sl_lt = SingleLinked(iodata=test_data,
                                          cmp_function=cmp_test_function)
 
                 # force an exception in the exchange method
@@ -1853,6 +1896,8 @@ class TestSingleLinked(unittest.TestCase):
             exceptions. It also checks if the sublist is an singlelinked and if
             the elements are equal to the sublist of the test data.
         """
+        # TODO translate to spanish docstring
+
         # create a new empty singlelinked
         sl_lt = SingleLinked()
         # force an exception in the sublist method
@@ -1863,7 +1908,7 @@ class TestSingleLinked(unittest.TestCase):
         # test for the exception type
         assert excinfo.type == IndexError
         # test for the exception message
-        assert "Empty data structure" in str(excinfo.value)     
+        assert "Empty data structure" in str(excinfo.value)
 
         # iterates over global params and create filled singlelinked
         for key in self.global_params.keys():
@@ -1872,13 +1917,13 @@ class TestSingleLinked(unittest.TestCase):
                 # get the test data
                 test_data = self.global_params.get(key)
                 # create a new singlelinked with the test data
-                sl_lt = SingleLinked(indata=test_data)
+                sl_lt = SingleLinked(iodata=test_data)
                 # get the length of the test data
                 test_len = len(test_data)
                 assert sl_lt.size() == test_len
                 # if it is the custom dict, use the custom cmp function
                 if key == "TEST_CUSTOM_DICT_LT":
-                    sl_lt = SingleLinked(indata=test_data,
+                    sl_lt = SingleLinked(iodata=test_data,
                                          cmp_function=cmp_test_function)
                 i = random.randint(test_len*-1, -1)
                 j = random.randint(test_len+1, test_len*2)
@@ -1920,6 +1965,7 @@ class TestSingleLinked(unittest.TestCase):
             only concatenate with another singlelinked, with the same key and
             cmp function.
         """
+        # TODO translate to spanish docstring
         # iterates over global params and create filled singlelinked
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
@@ -1927,7 +1973,7 @@ class TestSingleLinked(unittest.TestCase):
                 # get the test data
                 test_data = self.global_params.get(key)
                 # create a new singlelinked with the test data
-                sl_lt1 = SingleLinked(indata=test_data)
+                sl_lt1 = SingleLinked(iodata=test_data)
                 # create a python list with the test data
                 sl_lt2 = test_data.copy()
 
@@ -1941,7 +1987,7 @@ class TestSingleLinked(unittest.TestCase):
                 assert err_msg in str(excinfo.value)
 
                 # create a new singlelinked with the wrong key
-                sl_lt2 = SingleLinked(indata=test_data,
+                sl_lt2 = SingleLinked(iodata=test_data,
                                       key="testid")
                 # force an exception in the concat method
                 with pytest.raises(Exception) as excinfo:
@@ -1952,7 +1998,7 @@ class TestSingleLinked(unittest.TestCase):
                 assert "Invalid key:" in str(excinfo.value)
 
                 # create a new singlelinked with the wrong cmp function
-                sl_lt2 = SingleLinked(indata=test_data,
+                sl_lt2 = SingleLinked(iodata=test_data,
                                       cmp_function=cmp_test_function)
                 # force an exception in the concat method
                 with pytest.raises(Exception) as excinfo:
@@ -1963,13 +2009,13 @@ class TestSingleLinked(unittest.TestCase):
                 assert "Invalid compare function:" in str(excinfo.value)
 
                 # create a new correct singlelinked with the test data
-                sl_lt1 = SingleLinked(indata=test_data)
-                sl_lt2 = SingleLinked(indata=test_data)
+                sl_lt1 = SingleLinked(iodata=test_data)
+                sl_lt2 = SingleLinked(iodata=test_data)
                 # if it is the custom dict, use the custom cmp function
                 if key == "TEST_CUSTOM_DICT_LT":
-                    sl_lt1 = SingleLinked(indata=test_data,
+                    sl_lt1 = SingleLinked(iodata=test_data,
                                           cmp_function=cmp_test_function)
-                    sl_lt2 = SingleLinked(indata=test_data,
+                    sl_lt2 = SingleLinked(iodata=test_data,
                                           cmp_function=cmp_test_function)
                 # create the new concatenated singlelinked
                 ans = sl_lt1.concat(sl_lt2)
@@ -1988,6 +2034,7 @@ class TestSingleLinked(unittest.TestCase):
         """test_iterator test the iterator method of the singlelinked with a
             filled singlelinked. Checks for StopIteration exceptions.
         """
+        # TODO translate to spanish docstring
         # iterates over global params and create filled singlelinked
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
@@ -1996,10 +2043,10 @@ class TestSingleLinked(unittest.TestCase):
                 test_data = self.global_params.get(key)
                 # create a new singlelinked with the test data
                 test_len = len(test_data)
-                sl_lt = SingleLinked(indata=test_data)
+                sl_lt = SingleLinked(iodata=test_data)
                 # if it is the custom dict, use the custom cmp function
                 if key == "TEST_CUSTOM_DICT_LT":
-                    sl_lt = SingleLinked(indata=test_data,
+                    sl_lt = SingleLinked(iodata=test_data,
                                          cmp_function=cmp_test_function)
                 # iterates over the singlelinked and the test data and compare
                 for element, data in zip(sl_lt, test_data):

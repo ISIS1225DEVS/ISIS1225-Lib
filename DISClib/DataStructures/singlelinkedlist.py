@@ -110,17 +110,16 @@ class SingleLinked(Generic[T]):
             comparar los elementos del SingleLinkedList, Por defecto es None y
             el __post_init__ configura la llave por defecto la llave "id" en
             DEFAULT_DICT_KEY.
-        indata (Optional[List[T]]): lista nativa de python que contiene los
+        iodata (Optional[List[T]]): lista nativa de python que contiene los
             elementos de la estructura de datos, por defecto es None y el
             usuario puede incluir una lista nativa de python como argumento.
 
     Returns:
         SingleLinked: ADT de tipo SingleLinked o Lista Sensillamente
             Encadenada.
-
     """
     # input elements from python list
-    indata: Optional[List[T]] = None
+    iodata: Optional[List[T]] = None
     # reference to the first node of the list
     first: Optional[SingleNode[T]] = None
     # reference to the last node of the list
@@ -148,10 +147,11 @@ class SingleLinked(Generic[T]):
             if self.cmp_function is None:
                 self.cmp_function = self.default_cmp_function
             # if input data is iterable add them to the SingleLinkedList
-            if isinstance(self.indata, VALID_IO_TYPE):
-                for elm in self.indata:
+            # TODO sometime strange weird in tests
+            if isinstance(self.iodata, VALID_IO_TYPE):
+                for elm in self.iodata:
                     self.add_last(elm)
-            self.indata = None
+            self.iodata = None
         except Exception as err:
             self._handle_error(err)
 
@@ -186,6 +186,7 @@ class SingleLinked(Generic[T]):
         Args:
             err (Exception): Excepción que se generó en el SingleLinked.
         """
+        # TODO check usability of this function
         cur_context = self.__class__.__name__
         cur_function = inspect.currentframe().f_code.co_name
         error_handler(cur_context, cur_function, err)
@@ -207,6 +208,7 @@ class SingleLinked(Generic[T]):
             bool: operador que indica si el ADT SingleLinked es del mismo tipo
                 que el elemento que se quiere procesar.
         """
+        # TODO check usability of this function
         # if the structure is not empty, check the first element type
         if not self.is_empty():
             # get the type of the first element
@@ -218,18 +220,21 @@ class SingleLinked(Generic[T]):
                 raise TypeError(err_msg)
         # otherwise, any type is valid
         return True
-
+    
+    # @property
     def is_empty(self) -> bool:
         """is_empty revisa si el SingleLinked está vacía.
 
         Returns:
             bool: operador que indica si la estructura SingleLinked está vacía.
         """
+        # TODO change the method name to "empty" or @property "empty"?
         try:
             return self._size == 0
         except Exception as err:
             self._handle_error(err)
 
+    # @property
     def size(self) -> int:
         """size devuelve el numero de elementos que actualmente contiene el
             SingleLinked.
@@ -237,6 +242,7 @@ class SingleLinked(Generic[T]):
         Returns:
             int: tamaño de la estructura SingleLinked.
         """
+        # TODO change the method to @property "size"?
         try:
             return self._size
         except Exception as err:
@@ -301,7 +307,7 @@ class SingleLinked(Generic[T]):
             IndexError: error si la posición es inválida.
             IndexError: error si la estructura está vacía.
         """
-        # FIXME check the algorithm
+        # TODO change the method name to "add_elm()"?
         try:
             if not self.is_empty():
                 if self._check_type(element):
@@ -341,7 +347,6 @@ class SingleLinked(Generic[T]):
         Returns:
             Optional[T]: el primer elemento del SingleLinked.
         """
-        # TODO check algorithm
         try:
             ans = None
             if self.is_empty():
@@ -361,7 +366,6 @@ class SingleLinked(Generic[T]):
         Returns:
              Optional[T]: el ultimo elemento del SingleLinked.
         """
-        # TODO check algorithm
         try:
             ans = None
             if self.is_empty():
@@ -385,7 +389,7 @@ class SingleLinked(Generic[T]):
         Returns:
              Optional[T]: el elemento en la posición dada del SingleLinked.
         """
-        # TODO check algorithm
+        # TODO change the method name to "get_elm()"?
         try:
             if self.is_empty():
                 raise IndexError("Empty data structure")
@@ -394,6 +398,7 @@ class SingleLinked(Generic[T]):
             else:
                 current = self.first
                 i = 0
+                # TODO check algorithm with "while i != pos:"
                 while i != pos:
                     current = current.next()
                     i += 1
@@ -472,6 +477,7 @@ class SingleLinked(Generic[T]):
         Returns:
             Optional[T]: el elemento eliminado del SingleLinked.
         """
+        # TODO change the method name to "remove_elm()"?
         try:
             if self.is_empty():
                 raise IndexError("Empty data structure")
@@ -483,6 +489,7 @@ class SingleLinked(Generic[T]):
             if pos == 0:
                 self.first = self.first.next()
             elif pos >= 1:
+                # TODO check algorithm with "while i != pos:"
                 while i != pos:
                     prev = current
                     current = current.next()
@@ -509,7 +516,7 @@ class SingleLinked(Generic[T]):
             int: -1 si elem1 es menor que elem2, 0 si son iguales, 1 si elem1
                 es mayor que elem2.
         """
-        # FIXME check if I need 2 ifs or just one
+        # FIXME with __post_init__ the cmp_function is never None
         try:
             # if the key is defined but the cmp is not, use the default
             if self.key is not None and self.cmp_function is None:
@@ -531,8 +538,7 @@ class SingleLinked(Generic[T]):
         Returns:
             int: la posición del elemento en el SingleLinked, -1 si no está.
         """
-        # TODO change the method name to "find" or "present_in"?
-        # is_present() get confused with the boolean operator not an integer
+        # TODO change the method name to "find()"?
         try:
             lt_size = self.size()
             pos = -1
@@ -565,7 +571,7 @@ class SingleLinked(Generic[T]):
             IndexError: error si la estructura está vacía.
             IndexError: error si la posición es inválida.
         """
-        # TODO add docstring
+        # TODO change the method name to "change_data()" or "update()"?
         try:
             if self.is_empty():
                 raise IndexError("Empty data structure")
@@ -607,8 +613,6 @@ class SingleLinked(Generic[T]):
             info_pos2 = self.get_element(pos2)
             self.change_info(info_pos2, pos1)
             self.change_info(info_pos1, pos2)
-            # FIXME check if i need the return in tests!!!
-            # return self
         except Exception as err:
             self._handle_error(err)
 
@@ -681,7 +685,7 @@ class SingleLinked(Generic[T]):
                 err_msg = f"Invalid compare function: {self.cmp_function}"
                 err_msg += f" != {other.cmp_function}"
                 raise TypeError(err_msg)
-            # FIXME maybe I can use the original SingleLinked to concatenate
+            # FIXME do I need to use the original SingleLinked to concatenate?
             concat_lt = SingleLinked(cmp_function=self.cmp_function,
                                      key=self.key)
             concat_lt._size = self.size() + other.size()
@@ -702,7 +706,7 @@ class SingleLinked(Generic[T]):
             iterator: iterador sobre los elementos del SingleLinked.
         """
         try:
-            # FIXME check algorithm
+            # FIXME check algorithm, don't understand how it works
             current = self.first
             while current is not None:
                 yield current.get_info()

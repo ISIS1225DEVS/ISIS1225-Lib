@@ -102,7 +102,7 @@ class ArrayList(Generic[T]):
             comparar los elementos del ArrayList, Por defecto es None y el
             __post_init__ configura la llave por defecto la llave "id" en
             DEFAULT_DICT_KEY.
-        indata (Optional[List[T]]): lista nativa de python que contiene los
+        iodata (Optional[List[T]]): lista nativa de python que contiene los
             elementos de la estructura de datos, por defecto es None y el
             usuario puede incluir una lista nativa de python como argumento.
 
@@ -111,7 +111,7 @@ class ArrayList(Generic[T]):
 
     """
     # input elements from python list
-    indata: Optional[List[T]] = None
+    iodata: Optional[List[T]] = None
     # using default_factory to generate an empty list
     elements: List[T] = field(default_factory=list)
     # by default, the list is empty
@@ -128,7 +128,6 @@ class ArrayList(Generic[T]):
                 a la lista de elementos del ArrayList.
         """
         try:
-            # counter for the elements in the input list
             # if the key is not defined, use the default
             if self.key is None:
                 self.key = DEFAULT_DICT_KEY     # its "id" by default
@@ -136,12 +135,11 @@ class ArrayList(Generic[T]):
             if self.cmp_function is None:
                 self.cmp_function = self.default_cmp_function
             # if elements are in a list, add them to the ArrayList
-            if isinstance(self.indata, VALID_IO_TYPE):
-                for elm in self.indata:
+            # TODO sometime strange weird in tests
+            if isinstance(self.iodata, VALID_IO_TYPE):
+                for elm in self.iodata:
                     self.add_last(elm)
-                    # self._size += 1
-            # self._size = len(self.elements)
-            self.indata = None
+            self.iodata = None
         except Exception as err:
             self._handle_error(err)
 
@@ -176,6 +174,7 @@ class ArrayList(Generic[T]):
         Args:
             err (Exception): Excepción que se generó en el ArrayList.
         """
+        # TODO check usability of this function
         cur_context = self.__class__.__name__
         cur_function = inspect.currentframe().f_code.co_name
         error_handler(cur_context, cur_function, err)
@@ -197,6 +196,7 @@ class ArrayList(Generic[T]):
             bool: operador que indica si el ADT ArrayList es del mismo tipo
                 que el elemento que se quiere procesar.
         """
+        # TODO check usability of this function
         # if the structure is not empty, check the first element type
         if not self.is_empty():
             # get the type of the first element
@@ -209,12 +209,14 @@ class ArrayList(Generic[T]):
         # otherwise, any type is valid
         return True
 
+    # @property
     def is_empty(self) -> bool:
         """is_empty revisa si el ArrayList está vacía.
 
         Returns:
             bool: operador que indica si la estructura ArrayList está vacía.
         """
+        # TODO change the method name to "empty" or @property "empty"?
         try:
             return self._size == 0
         except Exception as err:
@@ -228,7 +230,7 @@ class ArrayList(Generic[T]):
         Returns:
             int: tamaño de la estructura ArrayList.
         """
-        # FIXME check if I need the property decorator and the setter?
+        # TODO change the method to @property "size"?
         try:
             return self._size
         except Exception as err:
@@ -281,6 +283,7 @@ class ArrayList(Generic[T]):
             IndexError: error si la posición es inválida.
             IndexError: error si la estructura está vacía.
         """
+        # TODO change the method name to "add_elm()"?
         try:
             if not self.is_empty():
                 if self._check_type(element):
@@ -338,6 +341,7 @@ class ArrayList(Generic[T]):
         Returns:
             T: el elemento en la posición dada del ArrayList.
         """
+        # TODO change the method name to "get_elm()"?
         try:
             if self.is_empty():
                 raise IndexError("Empty data structure")
@@ -397,6 +401,7 @@ class ArrayList(Generic[T]):
         Returns:
             T: el elemento eliminado del ArrayList.
         """
+        # TODO change the method name to "remove_elm()"?
         try:
             if self.is_empty():
                 raise IndexError("Empty data structure")
@@ -424,7 +429,7 @@ class ArrayList(Generic[T]):
             int: -1 si elem1 es menor que elem2, 0 si son iguales, 1 si elem1
                 es mayor que elem2.
         """
-        # FIXME check if I need 2 ifs or just one
+        # FIXME with __post_init__ the cmp_function is never None
         try:
             # if the key is defined but the cmp is not, use the default
             if self.key is not None and self.cmp_function is None:
@@ -446,8 +451,7 @@ class ArrayList(Generic[T]):
         Returns:
             int: la posición del elemento en el ArrayList, -1 si no está.
         """
-        # TODO change the method name to "find"?
-        # because is_present() indicates a bool return not an int
+        # TODO change the method name to "find()"?
         try:
             pos = -1
             lt_size = self.size()
@@ -477,6 +481,7 @@ class ArrayList(Generic[T]):
             IndexError: error si la estructura está vacía.
             IndexError: error si la posición es inválida.
         """
+        # TODO change the method name to "change_data()" or "update()"?
         try:
             if self.is_empty():
                 raise IndexError("Empty data structure")
@@ -513,8 +518,6 @@ class ArrayList(Generic[T]):
             info_pos2 = self.get_element(pos2)
             self.change_info(info_pos2, pos1)
             self.change_info(info_pos1, pos2)
-            # FIXME check if i need the return in tests!!!
-            # return self
         except Exception as err:
             self._handle_error(err)
 
@@ -537,7 +540,7 @@ class ArrayList(Generic[T]):
         try:
             if self.is_empty():
                 raise IndexError("Empty data structure")
-            elif not (0 <= start <= end <= self.size()-1):
+            elif start < 0 or end > self._size-1 or start > end:
                 raise IndexError(f"Invalid range: between [{start}, {end}]")
             sub_lt = ArrayList(cmp_function=self.cmp_function,
                                key=self.key)
@@ -587,7 +590,7 @@ class ArrayList(Generic[T]):
                 err_msg = f"Invalid compare function: {self.cmp_function}"
                 err_msg += f" != {other.cmp_function}"
                 raise TypeError(err_msg)
-            # FIXME maybe I can use the original ArrayList to concatenate
+            # FIXME do I need to use the original ArrayList to concatenate?
             concat_lt = ArrayList(cmp_function=self.cmp_function,
                                   key=self.key)
             concat_lt.elements = self.elements + other.elements

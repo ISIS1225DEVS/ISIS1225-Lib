@@ -35,7 +35,7 @@ if __name__ == "__main__":
 
     print(test_lt_1)
     test_lt_2 = List(dstruct=imp,
-                     indata=test_data,
+                     iodata=test_data,
                      cmp_function=cmp_test)
     print(test_lt_2)
     print(type(test_lt_2))
@@ -50,7 +50,7 @@ if __name__ == "__main__":
     )
 
     test_lt_3 = List(dstruct=imp,
-                     indata=test_data,
+                     iodata=test_data,
                      cmp_function=cmp_test)
     print(test_lt_3)
     print(type(test_lt_3))
@@ -62,12 +62,12 @@ if __name__ == "__main__":
     print("----------- concat list -----------")
     test_data = (1, 2, 3, 4, 5)
     test_lt_5 = List(dstruct=imp,
-                     indata=test_data,
+                     iodata=test_data,
                      cmp_function=cmp_test)
 
     test_data = (6, 7, 8, 9, 10)
     test_lt_6 = List(dstruct=imp,
-                     indata=test_data,
+                     iodata=test_data,
                      cmp_function=cmp_test)
 
     test_lt_7 = test_lt_5.concat(test_lt_6)
@@ -94,7 +94,7 @@ if __name__ == "__main__":
     # print("----------- str list -----------")
     # test_data = ("one", "two", "three", "four", "five")
     # test_lt_4 = List(dstruct=imp,
-    #                  indata=test_data,
+    #                  iodata=test_data,
     #                  cmp_function=cmp_test)
     # print(test_lt_4)
     # print(type(test_lt_4))

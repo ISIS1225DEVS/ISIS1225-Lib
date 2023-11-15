@@ -220,7 +220,7 @@ class SingleLinked(Generic[T]):
                 raise TypeError(err_msg)
         # otherwise, any type is valid
         return True
-    
+
     # @property
     def is_empty(self) -> bool:
         """is_empty revisa si el SingleLinked está vacía.
@@ -686,15 +686,15 @@ class SingleLinked(Generic[T]):
                 err_msg += f" != {other.cmp_function}"
                 raise TypeError(err_msg)
             # FIXME do I need to use the original SingleLinked to concatenate?
-            concat_lt = SingleLinked(cmp_function=self.cmp_function,
-                                     key=self.key)
-            concat_lt._size = self.size() + other.size()
-            temp_lt = copy.deepcopy(self)
-            concat_lt.first = temp_lt.first
-            concat_lt.last = temp_lt.last
-            concat_lt.last._next = other.first
-            concat_lt.last = other.last
-            return concat_lt
+            # concat_lt = SingleLinked(cmp_function=self.cmp_function,
+            #                          key=self.key)
+            self._size = self.size() + other.size()
+            # temp_lt = copy.deepcopy(self)
+            # self.first = self.first
+            # self.last = self.last
+            self.last._next = other.first
+            self.last = other.last
+            return self
         except TypeError as err:
             self._handle_error(err)
 

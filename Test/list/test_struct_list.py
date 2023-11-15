@@ -2019,12 +2019,14 @@ class TestSingleLinked(unittest.TestCase):
                     sl_lt2 = SingleLinked(iodata=test_data,
                                           cmp_function=cmp_test_function)
                 # create the new concatenated singlelinked
-                ans = sl_lt1.concat(sl_lt2)
-                ans_data = self.sll_to_list(ans)
+
                 sl_lt1_data = self.sll_to_list(sl_lt1)
                 sl_lt2_data = self.sll_to_list(sl_lt2)
+                ans = sl_lt1.concat(sl_lt2)
+                ans_data = self.sll_to_list(ans)
+
                 assert isinstance(ans, SingleLinked)
-                assert ans.size() == sl_lt1.size() + sl_lt2.size()
+                assert ans.size() == len(sl_lt1_data) + len(sl_lt2_data)
                 assert ans_data == sl_lt1_data + sl_lt2_data
                 assert all((ans.key, sl_lt1.key, sl_lt2.key))
                 assert all((ans.cmp_function,

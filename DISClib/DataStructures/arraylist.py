@@ -556,8 +556,8 @@ class ArrayList(Generic[T]):
             self._handle_error(err)
 
     def concat(self, other: "ArrayList[T]") -> "ArrayList[T]":
-        """concat concatena dos estructuras de datos ArrayList para crear una
-            nueva estructura de datos.
+        """concat concatena dos estructuras de datos ArrayList para crear
+            una nueva estructura con los elementos de las dos estructuras.
 
         Args:
             other (ArrayList[T]): estructura de datos ArrayList que se quiere
@@ -573,8 +573,8 @@ class ArrayList(Generic[T]):
                 la estructura original.
 
         Returns:
-            ArrayList[T]: nueva estructura de datos ArrayList que contiene los
-                elementos de las dos estructuras originales.
+            ArrayList[T]: Estructura de datos original ArrayList que contiene
+            los elementos de las dos estructuras originales.
         """
         try:
             if not isinstance(other, ArrayList):

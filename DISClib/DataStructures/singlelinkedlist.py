@@ -652,7 +652,7 @@ class SingleLinked(Generic[T]):
 
     def concat(self, other: "SingleLinked[T]") -> "SingleLinked[T]":
         """concat concatena dos estructuras de datos SingleLinked para crear
-            una nueva estructura de datos.
+            una nueva estructura con los nodos de las dos estructuras.
 
         Args:
             other (SingleLinked[T]): estructura de datos SingleLinked que se
@@ -668,7 +668,7 @@ class SingleLinked(Generic[T]):
                 la estructura original.
 
         Returns:
-            SingleLinked[T]: nueva estructura de datos SingleLinked que
+            SingleLinked[T]: Estructura de datos SingleLinked original que
                 contiene los elementos de las dos estructuras originales.
         """
         try:
@@ -685,13 +685,8 @@ class SingleLinked(Generic[T]):
                 err_msg = f"Invalid compare function: {self.cmp_function}"
                 err_msg += f" != {other.cmp_function}"
                 raise TypeError(err_msg)
-            # FIXME do I need to use the original SingleLinked to concatenate?
-            # concat_lt = SingleLinked(cmp_function=self.cmp_function,
-            #                          key=self.key)
             self._size = self.size() + other.size()
-            # temp_lt = copy.deepcopy(self)
-            # self.first = self.first
-            # self.last = self.last
+
             self.last._next = other.first
             self.last = other.last
             return self

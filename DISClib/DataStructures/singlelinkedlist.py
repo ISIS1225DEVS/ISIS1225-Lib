@@ -63,8 +63,6 @@ from dataclasses import dataclass
 from typing import List, Optional, Callable, Generic
 # import inspect for getting the name of the current function
 import inspect
-# import copy for deepcopy the data structure
-import copy
 
 # custom modules
 # node class for the linked list
@@ -694,8 +692,8 @@ class SingleLinked(Generic[T]):
             self._handle_error(err)
 
     def __iter__(self):
-        """__iter__ iterador que permite recorrer el SingleLinked con un ciclo
-            'for' de python tradicional.
+        """__iter__ iterador intervinido la función nativa __iter__ para
+        recorrer un SingleLinked dentro de un ciclo 'for' de python.
 
         Returns:
             iterator: iterador sobre los elementos del SingleLinked.
@@ -708,3 +706,12 @@ class SingleLinked(Generic[T]):
                 current = current.next()
         except Exception as err:
             self._handle_error(err)
+
+    def __len__(self) -> int:
+        """__len__ función nativa intervenida que devuelve el tamaño del
+        SingleLinked.
+
+        Returns:
+            int: tamaño del SingleLinked.
+        """
+        return self._size

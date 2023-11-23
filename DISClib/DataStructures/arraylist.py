@@ -600,8 +600,8 @@ class ArrayList(Generic[T]):
             self._handle_error(err)
 
     def __iter__(self):
-        """__iter__ iterador que permite recorrer el ArrayList con un ciclo
-            'for' de python tradicional.
+        """__iter__ iterador intervinido la función nativa __iter__ para
+        recorrer un ArrayList dentro de un ciclo 'for' de python.
 
         Returns:
             __iter__: iterador Python sobre los elementos del ArrayList.
@@ -610,3 +610,12 @@ class ArrayList(Generic[T]):
             return iter(self.elements)
         except Exception as err:
             self._handle_error(err)
+
+    def __len__(self) -> int:
+        """__len__ función nativa intervenida que devuelve el tamaño del
+        ArrayList.
+
+        Returns:
+            int: tamaño del ArrayList.
+        """
+        return self._size

@@ -1,4 +1,4 @@
-﻿from DISClib.ADT.lists import List
+﻿from DISClib.ADT.lists import *
 import random
 # from DISClib.ADT.lists import List2
 
@@ -66,15 +66,16 @@ if __name__ == "__main__":
                      cmp_function=cmp_test)
 
     test_data = (6, 7, 8, 9, 10)
-    test_lt_6 = List(dstruct=imp,
+    test_lt_6 = List(dstruct="ArrayList",
                      iodata=test_data,
                      cmp_function=cmp_test)
 
-    test_lt_7 = test_lt_5.concat(test_lt_6)
-    print(test_lt_5)
+    # test_lt_7 = test_lt_5.concat(test_lt_6)
+    # print(test_lt_5)
     print(test_lt_6)
-    print(test_lt_7)
-    print(type(test_lt_7))
+    print(type(test_lt_6))
+    # print(test_lt_7)
+    # print(type(test_lt_7))
     # test_lt_7 = test_lt_5 + test_lt_6
 
     start = 1
@@ -110,3 +111,4 @@ if __name__ == "__main__":
     print(test_lt_2)
     test_lt_2.exchange(i, j)
     print(test_lt_2)
+    print(len(test_lt_2))

@@ -58,7 +58,7 @@ Copyrigth:
 
 # native python modules
 # import dataclass to define the array list
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 # import modules for defining the element's type in the array
 from typing import List, Optional, Callable, Generic
 # import inspect for getting the name of the current function
@@ -120,10 +120,12 @@ class DoubleLinked(Generic[T]):
     """
     # input elements from python list
     iodata: Optional[List[T]] = None
-    # reference to the head node of the list
-    head: Optional[DoubleNode[T]] = None
-    # reference to the tail node of the list
-    tail: Optional[DoubleNode[T]] = None
+    # reference to the header node of the list, DoubleNode by default
+    _header: Optional[DoubleNode[T]] = field(
+        default_factory=lambda: DoubleNode(None))
+    # reference to the trailer node of the list, DoubleNode by default
+    _trailer: Optional[DoubleNode[T]] = field(
+        default_factory=lambda: DoubleNode(None))
     # by default, the list is empty
     _size: int = 0
     # the cmp_function is used to compare elements, not defined by default
@@ -138,8 +140,9 @@ class DoubleLinked(Generic[T]):
                 a la lista de elementos del DoubleLinked.
         """
         try:
-            # counter for elements in the input list
-            # i = 0
+            # Link sentinel nodes
+            self._header._next = self._trailer
+            self._trailer._prev = self._header
             # if the key is not defined, use the default
             if self.key is None:
                 self.key = DEFAULT_DICT_KEY     # its "id" by default
@@ -209,10 +212,10 @@ class DoubleLinked(Generic[T]):
                 que el elemento que se quiere procesar.
         """
         # TODO check usability of this function
-        # if the structure is not empty, check the head element type
+        # if the structure is not empty, check the header element type
         if not self.is_empty():
-            # get the type of the head element
-            lt_type = type(self.head.get_info())
+            # get the type of the header element
+            lt_type = type(self.header.get_info())
             # raise an exception if the type is not valid
             if not isinstance(element, lt_type):
                 err_msg = f"Invalid data type: {type(lt_type)} "
@@ -264,6 +267,12 @@ class DoubleLinked(Generic[T]):
                 # create a new node
                 new_node = DoubleNode(element)
 
+                self.header = new_node
+                self.trailer = new_node
+                new_node.prev = HEADER
+                new_node.next = TRAILER
+
+
                 self._size += 1
         except Exception as err:
             self._handle_error(err)
@@ -283,6 +292,9 @@ class DoubleLinked(Generic[T]):
             if self._check_type(element):
                 # create a new node
                 new_node = DoubleNode(element)
+                
+
+                
 
                 self._size += 1
         except Exception as err:
@@ -329,57 +341,7 @@ class DoubleLinked(Generic[T]):
 
 
 
-# #TODO Mejorar la documentación para especificar el uso del parámetro "key" en listas
-# #TODO Eliminar la carga de datos de la función newList
-# #FIXME Cambiar el nombre de la funcion para usar snake_case
-# def newList(cmpfunction, module,  key, filename, delim):
-#     """Crea una lista vacia.
 
-#     Se inicializan los apuntadores a la primera y ultima posicion en None.
-#     El tipo de la listase inicializa como SINGLE_LINKED
-#     Args:
-#         cmpfunction: Función de comparación para los elementos de la lista.
-#         Si no se provee una función de comparación, se utilizará la función
-#         de comparación por defecto pero se debe suministrar un valor para key
-
-#         key: Identificador que se debe utilizar para la comparación de
-#         elementos de la lista
-
-#         filename: Si se provee este valor, se creará una lista a partir de
-#         la informacion que se encuentra en el archivo CSV
-
-#         delimiter: Si se provee un archivo para crear la lista, indica el
-#         delimitador a usar para separar los campos del archivo CSV
-
-#     Returns:
-#         Un diccionario que representa la estructura de datos de una lista
-#         encadanada vacia.
-
-#     Raises:
-
-#     """
-#     newlist = {'first': None,
-#                'last': None,
-#                'size': 0,
-#                'key': key,
-#                'type': 'DOUBLE_LINKED',
-#                'datastructure': module
-#                }
-
-#     if(cmpfunction is None):
-#         newlist['cmpfunction'] = defaultfunction
-#     else:
-#         newlist['cmpfunction'] = cmpfunction
-
-#     if (filename is not None):
-#         input_file = csv.DictReader(open(filename, encoding="utf-8"),
-#                                     delimiter=delim)
-#         for line in input_file:
-#             addLast(newlist, line)
-#     return newlist
-
-# #FIXME Cambiar el nombre de la funcion para usar snake_case
-# #TODO Implementar manejo más detallado de excepciones con mensajes más especificos
 # #TODO Verificar que el elemento que se esta agregando no sea None
 # def addFirst(lst, element):
 #     """Agrega un elemento a la lista en la primera posicion.

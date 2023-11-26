@@ -12,8 +12,11 @@ sys.path.insert(0, os.path.abspath(".."))
 
 # basic project information
 project = "DISClib"
-copyright = "2023, Uniandes, DISC, ISIS-1225 Devs"
-author = "ISIS1225 Devs DISC"
+copyright = """Uniandes, Bogotá - Colombia, Sur América,
+             Facultad de Ingeniería, DISC Desarrollado
+             para ISIS-1225, EDA"""
+# "2023, Uniandes, DISC, ISIS-1225 Devs"
+author = "ISIS-1225 Devs EDA Team, DISC, Uniandes"
 release = "0.0.1"
 
 # -- General configuration ---------------------------------------------------
@@ -22,8 +25,8 @@ release = "0.0.1"
 # extensions to use
 # install them with: pip install...
 extensions = [
-    # "sphinx.ext.autodoc",
-    # "sphinx.ext.autodoc.typehints",
+    "sphinx.ext.autodoc",
+    "sphinx.ext.autodoc.typehints",
     "sphinx.ext.autosummary",
     "sphinx.ext.napoleon",
     "sphinx.ext.viewcode",
@@ -88,19 +91,19 @@ myst_enable_extensions = [
 
 # favicon configuration
 favicons = [
-   {
-      "sizes": "16x16",
-      "href": "https://secure.example.com/favicon/favicon-16x16.png",
-   },
-   {
-      "sizes": "32x32",
-      "href": "https://secure.example.com/favicon/favicon-32x32.png",
-   },
-   {
-      "rel": "apple-touch-icon",
-      "sizes": "180x180",
-      "href": "apple-touch-icon-180x180.png",  # use a local file in _static
-   },
+    {
+        "sizes": "16x16",
+        "href": "https://secure.example.com/favicon/favicon-16x16.png",
+    },
+    {
+        "sizes": "32x32",
+        "href": "https://secure.example.com/favicon/favicon-32x32.png",
+    },
+    {
+        "rel": "apple-touch-icon",
+        "sizes": "180x180",
+        "href": "apple-touch-icon-180x180.png",  # use a local file in _static
+    },
 ]
 
 

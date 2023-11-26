@@ -1,0 +1,17 @@
+﻿TO REMEMBER: In Python, methods with double underscores before and after their names are special methods, also known as "dunder" methods or magic methods. They are not necessarily "protected" in the sense of access control, but they do have special behavior associated with them. Here are some commonly used ones:
+
+- "__init__": The initializer method called when a new instance is created.
+- "__del__": The destructor, which is called when an instance is about to be destroyed.
+- "__str__": Returns a string representation of the object. Called by "str(object)" and the built-in "print" function.
+- "__repr__": Returns a string showing a detailed representation of the object.
+- "__len__": Returns the "length" of the object. Called by the built-in "len" function.
+- "__getitem__": Defines behavior for accessing elements using square bracket notation.
+- "__setitem__": Defines behavior for assigning to elements using square bracket notation.
+- "__delitem__": Defines behavior for deleting elements using square bracket notation.
+- "__iter__": Returns an iterator for the object. Called by the built-in "iter" function.
+- "__next__": Used in an iterator class to go to the next item.
+- "__eq__", "__ne__", "__lt__", "__gt__", "__le__", "__ge__": Define behavior for comparison operators ("==", "!=", "<", ">", "<=", ">=").
+- "__add__", "__sub__", "__mul__", "__truediv__", "__floordiv__", "__mod__", "__pow__": Define behavior for binary arithmetic operators ("+", "-", "*", "/", "//", "%", "**").
+- "__enter__", "__exit__": Define behavior for context managers ("with" statement).
+
+There are many more special methods in Python. For a complete list, you can refer to the [Python data model documentation](https://docs.python.org/3/reference/datamodel.html#special-method-names).

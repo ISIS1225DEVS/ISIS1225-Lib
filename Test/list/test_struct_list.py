@@ -3,13 +3,16 @@
 import unittest
 import pytest
 import random
+
 # importing the class to be tested
 # import config
 from DISClib.DataStructures.arraylist import ArrayList
 from DISClib.DataStructures.singlelinkedlist import SingleLinked
+from DISClib.DataStructures.doublelinkedlist import DoubleLinked
 # asserting module existence
-# assert config
 assert ArrayList
+assert SingleLinked
+assert DoubleLinked
 
 
 @pytest.fixture(scope="module")

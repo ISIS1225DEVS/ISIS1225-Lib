@@ -1,0 +1,599 @@
+:py:mod:`DISClib.DataStructures.rbt`
+====================================
+
+.. py:module:: DISClib.DataStructures.rbt
+
+.. autoapi-nested-parse::
+
+   * Copyright 2020, Departamento de sistemas y Computación
+   * Universidad de Los Andes
+   *
+   *
+   * Desarrolado para el curso ISIS1225 - Estructuras de Datos y Algoritmos
+   *
+   *
+   * This program is free software: you can redistribute it and/or modify
+   * it under the terms of the GNU General Public License as published by
+   * the Free Software Foundation, either version 3 of the License, or
+   * (at your option) any later version.
+   *
+   * This program is distributed in the hope that it will be useful,
+   * but WITHOUT ANY WARRANTY; without even the implied warranty of
+   * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   * GNU General Public License for more details.
+   *
+   * You should have received a copy of the GNU General Public License
+   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+   *
+   * Contribución de:
+   *
+   * Dario Correal
+   *
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   DISClib.DataStructures.rbt.newMap
+   DISClib.DataStructures.rbt.put
+   DISClib.DataStructures.rbt.get
+   DISClib.DataStructures.rbt.remove
+   DISClib.DataStructures.rbt.contains
+   DISClib.DataStructures.rbt.size
+   DISClib.DataStructures.rbt.isEmpty
+   DISClib.DataStructures.rbt.keySet
+   DISClib.DataStructures.rbt.valueSet
+   DISClib.DataStructures.rbt.minKey
+   DISClib.DataStructures.rbt.maxKey
+   DISClib.DataStructures.rbt.deleteMin
+   DISClib.DataStructures.rbt.deleteMax
+   DISClib.DataStructures.rbt.floor
+   DISClib.DataStructures.rbt.ceiling
+   DISClib.DataStructures.rbt.select
+   DISClib.DataStructures.rbt.rank
+   DISClib.DataStructures.rbt.height
+   DISClib.DataStructures.rbt.keys
+   DISClib.DataStructures.rbt.values
+   DISClib.DataStructures.rbt.valueSetTree
+   DISClib.DataStructures.rbt.keySetTree
+   DISClib.DataStructures.rbt.rotateLeft
+   DISClib.DataStructures.rbt.rotateRight
+   DISClib.DataStructures.rbt.flipNodeColor
+   DISClib.DataStructures.rbt.flipColors
+   DISClib.DataStructures.rbt.isRed
+   DISClib.DataStructures.rbt.sizeTree
+   DISClib.DataStructures.rbt.insertNode
+   DISClib.DataStructures.rbt.heightTree
+   DISClib.DataStructures.rbt.getNode
+   DISClib.DataStructures.rbt.minKeyTree
+   DISClib.DataStructures.rbt.maxKeyTree
+   DISClib.DataStructures.rbt.floorKey
+   DISClib.DataStructures.rbt.ceilingKey
+   DISClib.DataStructures.rbt.rankKeys
+   DISClib.DataStructures.rbt.keysRange
+   DISClib.DataStructures.rbt.valuesRange
+   DISClib.DataStructures.rbt.selectKey
+   DISClib.DataStructures.rbt.deleteMinTree
+   DISClib.DataStructures.rbt.deleteMaxTree
+   DISClib.DataStructures.rbt.moveRedRight
+   DISClib.DataStructures.rbt.moveRedLeft
+   DISClib.DataStructures.rbt.balance
+   DISClib.DataStructures.rbt.removeKey
+   DISClib.DataStructures.rbt.defaultfunction
+
+
+
+.. py:function:: newMap(omaptype, cmpfunction, datastructure)
+
+   Crea una tabla de simbolos ordenada.
+   :param compfunction: La funcion de comparacion
+
+   :returns: La tabla de símbolos ordenada sin elementos
+
+   :raises Exception:
+
+
+.. py:function:: put(rbt, key, value)
+
+   Ingresa una pareja llave,valor. Si la llave ya existe,
+   se reemplaza el valor.
+   :param map: La tabla de simbolos ordenada
+   :param key: La llave asociada a la pareja
+   :param value: El valor asociado a la pareja
+
+   :returns: La tabla de simbolos
+
+   :raises Exception:
+
+
+.. py:function:: get(rbt, key)
+
+   Retorna la pareja llave, valor, cuya llave sea igual a key.
+
+   :param rbt: El arbol de búsqueda
+   :param key: La llave asociada a la pareja
+
+   :returns: La pareja llave-valor en caso de que haya sido encontrada
+
+   :raises Exception:
+
+
+.. py:function:: remove(rbt, key)
+
+   Elimina la pareja llave,valor, donde llave == key.
+   :param rbt: El arbol de búsqueda
+   :param key: La llave asociada a la pareja
+
+   :returns: El arbol sin la pareja key-value
+
+   :raises Exception:
+
+
+.. py:function:: contains(rbt, key)
+
+   Retorna True si la llave key se encuentra en la tabla
+   o False en caso contrario.
+   Es necesario proveer la función de comparación entre llaves.
+
+   :param rbt: El arbol de búsqueda
+   :param key: La llave a buscar
+
+   :returns: True si la llave se encuentra en la tabla
+
+   :raises Exception:
+
+
+.. py:function:: size(rbt)
+
+   Retorna el número de entradas en la tabla de simbolos
+   :param rbt: El arbol de búsqueda
+
+   :returns: El número de elementos en la tabla
+
+   :raises Exception:
+
+
+.. py:function:: isEmpty(rbt)
+
+   Informa si la tabla de simbolos se encuentra vacia
+   :param bst: El arbol de búsqueda
+
+   :returns: True si la tabla es vacía, False en caso contrario
+
+   :raises Exception:
+
+
+.. py:function:: keySet(rbt)
+
+   Retorna una lista con todas las llaves de la tabla
+   :param rbt: La tabla de simbolos
+
+   :returns: Una lista con todas las llaves de la tabla
+
+   :raises Exception:
+
+
+.. py:function:: valueSet(rbt)
+
+   Construye una lista con los valores de la tabla
+   :param rbt: La tabla con los elementos
+
+   :returns: Una lista con todos los valores
+
+   :raises Exception:
+
+
+.. py:function:: minKey(rbt)
+
+   Retorna la menor llave de la tabla de simbolos
+   :param rbt: El arbol de búsqueda
+
+   :returns: Retorna la menor llave de la tabla
+
+   :raises Exception:
+
+
+.. py:function:: maxKey(rbt)
+
+   Retorna la mayor llave de la tabla de simbolos
+   :param rbt: El arbol de búsqueda
+
+   :returns: Retorna la mayor llave de la tabla
+
+   :raises Exception:
+
+
+.. py:function:: deleteMin(rbt)
+
+   Encuentra y remueve la menor  llave de la tabla de simbolos
+   y su valor asociado
+
+   TODO: No implementada en esta versión
+
+   rbt: La tabla de simbolos
+   :returns: La tabla de simbolos sin la menor llave
+
+   :raises Exception:
+
+
+.. py:function:: deleteMax(rbt)
+
+   Encuentra y remueve la mayor llave de la tabla de simbolos
+   y su valor asociado
+
+   TODO: No implementada en esta versión
+
+   :param rbt: La tabla de simbolos
+
+   :returns: La tabla de simbolos sin la mayor llave
+
+   :raises Exception:
+
+
+.. py:function:: floor(rbt, key)
+
+   Retorna la llave mas grande en la tabla de simbolos, menor o
+   igual a la llave key
+
+   :param rbt: El arbol de búsqueda
+
+   :returns: Retorna la mayor llave de la tabla
+
+   :raises Exception:
+
+
+.. py:function:: ceiling(rbt, key)
+
+   Retorna la llave mas pequeña en la tabla de simbolos,
+   mayor o igual a la llave key
+   :param bst: La tabla de simbolos
+   :param key: la llave de búsqueda
+
+   :returns: La llave más pequeña mayor o igual a Key
+
+   :raises Exception:
+
+
+.. py:function:: select(rbt, pos)
+
+   Retorna la siguiente llave a la k-esima llave mas pequeña de la tabla
+   :param rbt: La tabla de simbolos
+   :param pos: la pos-esima llave mas pequeña
+
+   :returns: La llave más pequeña mayor o igual a Key
+
+   :raises Exception:
+
+
+.. py:function:: rank(rbt, key)
+
+   Retorna el número de llaves en la tabla estrictamente menores que key
+   :param rbt: La tabla de simbolos
+   :param key: La llave de búsqueda
+
+   :returns: El nuemero de llaves encontradas
+
+   :raises Exception:
+
+
+.. py:function:: height(rbt)
+
+   Retorna la altura del arbol
+
+   :param rbt: El arbol con las parejas
+
+   :returns: La altura del arbol
+
+   :raises Exception:
+
+
+.. py:function:: keys(rbt, keylo, keyhi)
+
+   Retorna todas las llaves del arbol que se encuentren entre
+   [keylo, keyhi]
+   :param bst: La tabla de simbolos
+   :param keylo: limite inferior
+   :param keylohi: limite superiorr
+
+   :returns: Las llaves en el rago especificado
+
+   :raises Exception:
+
+
+.. py:function:: values(rbt, keylo, keyhi)
+
+   Retorna todas los valores del arbol que se encuentren entre
+   [keylo, keyhi]
+
+   :param bst: La tabla de simbolos
+   :param keylo: limite inferior
+   :param keylohi: limite superiorr
+
+   :returns: Las llaves en el rago especificado
+
+   :raises Exception:
+
+
+.. py:function:: valueSetTree(root, klist)
+
+   Construye una lista con los valorers de la tabla
+   :param root: El arbol con los elementos
+   :param klist: La lista de respuesta
+
+   :returns: Una lista con todos los valores
+
+   :raises Exception:
+
+
+.. py:function:: keySetTree(root, klist)
+
+   Construye una lista con las llaves de la tabla
+   :param root: El arbol con los elementos
+   :param klist: La lista de respuesta
+
+   :returns: Una lista con todos las llaves
+
+   :raises Exception:
+
+
+.. py:function:: rotateLeft(rbt)
+
+   rotación izquierda para compensar dos enlaces rojos consecutivos
+
+
+.. py:function:: rotateRight(rbt)
+
+   Rotación a la derecha para compensar un hijo rojo a la derecha
+   :param rbt: El arbol a rotar
+
+   :returns: El arbol rotado
+
+   :raises Exception:
+
+
+.. py:function:: flipNodeColor(rbnode)
+
+   Cambia el color de un nodo
+   :param rbnode: El nodo a cambiar
+
+   :returns: El nodo con el color opuesto
+
+   :raises Exception:
+
+
+.. py:function:: flipColors(rbnode)
+
+   Cambia el color de un nodo y de sus dos hijos
+   :param maptype: El tipo de map ordenado a utilizar
+                   'BST' o 'RBT'
+
+   :returns: La tabla de símbolos ordenada sin elementos
+
+   :raises Exception:
+
+
+.. py:function:: isRed(rbnode)
+
+   Indica si un nodo del arbol es rojo
+   :param rbnode: El nodo a examinar
+
+   :returns: True / False
+
+   :raises Exception:
+
+
+.. py:function:: sizeTree(root)
+
+   Retorna el número de entradas en la a partir un punto dado
+   :param root: El arbol de búsqueda
+
+   :returns: El número de elementos en la tabla
+
+   :raises Exception:
+
+
+.. py:function:: insertNode(root, key, value, cmpfunction)
+
+   Ingresa una pareja llave,valor. Si la llave ya existe,
+   se reemplaza el valor.
+   :param root: La raiz del arbol
+   :param key: La llave asociada a la pareja
+   :param value: El valor asociado a la pareja
+   :param cmpfunction: Función de comparación
+
+   :returns: El arbol con la nueva pareja
+
+   :raises Exception:
+
+
+.. py:function:: heightTree(root)
+
+   Retorna la altura del arbol
+
+   :param root: El arbol con las parejas
+
+   :returns: La altura del arbol
+
+   :raises Exception:
+
+
+.. py:function:: getNode(root, key, cmpfunction)
+
+   Retorna la pareja llave, valor, cuya llave sea igual a key.
+   Es necesario proveer una función de comparación para las llaves.
+
+   :param root: El arbol rojo-negro
+   :param key: La llave de busqueda
+   :param cmpfunction: funcion de comparación
+
+   :returns: La pareja llave-valor
+
+   :raises Exception:
+
+
+.. py:function:: minKeyTree(root)
+
+   Retorna la menor llave de la tabla de simbolos
+   :param root: La raiz del arbol de busqueda
+
+   :returns: El elemento mas izquierdo del arbol
+
+   :raises Exception:
+
+
+.. py:function:: maxKeyTree(root)
+
+   Retorna la mayor llave de la tabla de simbolos
+   :param bst: La tabla de simbolos
+
+   :returns: El elemento mas derecho del árbol
+
+   :raises Exception:
+
+
+.. py:function:: floorKey(root, key, cmpfunction)
+
+   Retorna la llave mas grande en la tabla de simbolos, menor o
+   igual a la llave key
+
+   :param rbt: El arbol de búsqueda
+   :param key: La llave
+   :param cmpfunction: Funcion de comparacion
+
+   :returns: Retorna la mayor llave de la tabla
+
+   :raises Exception:
+
+
+.. py:function:: ceilingKey(root, key, cmpfunction)
+
+   Retorna la llave mas pequeña en la tabla de simbolos,
+   mayor o igual a la llave key
+
+   :param rbt: El arbol de búsqueda
+   :param key: La llave
+   :param cmpfunction: Funcion de comparacion
+
+   :returns: Retorna la mayor llave de la tabla
+
+   :raises Exception:
+
+
+.. py:function:: rankKeys(root, key, cmpfunction)
+
+   Retorna el número de llaves en la tabla estrictamente menores que key
+   :param rbt: La tabla de simbolos
+   :param key: La llave de busqueda
+
+   :returns: El numero de llaves
+
+   :raises Exception:
+
+
+.. py:function:: keysRange(root, keylo, keyhi, lstkeys, cmpfunction)
+
+   Retorna todas las llaves del arbol en un rango dado
+   :param bst: La tabla de simbolos
+   :param keylo: limite inferior
+   :param keylohi: limite superiorr
+
+   :returns: Las llaves en el rago especificado
+
+   :raises Exception:
+
+
+.. py:function:: valuesRange(root, keylo, keyhi, lstvalues, cmpfunction)
+
+   Retorna todas los valores del arbol en un rango dado por
+   [keylo, keyhi]
+   :param bst: La tabla de simbolos
+   :param keylo: limite inferior
+   :param keylohi: limite superior
+
+   :returns: Las llaves en el rango especificado
+
+   :raises Excep:
+
+
+.. py:function:: selectKey(root, key)
+
+   Retorna la siguiente llave a la k-esima llave mas pequeña de la tabla
+   :param root: La tabla de simbolos
+   :param key: la llave de búsqueda
+
+   :returns: La llave más pequeña mayor o igual a Key
+
+   :raises Exception:
+
+
+.. py:function:: deleteMinTree(root)
+
+   Encuentra y remueve la menor  llave de la tabla de simbolos
+   y su valor asociado
+
+   root: La tabla de simbolos
+   :returns: La tabla de simbolos sin la menor llave
+
+   :raises Exception:
+
+
+.. py:function:: deleteMaxTree(root)
+
+   Encuentra y remueve la mayor llave de la tabla de simbolos
+   y su valor asociado
+
+   root: La tabla de simbolos
+   :returns: La tabla de simbolos sin la menor llave
+
+   :raises Exception:
+
+
+.. py:function:: moveRedRight(root)
+
+   Cambio de color durante el proceso de eliminacion
+   root: La tabla de simbolos
+   :returns: El arbol con un hijo iquierdo de root en negro
+
+   :raises Exception:
+
+
+.. py:function:: moveRedLeft(root)
+
+   Cambio de color durante el proceso de eliminacion
+   root: La tabla de simbolos
+   :returns: El arbol con un hijo iquierdo de root en negro
+
+   :raises Exception:
+
+
+.. py:function:: balance(root)
+
+   Balancea el arbol
+   root: Raiz del arbol a balancear
+   :returns: El arbol balanceado
+
+   :raises Exception:
+
+
+.. py:function:: removeKey(root, key, cmpfunction)
+
+   Elimina la pareja llave,valor, donde llave == key.
+   :param root: El arbol de búsqueda
+   :param key: La llave asociada a la pareja
+   :param cmpfunction: La funcion de comparacion
+
+   :returns: El arbol sin la pareja key-value
+
+   :raises Exception:
+
+
+.. py:function:: defaultfunction(key1, key2)
+
+

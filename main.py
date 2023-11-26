@@ -1,4 +1,4 @@
-﻿from DISClib.ADT.lists import *
+﻿from DISClib.ADT.lists import List
 import random
 # from DISClib.ADT.lists import List2
 
@@ -17,7 +17,7 @@ def cmp_test(a, b):
 
 # main del ejercicio
 if __name__ == "__main__":
-    imp = "SingleLinked"   # "SingleLinked", "DoubleLinked", "ArrayList"
+    imp = "DoubleLinked"   # "SingleLinked", "DoubleLinked", "ArrayList"
     print(f"Testing '{imp}' ds_config of ADT List")
     test_lt_1 = List(dstruct=imp)
     # test_lt_1 = List2.new(dstruct="ArrayList")
@@ -29,13 +29,15 @@ if __name__ == "__main__":
 
     print("----------- int list -----------")
     test_data = (1, 2, 3, 4, 5)
+    test_data2 = [1, 2, 3, 4, 5]
+    test_data3 = {1, 2, 3, 4, 5}
 
     for i in test_data:
         test_lt_1.add_last(i)
 
     print(test_lt_1)
     test_lt_2 = List(dstruct=imp,
-                     iodata=test_data,
+                     iodata=test_data2,
                      cmp_function=cmp_test)
     print(test_lt_2)
     print(type(test_lt_2))
@@ -56,7 +58,11 @@ if __name__ == "__main__":
     print(type(test_lt_3))
     print("----------- config -----------")
     print("iterating ADT List")
+    print("from head to tail")
     for d in test_lt_3:
+        print(d)
+    print("from tail to head")
+    for d in reversed(test_lt_3):
         print(d)
 
     print("----------- concat list -----------")
@@ -66,16 +72,16 @@ if __name__ == "__main__":
                      cmp_function=cmp_test)
 
     test_data = (6, 7, 8, 9, 10)
-    test_lt_6 = List(dstruct="ArrayList",
+    test_lt_6 = List(dstruct=imp,
                      iodata=test_data,
                      cmp_function=cmp_test)
 
-    # test_lt_7 = test_lt_5.concat(test_lt_6)
-    # print(test_lt_5)
+    test_lt_7 = test_lt_5.concat(test_lt_6)
+    print(test_lt_5)
     print(test_lt_6)
     print(type(test_lt_6))
-    # print(test_lt_7)
-    # print(type(test_lt_7))
+    print(test_lt_7)
+    print(type(test_lt_7))
     # test_lt_7 = test_lt_5 + test_lt_6
 
     start = 1
@@ -112,3 +118,6 @@ if __name__ == "__main__":
     test_lt_2.exchange(i, j)
     print(test_lt_2)
     print(len(test_lt_2))
+
+    for i in reversed(test_lt_2):
+        print(i)

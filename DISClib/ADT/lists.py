@@ -1,37 +1,15 @@
-""" Este módulo implementa el tipo abstracto de datos (TAD) lista.
-    Dinámicamente se puede implementar sobre una estructura de datos
-    sea encadenada de forma sencilla (SingleLinked), doble (DoubleLinked)
-    o como un arreglo dinámico (ArrayList).
+"""
+Este módulo implementa el tipo abstracto de datos (TAD) lista. Dinámicamente se puede implementar sobre una estructura de datos sea encadenada de forma sencilla (SingleLinked), doble (DoubleLinked) o como un arreglo dinámico (ArrayList).
 
-    Este código y sus modificaciones para Python está basado en la
-    implementación propuesta por los siguientes autores/libros:
-        1) Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.
-        2) Data Structures and Algorithms in Python, Michael T. Goodrich,
-            Roberto Tamassia y Michael H. Goldwasser.
+*IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:
 
-Attributes:
-    T (type): variable que representa el tipo de dato de los elementos
-        contenidos en el ADT List.
-    ADT_LT_PGK_PATH (str): ruta del paquete principal del ADT List.
-    ADT_LT_MOD_DICT (dict): diccionario que contiene los posibles
-        módulos de implementación del ADT List.
-
-Functions:
-    - List(): función con patrón de diseño factory que retorna una
-        instancia del ADT List según el tipo de estructura de datos
-        seleccionada.
-    - transform(): función que transforma una instancia del ADT List
-        en otra instancia del ADT List con una estructura de datos
-        seleccionada.
-
-Copyrigth:
-    Universidad de los Andes, Bogotá - Colombia, South America
-    Facultad de Ingeniería,
-    Departamento de Ingeniería de Sistemas y Computación DISC
-    Developed by: Data Structures & Algorithms Group - EDA - ISIS-1225
+    #. Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.
+    #. Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H. Goldwasser.
 """
 # native python modules
-# import importlib
+import copy
+# import modules for defining the Node type
+# from typing import Generic, Optional
 
 # custom modules
 # node class for the linked list
@@ -45,33 +23,37 @@ assert DynamicImporter
 assert T
 
 # main package data structure path
-ADT_LT_PGK_PATH = "DISClib.DataStructures"
+# :param ADT_LT_PGK_PATH
+ADT_LT_PGK_PATH: str = "DISClib.DataStructures"
+"""
+Ruta relativa del paquete principal para instanciar el ADT List.
+"""
+
 
 # posible implementations for the ADT
-ADT_LT_MOD_DICT = {
+# :param ADT_LT_MOD_DICT
+ADT_LT_MOD_DICT: dict = {
     "ArrayList": "arraylist",
     "SingleLinked": "singlelinkedlist",
     "DoubleLinked": "doublelinkedlist",
 }
+"""
+Referencia a los posibles módulos de implementación del ADT List. Pueden ser "ArrayList", "SingleLinked" o "DoubleLinked".
+"""
 
 
 # TODO is this really factory pattern?
 def List(dstruct: str = "ArrayList", **kwargs) -> T:
-    """List Función con patrón de diseño factory que retorna una
-        instancia del ADT List según el tipo de estructura de datos
-        seleccionada.
+    """*List()* Función con patrón de diseño 'factory' que retorna una     instancia del ADT List según el tipo de estructura de datos seleccionada por el usuario.
 
     Args:
-        dstruct (str, optional): Tipo de estructura de datos a instanciar.
-        Por defecto es "ArrayList". Puenden ser "ArrayList", "SingleLinked"
-        o "DoubleLinked".
+        dstruct (str, optional): Tipo de estructura de datos a instanciar. Por defecto es "ArrayList". Puende ser "ArrayList", "SingleLinked" o "DoubleLinked".
 
     Raises:
-        ValueError: error si el tipo de estructura de datos no es válido.
+        ValueError: error si el tipo de estructura de datos seleccionada no es válida.
 
     Returns:
-        T: instancia del ADT List que puede ser "ArrayList", "SingleLinked"
-        o "DoubleLinked".
+        T: instancia del ADT List que puede ser "ArrayList", "SingleLinked" o "DoubleLinked".
     """
     try:
         package = f"{ADT_LT_PGK_PATH}."
@@ -87,29 +69,25 @@ def List(dstruct: str = "ArrayList", **kwargs) -> T:
         raise ValueError(err_msg)
 
 
-def transform(src_lt: T, tgt_dstruct: str = "SingleLinked") -> T:
-    """transform Transforma una instancia del ADT List en otra instancia
-        del ADT List con una estructura de datos seleccionada.
+def translate(src_lt: T, tgt_dstruct: str = "SingleLinked") -> T:
+    """*translate()* Transforma una instancia del ADT List con una estructura de datos seleccionada en otra instancia del ADT List con otra estructura de datos seleccionada.
 
     Args:
         src_lt (T): instancia del ADT List a transformar.
-        tgt_dstruct (str, optional): Tipo de estructura de datos objetivo
-        a instanciar. Por defecto es "SingleLinked". Puenden ser
-        "ArrayList", "SingleLinked" o "DoubleLinked".
+        tgt_dstruct (str, optional): Tipo de estructura de datos objetivo a instanciar. Por defecto es "SingleLinked". Puenden ser "ArrayList", "SingleLinked" o "DoubleLinked".
 
     Raises:
         ValueError: error si el tipo de estructura de datos no es válido.
 
     Returns:
-        T: instancia del ADT List que puede ser "ArrayList", "SingleLinked"
-        o "DoubleLinked".
+        T: instancia del ADT List que puede ser "ArrayList", "SingleLinked" o "DoubleLinked".
     """
     try:
-        tgt_lt = List(dstruct=tgt_dstruct)
+        tgt_lt = List(dstruct=tgt_dstruct,
+                      cmp_function=src_lt.cmp_function,
+                      key=src_lt.key)
         for elm in src_lt:
             tgt_lt.add_last(elm)
-        tgt_lt.cmp_function = src_lt.cmp_function
-        tgt_lt.key = src_lt.key
         return tgt_lt
     except Exception as exp:
         err_msg = f"List type '{tgt_dstruct}' not found"
@@ -118,3 +96,14 @@ def transform(src_lt: T, tgt_dstruct: str = "SingleLinked") -> T:
         raise ValueError(err_msg)
 
 
+def clone(dstruct: T) -> T:
+    """*clone()* copia una instancia del ADT List con una estructura de datos seleccionada.
+
+    Args:
+        dstruct (T): instancia del ADT List a copiar.
+
+    Returns:
+        T: copia independiente de la instancia del ADT List.
+    """
+    # TODO check if this works with deep copy
+    return copy.deepcopy(dstruct)

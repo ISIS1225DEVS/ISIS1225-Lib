@@ -1,38 +1,12 @@
-""" Estas clases representan los nodos para una lista sencillamente
-    encadenada (SingleNode) y una lista doblemente encadenada (DoubleNode).
-    estos nodos se utilizan respectivamente en las estructuras dinamicas
-    de lista sencillamente encadenada (LinkedList) y lista doblemente
-    encadenada (DoubleLinkedList). Las cuales NO tienen un tamaño fijo y
-    pueden crecer indefinidamente en la memoria disponible.
+"""
+Estas clases representan los nodos para una lista sencillamente encadenada (SingleNode) y una lista doblemente encadenada (DoubleNode).
 
-    Este código está basado en la implementación propuesta por los libros
-    con algunas modificaciones para adaptarlo a Python.
-        1) Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.
-        2) Data Structures and Algorithms in Python, Michael T. Goodrich,
-            Roberto Tamassia y Michael H. Goldwasser.
+Estos nodos se utilizan respectivamente en las estructuras dinámicas de lista sencillamente encadenada (LinkedList) y lista doblemente encadenadA(DoubleLinkedList). Las cuales NO tienen un tamaño fijo y pueden crecer indefinidamente en la memoria disponible.
 
-Attributes:
-    T (type): variable que representa el tipo de dato de los elementos
-        contenidos en el Node, SingleNode o DoubleNode.
+*IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:
 
-Class:
-    SingleNode(Node, Generic[T]): representa un nodo de una lista
-        sencillamente encadenada.+
-
-    Funciones:
-        - next: retorna el siguiente nodo de la lista.
-
-    DoubleNode(SingleNode, Generic[T]): representa un nodo de una lista
-        doblemente encadenada.
-
-    Funciones:
-        - prev: retorna el nodo anterior de la lista.
-
-Copyrigth:
-    Universidad de los Andes, Bogotá - Colombia, South America
-    Facultad de Ingeniería,
-    Departamento de Ingeniería de Sistemas y Computación DISC
-    Developed by: Data Structures & Algorithms Group - EDA - ISIS-1225
+    #. Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.
+    #. Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H. Goldwasser.
 """
 
 # native python modules
@@ -56,19 +30,19 @@ assert T
 
 @dataclass
 class SingleNode(Node, Generic[T]):
-    """SingleNode Clase que representa un nodo de una lista sencillamente
-        encadenada. Extiende la clase Node y contiene la información del nodo.
+    """SingleNode Clase que representa un nodo de una lista sencillamente encadenada. Extiende la clase Node y contiene la información del nodo.
 
     Args:
-        Node (dataclass): Clase base para implementar un nodo de una lista
-        Generic (T): TAD/ADT que representa el tipo de dato de la
-            información dentro del nodo.
+        Node (dataclass): Clase base para implementar un nodo de una lista.
+        Generic (T): TAD/ADT que representa el tipo de dato de la información dentro del nodo.
 
     Returns:
         SingleNode: ADT para un nodo de una lista sencillamente encadenada.
     """
     # optional reference to the next node of the same type
+    # :attr: _next
     _next: Optional["SingleNode[T]"] = None
+    """Referencia al siguiente nodo de la lista."""
 
     def next(self) -> Optional["SingleNode[T]"]:
         """next recupera el siguiente nodo de la lista si existe.
@@ -81,20 +55,19 @@ class SingleNode(Node, Generic[T]):
 
 @dataclass
 class DoubleNode(SingleNode, Generic[T]):
-    """DoubleNode Clase que representa un nodo de una lista doblemente
-        encadenada. Extiende las clases SingleNode y Node.
+    """DoubleNode Clase que representa un nodo de una lista doblemente encadenada. Extiende las clases SingleNode y Node.
 
     Args:
-        SingleNode (Dataclass): Calse base para implementar un nodo de una
-            lista sencillamente encadenada.
-        Generic (T): TAD/ADT que representa el tipo de dato de la
-            información dentro del nodo.
+        SingleNode (Dataclass): Calse base para implementar un nodo de una lista sencillamente encadenada.
+        Generic (T): TAD/ADT que representa el tipo de dato de la información dentro del nodo.
 
     Returns:
         DoubleNode: ADT para un nodo de una lista doblemente encadenada.
     """
     # optional reference to the previous node of the same type
+    # :attr: _prev
     _prev: Optional["DoubleNode[T]"] = None
+    """Referencia al nodo anterior de la lista."""
 
     def prev(self) -> Optional["DoubleNode[T]"]:
         """prev recupera el nodo anterior de la lista si existe.

@@ -106,5 +106,5 @@ sys.path.insert(0, os.path.abspath(file_path))
 
 # package details
 __version__ = "0.0.3"
-__author__ = "Uniandes, DISC, EDA team"
+__author__ = "ISIS-1225 Devs EDA Team, DISC, Uniandes"
 __license__ = "GNU 3.0"

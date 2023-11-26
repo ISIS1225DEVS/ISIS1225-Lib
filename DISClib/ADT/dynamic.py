@@ -1,60 +1,69 @@
 ﻿"""
- * Copyright 2020, Departamento de sistemas y Computación,
- Universidad de Los Andes
- *
- * Desarrollado para el curso ISIS1225 - Estructuras de Datos y Algoritmos
- *
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- * Contribución de:
- *
- * Dario Correal
- *
- """
+Esta clase permite importar dinámicamente módulos y clases de módulos
+dentro de DISClib.
 
+*IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:
+
+    #. Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.
+    #. Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H. Goldwasser.
+"""
+
+# native python modules
+# import for dytamic module support
 import importlib
 
 
-class DynamicImporter(object):
-    """DynamicImporter _summary_
-
-    Args:
-        object (_type_): _description_
+class DynamicImporter:
+    """ *DynamicImporter* permite importar dinámicamente módulos y clases de módulos según la configuración de un archivo JSON y las especificaciones del usuario.
 
     Raises:
-        ValueError: _description_
+        ValueError: no se puede importar el módulo especificado.
 
     Returns:
-        _type_: _description_
+        DynamicImporter: instancia de la clase dinámica.
     """
-    # TODO add docstring
+    # package name in build directory
+    # :param package
     package: str = ""
+    """
+    Nombre del paquete en el directorio de compilación.
+    """
+
+    # package name in src directory
+    # :param implementation
     implementation: str = ""
+    """
+    Nombre del paquete en el directorio dentro del código fuente.
+    """
+
+    # private dynamic module reference
+    # :param _module
     _module = None
+    """
+    Referencia privada al módulo dinámico.
+    """
+    # private dynamic class reference
+    # :param _class
     _class = None
+    """
+    Referencia privada a la clase dinámica seleccionada.
+    """
+    # private dynamic class instance reference
+    # :param _instance
     _instance = None
+    """
+    Referencia privada a la instancia de la clase dinámica seleccionada.
+    """
 
     def __init__(self, implementation: str, package: str, **kwargs):
-        """__init__ _summary_
+        """*__init__()* Constructor de la clase dinámica. Permite importar dinámicamente módulos y clases de módulos según la configuración de un archivo JSON y las especificaciones del usuario.
 
         Args:
-            implementation (str): _description_
-            package (str): _description_
+            implementation (str): implementación de la clase dinámicA seleccionada.
+            package (str): referencia al paquete de la clase dinámica.
 
         Raises:
-            ValueError: _description_
+            ValueError: no se puede importar el módulo especificado.
         """
         # TODO add docstring
         try:
@@ -71,64 +80,48 @@ class DynamicImporter(object):
         self._instance = self._class(**kwargs)
 
     def __post_init__(self):
-        """__post_init__ _summary_
+        """*__post_init__()* función post inicialización. Permite cambiar el nombre de la clase dinámica por el nombre de la clase concreta seleccionada por el usuario.
         """
-        # TODO add docstring
         self.__class__.__name__ = self.implementation
 
     def __repr__(self) -> str:
-        """__repr__ _summary_
+        """*__repr__* función de representación. Permite representar la clase dinámica como la clase concreta seleccionada por el usuario.
 
         Returns:
-            str: _description_
+            str: representación de la clase concreta seleccionada.
         """
         return self._instance.__repr__()
 
-    def __getattr__(self, name):
-        """__getattr__ _summary_
-
-        Args:
-            name (_type_): _description_
-
-        Returns:
-            _type_: _description_
-        """
-        # delegate attribute access to the implementation instance
-        return getattr(self._instance, name)
-
     def start(self):
-        """start _summary_
+        """*start()* retorna la instancia de la clase concreta seleccionada por el usuario.
 
         Returns:
-            _type_: _description_
+            dataclass: instancia de la clase concreta seleccionada.
         """
-        # TODO add docstring
         # FIXME this is a hack!!!
         return self._instance
 
     @classmethod
     def __class__(self) -> type:
-        """__class__ _summary_
+        """*__class__* retorna el tipo de la clase concreta seleccionada por el usuario.
 
         Returns:
-            type: _description_
+            type: tipo de la clase concreta seleccionada.
         """
-        # TODO add docstring
         # FIXME this is not working
         # delegate type() to the implementation instance
         return self._instance.__class__
 
     @classmethod
     def __instancecheck__(self, instance) -> bool:
-        """__instancecheck__ _summary_
+        """*__instancecheck__* permite verificar si una instancia es de la clase concreta seleccionada por el usuario.
 
         Args:
-            instance (_type_): _description_
+            instance (T): instancia a verificar.
 
         Returns:
-            bool: _description_
+            bool: True si la instancia es de la clase concreta seleccionada.
         """
-        # TODO add docstring
         # FIXME this is not working
         # check if the instance is an instance of the implementation class
         return isinstance(instance, self._instance.__class__)

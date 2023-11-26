@@ -1,33 +1,12 @@
-﻿""" Módulo con variables globales y funciones de comparación por defecto
-    para uso por todo DISClib y sus ADTs.
+﻿"""
+Módulo con variables globales y funciones de comparación por defecto para uso por todo *DISClib* y sus ADTs.
 
-    Este código y sus modificaciones para Python está basado en la
-    implementación propuesta por los siguientes autores/libros:
-        1) Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.
-        2) Data Structures and Algorithms in Python, Michael T. Goodrich,
-            Roberto Tamassia y Michael H. Goldwasser.
+*IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:
 
-Attributes:
-    VALID_DATA_TYPE_LT (tuple): tupla con los tipos de datos nativos en Python
-        que son comparables en los ADTs.
-    DEFAULT_DICT_KEY (str): llave por defecto para comparar diccionarios en los
-        ADTs.
-    T (type): marca nativa de Python para definir un tipo de @dataclass
-        genérico.
-    VALID_IO_TYPE (tuple): tupla con los tipos de datos nativos en Python
-        que son válidos para entrada y salida al inicializar un ADT.
-
-Functions:
-    - lt_default_cmp_funcion(): comparación por defecto para dos elementos
-        en el ADT List (ArrayList, LinkedList, DoublyLinkedList).
-    # TODO add documentation
-
-Copyrigth:
-    Universidad de los Andes, Bogotá - Colombia, South America
-    Facultad de Ingeniería, 2023
-    Departamento de Ingeniería de Sistemas y Computación DISC
-    Developed by: Data Structures & Algorithms Group - EDA - ISIS-1225
+    #. Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.
+    #. Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H. Goldwasser.
 """
+
 
 # python native modules
 # import dataclass for defining the node type
@@ -36,7 +15,8 @@ from dataclasses import dataclass
 from typing import TypeVar
 
 # valid data types for the node
-VALID_DATA_TYPE_LT = (
+# :data: VALID_DATA_TYPE_LT
+VALID_DATA_TYPE_LT: tuple = (
     int,
     float,
     str,
@@ -47,25 +27,38 @@ VALID_DATA_TYPE_LT = (
     set,
     dataclass,
 )
+"""
+Tupla con los tipos de datos nativos en Python que son comparables en los ADTs.
+"""
 
 # default key for comparing dictionaries
-DEFAULT_DICT_KEY = "id"
+# :data: DEFAULT_DICT_KEY
+DEFAULT_DICT_KEY: str = "id"
+"""
+Llave por defecto para comparar diccionarios en los ADTs.
+"""
 
 # allowed input/output types for the ADTs
-VALID_IO_TYPE = (
+# :data: VALID_IO_TYPE
+VALID_IO_TYPE: tuple = (
     list,
     tuple,
     set,
 )
+"""
+Tupla con los tipos de datos nativos en Python que son válidos para entrada y salida de datos al inicializar un ADT.
+"""
 
 # Type for the element stored in the list
-T = TypeVar("T")    # T can be any type
+# :data: T: TypeVar
+T = TypeVar("T")
+"""
+Variable nativa de Python para definir un tipo de @dataclass genérico.
+"""
 
 
 def lt_default_cmp_funcion(key, elm1, elm2) -> int:
-    """lt_default_cmp_funcion función de comparación por defecto para
-        los elementos del ADT List (ArrayList, LinkedList, DoublyLinkedList).
-        pueden ser de tipo nativo o definido por el usuario.
+    """lt_default_cmp_funcion función de comparación por defecto para los elementos del ADT List (ArrayList, SingleLinked, DoublyLinked). pueden ser de tipo nativo o definido por el usuario.
 
     Args:
         key (str): llave para comparar los elementos de tipo diccionario.
@@ -73,16 +66,13 @@ def lt_default_cmp_funcion(key, elm1, elm2) -> int:
         elm2 (any): segundo elemento a comparar.
 
     Raises:
-        TypeError: error de tipo de dato si los elementos de tipo nativo en
-            Python no son comparables.
-        KeyError: error de clave si la llave para comparar los diccionarios
-            no existe.
+        TypeError: error de tipo de dato si los elementos de tipo nativo en Python no son comparables.
+        KeyError: error de clave si la llave para comparar los diccionarios no existe.
         TypeError: error de tipo de dato si los elementos no son comparables.
 
     Returns:
-        int: retorna -1 si elm1 es menor que elm2, 0 si son iguales y 1 si
+        int: retorna -1 si elm1 es menor que elm2, 0 si son iguales y 1 si elm1 es mayor que elm2.
     """
-    # TODO add documentation
     elm1_type = isinstance(elm1, VALID_DATA_TYPE_LT)
     elm2_type = isinstance(elm2, VALID_DATA_TYPE_LT)
     # if the elements are from different types, raise an exception

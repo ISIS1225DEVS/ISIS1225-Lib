@@ -1,30 +1,10 @@
-""" Módulo con funciones para manejo de errores genericas para
-    todo DISClib.
+"""
+Módulo para manejar errores genéricos en los ADTs y todo *DISCLib*.
 
-    Este código y sus modificaciones para Python está basado en la
-    implementación propuesta por los siguientes autores/libros:
-        1) Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.
-        2) Data Structures and Algorithms in Python, Michael T. Goodrich,
-            Roberto Tamassia y Michael H. Goldwasser.
+*IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:
 
-Attributes:
-    T (type): marca nativa de Python para definir un tipo de @dataclass
-        genérico.
-    TYPE_ERR_MSG (str): mensaje de error para tipo de dato inválido.
-    VALID_DATA_TYPE_LT (tuple): tupla con los tipos de datos nativos en Python
-        que son comparables en los ADTs.
-
-Functions:
-    - error_handler(): manejo de errores genérico.
-    - init_type_checker(): chequeo de tipo de dato genérico al inicializar
-        un ADT.
-    # TODO add documentation
-
-Copyrigth:
-    Universidad de los Andes, Bogotá - Colombia, South America
-    Facultad de Ingeniería, 2023
-    Departamento de Ingeniería de Sistemas y Computación DISC
-    Developed by: Data Structures & Algorithms Group - EDA - ISIS-1225
+    #. Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.
+    #. Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H. Goldwasser.
 """
 # native python modules
 # import typing for defining the type of the elements
@@ -35,24 +15,26 @@ Copyrigth:
 from DISClib.Utils.default import VALID_DATA_TYPE_LT
 from DISClib.Utils.default import T
 
-
-# generic error message for invalid data type
-TYPE_ERR_MSG = "Invalid data type"
+# error msg for invalid data type
+# :data: TYPE_ERR_MSG
+TYPE_ERR_MSG: str = "Invalid data type"
+"""
+Contiene el mensaje de error para tipo de dato inválido.
+"""
 
 
 def error_handler(context: str,
                   func_name: str,
                   err: Exception) -> None:
-    """error_handler receives the context, function name and error to raise
-    inside an specific module or class.
+    """*error_handler()* recibe el contexto, nombre de la función y la excepción para lanzar una excepción con el mensaje de error y el traceback.
 
     Args:
-        context (str): name of the class where the error occurred.
-        func_name (str): name of the function where the error occurred.
-        err (Exception): exception raised.
+        context (str): nombre del contexto donde ocurrió el error.
+        func_name (str): nombre de la función donde ocurrió el error.
+        err (Exception): excepción lanzada.
 
     Raises:
-        type: exception with the error message and traceback.
+        type: excepción con el mensaje de error y el traceback.
     """
     err_msg = f"Error in {context}.{func_name}: {err}"
     raise type(err)(err_msg).with_traceback(err.__traceback__)
@@ -61,16 +43,16 @@ def error_handler(context: str,
 def init_type_checker(context: str,
                       func_name: str,
                       info: T) -> None:
-    """init_type_checker receives the context, function name and info to check
-        its type after class initialization.
+    """*init_type_checker()* recibe el contexto, nombre de la función y la info
+    para verificar su tipo después de la inicialización de la clase.
 
     Args:
-        context (str): name of the class where the check is performed.
-        func_name (str): name of the function where the check is performed.
-        info (T): info to check its type.
+        context (str): nombre del contexto donde ocurrió el error.
+        func_name (str): nombre de la función donde ocurrió el error.
+        info (T): tipo de dato de la información a verificar.
 
     Raises:
-        TypeError: exception with the type error message.
+        TypeError: excepción con el mensaje de error de tipo de dato.
     """
     if not isinstance(info, VALID_DATA_TYPE_LT):
         err_msg = f"Error in {context}.{func_name}: {TYPE_ERR_MSG}"

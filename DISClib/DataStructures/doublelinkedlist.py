@@ -1,59 +1,10 @@
-""" Esta clase representa una estructura de datos lineal, específicamente
-    una lista doblemente enlazada/encadenada (DoubleLinked). Esta
-    estructura de datos es una secuencia de nodos enlazados, donde cada
-    nodo contiene un elemento de información, una referencia al siguiente,
-    y al anterior nodo en la secuencia. Esto le permite a la lista un
-    crecimiento y reducción dinámico en la memoria disponible.
+"""
+Esta clase representa una estructura de datos lineal, específicamente una lista doblemente enlazada/encadenada (DoubleLinked). Esta estructura de datos es una secuencia de nodos enlazados, donde cada nodo contiene un elemento de información, una referencia al siguiente, y al anterior nodo en la secuencia. Esto le permite a la lista un crecimiento y reducción dinámico en la memoria disponible.
 
-    Este código y sus modificaciones para Python está basado en la
-    implementación propuesta por los siguientes autores/libros:
-        1) Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.
-        2) Data Structures and Algorithms in Python, Michael T. Goodrich,
-            Roberto Tamassia y Michael H. Goldwasser.
+*IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:
 
-Attributes:
-    T (type): variable que representa el tipo de dato de los elementos
-        contenidos en el DoubleLinked.
-
-Class:
-    DoubleLinked(Generic[T]): Esta clase representa una estructura de
-        datos de tipo Array List o Arreglo Dinámico.
-
-    Functions:
-        - __init__(): inicializa la estructura DoubleLinked (autogenerado).
-        - __post_init__(): configura los valores por defecto para el
-            DoubleLinked.
-        - default_cmp_function(): función de comparación por defecto.
-        - _handle_error(): función privada que maneja los errores.
-        - _check_type(): función privada que verifica el tipo de dato en el
-            DoubleLinked.
-        - is_empty(): revisa si la estructura está vacía.
-        - size(): devuelve el numero de elementos que contiene la estructura.
-        - add_first(): adiciona un elemento al inicio de la estructura.
-        - add_last(): adiciona un elemento al final de la estructura.
-        - add_element(elem, pos): adiciona un elemento en una posición dada.
-        - get_first(): lee el primer elemento de la estructura.
-        - get_last(): lee el último elemento de la estructura.
-        - get_element(pos): lee un elemento en una posición dada.
-        - remove_first(): elimina el primer elemento de la estructura.
-        - remove_last(): elimina el último elemento de la estructura.
-        - remove_element(pos): elimina un elemento en una posición dada.
-        - compare_elements(elem1, elem2): compara dos elementos en dos
-            posiciones dadas.
-        - is_present(elem): revisa si un elemento está en la estructura.
-        - change_info(new_elem, pos): cambia la información de un elemento
-            dado.
-        - exchange(pos1, pos2): intercambia la información de dos elementos en
-            Sdos posiciones dadas.
-        - sublist(start, end): crea una sublista de la estructura según unas
-            posiciones dadas.
-        - concat(other): une dos estructuras de datos DoubleLinked.
-
-Copyrigth:
-    Universidad de los Andes, Bogotá - Colombia, South America
-    Facultad de Ingeniería,
-    Departamento de Ingeniería de Sistemas y Computación DISC
-    Developed by: Data Structures & Algorithms Group - EDA - ISIS-1225
+    #. Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.
+    #. Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H. Goldwasser.
 """
 
 # native python modules
@@ -63,8 +14,6 @@ from dataclasses import dataclass, field
 from typing import List, Optional, Callable, Generic
 # import inspect for getting the name of the current function
 import inspect
-# import copy for deepcopy the data structure
-import copy
 
 # custom modules
 # node class for the linked list
@@ -88,56 +37,60 @@ assert VALID_IO_TYPE
 
 @dataclass
 class DoubleLinked(Generic[T]):
-    """DoubleLinked Clase que representa una estructura de datos de tipo
-        DoubleLinked con la anotación '@dataclass' de python y el decorador
-        'Generic[T]' para indicar que es una estructura de datos genérica.
+    """DoubleLinked Clase que representa una estructura de datos de tipo DoubleLinked con la anotación '@dataclass' de python y el decorador 'Generic[T]' para indicar que es una estructura de datos genérica.
 
     Args:
-        Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type)
-            que representa un DoubleLinked o Arreglo Dinámico generico.
-
-    Attributes:
-        first (Optional[DoubleNode[T]]): propiedad privada que representa el
-            primer nodo del DoubleLinked.
-        last (Optional[DoubleNode[T]]): propiedad privada que representa el
-            último nodo del DoubleLinked.
-        _size (int): propiedad privada que representa el tamaño de la lista.
-        cmp_function (Optional[Callable[[T, T], int]]): función de comparación
-            opcional que se utiliza para comparar los elementos del ArrayList,
-            por defecto es None y el __post_init__ configura la función por
-            defecto lt_default_cmp_funcion().
-        key (Optional[str]): nombre de la llave opcional que se utiliza para
-            comparar los elementos del DoubleLinkedList, Por defecto es None y
-            el __post_init__ configura la llave por defecto la llave "id" en
-            DEFAULT_DICT_KEY.
-        iodata (Optional[List[T]]): lista nativa de python que contiene los
-            elementos de la estructura de datos, por defecto es None y el
-            usuario puede incluir una lista nativa de python como argumento.
+        Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type que representa un DoubleLinked o Lista Doblemente Encadenada.
 
     Returns:
-        DoubleLinked: ADT de tipo DoubleLinked o Lista Sensillamente
-            Encadenada.
+        DoubleLinked: ADT de tipo DoubleLinked o Lista Doblemente Encadenada.
     """
     # input elements from python list
+    # :param iodata
     iodata: Optional[List[T]] = None
+    """
+    Lista nativa de Python que contiene los elementos de entrada a la estructura, por defecto es None y el usuario puede incluir una lista nativa de python como argumento.
+    """
+
     # reference to the header node of the list, DoubleNode by default
+    # :attr: _header
     _header: Optional[DoubleNode[T]] = field(
-        default_factory=lambda: DoubleNode(None))
+        default_factory=lambda: DoubleNode())
+    """
+    Atributo privado que representa el nodo sentinela de la cabecera de la estructura, por defecto es un DoubleNode vacío.
+    """
     # reference to the trailer node of the list, DoubleNode by default
+    # :attr: _trailer
     _trailer: Optional[DoubleNode[T]] = field(
-        default_factory=lambda: DoubleNode(None))
-    # by default, the list is empty
-    _size: int = 0
+        default_factory=lambda: DoubleNode())
+    """
+    Atributo privado que representa el nodo sentinela del final de la estructura, por defecto es un DoubleNode vacío.
+    """
+
+    # by default, the list is empty, -1 for the header and trailer nodes
+    # FIXME inconsistent use between _size and size()
+    # :attr: _size
+    _size: int = -1
+    """
+    Atributo privado que representa el tamaño de la estructura, por defecto es -1 para ajustar por los nodos sentinela de la cabecera y el final de la estructura.
+    """
+
     # the cmp_function is used to compare elements, not defined by default
+    # :attr: cmp_function
     cmp_function: Optional[Callable[[T, T], int]] = None
+    """
+    Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es 'None' y el __post_init__ configura la función por defecto lt_default_cmp_funcion().
+    """
+
     # the key is used to compare elements, not defined by default
+    # :attr: key
     key: Optional[str] = None
+    """
+    Nombre de la llave opcional que se utiliza para comparar los elementos del ArrayList, Por defecto es 'None' y el __post_init__ configura la llave por defecto la llave 'id' en DEFAULT_DICT_KEY.
+    """
 
     def __post_init__(self) -> None:
-        """__post_init__ configura los valores por defecto para la llave (key)
-                y la función de comparación (cmp_function). Si el usuario
-                incluye una lista nativa de python como argumento, se agrega
-                a la lista de elementos del DoubleLinked.
+        """*__post_init__()* configura los valores por defecto para la llave (key) y la función de comparación (cmp_function). Si el usuario incluye una lista nativa de python como argumento, se agrega a la lista de elementos del DoubleLinked.
         """
         try:
             # Link sentinel nodes
@@ -159,17 +112,14 @@ class DoubleLinked(Generic[T]):
             self._handle_error(err)
 
     def default_cmp_function(self, elm1, elm2) -> int:
-        """default_cmp_function procesa con algoritmica por defecto la lista
-            der elementos que procesa el DoubleLinked. Es una función crucial
-            para que la estructura de datos funcione correctamente.
+        """*default_cmp_function()* procesa con algoritmica por defecto la lista de elementos que procesa el DoubleLinked. Es una función crucial para que la estructura de datos funcione correctamente.
 
         Args:
             elm1 (Any): primer elemento a comparar.
             elm2 (Any): segundo elemento a comparar.
 
         Returns:
-            int: respuesta de la comparación entre los elementos, 0 si son
-                iguales, 1 si elm1 es mayor que elm2, -1 si elm1 es menor.
+            int: respuesta de la comparación entre los elementos, 0 si son iguales, 1 si elm1 es mayor que elm2, -1 si elm1 es menor.
         """
         try:
             # passing self as the first argument to simulate a method
@@ -178,13 +128,9 @@ class DoubleLinked(Generic[T]):
             self._handle_error(err)
 
     def _handle_error(self, err: Exception) -> None:
-        """_handle_error función privada que maneja los errores que se pueden
-            presentar en el DoubleLinked.
+        """*_handle_error()* función privada que maneja los errores que se pueden presentar en el DoubleLinked.
 
-            Si se presenta un error en el DoubleLinked, se formatea el error
-            según el contexto (paquete/clase) y la función que lo generó, y lo
-            reenvia al componente superior en la jerarquía de llamados para
-            manejarlo segun se considere conveniente.
+        Si se presenta un error en el DoubleLinked, se formatea el error según el contexto (paquete/clase) y la función que lo generó, y lo reenvia al componente superior en la jerarquía de llamados para manejarlo segun se considere conveniente.
 
         Args:
             err (Exception): Excepción que se generó en el DoubleLinked.
@@ -195,27 +141,22 @@ class DoubleLinked(Generic[T]):
         error_handler(cur_context, cur_function, err)
 
     def _check_type(self, element: T) -> bool:
-        """_check_type función privada que verifica que el tipo de dato del
-            elemento que se quiere agregar al DoubleLinked sea del mismo tipo
-            contenido dentro de los elementos del DoubleLinked.
+        """*_check_type()* función privada que verifica que el tipo de dato del elemento que se quiere agregar al DoubleLinked sea del mismo tipo contenido dentro de los elementos del DoubleLinked.
 
         Raises:
-            TypeError: error si el tipo de dato del elemento que se quiere
-                agregar no es el mismo que el tipo de dato de los elementos
-                que ya contiene el DoubleLinked.
+            TypeError: error si el tipo de dato del elemento que se quiere agregar no es el mismo que el tipo de dato de los elementos que ya contiene el DoubleLinked.
 
         Args:
             element (T): elemento que se quiere procesar en DoubleLinked.
 
         Returns:
-            bool: operador que indica si el ADT DoubleLinked es del mismo tipo
-                que el elemento que se quiere procesar.
+            bool: operador que indica si el ADT DoubleLinked es del mismo tipo que el elemento que se quiere procesar.
         """
         # TODO check usability of this function
         # if the structure is not empty, check the header element type
-        if not self.is_empty():
-            # get the type of the header element
-            lt_type = type(self.header.get_info())
+        if not self.is_empty() and self._header.next().info is not None:
+            # get the type of the next element to the header
+            lt_type = type(self._header.next().get_info())
             # raise an exception if the type is not valid
             if not isinstance(element, lt_type):
                 err_msg = f"Invalid data type: {type(lt_type)} "
@@ -226,83 +167,88 @@ class DoubleLinked(Generic[T]):
 
     # @property
     def is_empty(self) -> bool:
-        """is_empty revisa si el DoubleLinked está vacía.
+        """*is_empty()* revisa si el DoubleLinked está vacía.
 
         Returns:
             bool: operador que indica si la estructura DoubleLinked está vacía.
         """
         # TODO change the method name to "empty" or @property "empty"?
         try:
-            return self._size == 0
+            if self._size > 0:
+                return False
+            return True
         except Exception as err:
             self._handle_error(err)
 
     # @property
     def size(self) -> int:
-        """size devuelve el numero de elementos que actualmente contiene el
-            DoubleLinked.
+        """*size()* devuelve el numero de elementos que actualmente contiene el DoubleLinked.
 
         Returns:
             int: tamaño de la estructura DoubleLinked.
         """
         # TODO change the method to @property "size"?
         try:
+            if self._size <= 0:
+                return 0
             return self._size
         except Exception as err:
             self._handle_error(err)
 
     def add_first(self, element: T) -> None:
-        """add_first adiciona un elemento al inicio del SingleLinked.
+        """*add_first()* adiciona un elemento al inicio del DoubleLinked.
 
         Args:
             element (T): elemento que se quiere agregar a la estructura.
 
         Raises:
-            Exception: si la operación no se puede realizar, se invoca la
-                función _handle_error() para manejar el error.
+            Exception: si la operación no se puede realizar, se invoca la función '_handle_error()' para manejar el error.
         """
         try:
             # if the element type is valid, add it to the list
             if self._check_type(element):
                 # create a new node
-                new_node = DoubleNode(element)
-
-                self.header = new_node
-                self.trailer = new_node
-                new_node.prev = HEADER
-                new_node.next = TRAILER
-
-
-                self._size += 1
+                # new double node with the element and sentinel references
+                new_node = DoubleNode(element,
+                                      _prev=self._header,
+                                      _next=self._header.next())
+                # completing the references
+                self._header._next._prev = new_node
+                self._header._next = new_node
+                if self._size < 0:
+                    self._size = 1
+                else:
+                    self._size += 1
         except Exception as err:
             self._handle_error(err)
 
     def add_last(self, element: T) -> None:
-        """add_last adiciona un elemento al final del SingleLinked.
+        """*add_last()* adiciona un elemento al final del DoubleLinked.
 
         Args:
             element (T): elemento que se quiere agregar a la estructura.
 
         Raises:
-            Exception: si la operación no se puede realizar, se invoca la
-                función _handle_error() para manejar el error.
+            Exception: si la operación no se puede realizar, se invoca la función '_handle_error()' para manejar el error.
         """
         try:
             # if the element type is valid, add it to the list
             if self._check_type(element):
                 # create a new node
-                new_node = DoubleNode(element)
-                
-
-                
-
-                self._size += 1
+                new_node = DoubleNode(element,
+                                      _prev=self._trailer.prev(),
+                                      _next=self._trailer)
+                self._trailer._prev._next = new_node
+                self._trailer._prev = new_node
+                if self._size < 0:
+                    self._size = 1
+                else:
+                    self._size += 1
         except Exception as err:
             self._handle_error(err)
 
     def add_element(self, element: T, pos: int) -> None:
-        """add_element adiciona un elemento en una posición dada del
-            SingleLinked.
+        """*add_element()* adiciona un elemento en una posición dada del DoubleLinked.
 
         Args:
             element (T): elemento que se quiere agregar a la estructura.
@@ -318,521 +264,447 @@ class DoubleLinked(Generic[T]):
                 if self._check_type(element):
                     if pos < 0 or pos > self._size:
                         raise IndexError("Position is out of range")
+                if pos == 0:
+                    self.add_first(element)
+                elif pos == self._size:
+                    self.add_last(element)
+                else:
+                    i = 0
+                    current = self._header.next()
+                    while i < pos - 1:
+                        current = current.next()
+                        i += 1
                     # create a new node
-                    new_node = DoubleNode(element)
-
+                    new_node = DoubleNode(element,
+                                          prev=current,
+                                          next=current.next())
+                    current._next._prev = new_node
+                    current._next = new_node
+                    if self._size < 0:
+                        self._size = 1
+                    else:
+                        self._size += 1
             else:
                 raise IndexError("Empty data structure")
         except (TypeError, IndexError) as err:
             self._handle_error(err)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# #TODO Verificar que el elemento que se esta agregando no sea None
-# def addFirst(lst, element):
-#     """Agrega un elemento a la lista en la primera posicion.
-
-#     Agrega un elemento en la primera posición de la lista, ajusta el apuntador
-#     al primer elemento e incrementa el tamaño de la lista.
-
-#     Args:
-#         lst:  La lista don de inserta el elemento
-#         element:  El elemento a insertar en la lista
-
-#     Returns:
-#         La lista con el nuevo elemento en la primera posición, si el proceso
-#         fue exitoso
-
-#     Raises:
-#         Exception
-#     """
-#     try:
-#         new_node = Node.newDoubleNode(element)
-
-#         if (lst['size'] == 0):
-#             lst['last'] = new_node
-#             lst['first'] = new_node
-#         else:
-#             new_node['next'] = lst['first']
-#             lst['first'] = new_node
-
-#         lst['size'] += 1
-#         return lst
-#     except Exception as exp:
-#         error.reraise(exp, 'doublelinkedlist->addFirst: ')
-
-# #FIXME Cambiar el nombre de la funcion para usar snake_case
-# #TODO Implementar manejo más detallado de excepciones con mensajes más especificos
-# #TODO Verificar que el elemento que se esta agregando no sea None
-# def addLast(lst, element):
-#     """ Agrega un elemento en la última posición de la lista.
-
-#     Se adiciona un elemento en la última posición de la lista y se actualiza
-#      el apuntador a la útima posición.
-#     Se incrementa el tamaño de la lista en 1
-#     Args:
-#         lst: La lista en la que se inserta el elemento
-#         element: El elemento a insertar
-
-#     Raises:
-#         Exception
-#     """
-#     try:
-#         new_node = Node.newDoubleNode(element)
-
-#         if lst['size'] == 0:
-#             lst['first'] = new_node
-#         else:
-#             new_node['prev'] = lst['last']
-#             lst['last']['next'] = new_node
-#         lst['last'] = new_node
-#         lst['size'] += 1
-#         return lst
-#     except Exception as exp:
-#         error.reraise(exp, 'doublelinkedlist->addLast: ')
-
-# #FIXME Cambiar el nombre de la funcion para usar snake_case
-# #TODO Implementar manejo más detallado de excepciones con mensajes más especificos
-
-# def isEmpty(lst):
-#     """ Indica si la lista está vacía
-#     Args:
-#         lst: La lista a examinar
-
-#     Raises:
-#         Exception
-#     """
-#     try:
-#         return lst['size'] == 0
-#     except Exception as exp:
-#         error.reraise(exp, 'doublelinkedlist->isEmpty: ')
-
-# #TODO Implementar manejo más detallado de excepciones con mensajes más especificos
-
-# def size(lst):
-#     """ Informa el número de elementos de la lista.
-#     Args
-#         lst: La lista a examinar
-
-#     Raises:
-#         Exception
-#     """
-#     try:
-#         return lst['size']
-#     except Exception as exp:
-#         error.reraise(exp, 'doublelinkedlist->size: ')
-
-# #FIXME Cambiar el nombre de la funcion para usar snake_case
-# #TODO Implementar manejo más detallado de excepciones con mensajes más especificos
-
-# def firstElement(lst):
-#     """ Retorna el primer elemento de una lista no vacía.
-#      No se elimina el elemento.
-
-#     Args:
-#         lst: La lista a examinar
-
-#     Raises:
-#         Exception
-#     """
-#     try:
-#         if lst['first'] is not None:
-#             return lst['first']['info']
-#     except Exception as exp:
-#         error.reraise(exp, 'doublelinkedlist->fisrtElement: ')
-
-# #FIXME Cambiar el nombre de la funcion para usar snake_case
-# #TODO Implementar manejo más detallado de excepciones con mensajes más especificos
-
-# def lastElement(lst):
-#     """ Retorna el último elemento de una  lista no vacia.
-#         No se elimina el elemento.
-
-#     Args:
-#         lst: La lista a examinar
-
-#     Raises:
-#         Exception
-#     """
-#     try:
-#         if lst['last'] is not None:
-#             return lst['last']['info']
-#     except Exception as exp:
-#         error.reraise(exp, 'doublelinkedlist->lastElement: ')
-
-# #FIXME Cambiar el nombre de la funcion para usar snake_case
-# #TODO Implementar manejo más detallado de excepciones con mensajes más especificos
-
-# def getElement(lst, pos):
-#     """ Retorna el elemento en la posición pos de la lista.
-
-#     Se recorre la lista hasta el elemento pos, el cual  debe ser
-#     mayor que cero y menor o igual al tamaño de la lista.
-#     Se retorna el elemento en dicha posición sin eleminarlo.
-#     La lista no puede ser vacia.
-
-#     Args:
-#         lst: La lista a examinar
-#         pos: Posición del elemento a retornar
-
-#     Raises:
-#         Exception
-#     """
-#     try:
-#         searchpos = 1
-#         node = lst['first']
-#         while searchpos < pos:
-#             searchpos += 1
-#             node = node['next']
-#         return node['info']
-#     except Exception as exp:
-#         error.reraise(exp, 'doublelinkedlist->getElement: ')
-
-# #FIXME Cambiar el nombre de la funcion para usar snake_case
-# #TODO Implementar manejo más detallado de excepciones con mensajes más especificos
-
-# def deleteElement(lst, pos):
-#     """ Elimina el elemento en la posición pos de la lista.
-
-#     Elimina el elemento que se encuentra en la posición pos de la lista.
-#     Pos debe ser mayor que cero y menor o igual al tamaño de la lista.
-#     Se decrementa en un uno el tamñao de la lista.
-#     La lista no puede estar vacia.
-
-#     Args:
-#         lst: La lista a retoranr
-#         pos: Posición del elemento a eliminar.
-
-#     Raises:
-#         Exception
-#     """
-#     try:
-#         if (lst['size'] == 1) and (pos == 1):
-#             lst['first'] = None
-#             lst['last'] = None
-
-#         node = lst['first']
-#         searchpos = 1
-
-#         while searchpos < pos:
-#             searchpos += 1
-#             node = node['next']
-#         prev = node['prev']
-#         sig = node['next']
-
-#         if (prev is not None):
-#             prev['next'] = sig
-#         if (sig is not None):
-#             sig['prev'] = prev
-
-#         if(pos == lst['size']):
-#             lst['last'] = prev
-
-#         lst['size'] -= 1
-#         return lst
-#     except Exception as exp:
-#         error.reraise(exp, 'doublelinkedlist->deleteElement: ')
-
-# #FIXME Cambiar el nombre de la funcion para usar snake_case
-# #TODO Implementar manejo más detallado de excepciones con mensajes más especificos
-
-# def removeFirst(lst):
-#     """ Remueve el primer elemento de la lista.
-#     Elimina y retorna el primer elemento de la lista.
-#     El tamaño de la lista se decrementa en uno.  Si la lista
-#     es vacía se retorna None.
-#     Args:
-#         lst: La lista a examinar
-
-#     Raises:
-#         Exception
-#     """
-#     try:
-#         if lst['first'] is not None:
-#             temp = lst['first']['next']
-#             node = lst['first']
-#             lst['first'] = temp
-#             lst['size'] -= 1
-#             if (lst['size'] == 0):
-#                 lst['last'] = lst['first']
-#             return node['info']
-#         else:
-#             return None
-#     except Exception as exp:
-#         error.reraise(exp, 'doublelinkedlist->removeFirst: ')
-
-# #FIXME Cambiar el nombre de la funcion para usar snake_case
-# #TODO Implementar manejo más detallado de excepciones con mensajes más especificos
-
-# def removeLast(lst):
-#     """ Remueve el último elemento de la lista.
-
-#     Elimina el último elemento de la lista  y lo retorna en caso de existir.
-#     El tamaño de la lista se decrementa en 1.
-#     Si la lista es vacía  retorna None.
-
-#     Args:
-#         lst: La lista a examinar
-
-#     Raises:
-#         Exception
-#     """
-#     try:
-#         if lst['size'] > 0:
-#             if lst['first'] == lst['last']:
-#                 node = lst['first']
-#                 lst['last'] = None
-#                 lst['first'] = None
-#             else:
-#                 temp = lst['last']['prev']
-#                 node = lst['last']
-#                 lst['last'] = temp
-#                 if (temp is not None):
-#                     lst['last']['next'] = None
-#             lst['size'] -= 1
-#             return node['info']
-#         else:
-#             return None
-#     except Exception as exp:
-#         error.reraise(exp, 'doublelinkedlist->remoLast: ')
-
-# #FIXME Cambiar el nombre de la funcion para usar snake_case
-# #TODO Implementar manejo más detallado de excepciones con mensajes más especificos
-# #TODO Verificar que el elemento que se esta agregando no sea None
-# def insertElement(lst, element, pos):
-#     """ Inserta el elemento element en la posición pos de la lista.
-
-#     Inserta el elemento en la posición pos de la lista.
-#     La lista puede ser vacía.  Se incrementa en 1 el tamaño de la lista.
-
-#     Args:
-#         lst: La lista en la que se va a insertar el elemento
-#         element: El elemento a insertar
-#         pos: posición en la que se va a insertar el elemento,
-#         0 < pos <= size(lst)
-
-#     Raises:
-#         Exception
-#     """
-#     try:
-#         new_node = Node.newDoubleNode(element)
-
-#         if (pos == 1):
-#             new_node['next'] = lst['first']
-#             if (lst['first'] is not None):
-#                 lst['first']['prev'] = new_node
-#             else:
-#                 lst['last'] = new_node
-#             lst['first'] = new_node
-#         else:
-#             searchpos = 1
-#             node = lst['first']
-
-#             while searchpos < pos:
-#                 searchpos += 1
-#                 node = node['next']
-#             prev = node['prev']
-
-#             if (prev is not None):
-#                 prev['next'] = new_node
-#                 new_node['prev'] = prev
-#                 new_node['next'] = node
-
-#             if(pos == lst['size']):
-#                 lst['last'] = new_node
-
-#         lst['size'] += 1
-#         return lst
-#     except Exception as exp:
-#         error.reraise(exp, 'doublelinkedlist->insertElement: ')
-
-# #FIXME Cambiar el nombre de la funcion para usar snake_case
-# #TODO Implementar manejo más detallado de excepciones con mensajes más especificos
-
-# def isPresent(lst, element):
-#     """ Informa si el elemento element esta presente en la lista.
-
-#     Informa si un elemento está en la lista.  Si esta presente,
-#     retorna la posición en la que se encuentra  o cero (0) si no esta presente.
-#     Se utiliza la función de comparación utilizada durante la creación
-#     de la lista para comparar los elementos.
-#     La cual debe retornar cero en caso de que los elementos sean iguales.
-
-#     Args:
-#         lst: La lista a examinar
-#         element: El elemento a buscar
-
-#     Raises:
-#         Exception
-#     """
-#     try:
-#         size = lst['size']
-#         if size > 0:
-#             node = lst['first']
-#             keyexist = False
-#             for keypos in range(1, size+1):
-#                 if (node is not None):
-#                     if (compareElements(lst, element, node['info']) == 0):
-#                         keyexist = True
-#                         break
-#                     node = node['next']
-#             if keyexist:
-#                 return keypos
-#         return 0
-#     except Exception as exp:
-#         error.reraise(exp, 'doublelinkedlist->isPresent: ')
-
-# #FIXME Cambiar el nombre de la funcion para usar snake_case
-# #TODO Implementar manejo más detallado de excepciones con mensajes más especificos
-
-# def changeInfo(lst, pos, newinfo):
-#     """ Cambia la informacion contenida en el nodo de la lista que se encuentra
-#          en la posicion pos.
-
-#     Args:
-#         lst: La lista a examinar
-#         pos: la posición de la lista con la información a cambiar
-#         newinfo: La nueva información que se debe poner en el nodo de
-#         la posición pos
-
-#     Raises:
-#         Exception
-#     """
-#     try:
-#         current = lst['first']
-#         cont = 1
-#         while cont < pos:
-#             current = current['next']
-#             cont += 1
-#         current['info'] = newinfo
-#         return lst
-#     except Exception as exp:
-#         error.reraise(exp, 'doublelinkedlist->changeInfo: ')
-
-# #TODO Implementar manejo más detallado de excepciones con mensajes más especificos
-
-# def exchange(lst, pos1, pos2):
-#     """ Intercambia la informacion en las posiciones pos1 y pos2 de la lista.
-
-#     Args:
-#         lst: La lista a examinar
-#         pos1: Posición del primer elemento
-#         pos2: Posiocion del segundo elemento
-
-#     Raises:
-#         Exception
-#     """
-#     try:
-#         infopos1 = getElement(lst, pos1)
-#         infopos2 = getElement(lst, pos2)
-#         changeInfo(lst, pos1, infopos2)
-#         changeInfo(lst, pos2, infopos1)
-#         return lst
-#     except Exception as exp:
-#         error.reraise(exp, 'doublelinkedlist->exchange: ')
-
-# #FIXME Cambiar el nombre de la funcion para usar snake_case
-# #TODO Implementar manejo más detallado de excepciones con mensajes más especificos
-
-# def subList(lst, pos, numelem):
-#     """ Retorna una sublista de la lista lst.
-
-#     Se retorna una lista que contiene los elementos a partir de la
-#     posicion pos,con una longitud de numelem elementos.
-#     Se crea una copia de dichos elementos y se retorna una lista nueva.
-
-#     Args:
-#         lst: La lista a examinar
-#         pos: Posición a partir de la que se desea obtener la sublista
-#         numelem: Numero de elementos a copiar en la sublista
-
-#     Raises:
-#         Exception
-#     """
-#     try:
-#         sublst = {'first': None,
-#                   'last': None,
-#                   'size': 0,
-#                   'type': 'DOUBLE_LINKED',
-#                   'key': lst['key'],
-#                   'datastructure': lst['datastructure'],
-#                   'cmpfunction': lst['cmpfunction']}
-#         cont = 1
-#         loc = pos
-#         while cont <= numelem:
-#             elem = getElement(lst, loc)
-#             addLast(sublst, elem)
-#             loc += 1
-#             cont += 1
-#         return sublst
-#     except Exception as exp:
-#         error.reraise(exp, 'doublelinkedlist->subList: ')
-
-# #TODO Implementar manejo más detallado de excepciones con mensajes más especificos
-
-# def iterator(lst):
-#     """ Retorna un iterador para la lista.
-#     Args:
-#         lst: La lista a iterar
-
-#     Raises:
-#         Exception
-#     """
-#     try:
-#         if(lst is not None):
-#             current = lst['first']
-#             while current is not None:
-#                 yield current['info']
-#                 current = current['next']
-#     except Exception as exp:
-#         error.reraise(exp, 'doublelinkedlist->Iterator')
-
-# #FIXME Cambiar el nombre de la funcion para usar snake_case
-# #TODO Implementar manejo más detallado de excepciones con mensajes más especificos
-
-# def compareElements(lst, element, info):
-#     """ Compara dos elementos
-
-#     Se utiliza la función de comparación por defecto si key es None
-#     o la función provista por el usuario en caso contrario
-#     Args:
-#         lst: La lista con los elementos
-#         element:  El elemento que se esta buscando en la lista
-#         info: El elemento de la lista que se está analizando
-
-#     Returns:  0 si los elementos son iguales
-
-#     Raises:
-#         Exception
-#     """
-#     try:
-#         if(lst['key'] is not None):
-#             return lst['cmpfunction'](element[lst['key']], info[lst['key']])
-#         else:
-#             return lst['cmpfunction'](element, info)
-#     except Exception as exp:
-#         error.reraise(exp, 'doublelinkedlist->compareElements')
-
-# #FIXME Cambiar el nombre de la funcion para usar snake_case
-# #FIXME Cambiar el nombre de la funcion para que referencie mejor a una compare function
-
-# def defaultfunction(id1, id2):
-#     if id1 > id2:
-#         return 1
-#     elif id1 < id2:
-#         return -1
-#     return 0
+    def get_first(self) -> Optional[T]:
+        """*get_first()* lee el primer elemento del DoubleLinked.
+
+        Raises:
+            Exception: error si la estructura está vacía.
+
+        Returns:
+            Optional[T]: el primer elemento del DoubleLinked.
+        """
+        try:
+            info = None
+            if self.is_empty():
+                raise IndexError("Empty data structure")
+            if self._header.next() is not None:
+                node = self._header.next()
+                info = node.get_info()
+            return info
+        except Exception as err:
+            self._handle_error(err)
+
+    def get_last(self) -> Optional[T]:
+        """*get_last()* lee el último elemento del DoubleLinked.
+
+        Raises:
+            Exception: error si la estructura está vacía.
+
+        Returns:
+             Optional[T]: el ultimo elemento del DoubleLinked.
+        """
+        try:
+            info = None
+            if self.is_empty():
+                raise IndexError("Empty data structure")
+            if self._trailer.prev() is not None:
+                node = self._trailer.prev()
+                info = node.get_info()
+            return info
+        except Exception as err:
+            self._handle_error(err)
+
+    def get_element(self, pos: int) -> Optional[T]:
+        """*get_element()* lee un elemento en una posición dada del DoubleLinked.
+
+        Args:
+            pos (int): índice en la que se quiere agregar el elemento.
+
+        Raises:
+            Exception: error si la estructura está vacía.
+            Exception: error si la posición es inválida.
+
+        Returns:
+             Optional[T]: el elemento en la posición dada del DoubleLinked.
+        """
+        # TODO change the method name to "get_elm()"?
+        try:
+            info = None
+            if self.is_empty():
+                raise IndexError("Empty data structure")
+            elif pos < 0 or pos > self._size - 1:
+                raise IndexError("Index", pos, "is out of range")
+            else:
+                if pos < self._size // 2:
+                    # Start from the beginning
+                    i = 0
+                    current = self._header.next()
+                    while i < pos:
+                        current = current.next()
+                        i += 1
+                else:
+                    # Start from the end
+                    i = self._size - 1
+                    current = self._trailer.prev()
+                    while i > pos:
+                        current = current.prev()
+                        i -= 1
+                info = current.get_info()
+            return info
+        except Exception as err:
+            self._handle_error(err)
+
+    def remove_first(self) -> Optional[T]:
+        """*remove_first()* elimina el primer elemento del DoubleLinked.
+
+        Raises:
+            Exception: error si la estructura está vacía.
+
+        Returns:
+             Optional[T]: el primer elemento eliminado del DoubleLinked.
+        """
+        try:
+            info = None
+            if self.is_empty():
+                raise IndexError("Empty data structure")
+            if self._size > 0 and self._header.next() is not None:
+                first = self._header.next()
+                self._header._next = first.next()
+                first.next()._prev = self._header
+                self._size -= 1
+                # if the list is empty, reset the sentinel nodes
+                if self._size == 0:
+                    self._header.next = self._trailer
+                    self._trailer.prev = self._header
+                    self._size = -1
+                info = first.get_info()
+            return info
+        except Exception as err:
+            self._handle_error(err)
+
+    def remove_last(self) -> Optional[T]:
+        """*remove_last()* elimina el último elemento del DoubleLinked.
+
+        Raises:
+            Exception: error si la estructura está vacía.
+
+        Returns:
+            Optional[T]: el ultimo elemento eliminado del DoubleLinked.
+        """
+        try:
+            info = None
+            if self.is_empty():
+                raise IndexError("Empty data structure")
+            if self._size > 0 and self._trailer.prev() is not None:
+                last = self._trailer.prev()
+                self._trailer._prev = last.prev()
+                last.prev()._next = self._trailer
+                self._size -= 1
+                # if the list is empty, reset the sentinel nodes
+                if self._size == 0:
+                    self._header.next = self._trailer
+                    self._trailer.prev = self._header
+                    self._size = -1
+                info = last.get_info()
+            return info
+        except Exception as err:
+            self._handle_error(err)
+
+    def remove_element(self, pos: int) -> Optional[T]:
+        """*remove_element()* elimina un elemento en una posición dada del DoubleLinked.
+
+        Args:
+            pos (int): índice del que se quiere eliminar el elemento.
+
+        Raises:
+            IndexError: error si la estructura está vacía.
+            IndexError: error si la posición es inválida.
+
+        Returns:
+            Optional[T]: el elemento eliminado del DoubleLinked.
+        """
+        # TODO change the method name to "remove_elm()"?
+        try:
+            info = None
+            if self.is_empty():
+                raise IndexError("Empty data structure")
+            if pos < 0 or pos > self._size - 1:
+                raise IndexError(f"Index {pos} is out of range")
+            # Determine where to start based on the position
+            if pos < self._size // 2:
+                # Start from the beginning
+                i = 0
+                current = self._header.next()
+                while i != pos:
+                    current = current.next()
+                    i += 1
+            else:
+                # Start from the end
+                i = self._size - 1
+                current = self._trailer.prev()
+                while i != pos:
+                    current = current.prev()
+                    i -= 1
+                # removing node by index
+                current.prev()._next = current.next()
+                current.next()._prev = current.prev()
+                self._size -= 1
+
+                # if the list is empty, link the sentinel nodes
+                if self._size == 0:
+                    self._header.next = self._trailer
+                    self._trailer.prev = self._header
+                    self._size = -1
+                info = current.get_info()
+            return info
+        except Exception as err:
+            self._handle_error(err)
+
+    def compare_elements(self, elem1: T, elem2: T) -> int:
+        """*compare_elements()* compara dos elementos dentro del DoubleLinked según la función de comparación definida por el usuario o la función por defecto.
+
+        Args:
+            elem1 (T): Primer elemento a comparar.
+            elem2 (T): Segundo elemento a comparar.
+
+        Raises:
+            TypeError: error si la función de comparación no está definida.
+
+        Returns:
+            int: -1 si elem1 es menor que elem2, 0 si son iguales, 1 si elem1 es mayor que elem2.
+        """
+        # FIXME with __post_init__ the cmp_function is never None
+        try:
+            # if the key is defined but the cmp is not, use the default
+            if self.key is not None and self.cmp_function is None:
+                return self.default_cmp_function(elem1, elem2)
+            # otherwise, use the custom cmp function
+            if self.cmp_function is not None:
+                return self.cmp_function(elem1, elem2)
+            # raise an exception if the cmp function is not defined
+            raise TypeError("Undefined compare function!!!")
+        except Exception as err:
+            self._handle_error(err)
+
+    def is_present(self, element: T) -> int:
+        """*is_present()* revisa si un elemento está en el DoubleLinked.
+
+        Args:
+            element (T): elemento que se quiere revisar en el DoubleLinked.
+
+        Returns:
+            int: la posición del elemento en el DoubleLinked, -1 si no está.
+        """
+        # TODO change the method name to "find()"?
+        try:
+            lt_size = self.size()
+            pos = -1
+            if lt_size > 0:
+                # setting the current node by the header
+                node = self._header.next()
+                found = False
+                i = 0
+                while not found and i < lt_size:
+                    data = node.get_info()
+                    if self.compare_elements(element, data) == 0:
+                        found = True
+                        pos = i
+                    i += 1
+                    # setting the loop end by the trailer
+                    # if all(node.next(), node.next().get_info()):, alt!!!
+                    if node.next() is not None:
+                        if node.next().get_info() is not None:
+                            node = node.next()
+                        node = node.next()
+            return pos
+        except Exception as err:
+            self._handle_error(err)
+
+    def change_info(self, new_info: T, pos: int) -> None:
+        """*change_info()* cambia la información de un elemento en una posición dada.
+
+        Args:
+            new_info (T): nueva información que se quiere agregar en el elemento.
+            pos (int): posición del elemento que se quiere cambiar.
+
+        Raises:
+            IndexError: error si la estructura está vacía.
+            IndexError: error si la posición es inválida.
+        """
+        # TODO change the method name to "change_data()" or "update()"?
+        try:
+            if self.is_empty():
+                raise IndexError("Empty data structure")
+            elif pos < 0 or pos > self.size() - 1:
+                raise IndexError("Index", pos, "is out of range")
+            # if not self._check_type(new_info):
+            elif self._check_type(new_info):
+                # raise TypeError("Invalid element type")
+                if pos < self._size // 2:
+                    # start from the beginning
+                    current = self._header.next()
+                    i = 0
+                    while i != pos:
+                        current = current.next()
+                        i += 1
+                else:
+                    # start from the end
+                    current = self._trailer.prev()
+                    i = self._size - 1
+                    while i != pos:
+                        current = current.prev()
+                        i -= 1
+                current.set_info(new_info)
+        except (IndexError, TypeError) as err:
+            self._handle_error(err)
+
+    def exchange(self, pos1: int, pos2: int) -> None:
+        """*exchange()* intercambia la información de dos elementos en dos posiciones dadas.
+
+        Args:
+            pos1 (int): posición del primer elemento.
+            pos2 (int): posición del segundo elemento.
+
+        Raises:
+            Exception: error si la estructura está vacía.
+            Exception: error si la posición del primer elemento es inválida.
+            Exception: error si la posición del segundo elemento es inválida.
+        """
+        try:
+            if self.is_empty():
+                raise IndexError("Empty data structure")
+            elif pos1 < 0 or pos1 > self._size - 1:
+                raise IndexError("Index", pos1, "is out of range")
+            elif pos2 < 0 or pos2 > self._size - 1:
+                raise IndexError("Index", pos2, "is out of range")
+            info_pos1 = self.get_element(pos1)
+            info_pos2 = self.get_element(pos2)
+            self.change_info(info_pos2, pos1)
+            self.change_info(info_pos1, pos2)
+        except Exception as err:
+            self._handle_error(err)
+
+    def sublist(self, start: int, end: int) -> "DoubleLinked[T]":
+        """*sublist()* crea una sublista de la estructura según unas posiciones dentro del DoubleLinked original.
+
+        Args:
+            start (int): índice inicial de la sublista.
+            end (int): índice final de la sublista.
+
+        Raises:
+            IndexError: error si la estructura está vacía.
+            IndexError: error si la posición inicial o final son inválidas.
+
+        Returns:
+            DoubleLinked[T]: una sublista de la estructura original con la función de comparación y la llave de la estructura original.
+        """
+        try:
+            if self.is_empty():
+                raise IndexError("Empty data structure")
+            elif start < 0 or end > self._size - 1 or start > end:
+                raise IndexError(f"Invalid range: between [{start}, {end}]")
+            sub_lt = DoubleLinked(cmp_function=self.cmp_function,
+                                  key=self.key)
+            i = 0
+            current = self._header.next()
+            while i != end + 1:
+                if i >= start:
+                    sub_lt.add_last(current.get_info())
+                current = current.next()
+                i += 1
+            return sub_lt
+        except (IndexError, TypeError) as err:
+            self._handle_error(err)
+
+    def concat(self, other: "DoubleLinked[T]") -> "DoubleLinked[T]":
+        """*concat()* concatena dos estructuras de datos DoubleLinked para crear una nueva estructura con los nodos de las dos estructuras.
+
+        Args:
+            other (DoubleLinked[T]): estructura de datos DoubleLinked que se
+            quiere concatenar con la estructura original.
+
+        Raises:
+            TypeError: error si la estructura que se quiere concatenar no es un DoubleLinked.
+            TypeError: error si la llave de la estructura que se quiere unir no es la misma que la llave de la estructura original.
+            TypeError: error si la función de comparación de la estructura que se quiere unir no es la misma que la función de comparación de lA estructura original.
+
+        Returns:
+            DoubleLinked[T]: Estructura de datos DoubleLinked original que contiene los elementos de las dos estructuras originales.
+        """
+        try:
+            if not isinstance(other, DoubleLinked):
+                err_msg = f"Structure is not an DoubleLinked: {type(other)}"
+                raise TypeError(err_msg)
+            if self.key != other.key:
+                raise TypeError(f"Invalid key: {self.key} != {other.key}")
+            # checking functional code of the cmp function
+
+            code1 = self.cmp_function.__code__.co_code
+            code2 = other.cmp_function.__code__.co_code
+            if code1 != code2:
+                err_msg = f"Invalid compare function: {self.cmp_function}"
+                err_msg += f" != {other.cmp_function}"
+                raise TypeError(err_msg)
+
+            # Link the last node with the first node of the other list
+            self._trailer._prev._next = other._header.next()
+            other._header._next._prev = self._trailer.prev()
+
+            # update the current trailer to the trailer of the other list
+            self._trailer = other._trailer
+
+            # Update the size of the current list
+            self._size = self.size() + other.size()
+            return self
+        except TypeError as err:
+            self._handle_error(err)
+
+    def __iter__(self):
+        """*__iter__* iterador que interviene la función nativa __iter__ para recorrer ascendentemente un DoubleLinked dentro de un ciclo 'for' de python.
+
+        Yields:
+            iterator: iterador sobre los elementos del DoubleLinked.
+        """
+        try:
+            # FIXME do I need the try/except block?
+            current = self._header.next()
+            while current is not self._trailer:
+                yield current.get_info()
+                current = current.next()
+        except Exception as err:
+            self._handle_error(err)
+
+    def __reversed__(self):
+        """*__reversed__* iterador que interviene la función nativa __reversed__ para recorrer descendentemente un DoubleLinked dentro de un ciclo 'for' de python.
+
+        Yields:
+            iterator: iterador sobre los elementos del DoubleLinked.
+        """
+
+        current = self._trailer.prev()
+        while current is not self._header:
+            yield current.get_info()
+            current = current.prev()
+
+    def __len__(self) -> int:
+        """*__len__* función nativa intervenida que devuelve el tamaño del DoubleLinked.
+
+        Returns:
+            int: tamaño del DoubleLinked.
+        """
+        return self.size()

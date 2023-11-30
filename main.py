@@ -1,4 +1,5 @@
 ﻿from DISClib.ADT.lists import List
+from DISClib.ADT.queue import Queue
 import random
 # from DISClib.ADT.lists import List2
 
@@ -121,3 +122,24 @@ if __name__ == "__main__":
 
     for i in reversed(test_lt_2):
         print(i)
+
+    bb = Queue(cmp_function=cmp_test)
+    bbb = Queue(cmp_function=cmp_test)
+    bbb.enqueue(22)
+    bbb.enqueue(33)
+    bb.enqueue(1)
+    print(bb)
+    print(type(bb))
+    print(bb.is_empty())
+    print(bb.size())
+    bb.enqueue(2)
+    # bb.enqueue("value")
+    
+    dddd = Queue()
+    # dddd.peek()
+
+    for a in bb:
+        print(a)
+
+    bb = bb.concat(bbb)
+    print(bb)

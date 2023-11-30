@@ -1,183 +1,100 @@
 """
- * Copyright 2020, Departamento de sistemas y Computación,
- * Universidad de Los Andes
- *
+Esta clase representa una cola/fila implementada sobre una lista. Esta cola o fila (queue) es una estructura de datos que permite almacenar una colección de elementos y operar sobre ellos en el mismo orden en que fueron agregados (FIFO).
 
- * Desarrollado para el curso ISIS1225 - Estructuras de Datos y Algoritmos
- *
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- * Contribución de:
- *
- * Dario Correal
- *
- """
+La implementación de la cola se realiza sobre una lista simplemente
+encadenada (SingleLinked) para garantizar que las operaciones de agregar y
+eliminar elementos se realicen en tiempo constante y no consumir memoria
+innecesaria.
+
+*IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:
+
+    #. Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.
+    #. Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H. Goldwasser.
+"""
 
 # native python modules
 # import dataclass to define the array list
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 # import modules for defining the element's type in the array
-from typing import List, Optional, Callable, Generic, TypeVar
-# import inspect for getting the name of the current function
-import inspect
+from typing import Generic, Optional
 
 # custom modules
-# from DISClib.ADT import list as lt
-from .lists import List as lt
-# generic error handling and type checking
-from DISClib.Utils.error import error_handler
-from DISClib.Utils.error import init_type_checker
-# from DISClib.Utils.error import VALID_DATA_TYPE_LT
+# base datastructure for the queue
+from DISClib.DataStructures.singlelinkedlist import SingleLinked
+from DISClib.Utils.default import T
 
 # checking costum modules
-assert error_handler
-assert init_type_checker
-
-
-# Type for the element stored in the list
-T = TypeVar("T")    # T can be any type
+assert T
 
 
 @dataclass
-class Queue(Generic[T]):
-    """ArrayList _summary_
+class Queue(SingleLinked, Generic[T]):
+    """*Queue* Clase que representa una cola implementada sobre una lista sencillamente encadenada ('SingleLinked'). Esta cola o fila (queue) es un Tipo Abstracto de Datos (TAD/ADT) que permite almacenar una colección de elementos y operarlos en el mismo orden en que fueron agregados (FIFO - Firts In First Out).
+
+    Ademas, la clase 'Queue' esta implementada con la anotación '@dataclass' de python y el decorador 'Generic[T]' para indicar que es una estructura de datos genérica.
+
+    *IMPORTANTE:* 'Queue' extiende de la clase 'SingleLinked', por lo que hereda todos sus parametros internos y funciones.
 
     Args:
-        Generic (_type_): _description_
-    """
-    # TODO add docstring
-    pass
-
-
-"""
-  Este módulo implementa el tipo abstracto de datos
-  cola (Queue) sobre una lista.
-"""
-
-
-# *TODOs GENERALES
-# TODO: Especifiar detalladamente los tipos de errores de la Exception
-# TODO: Actualizar las pruebas unitarias luego de realizar los cambios
-# TODO: Documentar las estructuras de datos utilizadas para implementar la cola
-def newQueue(datastructure='SINGLE_LINKED'):
-    """ Crea una cola vacia basada en una lista.
-    Args:
-        datastructure:  Indica el tipo de estructura de datos a utilizar
-                        para implementar la cola
-    Returns:
-        Una cola vacia
-    Raises:
-        Exception
-    """
-    try:
-        return lt.newList(datastructure)
-    except Exception as exp:
-        raise Exception('TADQueue->newQueue: ' + str(exp))
-        # error.reraise(exp, 'TADQueue->newQueue: ')
-
-
-# FIXME: Cambiar "pila" por "cola" en la documentación
-# FIXME: Cambiar el mensaje de error para que sea consistente con los demás
-# TODO: Mejorar la documentación del output de la función
-def enqueue(queue, element):
-    """Agrega el elemento element en el tope de la pila
-    Args:
-        queue: La cola donde se insertará el elemento
-        element:  El elemento a insertar
+        SingleLinked (dataclass): ADT DISClib que implementa las funciones básicas de una lista sencillamente encadenada.
+        Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para representar una estructura de datos genéricas en python.
 
     Returns:
-        La cola modificada
-    Raises:
-        Exception
+        Queue: ADT de tipo Queue, Cola o Fila, implementado sobre una lista sencillamente encadenada.
     """
-    try:
-        lt.addLast(queue, element)
-        return queue
-    except Exception as ex:
-        raise Exception('TADQueue->enqueue: ' + str(ex))
-        # error.reraise(ex, 'enqueue ')
 
+    def enqueue(self, element: T) -> None:
+        """*enqueue()* agrega un elemento en el final de la cola/fila (Queue).
 
-# FIXME: Cambiar la descripción para decir qué hace y no qué retorna
-def dequeue(queue):
-    """ Retorna el elemento en la primer posición de la cola, y lo elimina.
-     Args:
-        queue: La cola donde se eliminará el elemento
+        Args:
+            element (T): elemento que se quiere agregar al Queue.
+        """
+        try:
+            if self._check_type(element):
+                self.add_last(element)
+        except Exception as exp:
+            self._handle_error(exp)
 
-    Returns:
-        El primer elemento de la cola
-    Raises:
-        Exception
-    """
-    try:
-        return lt.removeFirst(queue)
-    except Exception as exp:
-        raise Exception('TADQueue->dequeue: ' + str(exp))
-        # error.reraise(exp, 'eTADQueu->dequeue: ')
+    def dequeue(self) -> T:
+        """*dequeue()* elimina y retorna el elemento en la primer posición de la cola/fila Queue.
 
+        Returns:
+            T: el elemento en la primera posición de la cola/fila Queue.
+        """
+        try:
+            return self.remove_first()
+        except Exception as exp:
+            self._handle_error(exp)
 
-# FIXME Cambiar la descripción para decir qué hace y no qué retorna
-# FIXME El tipo del return de la función no es consistente con la documentación
-def peek(queue):
-    """ Retorna el elemento en la primer posición de la cola sin eliminarlo
-    Args:
-        queue: La cola  a examinar
+    def peek(self) -> Optional[T]:
+        """*peek()* lee el primer elemento de la cola/fila Queue sin eliminarlo.
 
-    Returns:
-        True el primer elemento de cola sin eliminarlo
-    Raises:
-        Exception
-    """
-    try:
-        return lt.firstElement(queue)
-    except Exception as exp:
-        raise Exception('TADQueue->peek: ' + str(exp))
-        # error.reraise(exp, 'TADQueue->isEmpty: ')
+        Returns:
+            T: elemento en la primer posición de la cola/fila Queue.
+        """
+        try:
+            return self.get_first()
+        except Exception as exp:
+            self._handle_error(exp)
 
+    def is_empty(self) -> bool:
+        """*is_empty()* informa si la cola/fila Queue esta vacía o no.
 
-# FIXME Cambiar el nombre de la función al formato snake_case
-def isEmpty(queue):
-    """Informa si la cola es vacía o no
-    Args:
-        queue: La cola  a examinar
+        Returns:
+            bool: operador que indica si la cola/fila Queue esta vacía.
+        """
+        try:
+            return self._size == 0
+        except Exception as exp:
+            self._handle_error(exp)
 
-    Returns:
-        True si la cola es vacia, False de lo contrario
-    Raises:
-        Exception
-    """
-    try:
-        return lt.isEmpty(queue)
-    except Exception as exp:
-        raise Exception('TADQueue->isEmpty: ' + str(exp))
-        # error.reraise(exp, 'TADQueue->isEmpty: ')
+    def size(self) -> int:
+        """*size()* Función que informa el número de elementos en la fila/cola Queue.
 
-
-def size(queue):
-    """Informa el número de elementos en la cola
-    Args:
-        queue: La cola  a examinar
-
-    Returns:
-        Retorna el tamaño de la cola
-
-    Raises:
-        Exception
-    """
-    try:
-        return lt.size(queue)
-    except Exception as exp:
-        raise Exception('TADQueue->size: ' + str(exp))
-        # error.reraise(exp, 'TADQueue->size: ')
+        Returns:
+            int: número de elementos en el Queue.
+        """
+        try:
+            return self._size
+        except Exception as exp:
+            self._handle_error(exp)

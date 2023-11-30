@@ -1,200 +1,99 @@
 """
- * Copyright 2020, Departamento de sistemas y Computación,
- * Universidad de Los Andes
- *
- *
- * Desarrollado para el curso ISIS1225 - Estructuras de Datos y Algoritmos
- *
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- * Contribución de:
- *
- * Dario Correal
- *
- """
+Esta clase representa una pila implementada sobre una lista doblemente encadenada. Esta pila (Stack) es un Tipo Abstracto de Datos (TAD/ADT) que permite almacenar una colección de elementos y operarlos en el mismo orden en que fueron agregados (LIFO - Last In First Out).
 
-# from Utils import error as error
-# from Utils.error import error_handler
-# from Utils.error import init_type_checker
-# from ADT.lists import List as lt
-# from DISClib.Utils import error as error
-# from DISClib.ADT import list as lt
+La implementación de la cola se realiza sobre una lista doblemente
+encadenada (DoubleLinked) para garantizar que las operaciones de agregar y
+eliminar elementos se realicen en tiempo constante y no consumir memoria
+innecesaria.
 
+*IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:
+
+    #. Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.
+    #. Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H. Goldwasser.
+"""
 # native python modules
 # import dataclass to define the array list
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 # import modules for defining the element's type in the array
-from typing import List, Optional, Callable, Generic, TypeVar
-# import inspect for getting the name of the current function
-import inspect
+from typing import Generic, Optional
 
 # custom modules
-# from DISClib.ADT import list as lt
-from .lists import List as lt
-# generic error handling and type checking
-from DISClib.Utils.error import error_handler
-from DISClib.Utils.error import init_type_checker
-from DISClib.Utils.error import VALID_DATA_TYPE_LT
+# base datastructure for the queue
+from DISClib.DataStructures.doublelinkedlist import DoubleLinked
+from DISClib.Utils.default import T
 
 # checking costum modules
-assert error_handler
-assert init_type_checker
-
-
-# Type for the element stored in the list
-T = TypeVar("T")    # T can be any type
+assert T
 
 
 @dataclass
-class Stack(Generic[T]):
-    """ArrayList _summary_
+class Stack(DoubleLinked, Generic[T]):
+    """*Stack* Clase que representa una pila implementada sobre una lista doblemente encadenada ('DoubleLinked'). Esta pila (Stack) es un Tipo Abstracto de Datos (TAD/ADT) que permite almacenar una colección de elementos y operarlos en el mismo orden en que fueron agregados (LIFO - Last In First Out).
+
+    Ademas, la clase 'Stack' esta implementada con la anotación '@dataclass' de python y el decorador 'Generic[T]' para indicar que es una estructura de datos genérica.
+
+    *IMPORTANTE:* 'Stack' extiende de la clase 'DoubleLinked', por lo que hereda todos sus parametros internos y funciones.
 
     Args:
-        Generic (_type_): _description_
-    """
-    # TODO add docstring
-    pass
-
-
-"""
-  Este módulo implementa el tipo abstracto de datos pila
-  (Stack) sobre una lista encadenada.
-"""
-
-
-# FIXME Cambiar el nombre de la funcion para usar snake_case
-# TODO Especifiar detalladamente los tipos de errores de la Exception
-def newStack(datastructure='DOUBLE_LINKED'):
-    """ Crea una pila vacia.
-
-    Args:
-        datastructure:  Indica el tipo de estructura de datos a utilizar
-                        para implementar la pila
-    Returns:
-        Una pila vacia
-    Raises:
-        Exception
-    """
-    try:
-        return lt.newList(datastructure, None)
-    except Exception as exp:
-        raise Exception('TADStack->newStack: ' + str(exp))
-        # error.reraise(exp, 'TADStack->newStack: ')
-
-
-# TODO Especifiar detalladamente los tipos de errores de la Exception
-def push(stack, element):
-    """ Agrega el elemento element en el tope de la pila.
-
-    Args:
-        stack:  La pila donde se insetará el elemento
-        element:  El elemento a insertar
+        DoubleLinked (dataclass): ADT DISClib que implementa las funciones básicas de una lista doblemente encadenada.
+        Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para representar una estructura de datos genéricas en python.
 
     Returns:
-        La pila modificada
-
-    Raises:
-        Exception
+        Stack: ADT de tipo Stack o Pila, implementado sobre una lista doblemente encadenada.
     """
-    try:
-        lt.addLast(stack, element)
-        return stack
-    except Exception as exp:
-        raise Exception('TADStack->Push: ' + str(exp))
-        # error.reraise(exp, 'TADStack->Push: ')
 
+    def push(self, element: T) -> None:
+        """*push()* agrega un elemento en el tope de la pila (Stack).
 
-# TODO Especifiar detalladamente los tipos de errores de la Exception
-def pop(stack):
-    """ Retorna el elemento  presente en el tope de la pila.
+        Args:
+            element (T): elemento que se quiere agregar al Stack.
+        """
+        try:
+            if self._check_type(element):
+                self.add_last(element)
+        except Exception as exp:
+            self._handle_error(exp)
 
-     Args:
-        stack:  La pila de donde se retirara el elemento
+    def pop(self) -> T:
+        """*pop()* elimina y retorna el elemento en tope de la pila (Stack).
 
-    Returns:
-        El elemento del tope de la pila
+        Returns:
+            T: el elemento en en el tope de la pila (Stack).
+        """
+        try:
+            return self.remove_last()
+        except Exception as exp:
+            self._handle_error(exp)
 
-    Raises:
-        Exception
-    """
-    try:
-        if stack is not None and not lt.isEmpty(stack):
-            return lt.removeLast(stack)
-        else:
-            raise Exception
-    except Exception as exp:
-        raise Exception('TADStack->pop: ' + str(exp))
-        # error.reraise(exp, 'TADStack->pop: ')
+    def top(self) -> Optional[T]:
+        """*top()* retorna el elemento en el tope de la pila (Stack).
 
+        Returns:
+            T: el elemento en la primera posición de la pila (Stack).
+        """
+        try:
+            return self.last_element()
+        except Exception as exp:
+            self._handle_error(exp)
 
-# FIXME Cambiar el nombre de la funcion para usar snake_case
-# TODO Especifiar detalladamente los tipos de errores de la Exception
-def isEmpty(stack):
-    """Informa si la pila es vacía o no
-     Args:
-        stack:  La pila a examinar
+    def is_empty(self) -> bool:
+        """*is_empty()* informa si la pila Stack esta vacía o no.
 
-    Returns:
-        True si la pila es vacia
-        False de lo contrario
+        Returns:
+            bool: operador que indica si la pila Stack esta vacía.
+        """
+        try:
+            return self._size == 0
+        except Exception as exp:
+            self._handle_error(exp)
 
-    Raises:
-        Exception
-    """
-    try:
-        return lt.isEmpty(stack)
-    except Exception as exp:
-        raise Exception('TADStack->isEmpty: ' + str(exp))
-        # error.reraise(exp, 'TADStack->isEmpty: ')
+    def size(self) -> int:
+        """*size()* Función que informa el número de elementos en la pila Stack.
 
-
-# TODO Especifiar detalladamente los tipos de errores de la Exception
-# TODO Implementar verificacion para el caso en el que la pila está vacía
-def top(stack):
-    """ Retorna el elemento en tope de la pila, sin eliminarlo de la pila
-
-    Args:
-        stack:  La pila a examinar
-
-    Returns:
-        El primer elemento de la pila, sin eliminarlo
-
-    Raises:
-        Exception
-    """
-    try:
-        return lt.lastElement(stack)
-    except Exception as exp:
-        raise Exception('TADStack->top: ' + str(exp))
-        # error.reraise(exp, 'TADStack->top: ')
-
-
-# TODO Especifiar detalladamente los tipos de errores de la Exception
-def size(stack):
-    """ Informa el número de elementos en la pila
-    Args:
-        stack: La pila a examinar
-
-    Returns:
-        Retorna el tamaño de la pila
-
-    Raises:
-        Exception
-    """
-    try:
-        return lt.size(stack)
-    except Exception as exp:
-        raise Exception('TADStack->size: ' + str(exp))
-        # error.reraise(exp, 'TADStack->size: ')
+        Returns:
+            int: número de elementos en el Stack.
+        """
+        try:
+            return self._size
+        except Exception as exp:
+            self._handle_error(exp)

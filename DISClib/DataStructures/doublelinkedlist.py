@@ -40,7 +40,7 @@ class DoubleLinked(Generic[T]):
     """DoubleLinked Clase que representa una estructura de datos de tipo DoubleLinked con la anotación '@dataclass' de python y el decorador 'Generic[T]' para indicar que es una estructura de datos genérica.
 
     Args:
-        Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type que representa un DoubleLinked o Lista Doblemente Encadenada.
+        Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para representar una estructura de datos genéricas en python.
 
     Returns:
         DoubleLinked: ADT de tipo DoubleLinked o Lista Doblemente Encadenada.

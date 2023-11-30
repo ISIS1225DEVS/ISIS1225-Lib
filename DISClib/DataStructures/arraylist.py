@@ -38,7 +38,7 @@ class ArrayList(Generic[T]):
     """*ArrayList* representa la estructura de datos para arreglos dinamicos (Array List), Implementada con la anotación '@dataclass' de python y el decorador 'Generic[T]' para que sea una estructura de datos genérica.
 
     Args:
-        Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) que representa un ArrayList o Arreglo Dinámico generico.
+        Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para representar una estructura de datos genéricas en python.
 
     Returns:
         ArrayList: ADT de tipo ArrayList o Arreglo Dinámico.

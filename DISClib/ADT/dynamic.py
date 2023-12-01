@@ -92,8 +92,8 @@ class DynamicImporter:
         """
         return self._instance.__repr__()
 
-    def start(self):
-        """*start()* retorna la instancia de la clase concreta seleccionada por el usuario.
+    def get_instance(self):
+        """*get_instance()* retorna la instancia de la clase concreta seleccionada por el usuario.
 
         Returns:
             dataclass: instancia de la clase concreta seleccionada.

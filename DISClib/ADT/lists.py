@@ -8,8 +8,6 @@ Este módulo implementa el tipo abstracto de datos (TAD) lista. Dinámicamente s
 """
 # native python modules
 import copy
-# import modules for defining the Node type
-# from typing import Generic, Optional
 
 # custom modules
 # node class for the linked list
@@ -59,10 +57,9 @@ def List(dstruct: str = "ArrayList", **kwargs) -> T:
         package = f"{ADT_LT_PGK_PATH}."
         package += f"{ADT_LT_MOD_DICT.get(dstruct)}"
         adt_list = DynamicImporter(dstruct, package, **kwargs)
-        adt_instance = adt_list.start()
+        adt_instance = adt_list.get_instance()
         return adt_instance
     except Exception as exp:
-        # raise ValueError("Invalid list type: " + str(exp))
         err_msg = f"List type '{dstruct}' not found"
         err_msg += f" in {ADT_LT_PGK_PATH}, "
         err_msg += str(exp)
@@ -82,6 +79,7 @@ def translate(src_lt: T, tgt_dstruct: str = "SingleLinked") -> T:
     Returns:
         T: instancia del ADT List que puede ser "ArrayList", "SingleLinked" o "DoubleLinked".
     """
+    # TODO add Queue and Stack to the ADT explicit allowed types
     try:
         tgt_lt = List(dstruct=tgt_dstruct,
                       cmp_function=src_lt.cmp_function,

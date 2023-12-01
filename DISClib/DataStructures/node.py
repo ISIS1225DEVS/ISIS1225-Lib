@@ -49,7 +49,7 @@ class Node(Generic[T]):
     """
 
     def __post_init__(self):
-        """*__post_init__()* revisa que la información del nodo sea valida.
+        """*__post_init__()* revisa que la información al crear un nodo sea valida.
         """
         try:
             # if the info attribute is not None, check its type
@@ -77,7 +77,7 @@ class Node(Generic[T]):
         """*_check_type()* función privada que verifica que la información del nodo sea del tipo especificado.
 
         Args:
-            element (T): elemento que se quiere verificaren el nodo.
+            element (T): elemento que se quiere verificar en el nodo.
 
         Raises:
             TypeError: error si la información del nodo no es del tipo adecuado.

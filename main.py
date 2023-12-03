@@ -1,4 +1,7 @@
 ﻿from DISClib.ADT.lists import List
+from DISClib.ADT.stack import Stack
+from DISClib.ADT.lists import clone
+from DISClib.ADT.lists import translate
 from DISClib.ADT.queue import Queue
 import random
 # from DISClib.ADT.lists import List2
@@ -122,7 +125,7 @@ if __name__ == "__main__":
 
     for i in reversed(test_lt_2):
         print(i)
-
+    trans = translate(test_lt_2, "SingleLinked")
     bb = Queue(cmp_function=cmp_test)
     bbb = Queue(cmp_function=cmp_test)
     bbb.enqueue(22)
@@ -134,7 +137,7 @@ if __name__ == "__main__":
     print(bb.size())
     bb.enqueue(2)
     # bb.enqueue("value")
-    
+
     dddd = Queue()
     # dddd.peek()
 
@@ -143,3 +146,7 @@ if __name__ == "__main__":
 
     bb = bb.concat(bbb)
     print(bb)
+
+    aaaa = clone(bb)
+    print(aaaa)
+    print(trans)

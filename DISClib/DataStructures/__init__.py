@@ -6,12 +6,12 @@ import sys
 # M1
 from .arraylist import ArrayList
 from .singlelinkedlist import SingleLinked
-# from .doublelinkedlist import DoubleLinked
+from .doublelinkedlist import DoubleLinked
 
 # checking modules in M1 namespace
 assert ArrayList
 assert SingleLinked
-# assert DoubleLinked
+assert DoubleLinked
 
 # config the path to the DISCLib folder
 # TODO this used to be in config.py

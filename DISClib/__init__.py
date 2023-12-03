@@ -2,16 +2,25 @@
 # import python modules
 import os
 import sys
-# from pkgutil import extend_path
 
-# import all the modules in the ADT namespaces
+# import all the modules to package
 # M1
-# from ADT import *
 from .ADT.dynamic import DynamicImporter
 from .ADT.lists import List
 from .ADT.queue import Queue
 from .ADT.stack import Stack
-# # M2
+
+# M2
+# from .ADT import maps
+
+# M3
+# from .ADT import orderedmap
+# from .ADT import indexminpq
+# from .ADT import minpq
+
+# M4
+# from .ADT import graph
+
 # import ADT.maps as maps
 # # M3
 # import ADT.orderedmap as orderedmap
@@ -64,6 +73,7 @@ from .ADT.stack import Stack
 # import all the modules in the Utils namespaces
 from .Utils.error import error_handler
 from .Utils.error import init_type_checker
+
 # import all the modules in the Default namespaces
 from .Utils.default import T
 

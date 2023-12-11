@@ -1,0 +1,233 @@
+﻿<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DISClib.Algorithms.Trees.traversal &mdash; documentación de DISClib - 0.0.1</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/fonts.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../../_static/documentation_options.js?v=6fcc102b"></script>
+        <script src="../../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+        <script src="../../../../_static/translations.js?v=efdbd0b9"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../../../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            DISClib
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modules.html">DISClib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../testmd.html">Example Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">DISClib</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Código de módulo</a></li>
+          <li class="breadcrumb-item"><a href="../../../DISClib.html">DISClib</a></li>
+          <li class="breadcrumb-item"><a href="../Trees.html">DISClib.Algorithms.Trees</a></li>
+      <li class="breadcrumb-item active">DISClib.Algorithms.Trees.traversal</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Código fuente para DISClib.Algorithms.Trees.traversal</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd"> * Copyright 2020, Departamento de sistemas y Computación</span>
+<span class="sd"> * Universidad de Los Andes</span>
+<span class="sd"> *</span>
+<span class="sd"> *</span>
+<span class="sd"> * Desarrolado para el curso ISIS1225 - Estructuras de Datos y Algoritmos</span>
+<span class="sd"> *</span>
+<span class="sd"> *</span>
+<span class="sd"> * This program is free software: you can redistribute it and/or modify</span>
+<span class="sd"> * it under the terms of the GNU General Public License as published by</span>
+<span class="sd"> * the Free Software Foundation, either version 3 of the License, or</span>
+<span class="sd"> * (at your option) any later version.</span>
+<span class="sd"> *</span>
+<span class="sd"> * This program is distributed in the hope that it will be useful,</span>
+<span class="sd"> * but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="sd"> * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="sd"> * GNU General Public License for more details.</span>
+<span class="sd"> *</span>
+<span class="sd"> * You should have received a copy of the GNU General Public License</span>
+<span class="sd"> * along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+<span class="sd"> *</span>
+<span class="sd"> * Contribución de:</span>
+<span class="sd"> *</span>
+<span class="sd"> * Dario Correal</span>
+<span class="sd"> *</span>
+<span class="sd"> &quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">DISClib.ADT</span> <span class="kn">import</span> <span class="n">lists</span> <span class="k">as</span> <span class="n">lt</span>
+
+
+<span class="c1"># FIXME Cambiar todas las funciones y variables al formato snake_case</span>
+<span class="c1"># TODO Explicar detalladamente los tipos de excepciones y errores</span>
+<span class="c1"># TODO actualizar uso de diccionario a dataclasses</span>
+<span class="c1"># FIXME Documentar argumentos, retorno y excepciones</span>
+<div class="viewcode-block" id="inorder">
+<a class="viewcode-back" href="../../../../autoapi/DISClib/Algorithms/Trees/traversal/index.html#DISClib.Algorithms.Trees.traversal.inorder">[documentos]</a>
+<span class="k">def</span> <span class="nf">inorder</span><span class="p">(</span><span class="n">omap</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Implementa un recorrido inorder de un arbol binario</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">lst</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">newList</span><span class="p">(</span><span class="s1">&#39;SINGLE_LINKED&#39;</span><span class="p">,</span> <span class="n">omap</span><span class="p">[</span><span class="s1">&#39;cmpfunction&#39;</span><span class="p">])</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">omap</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="n">lst</span> <span class="o">=</span> <span class="n">inorderTree</span><span class="p">(</span><span class="n">omap</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">],</span> <span class="n">lst</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">lst</span></div>
+
+
+
+<span class="c1"># FIXME Documentar argumentos, retorno y excepciones</span>
+<div class="viewcode-block" id="preorder">
+<a class="viewcode-back" href="../../../../autoapi/DISClib/Algorithms/Trees/traversal/index.html#DISClib.Algorithms.Trees.traversal.preorder">[documentos]</a>
+<span class="k">def</span> <span class="nf">preorder</span><span class="p">(</span><span class="n">omap</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Implementa un recorrido preorder de un arbol binario</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">lst</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">newList</span><span class="p">(</span><span class="s1">&#39;SINGLE_LINKED&#39;</span><span class="p">,</span> <span class="n">omap</span><span class="p">[</span><span class="s1">&#39;cmpfunction&#39;</span><span class="p">])</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">omap</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="n">lst</span> <span class="o">=</span> <span class="n">preorderTree</span><span class="p">(</span><span class="n">omap</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">],</span> <span class="n">lst</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">lst</span></div>
+
+
+
+<span class="c1"># FIXME Documentar argumentos, retorno y excepciones</span>
+<div class="viewcode-block" id="postorder">
+<a class="viewcode-back" href="../../../../autoapi/DISClib/Algorithms/Trees/traversal/index.html#DISClib.Algorithms.Trees.traversal.postorder">[documentos]</a>
+<span class="k">def</span> <span class="nf">postorder</span><span class="p">(</span><span class="n">omap</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Implementa un recorrido postorder de un arbol binario</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">lst</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">newList</span><span class="p">(</span><span class="s1">&#39;SINGLE_LINKED&#39;</span><span class="p">,</span> <span class="n">omap</span><span class="p">[</span><span class="s1">&#39;cmpfunction&#39;</span><span class="p">])</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">omap</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="n">lst</span> <span class="o">=</span> <span class="n">postorderTree</span><span class="p">(</span><span class="n">omap</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">],</span> <span class="n">lst</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">lst</span></div>
+
+
+
+<span class="c1"># _____________________________________________________________________</span>
+<span class="c1">#            Funciones Helper</span>
+<span class="c1"># _____________________________________________________________________</span>
+
+<span class="c1"># FIXME Agregar documentación a la función</span>
+<div class="viewcode-block" id="inorderTree">
+<a class="viewcode-back" href="../../../../autoapi/DISClib/Algorithms/Trees/traversal/index.html#DISClib.Algorithms.Trees.traversal.inorderTree">[documentos]</a>
+<span class="k">def</span> <span class="nf">inorderTree</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">lst</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">root</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">inorderTree</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">],</span> <span class="n">lst</span><span class="p">)</span>
+        <span class="n">lt</span><span class="o">.</span><span class="n">addLast</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">root</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">])</span>
+        <span class="n">inorderTree</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">],</span> <span class="n">lst</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">lst</span></div>
+
+
+
+<span class="c1"># FIXME Agregar documentación a la función</span>
+<div class="viewcode-block" id="postorderTree">
+<a class="viewcode-back" href="../../../../autoapi/DISClib/Algorithms/Trees/traversal/index.html#DISClib.Algorithms.Trees.traversal.postorderTree">[documentos]</a>
+<span class="k">def</span> <span class="nf">postorderTree</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">lst</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">root</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">postorderTree</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">],</span> <span class="n">lst</span><span class="p">)</span>
+        <span class="n">postorderTree</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">],</span> <span class="n">lst</span><span class="p">)</span>
+        <span class="n">lt</span><span class="o">.</span><span class="n">addLast</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">root</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">lst</span></div>
+
+
+
+<span class="c1"># FIXME Agregar documentación a la función</span>
+<div class="viewcode-block" id="preorderTree">
+<a class="viewcode-back" href="../../../../autoapi/DISClib/Algorithms/Trees/traversal/index.html#DISClib.Algorithms.Trees.traversal.preorderTree">[documentos]</a>
+<span class="k">def</span> <span class="nf">preorderTree</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">lst</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">root</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">lt</span><span class="o">.</span><span class="n">addLast</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">root</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">])</span>
+        <span class="n">preorderTree</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">],</span> <span class="n">lst</span><span class="p">)</span>
+        <span class="n">preorderTree</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">],</span> <span class="n">lst</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">lst</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor Uniandes, Bogotá - Colombia, Sur América,
+             Facultad de Ingeniería, DISC Desarrollado
+             para ISIS-1225, EDA.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

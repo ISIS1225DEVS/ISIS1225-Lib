@@ -1,0 +1,94 @@
+:py:mod:`DISClib.ADT.queue`
+===========================
+
+.. py:module:: DISClib.ADT.queue
+
+.. autoapi-nested-parse::
+
+   Esta clase representa una cola/fila implementada sobre una lista. Esta cola o fila (queue) es una estructura de datos que permite almacenar una colección de elementos y operar sobre ellos en el mismo orden en que fueron agregados (FIFO).
+
+   La implementación de la cola se realiza sobre una lista simplemente
+   encadenada (SingleLinked) para garantizar que las operaciones de agregar y
+   eliminar elementos se realicen en tiempo constante y no consumir memoria
+   innecesaria.
+
+   *IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:
+
+       #. Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.
+       #. Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H. Goldwasser.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   DISClib.ADT.queue.Queue
+
+
+
+
+.. py:class:: Queue
+
+
+   Bases: :py:obj:`DISClib.DataStructures.singlelinkedlist.SingleLinked`, :py:obj:`Generic`\ [\ :py:obj:`DISClib.Utils.default.T`\ ]
+
+   *Queue* Clase que representa una cola implementada sobre una lista sencillamente encadenada ('SingleLinked'). Esta cola o fila (queue) es un Tipo Abstracto de Datos (TAD/ADT) que permite almacenar una colección de elementos y operarlos en el mismo orden en que fueron agregados (FIFO - Firts In First Out).
+
+   Ademas, la clase 'Queue' esta implementada con la anotación '@dataclass' de python y el decorador 'Generic[T]' para indicar que es una estructura de datos genérica.
+
+   *IMPORTANTE:* 'Queue' extiende de la clase 'SingleLinked', por lo que hereda todos sus parametros internos y funciones.
+
+   :param SingleLinked: ADT DISClib que implementa las funciones básicas de una lista sencillamente encadenada.
+   :type SingleLinked: dataclass
+   :param Generic: TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para representar una estructura de datos genéricas en python.
+   :type Generic: T
+
+   :returns: ADT de tipo Queue, Cola o Fila, implementado sobre una lista sencillamente encadenada.
+   :rtype: Queue
+
+   .. py:method:: enqueue(element: DISClib.Utils.default.T) -> None
+
+      *enqueue()* agrega un elemento en el final de la cola/fila (Queue).
+
+      :param element: elemento que se quiere agregar al Queue.
+      :type element: T
+
+
+   .. py:method:: dequeue() -> DISClib.Utils.default.T
+
+      *dequeue()* elimina y retorna el elemento en la primer posición de la cola/fila Queue.
+
+      :returns: el elemento en la primera posición de la cola/fila Queue.
+      :rtype: T
+
+
+   .. py:method:: peek() -> Optional[DISClib.Utils.default.T]
+
+      *peek()* lee el primer elemento de la cola/fila Queue sin eliminarlo.
+
+      :returns: elemento en la primer posición de la cola/fila Queue.
+      :rtype: T
+
+
+   .. py:method:: is_empty() -> bool
+
+      *is_empty()* informa si la cola/fila Queue esta vacía o no.
+
+      :returns: operador que indica si la cola/fila Queue esta vacía.
+      :rtype: bool
+
+
+   .. py:method:: size() -> int
+
+      *size()* Función que informa el número de elementos en la fila/cola Queue.
+
+      :returns: número de elementos en el Queue.
+      :rtype: int
+
+
+

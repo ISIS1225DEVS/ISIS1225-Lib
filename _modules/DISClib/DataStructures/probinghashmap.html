@@ -1,0 +1,753 @@
+﻿<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DISClib.DataStructures.probinghashmap &mdash; documentación de DISClib - 0.0.1</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/fonts.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=6fcc102b"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script src="../../../_static/translations.js?v=efdbd0b9"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            DISClib
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">DISClib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../testmd.html">Example Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">DISClib</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Código de módulo</a></li>
+          <li class="breadcrumb-item"><a href="../../DISClib.html">DISClib</a></li>
+          <li class="breadcrumb-item"><a href="../DataStructures.html">DISClib.DataStructures</a></li>
+      <li class="breadcrumb-item active">DISClib.DataStructures.probinghashmap</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Código fuente para DISClib.DataStructures.probinghashmap</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd"> * Copyright 2020, Departamento de sistemas y Computación</span>
+<span class="sd"> * Universidad de Los Andes</span>
+<span class="sd"> *</span>
+<span class="sd"> *</span>
+<span class="sd"> * Desarrolado para el curso ISIS1225 - Estructuras de Datos y Algoritmos</span>
+<span class="sd"> *</span>
+<span class="sd"> *</span>
+<span class="sd"> * This program is free software: you can redistribute it and/or modify</span>
+<span class="sd"> * it under the terms of the GNU General Public License as published by</span>
+<span class="sd"> * the Free Software Foundation, either version 3 of the License, or</span>
+<span class="sd"> * (at your option) any later version.</span>
+<span class="sd"> *</span>
+<span class="sd"> * This program is distributed in the hope that it will be useful,</span>
+<span class="sd"> * but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="sd"> * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="sd"> * GNU General Public License for more details.</span>
+<span class="sd"> *</span>
+<span class="sd"> * You should have received a copy of the GNU General Public License</span>
+<span class="sd"> * along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+<span class="sd"> *</span>
+<span class="sd"> * Dario Correal</span>
+<span class="sd"> *</span>
+<span class="sd"> &quot;&quot;&quot;</span>
+
+<span class="c1"># import config</span>
+<span class="kn">from</span> <span class="nn">DISClib.DataStructures</span> <span class="kn">import</span> <span class="n">listnode</span> <span class="k">as</span> <span class="n">lknode</span>
+<span class="kn">from</span> <span class="nn">DISClib.Utils</span> <span class="kn">import</span> <span class="n">error</span> <span class="k">as</span> <span class="n">error</span>
+<span class="kn">import</span> <span class="nn">csv</span>
+<span class="c1"># assert config</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Este módulo implementa una estructura de datos lineal mediante una lista</span>
+<span class="sd">  encadenada doblemente para almacenar una colección de elementos.</span>
+<span class="sd">  Los elementos se cuentan desde la posición 1.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1">#TODO Mejorar la documentación para especificar el uso del parámetro &quot;key&quot; en listas</span>
+<span class="c1">#TODO Eliminar la carga de datos de la función newList</span>
+<span class="c1">#FIXME Cambiar el nombre de la funcion para usar snake_case</span>
+<div class="viewcode-block" id="newList">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashmap/index.html#DISClib.DataStructures.probinghashmap.newList">[documentos]</a>
+<span class="k">def</span> <span class="nf">newList</span><span class="p">(</span><span class="n">cmpfunction</span><span class="p">,</span> <span class="n">module</span><span class="p">,</span>  <span class="n">key</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">delim</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Crea una lista vacia.</span>
+
+<span class="sd">    Se inicializan los apuntadores a la primera y ultima posicion en None.</span>
+<span class="sd">    El tipo de la listase inicializa como SINGLE_LINKED</span>
+<span class="sd">    Args:</span>
+<span class="sd">        cmpfunction: Función de comparación para los elementos de la lista.</span>
+<span class="sd">        Si no se provee una función de comparación, se utilizará la función</span>
+<span class="sd">        de comparación por defecto pero se debe suministrar un valor para key</span>
+
+<span class="sd">        key: Identificador que se debe utilizar para la comparación de</span>
+<span class="sd">        elementos de la lista</span>
+
+<span class="sd">        filename: Si se provee este valor, se creará una lista a partir de</span>
+<span class="sd">        la informacion que se encuentra en el archivo CSV</span>
+
+<span class="sd">        delimiter: Si se provee un archivo para crear la lista, indica el</span>
+<span class="sd">        delimitador a usar para separar los campos del archivo CSV</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Un diccionario que representa la estructura de datos de una lista</span>
+<span class="sd">        encadanada vacia.</span>
+
+<span class="sd">    Raises:</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">newlist</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;first&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+               <span class="s1">&#39;last&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+               <span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+               <span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="n">key</span><span class="p">,</span>
+               <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;DOUBLE_LINKED&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;datastructure&#39;</span><span class="p">:</span> <span class="n">module</span>
+               <span class="p">}</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">cmpfunction</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="n">newlist</span><span class="p">[</span><span class="s1">&#39;cmpfunction&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">defaultfunction</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">newlist</span><span class="p">[</span><span class="s1">&#39;cmpfunction&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cmpfunction</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">filename</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="n">input_file</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">),</span>
+                                    <span class="n">delimiter</span><span class="o">=</span><span class="n">delim</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">input_file</span><span class="p">:</span>
+            <span class="n">addLast</span><span class="p">(</span><span class="n">newlist</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">newlist</span></div>
+
+
+<span class="c1">#FIXME Cambiar el nombre de la funcion para usar snake_case</span>
+<span class="c1">#TODO Implementar manejo más detallado de excepciones con mensajes más especificos</span>
+<span class="c1">#TODO Verificar que el elemento que se esta agregando no sea None</span>
+<div class="viewcode-block" id="addFirst">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashmap/index.html#DISClib.DataStructures.probinghashmap.addFirst">[documentos]</a>
+<span class="k">def</span> <span class="nf">addFirst</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">element</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Agrega un elemento a la lista en la primera posicion.</span>
+
+<span class="sd">    Agrega un elemento en la primera posición de la lista, ajusta el apuntador</span>
+<span class="sd">    al primer elemento e incrementa el tamaño de la lista.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        lst:  La lista don de inserta el elemento</span>
+<span class="sd">        element:  El elemento a insertar en la lista</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        La lista con el nuevo elemento en la primera posición, si el proceso</span>
+<span class="sd">        fue exitoso</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">new_node</span> <span class="o">=</span> <span class="n">lknode</span><span class="o">.</span><span class="n">newDoubleNode</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">lst</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;last&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_node</span>
+            <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;first&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_node</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">new_node</span><span class="p">[</span><span class="s1">&#39;next&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;first&#39;</span><span class="p">]</span>
+            <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;first&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_node</span>
+
+        <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">lst</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;doublelinkedlist-&gt;addFirst: &#39;</span><span class="p">)</span></div>
+
+
+<span class="c1">#FIXME Cambiar el nombre de la funcion para usar snake_case</span>
+<span class="c1">#TODO Implementar manejo más detallado de excepciones con mensajes más especificos</span>
+<span class="c1">#TODO Verificar que el elemento que se esta agregando no sea None</span>
+<div class="viewcode-block" id="addLast">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashmap/index.html#DISClib.DataStructures.probinghashmap.addLast">[documentos]</a>
+<span class="k">def</span> <span class="nf">addLast</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">element</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Agrega un elemento en la última posición de la lista.</span>
+
+<span class="sd">    Se adiciona un elemento en la última posición de la lista y se actualiza</span>
+<span class="sd">     el apuntador a la útima posición.</span>
+<span class="sd">    Se incrementa el tamaño de la lista en 1</span>
+<span class="sd">    Args:</span>
+<span class="sd">        lst: La lista en la que se inserta el elemento</span>
+<span class="sd">        element: El elemento a insertar</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">new_node</span> <span class="o">=</span> <span class="n">lknode</span><span class="o">.</span><span class="n">newDoubleNode</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;first&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_node</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">new_node</span><span class="p">[</span><span class="s1">&#39;prev&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;last&#39;</span><span class="p">]</span>
+            <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;last&#39;</span><span class="p">][</span><span class="s1">&#39;next&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_node</span>
+        <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;last&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_node</span>
+        <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">lst</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;doublelinkedlist-&gt;addLast: &#39;</span><span class="p">)</span></div>
+
+
+<span class="c1">#FIXME Cambiar el nombre de la funcion para usar snake_case</span>
+<span class="c1">#TODO Implementar manejo más detallado de excepciones con mensajes más especificos</span>
+
+<div class="viewcode-block" id="isEmpty">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashmap/index.html#DISClib.DataStructures.probinghashmap.isEmpty">[documentos]</a>
+<span class="k">def</span> <span class="nf">isEmpty</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Indica si la lista está vacía</span>
+<span class="sd">    Args:</span>
+<span class="sd">        lst: La lista a examinar</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;doublelinkedlist-&gt;isEmpty: &#39;</span><span class="p">)</span></div>
+
+
+<span class="c1">#TODO Implementar manejo más detallado de excepciones con mensajes más especificos</span>
+
+<div class="viewcode-block" id="size">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashmap/index.html#DISClib.DataStructures.probinghashmap.size">[documentos]</a>
+<span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Informa el número de elementos de la lista.</span>
+<span class="sd">    Args</span>
+<span class="sd">        lst: La lista a examinar</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;doublelinkedlist-&gt;size: &#39;</span><span class="p">)</span></div>
+
+
+<span class="c1">#FIXME Cambiar el nombre de la funcion para usar snake_case</span>
+<span class="c1">#TODO Implementar manejo más detallado de excepciones con mensajes más especificos</span>
+
+<div class="viewcode-block" id="firstElement">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashmap/index.html#DISClib.DataStructures.probinghashmap.firstElement">[documentos]</a>
+<span class="k">def</span> <span class="nf">firstElement</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Retorna el primer elemento de una lista no vacía.</span>
+<span class="sd">     No se elimina el elemento.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        lst: La lista a examinar</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;first&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;first&#39;</span><span class="p">][</span><span class="s1">&#39;info&#39;</span><span class="p">]</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;doublelinkedlist-&gt;fisrtElement: &#39;</span><span class="p">)</span></div>
+
+
+<span class="c1">#FIXME Cambiar el nombre de la funcion para usar snake_case</span>
+<span class="c1">#TODO Implementar manejo más detallado de excepciones con mensajes más especificos</span>
+
+<div class="viewcode-block" id="lastElement">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashmap/index.html#DISClib.DataStructures.probinghashmap.lastElement">[documentos]</a>
+<span class="k">def</span> <span class="nf">lastElement</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Retorna el último elemento de una  lista no vacia.</span>
+<span class="sd">        No se elimina el elemento.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        lst: La lista a examinar</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;last&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;last&#39;</span><span class="p">][</span><span class="s1">&#39;info&#39;</span><span class="p">]</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;doublelinkedlist-&gt;lastElement: &#39;</span><span class="p">)</span></div>
+
+
+<span class="c1">#FIXME Cambiar el nombre de la funcion para usar snake_case</span>
+<span class="c1">#TODO Implementar manejo más detallado de excepciones con mensajes más especificos</span>
+
+<div class="viewcode-block" id="getElement">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashmap/index.html#DISClib.DataStructures.probinghashmap.getElement">[documentos]</a>
+<span class="k">def</span> <span class="nf">getElement</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">pos</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Retorna el elemento en la posición pos de la lista.</span>
+
+<span class="sd">    Se recorre la lista hasta el elemento pos, el cual  debe ser</span>
+<span class="sd">    mayor que cero y menor o igual al tamaño de la lista.</span>
+<span class="sd">    Se retorna el elemento en dicha posición sin eleminarlo.</span>
+<span class="sd">    La lista no puede ser vacia.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        lst: La lista a examinar</span>
+<span class="sd">        pos: Posición del elemento a retornar</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">searchpos</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;first&#39;</span><span class="p">]</span>
+        <span class="k">while</span> <span class="n">searchpos</span> <span class="o">&lt;</span> <span class="n">pos</span><span class="p">:</span>
+            <span class="n">searchpos</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="p">[</span><span class="s1">&#39;next&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">node</span><span class="p">[</span><span class="s1">&#39;info&#39;</span><span class="p">]</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;doublelinkedlist-&gt;getElement: &#39;</span><span class="p">)</span></div>
+
+
+<span class="c1">#FIXME Cambiar el nombre de la funcion para usar snake_case</span>
+<span class="c1">#TODO Implementar manejo más detallado de excepciones con mensajes más especificos</span>
+
+<div class="viewcode-block" id="deleteElement">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashmap/index.html#DISClib.DataStructures.probinghashmap.deleteElement">[documentos]</a>
+<span class="k">def</span> <span class="nf">deleteElement</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">pos</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Elimina el elemento en la posición pos de la lista.</span>
+
+<span class="sd">    Elimina el elemento que se encuentra en la posición pos de la lista.</span>
+<span class="sd">    Pos debe ser mayor que cero y menor o igual al tamaño de la lista.</span>
+<span class="sd">    Se decrementa en un uno el tamñao de la lista.</span>
+<span class="sd">    La lista no puede estar vacia.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        lst: La lista a retoranr</span>
+<span class="sd">        pos: Posición del elemento a eliminar.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">lst</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">pos</span> <span class="o">==</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;first&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;last&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="n">node</span> <span class="o">=</span> <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;first&#39;</span><span class="p">]</span>
+        <span class="n">searchpos</span> <span class="o">=</span> <span class="mi">1</span>
+
+        <span class="k">while</span> <span class="n">searchpos</span> <span class="o">&lt;</span> <span class="n">pos</span><span class="p">:</span>
+            <span class="n">searchpos</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="p">[</span><span class="s1">&#39;next&#39;</span><span class="p">]</span>
+        <span class="n">prev</span> <span class="o">=</span> <span class="n">node</span><span class="p">[</span><span class="s1">&#39;prev&#39;</span><span class="p">]</span>
+        <span class="n">sig</span> <span class="o">=</span> <span class="n">node</span><span class="p">[</span><span class="s1">&#39;next&#39;</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">prev</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="n">prev</span><span class="p">[</span><span class="s1">&#39;next&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sig</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">sig</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="n">sig</span><span class="p">[</span><span class="s1">&#39;prev&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">prev</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="n">pos</span> <span class="o">==</span> <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]):</span>
+            <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;last&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">prev</span>
+
+        <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">lst</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;doublelinkedlist-&gt;deleteElement: &#39;</span><span class="p">)</span></div>
+
+
+<span class="c1">#FIXME Cambiar el nombre de la funcion para usar snake_case</span>
+<span class="c1">#TODO Implementar manejo más detallado de excepciones con mensajes más especificos</span>
+
+<div class="viewcode-block" id="removeFirst">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashmap/index.html#DISClib.DataStructures.probinghashmap.removeFirst">[documentos]</a>
+<span class="k">def</span> <span class="nf">removeFirst</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Remueve el primer elemento de la lista.</span>
+<span class="sd">    Elimina y retorna el primer elemento de la lista.</span>
+<span class="sd">    El tamaño de la lista se decrementa en uno.  Si la lista</span>
+<span class="sd">    es vacía se retorna None.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        lst: La lista a examinar</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;first&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">temp</span> <span class="o">=</span> <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;first&#39;</span><span class="p">][</span><span class="s1">&#39;next&#39;</span><span class="p">]</span>
+            <span class="n">node</span> <span class="o">=</span> <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;first&#39;</span><span class="p">]</span>
+            <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;first&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp</span>
+            <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">lst</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;last&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;first&#39;</span><span class="p">]</span>
+            <span class="k">return</span> <span class="n">node</span><span class="p">[</span><span class="s1">&#39;info&#39;</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;doublelinkedlist-&gt;removeFirst: &#39;</span><span class="p">)</span></div>
+
+
+<span class="c1">#FIXME Cambiar el nombre de la funcion para usar snake_case</span>
+<span class="c1">#TODO Implementar manejo más detallado de excepciones con mensajes más especificos</span>
+
+<div class="viewcode-block" id="removeLast">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashmap/index.html#DISClib.DataStructures.probinghashmap.removeLast">[documentos]</a>
+<span class="k">def</span> <span class="nf">removeLast</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Remueve el último elemento de la lista.</span>
+
+<span class="sd">    Elimina el último elemento de la lista  y lo retorna en caso de existir.</span>
+<span class="sd">    El tamaño de la lista se decrementa en 1.</span>
+<span class="sd">    Si la lista es vacía  retorna None.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        lst: La lista a examinar</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;first&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;last&#39;</span><span class="p">]:</span>
+                <span class="n">node</span> <span class="o">=</span> <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;first&#39;</span><span class="p">]</span>
+                <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;last&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;first&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">temp</span> <span class="o">=</span> <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;last&#39;</span><span class="p">][</span><span class="s1">&#39;prev&#39;</span><span class="p">]</span>
+                <span class="n">node</span> <span class="o">=</span> <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;last&#39;</span><span class="p">]</span>
+                <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;last&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">temp</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+                    <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;last&#39;</span><span class="p">][</span><span class="s1">&#39;next&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>
+            <span class="k">return</span> <span class="n">node</span><span class="p">[</span><span class="s1">&#39;info&#39;</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;doublelinkedlist-&gt;remoLast: &#39;</span><span class="p">)</span></div>
+
+
+<span class="c1">#FIXME Cambiar el nombre de la funcion para usar snake_case</span>
+<span class="c1">#TODO Implementar manejo más detallado de excepciones con mensajes más especificos</span>
+<span class="c1">#TODO Verificar que el elemento que se esta agregando no sea None</span>
+<div class="viewcode-block" id="insertElement">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashmap/index.html#DISClib.DataStructures.probinghashmap.insertElement">[documentos]</a>
+<span class="k">def</span> <span class="nf">insertElement</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">element</span><span class="p">,</span> <span class="n">pos</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Inserta el elemento element en la posición pos de la lista.</span>
+
+<span class="sd">    Inserta el elemento en la posición pos de la lista.</span>
+<span class="sd">    La lista puede ser vacía.  Se incrementa en 1 el tamaño de la lista.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        lst: La lista en la que se va a insertar el elemento</span>
+<span class="sd">        element: El elemento a insertar</span>
+<span class="sd">        pos: posición en la que se va a insertar el elemento,</span>
+<span class="sd">        0 &lt; pos &lt;= size(lst)</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">new_node</span> <span class="o">=</span> <span class="n">lknode</span><span class="o">.</span><span class="n">newDoubleNode</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">pos</span> <span class="o">==</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">new_node</span><span class="p">[</span><span class="s1">&#39;next&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;first&#39;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">lst</span><span class="p">[</span><span class="s1">&#39;first&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+                <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;first&#39;</span><span class="p">][</span><span class="s1">&#39;prev&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_node</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;last&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_node</span>
+            <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;first&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_node</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">searchpos</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="n">node</span> <span class="o">=</span> <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;first&#39;</span><span class="p">]</span>
+
+            <span class="k">while</span> <span class="n">searchpos</span> <span class="o">&lt;</span> <span class="n">pos</span><span class="p">:</span>
+                <span class="n">searchpos</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="p">[</span><span class="s1">&#39;next&#39;</span><span class="p">]</span>
+            <span class="n">prev</span> <span class="o">=</span> <span class="n">node</span><span class="p">[</span><span class="s1">&#39;prev&#39;</span><span class="p">]</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">prev</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+                <span class="n">prev</span><span class="p">[</span><span class="s1">&#39;next&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_node</span>
+                <span class="n">new_node</span><span class="p">[</span><span class="s1">&#39;prev&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">prev</span>
+                <span class="n">new_node</span><span class="p">[</span><span class="s1">&#39;next&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">node</span>
+
+            <span class="k">if</span><span class="p">(</span><span class="n">pos</span> <span class="o">==</span> <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]):</span>
+                <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;last&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_node</span>
+
+        <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">lst</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;doublelinkedlist-&gt;insertElement: &#39;</span><span class="p">)</span></div>
+
+
+<span class="c1">#FIXME Cambiar el nombre de la funcion para usar snake_case</span>
+<span class="c1">#TODO Implementar manejo más detallado de excepciones con mensajes más especificos</span>
+
+<div class="viewcode-block" id="isPresent">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashmap/index.html#DISClib.DataStructures.probinghashmap.isPresent">[documentos]</a>
+<span class="k">def</span> <span class="nf">isPresent</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">element</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Informa si el elemento element esta presente en la lista.</span>
+
+<span class="sd">    Informa si un elemento está en la lista.  Si esta presente,</span>
+<span class="sd">    retorna la posición en la que se encuentra  o cero (0) si no esta presente.</span>
+<span class="sd">    Se utiliza la función de comparación utilizada durante la creación</span>
+<span class="sd">    de la lista para comparar los elementos.</span>
+<span class="sd">    La cual debe retornar cero en caso de que los elementos sean iguales.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        lst: La lista a examinar</span>
+<span class="sd">        element: El elemento a buscar</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">size</span> <span class="o">=</span> <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">node</span> <span class="o">=</span> <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;first&#39;</span><span class="p">]</span>
+            <span class="n">keyexist</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="k">for</span> <span class="n">keypos</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">node</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">compareElements</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">element</span><span class="p">,</span> <span class="n">node</span><span class="p">[</span><span class="s1">&#39;info&#39;</span><span class="p">])</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+                        <span class="n">keyexist</span> <span class="o">=</span> <span class="kc">True</span>
+                        <span class="k">break</span>
+                    <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="p">[</span><span class="s1">&#39;next&#39;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">keyexist</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">keypos</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;doublelinkedlist-&gt;isPresent: &#39;</span><span class="p">)</span></div>
+
+
+<span class="c1">#FIXME Cambiar el nombre de la funcion para usar snake_case</span>
+<span class="c1">#TODO Implementar manejo más detallado de excepciones con mensajes más especificos</span>
+
+<div class="viewcode-block" id="changeInfo">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashmap/index.html#DISClib.DataStructures.probinghashmap.changeInfo">[documentos]</a>
+<span class="k">def</span> <span class="nf">changeInfo</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">newinfo</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Cambia la informacion contenida en el nodo de la lista que se encuentra</span>
+<span class="sd">         en la posicion pos.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        lst: La lista a examinar</span>
+<span class="sd">        pos: la posición de la lista con la información a cambiar</span>
+<span class="sd">        newinfo: La nueva información que se debe poner en el nodo de</span>
+<span class="sd">        la posición pos</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;first&#39;</span><span class="p">]</span>
+        <span class="n">cont</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">while</span> <span class="n">cont</span> <span class="o">&lt;</span> <span class="n">pos</span><span class="p">:</span>
+            <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="p">[</span><span class="s1">&#39;next&#39;</span><span class="p">]</span>
+            <span class="n">cont</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">current</span><span class="p">[</span><span class="s1">&#39;info&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">newinfo</span>
+        <span class="k">return</span> <span class="n">lst</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;doublelinkedlist-&gt;changeInfo: &#39;</span><span class="p">)</span></div>
+
+
+<span class="c1">#TODO Implementar manejo más detallado de excepciones con mensajes más especificos</span>
+
+<div class="viewcode-block" id="exchange">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashmap/index.html#DISClib.DataStructures.probinghashmap.exchange">[documentos]</a>
+<span class="k">def</span> <span class="nf">exchange</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">pos1</span><span class="p">,</span> <span class="n">pos2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Intercambia la informacion en las posiciones pos1 y pos2 de la lista.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        lst: La lista a examinar</span>
+<span class="sd">        pos1: Posición del primer elemento</span>
+<span class="sd">        pos2: Posiocion del segundo elemento</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">infopos1</span> <span class="o">=</span> <span class="n">getElement</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">pos1</span><span class="p">)</span>
+        <span class="n">infopos2</span> <span class="o">=</span> <span class="n">getElement</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">pos2</span><span class="p">)</span>
+        <span class="n">changeInfo</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">pos1</span><span class="p">,</span> <span class="n">infopos2</span><span class="p">)</span>
+        <span class="n">changeInfo</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">pos2</span><span class="p">,</span> <span class="n">infopos1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">lst</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;doublelinkedlist-&gt;exchange: &#39;</span><span class="p">)</span></div>
+
+
+<span class="c1">#FIXME Cambiar el nombre de la funcion para usar snake_case</span>
+<span class="c1">#TODO Implementar manejo más detallado de excepciones con mensajes más especificos</span>
+
+<div class="viewcode-block" id="subList">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashmap/index.html#DISClib.DataStructures.probinghashmap.subList">[documentos]</a>
+<span class="k">def</span> <span class="nf">subList</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">numelem</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Retorna una sublista de la lista lst.</span>
+
+<span class="sd">    Se retorna una lista que contiene los elementos a partir de la</span>
+<span class="sd">    posicion pos,con una longitud de numelem elementos.</span>
+<span class="sd">    Se crea una copia de dichos elementos y se retorna una lista nueva.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        lst: La lista a examinar</span>
+<span class="sd">        pos: Posición a partir de la que se desea obtener la sublista</span>
+<span class="sd">        numelem: Numero de elementos a copiar en la sublista</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">sublst</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;first&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                  <span class="s1">&#39;last&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                  <span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                  <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;DOUBLE_LINKED&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">],</span>
+                  <span class="s1">&#39;datastructure&#39;</span><span class="p">:</span> <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;datastructure&#39;</span><span class="p">],</span>
+                  <span class="s1">&#39;cmpfunction&#39;</span><span class="p">:</span> <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;cmpfunction&#39;</span><span class="p">]}</span>
+        <span class="n">cont</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">loc</span> <span class="o">=</span> <span class="n">pos</span>
+        <span class="k">while</span> <span class="n">cont</span> <span class="o">&lt;=</span> <span class="n">numelem</span><span class="p">:</span>
+            <span class="n">elem</span> <span class="o">=</span> <span class="n">getElement</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">loc</span><span class="p">)</span>
+            <span class="n">addLast</span><span class="p">(</span><span class="n">sublst</span><span class="p">,</span> <span class="n">elem</span><span class="p">)</span>
+            <span class="n">loc</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">cont</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">sublst</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;doublelinkedlist-&gt;subList: &#39;</span><span class="p">)</span></div>
+
+
+<span class="c1">#TODO Implementar manejo más detallado de excepciones con mensajes más especificos</span>
+
+<div class="viewcode-block" id="iterator">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashmap/index.html#DISClib.DataStructures.probinghashmap.iterator">[documentos]</a>
+<span class="k">def</span> <span class="nf">iterator</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Retorna un iterador para la lista.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        lst: La lista a iterar</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">lst</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="n">current</span> <span class="o">=</span> <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;first&#39;</span><span class="p">]</span>
+            <span class="k">while</span> <span class="n">current</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">yield</span> <span class="n">current</span><span class="p">[</span><span class="s1">&#39;info&#39;</span><span class="p">]</span>
+                <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="p">[</span><span class="s1">&#39;next&#39;</span><span class="p">]</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;doublelinkedlist-&gt;Iterator&#39;</span><span class="p">)</span></div>
+
+
+<span class="c1">#FIXME Cambiar el nombre de la funcion para usar snake_case</span>
+<span class="c1">#TODO Implementar manejo más detallado de excepciones con mensajes más especificos</span>
+
+<div class="viewcode-block" id="compareElements">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashmap/index.html#DISClib.DataStructures.probinghashmap.compareElements">[documentos]</a>
+<span class="k">def</span> <span class="nf">compareElements</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">element</span><span class="p">,</span> <span class="n">info</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Compara dos elementos</span>
+
+<span class="sd">    Se utiliza la función de comparación por defecto si key es None</span>
+<span class="sd">    o la función provista por el usuario en caso contrario</span>
+<span class="sd">    Args:</span>
+<span class="sd">        lst: La lista con los elementos</span>
+<span class="sd">        element:  El elemento que se esta buscando en la lista</span>
+<span class="sd">        info: El elemento de la lista que se está analizando</span>
+
+<span class="sd">    Returns:  0 si los elementos son iguales</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">lst</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;cmpfunction&#39;</span><span class="p">](</span><span class="n">element</span><span class="p">[</span><span class="n">lst</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]],</span> <span class="n">info</span><span class="p">[</span><span class="n">lst</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">lst</span><span class="p">[</span><span class="s1">&#39;cmpfunction&#39;</span><span class="p">](</span><span class="n">element</span><span class="p">,</span> <span class="n">info</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;doublelinkedlist-&gt;compareElements&#39;</span><span class="p">)</span></div>
+
+
+<span class="c1">#FIXME Cambiar el nombre de la funcion para usar snake_case</span>
+<span class="c1">#FIXME Cambiar el nombre de la funcion para que referencie mejor a una compare function</span>
+
+<div class="viewcode-block" id="defaultfunction">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashmap/index.html#DISClib.DataStructures.probinghashmap.defaultfunction">[documentos]</a>
+<span class="k">def</span> <span class="nf">defaultfunction</span><span class="p">(</span><span class="n">id1</span><span class="p">,</span> <span class="n">id2</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">id1</span> <span class="o">&gt;</span> <span class="n">id2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">id1</span> <span class="o">&lt;</span> <span class="n">id2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">return</span> <span class="mi">0</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor Uniandes, Bogotá - Colombia, Sur América,
+             Facultad de Ingeniería, DISC Desarrollado
+             para ISIS-1225, EDA.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

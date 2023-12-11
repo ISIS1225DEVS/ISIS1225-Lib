@@ -1,0 +1,648 @@
+﻿<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <link sizes="16x16" href="https://secure.example.com/favicon/favicon-16x16.png" rel="icon" type="image/png">
+    <link sizes="32x32" href="https://secure.example.com/favicon/favicon-32x32.png" rel="icon" type="image/png">
+    <link rel="apple-touch-icon" sizes="180x180" href="_static/apple-touch-icon-180x180.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DISClib package &mdash; documentación de DISClib - 0.0.1</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="_static/fonts.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=6fcc102b"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="_static/copybutton.js?v=f281be69"></script>
+        <script src="_static/translations.js?v=efdbd0b9"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="ADTs DISClib" href="DISClib.ADT.html" />
+    <link rel="prev" title="DISClib" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            DISClib
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">DISClib</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">DISClib package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.ADT.html">ADTs DISClib</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.Algorithms.html">DISClib.Algorithms package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html">DISClib.DataStructures package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.Utils.html">DISClib.Utils package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-DISClib">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="testmd.html">Example Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">DISClib</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">DISClib</a></li>
+      <li class="breadcrumb-item active">DISClib package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/DISClib.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="disclib-package">
+<h1>DISClib package<a class="headerlink" href="#disclib-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="DISClib.ADT.html">ADTs DISClib</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="DISClib.ADT.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DISClib.ADT.html#configurador-dinamico-para-adts">Configurador Dinamico para ADTs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.dynamic.DynamicImporter"><code class="docutils literal notranslate"><span class="pre">DynamicImporter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.dynamic.DynamicImporter.get_instance"><code class="docutils literal notranslate"><span class="pre">DynamicImporter.get_instance()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.dynamic.DynamicImporter.implementation"><code class="docutils literal notranslate"><span class="pre">DynamicImporter.implementation</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.dynamic.DynamicImporter.package"><code class="docutils literal notranslate"><span class="pre">DynamicImporter.package</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DISClib.ADT.html#module-DISClib.ADT.graph">DISClib.ADT.graph module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.graph.addEdge"><code class="docutils literal notranslate"><span class="pre">addEdge()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.graph.adjacentEdges"><code class="docutils literal notranslate"><span class="pre">adjacentEdges()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.graph.adjacents"><code class="docutils literal notranslate"><span class="pre">adjacents()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.graph.containsVertex"><code class="docutils literal notranslate"><span class="pre">containsVertex()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.graph.degree"><code class="docutils literal notranslate"><span class="pre">degree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.graph.edges"><code class="docutils literal notranslate"><span class="pre">edges()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.graph.getEdge"><code class="docutils literal notranslate"><span class="pre">getEdge()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.graph.graphSelector"><code class="docutils literal notranslate"><span class="pre">graphSelector()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.graph.indegree"><code class="docutils literal notranslate"><span class="pre">indegree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.graph.insertVertex"><code class="docutils literal notranslate"><span class="pre">insertVertex()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.graph.newGraph"><code class="docutils literal notranslate"><span class="pre">newGraph()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.graph.numEdges"><code class="docutils literal notranslate"><span class="pre">numEdges()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.graph.numVertices"><code class="docutils literal notranslate"><span class="pre">numVertices()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.graph.outdegree"><code class="docutils literal notranslate"><span class="pre">outdegree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.graph.removeVertex"><code class="docutils literal notranslate"><span class="pre">removeVertex()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.graph.vertices"><code class="docutils literal notranslate"><span class="pre">vertices()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DISClib.ADT.html#module-DISClib.ADT.indexminpq">DISClib.ADT.indexminpq module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.indexminpq.contains"><code class="docutils literal notranslate"><span class="pre">contains()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.indexminpq.decreaseKey"><code class="docutils literal notranslate"><span class="pre">decreaseKey()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.indexminpq.delMin"><code class="docutils literal notranslate"><span class="pre">delMin()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.indexminpq.increaseKey"><code class="docutils literal notranslate"><span class="pre">increaseKey()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.indexminpq.insert"><code class="docutils literal notranslate"><span class="pre">insert()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.indexminpq.isEmpty"><code class="docutils literal notranslate"><span class="pre">isEmpty()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.indexminpq.min"><code class="docutils literal notranslate"><span class="pre">min()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.indexminpq.newIndexMinPQ"><code class="docutils literal notranslate"><span class="pre">newIndexMinPQ()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.indexminpq.size"><code class="docutils literal notranslate"><span class="pre">size()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DISClib.ADT.html#module-DISClib.ADT.lists">DISClib.ADT.lists module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.lists.ADT_LT_MOD_DICT"><code class="docutils literal notranslate"><span class="pre">ADT_LT_MOD_DICT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.lists.ADT_LT_PGK_PATH"><code class="docutils literal notranslate"><span class="pre">ADT_LT_PGK_PATH</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.lists.List"><code class="docutils literal notranslate"><span class="pre">List()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.lists.clone"><code class="docutils literal notranslate"><span class="pre">clone()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.lists.translate"><code class="docutils literal notranslate"><span class="pre">translate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DISClib.ADT.html#module-DISClib.ADT.maps">DISClib.ADT.maps module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.maps.contains"><code class="docutils literal notranslate"><span class="pre">contains()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.maps.get"><code class="docutils literal notranslate"><span class="pre">get()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.maps.isEmpty"><code class="docutils literal notranslate"><span class="pre">isEmpty()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.maps.keySet"><code class="docutils literal notranslate"><span class="pre">keySet()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.maps.mapSelector"><code class="docutils literal notranslate"><span class="pre">mapSelector()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.maps.newMap"><code class="docutils literal notranslate"><span class="pre">newMap()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.maps.put"><code class="docutils literal notranslate"><span class="pre">put()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.maps.remove"><code class="docutils literal notranslate"><span class="pre">remove()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.maps.size"><code class="docutils literal notranslate"><span class="pre">size()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.maps.valueSet"><code class="docutils literal notranslate"><span class="pre">valueSet()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DISClib.ADT.html#module-DISClib.ADT.minpq">DISClib.ADT.minpq module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.minpq.delMin"><code class="docutils literal notranslate"><span class="pre">delMin()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.minpq.insert"><code class="docutils literal notranslate"><span class="pre">insert()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.minpq.isEmpty"><code class="docutils literal notranslate"><span class="pre">isEmpty()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.minpq.min"><code class="docutils literal notranslate"><span class="pre">min()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.minpq.newMinPQ"><code class="docutils literal notranslate"><span class="pre">newMinPQ()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.minpq.size"><code class="docutils literal notranslate"><span class="pre">size()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DISClib.ADT.html#module-DISClib.ADT.orderedmap">DISClib.ADT.orderedmap module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.orderedmap.ceiling"><code class="docutils literal notranslate"><span class="pre">ceiling()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.orderedmap.contains"><code class="docutils literal notranslate"><span class="pre">contains()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.orderedmap.deleteMax"><code class="docutils literal notranslate"><span class="pre">deleteMax()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.orderedmap.deleteMin"><code class="docutils literal notranslate"><span class="pre">deleteMin()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.orderedmap.floor"><code class="docutils literal notranslate"><span class="pre">floor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.orderedmap.get"><code class="docutils literal notranslate"><span class="pre">get()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.orderedmap.height"><code class="docutils literal notranslate"><span class="pre">height()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.orderedmap.isEmpty"><code class="docutils literal notranslate"><span class="pre">isEmpty()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.orderedmap.keySet"><code class="docutils literal notranslate"><span class="pre">keySet()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.orderedmap.keys"><code class="docutils literal notranslate"><span class="pre">keys()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.orderedmap.mapSelector"><code class="docutils literal notranslate"><span class="pre">mapSelector()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.orderedmap.maxKey"><code class="docutils literal notranslate"><span class="pre">maxKey()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.orderedmap.minKey"><code class="docutils literal notranslate"><span class="pre">minKey()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.orderedmap.newMap"><code class="docutils literal notranslate"><span class="pre">newMap()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.orderedmap.put"><code class="docutils literal notranslate"><span class="pre">put()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.orderedmap.rank"><code class="docutils literal notranslate"><span class="pre">rank()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.orderedmap.remove"><code class="docutils literal notranslate"><span class="pre">remove()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.orderedmap.select"><code class="docutils literal notranslate"><span class="pre">select()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.orderedmap.size"><code class="docutils literal notranslate"><span class="pre">size()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.orderedmap.valueSet"><code class="docutils literal notranslate"><span class="pre">valueSet()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.orderedmap.values"><code class="docutils literal notranslate"><span class="pre">values()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DISClib.ADT.html#module-DISClib.ADT.queue">DISClib.ADT.queue module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.queue.Queue"><code class="docutils literal notranslate"><span class="pre">Queue</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.queue.Queue.dequeue"><code class="docutils literal notranslate"><span class="pre">Queue.dequeue()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.queue.Queue.enqueue"><code class="docutils literal notranslate"><span class="pre">Queue.enqueue()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.queue.Queue.is_empty"><code class="docutils literal notranslate"><span class="pre">Queue.is_empty()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.queue.Queue.peek"><code class="docutils literal notranslate"><span class="pre">Queue.peek()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.queue.Queue.size"><code class="docutils literal notranslate"><span class="pre">Queue.size()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DISClib.ADT.html#module-DISClib.ADT.stack">DISClib.ADT.stack module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.stack.Stack"><code class="docutils literal notranslate"><span class="pre">Stack</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.stack.Stack.is_empty"><code class="docutils literal notranslate"><span class="pre">Stack.is_empty()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.stack.Stack.pop"><code class="docutils literal notranslate"><span class="pre">Stack.pop()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.stack.Stack.push"><code class="docutils literal notranslate"><span class="pre">Stack.push()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.stack.Stack.size"><code class="docutils literal notranslate"><span class="pre">Stack.size()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.ADT.html#DISClib.ADT.stack.Stack.top"><code class="docutils literal notranslate"><span class="pre">Stack.top()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DISClib.ADT.html#module-DISClib.ADT">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="DISClib.Algorithms.html">DISClib.Algorithms package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="DISClib.Algorithms.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.Algorithms.Graphs.html">DISClib.Algorithms.Graphs package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.Algorithms.Graphs.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.Algorithms.Graphs.html#module-DISClib.Algorithms.Graphs.bellmanford">DISClib.Algorithms.Graphs.bellmanford module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.Algorithms.Graphs.html#module-DISClib.Algorithms.Graphs.bfs">DISClib.Algorithms.Graphs.bfs module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.Algorithms.Graphs.html#module-DISClib.Algorithms.Graphs.cycles">DISClib.Algorithms.Graphs.cycles module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.Algorithms.Graphs.html#module-DISClib.Algorithms.Graphs.dfo">DISClib.Algorithms.Graphs.dfo module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.Algorithms.Graphs.html#module-DISClib.Algorithms.Graphs.dfs">DISClib.Algorithms.Graphs.dfs module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.Algorithms.Graphs.html#module-DISClib.Algorithms.Graphs.dijsktra">DISClib.Algorithms.Graphs.dijsktra module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.Algorithms.Graphs.html#module-DISClib.Algorithms.Graphs.prim">DISClib.Algorithms.Graphs.prim module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.Algorithms.Graphs.html#module-DISClib.Algorithms.Graphs.scc">DISClib.Algorithms.Graphs.scc module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.Algorithms.Graphs.html#module-DISClib.Algorithms.Graphs">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.Algorithms.Sorting.html">DISClib.Algorithms.Sorting package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.Algorithms.Sorting.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.Algorithms.Sorting.html#module-DISClib.Algorithms.Sorting.insertionsort">DISClib.Algorithms.Sorting.insertionsort module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.Algorithms.Sorting.html#module-DISClib.Algorithms.Sorting.mergesort">DISClib.Algorithms.Sorting.mergesort module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.Algorithms.Sorting.html#module-DISClib.Algorithms.Sorting.quicksort">DISClib.Algorithms.Sorting.quicksort module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.Algorithms.Sorting.html#module-DISClib.Algorithms.Sorting.selectionsort">DISClib.Algorithms.Sorting.selectionsort module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.Algorithms.Sorting.html#module-DISClib.Algorithms.Sorting.shellsort">DISClib.Algorithms.Sorting.shellsort module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.Algorithms.Sorting.html#module-DISClib.Algorithms.Sorting">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.Algorithms.Trees.html">DISClib.Algorithms.Trees package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.Algorithms.Trees.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.Algorithms.Trees.html#module-DISClib.Algorithms.Trees.traversal">DISClib.Algorithms.Trees.traversal module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.Algorithms.Trees.html#module-DISClib.Algorithms.Trees">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DISClib.Algorithms.html#module-DISClib.Algorithms">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="DISClib.DataStructures.html">DISClib.DataStructures package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="DISClib.DataStructures.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DISClib.DataStructures.html#module-DISClib.DataStructures.adjlist">DISClib.DataStructures.adjlist module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.adjlist.addEdge"><code class="docutils literal notranslate"><span class="pre">addEdge()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.adjlist.adjacentEdges"><code class="docutils literal notranslate"><span class="pre">adjacentEdges()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.adjlist.adjacents"><code class="docutils literal notranslate"><span class="pre">adjacents()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.adjlist.containsVertex"><code class="docutils literal notranslate"><span class="pre">containsVertex()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.adjlist.degree"><code class="docutils literal notranslate"><span class="pre">degree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.adjlist.edges"><code class="docutils literal notranslate"><span class="pre">edges()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.adjlist.getEdge"><code class="docutils literal notranslate"><span class="pre">getEdge()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.adjlist.indegree"><code class="docutils literal notranslate"><span class="pre">indegree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.adjlist.insertVertex"><code class="docutils literal notranslate"><span class="pre">insertVertex()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.adjlist.newGraph"><code class="docutils literal notranslate"><span class="pre">newGraph()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.adjlist.numEdges"><code class="docutils literal notranslate"><span class="pre">numEdges()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.adjlist.numVertices"><code class="docutils literal notranslate"><span class="pre">numVertices()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.adjlist.outdegree"><code class="docutils literal notranslate"><span class="pre">outdegree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.adjlist.removeVertex"><code class="docutils literal notranslate"><span class="pre">removeVertex()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.adjlist.vertices"><code class="docutils literal notranslate"><span class="pre">vertices()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DISClib.DataStructures.html#module-DISClib.DataStructures.adjmatrix">DISClib.DataStructures.adjmatrix module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DISClib.DataStructures.html#module-DISClib.DataStructures.arraylist">DISClib.DataStructures.arraylist module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.arraylist.ArrayList"><code class="docutils literal notranslate"><span class="pre">ArrayList</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.arraylist.ArrayList.add_element"><code class="docutils literal notranslate"><span class="pre">ArrayList.add_element()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.arraylist.ArrayList.add_first"><code class="docutils literal notranslate"><span class="pre">ArrayList.add_first()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.arraylist.ArrayList.add_last"><code class="docutils literal notranslate"><span class="pre">ArrayList.add_last()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.arraylist.ArrayList.change_info"><code class="docutils literal notranslate"><span class="pre">ArrayList.change_info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.arraylist.ArrayList.cmp_function"><code class="docutils literal notranslate"><span class="pre">ArrayList.cmp_function</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.arraylist.ArrayList.compare_elements"><code class="docutils literal notranslate"><span class="pre">ArrayList.compare_elements()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.arraylist.ArrayList.concat"><code class="docutils literal notranslate"><span class="pre">ArrayList.concat()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.arraylist.ArrayList.default_cmp_function"><code class="docutils literal notranslate"><span class="pre">ArrayList.default_cmp_function()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.arraylist.ArrayList.elements"><code class="docutils literal notranslate"><span class="pre">ArrayList.elements</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.arraylist.ArrayList.exchange"><code class="docutils literal notranslate"><span class="pre">ArrayList.exchange()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.arraylist.ArrayList.get_element"><code class="docutils literal notranslate"><span class="pre">ArrayList.get_element()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.arraylist.ArrayList.get_first"><code class="docutils literal notranslate"><span class="pre">ArrayList.get_first()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.arraylist.ArrayList.get_last"><code class="docutils literal notranslate"><span class="pre">ArrayList.get_last()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.arraylist.ArrayList.iodata"><code class="docutils literal notranslate"><span class="pre">ArrayList.iodata</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.arraylist.ArrayList.is_empty"><code class="docutils literal notranslate"><span class="pre">ArrayList.is_empty()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.arraylist.ArrayList.is_present"><code class="docutils literal notranslate"><span class="pre">ArrayList.is_present()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.arraylist.ArrayList.key"><code class="docutils literal notranslate"><span class="pre">ArrayList.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.arraylist.ArrayList.remove_element"><code class="docutils literal notranslate"><span class="pre">ArrayList.remove_element()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.arraylist.ArrayList.remove_first"><code class="docutils literal notranslate"><span class="pre">ArrayList.remove_first()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.arraylist.ArrayList.remove_last"><code class="docutils literal notranslate"><span class="pre">ArrayList.remove_last()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.arraylist.ArrayList.size"><code class="docutils literal notranslate"><span class="pre">ArrayList.size()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.arraylist.ArrayList.sublist"><code class="docutils literal notranslate"><span class="pre">ArrayList.sublist()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DISClib.DataStructures.html#module-DISClib.DataStructures.binarysearchtree">DISClib.DataStructures.binarysearchtree module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DISClib.DataStructures.html#module-DISClib.DataStructures.bst">DISClib.DataStructures.bst module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.bst.ceiling"><code class="docutils literal notranslate"><span class="pre">ceiling()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.bst.ceilingKey"><code class="docutils literal notranslate"><span class="pre">ceilingKey()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.bst.contains"><code class="docutils literal notranslate"><span class="pre">contains()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.bst.defaultfunction"><code class="docutils literal notranslate"><span class="pre">defaultfunction()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.bst.deleteMax"><code class="docutils literal notranslate"><span class="pre">deleteMax()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.bst.deleteMaxTree"><code class="docutils literal notranslate"><span class="pre">deleteMaxTree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.bst.deleteMin"><code class="docutils literal notranslate"><span class="pre">deleteMin()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.bst.deleteMinTree"><code class="docutils literal notranslate"><span class="pre">deleteMinTree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.bst.floor"><code class="docutils literal notranslate"><span class="pre">floor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.bst.floorKey"><code class="docutils literal notranslate"><span class="pre">floorKey()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.bst.get"><code class="docutils literal notranslate"><span class="pre">get()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.bst.getNode"><code class="docutils literal notranslate"><span class="pre">getNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.bst.height"><code class="docutils literal notranslate"><span class="pre">height()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.bst.heightTree"><code class="docutils literal notranslate"><span class="pre">heightTree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.bst.insertNode"><code class="docutils literal notranslate"><span class="pre">insertNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.bst.isEmpty"><code class="docutils literal notranslate"><span class="pre">isEmpty()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.bst.keySet"><code class="docutils literal notranslate"><span class="pre">keySet()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.bst.keySetTree"><code class="docutils literal notranslate"><span class="pre">keySetTree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.bst.keys"><code class="docutils literal notranslate"><span class="pre">keys()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.bst.keysRange"><code class="docutils literal notranslate"><span class="pre">keysRange()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.bst.maxKey"><code class="docutils literal notranslate"><span class="pre">maxKey()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.bst.maxKeyNode"><code class="docutils literal notranslate"><span class="pre">maxKeyNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.bst.minKey"><code class="docutils literal notranslate"><span class="pre">minKey()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.bst.minKeyNode"><code class="docutils literal notranslate"><span class="pre">minKeyNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.bst.newMap"><code class="docutils literal notranslate"><span class="pre">newMap()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.bst.put"><code class="docutils literal notranslate"><span class="pre">put()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.bst.rank"><code class="docutils literal notranslate"><span class="pre">rank()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.bst.rankKeys"><code class="docutils literal notranslate"><span class="pre">rankKeys()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.bst.remove"><code class="docutils literal notranslate"><span class="pre">remove()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.bst.removeNode"><code class="docutils literal notranslate"><span class="pre">removeNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.bst.select"><code class="docutils literal notranslate"><span class="pre">select()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.bst.selectKey"><code class="docutils literal notranslate"><span class="pre">selectKey()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.bst.size"><code class="docutils literal notranslate"><span class="pre">size()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.bst.sizeTree"><code class="docutils literal notranslate"><span class="pre">sizeTree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.bst.valueSet"><code class="docutils literal notranslate"><span class="pre">valueSet()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.bst.valueSetTree"><code class="docutils literal notranslate"><span class="pre">valueSetTree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.bst.values"><code class="docutils literal notranslate"><span class="pre">values()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.bst.valuesRange"><code class="docutils literal notranslate"><span class="pre">valuesRange()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DISClib.DataStructures.html#module-DISClib.DataStructures.bstnode">DISClib.DataStructures.bstnode module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.bstnode.getKey"><code class="docutils literal notranslate"><span class="pre">getKey()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.bstnode.getValue"><code class="docutils literal notranslate"><span class="pre">getValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.bstnode.newNode"><code class="docutils literal notranslate"><span class="pre">newNode()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DISClib.DataStructures.html#module-DISClib.DataStructures.chaininghashmap">DISClib.DataStructures.chaininghashmap module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.chaininghashmap.contains"><code class="docutils literal notranslate"><span class="pre">contains()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.chaininghashmap.defaultcompare"><code class="docutils literal notranslate"><span class="pre">defaultcompare()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.chaininghashmap.get"><code class="docutils literal notranslate"><span class="pre">get()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.chaininghashmap.hashValue"><code class="docutils literal notranslate"><span class="pre">hashValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.chaininghashmap.isEmpty"><code class="docutils literal notranslate"><span class="pre">isEmpty()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.chaininghashmap.isPrime"><code class="docutils literal notranslate"><span class="pre">isPrime()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.chaininghashmap.keySet"><code class="docutils literal notranslate"><span class="pre">keySet()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.chaininghashmap.newMap"><code class="docutils literal notranslate"><span class="pre">newMap()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.chaininghashmap.nextPrime"><code class="docutils literal notranslate"><span class="pre">nextPrime()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.chaininghashmap.put"><code class="docutils literal notranslate"><span class="pre">put()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.chaininghashmap.rehash"><code class="docutils literal notranslate"><span class="pre">rehash()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.chaininghashmap.remove"><code class="docutils literal notranslate"><span class="pre">remove()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.chaininghashmap.size"><code class="docutils literal notranslate"><span class="pre">size()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.chaininghashmap.valueSet"><code class="docutils literal notranslate"><span class="pre">valueSet()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DISClib.DataStructures.html#module-DISClib.DataStructures.doublelinkedlist">DISClib.DataStructures.doublelinkedlist module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked"><code class="docutils literal notranslate"><span class="pre">DoubleLinked</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.add_element"><code class="docutils literal notranslate"><span class="pre">DoubleLinked.add_element()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.add_first"><code class="docutils literal notranslate"><span class="pre">DoubleLinked.add_first()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.add_last"><code class="docutils literal notranslate"><span class="pre">DoubleLinked.add_last()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.change_info"><code class="docutils literal notranslate"><span class="pre">DoubleLinked.change_info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.cmp_function"><code class="docutils literal notranslate"><span class="pre">DoubleLinked.cmp_function</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.compare_elements"><code class="docutils literal notranslate"><span class="pre">DoubleLinked.compare_elements()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.concat"><code class="docutils literal notranslate"><span class="pre">DoubleLinked.concat()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.default_cmp_function"><code class="docutils literal notranslate"><span class="pre">DoubleLinked.default_cmp_function()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.exchange"><code class="docutils literal notranslate"><span class="pre">DoubleLinked.exchange()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.get_element"><code class="docutils literal notranslate"><span class="pre">DoubleLinked.get_element()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.get_first"><code class="docutils literal notranslate"><span class="pre">DoubleLinked.get_first()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.get_last"><code class="docutils literal notranslate"><span class="pre">DoubleLinked.get_last()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.iodata"><code class="docutils literal notranslate"><span class="pre">DoubleLinked.iodata</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.is_empty"><code class="docutils literal notranslate"><span class="pre">DoubleLinked.is_empty()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.is_present"><code class="docutils literal notranslate"><span class="pre">DoubleLinked.is_present()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.key"><code class="docutils literal notranslate"><span class="pre">DoubleLinked.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.remove_element"><code class="docutils literal notranslate"><span class="pre">DoubleLinked.remove_element()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.remove_first"><code class="docutils literal notranslate"><span class="pre">DoubleLinked.remove_first()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.remove_last"><code class="docutils literal notranslate"><span class="pre">DoubleLinked.remove_last()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.size"><code class="docutils literal notranslate"><span class="pre">DoubleLinked.size()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.sublist"><code class="docutils literal notranslate"><span class="pre">DoubleLinked.sublist()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DISClib.DataStructures.html#module-DISClib.DataStructures.edge">DISClib.DataStructures.edge module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.edge.compareedges"><code class="docutils literal notranslate"><span class="pre">compareedges()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.edge.either"><code class="docutils literal notranslate"><span class="pre">either()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.edge.newEdge"><code class="docutils literal notranslate"><span class="pre">newEdge()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.edge.other"><code class="docutils literal notranslate"><span class="pre">other()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.edge.weight"><code class="docutils literal notranslate"><span class="pre">weight()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DISClib.DataStructures.html#module-DISClib.DataStructures.heap">DISClib.DataStructures.heap module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.heap.delMin"><code class="docutils literal notranslate"><span class="pre">delMin()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.heap.exchange"><code class="docutils literal notranslate"><span class="pre">exchange()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.heap.greater"><code class="docutils literal notranslate"><span class="pre">greater()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.heap.insert"><code class="docutils literal notranslate"><span class="pre">insert()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.heap.isEmpty"><code class="docutils literal notranslate"><span class="pre">isEmpty()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.heap.min"><code class="docutils literal notranslate"><span class="pre">min()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.heap.newHeap"><code class="docutils literal notranslate"><span class="pre">newHeap()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.heap.sink"><code class="docutils literal notranslate"><span class="pre">sink()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.heap.size"><code class="docutils literal notranslate"><span class="pre">size()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.heap.swim"><code class="docutils literal notranslate"><span class="pre">swim()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DISClib.DataStructures.html#module-DISClib.DataStructures.iminpqnode">DISClib.DataStructures.iminpqnode module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.iminpqnode.newIminPQNode"><code class="docutils literal notranslate"><span class="pre">newIminPQNode()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DISClib.DataStructures.html#module-DISClib.DataStructures.indexheap">DISClib.DataStructures.indexheap module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.indexheap.contains"><code class="docutils literal notranslate"><span class="pre">contains()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.indexheap.decreaseKey"><code class="docutils literal notranslate"><span class="pre">decreaseKey()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.indexheap.delMin"><code class="docutils literal notranslate"><span class="pre">delMin()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.indexheap.exchange"><code class="docutils literal notranslate"><span class="pre">exchange()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.indexheap.greater"><code class="docutils literal notranslate"><span class="pre">greater()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.indexheap.increaseKey"><code class="docutils literal notranslate"><span class="pre">increaseKey()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.indexheap.insert"><code class="docutils literal notranslate"><span class="pre">insert()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.indexheap.isEmpty"><code class="docutils literal notranslate"><span class="pre">isEmpty()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.indexheap.min"><code class="docutils literal notranslate"><span class="pre">min()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.indexheap.newIndexHeap"><code class="docutils literal notranslate"><span class="pre">newIndexHeap()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.indexheap.sink"><code class="docutils literal notranslate"><span class="pre">sink()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.indexheap.size"><code class="docutils literal notranslate"><span class="pre">size()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.indexheap.swim"><code class="docutils literal notranslate"><span class="pre">swim()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DISClib.DataStructures.html#module-DISClib.DataStructures.listnode">DISClib.DataStructures.listnode module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.listnode.DoubleNode"><code class="docutils literal notranslate"><span class="pre">DoubleNode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.listnode.DoubleNode.prev"><code class="docutils literal notranslate"><span class="pre">DoubleNode.prev()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.listnode.SingleNode"><code class="docutils literal notranslate"><span class="pre">SingleNode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.listnode.SingleNode.next"><code class="docutils literal notranslate"><span class="pre">SingleNode.next()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DISClib.DataStructures.html#module-DISClib.DataStructures.mapentry">DISClib.DataStructures.mapentry module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.mapentry.MapEntry"><code class="docutils literal notranslate"><span class="pre">MapEntry</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.mapentry.MapEntry.get_key"><code class="docutils literal notranslate"><span class="pre">MapEntry.get_key()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.mapentry.MapEntry.get_value"><code class="docutils literal notranslate"><span class="pre">MapEntry.get_value()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.mapentry.MapEntry.set_key"><code class="docutils literal notranslate"><span class="pre">MapEntry.set_key()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.mapentry.MapEntry.set_value"><code class="docutils literal notranslate"><span class="pre">MapEntry.set_value()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DISClib.DataStructures.html#disclib-datastructures-nodetree-module">DISClib.DataStructures.nodetree module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DISClib.DataStructures.html#module-DISClib.DataStructures.probehashtable">DISClib.DataStructures.probehashtable module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.probehashtable.contains"><code class="docutils literal notranslate"><span class="pre">contains()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.probehashtable.defaultcompare"><code class="docutils literal notranslate"><span class="pre">defaultcompare()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.probehashtable.findSlot"><code class="docutils literal notranslate"><span class="pre">findSlot()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.probehashtable.get"><code class="docutils literal notranslate"><span class="pre">get()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.probehashtable.hashValue"><code class="docutils literal notranslate"><span class="pre">hashValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.probehashtable.isAvailable"><code class="docutils literal notranslate"><span class="pre">isAvailable()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.probehashtable.isEmpty"><code class="docutils literal notranslate"><span class="pre">isEmpty()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.probehashtable.isPrime"><code class="docutils literal notranslate"><span class="pre">isPrime()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.probehashtable.keySet"><code class="docutils literal notranslate"><span class="pre">keySet()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.probehashtable.newMap"><code class="docutils literal notranslate"><span class="pre">newMap()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.probehashtable.nextPrime"><code class="docutils literal notranslate"><span class="pre">nextPrime()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.probehashtable.put"><code class="docutils literal notranslate"><span class="pre">put()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.probehashtable.rehash"><code class="docutils literal notranslate"><span class="pre">rehash()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.probehashtable.remove"><code class="docutils literal notranslate"><span class="pre">remove()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.probehashtable.size"><code class="docutils literal notranslate"><span class="pre">size()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.probehashtable.valueSet"><code class="docutils literal notranslate"><span class="pre">valueSet()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DISClib.DataStructures.html#module-DISClib.DataStructures.probinghashmap">DISClib.DataStructures.probinghashmap module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.probinghashmap.addFirst"><code class="docutils literal notranslate"><span class="pre">addFirst()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.probinghashmap.addLast"><code class="docutils literal notranslate"><span class="pre">addLast()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.probinghashmap.changeInfo"><code class="docutils literal notranslate"><span class="pre">changeInfo()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.probinghashmap.compareElements"><code class="docutils literal notranslate"><span class="pre">compareElements()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.probinghashmap.defaultfunction"><code class="docutils literal notranslate"><span class="pre">defaultfunction()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.probinghashmap.deleteElement"><code class="docutils literal notranslate"><span class="pre">deleteElement()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.probinghashmap.exchange"><code class="docutils literal notranslate"><span class="pre">exchange()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.probinghashmap.firstElement"><code class="docutils literal notranslate"><span class="pre">firstElement()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.probinghashmap.getElement"><code class="docutils literal notranslate"><span class="pre">getElement()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.probinghashmap.insertElement"><code class="docutils literal notranslate"><span class="pre">insertElement()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.probinghashmap.isEmpty"><code class="docutils literal notranslate"><span class="pre">isEmpty()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.probinghashmap.isPresent"><code class="docutils literal notranslate"><span class="pre">isPresent()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.probinghashmap.iterator"><code class="docutils literal notranslate"><span class="pre">iterator()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.probinghashmap.lastElement"><code class="docutils literal notranslate"><span class="pre">lastElement()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.probinghashmap.newList"><code class="docutils literal notranslate"><span class="pre">newList()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.probinghashmap.removeFirst"><code class="docutils literal notranslate"><span class="pre">removeFirst()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.probinghashmap.removeLast"><code class="docutils literal notranslate"><span class="pre">removeLast()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.probinghashmap.size"><code class="docutils literal notranslate"><span class="pre">size()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.probinghashmap.subList"><code class="docutils literal notranslate"><span class="pre">subList()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DISClib.DataStructures.html#module-DISClib.DataStructures.rbt">DISClib.DataStructures.rbt module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbt.balance"><code class="docutils literal notranslate"><span class="pre">balance()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbt.ceiling"><code class="docutils literal notranslate"><span class="pre">ceiling()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbt.ceilingKey"><code class="docutils literal notranslate"><span class="pre">ceilingKey()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbt.contains"><code class="docutils literal notranslate"><span class="pre">contains()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbt.defaultfunction"><code class="docutils literal notranslate"><span class="pre">defaultfunction()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbt.deleteMax"><code class="docutils literal notranslate"><span class="pre">deleteMax()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbt.deleteMaxTree"><code class="docutils literal notranslate"><span class="pre">deleteMaxTree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbt.deleteMin"><code class="docutils literal notranslate"><span class="pre">deleteMin()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbt.deleteMinTree"><code class="docutils literal notranslate"><span class="pre">deleteMinTree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbt.flipColors"><code class="docutils literal notranslate"><span class="pre">flipColors()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbt.flipNodeColor"><code class="docutils literal notranslate"><span class="pre">flipNodeColor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbt.floor"><code class="docutils literal notranslate"><span class="pre">floor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbt.floorKey"><code class="docutils literal notranslate"><span class="pre">floorKey()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbt.get"><code class="docutils literal notranslate"><span class="pre">get()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbt.getNode"><code class="docutils literal notranslate"><span class="pre">getNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbt.height"><code class="docutils literal notranslate"><span class="pre">height()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbt.heightTree"><code class="docutils literal notranslate"><span class="pre">heightTree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbt.insertNode"><code class="docutils literal notranslate"><span class="pre">insertNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbt.isEmpty"><code class="docutils literal notranslate"><span class="pre">isEmpty()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbt.isRed"><code class="docutils literal notranslate"><span class="pre">isRed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbt.keySet"><code class="docutils literal notranslate"><span class="pre">keySet()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbt.keySetTree"><code class="docutils literal notranslate"><span class="pre">keySetTree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbt.keys"><code class="docutils literal notranslate"><span class="pre">keys()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbt.keysRange"><code class="docutils literal notranslate"><span class="pre">keysRange()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbt.maxKey"><code class="docutils literal notranslate"><span class="pre">maxKey()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbt.maxKeyTree"><code class="docutils literal notranslate"><span class="pre">maxKeyTree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbt.minKey"><code class="docutils literal notranslate"><span class="pre">minKey()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbt.minKeyTree"><code class="docutils literal notranslate"><span class="pre">minKeyTree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbt.moveRedLeft"><code class="docutils literal notranslate"><span class="pre">moveRedLeft()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbt.moveRedRight"><code class="docutils literal notranslate"><span class="pre">moveRedRight()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbt.newMap"><code class="docutils literal notranslate"><span class="pre">newMap()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbt.put"><code class="docutils literal notranslate"><span class="pre">put()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbt.rank"><code class="docutils literal notranslate"><span class="pre">rank()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbt.rankKeys"><code class="docutils literal notranslate"><span class="pre">rankKeys()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbt.remove"><code class="docutils literal notranslate"><span class="pre">remove()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbt.removeKey"><code class="docutils literal notranslate"><span class="pre">removeKey()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbt.rotateLeft"><code class="docutils literal notranslate"><span class="pre">rotateLeft()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbt.rotateRight"><code class="docutils literal notranslate"><span class="pre">rotateRight()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbt.select"><code class="docutils literal notranslate"><span class="pre">select()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbt.selectKey"><code class="docutils literal notranslate"><span class="pre">selectKey()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbt.size"><code class="docutils literal notranslate"><span class="pre">size()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbt.sizeTree"><code class="docutils literal notranslate"><span class="pre">sizeTree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbt.valueSet"><code class="docutils literal notranslate"><span class="pre">valueSet()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbt.valueSetTree"><code class="docutils literal notranslate"><span class="pre">valueSetTree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbt.values"><code class="docutils literal notranslate"><span class="pre">values()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbt.valuesRange"><code class="docutils literal notranslate"><span class="pre">valuesRange()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DISClib.DataStructures.html#module-DISClib.DataStructures.rbtnode">DISClib.DataStructures.rbtnode module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbtnode.getKey"><code class="docutils literal notranslate"><span class="pre">getKey()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbtnode.getValue"><code class="docutils literal notranslate"><span class="pre">getValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbtnode.isRed"><code class="docutils literal notranslate"><span class="pre">isRed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.rbtnode.newNode"><code class="docutils literal notranslate"><span class="pre">newNode()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DISClib.DataStructures.html#module-DISClib.DataStructures.redblacktree">DISClib.DataStructures.redblacktree module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DISClib.DataStructures.html#module-DISClib.DataStructures.singlelinkedlist">DISClib.DataStructures.singlelinkedlist module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.singlelinkedlist.SingleLinked"><code class="docutils literal notranslate"><span class="pre">SingleLinked</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.singlelinkedlist.SingleLinked.add_element"><code class="docutils literal notranslate"><span class="pre">SingleLinked.add_element()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.singlelinkedlist.SingleLinked.add_first"><code class="docutils literal notranslate"><span class="pre">SingleLinked.add_first()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.singlelinkedlist.SingleLinked.add_last"><code class="docutils literal notranslate"><span class="pre">SingleLinked.add_last()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.singlelinkedlist.SingleLinked.change_info"><code class="docutils literal notranslate"><span class="pre">SingleLinked.change_info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.singlelinkedlist.SingleLinked.cmp_function"><code class="docutils literal notranslate"><span class="pre">SingleLinked.cmp_function</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.singlelinkedlist.SingleLinked.compare_elements"><code class="docutils literal notranslate"><span class="pre">SingleLinked.compare_elements()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.singlelinkedlist.SingleLinked.concat"><code class="docutils literal notranslate"><span class="pre">SingleLinked.concat()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.singlelinkedlist.SingleLinked.default_cmp_function"><code class="docutils literal notranslate"><span class="pre">SingleLinked.default_cmp_function()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.singlelinkedlist.SingleLinked.exchange"><code class="docutils literal notranslate"><span class="pre">SingleLinked.exchange()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.singlelinkedlist.SingleLinked.first"><code class="docutils literal notranslate"><span class="pre">SingleLinked.first</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.singlelinkedlist.SingleLinked.get_element"><code class="docutils literal notranslate"><span class="pre">SingleLinked.get_element()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.singlelinkedlist.SingleLinked.get_first"><code class="docutils literal notranslate"><span class="pre">SingleLinked.get_first()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.singlelinkedlist.SingleLinked.get_last"><code class="docutils literal notranslate"><span class="pre">SingleLinked.get_last()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.singlelinkedlist.SingleLinked.iodata"><code class="docutils literal notranslate"><span class="pre">SingleLinked.iodata</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.singlelinkedlist.SingleLinked.is_empty"><code class="docutils literal notranslate"><span class="pre">SingleLinked.is_empty()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.singlelinkedlist.SingleLinked.is_present"><code class="docutils literal notranslate"><span class="pre">SingleLinked.is_present()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.singlelinkedlist.SingleLinked.key"><code class="docutils literal notranslate"><span class="pre">SingleLinked.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.singlelinkedlist.SingleLinked.last"><code class="docutils literal notranslate"><span class="pre">SingleLinked.last</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_element"><code class="docutils literal notranslate"><span class="pre">SingleLinked.remove_element()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_first"><code class="docutils literal notranslate"><span class="pre">SingleLinked.remove_first()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_last"><code class="docutils literal notranslate"><span class="pre">SingleLinked.remove_last()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.singlelinkedlist.SingleLinked.size"><code class="docutils literal notranslate"><span class="pre">SingleLinked.size()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html#DISClib.DataStructures.singlelinkedlist.SingleLinked.sublist"><code class="docutils literal notranslate"><span class="pre">SingleLinked.sublist()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DISClib.DataStructures.html#module-DISClib.DataStructures">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="DISClib.Utils.html">DISClib.Utils package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="DISClib.Utils.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DISClib.Utils.html#module-DISClib.Utils.error">DISClib.Utils.error module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.Utils.html#DISClib.Utils.error.TYPE_ERR_MSG"><code class="docutils literal notranslate"><span class="pre">TYPE_ERR_MSG</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.Utils.html#DISClib.Utils.error.error_handler"><code class="docutils literal notranslate"><span class="pre">error_handler()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.Utils.html#DISClib.Utils.error.init_type_checker"><code class="docutils literal notranslate"><span class="pre">init_type_checker()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DISClib.Utils.html#module-DISClib.Utils">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="module-DISClib">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-DISClib" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="modules.html" class="btn btn-neutral float-left" title="DISClib" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="DISClib.ADT.html" class="btn btn-neutral float-right" title="ADTs DISClib" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor Uniandes, Bogotá - Colombia, Sur América,
+             Facultad de Ingeniería, DISC Desarrollado
+             para ISIS-1225, EDA.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

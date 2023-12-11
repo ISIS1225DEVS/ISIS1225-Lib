@@ -1,0 +1,94 @@
+:py:mod:`DISClib.ADT.stack`
+===========================
+
+.. py:module:: DISClib.ADT.stack
+
+.. autoapi-nested-parse::
+
+   Esta clase representa una pila implementada sobre una lista doblemente encadenada. Esta pila (Stack) es un Tipo Abstracto de Datos (TAD/ADT) que permite almacenar una colección de elementos y operarlos en el mismo orden en que fueron agregados (LIFO - Last In First Out).
+
+   La implementación de la cola se realiza sobre una lista doblemente
+   encadenada (DoubleLinked) para garantizar que las operaciones de agregar y
+   eliminar elementos se realicen en tiempo constante y no consumir memoria
+   innecesaria.
+
+   *IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:
+
+       #. Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.
+       #. Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H. Goldwasser.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   DISClib.ADT.stack.Stack
+
+
+
+
+.. py:class:: Stack
+
+
+   Bases: :py:obj:`DISClib.DataStructures.doublelinkedlist.DoubleLinked`, :py:obj:`Generic`\ [\ :py:obj:`DISClib.Utils.default.T`\ ]
+
+   *Stack* Clase que representa una pila implementada sobre una lista doblemente encadenada ('DoubleLinked'). Esta pila (Stack) es un Tipo Abstracto de Datos (TAD/ADT) que permite almacenar una colección de elementos y operarlos en el mismo orden en que fueron agregados (LIFO - Last In First Out).
+
+   Ademas, la clase 'Stack' esta implementada con la anotación '@dataclass' de python y el decorador 'Generic[T]' para indicar que es una estructura de datos genérica.
+
+   *IMPORTANTE:* 'Stack' extiende de la clase 'DoubleLinked', por lo que hereda todos sus parametros internos y funciones.
+
+   :param DoubleLinked: ADT DISClib que implementa las funciones básicas de una lista doblemente encadenada.
+   :type DoubleLinked: dataclass
+   :param Generic: TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para representar una estructura de datos genéricas en python.
+   :type Generic: T
+
+   :returns: ADT de tipo Stack o Pila, implementado sobre una lista doblemente encadenada.
+   :rtype: Stack
+
+   .. py:method:: push(element: DISClib.Utils.default.T) -> None
+
+      *push()* agrega un elemento en el tope de la pila (Stack).
+
+      :param element: elemento que se quiere agregar al Stack.
+      :type element: T
+
+
+   .. py:method:: pop() -> DISClib.Utils.default.T
+
+      *pop()* elimina y retorna el elemento en tope de la pila (Stack).
+
+      :returns: el elemento en en el tope de la pila (Stack).
+      :rtype: T
+
+
+   .. py:method:: top() -> Optional[DISClib.Utils.default.T]
+
+      *top()* retorna el elemento en el tope de la pila (Stack).
+
+      :returns: el elemento en la primera posición de la pila (Stack).
+      :rtype: T
+
+
+   .. py:method:: is_empty() -> bool
+
+      *is_empty()* informa si la pila Stack esta vacía o no.
+
+      :returns: operador que indica si la pila Stack esta vacía.
+      :rtype: bool
+
+
+   .. py:method:: size() -> int
+
+      *size()* Función que informa el número de elementos en la pila Stack.
+
+      :returns: número de elementos en el Stack.
+      :rtype: int
+
+
+

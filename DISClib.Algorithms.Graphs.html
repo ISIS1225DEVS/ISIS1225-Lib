@@ -1,0 +1,953 @@
+﻿<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <link sizes="16x16" href="https://secure.example.com/favicon/favicon-16x16.png" rel="icon" type="image/png">
+    <link sizes="32x32" href="https://secure.example.com/favicon/favicon-32x32.png" rel="icon" type="image/png">
+    <link rel="apple-touch-icon" sizes="180x180" href="_static/apple-touch-icon-180x180.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DISClib.Algorithms.Graphs package &mdash; documentación de DISClib - 0.0.1</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="_static/fonts.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=6fcc102b"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="_static/copybutton.js?v=f281be69"></script>
+        <script src="_static/translations.js?v=efdbd0b9"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="DISClib.Algorithms.Sorting package" href="DISClib.Algorithms.Sorting.html" />
+    <link rel="prev" title="DISClib.Algorithms package" href="DISClib.Algorithms.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            DISClib
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">DISClib</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="DISClib.html">DISClib package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="DISClib.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="DISClib.ADT.html">ADTs DISClib</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="DISClib.Algorithms.html">DISClib.Algorithms package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.DataStructures.html">DISClib.DataStructures package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DISClib.Utils.html">DISClib.Utils package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="DISClib.html#module-DISClib">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="testmd.html">Example Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">DISClib</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">DISClib</a></li>
+          <li class="breadcrumb-item"><a href="DISClib.html">DISClib package</a></li>
+          <li class="breadcrumb-item"><a href="DISClib.Algorithms.html">DISClib.Algorithms package</a></li>
+      <li class="breadcrumb-item active">DISClib.Algorithms.Graphs package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/DISClib.Algorithms.Graphs.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="disclib-algorithms-graphs-package">
+<h1>DISClib.Algorithms.Graphs package<a class="headerlink" href="#disclib-algorithms-graphs-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-DISClib.Algorithms.Graphs.bellmanford">
+<span id="disclib-algorithms-graphs-bellmanford-module"></span><h2>DISClib.Algorithms.Graphs.bellmanford module<a class="headerlink" href="#module-DISClib.Algorithms.Graphs.bellmanford" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Copyright 2020, Departamento de sistemas y Computación,</p></li>
+<li><p>Universidad de Los Andes</p></li>
+<li></li>
+<li><p>Desarrollado para el curso ISIS1225 - Estructuras de Datos y Algoritmos</p></li>
+<li></li>
+<li></li>
+<li><p>This program is free software: you can redistribute it and/or modify</p></li>
+<li><p>it under the terms of the GNU General Public License as published by</p></li>
+<li><p>the Free Software Foundation, either version 3 of the License, or</p></li>
+<li><p>(at your option) any later version.</p></li>
+<li></li>
+<li><p>This program is distributed in the hope that it will be useful,</p></li>
+<li><p>but WITHOUT ANY WARRANTY; without even the implied warranty of</p></li>
+<li><p>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</p></li>
+<li><p>GNU General Public License for more details.</p></li>
+<li></li>
+<li><p>You should have received a copy of the GNU General Public License</p></li>
+<li><p>along with this program.  If not, see &lt;<a class="reference external" href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</p></li>
+<li></li>
+<li><p>Contribución de:</p></li>
+<li></li>
+<li><p>Dario Correal</p></li>
+<li></li>
+</ul>
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.bellmanford.BellmanFord">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.bellmanford.</span></span><span class="sig-name descname"><span class="pre">BellmanFord</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/Algorithms/Graphs/bellmanford.html#BellmanFord"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.bellmanford.BellmanFord" title="Link to this definition"></a></dt>
+<dd><p>Implementa el algoritmo de Bellman-Ford
+:param graph: El grafo de busqueda
+:param source: El vertice de inicio</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>La estructura search con los caminos de peso mínimos</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.bellmanford.distTo">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.bellmanford.</span></span><span class="sig-name descname"><span class="pre">distTo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/Algorithms/Graphs/bellmanford.html#distTo"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.bellmanford.distTo" title="Link to this definition"></a></dt>
+<dd><p>Retorna el costo para llegar del vertice
+source al vertice vertex.
+:param search: La estructura de busqueda
+:param vertex: El vertice destino</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>El costo total para llegar de source a
+vertex. Infinito si no existe camino</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.bellmanford.findNegativeCycle">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.bellmanford.</span></span><span class="sig-name descname"><span class="pre">findNegativeCycle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/Algorithms/Graphs/bellmanford.html#findNegativeCycle"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.bellmanford.findNegativeCycle" title="Link to this definition"></a></dt>
+<dd><p>Identifica ciclos negativos en el grafo</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.bellmanford.hasNegativecycle">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.bellmanford.</span></span><span class="sig-name descname"><span class="pre">hasNegativecycle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/Algorithms/Graphs/bellmanford.html#hasNegativecycle"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.bellmanford.hasNegativecycle" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.bellmanford.hasPathTo">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.bellmanford.</span></span><span class="sig-name descname"><span class="pre">hasPathTo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/Algorithms/Graphs/bellmanford.html#hasPathTo"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.bellmanford.hasPathTo" title="Link to this definition"></a></dt>
+<dd><p>Indica si hay camino entre source
+y vertex
+:param search: La estructura de busqueda
+:param vertex: El vertice de destino</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True si existe camino</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.bellmanford.initSearch">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.bellmanford.</span></span><span class="sig-name descname"><span class="pre">initSearch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/Algorithms/Graphs/bellmanford.html#initSearch"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.bellmanford.initSearch" title="Link to this definition"></a></dt>
+<dd><p>Inicializa la estructura de busqueda y deja
+todos los arcos en infinito.
+Se inserta en la cola el vertice source
+:param graph: El grafo a examinar
+:param source: El vertice fuente</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Estructura de busqueda inicializada</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.bellmanford.pathTo">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.bellmanford.</span></span><span class="sig-name descname"><span class="pre">pathTo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/Algorithms/Graphs/bellmanford.html#pathTo"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.bellmanford.pathTo" title="Link to this definition"></a></dt>
+<dd><p>Retorna el camino entre source y vertex
+en una pila.
+:param search: La estructura de busqueda
+:param vertex: El vertice de destino</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Una pila con el camino entre source y vertex</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.bellmanford.relax">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.bellmanford.</span></span><span class="sig-name descname"><span class="pre">relax</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/Algorithms/Graphs/bellmanford.html#relax"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.bellmanford.relax" title="Link to this definition"></a></dt>
+<dd><p>Relaja el peso de los arcos del grafo
+:param search: La estructura de busqueda
+:param v: Vertice desde donde se relajan los pesos</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>El grafo con los arcos relajados</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-DISClib.Algorithms.Graphs.bfs">
+<span id="disclib-algorithms-graphs-bfs-module"></span><h2>DISClib.Algorithms.Graphs.bfs module<a class="headerlink" href="#module-DISClib.Algorithms.Graphs.bfs" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Copyright 2020, Departamento de sistemas y Computación,</p></li>
+<li><p>Universidad de Los Andes</p></li>
+<li></li>
+<li><p>Desarrollado para el curso ISIS1225 - Estructuras de Datos y Algoritmos</p></li>
+<li></li>
+<li></li>
+<li><p>This program is free software: you can redistribute it and/or modify</p></li>
+<li><p>it under the terms of the GNU General Public License as published by</p></li>
+<li><p>the Free Software Foundation, either version 3 of the License, or</p></li>
+<li><p>(at your option) any later version.</p></li>
+<li></li>
+<li><p>This program is distributed in the hope that it will be useful,</p></li>
+<li><p>but WITHOUT ANY WARRANTY; without even the implied warranty of</p></li>
+<li><p>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</p></li>
+<li><p>GNU General Public License for more details.</p></li>
+<li></li>
+<li><p>You should have received a copy of the GNU General Public License</p></li>
+<li><p>along with this program.  If not, see &lt;<a class="reference external" href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</p></li>
+<li></li>
+<li><p>Contribución de:</p></li>
+<li></li>
+<li><p>Dario Correal</p></li>
+<li></li>
+</ul>
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.bfs.BreadhtFisrtSearch">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.bfs.</span></span><span class="sig-name descname"><span class="pre">BreadhtFisrtSearch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/Algorithms/Graphs/bfs.html#BreadhtFisrtSearch"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.bfs.BreadhtFisrtSearch" title="Link to this definition"></a></dt>
+<dd><p>Genera un recorrido BFS sobre el grafo graph
+:param graph: El grafo a recorrer
+:param source: Vertice de inicio del recorrido.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Una estructura para determinar los vertices
+conectados a source</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.bfs.bfsVertex">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.bfs.</span></span><span class="sig-name descname"><span class="pre">bfsVertex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/Algorithms/Graphs/bfs.html#bfsVertex"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.bfs.bfsVertex" title="Link to this definition"></a></dt>
+<dd><p>Funcion auxiliar para calcular un recorrido BFS
+:param search: Estructura para almacenar el recorrido
+:param vertex: Vertice de inicio del recorrido.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Una estructura para determinar los vertices
+conectados a source</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.bfs.hasPathTo">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.bfs.</span></span><span class="sig-name descname"><span class="pre">hasPathTo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/Algorithms/Graphs/bfs.html#hasPathTo"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.bfs.hasPathTo" title="Link to this definition"></a></dt>
+<dd><p>Indica si existe un camino entre el vertice source
+y el vertice vertex
+:param search: Estructura de recorrido BFS
+:param vertex: Vertice destino</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True si existe un camino entre source y vertex</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.bfs.pathTo">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.bfs.</span></span><span class="sig-name descname"><span class="pre">pathTo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/Algorithms/Graphs/bfs.html#pathTo"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.bfs.pathTo" title="Link to this definition"></a></dt>
+<dd><p>Retorna el camino entre el vertices source y el
+vertice vertex
+:param search: La estructura con el recorrido
+:param vertex: Vertice de destingo</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Una pila con el camino entre el vertices source y el
+vertice vertex</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-DISClib.Algorithms.Graphs.cycles">
+<span id="disclib-algorithms-graphs-cycles-module"></span><h2>DISClib.Algorithms.Graphs.cycles module<a class="headerlink" href="#module-DISClib.Algorithms.Graphs.cycles" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Copyright 2020, Departamento de sistemas y Computación,</p></li>
+<li><p>Universidad de Los Andes</p></li>
+<li></li>
+<li><p>Desarrollado para el curso ISIS1225 - Estructuras de Datos y Algoritmos</p></li>
+<li></li>
+<li></li>
+<li><p>This program is free software: you can redistribute it and/or modify</p></li>
+<li><p>it under the terms of the GNU General Public License as published by</p></li>
+<li><p>the Free Software Foundation, either version 3 of the License, or</p></li>
+<li><p>(at your option) any later version.</p></li>
+<li></li>
+<li><p>This program is distributed in the hope that it will be useful,</p></li>
+<li><p>but WITHOUT ANY WARRANTY; without even the implied warranty of</p></li>
+<li><p>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</p></li>
+<li><p>GNU General Public License for more details.</p></li>
+<li></li>
+<li><p>You should have received a copy of the GNU General Public License</p></li>
+<li><p>along with this program.  If not, see &lt;<a class="reference external" href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</p></li>
+<li></li>
+<li><p>Contribución de:</p></li>
+<li></li>
+<li><p>Dario Correal</p></li>
+<li></li>
+</ul>
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.cycles.DirectedCycle">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.cycles.</span></span><span class="sig-name descname"><span class="pre">DirectedCycle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/Algorithms/Graphs/cycles.html#DirectedCycle"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.cycles.DirectedCycle" title="Link to this definition"></a></dt>
+<dd><p>Detecta ciclos en un grafo dirigido
+:param graph: El grafo de busqueda</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>El ciclo si existe</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.cycles.cycle">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.cycles.</span></span><span class="sig-name descname"><span class="pre">cycle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/Algorithms/Graphs/cycles.html#cycle"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.cycles.cycle" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.cycles.dfs">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.cycles.</span></span><span class="sig-name descname"><span class="pre">dfs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/Algorithms/Graphs/cycles.html#dfs"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.cycles.dfs" title="Link to this definition"></a></dt>
+<dd><p>DFS
+:param search: La estructura de busqueda
+:param v: Vertice desde donde se relajan los pesos</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>El grafo</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.cycles.hasCycle">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.cycles.</span></span><span class="sig-name descname"><span class="pre">hasCycle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/Algorithms/Graphs/cycles.html#hasCycle"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.cycles.hasCycle" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.cycles.initStructures">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.cycles.</span></span><span class="sig-name descname"><span class="pre">initStructures</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/Algorithms/Graphs/cycles.html#initStructures"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.cycles.initStructures" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>graph</strong> – El grafo a examinar</p></li>
+<li><p><strong>source</strong> – El vertice fuente</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Estructura de busqueda inicializada</p>
+</dd>
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-DISClib.Algorithms.Graphs.dfo">
+<span id="disclib-algorithms-graphs-dfo-module"></span><h2>DISClib.Algorithms.Graphs.dfo module<a class="headerlink" href="#module-DISClib.Algorithms.Graphs.dfo" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Copyright 2020, Departamento de sistemas y Computación,</p></li>
+<li><p>Universidad de Los Andes</p></li>
+<li></li>
+<li><p>Desarrollado para el curso ISIS1225 - Estructuras de Datos y Algoritmos</p></li>
+<li></li>
+<li></li>
+<li><p>This program is free software: you can redistribute it and/or modify</p></li>
+<li><p>it under the terms of the GNU General Public License as published by</p></li>
+<li><p>the Free Software Foundation, either version 3 of the License, or</p></li>
+<li><p>(at your option) any later version.</p></li>
+<li></li>
+<li><p>This program is distributed in the hope that it will be useful,</p></li>
+<li><p>but WITHOUT ANY WARRANTY; without even the implied warranty of</p></li>
+<li><p>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</p></li>
+<li><p>GNU General Public License for more details.</p></li>
+<li></li>
+<li><p>You should have received a copy of the GNU General Public License</p></li>
+<li><p>along with this program.  If not, see &lt;<a class="reference external" href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</p></li>
+<li></li>
+<li><p>Contribución de:</p></li>
+<li></li>
+<li><p>Dario Correal</p></li>
+<li></li>
+</ul>
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.dfo.DepthFirstOrder">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.dfo.</span></span><span class="sig-name descname"><span class="pre">DepthFirstOrder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/Algorithms/Graphs/dfo.html#DepthFirstOrder"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.dfo.DepthFirstOrder" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.dfo.comparenames">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.dfo.</span></span><span class="sig-name descname"><span class="pre">comparenames</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">searchname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/Algorithms/Graphs/dfo.html#comparenames"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.dfo.comparenames" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.dfo.dfsVertex">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.dfo.</span></span><span class="sig-name descname"><span class="pre">dfsVertex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/Algorithms/Graphs/dfo.html#dfsVertex"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.dfo.dfsVertex" title="Link to this definition"></a></dt>
+<dd><p>Genera un recorrido DFS sobre el grafo graph
+:param graph: El grafo a recorrer
+:param source: Vertice de inicio del recorrido.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Una estructura para determinar los vertices
+conectados a source</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-DISClib.Algorithms.Graphs.dfs">
+<span id="disclib-algorithms-graphs-dfs-module"></span><h2>DISClib.Algorithms.Graphs.dfs module<a class="headerlink" href="#module-DISClib.Algorithms.Graphs.dfs" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Copyright 2020, Departamento de sistemas y Computación,</p></li>
+<li><p>Universidad de Los Andes</p></li>
+<li></li>
+<li><p>Desarrollado para el curso ISIS1225 - Estructuras de Datos y Algoritmos</p></li>
+<li></li>
+<li></li>
+<li><p>This program is free software: you can redistribute it and/or modify</p></li>
+<li><p>it under the terms of the GNU General Public License as published by</p></li>
+<li><p>the Free Software Foundation, either version 3 of the License, or</p></li>
+<li><p>(at your option) any later version.</p></li>
+<li></li>
+<li><p>This program is distributed in the hope that it will be useful,</p></li>
+<li><p>but WITHOUT ANY WARRANTY; without even the implied warranty of</p></li>
+<li><p>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</p></li>
+<li><p>GNU General Public License for more details.</p></li>
+<li></li>
+<li><p>You should have received a copy of the GNU General Public License</p></li>
+<li><p>along with this program.  If not, see &lt;<a class="reference external" href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</p></li>
+<li></li>
+<li><p>Contribución de:</p></li>
+<li></li>
+<li><p>Dario Correal</p></li>
+<li></li>
+</ul>
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.dfs.DepthFirstSearch">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.dfs.</span></span><span class="sig-name descname"><span class="pre">DepthFirstSearch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/Algorithms/Graphs/dfs.html#DepthFirstSearch"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.dfs.DepthFirstSearch" title="Link to this definition"></a></dt>
+<dd><p>Genera un recorrido DFS sobre el grafo graph
+:param graph: El grafo a recorrer
+:param source: Vertice de inicio del recorrido.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Una estructura para determinar los vertices
+conectados a source</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.dfs.dfsVertex">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.dfs.</span></span><span class="sig-name descname"><span class="pre">dfsVertex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/Algorithms/Graphs/dfs.html#dfsVertex"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.dfs.dfsVertex" title="Link to this definition"></a></dt>
+<dd><p>Funcion auxiliar para calcular un recorrido DFS
+:param search: Estructura para almacenar el recorrido
+:param vertex: Vertice de inicio del recorrido.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Una estructura para determinar los vertices
+conectados a source</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.dfs.hasPathTo">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.dfs.</span></span><span class="sig-name descname"><span class="pre">hasPathTo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/Algorithms/Graphs/dfs.html#hasPathTo"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.dfs.hasPathTo" title="Link to this definition"></a></dt>
+<dd><p>Indica si existe un camino entre el vertice source
+y el vertice vertex
+:param search: Estructura de recorrido DFS
+:param vertex: Vertice destino</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True si existe un camino entre source y vertex</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.dfs.pathTo">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.dfs.</span></span><span class="sig-name descname"><span class="pre">pathTo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/Algorithms/Graphs/dfs.html#pathTo"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.dfs.pathTo" title="Link to this definition"></a></dt>
+<dd><p>Retorna el camino entre el vertices source y el
+vertice vertex
+:param search: La estructura con el recorrido
+:param vertex: Vertice de destingo</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Una pila con el camino entre el vertices source y el
+vertice vertex</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-DISClib.Algorithms.Graphs.dijsktra">
+<span id="disclib-algorithms-graphs-dijsktra-module"></span><h2>DISClib.Algorithms.Graphs.dijsktra module<a class="headerlink" href="#module-DISClib.Algorithms.Graphs.dijsktra" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Copyright 2020, Departamento de sistemas y Computación,</p></li>
+<li><p>Universidad de Los Andes</p></li>
+<li></li>
+<li><p>Desarrollado para el curso ISIS1225 - Estructuras de Datos y Algoritmos</p></li>
+<li></li>
+<li></li>
+<li><p>This program is free software: you can redistribute it and/or modify</p></li>
+<li><p>it under the terms of the GNU General Public License as published by</p></li>
+<li><p>the Free Software Foundation, either version 3 of the License, or</p></li>
+<li><p>(at your option) any later version.</p></li>
+<li></li>
+<li><p>This program is distributed in the hope that it will be useful,</p></li>
+<li><p>but WITHOUT ANY WARRANTY; without even the implied warranty of</p></li>
+<li><p>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</p></li>
+<li><p>GNU General Public License for more details.</p></li>
+<li></li>
+<li><p>You should have received a copy of the GNU General Public License</p></li>
+<li><p>along with this program.  If not, see &lt;<a class="reference external" href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</p></li>
+<li></li>
+<li><p>Contribución de:</p></li>
+<li></li>
+<li><p>Dario Correal</p></li>
+<li></li>
+</ul>
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.dijsktra.Dijkstra">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.dijsktra.</span></span><span class="sig-name descname"><span class="pre">Dijkstra</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/Algorithms/Graphs/dijsktra.html#Dijkstra"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.dijsktra.Dijkstra" title="Link to this definition"></a></dt>
+<dd><p>Implementa el algoritmo de Dijkstra
+:param graph: El grafo de busqueda
+:param source: El vertice de inicio</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Un nuevo grafo vacío</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.dijsktra.distTo">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.dijsktra.</span></span><span class="sig-name descname"><span class="pre">distTo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/Algorithms/Graphs/dijsktra.html#distTo"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.dijsktra.distTo" title="Link to this definition"></a></dt>
+<dd><p>Retorna el costo para llegar del vertice
+source al vertice vertex.
+:param search: La estructura de busqueda
+:param vertex: El vertice destino</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>El costo total para llegar de source a
+vertex. Infinito si no existe camino</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.dijsktra.hasPathTo">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.dijsktra.</span></span><span class="sig-name descname"><span class="pre">hasPathTo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/Algorithms/Graphs/dijsktra.html#hasPathTo"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.dijsktra.hasPathTo" title="Link to this definition"></a></dt>
+<dd><p>Indica si hay camino entre source
+y vertex
+:param search: La estructura de busqueda
+:param vertex: El vertice de destino</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True si existe camino</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.dijsktra.initSearch">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.dijsktra.</span></span><span class="sig-name descname"><span class="pre">initSearch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/Algorithms/Graphs/dijsktra.html#initSearch"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.dijsktra.initSearch" title="Link to this definition"></a></dt>
+<dd><p>Inicializa la estructura de busqueda y deja
+todos los arcos en infinito.
+Se inserta en la cola indexada el vertice source
+:param graph: El grafo a examinar
+:param source: El vertice fuente</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Estructura de busqueda inicializada</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.dijsktra.pathTo">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.dijsktra.</span></span><span class="sig-name descname"><span class="pre">pathTo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/Algorithms/Graphs/dijsktra.html#pathTo"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.dijsktra.pathTo" title="Link to this definition"></a></dt>
+<dd><p>Retorna el camino entre source y vertex
+en una pila.
+:param search: La estructura de busqueda
+:param vertex: El vertice de destino</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Una pila con el camino entre source y vertex</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.dijsktra.relax">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.dijsktra.</span></span><span class="sig-name descname"><span class="pre">relax</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/Algorithms/Graphs/dijsktra.html#relax"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.dijsktra.relax" title="Link to this definition"></a></dt>
+<dd><p>Relaja el peso de los arcos del grafo con la
+nueva de un nuevo arco
+:param search: La estructura de busqueda
+:param edge: El nuevo arco</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>El grafo con los arcos relajados</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-DISClib.Algorithms.Graphs.prim">
+<span id="disclib-algorithms-graphs-prim-module"></span><h2>DISClib.Algorithms.Graphs.prim module<a class="headerlink" href="#module-DISClib.Algorithms.Graphs.prim" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Copyright 2020, Departamento de sistemas y Computación,</p></li>
+<li><p>Universidad de Los Andes</p></li>
+<li></li>
+<li><p>Desarrollado para el curso ISIS1225 - Estructuras de Datos y Algoritmos</p></li>
+<li></li>
+<li></li>
+<li><p>This program is free software: you can redistribute it and/or modify</p></li>
+<li><p>it under the terms of the GNU General Public License as published by</p></li>
+<li><p>the Free Software Foundation, either version 3 of the License, or</p></li>
+<li><p>(at your option) any later version.</p></li>
+<li></li>
+<li><p>This program is distributed in the hope that it will be useful,</p></li>
+<li><p>but WITHOUT ANY WARRANTY; without even the implied warranty of</p></li>
+<li><p>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</p></li>
+<li><p>GNU General Public License for more details.</p></li>
+<li></li>
+<li><p>You should have received a copy of the GNU General Public License</p></li>
+<li><p>along with this program.  If not, see &lt;<a class="reference external" href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</p></li>
+<li></li>
+<li><p>Contribución de:</p></li>
+<li></li>
+<li><p>Dario Correal</p></li>
+<li></li>
+</ul>
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.prim.PrimMST">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.prim.</span></span><span class="sig-name descname"><span class="pre">PrimMST</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/Algorithms/Graphs/prim.html#PrimMST"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.prim.PrimMST" title="Link to this definition"></a></dt>
+<dd><p>Implementa el algoritmo de Prim
+:param graph: El grafo de busqueda</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>La estructura search con los MST</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.prim.edgesMST">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.prim.</span></span><span class="sig-name descname"><span class="pre">edgesMST</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/Algorithms/Graphs/prim.html#edgesMST"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.prim.edgesMST" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>search</strong> – La estructura de busqueda</p></li>
+<li><p><strong>vertex</strong> – El vertice de destino</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Una pila con el camino entre source y vertex</p>
+</dd>
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.prim.initSearch">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.prim.</span></span><span class="sig-name descname"><span class="pre">initSearch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/Algorithms/Graphs/prim.html#initSearch"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.prim.initSearch" title="Link to this definition"></a></dt>
+<dd><p>Inicializa la estructura de busqueda y deja
+todos los arcos en infinito.
+Se inserta en la cola el vertice source
+:param graph: El grafo a examinar
+:param source: El vertice fuente</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Estructura de busqueda inicializada</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.prim.prim">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.prim.</span></span><span class="sig-name descname"><span class="pre">prim</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/Algorithms/Graphs/prim.html#prim"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.prim.prim" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>search</strong> – La estructura de busqueda</p></li>
+<li><p><strong>v</strong> – Vertice desde donde se relajan los pesos</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>El grafo con los arcos relajados</p>
+</dd>
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.prim.scan">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.prim.</span></span><span class="sig-name descname"><span class="pre">scan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/Algorithms/Graphs/prim.html#scan"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.prim.scan" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>search</strong> – La estructura de busqueda</p></li>
+<li><p><strong>vertex</strong> – El vertice destino</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>El costo total para llegar de source a
+vertex. Infinito si no existe camino</p>
+</dd>
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.prim.weightMST">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.prim.</span></span><span class="sig-name descname"><span class="pre">weightMST</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/Algorithms/Graphs/prim.html#weightMST"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.prim.weightMST" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-DISClib.Algorithms.Graphs.scc">
+<span id="disclib-algorithms-graphs-scc-module"></span><h2>DISClib.Algorithms.Graphs.scc module<a class="headerlink" href="#module-DISClib.Algorithms.Graphs.scc" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Copyright 2020, Departamento de sistemas y Computación,</p></li>
+<li><p>Universidad de Los Andes</p></li>
+<li></li>
+<li><p>Desarrollado para el curso ISIS1225 - Estructuras de Datos y Algoritmos</p></li>
+<li></li>
+<li></li>
+<li><p>This program is free software: you can redistribute it and/or modify</p></li>
+<li><p>it under the terms of the GNU General Public License as published by</p></li>
+<li><p>the Free Software Foundation, either version 3 of the License, or</p></li>
+<li><p>(at your option) any later version.</p></li>
+<li></li>
+<li><p>This program is distributed in the hope that it will be useful,</p></li>
+<li><p>but WITHOUT ANY WARRANTY; without even the implied warranty of</p></li>
+<li><p>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</p></li>
+<li><p>GNU General Public License for more details.</p></li>
+<li></li>
+<li><p>You should have received a copy of the GNU General Public License</p></li>
+<li><p>along with this program.  If not, see &lt;<a class="reference external" href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</p></li>
+<li></li>
+<li><p>Contribución de:</p></li>
+<li></li>
+<li><p>Dario Correal</p></li>
+<li></li>
+</ul>
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.scc.KosarajuSCC">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.scc.</span></span><span class="sig-name descname"><span class="pre">KosarajuSCC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/Algorithms/Graphs/scc.html#KosarajuSCC"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.scc.KosarajuSCC" title="Link to this definition"></a></dt>
+<dd><p>Implementa el algoritmo de Kosaraju
+para encontrar los componentes conectados
+de un grafo dirigido
+:param graph: El grafo a examinar</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Una estructura con los componentes
+conectados</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.scc.comparenames">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.scc.</span></span><span class="sig-name descname"><span class="pre">comparenames</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">searchname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/Algorithms/Graphs/scc.html#comparenames"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.scc.comparenames" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.scc.connectedComponents">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.scc.</span></span><span class="sig-name descname"><span class="pre">connectedComponents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/Algorithms/Graphs/scc.html#connectedComponents"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.scc.connectedComponents" title="Link to this definition"></a></dt>
+<dd><p>Retorna el numero de componentes conectados</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.scc.reverseGraph">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.scc.</span></span><span class="sig-name descname"><span class="pre">reverseGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/Algorithms/Graphs/scc.html#reverseGraph"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.scc.reverseGraph" title="Link to this definition"></a></dt>
+<dd><p>Retornar el reverso del grafo graph</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.scc.sccCount">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.scc.</span></span><span class="sig-name descname"><span class="pre">sccCount</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vert</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/Algorithms/Graphs/scc.html#sccCount"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.scc.sccCount" title="Link to this definition"></a></dt>
+<dd><p>Este algoritmo cuenta el número de componentes conectados.
+Deja en idscc, el número del componente al que pertenece cada vértice</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.scc.stronglyConnected">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.scc.</span></span><span class="sig-name descname"><span class="pre">stronglyConnected</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertb</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/Algorithms/Graphs/scc.html#stronglyConnected"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.scc.stronglyConnected" title="Link to this definition"></a></dt>
+<dd><p>Dados dos vértices, informa si están fuertemente conectados o no.</p>
+</dd></dl>
+
+</section>
+<section id="module-DISClib.Algorithms.Graphs">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-DISClib.Algorithms.Graphs" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="DISClib.Algorithms.html" class="btn btn-neutral float-left" title="DISClib.Algorithms package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="DISClib.Algorithms.Sorting.html" class="btn btn-neutral float-right" title="DISClib.Algorithms.Sorting package" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor Uniandes, Bogotá - Colombia, Sur América,
+             Facultad de Ingeniería, DISC Desarrollado
+             para ISIS-1225, EDA.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

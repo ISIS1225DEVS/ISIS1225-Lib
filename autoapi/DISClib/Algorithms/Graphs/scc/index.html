@@ -1,0 +1,240 @@
+﻿<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <link sizes="16x16" href="https://secure.example.com/favicon/favicon-16x16.png" rel="icon" type="image/png">
+    <link sizes="32x32" href="https://secure.example.com/favicon/favicon-32x32.png" rel="icon" type="image/png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../_static/apple-touch-icon-180x180.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DISClib.Algorithms.Graphs.scc &mdash; documentación de DISClib - 0.0.1</title>
+      <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/fonts.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../../../_static/documentation_options.js?v=6fcc102b"></script>
+        <script src="../../../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../../../_static/copybutton.js?v=f281be69"></script>
+        <script src="../../../../../_static/translations.js?v=efdbd0b9"></script>
+    <script src="../../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../../../../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../../../../search.html" />
+    <link rel="next" title="DISClib.Algorithms.Sorting" href="../../Sorting/index.html" />
+    <link rel="prev" title="DISClib.Algorithms.Graphs.prim" href="../prim/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../../index.html" class="icon icon-home">
+            DISClib
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../modules.html">DISClib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../testmd.html">Example Markdown</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib</span></code></a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../../index.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../../ADT/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.ADT</span></code></a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.Algorithms</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../DataStructures/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.DataStructures</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../Utils/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.Utils</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../index.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">DISClib</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../../index.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib</span></code></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.Algorithms</span></code></a></li>
+          <li class="breadcrumb-item"><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.Algorithms.Graphs</span></code></a></li>
+      <li class="breadcrumb-item active"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.Algorithms.Graphs.scc</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../../_sources/autoapi/DISClib/Algorithms/Graphs/scc/index.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-DISClib.Algorithms.Graphs.scc">
+<span id="disclib-algorithms-graphs-scc"></span><h1><a class="reference internal" href="#module-DISClib.Algorithms.Graphs.scc" title="DISClib.Algorithms.Graphs.scc"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.Algorithms.Graphs.scc</span></code></a><a class="headerlink" href="#module-DISClib.Algorithms.Graphs.scc" title="Link to this heading"></a></h1>
+<ul class="simple">
+<li><p>Copyright 2020, Departamento de sistemas y Computación,</p></li>
+<li><p>Universidad de Los Andes</p></li>
+<li></li>
+<li><p>Desarrollado para el curso ISIS1225 - Estructuras de Datos y Algoritmos</p></li>
+<li></li>
+<li></li>
+<li><p>This program is free software: you can redistribute it and/or modify</p></li>
+<li><p>it under the terms of the GNU General Public License as published by</p></li>
+<li><p>the Free Software Foundation, either version 3 of the License, or</p></li>
+<li><p>(at your option) any later version.</p></li>
+<li></li>
+<li><p>This program is distributed in the hope that it will be useful,</p></li>
+<li><p>but WITHOUT ANY WARRANTY; without even the implied warranty of</p></li>
+<li><p>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</p></li>
+<li><p>GNU General Public License for more details.</p></li>
+<li></li>
+<li><p>You should have received a copy of the GNU General Public License</p></li>
+<li><p>along with this program.  If not, see &lt;<a class="reference external" href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</p></li>
+<li></li>
+<li><p>Contribución de:</p></li>
+<li></li>
+<li><p>Dario Correal</p></li>
+<li></li>
+</ul>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.Algorithms.Graphs.scc.KosarajuSCC" title="DISClib.Algorithms.Graphs.scc.KosarajuSCC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">KosarajuSCC</span></code></a>(graph)</p></td>
+<td><p>Implementa el algoritmo de Kosaraju</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#DISClib.Algorithms.Graphs.scc.sccCount" title="DISClib.Algorithms.Graphs.scc.sccCount"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sccCount</span></code></a>(graph, scc, vert)</p></td>
+<td><p>Este algoritmo cuenta el número de componentes conectados.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.Algorithms.Graphs.scc.stronglyConnected" title="DISClib.Algorithms.Graphs.scc.stronglyConnected"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stronglyConnected</span></code></a>(scc, verta, vertb)</p></td>
+<td><p>Dados dos vértices, informa si están fuertemente conectados o no.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#DISClib.Algorithms.Graphs.scc.connectedComponents" title="DISClib.Algorithms.Graphs.scc.connectedComponents"><code class="xref py py-obj docutils literal notranslate"><span class="pre">connectedComponents</span></code></a>(scc)</p></td>
+<td><p>Retorna el numero de componentes conectados</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.Algorithms.Graphs.scc.reverseGraph" title="DISClib.Algorithms.Graphs.scc.reverseGraph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reverseGraph</span></code></a>(graph)</p></td>
+<td><p>Retornar el reverso del grafo graph</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#DISClib.Algorithms.Graphs.scc.comparenames" title="DISClib.Algorithms.Graphs.scc.comparenames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">comparenames</span></code></a>(searchname, element)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.scc.KosarajuSCC">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.scc.</span></span><span class="sig-name descname"><span class="pre">KosarajuSCC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/DISClib/Algorithms/Graphs/scc.html#KosarajuSCC"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.scc.KosarajuSCC" title="Link to this definition"></a></dt>
+<dd><p>Implementa el algoritmo de Kosaraju
+para encontrar los componentes conectados
+de un grafo dirigido
+:param graph: El grafo a examinar</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Una estructura con los componentes
+conectados</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.scc.sccCount">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.scc.</span></span><span class="sig-name descname"><span class="pre">sccCount</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vert</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/DISClib/Algorithms/Graphs/scc.html#sccCount"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.scc.sccCount" title="Link to this definition"></a></dt>
+<dd><p>Este algoritmo cuenta el número de componentes conectados.
+Deja en idscc, el número del componente al que pertenece cada vértice</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.scc.stronglyConnected">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.scc.</span></span><span class="sig-name descname"><span class="pre">stronglyConnected</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertb</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/DISClib/Algorithms/Graphs/scc.html#stronglyConnected"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.scc.stronglyConnected" title="Link to this definition"></a></dt>
+<dd><p>Dados dos vértices, informa si están fuertemente conectados o no.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.scc.connectedComponents">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.scc.</span></span><span class="sig-name descname"><span class="pre">connectedComponents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/DISClib/Algorithms/Graphs/scc.html#connectedComponents"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.scc.connectedComponents" title="Link to this definition"></a></dt>
+<dd><p>Retorna el numero de componentes conectados</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.scc.reverseGraph">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.scc.</span></span><span class="sig-name descname"><span class="pre">reverseGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/DISClib/Algorithms/Graphs/scc.html#reverseGraph"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.scc.reverseGraph" title="Link to this definition"></a></dt>
+<dd><p>Retornar el reverso del grafo graph</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Graphs.scc.comparenames">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Graphs.scc.</span></span><span class="sig-name descname"><span class="pre">comparenames</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">searchname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/DISClib/Algorithms/Graphs/scc.html#comparenames"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Graphs.scc.comparenames" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="../prim/index.html" class="btn btn-neutral float-left" title="DISClib.Algorithms.Graphs.prim" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="../../Sorting/index.html" class="btn btn-neutral float-right" title="DISClib.Algorithms.Sorting" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor Uniandes, Bogotá - Colombia, Sur América,
+             Facultad de Ingeniería, DISC Desarrollado
+             para ISIS-1225, EDA.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

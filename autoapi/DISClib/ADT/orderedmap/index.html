@@ -1,0 +1,590 @@
+﻿<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <link sizes="16x16" href="https://secure.example.com/favicon/favicon-16x16.png" rel="icon" type="image/png">
+    <link sizes="32x32" href="https://secure.example.com/favicon/favicon-32x32.png" rel="icon" type="image/png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../_static/apple-touch-icon-180x180.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DISClib.ADT.orderedmap &mdash; documentación de DISClib - 0.0.1</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/fonts.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../../_static/documentation_options.js?v=6fcc102b"></script>
+        <script src="../../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+        <script src="../../../../_static/translations.js?v=efdbd0b9"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../../../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../../../search.html" />
+    <link rel="next" title="DISClib.ADT.queue" href="../queue/index.html" />
+    <link rel="prev" title="DISClib.ADT.minpq" href="../minpq/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            DISClib
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../modules.html">DISClib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../testmd.html">Example Markdown</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib</span></code></a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.ADT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../Algorithms/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.Algorithms</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../DataStructures/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.DataStructures</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../Utils/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.Utils</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../index.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">DISClib</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib</span></code></a></li>
+          <li class="breadcrumb-item"><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.ADT</span></code></a></li>
+      <li class="breadcrumb-item active"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.ADT.orderedmap</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/autoapi/DISClib/ADT/orderedmap/index.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-DISClib.ADT.orderedmap">
+<span id="disclib-adt-orderedmap"></span><h1><a class="reference internal" href="#module-DISClib.ADT.orderedmap" title="DISClib.ADT.orderedmap"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.ADT.orderedmap</span></code></a><a class="headerlink" href="#module-DISClib.ADT.orderedmap" title="Link to this heading"></a></h1>
+<ul class="simple">
+<li><p>Copyright 2020, Departamento de sistemas y Computación</p></li>
+<li><p>Universidad de Los Andes</p></li>
+<li></li>
+<li></li>
+<li><p>Desarrolado para el curso ISIS1225 - Estructuras de Datos y Algoritmos</p></li>
+<li></li>
+<li></li>
+<li><p>This program is free software: you can redistribute it and/or modify</p></li>
+<li><p>it under the terms of the GNU General Public License as published by</p></li>
+<li><p>the Free Software Foundation, either version 3 of the License, or</p></li>
+<li><p>(at your option) any later version.</p></li>
+<li></li>
+<li><p>This program is distributed in the hope that it will be useful,</p></li>
+<li><p>but WITHOUT ANY WARRANTY; without even the implied warranty of</p></li>
+<li><p>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</p></li>
+<li><p>GNU General Public License for more details.</p></li>
+<li></li>
+<li><p>You should have received a copy of the GNU General Public License</p></li>
+<li><p>along with this program.  If not, see &lt;<a class="reference external" href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</p></li>
+<li></li>
+<li><p>Contribución de:</p></li>
+<li></li>
+<li><p>Dario Correal</p></li>
+<li></li>
+</ul>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.ADT.orderedmap.newMap" title="DISClib.ADT.orderedmap.newMap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">newMap</span></code></a>([omaptype, cmpfunction])</p></td>
+<td><p>Crea una tabla de simbolos ordenada.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#DISClib.ADT.orderedmap.put" title="DISClib.ADT.orderedmap.put"><code class="xref py py-obj docutils literal notranslate"><span class="pre">put</span></code></a>(map, key, value)</p></td>
+<td><p>Ingresa una pareja llave,valor. Si la llave ya existe,</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.ADT.orderedmap.get" title="DISClib.ADT.orderedmap.get"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get</span></code></a>(map, key)</p></td>
+<td><p>Retorna la pareja lleve-valor con llave igual a key</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#DISClib.ADT.orderedmap.remove" title="DISClib.ADT.orderedmap.remove"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove</span></code></a>(map, key)</p></td>
+<td><p>Elimina la pareja llave,valor, donde llave == key.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.ADT.orderedmap.contains" title="DISClib.ADT.orderedmap.contains"><code class="xref py py-obj docutils literal notranslate"><span class="pre">contains</span></code></a>(map, key)</p></td>
+<td><p>Informa si la llave key se encuentra en la tabla de hash</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#DISClib.ADT.orderedmap.size" title="DISClib.ADT.orderedmap.size"><code class="xref py py-obj docutils literal notranslate"><span class="pre">size</span></code></a>(map)</p></td>
+<td><p>Retorna el número de entradas en la tabla de simbolos</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.ADT.orderedmap.isEmpty" title="DISClib.ADT.orderedmap.isEmpty"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isEmpty</span></code></a>(map)</p></td>
+<td><p>Informa si la tabla de simbolos se encuentra vacia</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#DISClib.ADT.orderedmap.keySet" title="DISClib.ADT.orderedmap.keySet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">keySet</span></code></a>(map)</p></td>
+<td><p>Retorna una lista con todas las llaves de la tabla</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.ADT.orderedmap.valueSet" title="DISClib.ADT.orderedmap.valueSet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">valueSet</span></code></a>(map)</p></td>
+<td><p>Construye una lista con los valores de la tabla</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#DISClib.ADT.orderedmap.minKey" title="DISClib.ADT.orderedmap.minKey"><code class="xref py py-obj docutils literal notranslate"><span class="pre">minKey</span></code></a>(map)</p></td>
+<td><p>Retorna la menor llave de la tabla de simbolos</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.ADT.orderedmap.maxKey" title="DISClib.ADT.orderedmap.maxKey"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maxKey</span></code></a>(map)</p></td>
+<td><p>Retorna la mayor llave de la tabla de simbolos</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#DISClib.ADT.orderedmap.deleteMin" title="DISClib.ADT.orderedmap.deleteMin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">deleteMin</span></code></a>(map)</p></td>
+<td><p>Encuentra y remueve la menor llave de la tabla de simbolos</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.ADT.orderedmap.deleteMax" title="DISClib.ADT.orderedmap.deleteMax"><code class="xref py py-obj docutils literal notranslate"><span class="pre">deleteMax</span></code></a>(map)</p></td>
+<td><p>Encuentra y remueve la mayor llave de la tabla de simbolos</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#DISClib.ADT.orderedmap.floor" title="DISClib.ADT.orderedmap.floor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">floor</span></code></a>(map, key)</p></td>
+<td><p>Retorna la llave mas grande en la tabla de simbolos,</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.ADT.orderedmap.ceiling" title="DISClib.ADT.orderedmap.ceiling"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ceiling</span></code></a>(map, key)</p></td>
+<td><p>Retorna la llave mas pequeña en la tabla de simbolos,</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#DISClib.ADT.orderedmap.select" title="DISClib.ADT.orderedmap.select"><code class="xref py py-obj docutils literal notranslate"><span class="pre">select</span></code></a>(map, k)</p></td>
+<td><p>Retorna la siguiente llave a la k-esima llave mas pequeña de la tabla</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.ADT.orderedmap.rank" title="DISClib.ADT.orderedmap.rank"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rank</span></code></a>(map, key)</p></td>
+<td><p>Retorna el número de llaves en la tabla estrictamente menores que key</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#DISClib.ADT.orderedmap.height" title="DISClib.ADT.orderedmap.height"><code class="xref py py-obj docutils literal notranslate"><span class="pre">height</span></code></a>(map)</p></td>
+<td><p>Retorna la altura del arbol de busqueda</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.ADT.orderedmap.keys" title="DISClib.ADT.orderedmap.keys"><code class="xref py py-obj docutils literal notranslate"><span class="pre">keys</span></code></a>(map, keylo, keyhi)</p></td>
+<td><p>Retorna todas las llaves del arbol que se encuentren entre</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#DISClib.ADT.orderedmap.values" title="DISClib.ADT.orderedmap.values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">values</span></code></a>(map, keylo, keyhi)</p></td>
+<td><p>Retorna todas los valores del arbol que se encuentren entre</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.ADT.orderedmap.mapSelector" title="DISClib.ADT.orderedmap.mapSelector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mapSelector</span></code></a>(datastructure)</p></td>
+<td><p>Carga dinamicamente el import de la estructura de datos</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Link to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.ADT.orderedmap.switch_module" title="DISClib.ADT.orderedmap.switch_module"><code class="xref py py-obj docutils literal notranslate"><span class="pre">switch_module</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.orderedmap.newMap">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.orderedmap.</span></span><span class="sig-name descname"><span class="pre">newMap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">omaptype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'RBT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmpfunction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/ADT/orderedmap.html#newMap"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.orderedmap.newMap" title="Link to this definition"></a></dt>
+<dd><p>Crea una tabla de simbolos ordenada.
+:param maptype: El tipo de map ordenado a utilizar</p>
+<blockquote>
+<div><p>“BST” o “RBT”</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>La tabla de símbolos ordenada sin elementos</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.orderedmap.put">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.orderedmap.</span></span><span class="sig-name descname"><span class="pre">put</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/ADT/orderedmap.html#put"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.orderedmap.put" title="Link to this definition"></a></dt>
+<dd><p>Ingresa una pareja llave,valor. Si la llave ya existe,
+se reemplaza el valor.
+:param map: La tabla de simbolos ordenada
+:param key: La llave asociada a la pareja
+:param value: El valor asociado a la pareja</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>La tabla de simbolos</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.orderedmap.get">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.orderedmap.</span></span><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/ADT/orderedmap.html#get"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.orderedmap.get" title="Link to this definition"></a></dt>
+<dd><p>Retorna la pareja lleve-valor con llave igual a key
+:param map: La tabla de simbolos
+:param key: La llave asociada a la pareja</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>La tabla de simbolos con la nueva pareja</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.orderedmap.remove">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.orderedmap.</span></span><span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/ADT/orderedmap.html#remove"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.orderedmap.remove" title="Link to this definition"></a></dt>
+<dd><p>Elimina la pareja llave,valor, donde llave == key.
+:param map: La tabla de simbolos
+:param key: La llave asociada a la pareja</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>La tabla de simbolos</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.orderedmap.contains">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.orderedmap.</span></span><span class="sig-name descname"><span class="pre">contains</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/ADT/orderedmap.html#contains"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.orderedmap.contains" title="Link to this definition"></a></dt>
+<dd><p>Informa si la llave key se encuentra en la tabla de hash
+:param map: La tabla de simbolos
+:param key: La llave a buscar</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True si la llave está presente, False en caso contrario</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.orderedmap.size">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.orderedmap.</span></span><span class="sig-name descname"><span class="pre">size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/ADT/orderedmap.html#size"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.orderedmap.size" title="Link to this definition"></a></dt>
+<dd><p>Retorna el número de entradas en la tabla de simbolos
+:param map: La tabla de simbolos</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>El número de elementos en la tabla</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.orderedmap.isEmpty">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.orderedmap.</span></span><span class="sig-name descname"><span class="pre">isEmpty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/ADT/orderedmap.html#isEmpty"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.orderedmap.isEmpty" title="Link to this definition"></a></dt>
+<dd><p>Informa si la tabla de simbolos se encuentra vacia
+:param map: La tabla de simbolos</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True si la tabla es vacía, False en caso contrario</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.orderedmap.keySet">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.orderedmap.</span></span><span class="sig-name descname"><span class="pre">keySet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/ADT/orderedmap.html#keySet"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.orderedmap.keySet" title="Link to this definition"></a></dt>
+<dd><p>Retorna una lista con todas las llaves de la tabla
+:param map: La tabla de simbolos</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Una lista con todas las llaves de la tabla</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.orderedmap.valueSet">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.orderedmap.</span></span><span class="sig-name descname"><span class="pre">valueSet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/ADT/orderedmap.html#valueSet"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.orderedmap.valueSet" title="Link to this definition"></a></dt>
+<dd><p>Construye una lista con los valores de la tabla
+:param map: La tabla con los elementos</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Una lista con todos los valores</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.orderedmap.minKey">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.orderedmap.</span></span><span class="sig-name descname"><span class="pre">minKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/ADT/orderedmap.html#minKey"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.orderedmap.minKey" title="Link to this definition"></a></dt>
+<dd><p>Retorna la menor llave de la tabla de simbolos
+:param map: La tabla de simbolos</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>La menor llave de la tabla</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.orderedmap.maxKey">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.orderedmap.</span></span><span class="sig-name descname"><span class="pre">maxKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/ADT/orderedmap.html#maxKey"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.orderedmap.maxKey" title="Link to this definition"></a></dt>
+<dd><p>Retorna la mayor llave de la tabla de simbolos
+:param map: La tabla de simbolos</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>La mayor llave de la tabla</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.orderedmap.deleteMin">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.orderedmap.</span></span><span class="sig-name descname"><span class="pre">deleteMin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/ADT/orderedmap.html#deleteMin"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.orderedmap.deleteMin" title="Link to this definition"></a></dt>
+<dd><p>Encuentra y remueve la menor llave de la tabla de simbolos
+y su valor asociado
+:param map: La tabla de simbolos</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>La tabla de simbolos sin la menor llave</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.orderedmap.deleteMax">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.orderedmap.</span></span><span class="sig-name descname"><span class="pre">deleteMax</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/ADT/orderedmap.html#deleteMax"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.orderedmap.deleteMax" title="Link to this definition"></a></dt>
+<dd><p>Encuentra y remueve la mayor llave de la tabla de simbolos
+y su valor asociado
+:param map: La tabla de simbolos</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>La tabla de simbolos sin la mayor llave</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.orderedmap.floor">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.orderedmap.</span></span><span class="sig-name descname"><span class="pre">floor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/ADT/orderedmap.html#floor"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.orderedmap.floor" title="Link to this definition"></a></dt>
+<dd><p>Retorna la llave mas grande en la tabla de simbolos,
+menor o igual a la llave key
+:param map: La tabla de simbolos
+:param key: La llave de búsqueda</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>La llave más grande menor o igual a key</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.orderedmap.ceiling">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.orderedmap.</span></span><span class="sig-name descname"><span class="pre">ceiling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/ADT/orderedmap.html#ceiling"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.orderedmap.ceiling" title="Link to this definition"></a></dt>
+<dd><p>Retorna la llave mas pequeña en la tabla de simbolos,
+mayor o igual a la llave key
+:param map: La tabla de simbolos
+:param key: la llave de búsqueda</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>La llave más pequeña mayor o igual a Key</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.orderedmap.select">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.orderedmap.</span></span><span class="sig-name descname"><span class="pre">select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/ADT/orderedmap.html#select"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.orderedmap.select" title="Link to this definition"></a></dt>
+<dd><p>Retorna la siguiente llave a la k-esima llave mas pequeña de la tabla
+:param map: La tabla de simbolos
+:param pos: la pos-esima llave mas pequeña</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>La llave más pequeña mayor o igual a Key</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.orderedmap.rank">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.orderedmap.</span></span><span class="sig-name descname"><span class="pre">rank</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/ADT/orderedmap.html#rank"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.orderedmap.rank" title="Link to this definition"></a></dt>
+<dd><p>Retorna el número de llaves en la tabla estrictamente menores que key
+:param map: La tabla de simbolos
+:param pos: la pos-esima llave mas pequeña</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>La llave más pequeña mayor o igual a Key</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.orderedmap.height">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.orderedmap.</span></span><span class="sig-name descname"><span class="pre">height</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/ADT/orderedmap.html#height"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.orderedmap.height" title="Link to this definition"></a></dt>
+<dd><p>Retorna la altura del arbol de busqueda
+:param map: La tabla de simbolos</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>La altura del arbol</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.orderedmap.keys">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.orderedmap.</span></span><span class="sig-name descname"><span class="pre">keys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keylo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keyhi</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/ADT/orderedmap.html#keys"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.orderedmap.keys" title="Link to this definition"></a></dt>
+<dd><p>Retorna todas las llaves del arbol que se encuentren entre
+[keylo, keyhi]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>map</strong> – La tabla de simbolos</p></li>
+<li><p><strong>keylo</strong> – limite inferior</p></li>
+<li><p><strong>keylohi</strong> – limite superiorr</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Las llaves en el rago especificado</p>
+</dd>
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.orderedmap.values">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.orderedmap.</span></span><span class="sig-name descname"><span class="pre">values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keylo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keyhi</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/ADT/orderedmap.html#values"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.orderedmap.values" title="Link to this definition"></a></dt>
+<dd><p>Retorna todas los valores del arbol que se encuentren entre
+[keylo, keyhi]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>map</strong> – La tabla de simbolos</p></li>
+<li><p><strong>keylo</strong> – limite inferior</p></li>
+<li><p><strong>keylohi</strong> – limite superiorr</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Las llaves en el rago especificado</p>
+</dd>
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="DISClib.ADT.orderedmap.switch_module">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.orderedmap.</span></span><span class="sig-name descname"><span class="pre">switch_module</span></span><a class="reference internal" href="../../../../_modules/DISClib/ADT/orderedmap.html#switch_module"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.orderedmap.switch_module" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.orderedmap.mapSelector">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.orderedmap.</span></span><span class="sig-name descname"><span class="pre">mapSelector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datastructure</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/ADT/orderedmap.html#mapSelector"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.orderedmap.mapSelector" title="Link to this definition"></a></dt>
+<dd><p>Carga dinamicamente el import de la estructura de datos
+seleccionada</p>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="../minpq/index.html" class="btn btn-neutral float-left" title="DISClib.ADT.minpq" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="../queue/index.html" class="btn btn-neutral float-right" title="DISClib.ADT.queue" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor Uniandes, Bogotá - Colombia, Sur América,
+             Facultad de Ingeniería, DISC Desarrollado
+             para ISIS-1225, EDA.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

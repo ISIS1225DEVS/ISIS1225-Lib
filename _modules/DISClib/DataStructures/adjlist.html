@@ -1,0 +1,595 @@
+﻿<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DISClib.DataStructures.adjlist &mdash; documentación de DISClib - 0.0.1</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/fonts.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=6fcc102b"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script src="../../../_static/translations.js?v=efdbd0b9"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            DISClib
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">DISClib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../testmd.html">Example Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">DISClib</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Código de módulo</a></li>
+          <li class="breadcrumb-item"><a href="../../DISClib.html">DISClib</a></li>
+          <li class="breadcrumb-item"><a href="../DataStructures.html">DISClib.DataStructures</a></li>
+      <li class="breadcrumb-item active">DISClib.DataStructures.adjlist</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Código fuente para DISClib.DataStructures.adjlist</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd"> # TODO cambiar comentarios de lincencia segun estandard del equipo</span>
+<span class="sd"> * Copyright 2020, Departamento de sistemas y Computación,</span>
+<span class="sd"> * Universidad de Los Andes</span>
+<span class="sd"> *</span>
+<span class="sd"> * Desarrollado para el curso ISIS1225 - Estructuras de Datos y Algoritmos</span>
+<span class="sd"> *</span>
+<span class="sd"> *</span>
+<span class="sd"> * This program is free software: you can redistribute it and/or modify</span>
+<span class="sd"> * it under the terms of the GNU General Public License as published by</span>
+<span class="sd"> * the Free Software Foundation, either version 3 of the License, or</span>
+<span class="sd"> * (at your option) any later version.</span>
+<span class="sd"> *</span>
+<span class="sd"> * This program is distributed in the hope that it will be useful,</span>
+<span class="sd"> * but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="sd"> * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="sd"> * GNU General Public License for more details.</span>
+<span class="sd"> *</span>
+<span class="sd"> * You should have received a copy of the GNU General Public License</span>
+<span class="sd"> * along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+<span class="sd"> *</span>
+<span class="sd"> * Contribución de:</span>
+<span class="sd"> *</span>
+<span class="sd"> * Dario Correal</span>
+<span class="sd"> *</span>
+<span class="sd"> &quot;&quot;&quot;</span>
+
+<span class="c1"># TODO crear consistencia en para importar modulos</span>
+<span class="c1"># # import config</span>
+<span class="kn">from</span> <span class="nn">DISClib.ADT</span> <span class="kn">import</span> <span class="n">maps</span> <span class="k">as</span> <span class="nb">map</span>
+<span class="kn">from</span> <span class="nn">DISClib.ADT</span> <span class="kn">import</span> <span class="n">lists</span> <span class="k">as</span> <span class="n">lt</span>
+<span class="kn">from</span> <span class="nn">DISClib.DataStructures</span> <span class="kn">import</span> <span class="n">edge</span> <span class="k">as</span> <span class="n">e</span>
+<span class="kn">from</span> <span class="nn">DISClib.Utils</span> <span class="kn">import</span> <span class="n">error</span> <span class="k">as</span> <span class="n">error</span>
+<span class="c1"># assert config</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Este código está basado en las implementaciones propuestas en:</span>
+<span class="sd">- Algorithms, 4th Edition.  R. Sedgewick</span>
+<span class="sd">- Data Structures and Algorithms in Java, 6th Edition.  Michael Goodrich</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="c1"># FIXME cambiar a SnakeCase el formato de funciones y variables</span>
+<span class="c1"># TODO agregar anotaciones para documentacion automatica</span>
+<div class="viewcode-block" id="newGraph">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/adjlist/index.html#DISClib.DataStructures.adjlist.newGraph">[documentos]</a>
+<span class="k">def</span> <span class="nf">newGraph</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">cmpfunction</span><span class="p">,</span> <span class="n">directed</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">datastructure</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Crea un grafo vacio</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        size: Tamaño inicial del grafo</span>
+<span class="sd">        cmpfunction: Funcion de comparacion</span>
+<span class="sd">        directed: Indica si el grafo es dirigido o no</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        Un nuevo grafo vacío</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># FIXME cambiar por datatruct nativo de python</span>
+        <span class="n">graph</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;vertices&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="s1">&#39;edges&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                 <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">type</span><span class="p">,</span>
+                 <span class="s1">&#39;cmpfunction&#39;</span><span class="p">:</span> <span class="n">cmpfunction</span><span class="p">,</span>
+                 <span class="s1">&#39;directed&#39;</span><span class="p">:</span> <span class="n">directed</span><span class="p">,</span>
+                 <span class="s1">&#39;indegree&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="s1">&#39;datastructure&#39;</span><span class="p">:</span> <span class="n">datastructure</span>
+                 <span class="p">}</span>
+
+        <span class="c1"># TODO dejar variables por defecto como constantes del modulo</span>
+        <span class="c1"># FIXME ajustar comportamiento segun actualizaciones del ADT map</span>
+
+        <span class="n">graph</span><span class="p">[</span><span class="s1">&#39;vertices&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">map</span><span class="o">.</span><span class="n">newMap</span><span class="p">(</span><span class="n">numelements</span><span class="o">=</span><span class="n">size</span><span class="p">,</span>
+                                       <span class="n">maptype</span><span class="o">=</span><span class="s1">&#39;PROBING&#39;</span><span class="p">,</span>
+                                       <span class="n">cmpfunction</span><span class="o">=</span><span class="n">cmpfunction</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">directed</span><span class="p">):</span>
+            <span class="c1"># FIXME ajustar comportamiento segun actualizaciones ADT map</span>
+            <span class="n">graph</span><span class="p">[</span><span class="s1">&#39;indegree&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">map</span><span class="o">.</span><span class="n">newMap</span><span class="p">(</span><span class="n">numelements</span><span class="o">=</span><span class="n">size</span><span class="p">,</span>
+                                           <span class="n">maptype</span><span class="o">=</span><span class="s1">&#39;PROBING&#39;</span><span class="p">,</span>
+                                           <span class="n">cmpfunction</span><span class="o">=</span><span class="n">cmpfunction</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">graph</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1"># FIXME ajustar mensaje segun actualizaciones del modulo error</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;ajlist:newgraph&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="insertVertex">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/adjlist/index.html#DISClib.DataStructures.adjlist.insertVertex">[documentos]</a>
+<span class="k">def</span> <span class="nf">insertVertex</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">vertex</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Inserta el vertice vertex en el grafo graph</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        graph: El grafo sobre el que se ejecuta la operacion</span>
+<span class="sd">        vertex: El vertice que se desea insertar</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        El grafo graph con el nuevo vertice</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># TODO revisar si es necesario el return</span>
+    <span class="c1"># TODO agregar tipos de datos para input y output</span>
+    <span class="c1"># FIXME ajustar mensaje segun actualizaciones del modulo error</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">edges</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">newList</span><span class="p">()</span>
+        <span class="nb">map</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">graph</span><span class="p">[</span><span class="s1">&#39;vertices&#39;</span><span class="p">],</span> <span class="n">vertex</span><span class="p">,</span> <span class="n">edges</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">graph</span><span class="p">[</span><span class="s1">&#39;directed&#39;</span><span class="p">]):</span>
+            <span class="nb">map</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">graph</span><span class="p">[</span><span class="s1">&#39;indegree&#39;</span><span class="p">],</span> <span class="n">vertex</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">graph</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;ajlist:insertvertex&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="removeVertex">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/adjlist/index.html#DISClib.DataStructures.adjlist.removeVertex">[documentos]</a>
+<span class="k">def</span> <span class="nf">removeVertex</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">vertex</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Remueve el vertice vertex del grafo graph</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        graph: El grafo sobre el que se ejecuta la operacion</span>
+<span class="sd">        vertex: El vertice que se desea remover</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        El grafo sin el vertice vertex</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># TODO implementar funcion</span>
+    <span class="k">pass</span></div>
+
+
+
+<div class="viewcode-block" id="numVertices">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/adjlist/index.html#DISClib.DataStructures.adjlist.numVertices">[documentos]</a>
+<span class="k">def</span> <span class="nf">numVertices</span><span class="p">(</span><span class="n">graph</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retorna el numero de vertices del  grafo graph</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        graph: El grafo sobre el que se ejecuta la operacion</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        El numero de vertices del grafo</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># TODO agregar tipos de datos para input y output</span>
+    <span class="c1"># FIXME ajustar mensaje segun actualizaciones del modulo error</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">map</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">graph</span><span class="p">[</span><span class="s1">&#39;vertices&#39;</span><span class="p">])</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;ajlist:numtvertex&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="numEdges">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/adjlist/index.html#DISClib.DataStructures.adjlist.numEdges">[documentos]</a>
+<span class="k">def</span> <span class="nf">numEdges</span><span class="p">(</span><span class="n">graph</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retorna el numero de arcos en el grafo graph</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        graph: El grafo sobre el que se ejecuta la operacion</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        El numero de vertices del grafo</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># TODO agregar tipos de datos para input y output</span>
+    <span class="c1"># FIXME ajustar mensaje segun actualizaciones del modulo error</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">graph</span><span class="p">[</span><span class="s1">&#39;edges&#39;</span><span class="p">])</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;ajlist:numedges&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="vertices">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/adjlist/index.html#DISClib.DataStructures.adjlist.vertices">[documentos]</a>
+<span class="k">def</span> <span class="nf">vertices</span><span class="p">(</span><span class="n">graph</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retorna una lista con todos los vertices del grafo graph</span>
+<span class="sd">    Args:</span>
+<span class="sd">        graph: El grafo sobre el que se ejecuta la operacion</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        La lista con los vertices del grafo</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># TODO agregar tipos de datos para input y output</span>
+    <span class="c1"># FIXME ajustar mensaje segun actualizaciones del modulo error</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">lstmap</span> <span class="o">=</span> <span class="nb">map</span><span class="o">.</span><span class="n">keySet</span><span class="p">(</span><span class="n">graph</span><span class="p">[</span><span class="s1">&#39;vertices&#39;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">lstmap</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;ajlist:vertices&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="edges">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/adjlist/index.html#DISClib.DataStructures.adjlist.edges">[documentos]</a>
+<span class="k">def</span> <span class="nf">edges</span><span class="p">(</span><span class="n">graph</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retorna una lista con todos los arcos del grafo graph</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        graph: El grafo sobre el que se ejecuta la operacion</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Una lista con los arcos del grafo</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># TODO agregar tipos de datos para input y output</span>
+    <span class="c1"># FIXME ajustar mensaje segun actualizaciones del modulo error</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">lstmap</span> <span class="o">=</span> <span class="nb">map</span><span class="o">.</span><span class="n">valueSet</span><span class="p">(</span><span class="n">graph</span><span class="p">[</span><span class="s1">&#39;vertices&#39;</span><span class="p">])</span>
+        <span class="n">lstresp</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">newList</span><span class="p">(</span><span class="s1">&#39;SINGLE_LINKED&#39;</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">compareedges</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">lstedge</span> <span class="ow">in</span> <span class="n">lt</span><span class="o">.</span><span class="n">iterator</span><span class="p">(</span><span class="n">lstmap</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">lt</span><span class="o">.</span><span class="n">iterator</span><span class="p">(</span><span class="n">lstedge</span><span class="p">):</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">graph</span><span class="p">[</span><span class="s1">&#39;directed&#39;</span><span class="p">]):</span>
+                    <span class="n">lt</span><span class="o">.</span><span class="n">addLast</span><span class="p">(</span><span class="n">lstresp</span><span class="p">,</span> <span class="n">edge</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="p">(</span><span class="ow">not</span> <span class="n">lt</span><span class="o">.</span><span class="n">isPresent</span><span class="p">(</span><span class="n">lstresp</span><span class="p">,</span> <span class="n">edge</span><span class="p">)):</span>
+                    <span class="n">lt</span><span class="o">.</span><span class="n">addLast</span><span class="p">(</span><span class="n">lstresp</span><span class="p">,</span> <span class="n">edge</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">lstresp</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;ajlist:edges&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="degree">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/adjlist/index.html#DISClib.DataStructures.adjlist.degree">[documentos]</a>
+<span class="k">def</span> <span class="nf">degree</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">vertex</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retorna el numero de arcos asociados al vertice vertex</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        graph: El grafo sobre el que se ejecuta la operacion</span>
+<span class="sd">        vertex: El vertice del que se desea conocer el grado</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        El grado del vertice</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># TODO agregar tipos de datos para input y output</span>
+    <span class="c1"># FIXME ajustar mensaje segun actualizaciones del modulo error</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">element</span> <span class="o">=</span> <span class="nb">map</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">graph</span><span class="p">[</span><span class="s1">&#39;vertices&#39;</span><span class="p">],</span> <span class="n">vertex</span><span class="p">)</span>
+        <span class="n">lst</span> <span class="o">=</span> <span class="n">element</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">lt</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">lst</span><span class="p">))</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;ajlist:degree&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="indegree">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/adjlist/index.html#DISClib.DataStructures.adjlist.indegree">[documentos]</a>
+<span class="k">def</span> <span class="nf">indegree</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">vertex</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retorna el numero de arcos que llegan al vertice vertex</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        graph: El grafo sobre el que se ejecuta la operacion</span>
+<span class="sd">        vertex: El vertice del que se desea conocer el grado</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        El grado del vertice</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># TODO agregar tipos de datos para input y output</span>
+    <span class="c1"># FIXME ajustar comportamiento para acoplar a manejo de errores</span>
+    <span class="c1"># FIXME ajustar mensaje segun actualizaciones del modulo error</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">graph</span><span class="p">[</span><span class="s1">&#39;directed&#39;</span><span class="p">]):</span>
+            <span class="n">degree</span> <span class="o">=</span> <span class="nb">map</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">graph</span><span class="p">[</span><span class="s1">&#39;indegree&#39;</span><span class="p">],</span> <span class="n">vertex</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">degree</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;ajlist:indegree&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="outdegree">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/adjlist/index.html#DISClib.DataStructures.adjlist.outdegree">[documentos]</a>
+<span class="k">def</span> <span class="nf">outdegree</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">vertex</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retorna el numero de arcos que salen del grafo vertex</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        graph: El grafo sobre el que se ejecuta la operacion</span>
+<span class="sd">        vertex: El vertice del que se desea conocer el grado</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        El grado del vertice</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># TODO agregar tipos de datos para input y output</span>
+    <span class="c1"># FIXME ajustar comportamiento para acoplar a manejo de errores</span>
+    <span class="c1"># FIXME ajustar mensaje segun actualizaciones del modulo error</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">graph</span><span class="p">[</span><span class="s1">&#39;directed&#39;</span><span class="p">]):</span>
+            <span class="n">element</span> <span class="o">=</span> <span class="nb">map</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">graph</span><span class="p">[</span><span class="s1">&#39;vertices&#39;</span><span class="p">],</span> <span class="n">vertex</span><span class="p">)</span>
+            <span class="n">lst</span> <span class="o">=</span> <span class="n">element</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span>
+            <span class="k">return</span> <span class="p">(</span><span class="n">lt</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">lst</span><span class="p">))</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;ajlist:outdegree&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="getEdge">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/adjlist/index.html#DISClib.DataStructures.adjlist.getEdge">[documentos]</a>
+<span class="k">def</span> <span class="nf">getEdge</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">vertexa</span><span class="p">,</span> <span class="n">vertexb</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retorna el arco asociado a los vertices vertexa ---- vertexb</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        graph: El grafo sobre el que se ejecuta la operacion</span>
+<span class="sd">        vertexa: Vertice de inicio</span>
+<span class="sd">        vertexb: Vertice destino</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        El arco que une los verices vertexa y vertexb</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># TODO agregar tipos de datos para input y output</span>
+    <span class="c1"># FIXME ajustar mensaje segun actualizaciones del modulo error</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">element</span> <span class="o">=</span> <span class="nb">map</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">graph</span><span class="p">[</span><span class="s1">&#39;vertices&#39;</span><span class="p">],</span> <span class="n">vertexa</span><span class="p">)</span>
+        <span class="n">lst</span> <span class="o">=</span> <span class="n">element</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">lt</span><span class="o">.</span><span class="n">iterator</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">graph</span><span class="p">[</span><span class="s1">&#39;directed&#39;</span><span class="p">]):</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">either</span><span class="p">(</span><span class="n">edge</span><span class="p">)</span> <span class="o">==</span> <span class="n">vertexa</span> <span class="ow">and</span>
+                   <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">other</span><span class="p">(</span><span class="n">edge</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">either</span><span class="p">(</span><span class="n">edge</span><span class="p">))</span> <span class="o">==</span> <span class="n">vertexb</span><span class="p">)):</span>
+                    <span class="k">return</span> <span class="n">edge</span>
+            <span class="k">elif</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">either</span><span class="p">(</span><span class="n">edge</span><span class="p">)</span> <span class="o">==</span> <span class="n">vertexa</span> <span class="ow">or</span>
+                <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">other</span><span class="p">(</span><span class="n">edge</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">either</span><span class="p">(</span><span class="n">edge</span><span class="p">))</span> <span class="o">==</span> <span class="n">vertexa</span><span class="p">)):</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">either</span><span class="p">(</span><span class="n">edge</span><span class="p">)</span> <span class="o">==</span> <span class="n">vertexb</span> <span class="ow">or</span>
+                   <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">other</span><span class="p">(</span><span class="n">edge</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">either</span><span class="p">(</span><span class="n">edge</span><span class="p">))</span> <span class="o">==</span> <span class="n">vertexb</span><span class="p">)):</span>
+                    <span class="k">return</span> <span class="n">edge</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;ajlist:getedge&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="containsVertex">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/adjlist/index.html#DISClib.DataStructures.adjlist.containsVertex">[documentos]</a>
+<span class="k">def</span> <span class="nf">containsVertex</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">vertex</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retorna si el vertice vertex esta presente en el grafo</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        graph: El grafo sobre el que se ejecuta la operacion</span>
+<span class="sd">        vertex: Vertice que se busca</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">       True si el vertice esta presente</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># TODO agregar tipos de datos para input y output</span>
+    <span class="c1"># FIXME ajustar mensaje segun actualizaciones del modulo error</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">map</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">graph</span><span class="p">[</span><span class="s1">&#39;vertices&#39;</span><span class="p">],</span> <span class="n">vertex</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;ajlist:containsvertex&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="addEdge">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/adjlist/index.html#DISClib.DataStructures.adjlist.addEdge">[documentos]</a>
+<span class="k">def</span> <span class="nf">addEdge</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">vertexa</span><span class="p">,</span> <span class="n">vertexb</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Agrega un arco entre los vertices vertexa ---- vertexb, con peso weight.</span>
+<span class="sd">    Si el grafo es no dirigido se adiciona dos veces el mismo arco,</span>
+<span class="sd">    en el mismo orden</span>
+<span class="sd">    Si el grafo es dirigido se adiciona solo el arco vertexa --&gt; vertexb</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        graph: El grafo sobre el que se ejecuta la operacion</span>
+<span class="sd">        vertexa: Vertice de inicio</span>
+<span class="sd">        vertexb: Vertice de destino</span>
+<span class="sd">        wight: peso del arco</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">       El grafo con el nuevo arco</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># TODO revisar si es necesario el return</span>
+    <span class="c1"># TODO agregar tipos de datos para input y output</span>
+    <span class="c1"># FIXME ajustar mensaje segun actualizaciones del modulo error</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Se crea el arco</span>
+        <span class="n">edge</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">newEdge</span><span class="p">(</span><span class="n">vertexa</span><span class="p">,</span> <span class="n">vertexb</span><span class="p">,</span> <span class="n">weight</span><span class="p">)</span>
+        <span class="c1"># Se obtienen las listas de adyacencias de cada vertice</span>
+        <span class="c1"># Se anexa a cada lista el arco correspondiente</span>
+        <span class="n">entrya</span> <span class="o">=</span> <span class="nb">map</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">graph</span><span class="p">[</span><span class="s1">&#39;vertices&#39;</span><span class="p">],</span> <span class="n">vertexa</span><span class="p">)</span>
+        <span class="n">lt</span><span class="o">.</span><span class="n">addLast</span><span class="p">(</span><span class="n">entrya</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">],</span> <span class="n">edge</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">graph</span><span class="p">[</span><span class="s1">&#39;directed&#39;</span><span class="p">]):</span>
+            <span class="n">entryb</span> <span class="o">=</span> <span class="nb">map</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">graph</span><span class="p">[</span><span class="s1">&#39;vertices&#39;</span><span class="p">],</span> <span class="n">vertexb</span><span class="p">)</span>
+            <span class="n">edgeb</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">newEdge</span><span class="p">(</span><span class="n">vertexb</span><span class="p">,</span> <span class="n">vertexa</span><span class="p">,</span> <span class="n">weight</span><span class="p">)</span>
+            <span class="n">lt</span><span class="o">.</span><span class="n">addLast</span><span class="p">(</span><span class="n">entryb</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">],</span> <span class="n">edgeb</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">degree</span> <span class="o">=</span> <span class="nb">map</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">graph</span><span class="p">[</span><span class="s1">&#39;indegree&#39;</span><span class="p">],</span> <span class="n">vertexb</span><span class="p">)</span>
+            <span class="nb">map</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">graph</span><span class="p">[</span><span class="s1">&#39;indegree&#39;</span><span class="p">],</span> <span class="n">vertexb</span><span class="p">,</span> <span class="n">degree</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">graph</span><span class="p">[</span><span class="s1">&#39;edges&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">graph</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;ajlist:addedge&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="adjacents">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/adjlist/index.html#DISClib.DataStructures.adjlist.adjacents">[documentos]</a>
+<span class="k">def</span> <span class="nf">adjacents</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">vertex</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retorna una lista con todos los vertices adyacentes al vertice vertex</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        graph: El grafo sobre el que se ejecuta la operacion</span>
+<span class="sd">        vertex: El vertice del que se quiere la lista</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        La lista de adyacencias</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># TODO agregar tipos de datos para input y output</span>
+    <span class="c1"># FIXME ajustar mensaje segun actualizaciones del modulo error</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">element</span> <span class="o">=</span> <span class="nb">map</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">graph</span><span class="p">[</span><span class="s1">&#39;vertices&#39;</span><span class="p">],</span> <span class="n">vertex</span><span class="p">)</span>
+        <span class="n">lst</span> <span class="o">=</span> <span class="n">element</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span>
+        <span class="n">lstresp</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">newList</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">lt</span><span class="o">.</span><span class="n">iterator</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+            <span class="n">v</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">either</span><span class="p">(</span><span class="n">edge</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">v</span> <span class="o">==</span> <span class="n">vertex</span><span class="p">):</span>
+                <span class="n">lt</span><span class="o">.</span><span class="n">addLast</span><span class="p">(</span><span class="n">lstresp</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">other</span><span class="p">(</span><span class="n">edge</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">lt</span><span class="o">.</span><span class="n">addLast</span><span class="p">(</span><span class="n">lstresp</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">lstresp</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;ajlist:adjacents&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="adjacentEdges">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/adjlist/index.html#DISClib.DataStructures.adjlist.adjacentEdges">[documentos]</a>
+<span class="k">def</span> <span class="nf">adjacentEdges</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">vertex</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retorna una lista con todos los arcos asociados a los vértices</span>
+<span class="sd">    adyacentes de vertex</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        graph: El grafo sobre el que se ejecuta la operacion</span>
+<span class="sd">        vertex: El vertice del que se quiere la lista</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        La lista de arcos adyacentes</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># TODO agregar tipos de datos para input y output</span>
+    <span class="c1"># FIXME ajustar mensaje segun actualizaciones del modulo error</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">element</span> <span class="o">=</span> <span class="nb">map</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">graph</span><span class="p">[</span><span class="s1">&#39;vertices&#39;</span><span class="p">],</span> <span class="n">vertex</span><span class="p">)</span>
+        <span class="n">lst</span> <span class="o">=</span> <span class="n">element</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">lst</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;ajlist:adjacentEdges&#39;</span><span class="p">)</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor Uniandes, Bogotá - Colombia, Sur América,
+             Facultad de Ingeniería, DISC Desarrollado
+             para ISIS-1225, EDA.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,245 @@
+﻿<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DISClib.DataStructures.node &mdash; documentación de DISClib - 0.0.1</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/fonts.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=6fcc102b"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script src="../../../_static/translations.js?v=efdbd0b9"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            DISClib
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">DISClib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../testmd.html">Example Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">DISClib</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Código de módulo</a></li>
+          <li class="breadcrumb-item"><a href="../../DISClib.html">DISClib</a></li>
+          <li class="breadcrumb-item"><a href="../DataStructures.html">DISClib.DataStructures</a></li>
+      <li class="breadcrumb-item active">DISClib.DataStructures.node</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Código fuente para DISClib.DataStructures.node</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Esta clase representa un nodo de información de una estructura de datos dinámica, las cuales pueden ser: listas sencillas, listas doblemente encadenadas, pilas, colas, BST, RBT, entre otras.</span>
+
+<span class="sd">*IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:</span>
+
+<span class="sd">    #. Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.</span>
+<span class="sd">    #. Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H. Goldwasser.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="c1"># native python modules</span>
+<span class="c1"># import dataclass for defining the node class</span>
+<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+<span class="c1"># import modules for defining the Node type</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Generic</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="c1"># import inspect for getting the name of the current function</span>
+<span class="kn">import</span> <span class="nn">inspect</span>
+
+<span class="c1"># custom modules</span>
+<span class="c1"># generic error handling and type checking</span>
+<span class="kn">from</span> <span class="nn">DISClib.Utils.error</span> <span class="kn">import</span> <span class="n">error_handler</span>
+<span class="kn">from</span> <span class="nn">DISClib.Utils.error</span> <span class="kn">import</span> <span class="n">init_type_checker</span>
+<span class="kn">from</span> <span class="nn">DISClib.Utils.default</span> <span class="kn">import</span> <span class="n">T</span>
+
+<span class="c1"># checking costum modules</span>
+<span class="k">assert</span> <span class="n">error_handler</span>
+<span class="k">assert</span> <span class="n">init_type_checker</span>
+<span class="k">assert</span> <span class="n">T</span>
+
+
+<span class="nd">@dataclass</span>
+<div class="viewcode-block" id="Node">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/node/index.html#DISClib.DataStructures.node.Node">[documentos]</a>
+<span class="k">class</span> <span class="nc">Node</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">T</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;*Node* Es una clase que representar un nodo de una lista sencilla o doblemente encadenada. Contiene la información del nodo y las funciones basicas para acceder a ella.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        Generic (T): Tipo de dato genérico dentro del nodo.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        TypeError: error si la información del nodo no es del tipo adecuado.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Node: ADT de tipo Node o nodo de información.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># optional information of any type</span>
+    <span class="c1"># :attr: info</span>
+<div class="viewcode-block" id="Node.info">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/node/index.html#DISClib.DataStructures.node.Node.info">[documentos]</a>
+    <span class="n">info</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">T</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Es la información contenida en el nodo.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Node.__post_init__">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/node/index.html#DISClib.DataStructures.node.Node.__post_init__">[documentos]</a>
+    <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*__post_init__()* revisa que la información al crear un nodo sea valida.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># if the info attribute is not None, check its type</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">info</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">cur_function</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">currentframe</span><span class="p">()</span><span class="o">.</span><span class="n">f_code</span><span class="o">.</span><span class="n">co_name</span>
+                <span class="n">cur_context</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
+                <span class="n">init_type_checker</span><span class="p">(</span><span class="n">cur_context</span><span class="p">,</span> <span class="n">cur_function</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">)</span>
+        <span class="c1"># if an error occurs, handle it</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Node._handle_error">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/node/index.html#DISClib.DataStructures.node.Node._handle_error">[documentos]</a>
+    <span class="k">def</span> <span class="nf">_handle_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">err</span><span class="p">:</span> <span class="ne">Exception</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*_handle_error()* función privada para manejar los errores que se presentan en la clase Node.</span>
+
+<span class="sd">        Si se presenta un error en el Node, se formatea el error según el contexto (paquete/clase) y la función que lo generó, y lo reenvia al componente superior en la jerarquía de llamados para manejarlo segun se considere conveniente.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            err (Exception): Excepción que se generó en el Node.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cur_function</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">currentframe</span><span class="p">()</span><span class="o">.</span><span class="n">f_code</span><span class="o">.</span><span class="n">co_name</span>
+        <span class="n">cur_context</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
+        <span class="n">error_handler</span><span class="p">(</span><span class="n">cur_context</span><span class="p">,</span> <span class="n">cur_function</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Node._check_type">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/node/index.html#DISClib.DataStructures.node.Node._check_type">[documentos]</a>
+    <span class="k">def</span> <span class="nf">_check_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*_check_type()* función privada que verifica que la información del nodo sea del tipo especificado.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            element (T): elemento que se quiere verificar en el nodo.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            TypeError: error si la información del nodo no es del tipo adecuado.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            bool: operador que indica si el tipo de dato del elemento es el mismo que el tipo de dato de los elementos que ya contiene la estructura de datos.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">element</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">)):</span>
+            <span class="n">err_msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Invalid data type: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">)</span><span class="si">}</span><span class="s2"> &quot;</span>
+            <span class="n">err_msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;for element info: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">element</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">err_msg</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">True</span></div>
+
+
+<div class="viewcode-block" id="Node.set_info">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/node/index.html#DISClib.DataStructures.node.Node.set_info">[documentos]</a>
+    <span class="k">def</span> <span class="nf">set_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">info</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*set_info()* introduce la información al nodo.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            info (T): información que se quiere introducir al nodo.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">info</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_check_type</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">info</span> <span class="o">=</span> <span class="n">info</span></div>
+
+
+<div class="viewcode-block" id="Node.get_info">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/node/index.html#DISClib.DataStructures.node.Node.get_info">[documentos]</a>
+    <span class="k">def</span> <span class="nf">get_info</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*get_info()* recupera la información del nodo.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            T: información del nodo.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">info</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor Uniandes, Bogotá - Colombia, Sur América,
+             Facultad de Ingeniería, DISC Desarrollado
+             para ISIS-1225, EDA.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

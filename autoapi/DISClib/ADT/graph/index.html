@@ -1,0 +1,537 @@
+﻿<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <link sizes="16x16" href="https://secure.example.com/favicon/favicon-16x16.png" rel="icon" type="image/png">
+    <link sizes="32x32" href="https://secure.example.com/favicon/favicon-32x32.png" rel="icon" type="image/png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../_static/apple-touch-icon-180x180.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DISClib.ADT.graph &mdash; documentación de DISClib - 0.0.1</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/fonts.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../../_static/documentation_options.js?v=6fcc102b"></script>
+        <script src="../../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+        <script src="../../../../_static/translations.js?v=efdbd0b9"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../../../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../../../search.html" />
+    <link rel="next" title="DISClib.ADT.indexminpq" href="../indexminpq/index.html" />
+    <link rel="prev" title="DISClib.ADT.dynamic" href="../dynamic/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            DISClib
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../modules.html">DISClib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../testmd.html">Example Markdown</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib</span></code></a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.ADT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../Algorithms/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.Algorithms</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../DataStructures/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.DataStructures</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../Utils/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.Utils</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../index.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">DISClib</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib</span></code></a></li>
+          <li class="breadcrumb-item"><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.ADT</span></code></a></li>
+      <li class="breadcrumb-item active"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.ADT.graph</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/autoapi/DISClib/ADT/graph/index.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-DISClib.ADT.graph">
+<span id="disclib-adt-graph"></span><h1><a class="reference internal" href="#module-DISClib.ADT.graph" title="DISClib.ADT.graph"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.ADT.graph</span></code></a><a class="headerlink" href="#module-DISClib.ADT.graph" title="Link to this heading"></a></h1>
+<p># TODO cambiar comentarios de lincencia segun estandard del equipo
+* Copyright 2020, Departamento de sistemas y Computación,
+* Universidad de Los Andes
+*
+* Desarrollado para el curso ISIS1225 - Estructuras de Datos y Algoritmos
+*
+*
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with this program.  If not, see &lt;<a class="reference external" href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.
+*
+* Contribución de:
+*
+* Dario Correal
+*</p>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.ADT.graph.newGraph" title="DISClib.ADT.graph.newGraph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">newGraph</span></code></a>([datastructure, directed, size, cmpfunction])</p></td>
+<td><p>Crea un grafo vacio</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#DISClib.ADT.graph.insertVertex" title="DISClib.ADT.graph.insertVertex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">insertVertex</span></code></a>(graph, vertex)</p></td>
+<td><p>Inserta el vertice vertex en el grafo graph</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.ADT.graph.removeVertex" title="DISClib.ADT.graph.removeVertex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">removeVertex</span></code></a>(graph, vertex)</p></td>
+<td><p>Remueve el vertice vertex del grafo graph</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#DISClib.ADT.graph.numVertices" title="DISClib.ADT.graph.numVertices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numVertices</span></code></a>(graph)</p></td>
+<td><p>Retorna el numero de vertices del  grafo graph</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.ADT.graph.numEdges" title="DISClib.ADT.graph.numEdges"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numEdges</span></code></a>(graph)</p></td>
+<td><p>Retorna el numero de arcos en el grafo graph</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#DISClib.ADT.graph.vertices" title="DISClib.ADT.graph.vertices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertices</span></code></a>(graph)</p></td>
+<td><p>Retorna una lista con todos los vertices del grafo graph</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.ADT.graph.edges" title="DISClib.ADT.graph.edges"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edges</span></code></a>(graph)</p></td>
+<td><p>Retorna una lista con todos los arcos del grafo graph</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#DISClib.ADT.graph.degree" title="DISClib.ADT.graph.degree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">degree</span></code></a>(graph, vertex)</p></td>
+<td><p>Retorna el numero de arcos asociados al vertice vertex</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.ADT.graph.outdegree" title="DISClib.ADT.graph.outdegree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">outdegree</span></code></a>(graph, vertex)</p></td>
+<td><p>Retorna el numero de arcos que salen del grafo vertex</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#DISClib.ADT.graph.indegree" title="DISClib.ADT.graph.indegree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">indegree</span></code></a>(graph, vertex)</p></td>
+<td><p>Retorna el numero de arcos que llegan al vertice vertex</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.ADT.graph.getEdge" title="DISClib.ADT.graph.getEdge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getEdge</span></code></a>(graph, vertexa, vertexb)</p></td>
+<td><p>Retorna el arco asociado a los vertices vertexa ---- vertexb</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#DISClib.ADT.graph.addEdge" title="DISClib.ADT.graph.addEdge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">addEdge</span></code></a>(graph, vertexa, vertexb[, weight])</p></td>
+<td><p>Agrega un arco entre los vertices vertexa ---- vertexb, con peso weight.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.ADT.graph.containsVertex" title="DISClib.ADT.graph.containsVertex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">containsVertex</span></code></a>(graph, vertex)</p></td>
+<td><p>Retorna si el vertice vertex esta presente en el grafo</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#DISClib.ADT.graph.adjacents" title="DISClib.ADT.graph.adjacents"><code class="xref py py-obj docutils literal notranslate"><span class="pre">adjacents</span></code></a>(graph, vertex)</p></td>
+<td><p>Retorna una lista con todos los vertices adyacentes al vertice vertex</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.ADT.graph.adjacentEdges" title="DISClib.ADT.graph.adjacentEdges"><code class="xref py py-obj docutils literal notranslate"><span class="pre">adjacentEdges</span></code></a>(graph, vertex)</p></td>
+<td><p>Retorna una lista con todos los arcos asociados a los vértices</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#DISClib.ADT.graph.graphSelector" title="DISClib.ADT.graph.graphSelector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">graphSelector</span></code></a>(datastructure)</p></td>
+<td><p>Carga dinamicamente el import de la estructura de datos</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Link to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.ADT.graph.switch_module" title="DISClib.ADT.graph.switch_module"><code class="xref py py-obj docutils literal notranslate"><span class="pre">switch_module</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.graph.newGraph">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.graph.</span></span><span class="sig-name descname"><span class="pre">newGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datastructure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ADJ_LIST'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">directed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmpfunction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/ADT/graph.html#newGraph"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.graph.newGraph" title="Link to this definition"></a></dt>
+<dd><p>Crea un grafo vacio</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>size</strong> – Tamaño inicial del grafo</p></li>
+<li><p><strong>cmpfunction</strong> – Funcion de comparacion</p></li>
+<li><p><strong>directed</strong> – Indica si el grafo es dirigido o no</p></li>
+<li><p><strong>datastructure</strong> – Estructura de datos utilizada</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Un nuevo grafo vacío</p>
+</dd>
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.graph.insertVertex">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.graph.</span></span><span class="sig-name descname"><span class="pre">insertVertex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/ADT/graph.html#insertVertex"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.graph.insertVertex" title="Link to this definition"></a></dt>
+<dd><p>Inserta el vertice vertex en el grafo graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>graph</strong> – El grafo sobre el que se ejecuta la operacion</p></li>
+<li><p><strong>vertex</strong> – El vertice que se desea insertar</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>El grafo graph con el nuevo vertice</p>
+</dd>
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.graph.removeVertex">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.graph.</span></span><span class="sig-name descname"><span class="pre">removeVertex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/ADT/graph.html#removeVertex"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.graph.removeVertex" title="Link to this definition"></a></dt>
+<dd><p>Remueve el vertice vertex del grafo graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>graph</strong> – El grafo sobre el que se ejecuta la operacion</p></li>
+<li><p><strong>vertex</strong> – El vertice que se desea remover</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>El grafo sin el vertice vertex</p>
+</dd>
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.graph.numVertices">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.graph.</span></span><span class="sig-name descname"><span class="pre">numVertices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/ADT/graph.html#numVertices"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.graph.numVertices" title="Link to this definition"></a></dt>
+<dd><p>Retorna el numero de vertices del  grafo graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>graph</strong> – El grafo sobre el que se ejecuta la operacion</p>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>El numero de vertices del grafo</p>
+</dd>
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.graph.numEdges">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.graph.</span></span><span class="sig-name descname"><span class="pre">numEdges</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/ADT/graph.html#numEdges"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.graph.numEdges" title="Link to this definition"></a></dt>
+<dd><p>Retorna el numero de arcos en el grafo graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>graph</strong> – El grafo sobre el que se ejecuta la operacion</p>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>El numero de vertices del grafo</p>
+</dd>
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.graph.vertices">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.graph.</span></span><span class="sig-name descname"><span class="pre">vertices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/ADT/graph.html#vertices"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.graph.vertices" title="Link to this definition"></a></dt>
+<dd><p>Retorna una lista con todos los vertices del grafo graph
+:param graph: El grafo sobre el que se ejecuta la operacion</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>La lista con los vertices del grafo</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.graph.edges">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.graph.</span></span><span class="sig-name descname"><span class="pre">edges</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/ADT/graph.html#edges"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.graph.edges" title="Link to this definition"></a></dt>
+<dd><p>Retorna una lista con todos los arcos del grafo graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>graph</strong> – El grafo sobre el que se ejecuta la operacion</p>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Una lista con los arcos del grafo</p>
+</dd>
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.graph.degree">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.graph.</span></span><span class="sig-name descname"><span class="pre">degree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/ADT/graph.html#degree"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.graph.degree" title="Link to this definition"></a></dt>
+<dd><p>Retorna el numero de arcos asociados al vertice vertex</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>graph</strong> – El grafo sobre el que se ejecuta la operacion</p></li>
+<li><p><strong>vertex</strong> – El vertice del que se desea conocer el grado</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>El grado del vertice</p>
+</dd>
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.graph.outdegree">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.graph.</span></span><span class="sig-name descname"><span class="pre">outdegree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/ADT/graph.html#outdegree"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.graph.outdegree" title="Link to this definition"></a></dt>
+<dd><p>Retorna el numero de arcos que salen del grafo vertex</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>graph</strong> – El grafo sobre el que se ejecuta la operacion</p></li>
+<li><p><strong>vertex</strong> – El vertice del que se desea conocer el grado</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>El grado del vertice</p>
+</dd>
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.graph.indegree">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.graph.</span></span><span class="sig-name descname"><span class="pre">indegree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/ADT/graph.html#indegree"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.graph.indegree" title="Link to this definition"></a></dt>
+<dd><p>Retorna el numero de arcos que llegan al vertice vertex</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>graph</strong> – El grafo sobre el que se ejecuta la operacion</p></li>
+<li><p><strong>vertex</strong> – El vertice del que se desea conocer el grado</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>El grado del vertice</p>
+</dd>
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.graph.getEdge">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.graph.</span></span><span class="sig-name descname"><span class="pre">getEdge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertexa</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertexb</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/ADT/graph.html#getEdge"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.graph.getEdge" title="Link to this definition"></a></dt>
+<dd><p>Retorna el arco asociado a los vertices vertexa —- vertexb</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>graph</strong> – El grafo sobre el que se ejecuta la operacion</p></li>
+<li><p><strong>vertexa</strong> – Vertice de inicio</p></li>
+<li><p><strong>vertexb</strong> – Vertice destino</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>El arco que une los verices vertexa y vertexb</p>
+</dd>
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.graph.addEdge">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.graph.</span></span><span class="sig-name descname"><span class="pre">addEdge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertexa</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertexb</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/ADT/graph.html#addEdge"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.graph.addEdge" title="Link to this definition"></a></dt>
+<dd><p>Agrega un arco entre los vertices vertexa —- vertexb, con peso weight.
+Si el grafo es no dirigido se adiciona dos veces el mismo arco,
+en el mismo orden
+Si el grafo es dirigido se adiciona solo el arco vertexa –&gt; vertexb</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>graph</strong> – El grafo sobre el que se ejecuta la operacion</p></li>
+<li><p><strong>vertexa</strong> – Vertice de inicio</p></li>
+<li><p><strong>vertexb</strong> – Vertice de destino</p></li>
+<li><p><strong>wight</strong> – peso del arco</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>El grafo con el nuevo arco</p>
+</dd>
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.graph.containsVertex">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.graph.</span></span><span class="sig-name descname"><span class="pre">containsVertex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/ADT/graph.html#containsVertex"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.graph.containsVertex" title="Link to this definition"></a></dt>
+<dd><p>Retorna si el vertice vertex esta presente en el grafo</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>graph</strong> – El grafo sobre el que se ejecuta la operacion</p></li>
+<li><p><strong>vertex</strong> – Vertice que se busca</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>True si el vertice esta presente</p>
+</dd>
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.graph.adjacents">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.graph.</span></span><span class="sig-name descname"><span class="pre">adjacents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/ADT/graph.html#adjacents"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.graph.adjacents" title="Link to this definition"></a></dt>
+<dd><p>Retorna una lista con todos los vertices adyacentes al vertice vertex</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>graph</strong> – El grafo sobre el que se ejecuta la operacion</p></li>
+<li><p><strong>vertex</strong> – El vertice del que se quiere la lista</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>La lista de adyacencias</p>
+</dd>
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.graph.adjacentEdges">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.graph.</span></span><span class="sig-name descname"><span class="pre">adjacentEdges</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/ADT/graph.html#adjacentEdges"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.graph.adjacentEdges" title="Link to this definition"></a></dt>
+<dd><p>Retorna una lista con todos los arcos asociados a los vértices
+adyacentes de vertex</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>graph</strong> – El grafo sobre el que se ejecuta la operacion</p></li>
+<li><p><strong>vertex</strong> – El vertice del que se quiere la lista</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>La lista de arcos adyacentes</p>
+</dd>
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="DISClib.ADT.graph.switch_module">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.graph.</span></span><span class="sig-name descname"><span class="pre">switch_module</span></span><a class="reference internal" href="../../../../_modules/DISClib/ADT/graph.html#switch_module"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.graph.switch_module" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.graph.graphSelector">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.graph.</span></span><span class="sig-name descname"><span class="pre">graphSelector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datastructure</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/ADT/graph.html#graphSelector"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.graph.graphSelector" title="Link to this definition"></a></dt>
+<dd><p>Carga dinamicamente el import de la estructura de datos
+seleccionada</p>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="../dynamic/index.html" class="btn btn-neutral float-left" title="DISClib.ADT.dynamic" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="../indexminpq/index.html" class="btn btn-neutral float-right" title="DISClib.ADT.indexminpq" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor Uniandes, Bogotá - Colombia, Sur América,
+             Facultad de Ingeniería, DISC Desarrollado
+             para ISIS-1225, EDA.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

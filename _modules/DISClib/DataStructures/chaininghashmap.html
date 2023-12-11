@@ -1,0 +1,550 @@
+﻿<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DISClib.DataStructures.chaininghashmap &mdash; documentación de DISClib - 0.0.1</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/fonts.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=6fcc102b"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script src="../../../_static/translations.js?v=efdbd0b9"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            DISClib
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">DISClib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../testmd.html">Example Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">DISClib</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Código de módulo</a></li>
+          <li class="breadcrumb-item"><a href="../../DISClib.html">DISClib</a></li>
+          <li class="breadcrumb-item"><a href="../DataStructures.html">DISClib.DataStructures</a></li>
+      <li class="breadcrumb-item active">DISClib.DataStructures.chaininghashmap</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Código fuente para DISClib.DataStructures.chaininghashmap</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd"> * Copyright 2020, Departamento de sistemas y Computación</span>
+<span class="sd"> * Universidad de Los Andes</span>
+<span class="sd"> *</span>
+<span class="sd"> *</span>
+<span class="sd"> * Desarrolado para el curso ISIS1225 - Estructuras de Datos y Algoritmos</span>
+<span class="sd"> *</span>
+<span class="sd"> *</span>
+<span class="sd"> * This program is free software: you can redistribute it and/or modify</span>
+<span class="sd"> * it under the terms of the GNU General Public License as published by</span>
+<span class="sd"> * the Free Software Foundation, either version 3 of the License, or</span>
+<span class="sd"> * (at your option) any later version.</span>
+<span class="sd"> *</span>
+<span class="sd"> * This program is distributed in the hope that it will be useful,</span>
+<span class="sd"> * but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="sd"> * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="sd"> * GNU General Public License for more details.</span>
+<span class="sd"> *</span>
+<span class="sd"> * You should have received a copy of the GNU General Public License</span>
+<span class="sd"> * along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+<span class="sd"> *</span>
+<span class="sd"> * Contribución de:</span>
+<span class="sd"> *</span>
+<span class="sd"> * Dario Correal</span>
+<span class="sd"> *</span>
+<span class="sd"> &quot;&quot;&quot;</span>
+
+
+<span class="kn">import</span> <span class="nn">random</span> <span class="k">as</span> <span class="nn">rd</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="c1"># import config</span>
+<span class="kn">from</span> <span class="nn">DISClib.DataStructures</span> <span class="kn">import</span> <span class="n">mapentry</span> <span class="k">as</span> <span class="n">me</span>
+<span class="kn">from</span> <span class="nn">DISClib.ADT</span> <span class="kn">import</span> <span class="n">lists</span> <span class="k">as</span> <span class="n">lt</span>
+<span class="kn">from</span> <span class="nn">DISClib.Utils</span> <span class="kn">import</span> <span class="n">error</span> <span class="k">as</span> <span class="n">error</span>
+<span class="c1"># assert config</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Implementación de una tabla de hash, utilizando Separate Chaining como</span>
+<span class="sd">mecanismo de manejo de colisiones.  Esta implementación crea una lista</span>
+<span class="sd">de tamaño capacity.  En cada posición de la lista, se crea una lista</span>
+<span class="sd">vacia.</span>
+
+<span class="sd">Este código está basado en las implementaciones propuestas en:</span>
+<span class="sd">- Algorithms, 4th Edition.  R. Sedgewick</span>
+<span class="sd">- Data Structures and Algorithms in Java, 6th Edition.  Michael Goodrich</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="c1"># GENERAL</span>
+<span class="c1">#FIXME Cambiar todas las funciones y variables al formato snake_case</span>
+<span class="c1">#TODO Explicar más a profundidad que tipo de excepciones y errores puede generar cada función</span>
+
+<span class="c1">#FIXME Modificar documentación relacionada a numelements</span>
+<div class="viewcode-block" id="newMap">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashmap/index.html#DISClib.DataStructures.chaininghashmap.newMap">[documentos]</a>
+<span class="k">def</span> <span class="nf">newMap</span><span class="p">(</span><span class="n">numelements</span><span class="p">,</span> <span class="n">prime</span><span class="p">,</span> <span class="n">loadfactor</span><span class="p">,</span> <span class="n">cmpfunction</span><span class="p">,</span> <span class="n">datastructure</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Crea una tabla de simbolos (map) sin orden</span>
+
+<span class="sd">    Crea una tabla de hash con capacidad igual a nuelements</span>
+<span class="sd">    (primo mas cercano al doble de numelements).</span>
+<span class="sd">    prime es un número primo utilizado para  el cálculo de los codigos</span>
+<span class="sd">    de hash, si no es provisto se  utiliza el primo 109345121.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        numelements: Tamaño inicial de la tabla</span>
+<span class="sd">        prime: Número primo utilizado en la función MAD</span>
+<span class="sd">        loadfactor: Factor de carga inicial de la tabla</span>
+<span class="sd">        cmpfunc: Funcion de comparación entre llaves</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        Un nuevo map</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">capacity</span> <span class="o">=</span> <span class="n">nextPrime</span><span class="p">(</span><span class="n">numelements</span><span class="o">//</span><span class="n">loadfactor</span><span class="p">)</span>
+        <span class="n">scale</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">prime</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">shift</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">prime</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="c1">#FIXME Cambiar por dataclass para facilitar su modelado y manejo errores</span>
+        <span class="n">hashtable</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;prime&#39;</span><span class="p">:</span> <span class="n">prime</span><span class="p">,</span>
+                     <span class="s1">&#39;capacity&#39;</span><span class="p">:</span> <span class="n">capacity</span><span class="p">,</span>
+                     <span class="s1">&#39;scale&#39;</span><span class="p">:</span> <span class="n">scale</span><span class="p">,</span>
+                     <span class="s1">&#39;shift&#39;</span><span class="p">:</span> <span class="n">shift</span><span class="p">,</span>
+                     <span class="s1">&#39;table&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                     <span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                     <span class="s1">&#39;limitfactor&#39;</span><span class="p">:</span> <span class="n">loadfactor</span><span class="p">,</span>
+                     <span class="s1">&#39;currentfactor&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                     <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;CHAINING&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;datastructure&#39;</span><span class="p">:</span> <span class="n">datastructure</span><span class="p">}</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">cmpfunction</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="n">cmpfunc</span> <span class="o">=</span> <span class="n">defaultcompare</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cmpfunc</span> <span class="o">=</span> <span class="n">cmpfunction</span>
+        <span class="n">hashtable</span><span class="p">[</span><span class="s1">&#39;cmpfunction&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cmpfunc</span>
+        <span class="n">hashtable</span><span class="p">[</span><span class="s1">&#39;table&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">newList</span><span class="p">(</span><span class="n">datastructure</span><span class="o">=</span><span class="s1">&#39;ARRAY_LIST&#39;</span><span class="p">,</span>
+                                        <span class="n">cmpfunction</span><span class="o">=</span><span class="n">cmpfunc</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">capacity</span><span class="p">):</span>
+            <span class="n">bucket</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">newList</span><span class="p">(</span><span class="n">datastructure</span><span class="o">=</span><span class="s1">&#39;SINGLE_LINKED&#39;</span><span class="p">,</span>
+                                <span class="n">cmpfunction</span><span class="o">=</span><span class="n">hashtable</span><span class="p">[</span><span class="s1">&#39;cmpfunction&#39;</span><span class="p">])</span>
+            <span class="n">lt</span><span class="o">.</span><span class="n">addLast</span><span class="p">(</span><span class="n">hashtable</span><span class="p">[</span><span class="s1">&#39;table&#39;</span><span class="p">],</span> <span class="n">bucket</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">hashtable</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1"># FIXME Ajustar mensaje de error para que sea más claro</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;Chain:newMap&#39;</span><span class="p">)</span></div>
+
+
+<span class="c1">#TODO Indicar en el retorno cuando es True y cuando es False, similar a la documentación de isEmpty</span>
+<div class="viewcode-block" id="contains">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashmap/index.html#DISClib.DataStructures.chaininghashmap.contains">[documentos]</a>
+<span class="k">def</span> <span class="nf">contains</span><span class="p">(</span><span class="nb">map</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Retorna True si la llave key se encuentra en el map</span>
+<span class="sd">        o False en caso contrario.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        map: El map a donde se guarda la pareja</span>
+<span class="sd">        key: la llave asociada a la pareja</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        True / False</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="nb">hash</span> <span class="o">=</span> <span class="n">hashValue</span><span class="p">(</span><span class="nb">map</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+        <span class="n">bucket</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">getElement</span><span class="p">(</span><span class="nb">map</span><span class="p">[</span><span class="s1">&#39;table&#39;</span><span class="p">],</span> <span class="nb">hash</span><span class="p">)</span>
+        <span class="n">pos</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">isPresent</span><span class="p">(</span><span class="n">bucket</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">pos</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1"># FIXME Ajustar mensaje de error para que sea más claro</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;Chain:contains&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="put">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashmap/index.html#DISClib.DataStructures.chaininghashmap.put">[documentos]</a>
+<span class="k">def</span> <span class="nf">put</span><span class="p">(</span><span class="nb">map</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Ingresa una pareja llave,valor a la tabla de hash.</span>
+<span class="sd">    Si la llave ya existe en la tabla, se reemplaza el valor</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        map: El map a donde se guarda la pareja</span>
+<span class="sd">        key: la llave asociada a la pareja</span>
+<span class="sd">        value: el valor asociado a la pareja</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        El map</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="nb">hash</span> <span class="o">=</span> <span class="n">hashValue</span><span class="p">(</span><span class="nb">map</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+        <span class="n">bucket</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">getElement</span><span class="p">(</span><span class="nb">map</span><span class="p">[</span><span class="s1">&#39;table&#39;</span><span class="p">],</span> <span class="nb">hash</span><span class="p">)</span>
+        <span class="n">entry</span> <span class="o">=</span> <span class="n">me</span><span class="o">.</span><span class="n">newMapEntry</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="n">pos</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">isPresent</span><span class="p">(</span><span class="n">bucket</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">pos</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>    <span class="c1"># La pareja ya exista, se reemplaza el valor</span>
+            <span class="n">lt</span><span class="o">.</span><span class="n">changeInfo</span><span class="p">(</span><span class="n">bucket</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">entry</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">lt</span><span class="o">.</span><span class="n">addLast</span><span class="p">(</span><span class="n">bucket</span><span class="p">,</span> <span class="n">entry</span><span class="p">)</span>   <span class="c1"># La llave no existia</span>
+            <span class="nb">map</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="nb">map</span><span class="p">[</span><span class="s1">&#39;currentfactor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">map</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="nb">map</span><span class="p">[</span><span class="s1">&#39;capacity&#39;</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nb">map</span><span class="p">[</span><span class="s1">&#39;currentfactor&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="nb">map</span><span class="p">[</span><span class="s1">&#39;limitfactor&#39;</span><span class="p">]):</span>
+            <span class="n">rehash</span><span class="p">(</span><span class="nb">map</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="nb">map</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1"># FIXME Ajustar mensaje de error para que sea más claro</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;Chain:put&#39;</span><span class="p">)</span></div>
+
+
+<span class="c1">#TODO Indicar que la pareja llave valor es un mapentry</span>
+<div class="viewcode-block" id="get">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashmap/index.html#DISClib.DataStructures.chaininghashmap.get">[documentos]</a>
+<span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="nb">map</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Retorna la pareja llave, valor, cuya llave sea igual a key</span>
+<span class="sd">    Args:</span>
+<span class="sd">        map: El map a donde se guarda la pareja</span>
+<span class="sd">        key: la llave asociada a la pareja</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Una pareja &lt;llave,valor&gt;</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="nb">hash</span> <span class="o">=</span> <span class="n">hashValue</span><span class="p">(</span><span class="nb">map</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+        <span class="n">bucket</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">getElement</span><span class="p">(</span><span class="nb">map</span><span class="p">[</span><span class="s1">&#39;table&#39;</span><span class="p">],</span> <span class="nb">hash</span><span class="p">)</span>
+        <span class="n">pos</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">isPresent</span><span class="p">(</span><span class="n">bucket</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">pos</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">lt</span><span class="o">.</span><span class="n">getElement</span><span class="p">(</span><span class="n">bucket</span><span class="p">,</span> <span class="n">pos</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1"># FIXME Ajustar mensaje de error para que sea más claro</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;Chain:get&#39;</span><span class="p">)</span></div>
+
+
+<span class="c1">#TODO Modificar documentación para que sea similar a las demás funciones</span>
+<div class="viewcode-block" id="remove">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashmap/index.html#DISClib.DataStructures.chaininghashmap.remove">[documentos]</a>
+<span class="k">def</span> <span class="nf">remove</span><span class="p">(</span><span class="nb">map</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Elimina la pareja llave,valor, donde llave == key.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        map: El map a donde se guarda la pareja</span>
+<span class="sd">        key: la llave asociada a la pareja</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        El map</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="nb">hash</span> <span class="o">=</span> <span class="n">hashValue</span><span class="p">(</span><span class="nb">map</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+        <span class="n">bucket</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">getElement</span><span class="p">(</span><span class="nb">map</span><span class="p">[</span><span class="s1">&#39;table&#39;</span><span class="p">],</span> <span class="nb">hash</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">bucket</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="n">pos</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">isPresent</span><span class="p">(</span><span class="n">bucket</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">pos</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">lt</span><span class="o">.</span><span class="n">deleteElement</span><span class="p">(</span><span class="n">bucket</span><span class="p">,</span> <span class="n">pos</span><span class="p">)</span>
+                <span class="nb">map</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="nb">map</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1"># FIXME Ajustar mensaje de error para que sea más claro</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;Chain:remove&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="size">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashmap/index.html#DISClib.DataStructures.chaininghashmap.size">[documentos]</a>
+<span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="nb">map</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;  Retorna  el número de entradas en la tabla de hash.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        map: El map</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        Tamaño del map</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">map</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span></div>
+
+
+
+<div class="viewcode-block" id="isEmpty">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashmap/index.html#DISClib.DataStructures.chaininghashmap.isEmpty">[documentos]</a>
+<span class="k">def</span> <span class="nf">isEmpty</span><span class="p">(</span><span class="nb">map</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Informa si la tabla de hash se encuentra vacia</span>
+<span class="sd">    Args:</span>
+<span class="sd">        map: El map</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        True: El map esta vacio</span>
+<span class="sd">        False: El map no esta vacio</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">bucket</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">newList</span><span class="p">()</span>
+        <span class="n">empty</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">for</span> <span class="n">pos</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">lt</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="nb">map</span><span class="p">[</span><span class="s1">&#39;table&#39;</span><span class="p">])):</span>
+            <span class="n">bucket</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">getElement</span><span class="p">(</span><span class="nb">map</span><span class="p">[</span><span class="s1">&#39;table&#39;</span><span class="p">],</span> <span class="n">pos</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">lt</span><span class="o">.</span><span class="n">isEmpty</span><span class="p">(</span><span class="n">bucket</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+                <span class="n">empty</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="k">break</span>
+        <span class="k">return</span> <span class="n">empty</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1"># FIXME Ajustar mensaje de error para que sea más claro</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;Chain:isempty&#39;</span><span class="p">)</span></div>
+
+
+<span class="c1">#TODO Indicar que la lista es de DISCLib</span>
+<div class="viewcode-block" id="keySet">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashmap/index.html#DISClib.DataStructures.chaininghashmap.keySet">[documentos]</a>
+<span class="k">def</span> <span class="nf">keySet</span><span class="p">(</span><span class="nb">map</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retorna una lista con todas las llaves de la tabla de hash</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        map: El map</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        lista de llaves</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">ltset</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">newList</span><span class="p">(</span><span class="s1">&#39;SINGLE_LINKED&#39;</span><span class="p">,</span> <span class="nb">map</span><span class="p">[</span><span class="s1">&#39;cmpfunction&#39;</span><span class="p">])</span>
+        <span class="k">for</span> <span class="n">pos</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">lt</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="nb">map</span><span class="p">[</span><span class="s1">&#39;table&#39;</span><span class="p">])):</span>
+            <span class="n">bucket</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">getElement</span><span class="p">(</span><span class="nb">map</span><span class="p">[</span><span class="s1">&#39;table&#39;</span><span class="p">],</span> <span class="n">pos</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+            <span class="k">if</span><span class="p">(</span><span class="ow">not</span> <span class="n">lt</span><span class="o">.</span><span class="n">isEmpty</span><span class="p">(</span><span class="n">bucket</span><span class="p">)):</span>
+                <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">lt</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">bucket</span><span class="p">)):</span>
+                    <span class="n">entry</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">getElement</span><span class="p">(</span><span class="n">bucket</span><span class="p">,</span> <span class="n">element</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+                    <span class="n">lt</span><span class="o">.</span><span class="n">addLast</span><span class="p">(</span><span class="n">ltset</span><span class="p">,</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">ltset</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1"># FIXME Ajustar mensaje de error para que sea más claro</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;Chain:keyset&#39;</span><span class="p">)</span></div>
+
+
+<span class="c1">#TODO Indicar que la lista es de DISCLib</span>
+<div class="viewcode-block" id="valueSet">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashmap/index.html#DISClib.DataStructures.chaininghashmap.valueSet">[documentos]</a>
+<span class="k">def</span> <span class="nf">valueSet</span><span class="p">(</span><span class="nb">map</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retorna una lista con todos los valores de la tabla de hash</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        map: El map</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        lista de valores</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">ltset</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">newList</span><span class="p">(</span><span class="s1">&#39;SINGLE_LINKED&#39;</span><span class="p">,</span> <span class="nb">map</span><span class="p">[</span><span class="s1">&#39;cmpfunction&#39;</span><span class="p">])</span>
+        <span class="k">for</span> <span class="n">pos</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">lt</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="nb">map</span><span class="p">[</span><span class="s1">&#39;table&#39;</span><span class="p">])):</span>
+            <span class="n">bucket</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">getElement</span><span class="p">(</span><span class="nb">map</span><span class="p">[</span><span class="s1">&#39;table&#39;</span><span class="p">],</span> <span class="n">pos</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">lt</span><span class="o">.</span><span class="n">isEmpty</span><span class="p">(</span><span class="n">bucket</span><span class="p">)):</span>
+                <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">lt</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">bucket</span><span class="p">)):</span>
+                    <span class="n">entry</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">getElement</span><span class="p">(</span><span class="n">bucket</span><span class="p">,</span> <span class="n">element</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+                    <span class="n">lt</span><span class="o">.</span><span class="n">addLast</span><span class="p">(</span><span class="n">ltset</span><span class="p">,</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">ltset</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1"># FIXME Ajustar mensaje de error para que sea más claro</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;Chain, valueset&#39;</span><span class="p">)</span></div>
+
+
+
+<span class="c1"># __________________________________________________________________</span>
+<span class="c1">#       Helper Functions</span>
+<span class="c1"># __________________________________________________________________</span>
+
+<span class="c1">#FIXME Agregar parametros, retorno y excepciones en la documentación.</span>
+<div class="viewcode-block" id="rehash">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashmap/index.html#DISClib.DataStructures.chaininghashmap.rehash">[documentos]</a>
+<span class="k">def</span> <span class="nf">rehash</span><span class="p">(</span><span class="nb">map</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Se aumenta la capacida de la tabla al doble y se hace</span>
+<span class="sd">    rehash de todos los elementos de la tabla</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">newtable</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">newList</span><span class="p">(</span><span class="s1">&#39;ARRAY_LIST&#39;</span><span class="p">,</span> <span class="nb">map</span><span class="p">[</span><span class="s1">&#39;cmpfunction&#39;</span><span class="p">])</span>
+        <span class="n">capacity</span> <span class="o">=</span> <span class="n">nextPrime</span><span class="p">(</span><span class="nb">map</span><span class="p">[</span><span class="s1">&#39;capacity&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">oldtable</span> <span class="o">=</span> <span class="nb">map</span><span class="p">[</span><span class="s1">&#39;table&#39;</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">capacity</span><span class="p">):</span>
+            <span class="n">bucket</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">newList</span><span class="p">(</span><span class="n">datastructure</span><span class="o">=</span><span class="s1">&#39;SINGLE_LINKED&#39;</span><span class="p">,</span>
+                                <span class="n">cmpfunction</span><span class="o">=</span><span class="nb">map</span><span class="p">[</span><span class="s1">&#39;cmpfunction&#39;</span><span class="p">])</span>
+            <span class="n">lt</span><span class="o">.</span><span class="n">addLast</span><span class="p">(</span><span class="n">newtable</span><span class="p">,</span> <span class="n">bucket</span><span class="p">)</span>
+        <span class="nb">map</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="nb">map</span><span class="p">[</span><span class="s1">&#39;currentfactor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="nb">map</span><span class="p">[</span><span class="s1">&#39;table&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">newtable</span>
+        <span class="nb">map</span><span class="p">[</span><span class="s1">&#39;capacity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">capacity</span>
+        <span class="k">for</span> <span class="n">pos</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">lt</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">oldtable</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">bucket</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">getElement</span><span class="p">(</span><span class="n">oldtable</span><span class="p">,</span> <span class="n">pos</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">lt</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">bucket</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">posbucket</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">lt</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">bucket</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+                    <span class="n">entry</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">getElement</span><span class="p">(</span><span class="n">bucket</span><span class="p">,</span> <span class="n">posbucket</span><span class="p">)</span>
+                    <span class="n">put</span><span class="p">(</span><span class="nb">map</span><span class="p">,</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">],</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="nb">map</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1"># FIXME Ajustar mensaje de error para que sea más claro</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s2">&quot;Chain:rehash&quot;</span><span class="p">)</span></div>
+
+
+<span class="c1">#FIXME Agregar parametros, retorno y excepciones en la documentación.</span>
+<div class="viewcode-block" id="hashValue">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashmap/index.html#DISClib.DataStructures.chaininghashmap.hashValue">[documentos]</a>
+<span class="k">def</span> <span class="nf">hashValue</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calcula un hash para una llave, utilizando el método</span>
+<span class="sd">    MAD : hashValue(y) = ((ay + b) % p) % M.</span>
+<span class="sd">    Donde:</span>
+<span class="sd">    M es el tamaño de la tabla, primo</span>
+<span class="sd">    p es un primo mayor a M,</span>
+<span class="sd">    a y b enteros aleatoreos dentro del intervalo [0,p-1], con a&gt;0</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="p">(</span><span class="nb">hash</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="s1">&#39;scale&#39;</span><span class="p">]</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="s1">&#39;shift&#39;</span><span class="p">]</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="s1">&#39;prime&#39;</span><span class="p">]</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="s1">&#39;capacity&#39;</span><span class="p">]</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="nb">abs</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">h</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">%</span> <span class="n">p</span><span class="p">)</span> <span class="o">%</span> <span class="n">m</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">value</span></div>
+
+
+
+<span class="c1"># Function that returns True if n</span>
+<span class="c1"># is prime else returns False</span>
+<span class="c1"># This code is contributed by Sanjit_Prasad</span>
+
+<span class="c1">#FIXME Agregar documentación para que siga el formato que las demás funciones.</span>
+<div class="viewcode-block" id="isPrime">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashmap/index.html#DISClib.DataStructures.chaininghashmap.isPrime">[documentos]</a>
+<span class="k">def</span> <span class="nf">isPrime</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="c1"># Corner cases</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">6</span><span class="p">):</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">n</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">n</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">return</span> <span class="kc">True</span></div>
+
+
+
+<span class="c1"># Function to return the smallest</span>
+<span class="c1"># prime number greater than N</span>
+<span class="c1"># # This code is contributed by Sanjit_Prasad</span>
+<span class="c1">#FIXME Agregar documentación para que siga el formato que las demás funciones.</span>
+<div class="viewcode-block" id="nextPrime">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashmap/index.html#DISClib.DataStructures.chaininghashmap.nextPrime">[documentos]</a>
+<span class="k">def</span> <span class="nf">nextPrime</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="c1"># Base case</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">N</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">2</span>
+    <span class="n">prime</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+    <span class="n">found</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="c1"># Loop continuously until isPrime returns</span>
+    <span class="c1"># True for a number greater than n</span>
+    <span class="k">while</span><span class="p">(</span><span class="ow">not</span> <span class="n">found</span><span class="p">):</span>
+        <span class="n">prime</span> <span class="o">=</span> <span class="n">prime</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">isPrime</span><span class="p">(</span><span class="n">prime</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">):</span>
+            <span class="n">found</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">prime</span><span class="p">)</span></div>
+
+
+<span class="c1">#FIXME Agregar documentación para que siga el formato que las demás funciones.</span>
+<div class="viewcode-block" id="defaultcompare">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashmap/index.html#DISClib.DataStructures.chaininghashmap.defaultcompare">[documentos]</a>
+<span class="k">def</span> <span class="nf">defaultcompare</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">element</span><span class="p">):</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">key</span> <span class="o">==</span> <span class="n">element</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]):</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">elif</span><span class="p">(</span><span class="n">key</span> <span class="o">&gt;</span> <span class="n">element</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]):</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor Uniandes, Bogotá - Colombia, Sur América,
+             Facultad de Ingeniería, DISC Desarrollado
+             para ISIS-1225, EDA.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

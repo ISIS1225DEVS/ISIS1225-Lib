@@ -1,0 +1,108 @@
+:py:mod:`DISClib.ADT.dynamic`
+=============================
+
+.. py:module:: DISClib.ADT.dynamic
+
+.. autoapi-nested-parse::
+
+   Esta clase permite importar dinámicamente módulos y clases de módulos
+   dentro de DISClib.
+
+   *IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:
+
+       #. Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.
+       #. Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H. Goldwasser.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   DISClib.ADT.dynamic.DynamicImporter
+
+
+
+
+.. py:class:: DynamicImporter(implementation: str, package: str, **kwargs)
+
+
+   *DynamicImporter* permite importar dinámicamente módulos y clases de módulos según la configuración de un archivo JSON y las especificaciones del usuario.
+
+   :raises ValueError: no se puede importar el módulo especificado.
+
+   :returns: instancia de la clase dinámica.
+   :rtype: DynamicImporter
+
+   .. py:attribute:: package
+      :type: str
+      :value: ''
+
+      Nombre del paquete en el directorio de compilación.
+
+   .. py:attribute:: implementation
+      :type: str
+      :value: ''
+
+      Nombre del paquete en el directorio dentro del código fuente.
+
+   .. py:attribute:: _module
+
+      Referencia privada al módulo dinámico.
+
+   .. py:attribute:: _class
+
+      Referencia privada a la clase dinámica seleccionada.
+
+   .. py:attribute:: _instance
+
+      Referencia privada a la instancia de la clase dinámica seleccionada.
+
+   .. py:method:: __post_init__()
+
+      *__post_init__()* función post inicialización. Permite cambiar el nombre de la clase dinámica por el nombre de la clase concreta seleccionada por el usuario.
+
+
+
+   .. py:method:: __repr__() -> str
+
+      *__repr__* función de representación. Permite representar la clase dinámica como la clase concreta seleccionada por el usuario.
+
+      :returns: representación de la clase concreta seleccionada.
+      :rtype: str
+
+
+   .. py:method:: get_instance()
+
+      *get_instance()* retorna la instancia de la clase concreta seleccionada por el usuario.
+
+      :returns: instancia de la clase concreta seleccionada.
+      :rtype: dataclass
+
+
+   .. py:method:: __class__() -> type
+      :classmethod:
+
+      *__class__* retorna el tipo de la clase concreta seleccionada por el usuario.
+
+      :returns: tipo de la clase concreta seleccionada.
+      :rtype: type
+
+
+   .. py:method:: __instancecheck__(instance) -> bool
+      :classmethod:
+
+      *__instancecheck__* permite verificar si una instancia es de la clase concreta seleccionada por el usuario.
+
+      :param instance: instancia a verificar.
+      :type instance: T
+
+      :returns: True si la instancia es de la clase concreta seleccionada.
+      :rtype: bool
+
+
+

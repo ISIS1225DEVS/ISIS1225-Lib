@@ -1,0 +1,33 @@
+:py:mod:`DISClib.Algorithms.Graphs`
+===================================
+
+.. py:module:: DISClib.Algorithms.Graphs
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   bellmanford/index.rst
+   bfs/index.rst
+   cycles/index.rst
+   dfo/index.rst
+   dfs/index.rst
+   dijsktra/index.rst
+   prim/index.rst
+   scc/index.rst
+
+
+Package Contents
+----------------
+
+.. py:data:: file_path
+
+   
+
+.. py:data:: file_dir
+
+   
+

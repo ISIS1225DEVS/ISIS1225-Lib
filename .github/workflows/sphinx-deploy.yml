@@ -4,7 +4,8 @@ on:
   push:
     branches:
       - main # Set this to your default branch
-
+      - dataclass
+      
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest

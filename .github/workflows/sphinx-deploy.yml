@@ -31,7 +31,7 @@ jobs:
           pip install sphinx-gitstamp
           pip install sphinx-prompt
           pip install myst-parser
-          pip install sphinx-rtd-theme
+          pip install renku-sphinx-theme
           pip install markdown-it-py
           pip install linkify-it-py
 

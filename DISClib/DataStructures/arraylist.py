@@ -1,5 +1,5 @@
 """
-Esta clase representa una estructura de datos lineal, específicamente un arreglo dinámico (ArrayList). El arreglo dinámico es una estructura de datos que permite almacenar un conjunto de elementos del mismo tipo, en la cual se puede acceder y procesar sus elementos utilizando las funciones/métodos propios de la estructura.
+Este ADT representa una estructura de datos lineal, específicamente un arreglo dinámico (ArrayList). El arreglo dinámico es una estructura de datos que permite almacenar un conjunto de elementos del mismo tipo, en la cual se puede acceder y procesar sus elementos utilizando las funciones/métodos propios de la estructura.
 
 *IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:
 
@@ -18,15 +18,13 @@ import inspect
 # custom modules
 # generic error handling and type checking
 from DISClib.Utils.error import error_handler
-from DISClib.Utils.error import init_type_checker
 from DISClib.Utils.default import lt_default_cmp_funcion
 from DISClib.Utils.default import T
 from DISClib.Utils.default import DEFAULT_DICT_KEY
 from DISClib.Utils.default import VALID_IO_TYPE
 
-# checking costum modules
+# checking custom modules
 assert error_handler
-assert init_type_checker
 assert lt_default_cmp_funcion
 assert T
 assert DEFAULT_DICT_KEY
@@ -35,10 +33,10 @@ assert VALID_IO_TYPE
 
 @dataclass
 class ArrayList(Generic[T]):
-    """*ArrayList* representa la estructura de datos para arreglos dinamicos (Array List), Implementada con la anotación '@dataclass' de python y el decorador 'Generic[T]' para que sea una estructura de datos genérica.
+    """**ArrayList** representa la estructura de datos para arreglos dinamicos (Array List), Implementada con Generic[T] y @dataclass para que sea una estructura de datos genérica.
 
     Args:
-        Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para representar una estructura de datos genéricas en python.
+        Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.
 
     Returns:
         ArrayList: ADT de tipo ArrayList o Arreglo Dinámico.
@@ -63,25 +61,25 @@ class ArrayList(Generic[T]):
     # :attr: _size
     _size: int = 0
     """
-    Atributo privado que representa el tamaño de la estructura, por defecto es 0.
+    Es el número de elementos que contiene la estructura, por defecto es 0 y se actualiza con cada operación que modifica la estructura.
     """
 
     # the cmp_function is used to compare elements, not defined by default
     # :attr: cmp_function
     cmp_function: Optional[Callable[[T, T], int]] = None
     """
-    Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es 'None' y el __post_init__ configura la función por defecto lt_default_cmp_funcion().
+    Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es None y el *__post_init__()* configura la función por defecto *lt_default_cmp_funcion()*.
     """
 
     # the key is used to compare elements, not defined by default
     # :attr: key
     key: Optional[str] = None
     """
-    Nombre de la llave opcional que se utiliza para comparar los elementos del ArrayList, Por defecto es 'None' y el __post_init__ configura la llave por defecto la llave 'id' en DEFAULT_DICT_KEY.
+    Nombre de la llave opcional que se utiliza para comparar los elementos del ArrayList, Por defecto es 'None' y el *__post_init__()* configura la llave por defecto la llave 'id' en *DEFAULT_DICT_KEY*.
     """
 
     def __post_init__(self) -> None:
-        """*__post_init__()* configura los valores por defecto para la llave (key) y la función de comparación (cmp_function). Si el usuario incluye una lista nativa de python como argumento, se agrega a la lista de elementos del ArrayList.
+        """*__post_init__()* configura los valores por defecto para la llave ('key') y la función de comparación ('cmp_function'). Si el usuario incluye una lista nativa de python como argumento, se agrega a la lista de elementos del ArrayList.
         """
         try:
             # if the key is not defined, use the default
@@ -118,7 +116,7 @@ class ArrayList(Generic[T]):
     def _handle_error(self, err: Exception) -> None:
         """*_handle_error()* función privada que maneja los errores que se pueden presentar en el ArrayList.
 
-        Si se presenta un error en el ArrayList, se formatea el error según el contexto (paquete/clase) y la función que lo generó, y lo reenvia al componente superior en la jerarquía de llamados para manejarlo segun sea considere conveniente.
+        Si se presenta un error en ArrayList, se formatea el error según el contexto (paquete/clase), la función que lo generó y lo reenvia al componente superior en la jerarquía de llamados para manejarlo segun se considere conveniente.
 
         Args:
             err (Exception): Excepción que se generó en el ArrayList.
@@ -168,7 +166,7 @@ class ArrayList(Generic[T]):
 
     # @property
     def size(self) -> int:
-        """*size()* devuelve el numero de elementos que actualmente contiene el ArrayList.
+        """*size()* devuelve el número de elementos que actualmente contiene el ArrayList.
 
         Returns:
             int: tamaño de la estructura ArrayList.
@@ -186,7 +184,7 @@ class ArrayList(Generic[T]):
             element (T): elemento que se quiere agregar a la estructura.
 
         Raises:
-            Exception: si la operación no se puede realizar, se invoca la función '_handle_error()' para manejar el error.
+            Exception: si la operación no se puede realizar, se invoca la función *_handle_error()* para manejar el error.
         """
         try:
             # if the element type is valid, add it to the list
@@ -203,7 +201,7 @@ class ArrayList(Generic[T]):
             element (T): elemento que se quiere agregar a la estructura.
 
         Raises:
-            Exception: si la operación no se puede realizar, se invoca la función '_handle_error()' para manejar el error.
+            Exception: si la operación no se puede realizar, se invoca la función *_handle_error()* para manejar el error.
         """
         try:
             # if the element type is valid, add it to the list
@@ -272,7 +270,7 @@ class ArrayList(Generic[T]):
     def get_element(self, pos: int) -> T:
         """*get_element()* lee un elemento en una posición dada del ArrayList.
 
-        Args:._size-1
+        Args:
             pos (int): índice en la que se quiere agregar el elemento.
 
         Raises:
@@ -379,8 +377,8 @@ class ArrayList(Generic[T]):
         except Exception as err:
             self._handle_error(err)
 
-    def is_present(self, element: T) -> int:
-        """*is_present()* revisa si un elemento está en el ArrayList.
+    def find(self, element: T) -> int:
+        """*find()* revisa si un elemento está en el ArrayList.
 
         Args:
             element (T): elemento que se quiere revisar en el ArrayList.
@@ -524,7 +522,7 @@ class ArrayList(Generic[T]):
             self._handle_error(err)
 
     def __iter__(self):
-        """*__iter__* iterador intervinido la función nativa __iter__ para recorrer un ArrayList dentro de un ciclo 'for' de python.
+        """*__iter__()* iterador nativo de Python intervenida por la estructura de datos para recorrer los elementos del ArrayList utilizando un ciclo 'for' de python.
 
         Returns:
             __iter__: iterador Python sobre los elementos del ArrayList.
@@ -535,8 +533,7 @@ class ArrayList(Generic[T]):
             self._handle_error(err)
 
     def __len__(self) -> int:
-        """*__len__* función nativa intervenida que devuelve el tamaño del
-        ArrayList.
+        """*__len__()* función nativa de Python intervenida por la estructura de datosv para recuperar el tamaño del ArrayList.
 
         Returns:
             int: tamaño del ArrayList.

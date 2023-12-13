@@ -42,7 +42,7 @@ Referencia a los posibles módulos de implementación del ADT List. Pueden ser "
 
 # TODO is this really factory pattern?
 def List(dstruct: str = "ArrayList", **kwargs) -> T:
-    """*List()* Función con patrón de diseño 'factory' que retorna una     instancia del ADT List según el tipo de estructura de datos seleccionada por el usuario.
+    """*List()* Función dinámica que que retorna una instancia del ADT List según el tipo de estructura de datos seleccionada por el usuario.
 
     Args:
         dstruct (str, optional): Tipo de estructura de datos a instanciar. Por defecto es "ArrayList". Puende ser "ArrayList", "SingleLinked" o "DoubleLinked".

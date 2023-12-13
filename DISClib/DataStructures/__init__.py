@@ -8,10 +8,20 @@ from .arraylist import ArrayList
 from .singlelinkedlist import SingleLinked
 from .doublelinkedlist import DoubleLinked
 
+# M2
+from .mapentry import MapEntry
+from .chaininghashtable import SeparateChaining
+from .probinghashtable import LinearProbing
+
 # checking modules in M1 namespace
 assert ArrayList
 assert SingleLinked
 assert DoubleLinked
+
+# checking modules in M2 namespace
+assert MapEntry
+assert SeparateChaining
+assert LinearProbing
 
 # config the path to the DISCLib folder
 # TODO this used to be in config.py

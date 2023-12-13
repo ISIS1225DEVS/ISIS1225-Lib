@@ -1,6 +1,5 @@
 ﻿"""
-Esta clase permite importar dinámicamente módulos y clases de módulos
-dentro de DISClib.
+Este módulo permite importar dinámicamente módulos, funciones y estructuras de datos (ADTs) de módulos dentro de DISClib según las especificaciones del usuario.
 
 *IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:
 
@@ -14,7 +13,7 @@ import importlib
 
 
 class DynamicImporter:
-    """ *DynamicImporter* permite importar dinámicamente módulos y clases de módulos según la configuración de un archivo JSON y las especificaciones del usuario.
+    """ **DynamicImporter** permite importar dinámicamente módulos y clases de módulos según la configuración de un archivo JSON y las especificaciones del usuario.
 
     Raises:
         ValueError: no se puede importar el módulo especificado.

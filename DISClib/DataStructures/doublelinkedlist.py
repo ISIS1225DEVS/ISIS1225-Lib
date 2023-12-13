@@ -1,5 +1,5 @@
 """
-Esta clase representa una estructura de datos lineal, específicamente una lista doblemente enlazada/encadenada (DoubleLinked). Esta estructura de datos es una secuencia de nodos enlazados, donde cada nodo contiene un elemento de información, una referencia al siguiente, y al anterior nodo en la secuencia. Esto le permite a la lista un crecimiento y reducción dinámico en la memoria disponible.
+Este ADT representa una estructura de datos lineal, específicamente una lista doblemente enlazada/encadenada (DoubleLinked). Esta estructura de datos es una secuencia de nodos enlazados, donde cada nodo contiene un elemento de información, una referencia al siguiente, y al anterior nodo en la secuencia. Esto le permite a la lista un crecimiento y reducción dinámico en la memoria disponible.
 
 *IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:
 
@@ -20,15 +20,13 @@ import inspect
 from DISClib.DataStructures.listnode import DoubleNode
 # generic error handling and type checking
 from DISClib.Utils.error import error_handler
-from DISClib.Utils.error import init_type_checker
 from DISClib.Utils.default import lt_default_cmp_funcion
 from DISClib.Utils.default import T
 from DISClib.Utils.default import DEFAULT_DICT_KEY
 from DISClib.Utils.default import VALID_IO_TYPE
 
-# checking costum modules
+# checking custom modules
 assert error_handler
-assert init_type_checker
 assert lt_default_cmp_funcion
 assert T
 assert DEFAULT_DICT_KEY
@@ -37,10 +35,10 @@ assert VALID_IO_TYPE
 
 @dataclass
 class DoubleLinked(Generic[T]):
-    """DoubleLinked Clase que representa una estructura de datos de tipo DoubleLinked con la anotación '@dataclass' de python y el decorador 'Generic[T]' para indicar que es una estructura de datos genérica.
+    """**DoubleLinked** representa una estructura de datos de tipo DoubleLinked con la anotación '@dataclass' de python y el decorador 'Generic[T]' para indicar que es una estructura de datos genérica.
 
     Args:
-        Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para representar una estructura de datos genéricas en python.
+        Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.
 
     Returns:
         DoubleLinked: ADT de tipo DoubleLinked o Lista Doblemente Encadenada.
@@ -57,14 +55,14 @@ class DoubleLinked(Generic[T]):
     _header: Optional[DoubleNode[T]] = field(
         default_factory=lambda: DoubleNode())
     """
-    Atributo privado que representa el nodo sentinela de la cabecera de la estructura, por defecto es un DoubleNode vacío.
+    Representa el nodo sentinela de la cabecera de la estructura, por defecto es un DoubleNode vacío.
     """
     # reference to the trailer node of the list, DoubleNode by default
     # :attr: _trailer
     _trailer: Optional[DoubleNode[T]] = field(
         default_factory=lambda: DoubleNode())
     """
-    Atributo privado que representa el nodo sentinela del final de la estructura, por defecto es un DoubleNode vacío.
+    Representa el nodo sentinela del final de la estructura, por defecto es un DoubleNode vacío.
     """
 
     # by default, the list is empty, -1 for the header and trailer nodes
@@ -72,25 +70,25 @@ class DoubleLinked(Generic[T]):
     # :attr: _size
     _size: int = -1
     """
-    Atributo privado que representa el tamaño de la estructura, por defecto es -1 para ajustar por los nodos sentinela de la cabecera y el final de la estructura.
+    Es el número de elementos que contiene la estructura, por defecto es 0, por defecto es -1 para ajustar por los nodos sentinelas de la estructura.
     """
 
     # the cmp_function is used to compare elements, not defined by default
     # :attr: cmp_function
     cmp_function: Optional[Callable[[T, T], int]] = None
     """
-    Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es 'None' y el __post_init__ configura la función por defecto lt_default_cmp_funcion().
+    Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es 'None' y el *__post_init__()* configura la función por defecto *lt_default_cmp_funcion()*.
     """
 
     # the key is used to compare elements, not defined by default
     # :attr: key
     key: Optional[str] = None
     """
-    Nombre de la llave opcional que se utiliza para comparar los elementos del ArrayList, Por defecto es 'None' y el __post_init__ configura la llave por defecto la llave 'id' en DEFAULT_DICT_KEY.
+    Nombre de la llave opcional que se utiliza para comparar los elementos del ArrayList, Por defecto es 'None' y el *__post_init__()* configura la llave por defecto la llave 'id' en *DEFAULT_DICT_KEY*.
     """
 
     def __post_init__(self) -> None:
-        """*__post_init__()* configura los valores por defecto para la llave (key) y la función de comparación (cmp_function). Si el usuario incluye una lista nativa de python como argumento, se agrega a la lista de elementos del DoubleLinked.
+        """*__post_init__()* configura los valores por defecto para la llave ('key') y la función de comparación ('cmp_function'). Si el usuario incluye una lista nativa de python como argumento, se agrega a la lista de elementos del DoubleLinked.
         """
         try:
             # Link sentinel nodes
@@ -182,7 +180,7 @@ class DoubleLinked(Generic[T]):
 
     # @property
     def size(self) -> int:
-        """*size()* devuelve el numero de elementos que actualmente contiene el DoubleLinked.
+        """*size()* devuelve el número de elementos que actualmente contiene el DoubleLinked.
 
         Returns:
             int: tamaño de la estructura DoubleLinked.
@@ -202,7 +200,7 @@ class DoubleLinked(Generic[T]):
             element (T): elemento que se quiere agregar a la estructura.
 
         Raises:
-            Exception: si la operación no se puede realizar, se invoca la función '_handle_error()' para manejar el error.
+            Exception: si la operación no se puede realizar, se invoca la función *_handle_error()* para manejar el error.
         """
         try:
             # if the element type is valid, add it to the list
@@ -229,7 +227,7 @@ class DoubleLinked(Generic[T]):
             element (T): elemento que se quiere agregar a la estructura.
 
         Raises:
-            Exception: si la operación no se puede realizar, se invoca la función '_handle_error()' para manejar el error.
+            Exception: si la operación no se puede realizar, se invoca la función *_handle_error()* para manejar el error.
         """
         try:
             # if the element type is valid, add it to the list
@@ -501,8 +499,8 @@ class DoubleLinked(Generic[T]):
         except Exception as err:
             self._handle_error(err)
 
-    def is_present(self, element: T) -> int:
-        """*is_present()* revisa si un elemento está en el DoubleLinked.
+    def find(self, element: T) -> int:
+        """*find()* revisa si un elemento está en el DoubleLinked.
 
         Args:
             element (T): elemento que se quiere revisar en el DoubleLinked.
@@ -702,7 +700,7 @@ class DoubleLinked(Generic[T]):
             current = current.prev()
 
     def __len__(self) -> int:
-        """*__len__* función nativa intervenida que devuelve el tamaño del DoubleLinked.
+        """*__len__()* función nativa intervenida que devuelve el tamaño del DoubleLinked.
 
         Returns:
             int: tamaño del DoubleLinked.

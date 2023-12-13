@@ -1,5 +1,5 @@
 ﻿"""
-Esta clase representa un nodo de información de una estructura de datos dinámica, las cuales pueden ser: listas sencillas, listas doblemente encadenadas, pilas, colas, BST, RBT, entre otras.
+Esta ADT representa un nodo de información de una estructura de datos dinámica, las cuales pueden ser: listas sencillas, listas doblemente encadenadas, pilas, colas, BST, RBT, entre otras.
 
 *IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:
 
@@ -19,21 +19,20 @@ import inspect
 # custom modules
 # generic error handling and type checking
 from DISClib.Utils.error import error_handler
-from DISClib.Utils.error import init_type_checker
+# from DISClib.Utils.error import init_type_checker
 from DISClib.Utils.default import T
 
-# checking costum modules
+# checking custom modules
 assert error_handler
-assert init_type_checker
 assert T
 
 
 @dataclass
 class Node(Generic[T]):
-    """*Node* Es una clase que representar un nodo de una lista sencilla o doblemente encadenada. Contiene la información del nodo y las funciones basicas para acceder a ella.
+    """**Node** Es el ADT que representar la información de un nodo de una estructura de datos dinámica y las funciones basicas para acceder a ella. Puede utilizarse para representar un nodo de una lista sencilla o doblemente encadenada.
 
     Args:
-        Generic (T): Tipo de dato genérico dentro del nodo.
+        Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.
 
     Raises:
         TypeError: error si la información del nodo no es del tipo adecuado.
@@ -48,23 +47,10 @@ class Node(Generic[T]):
     Es la información contenida en el nodo.
     """
 
-    def __post_init__(self):
-        """*__post_init__()* revisa que la información al crear un nodo sea valida.
-        """
-        try:
-            # if the info attribute is not None, check its type
-            if self.info is not None:
-                cur_function = inspect.currentframe().f_code.co_name
-                cur_context = self.__class__.__name__
-                init_type_checker(cur_context, cur_function, self.info)
-        # if an error occurs, handle it
-        except Exception as err:
-            self._handle_error(err)
-
     def _handle_error(self, err: Exception) -> None:
         """*_handle_error()* función privada para manejar los errores que se presentan en la clase Node.
 
-        Si se presenta un error en el Node, se formatea el error según el contexto (paquete/clase) y la función que lo generó, y lo reenvia al componente superior en la jerarquía de llamados para manejarlo segun se considere conveniente.
+        Si se presenta un error en Node, se formatea el error según el contexto (paquete/clase), la función que lo generó y lo reenvia al componente superior en la jerarquía de llamados para manejarlo segun se considere conveniente.
 
         Args:
             err (Exception): Excepción que se generó en el Node.
@@ -85,7 +71,7 @@ class Node(Generic[T]):
         Returns:
             bool: operador que indica si el tipo de dato del elemento es el mismo que el tipo de dato de los elementos que ya contiene la estructura de datos.
         """
-        if element is not None and not isinstance(element, type(self.info)):
+        if not isinstance(element, type(self.info)):
             err_msg = f"Invalid data type: {type(self.info)} "
             err_msg += f"for element info: {type(element)}"
             raise TypeError(err_msg)

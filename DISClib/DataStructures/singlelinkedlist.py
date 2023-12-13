@@ -1,5 +1,5 @@
 ﻿"""
-Esta clase representa una estructura de datos lineal, específicamente una lista sensillamente enlazada/encadenada (SingleLinked). Esta estructura de datos es una secuencia de nodos enlazados, donde cada nodo contiene un elemento de información y una referencia al siguiente nodo en la secuencia. Esto le permite a la lista un crecimiento y reducción dinámico en la memoria disponible.
+Este ADT representa una estructura de datos lineal, específicamente una lista sensillamente enlazada/encadenada (SingleLinked). Esta estructura de datos es una secuencia de nodos enlazados, donde cada nodo contiene un elemento de información y una referencia al siguiente nodo en la secuencia. Esto le permite a la lista un crecimiento y reducción dinámico en la memoria disponible.
 
 *IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:
 
@@ -20,15 +20,13 @@ import inspect
 from DISClib.DataStructures.listnode import SingleNode
 # generic error handling and type checking
 from DISClib.Utils.error import error_handler
-from DISClib.Utils.error import init_type_checker
 from DISClib.Utils.default import lt_default_cmp_funcion
 from DISClib.Utils.default import T
 from DISClib.Utils.default import DEFAULT_DICT_KEY
 from DISClib.Utils.default import VALID_IO_TYPE
 
-# checking costum modules
+# checking custom modules
 assert error_handler
-assert init_type_checker
 assert lt_default_cmp_funcion
 assert T
 assert DEFAULT_DICT_KEY
@@ -37,10 +35,10 @@ assert VALID_IO_TYPE
 
 @dataclass
 class SingleLinked(Generic[T]):
-    """*SingleLinked* Clase que representa una estructura de datos de tipo SingleLinked con la anotación '@dataclass' de python y el decorador 'Generic[T]' para indicar que es una estructura de datos genérica.
+    """**SingleLinked** representa una estructura de datos dinámica de tipo lista sensillamente encadenada (Single Linked List), Implementada con Generic[T] y @dataclass para que sea una estructura de datos genérica.
 
     Args:
-        Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para representar una estructura de datos genéricas en python.
+        Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.
 
     Returns:
         SingleLinked: ADT de tipo SingleLinked o Lista Sensillamente Encadenada.
@@ -56,14 +54,14 @@ class SingleLinked(Generic[T]):
     # :attr: first
     first: Optional[SingleNode[T]] = None
     """
-    Atributo publico que representa el primer nodo del SingleLinked.
+    Representa el la referencia en memoria al primer nodo del SingleLinked.
     """
 
     # reference to the last node of the list
     # :attr: last
     last: Optional[SingleNode[T]] = None
     """
-    Atributo publico que representa el último nodo del SingleLinked.
+    Representa la referencia en memoria al último nodo del SingleLinked.
     """
 
     # by default, the list is empty
@@ -71,25 +69,25 @@ class SingleLinked(Generic[T]):
     # :attr: _size
     _size: int = 0
     """
-    Atributo privado que representa el tamaño de la estructura, por defecto es 0.
+    Es el número de elementos que contiene la estructura, por defecto es 0 y se actualiza con cada operación que modifica la estructura.
     """
 
     # the cmp_function is used to compare elements, not defined by default
     # :attr: cmp_function
     cmp_function: Optional[Callable[[T, T], int]] = None
     """
-    Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es 'None' y el __post_init__ configura la función por defecto lt_default_cmp_funcion().
+    Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es None y el *__post_init__()* configura la función por defecto *lt_default_cmp_funcion()*.
     """
 
     # the key is used to compare elements, not defined by default
     # :attr: key
     key: Optional[str] = None
     """
-    Nombre de la llave opcional que se utiliza para comparar los elementos del ArrayList, Por defecto es 'None' y el __post_init__ configura la llave por defecto la llave 'id' en DEFAULT_DICT_KEY.
+    Nombre de la llave opcional que se utiliza para comparar los elementos del ArrayList, Por defecto es None y el *__post_init__()* configura la llave por defecto la llave 'id' en *DEFAULT_DICT_KEY*.
     """
 
     def __post_init__(self) -> None:
-        """*__post_init__()* configura los valores por defecto para la llave (key) y la función de comparación (cmp_function). Si el usuario incluye una lista nativa de python como argumento, se agrega a la lista de elementos del SingleLinked.
+        """*__post_init__()* configura los valores por defecto para la llave ('key') y la función de comparación ('cmp_function'). Si el usuario incluye una lista nativa de python como argumento, se agrega a la lista de elementos del SingleLinked.
         """
         try:
             # counter for elements in the input list
@@ -100,6 +98,9 @@ class SingleLinked(Generic[T]):
             # if the compare function is not defined, use the default
             if self.cmp_function is None:
                 self.cmp_function = self.default_cmp_function
+            # if the list is empty, the first and last are the same and None
+            if self.first is None:
+                self.last = self.first
             # if input data is iterable add them to the SingleLinkedList
             if isinstance(self.iodata, VALID_IO_TYPE):
                 for elm in self.iodata:
@@ -178,7 +179,7 @@ class SingleLinked(Generic[T]):
 
     # @property
     def size(self) -> int:
-        """*size()* devuelve el numero de elementos que actualmente contiene el SingleLinked.
+        """*size()* devuelve el número de elementos que actualmente contiene el SingleLinked.
 
         Returns:
             int: tamaño de la estructura SingleLinked.
@@ -196,7 +197,7 @@ class SingleLinked(Generic[T]):
             element (T): elemento que se quiere agregar a la estructura.
 
         Raises:
-            Exception: si la operación no se puede realizar, se invoca la función '_handle_error()' para manejar el error.
+            Exception: si la operación no se puede realizar, se invoca la función *_handle_error()* para manejar el error.
         """
         try:
             # if the element type is valid, add it to the list
@@ -218,7 +219,7 @@ class SingleLinked(Generic[T]):
             element (T): elemento que se quiere agregar a la estructura.
 
         Raises:
-            Exception: si la operación no se puede realizar, se invoca la función '_handle_error()' para manejar el error.
+            Exception: si la operación no se puede realizar, se invoca la función *_handle_error()* para manejar el error.
         """
         try:
             # if the element type is valid, add it to the list
@@ -473,8 +474,8 @@ class SingleLinked(Generic[T]):
         except Exception as err:
             self._handle_error(err)
 
-    def is_present(self, element: T) -> int:
-        """*is_present()* revisa si un elemento está en el SingleLinked.
+    def find(self, element: T) -> int:
+        """*find()* revisa si un elemento está en el SingleLinked.
 
         Args:
             element (T): elemento que se quiere revisar en el SingleLinked.
@@ -627,10 +628,10 @@ class SingleLinked(Generic[T]):
             self._handle_error(err)
 
     def __iter__(self):
-        """*__iter__* iterador intervinido la función nativa __iter__ para recorrer un SingleLinked dentro de un ciclo 'for' de python.
+        """*__iter__()* iterador nativo de Python intervenida por la estructura de datos para recorrer los elementos del SingleLinked utilizando un ciclo 'for' de python.
 
         Returns:
-            iterator: iterador sobre los elementos del SingleLinked.
+            __iter__: iterador sobre los elementos del SingleLinked.
         """
         try:
             # FIXME do I need the try/except block?
@@ -642,7 +643,7 @@ class SingleLinked(Generic[T]):
             self._handle_error(err)
 
     def __len__(self) -> int:
-        """*__len__* función nativa intervenida que devuelve el tamaño del SingleLinked.
+        """*__len__()* función nativa de Python intervenida por la estructura de datosv para recuperar el tamaño del SingleLinked.
 
         Returns:
             int: tamaño del SingleLinked.

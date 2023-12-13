@@ -14,6 +14,9 @@ from dataclasses import dataclass
 # import typing for defining the type of the node
 from typing import TypeVar
 
+# custom modules
+# hash table entry class for the default cmp function
+
 # valid data types for the node
 # :data: VALID_DATA_TYPE_LT
 VALID_DATA_TYPE_LT: tuple = (
@@ -35,7 +38,7 @@ Tupla con los tipos de datos nativos en Python que son comparables en los ADTs.
 # :data: DEFAULT_DICT_KEY
 DEFAULT_DICT_KEY: str = "id"
 """
-Llave por defecto para comparar diccionarios en los ADTs.
+Llave por defecto para comparar diccionarios dentro de los ADTs.
 """
 
 # allowed input/output types for the ADTs
@@ -49,16 +52,24 @@ VALID_IO_TYPE: tuple = (
 Tupla con los tipos de datos nativos en Python que son válidos para entrada y salida de datos al inicializar un ADT.
 """
 
+# default big prime number for MAD compression in hash tables
+# :data: DEFAULT_PRIME
+DEFAULT_PRIME: int = 109345121
+"""
+Número primo grande por defecto para la función de compresión MAD en las tablas de Hash.
+"""
+
+
 # Type for the element stored in the list
 # :data: T: TypeVar
 T = TypeVar("T")
 """
-Variable nativa de Python para definir un tipo de @dataclass genérico.
+Variable nativa de Python para definir una estructura de datos genérica en los ADTs.
 """
 
 
 def lt_default_cmp_funcion(key, elm1, elm2) -> int:
-    """lt_default_cmp_funcion función de comparación por defecto para los elementos del ADT List (ArrayList, SingleLinked, DoublyLinked). pueden ser de tipo nativo o definido por el usuario.
+    """*lt_default_cmp_funcion()* función de comparación por defecto para los elementos del ADT List (ArrayList, SingleLinked, DoubleLinked). pueden ser de tipo nativo o definido por el usuario.
 
     Args:
         key (str): llave para comparar los elementos de tipo diccionario.
@@ -73,6 +84,7 @@ def lt_default_cmp_funcion(key, elm1, elm2) -> int:
     Returns:
         int: retorna -1 si elm1 es menor que elm2, 0 si son iguales y 1 si elm1 es mayor que elm2.
     """
+    # TODO can be improved
     elm1_type = isinstance(elm1, VALID_DATA_TYPE_LT)
     elm2_type = isinstance(elm2, VALID_DATA_TYPE_LT)
     # if the elements are from different types, raise an exception
@@ -117,3 +129,25 @@ def lt_default_cmp_funcion(key, elm1, elm2) -> int:
             # otherwise, they are equal, return 0
             else:
                 return 0
+
+
+def ht_default_cmp_funcion(key1, entry2) -> int:
+    """*ht_default_cmp_funcion()* función de comparación por defecto para los elementos del ADT Map (HashTable). pueden ser de tipo nativo o definido por el usuario.
+
+    Args:
+        key1 (any): llave (key) para comparar del primer elemento (pareja llave-valor), el cual siempre es un MapEntry.
+        entry2 (any): segundo elemento (pareja llave-valor) a comparar de tipo MapEntry. puede contener cualquier tipo de dato.
+
+    Returns:
+        int: retorna -1 si key1 es menor que la llave de entry2, 0 si las llaves son iguales y 1 si key1 es mayor que la llave de entry2.
+    """
+    key2 = entry2.get_key()
+    if type(key1) is not type(key2):
+        err_msg = f"Invalid comparison between {type(key1)} and "
+        err_msg += f"{type(key2)} keys"
+        raise TypeError(err_msg)
+    if (key1 == key2):
+        return 0
+    elif (key1 > key2):
+        return 1
+    return -1

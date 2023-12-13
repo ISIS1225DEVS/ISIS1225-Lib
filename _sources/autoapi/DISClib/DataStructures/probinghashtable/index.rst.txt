@@ -57,11 +57,25 @@ Attributes
 .. autoapisummary::
 
    DISClib.DataStructures.probinghashtable.DEFAULT_CHAINING_ALPHA
+   DISClib.DataStructures.probinghashtable.MIN_CHAINING_ALPHA
+   DISClib.DataStructures.probinghashtable.MAX_CHAINING_ALPHA
 
 
 .. py:data:: DEFAULT_CHAINING_ALPHA
    :type: float
    :value: 4.0
+
+   
+
+.. py:data:: MIN_CHAINING_ALPHA
+   :type: float
+   :value: 1.0
+
+   
+
+.. py:data:: MAX_CHAINING_ALPHA
+   :type: float
+   :value: 8.0
 
    
 

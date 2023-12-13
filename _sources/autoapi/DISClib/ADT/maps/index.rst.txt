@@ -55,12 +55,12 @@ Attributes
    :rtype: T
 
 
-.. py:function:: translate(src_lt: DISClib.Utils.default.T, tgt_dstruct: str = 'LinearProbing') -> DISClib.Utils.default.T
+.. py:function:: translate(src_ht: DISClib.Utils.default.T, tgt_dstruct: str = 'LinearProbing') -> DISClib.Utils.default.T
 
    *translate()* Transforma una instancia del ADT Map con una estructura de datos seleccionada en otra instancia del ADT Map con otra estructura de datos seleccionada.
 
-   :param src_lt: instancia del ADT Map a transformar.
-   :type src_lt: T
+   :param src_ht: instancia del ADT Map a transformar.
+   :type src_ht: T
    :param tgt_dstruct: Tipo de estructura de datos objetivo a instanciar. Por defecto es "LinearProbing". Puenden ser "SeparateChaining" o "LinearProbing".
    :type tgt_dstruct: str, optional
 

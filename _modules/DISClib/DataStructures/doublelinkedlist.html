@@ -863,11 +863,14 @@
 <span class="sd">        Yields:</span>
 <span class="sd">            iterator: iterador sobre los elementos del DoubleLinked.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_trailer</span><span class="o">.</span><span class="n">prev</span><span class="p">()</span>
-        <span class="k">while</span> <span class="n">current</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="p">:</span>
-            <span class="k">yield</span> <span class="n">current</span><span class="o">.</span><span class="n">get_info</span><span class="p">()</span>
-            <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">prev</span><span class="p">()</span></div>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># FIXME do I need the try/except block?</span>
+            <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_trailer</span><span class="o">.</span><span class="n">prev</span><span class="p">()</span>
+            <span class="k">while</span> <span class="n">current</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="p">:</span>
+                <span class="k">yield</span> <span class="n">current</span><span class="o">.</span><span class="n">get_info</span><span class="p">()</span>
+                <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">prev</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="DoubleLinked.__len__">

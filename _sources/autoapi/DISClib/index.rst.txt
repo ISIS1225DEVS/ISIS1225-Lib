@@ -151,9 +151,7 @@ Attributes
 
    Bases: :py:obj:`DISClib.DataStructures.singlelinkedlist.SingleLinked`, :py:obj:`Generic`\ [\ :py:obj:`DISClib.Utils.default.T`\ ]
 
-   *Queue* Clase que representa una cola implementada sobre una lista sencillamente encadenada ('SingleLinked'). Esta cola o fila (queue) es un Tipo Abstracto de Datos (TAD/ADT) que permite almacenar una colección de elementos y operarlos en el mismo orden en que fueron agregados (FIFO - Firts In First Out).
-
-   Ademas, la clase 'Queue' esta implementada con la anotación '@dataclass' de python y el decorador 'Generic[T]' para indicar que es una estructura de datos genérica.
+   **Queue** representa una cola implementada sobre una lista sencillamente encadenada (SingleLinked), Generic[T] y @dataclass para que sea una estructura de datos genérica. Esta cola o fila (queue) es un Tipo Abstracto de Datos (TAD/ADT) que permite almacenar una colección de elementos y operarlos en el mismo orden en que fueron agregados (FIFO - Firts In First Out).
 
    *IMPORTANTE:* 'Queue' extiende de la clase 'SingleLinked', por lo que hereda todos sus parametros internos y funciones.
 
@@ -211,11 +209,9 @@ Attributes
 
    Bases: :py:obj:`DISClib.DataStructures.doublelinkedlist.DoubleLinked`, :py:obj:`Generic`\ [\ :py:obj:`DISClib.Utils.default.T`\ ]
 
-   *Stack* Clase que representa una pila implementada sobre una lista doblemente encadenada ('DoubleLinked'). Esta pila (Stack) es un Tipo Abstracto de Datos (TAD/ADT) que permite almacenar una colección de elementos y operarlos en el mismo orden en que fueron agregados (LIFO - Last In First Out).
+   **Stack** representa una pila implementada sobre una lista doblemente encadenada (DoubleLinked), Generic[T] y @dataclass para que sea una estructura de datos genérica. Esta pila (Stack) es un Tipo Abstracto de Datos (TAD/ADT) que permite almacenar una colección de elementos y operarlos en el mismo orden en que fueron agregados (LIFO - Last In First Out).
 
-   Ademas, la clase 'Stack' esta implementada con la anotación '@dataclass' de python y el decorador 'Generic[T]' para indicar que es una estructura de datos genérica.
-
-   *IMPORTANTE:* 'Stack' extiende de la clase 'DoubleLinked', por lo que hereda todos sus parametros internos y funciones.
+   **IMPORTANTE:** *Stack* extiende de la clase *DoubleLinked*, por lo que hereda todos sus parametros internos y funciones.
 
    :param DoubleLinked: ADT DISClib que implementa las funciones básicas de una lista doblemente encadenada.
    :type DoubleLinked: dataclass

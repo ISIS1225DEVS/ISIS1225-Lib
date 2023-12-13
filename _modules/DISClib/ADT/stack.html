@@ -81,7 +81,7 @@
              
   <h1>Código fuente para DISClib.ADT.stack</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Esta clase representa una pila implementada sobre una lista doblemente encadenada. Esta pila (Stack) es un Tipo Abstracto de Datos (TAD/ADT) que permite almacenar una colección de elementos y operarlos en el mismo orden en que fueron agregados (LIFO - Last In First Out).</span>
+<span class="sd">Este ADT representa una pila implementada sobre una lista doblemente encadenada. Esta pila (Stack) es un Tipo Abstracto de Datos (TAD/ADT) que permite almacenar una colección de elementos y operarlos en el mismo orden en que fueron agregados (LIFO - Last In First Out).</span>
 
 <span class="sd">La implementación de la cola se realiza sobre una lista doblemente</span>
 <span class="sd">encadenada (DoubleLinked) para garantizar que las operaciones de agregar y</span>
@@ -112,11 +112,9 @@
 <div class="viewcode-block" id="Stack">
 <a class="viewcode-back" href="../../../autoapi/DISClib/index.html#DISClib.ADT.stack.Stack">[documentos]</a>
 <span class="k">class</span> <span class="nc">Stack</span><span class="p">(</span><span class="n">DoubleLinked</span><span class="p">,</span> <span class="n">Generic</span><span class="p">[</span><span class="n">T</span><span class="p">]):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;*Stack* Clase que representa una pila implementada sobre una lista doblemente encadenada (&#39;DoubleLinked&#39;). Esta pila (Stack) es un Tipo Abstracto de Datos (TAD/ADT) que permite almacenar una colección de elementos y operarlos en el mismo orden en que fueron agregados (LIFO - Last In First Out).</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;**Stack** representa una pila implementada sobre una lista doblemente encadenada (DoubleLinked), Generic[T] y @dataclass para que sea una estructura de datos genérica. Esta pila (Stack) es un Tipo Abstracto de Datos (TAD/ADT) que permite almacenar una colección de elementos y operarlos en el mismo orden en que fueron agregados (LIFO - Last In First Out).</span>
 
-<span class="sd">    Ademas, la clase &#39;Stack&#39; esta implementada con la anotación &#39;@dataclass&#39; de python y el decorador &#39;Generic[T]&#39; para indicar que es una estructura de datos genérica.</span>
-
-<span class="sd">    *IMPORTANTE:* &#39;Stack&#39; extiende de la clase &#39;DoubleLinked&#39;, por lo que hereda todos sus parametros internos y funciones.</span>
+<span class="sd">    **IMPORTANTE:** *Stack* extiende de la clase *DoubleLinked*, por lo que hereda todos sus parametros internos y funciones.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        DoubleLinked (dataclass): ADT DISClib que implementa las funciones básicas de una lista doblemente encadenada.</span>
@@ -177,6 +175,7 @@
 <span class="sd">        Returns:</span>
 <span class="sd">            bool: operador que indica si la pila Stack esta vacía.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># TODO do I need this method?, DoubleLinked already has it</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">==</span> <span class="mi">0</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
@@ -191,6 +190,7 @@
 <span class="sd">        Returns:</span>
 <span class="sd">            int: número de elementos en el Stack.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># TODO do I need this method?, DoubleLinked already has it</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>

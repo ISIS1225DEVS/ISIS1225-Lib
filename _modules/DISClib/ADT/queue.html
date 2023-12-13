@@ -81,7 +81,7 @@
              
   <h1>Código fuente para DISClib.ADT.queue</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Esta clase representa una cola/fila implementada sobre una lista. Esta cola o fila (queue) es una estructura de datos que permite almacenar una colección de elementos y operar sobre ellos en el mismo orden en que fueron agregados (FIFO).</span>
+<span class="sd">Este ADT representa una cola/fila implementada sobre una lista. Esta cola o fila (queue) es una estructura de datos que permite almacenar una colección de elementos y operar sobre ellos en el mismo orden en que fueron agregados (FIFO).</span>
 
 <span class="sd">La implementación de la cola se realiza sobre una lista simplemente</span>
 <span class="sd">encadenada (SingleLinked) para garantizar que las operaciones de agregar y</span>
@@ -113,9 +113,7 @@
 <div class="viewcode-block" id="Queue">
 <a class="viewcode-back" href="../../../autoapi/DISClib/index.html#DISClib.ADT.queue.Queue">[documentos]</a>
 <span class="k">class</span> <span class="nc">Queue</span><span class="p">(</span><span class="n">SingleLinked</span><span class="p">,</span> <span class="n">Generic</span><span class="p">[</span><span class="n">T</span><span class="p">]):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;*Queue* Clase que representa una cola implementada sobre una lista sencillamente encadenada (&#39;SingleLinked&#39;). Esta cola o fila (queue) es un Tipo Abstracto de Datos (TAD/ADT) que permite almacenar una colección de elementos y operarlos en el mismo orden en que fueron agregados (FIFO - Firts In First Out).</span>
-
-<span class="sd">    Ademas, la clase &#39;Queue&#39; esta implementada con la anotación &#39;@dataclass&#39; de python y el decorador &#39;Generic[T]&#39; para indicar que es una estructura de datos genérica.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;**Queue** representa una cola implementada sobre una lista sencillamente encadenada (SingleLinked), Generic[T] y @dataclass para que sea una estructura de datos genérica. Esta cola o fila (queue) es un Tipo Abstracto de Datos (TAD/ADT) que permite almacenar una colección de elementos y operarlos en el mismo orden en que fueron agregados (FIFO - Firts In First Out).</span>
 
 <span class="sd">    *IMPORTANTE:* &#39;Queue&#39; extiende de la clase &#39;SingleLinked&#39;, por lo que hereda todos sus parametros internos y funciones.</span>
 
@@ -178,6 +176,7 @@
 <span class="sd">        Returns:</span>
 <span class="sd">            bool: operador que indica si la cola/fila Queue esta vacía.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># TODO do I need this method?, SingleLinked already has it</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">==</span> <span class="mi">0</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
@@ -192,6 +191,7 @@
 <span class="sd">        Returns:</span>
 <span class="sd">            int: número de elementos en el Queue.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># TODO do I need this method?, SingleLinked already has it</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>

@@ -16,17 +16,12 @@ from .dynamic import DynamicImporter
 
 # generic error handling and type checking
 from DISClib.Utils.default import T
+from .dynamic import STRUCT_PGK_PATH
+
 
 # checking costum modules and functions
 assert DynamicImporter
 assert T
-
-# main package data structure path
-# :param ADT_HT_PGK_PATH
-ADT_HT_PGK_PATH: str = "DISClib.DataStructures"
-"""
-Ruta relativa del paquete principal para instanciar el ADT Map.
-"""
 
 # posible implementations for the ADT
 # :param ADT_HT_MOD_DICT
@@ -52,14 +47,14 @@ def Map(dstruct: str = "SeparateChaining", **kwargs) -> T:
         T: instancia del ADT Map que puede ser "SeparateChaining" o "LinearProbing".
     """
     try:
-        package = f"{ADT_HT_PGK_PATH}."
+        package = f"{STRUCT_PGK_PATH}."
         package += f"{ADT_HT_MOD_DICT.get(dstruct)}"
         adt_list = DynamicImporter(dstruct, package, **kwargs)
         adt_instance = adt_list.get_instance()
         return adt_instance
     except Exception as exp:
         err_msg = f"Map type '{dstruct}' not found"
-        err_msg += f" in {ADT_HT_PGK_PATH}, "
+        err_msg += f" in {STRUCT_PGK_PATH}, "
         err_msg += str(exp)
         raise ValueError(err_msg)
 
@@ -87,7 +82,7 @@ def translate(src_lt: T, tgt_dstruct: str = "LinearProbing") -> T:
         return tgt_lt
     except Exception as exp:
         err_msg = f"Map type '{tgt_dstruct}' not found"
-        err_msg += f" in {ADT_HT_PGK_PATH}, "
+        err_msg += f" in {STRUCT_PGK_PATH}, "
         err_msg += str(exp)
         raise ValueError(err_msg)
 

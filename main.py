@@ -201,4 +201,4 @@ if __name__ == "__main__":
     print(m.hash_table.size())
     print(m.values())
     print(m.keys())
-    print(m.items())
+    print(m.entries())

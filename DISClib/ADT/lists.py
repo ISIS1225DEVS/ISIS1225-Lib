@@ -12,6 +12,7 @@ import copy
 # custom modules
 # node class for the linked list
 from .dynamic import DynamicImporter
+from .dynamic import STRUCT_PGK_PATH
 
 # generic error handling and type checking
 from DISClib.Utils.default import T
@@ -19,13 +20,6 @@ from DISClib.Utils.default import T
 # checking costum modules and functions
 assert DynamicImporter
 assert T
-
-# main package data structure path
-# :param ADT_LT_PGK_PATH
-ADT_LT_PGK_PATH: str = "DISClib.DataStructures"
-"""
-Ruta relativa del paquete principal para instanciar el ADT List.
-"""
 
 
 # posible implementations for the ADT
@@ -54,14 +48,14 @@ def List(dstruct: str = "ArrayList", **kwargs) -> T:
         T: instancia del ADT List que puede ser "ArrayList", "SingleLinked" o "DoubleLinked".
     """
     try:
-        package = f"{ADT_LT_PGK_PATH}."
+        package = f"{STRUCT_PGK_PATH}."
         package += f"{ADT_LT_MOD_DICT.get(dstruct)}"
         adt_list = DynamicImporter(dstruct, package, **kwargs)
         adt_instance = adt_list.get_instance()
         return adt_instance
     except Exception as exp:
         err_msg = f"List type '{dstruct}' not found"
-        err_msg += f" in {ADT_LT_PGK_PATH}, "
+        err_msg += f" in {STRUCT_PGK_PATH}, "
         err_msg += str(exp)
         raise ValueError(err_msg)
 
@@ -89,7 +83,7 @@ def translate(src_lt: T, tgt_dstruct: str = "SingleLinked") -> T:
         return tgt_lt
     except Exception as exp:
         err_msg = f"List type '{tgt_dstruct}' not found"
-        err_msg += f" in {ADT_LT_PGK_PATH}, "
+        err_msg += f" in {STRUCT_PGK_PATH}, "
         err_msg += str(exp)
         raise ValueError(err_msg)
 

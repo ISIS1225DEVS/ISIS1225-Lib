@@ -11,6 +11,13 @@ Este módulo permite importar dinámicamente módulos, funciones y estructuras d
 # import for dytamic module support
 import importlib
 
+# main package data structure path
+# :param STRUCT_PGK_PATH
+STRUCT_PGK_PATH: str = "DISClib.DataStructures"
+"""
+Ruta relativa del paquete principal para instanciar el ADT List.
+"""
+
 
 class DynamicImporter:
     """ **DynamicImporter** permite importar dinámicamente módulos y clases de módulos según la configuración de un archivo JSON y las especificaciones del usuario.

@@ -23,7 +23,7 @@ from typing import Generic, Optional
 from DISClib.DataStructures.singlelinkedlist import SingleLinked
 from DISClib.Utils.default import T
 
-# checking costum modules
+# checking custom modules
 assert T
 
 
@@ -37,7 +37,7 @@ class Queue(SingleLinked, Generic[T]):
 
     Args:
         SingleLinked (dataclass): ADT DISClib que implementa las funciones básicas de una lista sencillamente encadenada.
-        Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para representar una estructura de datos genéricas en python.
+        Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.
 
     Returns:
         Queue: ADT de tipo Queue, Cola o Fila, implementado sobre una lista sencillamente encadenada.

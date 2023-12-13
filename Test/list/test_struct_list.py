@@ -821,7 +821,7 @@ class TestArrayList(unittest.TestCase):
                 i = random.randint(0, test_len-1)
                 t_data = test_data[i]
                 # test if the element is present in the arraylist
-                idx = ar_lt.is_present(t_data)
+                idx = ar_lt.find(t_data)
                 # test if the index is valid
                 # FIXME check this tokenization assert
                 assert -1 <= idx <= test_len-1
@@ -1165,13 +1165,13 @@ class TestSingleLinked(unittest.TestCase):
                 # get the test data
                 test_data = self.global_params.get(key)
                 # iterate over the test data
-                for i in range(0, len(test_data)-1):
+                for i in range(0, len(test_data) - 1):
                     # to avoid index out of range
                     if i > 1 and i < len(test_data) - 1:
                         # get current element, previous and next
                         ce = test_data[i]
-                        pe = test_data[i-1]
-                        ne = test_data[i+1]
+                        pe = test_data[i - 1]
+                        ne = test_data[i + 1]
                         # test the result of the default cmp function
                         exp_res = (-1, 0, 1)
                         res1 = sl_lt.default_cmp_function(ce, pe) in exp_res
@@ -1771,7 +1771,7 @@ class TestSingleLinked(unittest.TestCase):
                 i = random.randint(0, test_len-1)
                 t_data = test_data[i]
                 # test if the element is present in the singlelinked
-                idx = sl_lt.is_present(t_data)
+                idx = sl_lt.find(t_data)
                 # test if the index is valid
                 assert -1 <= idx <= test_len-1
 
@@ -1869,7 +1869,7 @@ class TestSingleLinked(unittest.TestCase):
 
                 # force an exception in the exchange method
                 with pytest.raises(Exception) as excinfo:
-                    i, j = random.sample(range(test_len*2, test_len*3), 2)
+                    i, j = random.sample(range(test_len * 2, test_len * 3), 2)
                     sl_lt.exchange(i, j)
                 # test for the exception type
                 assert excinfo.type == IndexError
@@ -1877,7 +1877,7 @@ class TestSingleLinked(unittest.TestCase):
                 assert "is out of range" in str(excinfo.value)
 
                 # select a random valid index in the test data
-                i, j = random.sample(range(0, test_len-1), 2)
+                i, j = random.sample(range(0, test_len - 1), 2)
                 # get the elements in the test data
                 test_elm1 = test_data[i]
                 test_elm2 = test_data[j]
@@ -1929,8 +1929,8 @@ class TestSingleLinked(unittest.TestCase):
                 if key == "TEST_CUSTOM_DICT_LT":
                     sl_lt = SingleLinked(iodata=test_data,
                                          cmp_function=cmp_test_function)
-                i = random.randint(test_len*-1, -1)
-                j = random.randint(test_len+1, test_len*2)
+                i = random.randint(test_len * -1, -1)
+                j = random.randint(test_len + 1, test_len * 2)
                 # # sample(range(test_len*2, test_len*3), 2)
                 # # force an exception in the sublist method
                 with pytest.raises(Exception) as excinfo:

@@ -6,21 +6,28 @@ import sys
 # M1
 from .dynamic import DynamicImporter
 from .lists import List
-from . import queue
-from . import stack
+from .queue import Queue
+from .stack import Stack
+
 # M2
-# from . import maps
-# # M3
+from .maps import Map
+
+# M3
 # from . import orderedmap
 # from . import indexminpq
 # from . import minpq
+
 # # M4
 # from . import graph
 
+# checking modules in M1 namespace
 assert DynamicImporter
 assert List
-assert queue
-assert stack
+assert Queue
+assert Stack
+
+# checking modules in M2 namespace
+assert Map
 
 # config the path to the DISCLib folder
 # TODO this used to be in config.py

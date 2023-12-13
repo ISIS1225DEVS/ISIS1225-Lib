@@ -81,7 +81,7 @@
              
   <h1>Código fuente para DISClib.DataStructures.singlelinkedlist</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Esta clase representa una estructura de datos lineal, específicamente una lista sensillamente enlazada/encadenada (SingleLinked). Esta estructura de datos es una secuencia de nodos enlazados, donde cada nodo contiene un elemento de información y una referencia al siguiente nodo en la secuencia. Esto le permite a la lista un crecimiento y reducción dinámico en la memoria disponible.</span>
+<span class="sd">Este ADT representa una estructura de datos lineal, específicamente una lista sensillamente enlazada/encadenada (SingleLinked). Esta estructura de datos es una secuencia de nodos enlazados, donde cada nodo contiene un elemento de información y una referencia al siguiente nodo en la secuencia. Esto le permite a la lista un crecimiento y reducción dinámico en la memoria disponible.</span>
 
 <span class="sd">*IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:</span>
 
@@ -102,15 +102,13 @@
 <span class="kn">from</span> <span class="nn">DISClib.DataStructures.listnode</span> <span class="kn">import</span> <span class="n">SingleNode</span>
 <span class="c1"># generic error handling and type checking</span>
 <span class="kn">from</span> <span class="nn">DISClib.Utils.error</span> <span class="kn">import</span> <span class="n">error_handler</span>
-<span class="kn">from</span> <span class="nn">DISClib.Utils.error</span> <span class="kn">import</span> <span class="n">init_type_checker</span>
 <span class="kn">from</span> <span class="nn">DISClib.Utils.default</span> <span class="kn">import</span> <span class="n">lt_default_cmp_funcion</span>
 <span class="kn">from</span> <span class="nn">DISClib.Utils.default</span> <span class="kn">import</span> <span class="n">T</span>
 <span class="kn">from</span> <span class="nn">DISClib.Utils.default</span> <span class="kn">import</span> <span class="n">DEFAULT_DICT_KEY</span>
 <span class="kn">from</span> <span class="nn">DISClib.Utils.default</span> <span class="kn">import</span> <span class="n">VALID_IO_TYPE</span>
 
-<span class="c1"># checking costum modules</span>
+<span class="c1"># checking custom modules</span>
 <span class="k">assert</span> <span class="n">error_handler</span>
-<span class="k">assert</span> <span class="n">init_type_checker</span>
 <span class="k">assert</span> <span class="n">lt_default_cmp_funcion</span>
 <span class="k">assert</span> <span class="n">T</span>
 <span class="k">assert</span> <span class="n">DEFAULT_DICT_KEY</span>
@@ -121,10 +119,10 @@
 <div class="viewcode-block" id="SingleLinked">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/singlelinkedlist/index.html#DISClib.DataStructures.singlelinkedlist.SingleLinked">[documentos]</a>
 <span class="k">class</span> <span class="nc">SingleLinked</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">T</span><span class="p">]):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;*SingleLinked* Clase que representa una estructura de datos de tipo SingleLinked con la anotación &#39;@dataclass&#39; de python y el decorador &#39;Generic[T]&#39; para indicar que es una estructura de datos genérica.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;**SingleLinked** representa una estructura de datos dinámica de tipo lista sensillamente encadenada (Single Linked List), Implementada con Generic[T] y @dataclass para que sea una estructura de datos genérica.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para representar una estructura de datos genéricas en python.</span>
+<span class="sd">        Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        SingleLinked: ADT de tipo SingleLinked o Lista Sensillamente Encadenada.</span>
@@ -146,7 +144,7 @@
     <span class="n">first</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">SingleNode</span><span class="p">[</span><span class="n">T</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Atributo publico que representa el primer nodo del SingleLinked.</span>
+<span class="sd">    Representa el la referencia en memoria al primer nodo del SingleLinked.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># reference to the last node of the list</span>
@@ -156,7 +154,7 @@
     <span class="n">last</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">SingleNode</span><span class="p">[</span><span class="n">T</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Atributo publico que representa el último nodo del SingleLinked.</span>
+<span class="sd">    Representa la referencia en memoria al último nodo del SingleLinked.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># by default, the list is empty</span>
@@ -167,7 +165,7 @@
     <span class="n">_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Atributo privado que representa el tamaño de la estructura, por defecto es 0.</span>
+<span class="sd">    Es el número de elementos que contiene la estructura, por defecto es 0 y se actualiza con cada operación que modifica la estructura.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># the cmp_function is used to compare elements, not defined by default</span>
@@ -177,7 +175,7 @@
     <span class="n">cmp_function</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">[[</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="p">],</span> <span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es &#39;None&#39; y el __post_init__ configura la función por defecto lt_default_cmp_funcion().</span>
+<span class="sd">    Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es None y el *__post_init__()* configura la función por defecto *lt_default_cmp_funcion()*.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># the key is used to compare elements, not defined by default</span>
@@ -187,13 +185,13 @@
     <span class="n">key</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Nombre de la llave opcional que se utiliza para comparar los elementos del ArrayList, Por defecto es &#39;None&#39; y el __post_init__ configura la llave por defecto la llave &#39;id&#39; en DEFAULT_DICT_KEY.</span>
+<span class="sd">    Nombre de la llave opcional que se utiliza para comparar los elementos del ArrayList, Por defecto es None y el *__post_init__()* configura la llave por defecto la llave &#39;id&#39; en *DEFAULT_DICT_KEY*.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="SingleLinked.__post_init__">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/singlelinkedlist/index.html#DISClib.DataStructures.singlelinkedlist.SingleLinked.__post_init__">[documentos]</a>
     <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*__post_init__()* configura los valores por defecto para la llave (key) y la función de comparación (cmp_function). Si el usuario incluye una lista nativa de python como argumento, se agrega a la lista de elementos del SingleLinked.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*__post_init__()* configura los valores por defecto para la llave (&#39;key&#39;) y la función de comparación (&#39;cmp_function&#39;). Si el usuario incluye una lista nativa de python como argumento, se agrega a la lista de elementos del SingleLinked.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="c1"># counter for elements in the input list</span>
@@ -204,6 +202,9 @@
             <span class="c1"># if the compare function is not defined, use the default</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cmp_function</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">cmp_function</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_cmp_function</span>
+            <span class="c1"># if the list is empty, the first and last are the same and None</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">first</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">last</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">first</span>
             <span class="c1"># if input data is iterable add them to the SingleLinkedList</span>
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">iodata</span><span class="p">,</span> <span class="n">VALID_IO_TYPE</span><span class="p">):</span>
                 <span class="k">for</span> <span class="n">elm</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">iodata</span><span class="p">:</span>
@@ -297,7 +298,7 @@
 <div class="viewcode-block" id="SingleLinked.size">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/singlelinkedlist/index.html#DISClib.DataStructures.singlelinkedlist.SingleLinked.size">[documentos]</a>
     <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*size()* devuelve el numero de elementos que actualmente contiene el SingleLinked.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*size()* devuelve el número de elementos que actualmente contiene el SingleLinked.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            int: tamaño de la estructura SingleLinked.</span>
@@ -318,7 +319,7 @@
 <span class="sd">            element (T): elemento que se quiere agregar a la estructura.</span>
 
 <span class="sd">        Raises:</span>
-<span class="sd">            Exception: si la operación no se puede realizar, se invoca la función &#39;_handle_error()&#39; para manejar el error.</span>
+<span class="sd">            Exception: si la operación no se puede realizar, se invoca la función *_handle_error()* para manejar el error.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="c1"># if the element type is valid, add it to the list</span>
@@ -343,7 +344,7 @@
 <span class="sd">            element (T): elemento que se quiere agregar a la estructura.</span>
 
 <span class="sd">        Raises:</span>
-<span class="sd">            Exception: si la operación no se puede realizar, se invoca la función &#39;_handle_error()&#39; para manejar el error.</span>
+<span class="sd">            Exception: si la operación no se puede realizar, se invoca la función *_handle_error()* para manejar el error.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="c1"># if the element type is valid, add it to the list</span>
@@ -623,10 +624,10 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="SingleLinked.is_present">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/singlelinkedlist/index.html#DISClib.DataStructures.singlelinkedlist.SingleLinked.is_present">[documentos]</a>
-    <span class="k">def</span> <span class="nf">is_present</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*is_present()* revisa si un elemento está en el SingleLinked.</span>
+<div class="viewcode-block" id="SingleLinked.find">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/singlelinkedlist/index.html#DISClib.DataStructures.singlelinkedlist.SingleLinked.find">[documentos]</a>
+    <span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*find()* revisa si un elemento está en el SingleLinked.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            element (T): elemento que se quiere revisar en el SingleLinked.</span>
@@ -794,10 +795,10 @@
 <div class="viewcode-block" id="SingleLinked.__iter__">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/singlelinkedlist/index.html#DISClib.DataStructures.singlelinkedlist.SingleLinked.__iter__">[documentos]</a>
     <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*__iter__* iterador intervinido la función nativa __iter__ para recorrer un SingleLinked dentro de un ciclo &#39;for&#39; de python.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*__iter__()* iterador nativo de Python intervenida por la estructura de datos para recorrer los elementos del SingleLinked utilizando un ciclo &#39;for&#39; de python.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            iterator: iterador sobre los elementos del SingleLinked.</span>
+<span class="sd">            __iter__: iterador sobre los elementos del SingleLinked.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="c1"># FIXME do I need the try/except block?</span>
@@ -812,7 +813,7 @@
 <div class="viewcode-block" id="SingleLinked.__len__">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/singlelinkedlist/index.html#DISClib.DataStructures.singlelinkedlist.SingleLinked.__len__">[documentos]</a>
     <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*__len__* función nativa intervenida que devuelve el tamaño del SingleLinked.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*__len__()* función nativa de Python intervenida por la estructura de datosv para recuperar el tamaño del SingleLinked.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            int: tamaño del SingleLinked.</span>

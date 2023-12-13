@@ -100,7 +100,7 @@
              
   <section id="module-DISClib.DataStructures.arraylist">
 <span id="disclib-datastructures-arraylist"></span><h1><a class="reference internal" href="#module-DISClib.DataStructures.arraylist" title="DISClib.DataStructures.arraylist"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.DataStructures.arraylist</span></code></a><a class="headerlink" href="#module-DISClib.DataStructures.arraylist" title="Link to this heading"></a></h1>
-<p>Esta clase representa una estructura de datos lineal, específicamente un arreglo dinámico (ArrayList). El arreglo dinámico es una estructura de datos que permite almacenar un conjunto de elementos del mismo tipo, en la cual se puede acceder y procesar sus elementos utilizando las funciones/métodos propios de la estructura.</p>
+<p>Este ADT representa una estructura de datos lineal, específicamente un arreglo dinámico (ArrayList). El arreglo dinámico es una estructura de datos que permite almacenar un conjunto de elementos del mismo tipo, en la cual se puede acceder y procesar sus elementos utilizando las funciones/métodos propios de la estructura.</p>
 <p><em>IMPORTANTE:</em> Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:</p>
 <blockquote>
 <div><ol class="arabic simple">
@@ -115,7 +115,7 @@
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.DataStructures.arraylist.ArrayList" title="DISClib.DataStructures.arraylist.ArrayList"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ArrayList</span></code></a></p></td>
-<td><p><em>ArrayList</em> representa la estructura de datos para arreglos dinamicos (Array List), Implementada con la anotación <a class="reference external" href="mailto:'&#37;&#52;&#48;dataclass">'<span>&#64;</span>dataclass</a>' de python y el decorador 'Generic[T]' para que sea una estructura de datos genérica.</p></td>
+<td><p><strong>ArrayList</strong> representa la estructura de datos para arreglos dinamicos (Array List), Implementada con Generic[T] y &#64;dataclass para que sea una estructura de datos genérica.</p></td>
 </tr>
 </tbody>
 </table>
@@ -123,10 +123,10 @@
 <dt class="sig sig-object py" id="DISClib.DataStructures.arraylist.ArrayList">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.arraylist.</span></span><span class="sig-name descname"><span class="pre">ArrayList</span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/arraylist.html#ArrayList"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.arraylist.ArrayList" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Generic</span></code>[<a class="reference internal" href="../../Utils/default/index.html#DISClib.Utils.default.T" title="DISClib.Utils.default.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DISClib.Utils.default.T</span></code></a>]</p>
-<p><em>ArrayList</em> representa la estructura de datos para arreglos dinamicos (Array List), Implementada con la anotación <a class="reference external" href="mailto:'&#37;&#52;&#48;dataclass">“<span>&#64;</span>dataclass</a>” de python y el decorador “Generic[T]” para que sea una estructura de datos genérica.</p>
+<p><strong>ArrayList</strong> representa la estructura de datos para arreglos dinamicos (Array List), Implementada con Generic[T] y &#64;dataclass para que sea una estructura de datos genérica.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>Generic</strong> (<em>T</em>) – TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para representar una estructura de datos genéricas en python.</p>
+<dd class="field-odd"><p><strong>Generic</strong> (<em>T</em>) – TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.</p>
 </dd>
 <dt class="field-even">Devuelve<span class="colon">:</span></dt>
 <dd class="field-even"><p>ADT de tipo ArrayList o Arreglo Dinámico.</p>
@@ -150,25 +150,25 @@
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.arraylist.ArrayList._size">
 <span class="sig-name descname"><span class="pre">_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/arraylist.html#ArrayList._size"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.arraylist.ArrayList._size" title="Link to this definition"></a></dt>
-<dd><p>Atributo privado que representa el tamaño de la estructura, por defecto es 0.</p>
+<dd><p>Es el número de elementos que contiene la estructura, por defecto es 0 y se actualiza con cada operación que modifica la estructura.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.arraylist.ArrayList.cmp_function">
 <span class="sig-name descname"><span class="pre">cmp_function</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/arraylist.html#ArrayList.cmp_function"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.arraylist.ArrayList.cmp_function" title="Link to this definition"></a></dt>
-<dd><p>Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es “None” y el __post_init__ configura la función por defecto lt_default_cmp_funcion().</p>
+<dd><p>Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es None y el <em>__post_init__()</em> configura la función por defecto <em>lt_default_cmp_funcion()</em>.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.arraylist.ArrayList.key">
 <span class="sig-name descname"><span class="pre">key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/arraylist.html#ArrayList.key"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.arraylist.ArrayList.key" title="Link to this definition"></a></dt>
-<dd><p>Nombre de la llave opcional que se utiliza para comparar los elementos del ArrayList, Por defecto es “None” y el __post_init__ configura la llave por defecto la llave “id” en DEFAULT_DICT_KEY.</p>
+<dd><p>Nombre de la llave opcional que se utiliza para comparar los elementos del ArrayList, Por defecto es “None” y el <em>__post_init__()</em> configura la llave por defecto la llave “id” en <em>DEFAULT_DICT_KEY</em>.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.arraylist.ArrayList.__post_init__">
 <span class="sig-name descname"><span class="pre">__post_init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/arraylist.html#ArrayList.__post_init__"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.arraylist.ArrayList.__post_init__" title="Link to this definition"></a></dt>
-<dd><p><em>__post_init__()</em> configura los valores por defecto para la llave (key) y la función de comparación (cmp_function). Si el usuario incluye una lista nativa de python como argumento, se agrega a la lista de elementos del ArrayList.</p>
+<dd><p><em>__post_init__()</em> configura los valores por defecto para la llave (“key”) y la función de comparación (“cmp_function”). Si el usuario incluye una lista nativa de python como argumento, se agrega a la lista de elementos del ArrayList.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -195,7 +195,7 @@
 <dt class="sig sig-object py" id="DISClib.DataStructures.arraylist.ArrayList._handle_error">
 <span class="sig-name descname"><span class="pre">_handle_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">err</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Exception</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/arraylist.html#ArrayList._handle_error"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.arraylist.ArrayList._handle_error" title="Link to this definition"></a></dt>
 <dd><p><em>_handle_error()</em> función privada que maneja los errores que se pueden presentar en el ArrayList.</p>
-<p>Si se presenta un error en el ArrayList, se formatea el error según el contexto (paquete/clase) y la función que lo generó, y lo reenvia al componente superior en la jerarquía de llamados para manejarlo segun sea considere conveniente.</p>
+<p>Si se presenta un error en ArrayList, se formatea el error según el contexto (paquete/clase), la función que lo generó y lo reenvia al componente superior en la jerarquía de llamados para manejarlo segun se considere conveniente.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>err</strong> (<em>Exception</em>) – Excepción que se generó en el ArrayList.</p>
@@ -240,7 +240,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.arraylist.ArrayList.size">
 <span class="sig-name descname"><span class="pre">size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/arraylist.html#ArrayList.size"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.arraylist.ArrayList.size" title="Link to this definition"></a></dt>
-<dd><p><em>size()</em> devuelve el numero de elementos que actualmente contiene el ArrayList.</p>
+<dd><p><em>size()</em> devuelve el número de elementos que actualmente contiene el ArrayList.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
 <dd class="field-odd"><p>tamaño de la estructura ArrayList.</p>
@@ -260,7 +260,7 @@
 <dd class="field-odd"><p><strong>element</strong> (<em>T</em>) – elemento que se quiere agregar a la estructura.</p>
 </dd>
 <dt class="field-even">Muestra<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>Exception</strong> – si la operación no se puede realizar, se invoca la función “_handle_error()” para manejar el error.</p>
+<dd class="field-even"><p><strong>Exception</strong> – si la operación no se puede realizar, se invoca la función <em>_handle_error()</em> para manejar el error.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -274,7 +274,7 @@
 <dd class="field-odd"><p><strong>element</strong> (<em>T</em>) – elemento que se quiere agregar a la estructura.</p>
 </dd>
 <dt class="field-even">Muestra<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>Exception</strong> – si la operación no se puede realizar, se invoca la función “_handle_error()” para manejar el error.</p>
+<dd class="field-even"><p><strong>Exception</strong> – si la operación no se puede realizar, se invoca la función <em>_handle_error()</em> para manejar el error.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -337,22 +337,21 @@
 <dt class="sig sig-object py" id="DISClib.DataStructures.arraylist.ArrayList.get_element">
 <span class="sig-name descname"><span class="pre">get_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DISClib.Utils.default.T</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/arraylist.html#ArrayList.get_element"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.arraylist.ArrayList.get_element" title="Link to this definition"></a></dt>
 <dd><p><em>get_element()</em> lee un elemento en una posición dada del ArrayList.</p>
-<dl class="simple">
-<dt>Args:._size-1</dt><dd><p>pos (int): índice en la que se quiere agregar el elemento.</p>
-</dd>
-</dl>
 <dl class="field-list simple">
-<dt class="field-odd">Muestra<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>pos</strong> (<em>int</em>) – índice en la que se quiere agregar el elemento.</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
 <li><p><strong>Exception</strong> – error si la estructura está vacía.</p></li>
 <li><p><strong>Exception</strong> – error si la posición es inválida.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>el elemento en la posición dada del ArrayList.</p>
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>el elemento en la posición dada del ArrayList.</p>
 </dd>
-<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
-<dd class="field-odd"><p>T</p>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>T</p>
 </dd>
 </dl>
 </dd></dl>
@@ -438,9 +437,9 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="DISClib.DataStructures.arraylist.ArrayList.is_present">
-<span class="sig-name descname"><span class="pre">is_present</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/arraylist.html#ArrayList.is_present"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.arraylist.ArrayList.is_present" title="Link to this definition"></a></dt>
-<dd><p><em>is_present()</em> revisa si un elemento está en el ArrayList.</p>
+<dt class="sig sig-object py" id="DISClib.DataStructures.arraylist.ArrayList.find">
+<span class="sig-name descname"><span class="pre">find</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/arraylist.html#ArrayList.find"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.arraylist.ArrayList.find" title="Link to this definition"></a></dt>
+<dd><p><em>find()</em> revisa si un elemento está en el ArrayList.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>element</strong> (<em>T</em>) – elemento que se quiere revisar en el ArrayList.</p>
@@ -548,7 +547,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.arraylist.ArrayList.__iter__">
 <span class="sig-name descname"><span class="pre">__iter__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/arraylist.html#ArrayList.__iter__"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.arraylist.ArrayList.__iter__" title="Link to this definition"></a></dt>
-<dd><p><em>__iter__</em> iterador intervinido la función nativa __iter__ para recorrer un ArrayList dentro de un ciclo “for” de python.</p>
+<dd><p><em>__iter__()</em> iterador nativo de Python intervenida por la estructura de datos para recorrer los elementos del ArrayList utilizando un ciclo “for” de python.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
 <dd class="field-odd"><p>iterador Python sobre los elementos del ArrayList.</p>
@@ -562,8 +561,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.arraylist.ArrayList.__len__">
 <span class="sig-name descname"><span class="pre">__len__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/arraylist.html#ArrayList.__len__"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.arraylist.ArrayList.__len__" title="Link to this definition"></a></dt>
-<dd><p><em>__len__</em> función nativa intervenida que devuelve el tamaño del
-ArrayList.</p>
+<dd><p><em>__len__()</em> función nativa de Python intervenida por la estructura de datosv para recuperar el tamaño del ArrayList.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
 <dd class="field-odd"><p>tamaño del ArrayList.</p>

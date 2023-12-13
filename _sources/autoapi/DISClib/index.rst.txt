@@ -36,8 +36,11 @@ Functions
 .. autoapisummary::
 
    DISClib.List
+   DISClib.Map
    DISClib.error_handler
-   DISClib.init_type_checker
+   DISClib.is_prime
+   DISClib.next_prime
+   DISClib.hash_compress
 
 
 
@@ -47,8 +50,6 @@ Attributes
 .. autoapisummary::
 
    DISClib.T
-   DISClib.file_path
-   DISClib.file_dir
    DISClib.__version__
    DISClib.__author__
    DISClib.__license__
@@ -57,7 +58,7 @@ Attributes
 .. py:class:: DynamicImporter(implementation: str, package: str, **kwargs)
 
 
-   *DynamicImporter* permite importar dinámicamente módulos y clases de módulos según la configuración de un archivo JSON y las especificaciones del usuario.
+   **DynamicImporter** permite importar dinámicamente módulos y clases de módulos según la configuración de un archivo JSON y las especificaciones del usuario.
 
    :raises ValueError: no se puede importar el módulo especificado.
 
@@ -134,7 +135,7 @@ Attributes
 
 .. py:function:: List(dstruct: str = 'ArrayList', **kwargs) -> DISClib.Utils.default.T
 
-   *List()* Función con patrón de diseño 'factory' que retorna una     instancia del ADT List según el tipo de estructura de datos seleccionada por el usuario.
+   *List()* Función dinámica que que retorna una instancia del ADT List según el tipo de estructura de datos seleccionada por el usuario.
 
    :param dstruct: Tipo de estructura de datos a instanciar. Por defecto es "ArrayList". Puende ser "ArrayList", "SingleLinked" o "DoubleLinked".
    :type dstruct: str, optional
@@ -158,7 +159,7 @@ Attributes
 
    :param SingleLinked: ADT DISClib que implementa las funciones básicas de una lista sencillamente encadenada.
    :type SingleLinked: dataclass
-   :param Generic: TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para representar una estructura de datos genéricas en python.
+   :param Generic: TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.
    :type Generic: T
 
    :returns: ADT de tipo Queue, Cola o Fila, implementado sobre una lista sencillamente encadenada.
@@ -218,7 +219,7 @@ Attributes
 
    :param DoubleLinked: ADT DISClib que implementa las funciones básicas de una lista doblemente encadenada.
    :type DoubleLinked: dataclass
-   :param Generic: TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para representar una estructura de datos genéricas en python.
+   :param Generic: TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.
    :type Generic: T
 
    :returns: ADT de tipo Stack o Pila, implementado sobre una lista doblemente encadenada.
@@ -265,9 +266,22 @@ Attributes
 
 
 
+.. py:function:: Map(dstruct: str = 'SeparateChaining', **kwargs) -> DISClib.Utils.default.T
+
+   *Map()* Función dinámica que retorna una instancia del ADT Map según el tipo de estructura de datos seleccionada por el usuario.
+
+   :param dstruct: Tipo de estructura de datos a instanciar. Por defecto es "SeparateChaining". Puende ser "SeparateChaining" o "LinearProbing".
+   :type dstruct: str, optional
+
+   :raises ValueError: error si el tipo de estructura de datos seleccionada no es válida.
+
+   :returns: instancia del ADT Map que puede ser "SeparateChaining" o "LinearProbing".
+   :rtype: T
+
+
 .. py:function:: error_handler(context: str, func_name: str, err: Exception) -> None
 
-   *error_handler()* recibe el contexto, nombre de la función y la excepción para lanzar una excepción con el mensaje de error y el traceback.
+   *error_handler()* recibe el contexto, nombre de la función y la excepción para lanzar un mensaje de error detallado y el traceback.
 
    :param context: nombre del contexto donde ocurrió el error.
    :type context: str
@@ -276,35 +290,57 @@ Attributes
    :param err: excepción lanzada.
    :type err: Exception
 
-   :raises type: excepción con el mensaje de error y el traceback.
-
-
-.. py:function:: init_type_checker(context: str, func_name: str, info: DISClib.Utils.default.T) -> None
-
-   *init_type_checker()* recibe el contexto, nombre de la función y la info
-   para verificar su tipo después de la inicialización de la clase.
-
-   :param context: nombre del contexto donde ocurrió el error.
-   :type context: str
-   :param func_name: nombre de la función donde ocurrió el error.
-   :type func_name: str
-   :param info: tipo de dato de la información a verificar.
-   :type info: T
-
-   :raises TypeError: excepción con el mensaje de error de tipo de dato.
+   :raises type: excepción con el mensaje de error detallado y el traceback.
 
 
 .. py:data:: T
 
-   Variable nativa de Python para definir un tipo de @dataclass genérico.
+   Variable nativa de Python para definir una estructura de datos genérica en los ADTs.
 
-.. py:data:: file_path
+.. py:function:: is_prime(n: int) -> bool
 
-   
+   *is_prime()* revisa si un número es primo o no.
 
-.. py:data:: file_dir
+   :param n: número entero para verificar si es primo.
+   :type n: int
 
-   
+   :returns: si el número es primo o no.
+   :rtype: bool
+
+
+.. py:function:: next_prime(n: int) -> int
+
+   *next_prime()* devuelve el siguiente número primo mayor que n.
+
+   :param n: número entero para calcular el siguiente número primo.
+   :type n: int
+
+   :returns: el siguiente número primo mayor que n.
+   :rtype: int
+
+
+.. py:function:: hash_compress(key: DISClib.Utils.default.T, scale: int, shift: int, prime: int, capacity: int) -> int
+
+   *hash_compress()* función de compresión para los índices de las tablas de Hash utilizando el método MAD (Multiply-Add-and-Divide).
+   MAD se define como: hash_compress(y) = ((a*y + b) % p) % M, donde:
+       a (scale) y b (shift) enteros aleatoreos dentro del intervalo [0,p-1], con a > 0
+       p (prime) es un primo mayor a M,
+       M (capacity) es el tamaño de la tabla, primo
+
+   :param key: llave para calcular el índice en la tabla de Hash, Puede ser cualquier tipo de dato.
+   :type key: T
+   :param scale: pendiente de la función de compresión.
+   :type scale: int
+   :param shift: desplazamiento de la función de compresión.
+   :type shift: int
+   :param prime: número  primo mucho mayor a la capacidad de la tabla de Hash.
+   :type prime: int
+   :param capacity: tamaño de la tabla de Hash, es un número primo para evitar colisiones.
+   :type capacity: int
+
+   :returns: el índice del elemento en la tabla de Hash.
+   :rtype: int
+
 
 .. py:data:: __version__
    :value: '0.0.3'

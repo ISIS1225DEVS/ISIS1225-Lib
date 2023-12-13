@@ -109,7 +109,7 @@
 <li class="toctree-l1"><a class="reference internal" href="binarysearchtree/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.DataStructures.binarysearchtree</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="bst/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.DataStructures.bst</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="bstnode/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.DataStructures.bstnode</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="chaininghashmap/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.DataStructures.chaininghashmap</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="chaininghashtable/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.DataStructures.chaininghashtable</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="doublelinkedlist/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.DataStructures.doublelinkedlist</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="edge/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.DataStructures.edge</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="heap/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.DataStructures.heap</span></code></a></li>
@@ -118,8 +118,8 @@
 <li class="toctree-l1"><a class="reference internal" href="listnode/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.DataStructures.listnode</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="mapentry/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.DataStructures.mapentry</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="node/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.DataStructures.node</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="probehashtable/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.DataStructures.probehashtable</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="probinghashmap/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.DataStructures.probinghashmap</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="probinghashtable/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.DataStructures.probinghashtable</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="rbt/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.DataStructures.rbt</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="rbtnode/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.DataStructures.rbtnode</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="redblacktree/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.DataStructures.redblacktree</span></code></a></li>
@@ -135,13 +135,22 @@
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.DataStructures.ArrayList" title="DISClib.DataStructures.ArrayList"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ArrayList</span></code></a></p></td>
-<td><p><em>ArrayList</em> representa la estructura de datos para arreglos dinamicos (Array List), Implementada con la anotación <a class="reference external" href="mailto:'&#37;&#52;&#48;dataclass">'<span>&#64;</span>dataclass</a>' de python y el decorador 'Generic[T]' para que sea una estructura de datos genérica.</p></td>
+<td><p><strong>ArrayList</strong> representa la estructura de datos para arreglos dinamicos (Array List), Implementada con Generic[T] y &#64;dataclass para que sea una estructura de datos genérica.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#DISClib.DataStructures.SingleLinked" title="DISClib.DataStructures.SingleLinked"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SingleLinked</span></code></a></p></td>
-<td><p><em>SingleLinked</em> Clase que representa una estructura de datos de tipo SingleLinked con la anotación <a class="reference external" href="mailto:'&#37;&#52;&#48;dataclass">'<span>&#64;</span>dataclass</a>' de python y el decorador 'Generic[T]' para indicar que es una estructura de datos genérica.</p></td>
+<td><p><strong>SingleLinked</strong> representa una estructura de datos dinámica de tipo lista sensillamente encadenada (Single Linked List), Implementada con Generic[T] y &#64;dataclass para que sea una estructura de datos genérica.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.DataStructures.DoubleLinked" title="DISClib.DataStructures.DoubleLinked"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DoubleLinked</span></code></a></p></td>
-<td><p>DoubleLinked Clase que representa una estructura de datos de tipo DoubleLinked con la anotación <a class="reference external" href="mailto:'&#37;&#52;&#48;dataclass">'<span>&#64;</span>dataclass</a>' de python y el decorador 'Generic[T]' para indicar que es una estructura de datos genérica.</p></td>
+<td><p><strong>DoubleLinked</strong> representa una estructura de datos de tipo DoubleLinked con la anotación <a class="reference external" href="mailto:'&#37;&#52;&#48;dataclass">'<span>&#64;</span>dataclass</a>' de python y el decorador 'Generic[T]' para indicar que es una estructura de datos genérica.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#DISClib.DataStructures.MapEntry" title="DISClib.DataStructures.MapEntry"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MapEntry</span></code></a></p></td>
+<td><p><strong>MapEntry</strong> representa un registro de un mapa no ordenado. Contiene la llave y el valor del registro del mapa. Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.DataStructures.SeparateChaining" title="DISClib.DataStructures.SeparateChaining"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SeparateChaining</span></code></a></p></td>
+<td><p><em>SeparateChaining</em> Es una clase que representa una tabla de hash con el método de encadenamiento por de separación (Separate Chaining). Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#DISClib.DataStructures.LinearProbing" title="DISClib.DataStructures.LinearProbing"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LinearProbing</span></code></a></p></td>
+<td><p><em>LinearProbing</em> Es una clase que representa una tabla de hash con el método de encadenamiento por de separación (Separate Chaining). Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.</p></td>
 </tr>
 </tbody>
 </table>
@@ -162,10 +171,10 @@
 <dt class="sig sig-object py" id="DISClib.DataStructures.ArrayList">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.</span></span><span class="sig-name descname"><span class="pre">ArrayList</span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/arraylist.html#ArrayList"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.ArrayList" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Generic</span></code>[<a class="reference internal" href="../Utils/default/index.html#DISClib.Utils.default.T" title="DISClib.Utils.default.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DISClib.Utils.default.T</span></code></a>]</p>
-<p><em>ArrayList</em> representa la estructura de datos para arreglos dinamicos (Array List), Implementada con la anotación <a class="reference external" href="mailto:'&#37;&#52;&#48;dataclass">“<span>&#64;</span>dataclass</a>” de python y el decorador “Generic[T]” para que sea una estructura de datos genérica.</p>
+<p><strong>ArrayList</strong> representa la estructura de datos para arreglos dinamicos (Array List), Implementada con Generic[T] y &#64;dataclass para que sea una estructura de datos genérica.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>Generic</strong> (<em>T</em>) – TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para representar una estructura de datos genéricas en python.</p>
+<dd class="field-odd"><p><strong>Generic</strong> (<em>T</em>) – TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.</p>
 </dd>
 <dt class="field-even">Devuelve<span class="colon">:</span></dt>
 <dd class="field-even"><p>ADT de tipo ArrayList o Arreglo Dinámico.</p>
@@ -189,25 +198,25 @@
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.ArrayList._size">
 <span class="sig-name descname"><span class="pre">_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#DISClib.DataStructures.ArrayList._size" title="Link to this definition"></a></dt>
-<dd><p>Atributo privado que representa el tamaño de la estructura, por defecto es 0.</p>
+<dd><p>Es el número de elementos que contiene la estructura, por defecto es 0 y se actualiza con cada operación que modifica la estructura.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.ArrayList.cmp_function">
 <span class="sig-name descname"><span class="pre">cmp_function</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.ArrayList.cmp_function" title="Link to this definition"></a></dt>
-<dd><p>Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es “None” y el __post_init__ configura la función por defecto lt_default_cmp_funcion().</p>
+<dd><p>Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es None y el <em>__post_init__()</em> configura la función por defecto <em>lt_default_cmp_funcion()</em>.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.ArrayList.key">
 <span class="sig-name descname"><span class="pre">key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.ArrayList.key" title="Link to this definition"></a></dt>
-<dd><p>Nombre de la llave opcional que se utiliza para comparar los elementos del ArrayList, Por defecto es “None” y el __post_init__ configura la llave por defecto la llave “id” en DEFAULT_DICT_KEY.</p>
+<dd><p>Nombre de la llave opcional que se utiliza para comparar los elementos del ArrayList, Por defecto es “None” y el <em>__post_init__()</em> configura la llave por defecto la llave “id” en <em>DEFAULT_DICT_KEY</em>.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.ArrayList.__post_init__">
 <span class="sig-name descname"><span class="pre">__post_init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/arraylist.html#ArrayList.__post_init__"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.ArrayList.__post_init__" title="Link to this definition"></a></dt>
-<dd><p><em>__post_init__()</em> configura los valores por defecto para la llave (key) y la función de comparación (cmp_function). Si el usuario incluye una lista nativa de python como argumento, se agrega a la lista de elementos del ArrayList.</p>
+<dd><p><em>__post_init__()</em> configura los valores por defecto para la llave (“key”) y la función de comparación (“cmp_function”). Si el usuario incluye una lista nativa de python como argumento, se agrega a la lista de elementos del ArrayList.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -234,7 +243,7 @@
 <dt class="sig sig-object py" id="DISClib.DataStructures.ArrayList._handle_error">
 <span class="sig-name descname"><span class="pre">_handle_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">err</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Exception</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/arraylist.html#ArrayList._handle_error"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.ArrayList._handle_error" title="Link to this definition"></a></dt>
 <dd><p><em>_handle_error()</em> función privada que maneja los errores que se pueden presentar en el ArrayList.</p>
-<p>Si se presenta un error en el ArrayList, se formatea el error según el contexto (paquete/clase) y la función que lo generó, y lo reenvia al componente superior en la jerarquía de llamados para manejarlo segun sea considere conveniente.</p>
+<p>Si se presenta un error en ArrayList, se formatea el error según el contexto (paquete/clase), la función que lo generó y lo reenvia al componente superior en la jerarquía de llamados para manejarlo segun se considere conveniente.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>err</strong> (<em>Exception</em>) – Excepción que se generó en el ArrayList.</p>
@@ -279,7 +288,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.ArrayList.size">
 <span class="sig-name descname"><span class="pre">size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/arraylist.html#ArrayList.size"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.ArrayList.size" title="Link to this definition"></a></dt>
-<dd><p><em>size()</em> devuelve el numero de elementos que actualmente contiene el ArrayList.</p>
+<dd><p><em>size()</em> devuelve el número de elementos que actualmente contiene el ArrayList.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
 <dd class="field-odd"><p>tamaño de la estructura ArrayList.</p>
@@ -299,7 +308,7 @@
 <dd class="field-odd"><p><strong>element</strong> (<em>T</em>) – elemento que se quiere agregar a la estructura.</p>
 </dd>
 <dt class="field-even">Muestra<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>Exception</strong> – si la operación no se puede realizar, se invoca la función “_handle_error()” para manejar el error.</p>
+<dd class="field-even"><p><strong>Exception</strong> – si la operación no se puede realizar, se invoca la función <em>_handle_error()</em> para manejar el error.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -313,7 +322,7 @@
 <dd class="field-odd"><p><strong>element</strong> (<em>T</em>) – elemento que se quiere agregar a la estructura.</p>
 </dd>
 <dt class="field-even">Muestra<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>Exception</strong> – si la operación no se puede realizar, se invoca la función “_handle_error()” para manejar el error.</p>
+<dd class="field-even"><p><strong>Exception</strong> – si la operación no se puede realizar, se invoca la función <em>_handle_error()</em> para manejar el error.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -376,22 +385,21 @@
 <dt class="sig sig-object py" id="DISClib.DataStructures.ArrayList.get_element">
 <span class="sig-name descname"><span class="pre">get_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DISClib.Utils.default.T</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/arraylist.html#ArrayList.get_element"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.ArrayList.get_element" title="Link to this definition"></a></dt>
 <dd><p><em>get_element()</em> lee un elemento en una posición dada del ArrayList.</p>
-<dl class="simple">
-<dt>Args:._size-1</dt><dd><p>pos (int): índice en la que se quiere agregar el elemento.</p>
-</dd>
-</dl>
 <dl class="field-list simple">
-<dt class="field-odd">Muestra<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>pos</strong> (<em>int</em>) – índice en la que se quiere agregar el elemento.</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
 <li><p><strong>Exception</strong> – error si la estructura está vacía.</p></li>
 <li><p><strong>Exception</strong> – error si la posición es inválida.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>el elemento en la posición dada del ArrayList.</p>
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>el elemento en la posición dada del ArrayList.</p>
 </dd>
-<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
-<dd class="field-odd"><p>T</p>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>T</p>
 </dd>
 </dl>
 </dd></dl>
@@ -477,9 +485,9 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="DISClib.DataStructures.ArrayList.is_present">
-<span class="sig-name descname"><span class="pre">is_present</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/arraylist.html#ArrayList.is_present"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.ArrayList.is_present" title="Link to this definition"></a></dt>
-<dd><p><em>is_present()</em> revisa si un elemento está en el ArrayList.</p>
+<dt class="sig sig-object py" id="DISClib.DataStructures.ArrayList.find">
+<span class="sig-name descname"><span class="pre">find</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/arraylist.html#ArrayList.find"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.ArrayList.find" title="Link to this definition"></a></dt>
+<dd><p><em>find()</em> revisa si un elemento está en el ArrayList.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>element</strong> (<em>T</em>) – elemento que se quiere revisar en el ArrayList.</p>
@@ -587,7 +595,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.ArrayList.__iter__">
 <span class="sig-name descname"><span class="pre">__iter__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/arraylist.html#ArrayList.__iter__"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.ArrayList.__iter__" title="Link to this definition"></a></dt>
-<dd><p><em>__iter__</em> iterador intervinido la función nativa __iter__ para recorrer un ArrayList dentro de un ciclo “for” de python.</p>
+<dd><p><em>__iter__()</em> iterador nativo de Python intervenida por la estructura de datos para recorrer los elementos del ArrayList utilizando un ciclo “for” de python.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
 <dd class="field-odd"><p>iterador Python sobre los elementos del ArrayList.</p>
@@ -601,8 +609,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.ArrayList.__len__">
 <span class="sig-name descname"><span class="pre">__len__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/arraylist.html#ArrayList.__len__"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.ArrayList.__len__" title="Link to this definition"></a></dt>
-<dd><p><em>__len__</em> función nativa intervenida que devuelve el tamaño del
-ArrayList.</p>
+<dd><p><em>__len__()</em> función nativa de Python intervenida por la estructura de datosv para recuperar el tamaño del ArrayList.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
 <dd class="field-odd"><p>tamaño del ArrayList.</p>
@@ -619,10 +626,10 @@ ArrayList.</p>
 <dt class="sig sig-object py" id="DISClib.DataStructures.SingleLinked">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.</span></span><span class="sig-name descname"><span class="pre">SingleLinked</span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/singlelinkedlist.html#SingleLinked"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.SingleLinked" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Generic</span></code>[<a class="reference internal" href="../Utils/default/index.html#DISClib.Utils.default.T" title="DISClib.Utils.default.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DISClib.Utils.default.T</span></code></a>]</p>
-<p><em>SingleLinked</em> Clase que representa una estructura de datos de tipo SingleLinked con la anotación <a class="reference external" href="mailto:'&#37;&#52;&#48;dataclass">“<span>&#64;</span>dataclass</a>” de python y el decorador “Generic[T]” para indicar que es una estructura de datos genérica.</p>
+<p><strong>SingleLinked</strong> representa una estructura de datos dinámica de tipo lista sensillamente encadenada (Single Linked List), Implementada con Generic[T] y &#64;dataclass para que sea una estructura de datos genérica.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>Generic</strong> (<em>T</em>) – TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para representar una estructura de datos genéricas en python.</p>
+<dd class="field-odd"><p><strong>Generic</strong> (<em>T</em>) – TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.</p>
 </dd>
 <dt class="field-even">Devuelve<span class="colon">:</span></dt>
 <dd class="field-even"><p>ADT de tipo SingleLinked o Lista Sensillamente Encadenada.</p>
@@ -640,37 +647,37 @@ ArrayList.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.SingleLinked.first">
 <span class="sig-name descname"><span class="pre">first</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="listnode/index.html#DISClib.DataStructures.listnode.SingleNode" title="DISClib.DataStructures.listnode.SingleNode"><span class="pre">DISClib.DataStructures.listnode.SingleNode</span></a><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.SingleLinked.first" title="Link to this definition"></a></dt>
-<dd><p>Atributo publico que representa el primer nodo del SingleLinked.</p>
+<dd><p>Representa el la referencia en memoria al primer nodo del SingleLinked.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.SingleLinked.last">
 <span class="sig-name descname"><span class="pre">last</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="listnode/index.html#DISClib.DataStructures.listnode.SingleNode" title="DISClib.DataStructures.listnode.SingleNode"><span class="pre">DISClib.DataStructures.listnode.SingleNode</span></a><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.SingleLinked.last" title="Link to this definition"></a></dt>
-<dd><p>Atributo publico que representa el último nodo del SingleLinked.</p>
+<dd><p>Representa la referencia en memoria al último nodo del SingleLinked.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.SingleLinked._size">
 <span class="sig-name descname"><span class="pre">_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#DISClib.DataStructures.SingleLinked._size" title="Link to this definition"></a></dt>
-<dd><p>Atributo privado que representa el tamaño de la estructura, por defecto es 0.</p>
+<dd><p>Es el número de elementos que contiene la estructura, por defecto es 0 y se actualiza con cada operación que modifica la estructura.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.SingleLinked.cmp_function">
 <span class="sig-name descname"><span class="pre">cmp_function</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.SingleLinked.cmp_function" title="Link to this definition"></a></dt>
-<dd><p>Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es “None” y el __post_init__ configura la función por defecto lt_default_cmp_funcion().</p>
+<dd><p>Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es None y el <em>__post_init__()</em> configura la función por defecto <em>lt_default_cmp_funcion()</em>.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.SingleLinked.key">
 <span class="sig-name descname"><span class="pre">key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.SingleLinked.key" title="Link to this definition"></a></dt>
-<dd><p>Nombre de la llave opcional que se utiliza para comparar los elementos del ArrayList, Por defecto es “None” y el __post_init__ configura la llave por defecto la llave “id” en DEFAULT_DICT_KEY.</p>
+<dd><p>Nombre de la llave opcional que se utiliza para comparar los elementos del ArrayList, Por defecto es None y el <em>__post_init__()</em> configura la llave por defecto la llave “id” en <em>DEFAULT_DICT_KEY</em>.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.SingleLinked.__post_init__">
 <span class="sig-name descname"><span class="pre">__post_init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/singlelinkedlist.html#SingleLinked.__post_init__"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.SingleLinked.__post_init__" title="Link to this definition"></a></dt>
-<dd><p><em>__post_init__()</em> configura los valores por defecto para la llave (key) y la función de comparación (cmp_function). Si el usuario incluye una lista nativa de python como argumento, se agrega a la lista de elementos del SingleLinked.</p>
+<dd><p><em>__post_init__()</em> configura los valores por defecto para la llave (“key”) y la función de comparación (“cmp_function”). Si el usuario incluye una lista nativa de python como argumento, se agrega a la lista de elementos del SingleLinked.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -745,7 +752,7 @@ ArrayList.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.SingleLinked.size">
 <span class="sig-name descname"><span class="pre">size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/singlelinkedlist.html#SingleLinked.size"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.SingleLinked.size" title="Link to this definition"></a></dt>
-<dd><p><em>size()</em> devuelve el numero de elementos que actualmente contiene el SingleLinked.</p>
+<dd><p><em>size()</em> devuelve el número de elementos que actualmente contiene el SingleLinked.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
 <dd class="field-odd"><p>tamaño de la estructura SingleLinked.</p>
@@ -765,7 +772,7 @@ ArrayList.</p>
 <dd class="field-odd"><p><strong>element</strong> (<em>T</em>) – elemento que se quiere agregar a la estructura.</p>
 </dd>
 <dt class="field-even">Muestra<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>Exception</strong> – si la operación no se puede realizar, se invoca la función “_handle_error()” para manejar el error.</p>
+<dd class="field-even"><p><strong>Exception</strong> – si la operación no se puede realizar, se invoca la función <em>_handle_error()</em> para manejar el error.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -779,7 +786,7 @@ ArrayList.</p>
 <dd class="field-odd"><p><strong>element</strong> (<em>T</em>) – elemento que se quiere agregar a la estructura.</p>
 </dd>
 <dt class="field-even">Muestra<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>Exception</strong> – si la operación no se puede realizar, se invoca la función “_handle_error()” para manejar el error.</p>
+<dd class="field-even"><p><strong>Exception</strong> – si la operación no se puede realizar, se invoca la función <em>_handle_error()</em> para manejar el error.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -942,9 +949,9 @@ ArrayList.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="DISClib.DataStructures.SingleLinked.is_present">
-<span class="sig-name descname"><span class="pre">is_present</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/singlelinkedlist.html#SingleLinked.is_present"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.SingleLinked.is_present" title="Link to this definition"></a></dt>
-<dd><p><em>is_present()</em> revisa si un elemento está en el SingleLinked.</p>
+<dt class="sig sig-object py" id="DISClib.DataStructures.SingleLinked.find">
+<span class="sig-name descname"><span class="pre">find</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/singlelinkedlist.html#SingleLinked.find"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.SingleLinked.find" title="Link to this definition"></a></dt>
+<dd><p><em>find()</em> revisa si un elemento está en el SingleLinked.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>element</strong> (<em>T</em>) – elemento que se quiere revisar en el SingleLinked.</p>
@@ -1052,13 +1059,13 @@ ArrayList.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.SingleLinked.__iter__">
 <span class="sig-name descname"><span class="pre">__iter__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/singlelinkedlist.html#SingleLinked.__iter__"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.SingleLinked.__iter__" title="Link to this definition"></a></dt>
-<dd><p><em>__iter__</em> iterador intervinido la función nativa __iter__ para recorrer un SingleLinked dentro de un ciclo “for” de python.</p>
+<dd><p><em>__iter__()</em> iterador nativo de Python intervenida por la estructura de datos para recorrer los elementos del SingleLinked utilizando un ciclo “for” de python.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
 <dd class="field-odd"><p>iterador sobre los elementos del SingleLinked.</p>
 </dd>
 <dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
-<dd class="field-even"><p>iterator</p>
+<dd class="field-even"><p>__iter__</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1066,7 +1073,7 @@ ArrayList.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.SingleLinked.__len__">
 <span class="sig-name descname"><span class="pre">__len__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/singlelinkedlist.html#SingleLinked.__len__"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.SingleLinked.__len__" title="Link to this definition"></a></dt>
-<dd><p><em>__len__</em> función nativa intervenida que devuelve el tamaño del SingleLinked.</p>
+<dd><p><em>__len__()</em> función nativa de Python intervenida por la estructura de datosv para recuperar el tamaño del SingleLinked.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
 <dd class="field-odd"><p>tamaño del SingleLinked.</p>
@@ -1083,10 +1090,10 @@ ArrayList.</p>
 <dt class="sig sig-object py" id="DISClib.DataStructures.DoubleLinked">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.</span></span><span class="sig-name descname"><span class="pre">DoubleLinked</span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/doublelinkedlist.html#DoubleLinked"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.DoubleLinked" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Generic</span></code>[<a class="reference internal" href="../Utils/default/index.html#DISClib.Utils.default.T" title="DISClib.Utils.default.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DISClib.Utils.default.T</span></code></a>]</p>
-<p>DoubleLinked Clase que representa una estructura de datos de tipo DoubleLinked con la anotación <a class="reference external" href="mailto:'&#37;&#52;&#48;dataclass">“<span>&#64;</span>dataclass</a>” de python y el decorador “Generic[T]” para indicar que es una estructura de datos genérica.</p>
+<p><strong>DoubleLinked</strong> representa una estructura de datos de tipo DoubleLinked con la anotación <a class="reference external" href="mailto:'&#37;&#52;&#48;dataclass">“<span>&#64;</span>dataclass</a>” de python y el decorador “Generic[T]” para indicar que es una estructura de datos genérica.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>Generic</strong> (<em>T</em>) – TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para representar una estructura de datos genéricas en python.</p>
+<dd class="field-odd"><p><strong>Generic</strong> (<em>T</em>) – TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.</p>
 </dd>
 <dt class="field-even">Devuelve<span class="colon">:</span></dt>
 <dd class="field-even"><p>ADT de tipo DoubleLinked o Lista Doblemente Encadenada.</p>
@@ -1104,37 +1111,37 @@ ArrayList.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.DoubleLinked._header">
 <span class="sig-name descname"><span class="pre">_header</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="listnode/index.html#DISClib.DataStructures.listnode.DoubleNode" title="DISClib.DataStructures.listnode.DoubleNode"><span class="pre">DISClib.DataStructures.listnode.DoubleNode</span></a><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.DoubleLinked._header" title="Link to this definition"></a></dt>
-<dd><p>Atributo privado que representa el nodo sentinela de la cabecera de la estructura, por defecto es un DoubleNode vacío.</p>
+<dd><p>Representa el nodo sentinela de la cabecera de la estructura, por defecto es un DoubleNode vacío.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.DoubleLinked._trailer">
 <span class="sig-name descname"><span class="pre">_trailer</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="listnode/index.html#DISClib.DataStructures.listnode.DoubleNode" title="DISClib.DataStructures.listnode.DoubleNode"><span class="pre">DISClib.DataStructures.listnode.DoubleNode</span></a><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.DoubleLinked._trailer" title="Link to this definition"></a></dt>
-<dd><p>Atributo privado que representa el nodo sentinela del final de la estructura, por defecto es un DoubleNode vacío.</p>
+<dd><p>Representa el nodo sentinela del final de la estructura, por defecto es un DoubleNode vacío.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.DoubleLinked._size">
 <span class="sig-name descname"><span class="pre">_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#DISClib.DataStructures.DoubleLinked._size" title="Link to this definition"></a></dt>
-<dd><p>Atributo privado que representa el tamaño de la estructura, por defecto es -1 para ajustar por los nodos sentinela de la cabecera y el final de la estructura.</p>
+<dd><p>Es el número de elementos que contiene la estructura, por defecto es 0, por defecto es -1 para ajustar por los nodos sentinelas de la estructura.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.DoubleLinked.cmp_function">
 <span class="sig-name descname"><span class="pre">cmp_function</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.DoubleLinked.cmp_function" title="Link to this definition"></a></dt>
-<dd><p>Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es “None” y el __post_init__ configura la función por defecto lt_default_cmp_funcion().</p>
+<dd><p>Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es “None” y el <em>__post_init__()</em> configura la función por defecto <em>lt_default_cmp_funcion()</em>.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.DoubleLinked.key">
 <span class="sig-name descname"><span class="pre">key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.DoubleLinked.key" title="Link to this definition"></a></dt>
-<dd><p>Nombre de la llave opcional que se utiliza para comparar los elementos del ArrayList, Por defecto es “None” y el __post_init__ configura la llave por defecto la llave “id” en DEFAULT_DICT_KEY.</p>
+<dd><p>Nombre de la llave opcional que se utiliza para comparar los elementos del ArrayList, Por defecto es “None” y el <em>__post_init__()</em> configura la llave por defecto la llave “id” en <em>DEFAULT_DICT_KEY</em>.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.DoubleLinked.__post_init__">
 <span class="sig-name descname"><span class="pre">__post_init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/doublelinkedlist.html#DoubleLinked.__post_init__"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.DoubleLinked.__post_init__" title="Link to this definition"></a></dt>
-<dd><p><em>__post_init__()</em> configura los valores por defecto para la llave (key) y la función de comparación (cmp_function). Si el usuario incluye una lista nativa de python como argumento, se agrega a la lista de elementos del DoubleLinked.</p>
+<dd><p><em>__post_init__()</em> configura los valores por defecto para la llave (“key”) y la función de comparación (“cmp_function”). Si el usuario incluye una lista nativa de python como argumento, se agrega a la lista de elementos del DoubleLinked.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1206,7 +1213,7 @@ ArrayList.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.DoubleLinked.size">
 <span class="sig-name descname"><span class="pre">size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/doublelinkedlist.html#DoubleLinked.size"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.DoubleLinked.size" title="Link to this definition"></a></dt>
-<dd><p><em>size()</em> devuelve el numero de elementos que actualmente contiene el DoubleLinked.</p>
+<dd><p><em>size()</em> devuelve el número de elementos que actualmente contiene el DoubleLinked.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
 <dd class="field-odd"><p>tamaño de la estructura DoubleLinked.</p>
@@ -1226,7 +1233,7 @@ ArrayList.</p>
 <dd class="field-odd"><p><strong>element</strong> (<em>T</em>) – elemento que se quiere agregar a la estructura.</p>
 </dd>
 <dt class="field-even">Muestra<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>Exception</strong> – si la operación no se puede realizar, se invoca la función “_handle_error()” para manejar el error.</p>
+<dd class="field-even"><p><strong>Exception</strong> – si la operación no se puede realizar, se invoca la función <em>_handle_error()</em> para manejar el error.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1240,7 +1247,7 @@ ArrayList.</p>
 <dd class="field-odd"><p><strong>element</strong> (<em>T</em>) – elemento que se quiere agregar a la estructura.</p>
 </dd>
 <dt class="field-even">Muestra<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>Exception</strong> – si la operación no se puede realizar, se invoca la función “_handle_error()” para manejar el error.</p>
+<dd class="field-even"><p><strong>Exception</strong> – si la operación no se puede realizar, se invoca la función <em>_handle_error()</em> para manejar el error.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1403,9 +1410,9 @@ ArrayList.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="DISClib.DataStructures.DoubleLinked.is_present">
-<span class="sig-name descname"><span class="pre">is_present</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/doublelinkedlist.html#DoubleLinked.is_present"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.DoubleLinked.is_present" title="Link to this definition"></a></dt>
-<dd><p><em>is_present()</em> revisa si un elemento está en el DoubleLinked.</p>
+<dt class="sig sig-object py" id="DISClib.DataStructures.DoubleLinked.find">
+<span class="sig-name descname"><span class="pre">find</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/doublelinkedlist.html#DoubleLinked.find"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.DoubleLinked.find" title="Link to this definition"></a></dt>
+<dd><p><em>find()</em> revisa si un elemento está en el DoubleLinked.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>element</strong> (<em>T</em>) – elemento que se quiere revisar en el DoubleLinked.</p>
@@ -1538,7 +1545,7 @@ ArrayList.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.DoubleLinked.__len__">
 <span class="sig-name descname"><span class="pre">__len__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/doublelinkedlist.html#DoubleLinked.__len__"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.DoubleLinked.__len__" title="Link to this definition"></a></dt>
-<dd><p><em>__len__</em> función nativa intervenida que devuelve el tamaño del DoubleLinked.</p>
+<dd><p><em>__len__()</em> función nativa intervenida que devuelve el tamaño del DoubleLinked.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
 <dd class="field-odd"><p>tamaño del DoubleLinked.</p>
@@ -1548,6 +1555,691 @@ ArrayList.</p>
 </dd>
 </dl>
 </dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="DISClib.DataStructures.MapEntry">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.</span></span><span class="sig-name descname"><span class="pre">MapEntry</span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/mapentry.html#MapEntry"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.MapEntry" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Generic</span></code>[<a class="reference internal" href="../Utils/default/index.html#DISClib.Utils.default.T" title="DISClib.Utils.default.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DISClib.Utils.default.T</span></code></a>]</p>
+<p><strong>MapEntry</strong> representa un registro de un mapa no ordenado. Contiene la llave y el valor del registro del mapa. Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Generic</strong> (<em>T</em>) – Tipo de dato genérico dentro del registro del mapa.</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TypeError</strong> – error si la información del registro del mapa (llave o valor) no son del tipo adecuado.</p>
+</dd>
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ADT de tipo MapEntry o registro de un mapa.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#DISClib.DataStructures.MapEntry" title="DISClib.DataStructures.MapEntry">MapEntry</a></p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.MapEntry._key">
+<span class="sig-name descname"><span class="pre">_key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">DISClib.Utils.default.T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.MapEntry._key" title="Link to this definition"></a></dt>
+<dd><p>Es la llave del registro del mapa.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.MapEntry._value">
+<span class="sig-name descname"><span class="pre">_value</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">DISClib.Utils.default.T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.MapEntry._value" title="Link to this definition"></a></dt>
+<dd><p>Es el valor del registro del mapa.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.MapEntry._handle_error">
+<span class="sig-name descname"><span class="pre">_handle_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">err</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Exception</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/mapentry.html#MapEntry._handle_error"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.MapEntry._handle_error" title="Link to this definition"></a></dt>
+<dd><p><em>_handle_error()</em> función privada para manejar los errores que se presentan en la clase MapEntry.</p>
+<p>Si se presenta un error en el MapEntry, se formatea el error según el contexto (paquete/clase) y la función que lo generó, y lo reenvia al componente superior en la jerarquía de llamados para manejarlo segun se considere conveniente.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>err</strong> (<em>Exception</em>) – Excepción que se generó en el MapEntry.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.MapEntry._check_key_type">
+<span class="sig-name descname"><span class="pre">_check_key_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/mapentry.html#MapEntry._check_key_type"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.MapEntry._check_key_type" title="Link to this definition"></a></dt>
+<dd><p><em>_check_key_type()</em> función privada que verifica que la información de la llave (key) del registro del mapa sea del tipo especificado.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>key</strong> (<em>T</em>) – llave que se quiere verificar en el registro del mapa.</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TypeError</strong> – error si la información del registro del mapa no es del tipo adecuado.</p>
+</dd>
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>operador que indica si el tipo de dato de la llave es el mismo que el tipo de dato de la llave que ya contiene la estructura de datos.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.MapEntry._check_value_type">
+<span class="sig-name descname"><span class="pre">_check_value_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/mapentry.html#MapEntry._check_value_type"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.MapEntry._check_value_type" title="Link to this definition"></a></dt>
+<dd><p><em>_check_value_type()</em> función privada que verifica que la información del valor (value) en el registro del mapa sea del tipo especificado.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>T</em>) – valor que se quiere verificar en el registro del mapa.</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TypeError</strong> – error si la información del registro del mapa no es del tipo adecuado.</p>
+</dd>
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>operador que indica si el tipo de dato del valor es el mismo que el tipo de dato de los elementos que ya contiene la estructura de datos.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.MapEntry.set_key">
+<span class="sig-name descname"><span class="pre">set_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/mapentry.html#MapEntry.set_key"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.MapEntry.set_key" title="Link to this definition"></a></dt>
+<dd><p><em>set_key()</em> introduce una nueva llave “key” al registro del mapa.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>key</strong> (<em>T</em>) – la nueva llave del registro del mapa.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.MapEntry.set_value">
+<span class="sig-name descname"><span class="pre">set_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/mapentry.html#MapEntry.set_value"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.MapEntry.set_value" title="Link to this definition"></a></dt>
+<dd><p><em>set_value()</em> introduce un nuevo valor “value” al registro del mapa.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>T</em>) – el nuevo valor del registro del mapa.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.MapEntry.get_key">
+<span class="sig-name descname"><span class="pre">get_key</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DISClib.Utils.default.T</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/mapentry.html#MapEntry.get_key"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.MapEntry.get_key" title="Link to this definition"></a></dt>
+<dd><p><em>get_key()</em> recupera la llave “key” contenida en el registro del mapa.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>la llave del registro del mapa.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>T</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.MapEntry.get_value">
+<span class="sig-name descname"><span class="pre">get_value</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DISClib.Utils.default.T</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/mapentry.html#MapEntry.get_value"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.MapEntry.get_value" title="Link to this definition"></a></dt>
+<dd><p><em>get_value()</em> recupera el valor “value” contenido en el registro del mapa.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>el valor del registro del mapa.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>T</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.</span></span><span class="sig-name descname"><span class="pre">SeparateChaining</span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Generic</span></code>[<a class="reference internal" href="../Utils/default/index.html#DISClib.Utils.default.T" title="DISClib.Utils.default.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DISClib.Utils.default.T</span></code></a>]</p>
+<p><em>SeparateChaining</em> Es una clase que representa una tabla de hash con el método de encadenamiento por de separación (Separate Chaining). Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Generic</strong> (<em>T</em>) – Tipo de dato genérico dentro del registro del mapa.</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TypeError</strong> – error si la información del registro del mapa (llave o valor) no son del tipo adecuado.</p>
+</dd>
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ADT de tipo SeparateChaining o tabla de hash con separación por encadenamiento.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#DISClib.DataStructures.SeparateChaining" title="DISClib.DataStructures.SeparateChaining">SeparateChaining</a></p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining.iodata">
+<span class="sig-name descname"><span class="pre">iodata</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining.iodata" title="Link to this definition"></a></dt>
+<dd><p>Lista nativa de Python que contiene los elementos de entrada a la estructura, por defecto es None y el usuario puede incluir una lista nativa de python como argumento.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining.elements">
+<span class="sig-name descname"><span class="pre">elements</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining.elements" title="Link to this definition"></a></dt>
+<dd><p>Es el espacio reservado para la tabla de hash (n), por defecto es 1, pero debe configurarse según el número de elementos que se espera almacenar.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining.alpha">
+<span class="sig-name descname"><span class="pre">alpha</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining.alpha" title="Link to this definition"></a></dt>
+<dd><p>Es el factor de carga (alpha) con el que se inicializa la tabla de hash, por defecto es 4.0.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining.prime">
+<span class="sig-name descname"><span class="pre">prime</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining.prime" title="Link to this definition"></a></dt>
+<dd><p>Es el número primo (P) utilizado para calcular el código hash de la llave con la función de compresión MAD, por defecto es 109345121.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining.hash_table">
+<span class="sig-name descname"><span class="pre">hash_table</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList" title="DISClib.DataStructures.arraylist.ArrayList"><span class="pre">DISClib.DataStructures.arraylist.ArrayList</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="chaininghashtable/index.html#DISClib.DataStructures.chaininghashtable.Bucket" title="DISClib.DataStructures.chaininghashtable.Bucket"><span class="pre">Bucket</span></a><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining.hash_table" title="Link to this definition"></a></dt>
+<dd><p>Es el indice de la tabla de hash donde se almacenan los “Buckets”, implementado con un “ArrayList” de DISCLib. en el __post_init__ se inicializa con la capacidad inicial de la tabla de hash.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining.rehashable">
+<span class="sig-name descname"><span class="pre">rehashable</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining.rehashable" title="Link to this definition"></a></dt>
+<dd><p>Es un booleano que indica si la tabla de hash se puede reconstruir utilizando el método de rehash, por defecto es True.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining.capacity">
+<span class="sig-name descname"><span class="pre">capacity</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining.capacity" title="Link to this definition"></a></dt>
+<dd><p>Es la capacidad (M) con la que se inicializa la tabla de hash.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining._size">
+<span class="sig-name descname"><span class="pre">_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining._size" title="Link to this definition"></a></dt>
+<dd><p>Es el número de elementos (n) dentro de la tabla de hash, por defecto es 0 y se actualiza con cada operación que modifica la estructura.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining._collisions">
+<span class="sig-name descname"><span class="pre">_collisions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining._collisions" title="Link to this definition"></a></dt>
+<dd><p>Es el número de colisiones en la tabla de hash.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining._scale">
+<span class="sig-name descname"><span class="pre">_scale</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining._scale" title="Link to this definition"></a></dt>
+<dd><p>Es el número utilizado para calcular el código hash de la llave.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining._shift">
+<span class="sig-name descname"><span class="pre">_shift</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining._shift" title="Link to this definition"></a></dt>
+<dd><p>Es el número utilizado para calcular el código hash de la llave.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining._limit_alpha">
+<span class="sig-name descname"><span class="pre">_limit_alpha</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining._limit_alpha" title="Link to this definition"></a></dt>
+<dd><p>Es el factor de carga limite antes de hacer rehash.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining._cur_alpha">
+<span class="sig-name descname"><span class="pre">_cur_alpha</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining._cur_alpha" title="Link to this definition"></a></dt>
+<dd><p>Es el factor de carga actual de la tabla de hash.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining._data_type">
+<span class="sig-name descname"><span class="pre">_data_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">type</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining._data_type" title="Link to this definition"></a></dt>
+<dd><p>Es el tipo de dato de los elementos que contiene la tabla de hash, por defecto es “None” y se configura al cargar el primer elemento en el mapa.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining.cmp_function">
+<span class="sig-name descname"><span class="pre">cmp_function</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining.cmp_function" title="Link to this definition"></a></dt>
+<dd><p>Función de comparación opcional que se utiliza para comparar los elementos del SeparateChaining, por defecto es “None” y el __post_init__ configura la función por defecto lt_default_cmp_funcion().</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining.key">
+<span class="sig-name descname"><span class="pre">key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining.key" title="Link to this definition"></a></dt>
+<dd><p>Nombre de la llave opcional que se utiliza para comparar los elementos del SeparateChaining, Por defecto es “None” y el __post_init__ configura la llave por defecto la llave “id” en DEFAULT_DICT_KEY.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining.__post_init__">
+<span class="sig-name descname"><span class="pre">__post_init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining.__post_init__"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining.__post_init__" title="Link to this definition"></a></dt>
+<dd><p>__post_init__ _summary_</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining.default_cmp_function">
+<span class="sig-name descname"><span class="pre">default_cmp_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="mapentry/index.html#DISClib.DataStructures.mapentry.MapEntry" title="DISClib.DataStructures.mapentry.MapEntry"><span class="pre">DISClib.DataStructures.mapentry.MapEntry</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining.default_cmp_function"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining.default_cmp_function" title="Link to this definition"></a></dt>
+<dd><p><em>default_cmp_function()</em> procesa la llave existente en el elemento del “SeparateChaining” y la compara con el elemento que se quiere agregar al “SeparateChaining”.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key1</strong> (<em>Any</em>) – llave del primer elemento a comparar.</p></li>
+<li><p><strong>entry2</strong> (<a class="reference internal" href="#DISClib.DataStructures.MapEntry" title="DISClib.DataStructures.MapEntry"><em>MapEntry</em></a>) – entrada del mapa del segundo elemento a comparar.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>respuesta de la comparación entre los elementos, 0 si las llaves son iguales, 1 si key1 es mayor que la llave de entry2, -1 si key1 es menor.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining._handle_error">
+<span class="sig-name descname"><span class="pre">_handle_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">err</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Exception</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining._handle_error"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining._handle_error" title="Link to this definition"></a></dt>
+<dd><p><em>_handle_error()</em> función privada que maneja los errores que se pueden presentar en el SeparateChaining.</p>
+<p>Si se presenta un error en el SeparateChaining, se formatea el error según el contexto (paquete/clase) y la función que lo generó, y lo reenvia al componente superior en la jerarquía de llamados para manejarlo segun sea considere conveniente.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>err</strong> (<em>Exception</em>) – Excepción que se generó en el SeparateChaining.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining._check_type">
+<span class="sig-name descname"><span class="pre">_check_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining._check_type"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining._check_type" title="Link to this definition"></a></dt>
+<dd><p><em>_check_type()</em> función privada que verifica que el tipo de dato del elemento que se quiere agregar al SeparateChaining sea del mismo tipo contenido dentro de los elementos del SeparateChaining.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>TypeError</strong> – error si el tipo de dato del elemento que se quiere agregar no es el mismo que el tipo de dato de los elementos que ya contiene el SeparateChaining.</p>
+</dd>
+<dt class="field-even">Parámetros<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>element</strong> (<em>T</em>) – elemento que se quiere procesar en SeparateChaining.</p>
+</dd>
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>operador que indica si el ADT SeparateChaining es del mismo tipo que el elemento que se quiere procesar.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining.is_empty">
+<span class="sig-name descname"><span class="pre">is_empty</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining.is_empty"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining.is_empty" title="Link to this definition"></a></dt>
+<dd><p><em>is_empty()</em> revisa si el SeparateChaining está vacío.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>operador que indica si la estructura SeparateChaining está vacía.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining.size">
+<span class="sig-name descname"><span class="pre">size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining.size"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining.size" title="Link to this definition"></a></dt>
+<dd><p><em>size()</em> devuelve el numero de elementos que actualmente contiene el SeparateChaining.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tamaño de la estructura SeparateChaining.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining.contains">
+<span class="sig-name descname"><span class="pre">contains</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining.contains"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining.contains" title="Link to this definition"></a></dt>
+<dd><p>contains _summary_</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>key</strong> (<em>T</em>) – _description_</p>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>_description_</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining.put">
+<span class="sig-name descname"><span class="pre">put</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining.put"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining.put" title="Link to this definition"></a></dt>
+<dd><p>put _summary_</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> (<em>T</em>) – _description_</p></li>
+<li><p><strong>value</strong> (<em>T</em>) – _description_</p></li>
+</ul>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – _description_</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DISClib.Utils.default.T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining.get"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining.get" title="Link to this definition"></a></dt>
+<dd><p>get _summary_</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>key</strong> (<em>T</em>) – _description_</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – _description_</p>
+</dd>
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>_description_</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>Optional[T]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining.remove">
+<span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining.remove"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining.remove" title="Link to this definition"></a></dt>
+<dd><p>remove _summary_</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>key</strong> (<em>T</em>) – _description_</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – _description_</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining.keys">
+<span class="sig-name descname"><span class="pre">keys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList" title="DISClib.DataStructures.arraylist.ArrayList"><span class="pre">DISClib.DataStructures.arraylist.ArrayList</span></a><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining.keys"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining.keys" title="Link to this definition"></a></dt>
+<dd><p>keys _summary_</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>_description_</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#DISClib.DataStructures.ArrayList" title="DISClib.DataStructures.ArrayList">ArrayList</a>[T]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining.values">
+<span class="sig-name descname"><span class="pre">values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList" title="DISClib.DataStructures.arraylist.ArrayList"><span class="pre">DISClib.DataStructures.arraylist.ArrayList</span></a><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining.values"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining.values" title="Link to this definition"></a></dt>
+<dd><p>values _summary_</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>_description_</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#DISClib.DataStructures.ArrayList" title="DISClib.DataStructures.ArrayList">ArrayList</a>[T]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining.entries">
+<span class="sig-name descname"><span class="pre">entries</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList" title="DISClib.DataStructures.arraylist.ArrayList"><span class="pre">DISClib.DataStructures.arraylist.ArrayList</span></a><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining.entries"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining.entries" title="Link to this definition"></a></dt>
+<dd><p>entries _summary_</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>_description_</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#DISClib.DataStructures.ArrayList" title="DISClib.DataStructures.ArrayList">ArrayList</a>[T]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining.rehash">
+<span class="sig-name descname"><span class="pre">rehash</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining.rehash"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining.rehash" title="Link to this definition"></a></dt>
+<dd><p>rehash _summary_</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.</span></span><span class="sig-name descname"><span class="pre">LinearProbing</span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.LinearProbing" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Generic</span></code>[<a class="reference internal" href="../Utils/default/index.html#DISClib.Utils.default.T" title="DISClib.Utils.default.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DISClib.Utils.default.T</span></code></a>]</p>
+<p><em>LinearProbing</em> Es una clase que representa una tabla de hash con el método de encadenamiento por de separación (Separate Chaining). Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Generic</strong> (<em>T</em>) – Tipo de dato genérico dentro del registro del mapa.</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TypeError</strong> – error si la información del registro del mapa (llave o valor) no son del tipo adecuado.</p>
+</dd>
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ADT de tipo LinearProbing o tabla de hash con separación por encadenamiento.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#DISClib.DataStructures.LinearProbing" title="DISClib.DataStructures.LinearProbing">LinearProbing</a></p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing.iodata">
+<span class="sig-name descname"><span class="pre">iodata</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.LinearProbing.iodata" title="Link to this definition"></a></dt>
+<dd><p>Lista nativa de Python que contiene los elementos de entrada a la estructura, por defecto es None y el usuario puede incluir una lista nativa de python como argumento.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing.elements">
+<span class="sig-name descname"><span class="pre">elements</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#DISClib.DataStructures.LinearProbing.elements" title="Link to this definition"></a></dt>
+<dd><p>Es el espacio reservado para la tabla de hash (n), por defecto es 1, pero debe configurarse según el número de elementos que se espera almacenar.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing.aLpha">
+<span class="sig-name descname"><span class="pre">aLpha</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.LinearProbing.aLpha" title="Link to this definition"></a></dt>
+<dd><p>Es el factor de carga con el que se inicializa la tabla de hash, por defecto es 4.0.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing.prime">
+<span class="sig-name descname"><span class="pre">prime</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.LinearProbing.prime" title="Link to this definition"></a></dt>
+<dd><p>Es el número primo utilizado para calcular el código hash de la llave con la función de compresión MAD, por defecto es 109345121.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing.table">
+<span class="sig-name descname"><span class="pre">table</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList" title="DISClib.DataStructures.arraylist.ArrayList"><span class="pre">DISClib.DataStructures.arraylist.ArrayList</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="mapentry/index.html#DISClib.DataStructures.mapentry.MapEntry" title="DISClib.DataStructures.mapentry.MapEntry"><span class="pre">DISClib.DataStructures.mapentry.MapEntry</span></a><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#DISClib.DataStructures.LinearProbing.table" title="Link to this definition"></a></dt>
+<dd><p>Es el indice de la tabla de hash donde se almacenan los “Buckets”, implementado con un “ArrayList” de DISCLib. en el __post_init__ se inicializa con la capacidad inicial de la tabla de hash.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing.rehashable">
+<span class="sig-name descname"><span class="pre">rehashable</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#DISClib.DataStructures.LinearProbing.rehashable" title="Link to this definition"></a></dt>
+<dd><p>Es un booleano que indica si la tabla de hash se puede reconstruir utilizando el método de rehash, por defecto es True.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing.capacity">
+<span class="sig-name descname"><span class="pre">capacity</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#DISClib.DataStructures.LinearProbing.capacity" title="Link to this definition"></a></dt>
+<dd><p>Es la capacidad (m) con la que se inicializa la tabla de hash.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing._size">
+<span class="sig-name descname"><span class="pre">_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#DISClib.DataStructures.LinearProbing._size" title="Link to this definition"></a></dt>
+<dd><p>Es el número de elementos dentro de la tabla de hash, por defecto es 0 y se actualiza con cada operación que modifica la estructura.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing._collisions">
+<span class="sig-name descname"><span class="pre">_collisions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#DISClib.DataStructures.LinearProbing._collisions" title="Link to this definition"></a></dt>
+<dd><p>Es el número de colisiones en la tabla de hash.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing._scale">
+<span class="sig-name descname"><span class="pre">_scale</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#DISClib.DataStructures.LinearProbing._scale" title="Link to this definition"></a></dt>
+<dd><p>Es el número utilizado para calcular el código hash de la llave.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing._shift">
+<span class="sig-name descname"><span class="pre">_shift</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#DISClib.DataStructures.LinearProbing._shift" title="Link to this definition"></a></dt>
+<dd><p>Es el número utilizado para calcular el código hash de la llave.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing._limit_factor">
+<span class="sig-name descname"><span class="pre">_limit_factor</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#DISClib.DataStructures.LinearProbing._limit_factor" title="Link to this definition"></a></dt>
+<dd><p>Es el factor de carga limite antes de hacer rehash.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing._current_factor">
+<span class="sig-name descname"><span class="pre">_current_factor</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#DISClib.DataStructures.LinearProbing._current_factor" title="Link to this definition"></a></dt>
+<dd><p>Es el factor de carga actual de la tabla de hash.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing.cmp_function">
+<span class="sig-name descname"><span class="pre">cmp_function</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.LinearProbing.cmp_function" title="Link to this definition"></a></dt>
+<dd><p>Función de comparación opcional que se utiliza para comparar los elementos del LinearProbing, por defecto es “None” y el __post_init__ configura la función por defecto lt_default_cmp_funcion().</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing.key">
+<span class="sig-name descname"><span class="pre">key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.LinearProbing.key" title="Link to this definition"></a></dt>
+<dd><p>Nombre de la llave opcional que se utiliza para comparar los elementos del LinearProbing, Por defecto es “None” y el __post_init__ configura la llave por defecto la llave “id” en DEFAULT_DICT_KEY.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing.__post_init__">
+<span class="sig-name descname"><span class="pre">__post_init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.__post_init__"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.LinearProbing.__post_init__" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing.default_cmp_function">
+<span class="sig-name descname"><span class="pre">default_cmp_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elm1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elm2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.default_cmp_function"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.LinearProbing.default_cmp_function" title="Link to this definition"></a></dt>
+<dd><p><em>default_cmp_function()</em> procesa con algoritmica por defecto la lista de elementos que procesa el LinearProbing. Es una función crucial para que la estructura de datos funcione correctamente.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>elm1</strong> (<em>Any</em>) – primer elemento a comparar.</p></li>
+<li><p><strong>elm2</strong> (<em>Any</em>) – segundo elemento a comparar.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>respuesta de la comparación entre los elementos, 0 si son iguales, 1 si elm1 es mayor que elm2, -1 si elm1 es menor.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing._handle_error">
+<span class="sig-name descname"><span class="pre">_handle_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">err</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Exception</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing._handle_error"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.LinearProbing._handle_error" title="Link to this definition"></a></dt>
+<dd><p><em>_handle_error()</em> función privada que maneja los errores que se pueden presentar en el LinearProbing.</p>
+<p>Si se presenta un error en el LinearProbing, se formatea el error según el contexto (paquete/clase) y la función que lo generó, y lo reenvia al componente superior en la jerarquía de llamados para manejarlo segun sea considere conveniente.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>err</strong> (<em>Exception</em>) – Excepción que se generó en el LinearProbing.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing._check_type">
+<span class="sig-name descname"><span class="pre">_check_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing._check_type"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.LinearProbing._check_type" title="Link to this definition"></a></dt>
+<dd><p><em>_check_type()</em> función privada que verifica que el tipo de dato del elemento que se quiere agregar al LinearProbing sea del mismo tipo contenido dentro de los elementos del LinearProbing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>TypeError</strong> – error si el tipo de dato del elemento que se quiere agregar no es el mismo que el tipo de dato de los elementos que ya contiene el LinearProbing.</p>
+</dd>
+<dt class="field-even">Parámetros<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>element</strong> (<em>T</em>) – elemento que se quiere procesar en LinearProbing.</p>
+</dd>
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>operador que indica si el ADT LinearProbing es del mismo tipo que el elemento que se quiere procesar.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing.is_empty">
+<span class="sig-name descname"><span class="pre">is_empty</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.is_empty"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.LinearProbing.is_empty" title="Link to this definition"></a></dt>
+<dd><p><em>is_empty()</em> revisa si el LinearProbing está vacío.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>operador que indica si la estructura LinearProbing está vacía.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing.size">
+<span class="sig-name descname"><span class="pre">size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.size"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.LinearProbing.size" title="Link to this definition"></a></dt>
+<dd><p><em>size()</em> devuelve el numero de elementos que actualmente contiene el LinearProbing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tamaño de la estructura LinearProbing.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing.contains">
+<span class="sig-name descname"><span class="pre">contains</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.contains"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.LinearProbing.contains" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing.put">
+<span class="sig-name descname"><span class="pre">put</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.put"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.LinearProbing.put" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DISClib.Utils.default.T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.get"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.LinearProbing.get" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing.remove">
+<span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.remove"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.LinearProbing.remove" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing.keys">
+<span class="sig-name descname"><span class="pre">keys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList" title="DISClib.DataStructures.arraylist.ArrayList"><span class="pre">DISClib.DataStructures.arraylist.ArrayList</span></a><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.keys"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.LinearProbing.keys" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing.values">
+<span class="sig-name descname"><span class="pre">values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList" title="DISClib.DataStructures.arraylist.ArrayList"><span class="pre">DISClib.DataStructures.arraylist.ArrayList</span></a><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.values"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.LinearProbing.values" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing.rehash">
+<span class="sig-name descname"><span class="pre">rehash</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.rehash"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.LinearProbing.rehash" title="Link to this definition"></a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 

@@ -87,21 +87,28 @@
 <span class="c1"># M1</span>
 <span class="kn">from</span> <span class="nn">.dynamic</span> <span class="kn">import</span> <span class="n">DynamicImporter</span>
 <span class="kn">from</span> <span class="nn">.lists</span> <span class="kn">import</span> <span class="n">List</span>
-<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">queue</span>
-<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">stack</span>
+<span class="kn">from</span> <span class="nn">.queue</span> <span class="kn">import</span> <span class="n">Queue</span>
+<span class="kn">from</span> <span class="nn">.stack</span> <span class="kn">import</span> <span class="n">Stack</span>
+
 <span class="c1"># M2</span>
-<span class="c1"># from . import maps</span>
-<span class="c1"># # M3</span>
+<span class="kn">from</span> <span class="nn">.maps</span> <span class="kn">import</span> <span class="n">Map</span>
+
+<span class="c1"># M3</span>
 <span class="c1"># from . import orderedmap</span>
 <span class="c1"># from . import indexminpq</span>
 <span class="c1"># from . import minpq</span>
+
 <span class="c1"># # M4</span>
 <span class="c1"># from . import graph</span>
 
+<span class="c1"># checking modules in M1 namespace</span>
 <span class="k">assert</span> <span class="n">DynamicImporter</span>
 <span class="k">assert</span> <span class="n">List</span>
-<span class="k">assert</span> <span class="n">queue</span>
-<span class="k">assert</span> <span class="n">stack</span>
+<span class="k">assert</span> <span class="n">Queue</span>
+<span class="k">assert</span> <span class="n">Stack</span>
+
+<span class="c1"># checking modules in M2 namespace</span>
+<span class="k">assert</span> <span class="n">Map</span>
 
 <span class="c1"># config the path to the DISCLib folder</span>
 <span class="c1"># TODO this used to be in config.py</span>

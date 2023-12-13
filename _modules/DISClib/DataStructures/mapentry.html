@@ -81,7 +81,7 @@
              
   <h1>Código fuente para DISClib.DataStructures.mapentry</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Esta clase representa la registro de un Mapa no Ordenado (MapEntry), el cual es una estructura de datos dinámica que permite almacenar la información en parejas de llave-valor (key-value). La llave (key) es un identificador único para cada valor (value) almacenado en el Mapa no Ordenado (Map). Por su parte, el valor (value) puede ser cualquier tipo de dato.</span>
+<span class="sd">Este ADT representa la registro de un Mapa no Ordenado (MapEntry), el cual es una estructura de datos dinámica que permite almacenar la información en parejas de llave-valor (key-value). La llave (key) es un identificador único para cada valor (value) almacenado en el Mapa no Ordenado (Map). Por su parte, el valor (value) puede ser cualquier tipo de dato.</span>
 
 <span class="sd">En el caso de las tablas de Hash, la llave (key) es el resultado de aplicar una función hash al valor (value) almacenado en el Mapa no Ordenado (Map). Esta estructura de datos es fundamental para implementar otros mapas no ordenados como: tablas de símbolos, diccionarios, entre otros.</span>
 
@@ -105,12 +105,10 @@
 <span class="c1"># custom modules</span>
 <span class="c1"># generic error handling and type checking</span>
 <span class="kn">from</span> <span class="nn">DISClib.Utils.error</span> <span class="kn">import</span> <span class="n">error_handler</span>
-<span class="kn">from</span> <span class="nn">DISClib.Utils.error</span> <span class="kn">import</span> <span class="n">init_type_checker</span>
 <span class="kn">from</span> <span class="nn">DISClib.Utils.default</span> <span class="kn">import</span> <span class="n">T</span>
 
-<span class="c1"># checking costum modules</span>
+<span class="c1"># checking custom modules</span>
 <span class="k">assert</span> <span class="n">error_handler</span>
-<span class="k">assert</span> <span class="n">init_type_checker</span>
 <span class="k">assert</span> <span class="n">T</span>
 
 
@@ -118,7 +116,7 @@
 <div class="viewcode-block" id="MapEntry">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/mapentry/index.html#DISClib.DataStructures.mapentry.MapEntry">[documentos]</a>
 <span class="k">class</span> <span class="nc">MapEntry</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">T</span><span class="p">]):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;*MapEntry* Es una clase que representa un registro de un mapa no ordenado. Contiene la llave y el valor del registro del mapa. Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;**MapEntry** representa un registro de un mapa no ordenado. Contiene la llave y el valor del registro del mapa. Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        Generic (T): Tipo de dato genérico dentro del registro del mapa.</span>
@@ -148,23 +146,6 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Es el valor del registro del mapa.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-
-<div class="viewcode-block" id="MapEntry.__post_init__">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/mapentry/index.html#DISClib.DataStructures.mapentry.MapEntry.__post_init__">[documentos]</a>
-    <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*__post_init__()* revisa que la información al crear un registro sea sea valida.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="c1"># if the _value attribute is not None, check its type</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="n">cur_function</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">currentframe</span><span class="p">()</span><span class="o">.</span><span class="n">f_code</span><span class="o">.</span><span class="n">co_name</span>
-                <span class="n">cur_context</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
-                <span class="n">init_type_checker</span><span class="p">(</span><span class="n">cur_context</span><span class="p">,</span> <span class="n">cur_function</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span><span class="p">)</span>
-                <span class="n">init_type_checker</span><span class="p">(</span><span class="n">cur_context</span><span class="p">,</span> <span class="n">cur_function</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_key</span><span class="p">)</span>
-        <span class="c1"># if an error occurs, handle it</span>
-        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
-
 
 <div class="viewcode-block" id="MapEntry._handle_error">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/mapentry/index.html#DISClib.DataStructures.mapentry.MapEntry._handle_error">[documentos]</a>
@@ -196,7 +177,7 @@
 <span class="sd">            bool: operador que indica si el tipo de dato de la llave es el mismo que el tipo de dato de la llave que ya contiene la estructura de datos.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># TODO check usability of this function</span>
-        <span class="k">if</span> <span class="n">key</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_key</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_key</span><span class="p">)):</span>
             <span class="n">err_msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Invalid data type: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_key</span><span class="p">)</span><span class="si">}</span><span class="s2"> &quot;</span>
             <span class="n">err_msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;for key data: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">key</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">err_msg</span><span class="p">)</span>
@@ -218,7 +199,7 @@
 <span class="sd">            bool: operador que indica si el tipo de dato del valor es el mismo que el tipo de dato de los elementos que ya contiene la estructura de datos.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># TODO check usability of this function</span>
-        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_value</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_value</span><span class="p">)):</span>
             <span class="n">err_msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Invalid data type: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_value</span><span class="p">)</span><span class="si">}</span><span class="s2"> &quot;</span>
             <span class="n">err_msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;for value data: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">err_msg</span><span class="p">)</span>

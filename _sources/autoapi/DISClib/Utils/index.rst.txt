@@ -12,5 +12,6 @@ Submodules
 
    default/index.rst
    error/index.rst
+   numbers/index.rst
 
 

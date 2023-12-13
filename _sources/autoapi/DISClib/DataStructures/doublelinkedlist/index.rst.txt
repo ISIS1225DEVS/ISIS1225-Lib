@@ -5,7 +5,7 @@
 
 .. autoapi-nested-parse::
 
-   Esta clase representa una estructura de datos lineal, específicamente una lista doblemente enlazada/encadenada (DoubleLinked). Esta estructura de datos es una secuencia de nodos enlazados, donde cada nodo contiene un elemento de información, una referencia al siguiente, y al anterior nodo en la secuencia. Esto le permite a la lista un crecimiento y reducción dinámico en la memoria disponible.
+   Este ADT representa una estructura de datos lineal, específicamente una lista doblemente enlazada/encadenada (DoubleLinked). Esta estructura de datos es una secuencia de nodos enlazados, donde cada nodo contiene un elemento de información, una referencia al siguiente, y al anterior nodo en la secuencia. Esto le permite a la lista un crecimiento y reducción dinámico en la memoria disponible.
 
    *IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:
 
@@ -32,9 +32,9 @@ Classes
 
    Bases: :py:obj:`Generic`\ [\ :py:obj:`DISClib.Utils.default.T`\ ]
 
-   DoubleLinked Clase que representa una estructura de datos de tipo DoubleLinked con la anotación '@dataclass' de python y el decorador 'Generic[T]' para indicar que es una estructura de datos genérica.
+   **DoubleLinked** representa una estructura de datos de tipo DoubleLinked con la anotación '@dataclass' de python y el decorador 'Generic[T]' para indicar que es una estructura de datos genérica.
 
-   :param Generic: TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para representar una estructura de datos genéricas en python.
+   :param Generic: TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.
    :type Generic: T
 
    :returns: ADT de tipo DoubleLinked o Lista Doblemente Encadenada.
@@ -48,31 +48,31 @@ Classes
    .. py:attribute:: _header
       :type: Optional[DISClib.DataStructures.listnode.DoubleNode[DISClib.Utils.default.T]]
 
-      Atributo privado que representa el nodo sentinela de la cabecera de la estructura, por defecto es un DoubleNode vacío.
+      Representa el nodo sentinela de la cabecera de la estructura, por defecto es un DoubleNode vacío.
 
    .. py:attribute:: _trailer
       :type: Optional[DISClib.DataStructures.listnode.DoubleNode[DISClib.Utils.default.T]]
 
-      Atributo privado que representa el nodo sentinela del final de la estructura, por defecto es un DoubleNode vacío.
+      Representa el nodo sentinela del final de la estructura, por defecto es un DoubleNode vacío.
 
    .. py:attribute:: _size
       :type: int
 
-      Atributo privado que representa el tamaño de la estructura, por defecto es -1 para ajustar por los nodos sentinela de la cabecera y el final de la estructura.
+      Es el número de elementos que contiene la estructura, por defecto es 0, por defecto es -1 para ajustar por los nodos sentinelas de la estructura.
 
    .. py:attribute:: cmp_function
       :type: Optional[Callable[[DISClib.Utils.default.T, DISClib.Utils.default.T], int]]
 
-      Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es 'None' y el __post_init__ configura la función por defecto lt_default_cmp_funcion().
+      Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es 'None' y el *__post_init__()* configura la función por defecto *lt_default_cmp_funcion()*.
 
    .. py:attribute:: key
       :type: Optional[str]
 
-      Nombre de la llave opcional que se utiliza para comparar los elementos del ArrayList, Por defecto es 'None' y el __post_init__ configura la llave por defecto la llave 'id' en DEFAULT_DICT_KEY.
+      Nombre de la llave opcional que se utiliza para comparar los elementos del ArrayList, Por defecto es 'None' y el *__post_init__()* configura la llave por defecto la llave 'id' en *DEFAULT_DICT_KEY*.
 
    .. py:method:: __post_init__() -> None
 
-      *__post_init__()* configura los valores por defecto para la llave (key) y la función de comparación (cmp_function). Si el usuario incluye una lista nativa de python como argumento, se agrega a la lista de elementos del DoubleLinked.
+      *__post_init__()* configura los valores por defecto para la llave ('key') y la función de comparación ('cmp_function'). Si el usuario incluye una lista nativa de python como argumento, se agrega a la lista de elementos del DoubleLinked.
 
 
 
@@ -122,7 +122,7 @@ Classes
 
    .. py:method:: size() -> int
 
-      *size()* devuelve el numero de elementos que actualmente contiene el DoubleLinked.
+      *size()* devuelve el número de elementos que actualmente contiene el DoubleLinked.
 
       :returns: tamaño de la estructura DoubleLinked.
       :rtype: int
@@ -135,7 +135,7 @@ Classes
       :param element: elemento que se quiere agregar a la estructura.
       :type element: T
 
-      :raises Exception: si la operación no se puede realizar, se invoca la función '_handle_error()' para manejar el error.
+      :raises Exception: si la operación no se puede realizar, se invoca la función *_handle_error()* para manejar el error.
 
 
    .. py:method:: add_last(element: DISClib.Utils.default.T) -> None
@@ -145,7 +145,7 @@ Classes
       :param element: elemento que se quiere agregar a la estructura.
       :type element: T
 
-      :raises Exception: si la operación no se puede realizar, se invoca la función '_handle_error()' para manejar el error.
+      :raises Exception: si la operación no se puede realizar, se invoca la función *_handle_error()* para manejar el error.
 
 
    .. py:method:: add_element(element: DISClib.Utils.default.T, pos: int) -> None
@@ -244,9 +244,9 @@ Classes
       :rtype: int
 
 
-   .. py:method:: is_present(element: DISClib.Utils.default.T) -> int
+   .. py:method:: find(element: DISClib.Utils.default.T) -> int
 
-      *is_present()* revisa si un elemento está en el DoubleLinked.
+      *find()* revisa si un elemento está en el DoubleLinked.
 
       :param element: elemento que se quiere revisar en el DoubleLinked.
       :type element: T
@@ -330,7 +330,7 @@ Classes
 
    .. py:method:: __len__() -> int
 
-      *__len__* función nativa intervenida que devuelve el tamaño del DoubleLinked.
+      *__len__()* función nativa intervenida que devuelve el tamaño del DoubleLinked.
 
       :returns: tamaño del DoubleLinked.
       :rtype: int

@@ -5,7 +5,7 @@
 
 .. autoapi-nested-parse::
 
-   Esta clase representa una estructura de datos lineal, específicamente una lista sensillamente enlazada/encadenada (SingleLinked). Esta estructura de datos es una secuencia de nodos enlazados, donde cada nodo contiene un elemento de información y una referencia al siguiente nodo en la secuencia. Esto le permite a la lista un crecimiento y reducción dinámico en la memoria disponible.
+   Este ADT representa una estructura de datos lineal, específicamente una lista sensillamente enlazada/encadenada (SingleLinked). Esta estructura de datos es una secuencia de nodos enlazados, donde cada nodo contiene un elemento de información y una referencia al siguiente nodo en la secuencia. Esto le permite a la lista un crecimiento y reducción dinámico en la memoria disponible.
 
    *IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:
 
@@ -32,9 +32,9 @@ Classes
 
    Bases: :py:obj:`Generic`\ [\ :py:obj:`DISClib.Utils.default.T`\ ]
 
-   *SingleLinked* Clase que representa una estructura de datos de tipo SingleLinked con la anotación '@dataclass' de python y el decorador 'Generic[T]' para indicar que es una estructura de datos genérica.
+   **SingleLinked** representa una estructura de datos dinámica de tipo lista sensillamente encadenada (Single Linked List), Implementada con Generic[T] y @dataclass para que sea una estructura de datos genérica.
 
-   :param Generic: TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para representar una estructura de datos genéricas en python.
+   :param Generic: TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.
    :type Generic: T
 
    :returns: ADT de tipo SingleLinked o Lista Sensillamente Encadenada.
@@ -48,32 +48,32 @@ Classes
    .. py:attribute:: first
       :type: Optional[DISClib.DataStructures.listnode.SingleNode[DISClib.Utils.default.T]]
 
-      Atributo publico que representa el primer nodo del SingleLinked.
+      Representa el la referencia en memoria al primer nodo del SingleLinked.
 
    .. py:attribute:: last
       :type: Optional[DISClib.DataStructures.listnode.SingleNode[DISClib.Utils.default.T]]
 
-      Atributo publico que representa el último nodo del SingleLinked.
+      Representa la referencia en memoria al último nodo del SingleLinked.
 
    .. py:attribute:: _size
       :type: int
       :value: 0
 
-      Atributo privado que representa el tamaño de la estructura, por defecto es 0.
+      Es el número de elementos que contiene la estructura, por defecto es 0 y se actualiza con cada operación que modifica la estructura.
 
    .. py:attribute:: cmp_function
       :type: Optional[Callable[[DISClib.Utils.default.T, DISClib.Utils.default.T], int]]
 
-      Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es 'None' y el __post_init__ configura la función por defecto lt_default_cmp_funcion().
+      Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es None y el *__post_init__()* configura la función por defecto *lt_default_cmp_funcion()*.
 
    .. py:attribute:: key
       :type: Optional[str]
 
-      Nombre de la llave opcional que se utiliza para comparar los elementos del ArrayList, Por defecto es 'None' y el __post_init__ configura la llave por defecto la llave 'id' en DEFAULT_DICT_KEY.
+      Nombre de la llave opcional que se utiliza para comparar los elementos del ArrayList, Por defecto es None y el *__post_init__()* configura la llave por defecto la llave 'id' en *DEFAULT_DICT_KEY*.
 
    .. py:method:: __post_init__() -> None
 
-      *__post_init__()* configura los valores por defecto para la llave (key) y la función de comparación (cmp_function). Si el usuario incluye una lista nativa de python como argumento, se agrega a la lista de elementos del SingleLinked.
+      *__post_init__()* configura los valores por defecto para la llave ('key') y la función de comparación ('cmp_function'). Si el usuario incluye una lista nativa de python como argumento, se agrega a la lista de elementos del SingleLinked.
 
 
 
@@ -124,7 +124,7 @@ Classes
 
    .. py:method:: size() -> int
 
-      *size()* devuelve el numero de elementos que actualmente contiene el SingleLinked.
+      *size()* devuelve el número de elementos que actualmente contiene el SingleLinked.
 
       :returns: tamaño de la estructura SingleLinked.
       :rtype: int
@@ -137,7 +137,7 @@ Classes
       :param element: elemento que se quiere agregar a la estructura.
       :type element: T
 
-      :raises Exception: si la operación no se puede realizar, se invoca la función '_handle_error()' para manejar el error.
+      :raises Exception: si la operación no se puede realizar, se invoca la función *_handle_error()* para manejar el error.
 
 
    .. py:method:: add_last(element: DISClib.Utils.default.T) -> None
@@ -147,7 +147,7 @@ Classes
       :param element: elemento que se quiere agregar a la estructura.
       :type element: T
 
-      :raises Exception: si la operación no se puede realizar, se invoca la función '_handle_error()' para manejar el error.
+      :raises Exception: si la operación no se puede realizar, se invoca la función *_handle_error()* para manejar el error.
 
 
    .. py:method:: add_element(element: DISClib.Utils.default.T, pos: int) -> None
@@ -246,9 +246,9 @@ Classes
       :rtype: int
 
 
-   .. py:method:: is_present(element: DISClib.Utils.default.T) -> int
+   .. py:method:: find(element: DISClib.Utils.default.T) -> int
 
-      *is_present()* revisa si un elemento está en el SingleLinked.
+      *find()* revisa si un elemento está en el SingleLinked.
 
       :param element: elemento que se quiere revisar en el SingleLinked.
       :type element: T
@@ -317,15 +317,15 @@ Classes
 
    .. py:method:: __iter__()
 
-      *__iter__* iterador intervinido la función nativa __iter__ para recorrer un SingleLinked dentro de un ciclo 'for' de python.
+      *__iter__()* iterador nativo de Python intervenida por la estructura de datos para recorrer los elementos del SingleLinked utilizando un ciclo 'for' de python.
 
       :returns: iterador sobre los elementos del SingleLinked.
-      :rtype: iterator
+      :rtype: __iter__
 
 
    .. py:method:: __len__() -> int
 
-      *__len__* función nativa intervenida que devuelve el tamaño del SingleLinked.
+      *__len__()* función nativa de Python intervenida por la estructura de datosv para recuperar el tamaño del SingleLinked.
 
       :returns: tamaño del SingleLinked.
       :rtype: int

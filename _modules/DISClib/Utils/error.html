@@ -89,22 +89,9 @@
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="c1"># native python modules</span>
 <span class="c1"># import typing for defining the type of the elements</span>
-<span class="c1"># from typing import TypeVar</span>
 
 <span class="c1"># custom modules</span>
 <span class="c1"># import global variables</span>
-<span class="kn">from</span> <span class="nn">DISClib.Utils.default</span> <span class="kn">import</span> <span class="n">VALID_DATA_TYPE_LT</span>
-<span class="kn">from</span> <span class="nn">DISClib.Utils.default</span> <span class="kn">import</span> <span class="n">T</span>
-
-<span class="c1"># error msg for invalid data type</span>
-<span class="c1"># :data: TYPE_ERR_MSG</span>
-<div class="viewcode-block" id="TYPE_ERR_MSG">
-<a class="viewcode-back" href="../../../autoapi/DISClib/Utils/error/index.html#DISClib.Utils.error.TYPE_ERR_MSG">[documentos]</a>
-<span class="n">TYPE_ERR_MSG</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Invalid data type&quot;</span></div>
-
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Contiene el mensaje de error para tipo de dato inválido.</span>
-<span class="sd">&quot;&quot;&quot;</span>
 
 
 <div class="viewcode-block" id="error_handler">
@@ -112,7 +99,7 @@
 <span class="k">def</span> <span class="nf">error_handler</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
                   <span class="n">func_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
                   <span class="n">err</span><span class="p">:</span> <span class="ne">Exception</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;*error_handler()* recibe el contexto, nombre de la función y la excepción para lanzar una excepción con el mensaje de error y el traceback.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;*error_handler()* recibe el contexto, nombre de la función y la excepción para lanzar un mensaje de error detallado y el traceback.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        context (str): nombre del contexto donde ocurrió el error.</span>
@@ -120,32 +107,10 @@
 <span class="sd">        err (Exception): excepción lanzada.</span>
 
 <span class="sd">    Raises:</span>
-<span class="sd">        type: excepción con el mensaje de error y el traceback.</span>
+<span class="sd">        type: excepción con el mensaje de error detallado y el traceback.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">err_msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Error in </span><span class="si">{</span><span class="n">context</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">func_name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">err</span><span class="si">}</span><span class="s2">&quot;</span>
     <span class="k">raise</span> <span class="nb">type</span><span class="p">(</span><span class="n">err</span><span class="p">)(</span><span class="n">err_msg</span><span class="p">)</span><span class="o">.</span><span class="n">with_traceback</span><span class="p">(</span><span class="n">err</span><span class="o">.</span><span class="n">__traceback__</span><span class="p">)</span></div>
-
-
-
-<div class="viewcode-block" id="init_type_checker">
-<a class="viewcode-back" href="../../../autoapi/DISClib/index.html#DISClib.Utils.error.init_type_checker">[documentos]</a>
-<span class="k">def</span> <span class="nf">init_type_checker</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-                      <span class="n">func_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-                      <span class="n">info</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;*init_type_checker()* recibe el contexto, nombre de la función y la info</span>
-<span class="sd">    para verificar su tipo después de la inicialización de la clase.</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        context (str): nombre del contexto donde ocurrió el error.</span>
-<span class="sd">        func_name (str): nombre de la función donde ocurrió el error.</span>
-<span class="sd">        info (T): tipo de dato de la información a verificar.</span>
-
-<span class="sd">    Raises:</span>
-<span class="sd">        TypeError: excepción con el mensaje de error de tipo de dato.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">VALID_DATA_TYPE_LT</span><span class="p">):</span>
-        <span class="n">err_msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Error in </span><span class="si">{</span><span class="n">context</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">func_name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">TYPE_ERR_MSG</span><span class="si">}</span><span class="s2">&quot;</span>
-        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">err_msg</span><span class="p">)</span></div>
 
 </pre></div>
 

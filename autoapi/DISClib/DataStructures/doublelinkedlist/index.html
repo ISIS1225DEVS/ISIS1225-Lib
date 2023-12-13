@@ -29,7 +29,7 @@
     <link rel="index" title="Índice" href="../../../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../../../search.html" />
     <link rel="next" title="DISClib.DataStructures.edge" href="../edge/index.html" />
-    <link rel="prev" title="DISClib.DataStructures.chaininghashmap" href="../chaininghashmap/index.html" /> 
+    <link rel="prev" title="DISClib.DataStructures.chaininghashtable" href="../chaininghashtable/index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -100,7 +100,7 @@
              
   <section id="module-DISClib.DataStructures.doublelinkedlist">
 <span id="disclib-datastructures-doublelinkedlist"></span><h1><a class="reference internal" href="#module-DISClib.DataStructures.doublelinkedlist" title="DISClib.DataStructures.doublelinkedlist"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.DataStructures.doublelinkedlist</span></code></a><a class="headerlink" href="#module-DISClib.DataStructures.doublelinkedlist" title="Link to this heading"></a></h1>
-<p>Esta clase representa una estructura de datos lineal, específicamente una lista doblemente enlazada/encadenada (DoubleLinked). Esta estructura de datos es una secuencia de nodos enlazados, donde cada nodo contiene un elemento de información, una referencia al siguiente, y al anterior nodo en la secuencia. Esto le permite a la lista un crecimiento y reducción dinámico en la memoria disponible.</p>
+<p>Este ADT representa una estructura de datos lineal, específicamente una lista doblemente enlazada/encadenada (DoubleLinked). Esta estructura de datos es una secuencia de nodos enlazados, donde cada nodo contiene un elemento de información, una referencia al siguiente, y al anterior nodo en la secuencia. Esto le permite a la lista un crecimiento y reducción dinámico en la memoria disponible.</p>
 <p><em>IMPORTANTE:</em> Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:</p>
 <blockquote>
 <div><ol class="arabic simple">
@@ -115,7 +115,7 @@
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.DataStructures.doublelinkedlist.DoubleLinked" title="DISClib.DataStructures.doublelinkedlist.DoubleLinked"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DoubleLinked</span></code></a></p></td>
-<td><p>DoubleLinked Clase que representa una estructura de datos de tipo DoubleLinked con la anotación <a class="reference external" href="mailto:'&#37;&#52;&#48;dataclass">'<span>&#64;</span>dataclass</a>' de python y el decorador 'Generic[T]' para indicar que es una estructura de datos genérica.</p></td>
+<td><p><strong>DoubleLinked</strong> representa una estructura de datos de tipo DoubleLinked con la anotación <a class="reference external" href="mailto:'&#37;&#52;&#48;dataclass">'<span>&#64;</span>dataclass</a>' de python y el decorador 'Generic[T]' para indicar que es una estructura de datos genérica.</p></td>
 </tr>
 </tbody>
 </table>
@@ -123,10 +123,10 @@
 <dt class="sig sig-object py" id="DISClib.DataStructures.doublelinkedlist.DoubleLinked">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.doublelinkedlist.</span></span><span class="sig-name descname"><span class="pre">DoubleLinked</span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/doublelinkedlist.html#DoubleLinked"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.doublelinkedlist.DoubleLinked" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Generic</span></code>[<a class="reference internal" href="../../Utils/default/index.html#DISClib.Utils.default.T" title="DISClib.Utils.default.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DISClib.Utils.default.T</span></code></a>]</p>
-<p>DoubleLinked Clase que representa una estructura de datos de tipo DoubleLinked con la anotación <a class="reference external" href="mailto:'&#37;&#52;&#48;dataclass">“<span>&#64;</span>dataclass</a>” de python y el decorador “Generic[T]” para indicar que es una estructura de datos genérica.</p>
+<p><strong>DoubleLinked</strong> representa una estructura de datos de tipo DoubleLinked con la anotación <a class="reference external" href="mailto:'&#37;&#52;&#48;dataclass">“<span>&#64;</span>dataclass</a>” de python y el decorador “Generic[T]” para indicar que es una estructura de datos genérica.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>Generic</strong> (<em>T</em>) – TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para representar una estructura de datos genéricas en python.</p>
+<dd class="field-odd"><p><strong>Generic</strong> (<em>T</em>) – TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.</p>
 </dd>
 <dt class="field-even">Devuelve<span class="colon">:</span></dt>
 <dd class="field-even"><p>ADT de tipo DoubleLinked o Lista Doblemente Encadenada.</p>
@@ -144,37 +144,37 @@
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.doublelinkedlist.DoubleLinked._header">
 <span class="sig-name descname"><span class="pre">_header</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../listnode/index.html#DISClib.DataStructures.listnode.DoubleNode" title="DISClib.DataStructures.listnode.DoubleNode"><span class="pre">DISClib.DataStructures.listnode.DoubleNode</span></a><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/doublelinkedlist.html#DoubleLinked._header"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.doublelinkedlist.DoubleLinked._header" title="Link to this definition"></a></dt>
-<dd><p>Atributo privado que representa el nodo sentinela de la cabecera de la estructura, por defecto es un DoubleNode vacío.</p>
+<dd><p>Representa el nodo sentinela de la cabecera de la estructura, por defecto es un DoubleNode vacío.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.doublelinkedlist.DoubleLinked._trailer">
 <span class="sig-name descname"><span class="pre">_trailer</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../listnode/index.html#DISClib.DataStructures.listnode.DoubleNode" title="DISClib.DataStructures.listnode.DoubleNode"><span class="pre">DISClib.DataStructures.listnode.DoubleNode</span></a><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/doublelinkedlist.html#DoubleLinked._trailer"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.doublelinkedlist.DoubleLinked._trailer" title="Link to this definition"></a></dt>
-<dd><p>Atributo privado que representa el nodo sentinela del final de la estructura, por defecto es un DoubleNode vacío.</p>
+<dd><p>Representa el nodo sentinela del final de la estructura, por defecto es un DoubleNode vacío.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.doublelinkedlist.DoubleLinked._size">
 <span class="sig-name descname"><span class="pre">_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/doublelinkedlist.html#DoubleLinked._size"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.doublelinkedlist.DoubleLinked._size" title="Link to this definition"></a></dt>
-<dd><p>Atributo privado que representa el tamaño de la estructura, por defecto es -1 para ajustar por los nodos sentinela de la cabecera y el final de la estructura.</p>
+<dd><p>Es el número de elementos que contiene la estructura, por defecto es 0, por defecto es -1 para ajustar por los nodos sentinelas de la estructura.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.doublelinkedlist.DoubleLinked.cmp_function">
 <span class="sig-name descname"><span class="pre">cmp_function</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/doublelinkedlist.html#DoubleLinked.cmp_function"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.doublelinkedlist.DoubleLinked.cmp_function" title="Link to this definition"></a></dt>
-<dd><p>Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es “None” y el __post_init__ configura la función por defecto lt_default_cmp_funcion().</p>
+<dd><p>Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es “None” y el <em>__post_init__()</em> configura la función por defecto <em>lt_default_cmp_funcion()</em>.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.doublelinkedlist.DoubleLinked.key">
 <span class="sig-name descname"><span class="pre">key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/doublelinkedlist.html#DoubleLinked.key"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.doublelinkedlist.DoubleLinked.key" title="Link to this definition"></a></dt>
-<dd><p>Nombre de la llave opcional que se utiliza para comparar los elementos del ArrayList, Por defecto es “None” y el __post_init__ configura la llave por defecto la llave “id” en DEFAULT_DICT_KEY.</p>
+<dd><p>Nombre de la llave opcional que se utiliza para comparar los elementos del ArrayList, Por defecto es “None” y el <em>__post_init__()</em> configura la llave por defecto la llave “id” en <em>DEFAULT_DICT_KEY</em>.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.doublelinkedlist.DoubleLinked.__post_init__">
 <span class="sig-name descname"><span class="pre">__post_init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/doublelinkedlist.html#DoubleLinked.__post_init__"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.doublelinkedlist.DoubleLinked.__post_init__" title="Link to this definition"></a></dt>
-<dd><p><em>__post_init__()</em> configura los valores por defecto para la llave (key) y la función de comparación (cmp_function). Si el usuario incluye una lista nativa de python como argumento, se agrega a la lista de elementos del DoubleLinked.</p>
+<dd><p><em>__post_init__()</em> configura los valores por defecto para la llave (“key”) y la función de comparación (“cmp_function”). Si el usuario incluye una lista nativa de python como argumento, se agrega a la lista de elementos del DoubleLinked.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -246,7 +246,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.doublelinkedlist.DoubleLinked.size">
 <span class="sig-name descname"><span class="pre">size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/doublelinkedlist.html#DoubleLinked.size"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.doublelinkedlist.DoubleLinked.size" title="Link to this definition"></a></dt>
-<dd><p><em>size()</em> devuelve el numero de elementos que actualmente contiene el DoubleLinked.</p>
+<dd><p><em>size()</em> devuelve el número de elementos que actualmente contiene el DoubleLinked.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
 <dd class="field-odd"><p>tamaño de la estructura DoubleLinked.</p>
@@ -266,7 +266,7 @@
 <dd class="field-odd"><p><strong>element</strong> (<em>T</em>) – elemento que se quiere agregar a la estructura.</p>
 </dd>
 <dt class="field-even">Muestra<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>Exception</strong> – si la operación no se puede realizar, se invoca la función “_handle_error()” para manejar el error.</p>
+<dd class="field-even"><p><strong>Exception</strong> – si la operación no se puede realizar, se invoca la función <em>_handle_error()</em> para manejar el error.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -280,7 +280,7 @@
 <dd class="field-odd"><p><strong>element</strong> (<em>T</em>) – elemento que se quiere agregar a la estructura.</p>
 </dd>
 <dt class="field-even">Muestra<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>Exception</strong> – si la operación no se puede realizar, se invoca la función “_handle_error()” para manejar el error.</p>
+<dd class="field-even"><p><strong>Exception</strong> – si la operación no se puede realizar, se invoca la función <em>_handle_error()</em> para manejar el error.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -443,9 +443,9 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="DISClib.DataStructures.doublelinkedlist.DoubleLinked.is_present">
-<span class="sig-name descname"><span class="pre">is_present</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/doublelinkedlist.html#DoubleLinked.is_present"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.doublelinkedlist.DoubleLinked.is_present" title="Link to this definition"></a></dt>
-<dd><p><em>is_present()</em> revisa si un elemento está en el DoubleLinked.</p>
+<dt class="sig sig-object py" id="DISClib.DataStructures.doublelinkedlist.DoubleLinked.find">
+<span class="sig-name descname"><span class="pre">find</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/doublelinkedlist.html#DoubleLinked.find"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.doublelinkedlist.DoubleLinked.find" title="Link to this definition"></a></dt>
+<dd><p><em>find()</em> revisa si un elemento está en el DoubleLinked.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>element</strong> (<em>T</em>) – elemento que se quiere revisar en el DoubleLinked.</p>
@@ -578,7 +578,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.doublelinkedlist.DoubleLinked.__len__">
 <span class="sig-name descname"><span class="pre">__len__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/doublelinkedlist.html#DoubleLinked.__len__"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.doublelinkedlist.DoubleLinked.__len__" title="Link to this definition"></a></dt>
-<dd><p><em>__len__</em> función nativa intervenida que devuelve el tamaño del DoubleLinked.</p>
+<dd><p><em>__len__()</em> función nativa intervenida que devuelve el tamaño del DoubleLinked.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
 <dd class="field-odd"><p>tamaño del DoubleLinked.</p>
@@ -599,7 +599,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
-        <a href="../chaininghashmap/index.html" class="btn btn-neutral float-left" title="DISClib.DataStructures.chaininghashmap" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="../chaininghashtable/index.html" class="btn btn-neutral float-left" title="DISClib.DataStructures.chaininghashtable" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
         <a href="../edge/index.html" class="btn btn-neutral float-right" title="DISClib.DataStructures.edge" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

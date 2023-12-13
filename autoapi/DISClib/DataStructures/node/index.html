@@ -28,7 +28,7 @@
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Índice" href="../../../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../../../search.html" />
-    <link rel="next" title="DISClib.DataStructures.probehashtable" href="../probehashtable/index.html" />
+    <link rel="next" title="DISClib.DataStructures.probinghashmap" href="../probinghashmap/index.html" />
     <link rel="prev" title="DISClib.DataStructures.mapentry" href="../mapentry/index.html" /> 
 </head>
 
@@ -100,7 +100,7 @@
              
   <section id="module-DISClib.DataStructures.node">
 <span id="disclib-datastructures-node"></span><h1><a class="reference internal" href="#module-DISClib.DataStructures.node" title="DISClib.DataStructures.node"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.DataStructures.node</span></code></a><a class="headerlink" href="#module-DISClib.DataStructures.node" title="Link to this heading"></a></h1>
-<p>Esta clase representa un nodo de información de una estructura de datos dinámica, las cuales pueden ser: listas sencillas, listas doblemente encadenadas, pilas, colas, BST, RBT, entre otras.</p>
+<p>Esta ADT representa un nodo de información de una estructura de datos dinámica, las cuales pueden ser: listas sencillas, listas doblemente encadenadas, pilas, colas, BST, RBT, entre otras.</p>
 <p><em>IMPORTANTE:</em> Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:</p>
 <blockquote>
 <div><ol class="arabic simple">
@@ -115,7 +115,7 @@
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.DataStructures.node.Node" title="DISClib.DataStructures.node.Node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Node</span></code></a></p></td>
-<td><p><em>Node</em> Es una clase que representar un nodo de una lista sencilla o doblemente encadenada. Contiene la información del nodo y las funciones basicas para acceder a ella.</p></td>
+<td><p><strong>Node</strong> Es el ADT que representar la información de un nodo de una estructura de datos dinámica y las funciones basicas para acceder a ella. Puede utilizarse para representar un nodo de una lista sencilla o doblemente encadenada.</p></td>
 </tr>
 </tbody>
 </table>
@@ -123,10 +123,10 @@
 <dt class="sig sig-object py" id="DISClib.DataStructures.node.Node">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.node.</span></span><span class="sig-name descname"><span class="pre">Node</span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/node.html#Node"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.node.Node" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Generic</span></code>[<a class="reference internal" href="../../Utils/default/index.html#DISClib.Utils.default.T" title="DISClib.Utils.default.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DISClib.Utils.default.T</span></code></a>]</p>
-<p><em>Node</em> Es una clase que representar un nodo de una lista sencilla o doblemente encadenada. Contiene la información del nodo y las funciones basicas para acceder a ella.</p>
+<p><strong>Node</strong> Es el ADT que representar la información de un nodo de una estructura de datos dinámica y las funciones basicas para acceder a ella. Puede utilizarse para representar un nodo de una lista sencilla o doblemente encadenada.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>Generic</strong> (<em>T</em>) – Tipo de dato genérico dentro del nodo.</p>
+<dd class="field-odd"><p><strong>Generic</strong> (<em>T</em>) – TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.</p>
 </dd>
 <dt class="field-even">Muestra<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>TypeError</strong> – error si la información del nodo no es del tipo adecuado.</p>
@@ -145,16 +145,10 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="DISClib.DataStructures.node.Node.__post_init__">
-<span class="sig-name descname"><span class="pre">__post_init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/node.html#Node.__post_init__"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.node.Node.__post_init__" title="Link to this definition"></a></dt>
-<dd><p><em>__post_init__()</em> revisa que la información al crear un nodo sea valida.</p>
-</dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.node.Node._handle_error">
 <span class="sig-name descname"><span class="pre">_handle_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">err</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Exception</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/node.html#Node._handle_error"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.node.Node._handle_error" title="Link to this definition"></a></dt>
 <dd><p><em>_handle_error()</em> función privada para manejar los errores que se presentan en la clase Node.</p>
-<p>Si se presenta un error en el Node, se formatea el error según el contexto (paquete/clase) y la función que lo generó, y lo reenvia al componente superior en la jerarquía de llamados para manejarlo segun se considere conveniente.</p>
+<p>Si se presenta un error en Node, se formatea el error según el contexto (paquete/clase), la función que lo generó y lo reenvia al componente superior en la jerarquía de llamados para manejarlo segun se considere conveniente.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>err</strong> (<em>Exception</em>) – Excepción que se generó en el Node.</p>
@@ -218,7 +212,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
         <a href="../mapentry/index.html" class="btn btn-neutral float-left" title="DISClib.DataStructures.mapentry" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
-        <a href="../probehashtable/index.html" class="btn btn-neutral float-right" title="DISClib.DataStructures.probehashtable" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../probinghashmap/index.html" class="btn btn-neutral float-right" title="DISClib.DataStructures.probinghashmap" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

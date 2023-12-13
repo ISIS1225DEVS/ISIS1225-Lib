@@ -100,7 +100,7 @@
              
   <section id="module-DISClib.DataStructures.singlelinkedlist">
 <span id="disclib-datastructures-singlelinkedlist"></span><h1><a class="reference internal" href="#module-DISClib.DataStructures.singlelinkedlist" title="DISClib.DataStructures.singlelinkedlist"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.DataStructures.singlelinkedlist</span></code></a><a class="headerlink" href="#module-DISClib.DataStructures.singlelinkedlist" title="Link to this heading"></a></h1>
-<p>Esta clase representa una estructura de datos lineal, específicamente una lista sensillamente enlazada/encadenada (SingleLinked). Esta estructura de datos es una secuencia de nodos enlazados, donde cada nodo contiene un elemento de información y una referencia al siguiente nodo en la secuencia. Esto le permite a la lista un crecimiento y reducción dinámico en la memoria disponible.</p>
+<p>Este ADT representa una estructura de datos lineal, específicamente una lista sensillamente enlazada/encadenada (SingleLinked). Esta estructura de datos es una secuencia de nodos enlazados, donde cada nodo contiene un elemento de información y una referencia al siguiente nodo en la secuencia. Esto le permite a la lista un crecimiento y reducción dinámico en la memoria disponible.</p>
 <p><em>IMPORTANTE:</em> Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:</p>
 <blockquote>
 <div><ol class="arabic simple">
@@ -115,7 +115,7 @@
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.DataStructures.singlelinkedlist.SingleLinked" title="DISClib.DataStructures.singlelinkedlist.SingleLinked"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SingleLinked</span></code></a></p></td>
-<td><p><em>SingleLinked</em> Clase que representa una estructura de datos de tipo SingleLinked con la anotación <a class="reference external" href="mailto:'&#37;&#52;&#48;dataclass">'<span>&#64;</span>dataclass</a>' de python y el decorador 'Generic[T]' para indicar que es una estructura de datos genérica.</p></td>
+<td><p><strong>SingleLinked</strong> representa una estructura de datos dinámica de tipo lista sensillamente encadenada (Single Linked List), Implementada con Generic[T] y &#64;dataclass para que sea una estructura de datos genérica.</p></td>
 </tr>
 </tbody>
 </table>
@@ -123,10 +123,10 @@
 <dt class="sig sig-object py" id="DISClib.DataStructures.singlelinkedlist.SingleLinked">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.singlelinkedlist.</span></span><span class="sig-name descname"><span class="pre">SingleLinked</span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/singlelinkedlist.html#SingleLinked"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.singlelinkedlist.SingleLinked" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Generic</span></code>[<a class="reference internal" href="../../Utils/default/index.html#DISClib.Utils.default.T" title="DISClib.Utils.default.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DISClib.Utils.default.T</span></code></a>]</p>
-<p><em>SingleLinked</em> Clase que representa una estructura de datos de tipo SingleLinked con la anotación <a class="reference external" href="mailto:'&#37;&#52;&#48;dataclass">“<span>&#64;</span>dataclass</a>” de python y el decorador “Generic[T]” para indicar que es una estructura de datos genérica.</p>
+<p><strong>SingleLinked</strong> representa una estructura de datos dinámica de tipo lista sensillamente encadenada (Single Linked List), Implementada con Generic[T] y &#64;dataclass para que sea una estructura de datos genérica.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>Generic</strong> (<em>T</em>) – TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para representar una estructura de datos genéricas en python.</p>
+<dd class="field-odd"><p><strong>Generic</strong> (<em>T</em>) – TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.</p>
 </dd>
 <dt class="field-even">Devuelve<span class="colon">:</span></dt>
 <dd class="field-even"><p>ADT de tipo SingleLinked o Lista Sensillamente Encadenada.</p>
@@ -144,37 +144,37 @@
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.singlelinkedlist.SingleLinked.first">
 <span class="sig-name descname"><span class="pre">first</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../listnode/index.html#DISClib.DataStructures.listnode.SingleNode" title="DISClib.DataStructures.listnode.SingleNode"><span class="pre">DISClib.DataStructures.listnode.SingleNode</span></a><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/singlelinkedlist.html#SingleLinked.first"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.singlelinkedlist.SingleLinked.first" title="Link to this definition"></a></dt>
-<dd><p>Atributo publico que representa el primer nodo del SingleLinked.</p>
+<dd><p>Representa el la referencia en memoria al primer nodo del SingleLinked.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.singlelinkedlist.SingleLinked.last">
 <span class="sig-name descname"><span class="pre">last</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../listnode/index.html#DISClib.DataStructures.listnode.SingleNode" title="DISClib.DataStructures.listnode.SingleNode"><span class="pre">DISClib.DataStructures.listnode.SingleNode</span></a><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/singlelinkedlist.html#SingleLinked.last"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.singlelinkedlist.SingleLinked.last" title="Link to this definition"></a></dt>
-<dd><p>Atributo publico que representa el último nodo del SingleLinked.</p>
+<dd><p>Representa la referencia en memoria al último nodo del SingleLinked.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.singlelinkedlist.SingleLinked._size">
 <span class="sig-name descname"><span class="pre">_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/singlelinkedlist.html#SingleLinked._size"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.singlelinkedlist.SingleLinked._size" title="Link to this definition"></a></dt>
-<dd><p>Atributo privado que representa el tamaño de la estructura, por defecto es 0.</p>
+<dd><p>Es el número de elementos que contiene la estructura, por defecto es 0 y se actualiza con cada operación que modifica la estructura.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.singlelinkedlist.SingleLinked.cmp_function">
 <span class="sig-name descname"><span class="pre">cmp_function</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/singlelinkedlist.html#SingleLinked.cmp_function"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.singlelinkedlist.SingleLinked.cmp_function" title="Link to this definition"></a></dt>
-<dd><p>Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es “None” y el __post_init__ configura la función por defecto lt_default_cmp_funcion().</p>
+<dd><p>Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es None y el <em>__post_init__()</em> configura la función por defecto <em>lt_default_cmp_funcion()</em>.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.singlelinkedlist.SingleLinked.key">
 <span class="sig-name descname"><span class="pre">key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/singlelinkedlist.html#SingleLinked.key"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.singlelinkedlist.SingleLinked.key" title="Link to this definition"></a></dt>
-<dd><p>Nombre de la llave opcional que se utiliza para comparar los elementos del ArrayList, Por defecto es “None” y el __post_init__ configura la llave por defecto la llave “id” en DEFAULT_DICT_KEY.</p>
+<dd><p>Nombre de la llave opcional que se utiliza para comparar los elementos del ArrayList, Por defecto es None y el <em>__post_init__()</em> configura la llave por defecto la llave “id” en <em>DEFAULT_DICT_KEY</em>.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.singlelinkedlist.SingleLinked.__post_init__">
 <span class="sig-name descname"><span class="pre">__post_init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/singlelinkedlist.html#SingleLinked.__post_init__"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.singlelinkedlist.SingleLinked.__post_init__" title="Link to this definition"></a></dt>
-<dd><p><em>__post_init__()</em> configura los valores por defecto para la llave (key) y la función de comparación (cmp_function). Si el usuario incluye una lista nativa de python como argumento, se agrega a la lista de elementos del SingleLinked.</p>
+<dd><p><em>__post_init__()</em> configura los valores por defecto para la llave (“key”) y la función de comparación (“cmp_function”). Si el usuario incluye una lista nativa de python como argumento, se agrega a la lista de elementos del SingleLinked.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -249,7 +249,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.singlelinkedlist.SingleLinked.size">
 <span class="sig-name descname"><span class="pre">size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/singlelinkedlist.html#SingleLinked.size"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.singlelinkedlist.SingleLinked.size" title="Link to this definition"></a></dt>
-<dd><p><em>size()</em> devuelve el numero de elementos que actualmente contiene el SingleLinked.</p>
+<dd><p><em>size()</em> devuelve el número de elementos que actualmente contiene el SingleLinked.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
 <dd class="field-odd"><p>tamaño de la estructura SingleLinked.</p>
@@ -269,7 +269,7 @@
 <dd class="field-odd"><p><strong>element</strong> (<em>T</em>) – elemento que se quiere agregar a la estructura.</p>
 </dd>
 <dt class="field-even">Muestra<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>Exception</strong> – si la operación no se puede realizar, se invoca la función “_handle_error()” para manejar el error.</p>
+<dd class="field-even"><p><strong>Exception</strong> – si la operación no se puede realizar, se invoca la función <em>_handle_error()</em> para manejar el error.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -283,7 +283,7 @@
 <dd class="field-odd"><p><strong>element</strong> (<em>T</em>) – elemento que se quiere agregar a la estructura.</p>
 </dd>
 <dt class="field-even">Muestra<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>Exception</strong> – si la operación no se puede realizar, se invoca la función “_handle_error()” para manejar el error.</p>
+<dd class="field-even"><p><strong>Exception</strong> – si la operación no se puede realizar, se invoca la función <em>_handle_error()</em> para manejar el error.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -446,9 +446,9 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="DISClib.DataStructures.singlelinkedlist.SingleLinked.is_present">
-<span class="sig-name descname"><span class="pre">is_present</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/singlelinkedlist.html#SingleLinked.is_present"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.singlelinkedlist.SingleLinked.is_present" title="Link to this definition"></a></dt>
-<dd><p><em>is_present()</em> revisa si un elemento está en el SingleLinked.</p>
+<dt class="sig sig-object py" id="DISClib.DataStructures.singlelinkedlist.SingleLinked.find">
+<span class="sig-name descname"><span class="pre">find</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/singlelinkedlist.html#SingleLinked.find"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.singlelinkedlist.SingleLinked.find" title="Link to this definition"></a></dt>
+<dd><p><em>find()</em> revisa si un elemento está en el SingleLinked.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>element</strong> (<em>T</em>) – elemento que se quiere revisar en el SingleLinked.</p>
@@ -556,13 +556,13 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.singlelinkedlist.SingleLinked.__iter__">
 <span class="sig-name descname"><span class="pre">__iter__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/singlelinkedlist.html#SingleLinked.__iter__"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.singlelinkedlist.SingleLinked.__iter__" title="Link to this definition"></a></dt>
-<dd><p><em>__iter__</em> iterador intervinido la función nativa __iter__ para recorrer un SingleLinked dentro de un ciclo “for” de python.</p>
+<dd><p><em>__iter__()</em> iterador nativo de Python intervenida por la estructura de datos para recorrer los elementos del SingleLinked utilizando un ciclo “for” de python.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
 <dd class="field-odd"><p>iterador sobre los elementos del SingleLinked.</p>
 </dd>
 <dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
-<dd class="field-even"><p>iterator</p>
+<dd class="field-even"><p>__iter__</p>
 </dd>
 </dl>
 </dd></dl>
@@ -570,7 +570,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.singlelinkedlist.SingleLinked.__len__">
 <span class="sig-name descname"><span class="pre">__len__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/singlelinkedlist.html#SingleLinked.__len__"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.singlelinkedlist.SingleLinked.__len__" title="Link to this definition"></a></dt>
-<dd><p><em>__len__</em> función nativa intervenida que devuelve el tamaño del SingleLinked.</p>
+<dd><p><em>__len__()</em> función nativa de Python intervenida por la estructura de datosv para recuperar el tamaño del SingleLinked.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
 <dd class="field-odd"><p>tamaño del SingleLinked.</p>

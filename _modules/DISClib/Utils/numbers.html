@@ -1,0 +1,237 @@
+﻿<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DISClib.Utils.numbers &mdash; documentación de DISClib - 0.0.1</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/fonts.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=6fcc102b"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script src="../../../_static/translations.js?v=efdbd0b9"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            DISClib
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">DISClib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../testmd.html">Example Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">DISClib</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Código de módulo</a></li>
+          <li class="breadcrumb-item"><a href="../../DISClib.html">DISClib</a></li>
+      <li class="breadcrumb-item active">DISClib.Utils.numbers</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Código fuente para DISClib.Utils.numbers</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Módulo con funciones de utilidad para el manejo de datos en los mapas no ordenados en *DISClib*. Especificamente para tablas de Hash por Encadenamiento Separado (Separate Chaining) y tablas de Hash por Sondeo Lineal (Linear Probing).</span>
+
+<span class="sd">*IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:</span>
+
+<span class="sd">    #. Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.</span>
+<span class="sd">    #. Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H. Goldwasser.</span>
+
+<span class="sd">*NOTA:* código contribuido por Sanjit_Prasad en https://www.geeksforgeeks.org/prime-numbers/</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="c1"># python native modules</span>
+<span class="c1"># math module for getting the prime numbers</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">inspect</span>
+
+<span class="c1"># custom modules</span>
+<span class="c1"># error handler and datatypes</span>
+<span class="kn">from</span> <span class="nn">DISClib.Utils.error</span> <span class="kn">import</span> <span class="n">error_handler</span>
+<span class="kn">from</span> <span class="nn">DISClib.Utils.default</span> <span class="kn">import</span> <span class="n">T</span>
+
+
+<div class="viewcode-block" id="is_prime">
+<a class="viewcode-back" href="../../../autoapi/DISClib/index.html#DISClib.Utils.numbers.is_prime">[documentos]</a>
+<span class="k">def</span> <span class="nf">is_prime</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;*is_prime()* revisa si un número es primo o no.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        n (int): número entero para verificar si es primo.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        bool: si el número es primo o no.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># we asume that the number is prime</span>
+    <span class="c1"># Corner cases</span>
+    <span class="c1"># check if n is 1 or 0</span>
+    <span class="n">prime</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="c1"># checking if n is 2 or 3</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">prime</span>
+
+    <span class="c1"># checking if n is divisible by 2 or 3</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="c1"># checking if n is divisible by 5 to to square root of n</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">6</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">n</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+    <span class="c1"># return True if the number is prime</span>
+    <span class="k">return</span> <span class="n">prime</span></div>
+
+
+
+<div class="viewcode-block" id="next_prime">
+<a class="viewcode-back" href="../../../autoapi/DISClib/index.html#DISClib.Utils.numbers.next_prime">[documentos]</a>
+<span class="k">def</span> <span class="nf">next_prime</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;*next_prime()* devuelve el siguiente número primo mayor que n.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        n (int): número entero para calcular el siguiente número primo.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: el siguiente número primo mayor que n.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># base case</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">2</span>
+
+    <span class="c1"># working with the next odd number</span>
+    <span class="n">prime</span> <span class="o">=</span> <span class="n">n</span>
+    <span class="n">found</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="c1"># Loop continuously until isPrime returns</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">found</span><span class="p">:</span>
+        <span class="n">prime</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="c1"># True for a prime number greater than n</span>
+        <span class="k">if</span> <span class="n">is_prime</span><span class="p">(</span><span class="n">prime</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">found</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="c1"># return the next prime number to n</span>
+    <span class="k">return</span> <span class="n">prime</span></div>
+
+
+
+<div class="viewcode-block" id="hash_compress">
+<a class="viewcode-back" href="../../../autoapi/DISClib/index.html#DISClib.Utils.numbers.hash_compress">[documentos]</a>
+<span class="k">def</span> <span class="nf">hash_compress</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span>
+                  <span class="n">scale</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                  <span class="n">shift</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                  <span class="n">prime</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                  <span class="n">capacity</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;*hash_compress()* función de compresión para los índices de las tablas de Hash utilizando el método MAD (Multiply-Add-and-Divide).</span>
+<span class="sd">    MAD se define como: hash_compress(y) = ((a*y + b) % p) % M, donde:</span>
+<span class="sd">        a (scale) y b (shift) enteros aleatoreos dentro del intervalo [0,p-1], con a &gt; 0</span>
+<span class="sd">        p (prime) es un primo mayor a M,</span>
+<span class="sd">        M (capacity) es el tamaño de la tabla, primo</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        key (T): llave para calcular el índice en la tabla de Hash, Puede ser cualquier tipo de dato.</span>
+<span class="sd">        scale (int): pendiente de la función de compresión.</span>
+<span class="sd">        shift (int): desplazamiento de la función de compresión.</span>
+<span class="sd">        prime (int): número  primo mucho mayor a la capacidad de la tabla de Hash.</span>
+<span class="sd">        capacity (int): tamaño de la tabla de Hash, es un número primo para evitar colisiones.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: el índice del elemento en la tabla de Hash.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># getting the hash of the key</span>
+        <span class="n">hkey</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="c1"># calculating the index with the MAD compression function</span>
+        <span class="n">idx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="nb">abs</span><span class="p">(</span><span class="n">scale</span> <span class="o">*</span> <span class="n">hkey</span> <span class="o">+</span> <span class="n">shift</span><span class="p">)</span> <span class="o">%</span> <span class="n">prime</span><span class="p">)</span> <span class="o">%</span> <span class="n">capacity</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">idx</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1"># FIXME Ajustar mensaje de error para que sea más claro</span>
+        <span class="n">cur_context</span> <span class="o">=</span> <span class="vm">__name__</span>
+        <span class="n">cur_function</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">stack</span><span class="p">()[</span><span class="mi">0</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span>
+        <span class="n">error_handler</span><span class="p">(</span><span class="n">cur_context</span><span class="p">,</span> <span class="n">cur_function</span><span class="p">,</span> <span class="n">exp</span><span class="p">)</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor Uniandes, Bogotá - Colombia, Sur América,
+             Facultad de Ingeniería, DISC Desarrollado
+             para ISIS-1225, EDA.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

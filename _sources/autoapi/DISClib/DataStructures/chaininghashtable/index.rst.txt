@@ -1,0 +1,369 @@
+:py:mod:`DISClib.DataStructures.chaininghashtable`
+==================================================
+
+.. py:module:: DISClib.DataStructures.chaininghashtable
+
+.. autoapi-nested-parse::
+
+   # -*- coding: utf-8 -*-
+   # TODO add docstring
+
+   *IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:
+
+       #. Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.
+       #. Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H. Goldwasser.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   DISClib.DataStructures.chaininghashtable.Bucket
+   DISClib.DataStructures.chaininghashtable.SeparateChaining
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   DISClib.DataStructures.chaininghashtable.newMap
+   DISClib.DataStructures.chaininghashtable.put
+   DISClib.DataStructures.chaininghashtable.rehash
+   DISClib.DataStructures.chaininghashtable.hashValue
+   DISClib.DataStructures.chaininghashtable.isPrime
+   DISClib.DataStructures.chaininghashtable.nextPrime
+   DISClib.DataStructures.chaininghashtable.defaultcompare
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   DISClib.DataStructures.chaininghashtable.DEFAULT_CHAINING_ALPHA
+
+
+.. py:data:: DEFAULT_CHAINING_ALPHA
+   :type: float
+   :value: 4.0
+
+   
+
+.. py:class:: Bucket
+
+
+   Bases: :py:obj:`DISClib.DataStructures.singlelinkedlist.SingleLinked`, :py:obj:`Generic`\ [\ :py:obj:`DISClib.Utils.default.T`\ ]
+
+   *Bucket* Clase que representa un bucket de una tabla de hash. Esta clase hereda de la clase SingleLinked de DISCLib para representar un bucket de una tabla de hash con el método de encadenamiento por separación (Separate Chaining).
+
+   :param SingleLinked: Lista sencillamente encadenada que representa un bucket de una tabla de hash con el método de encadenamiento por separación (Separate Chaining).
+   :type SingleLinked: T
+   :param Generic: TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para representar una estructura de datos genérica en python.
+   :type Generic: T
+
+
+.. py:class:: SeparateChaining
+
+
+   Bases: :py:obj:`Generic`\ [\ :py:obj:`DISClib.Utils.default.T`\ ]
+
+   *SeparateChaining* Es una clase que representa una tabla de hash con el método de encadenamiento por de separación (Separate Chaining). Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.
+
+   :param Generic: Tipo de dato genérico dentro del registro del mapa.
+   :type Generic: T
+
+   :raises TypeError: error si la información del registro del mapa (llave o valor) no son del tipo adecuado.
+
+   :returns: ADT de tipo SeparateChaining o tabla de hash con separación por encadenamiento.
+   :rtype: SeparateChaining
+
+   .. py:attribute:: iodata
+      :type: Optional[List[DISClib.Utils.default.T]]
+
+      Lista nativa de Python que contiene los elementos de entrada a la estructura, por defecto es None y el usuario puede incluir una lista nativa de python como argumento.
+
+   .. py:attribute:: elements
+      :type: int
+      :value: 1
+
+      Es el espacio reservado para la tabla de hash (n), por defecto es 1, pero debe configurarse según el número de elementos que se espera almacenar.
+
+   .. py:attribute:: alpha
+      :type: Optional[float]
+
+      Es el factor de carga (alpha) con el que se inicializa la tabla de hash, por defecto es 4.0.
+
+   .. py:attribute:: prime
+      :type: Optional[int]
+
+      Es el número primo (P) utilizado para calcular el código hash de la llave con la función de compresión MAD, por defecto es 109345121.
+
+   .. py:attribute:: hash_table
+      :type: DISClib.DataStructures.arraylist.ArrayList[Bucket[DISClib.Utils.default.T]]
+
+      Es el indice de la tabla de hash donde se almacenan los 'Buckets', implementado con un 'ArrayList' de DISCLib. en el __post_init__ se inicializa con la capacidad inicial de la tabla de hash.
+
+   .. py:attribute:: rehashable
+      :type: bool
+      :value: True
+
+      Es un booleano que indica si la tabla de hash se puede reconstruir utilizando el método de rehash, por defecto es True.
+
+   .. py:attribute:: capacity
+      :type: int
+      :value: 1
+
+      Es la capacidad (M) con la que se inicializa la tabla de hash.
+
+   .. py:attribute:: _size
+      :type: int
+      :value: 0
+
+      Es el número de elementos (n) dentro de la tabla de hash, por defecto es 0 y se actualiza con cada operación que modifica la estructura.
+
+   .. py:attribute:: _collisions
+      :type: Optional[int]
+      :value: 0
+
+      Es el número de colisiones en la tabla de hash.
+
+   .. py:attribute:: _scale
+      :type: Optional[int]
+      :value: 0
+
+      Es el número utilizado para calcular el código hash de la llave.
+
+   .. py:attribute:: _shift
+      :type: Optional[int]
+      :value: 0
+
+      Es el número utilizado para calcular el código hash de la llave.
+
+   .. py:attribute:: _limit_alpha
+      :type: Optional[float]
+      :value: 0
+
+      Es el factor de carga limite antes de hacer rehash.
+
+   .. py:attribute:: _cur_alpha
+      :type: Optional[float]
+      :value: 0
+
+      Es el factor de carga actual de la tabla de hash.
+
+   .. py:attribute:: _data_type
+      :type: Optional[type]
+
+      Es el tipo de dato de los elementos que contiene la tabla de hash, por defecto es 'None' y se configura al cargar el primer elemento en el mapa.
+
+   .. py:attribute:: cmp_function
+      :type: Optional[Callable[[DISClib.Utils.default.T, DISClib.Utils.default.T], int]]
+
+      Función de comparación opcional que se utiliza para comparar los elementos del SeparateChaining, por defecto es 'None' y el __post_init__ configura la función por defecto lt_default_cmp_funcion().
+
+   .. py:attribute:: key
+      :type: Optional[str]
+
+      Nombre de la llave opcional que se utiliza para comparar los elementos del SeparateChaining, Por defecto es 'None' y el __post_init__ configura la llave por defecto la llave 'id' en DEFAULT_DICT_KEY.
+
+   .. py:method:: __post_init__() -> None
+
+      __post_init__ _summary_
+
+
+
+   .. py:method:: default_cmp_function(key1, entry2: DISClib.DataStructures.mapentry.MapEntry) -> int
+
+      *default_cmp_function()* procesa la llave existente en el elemento del 'SeparateChaining' y la compara con el elemento que se quiere agregar al 'SeparateChaining'.
+
+      :param key1: llave del primer elemento a comparar.
+      :type key1: Any
+      :param entry2: entrada del mapa del segundo elemento a comparar.
+      :type entry2: MapEntry
+
+      :returns: respuesta de la comparación entre los elementos, 0 si las llaves son iguales, 1 si key1 es mayor que la llave de entry2, -1 si key1 es menor.
+      :rtype: int
+
+
+   .. py:method:: _handle_error(err: Exception) -> None
+
+      *_handle_error()* función privada que maneja los errores que se pueden presentar en el SeparateChaining.
+
+      Si se presenta un error en el SeparateChaining, se formatea el error según el contexto (paquete/clase) y la función que lo generó, y lo reenvia al componente superior en la jerarquía de llamados para manejarlo segun sea considere conveniente.
+
+      :param err: Excepción que se generó en el SeparateChaining.
+      :type err: Exception
+
+
+   .. py:method:: _check_type(element: DISClib.Utils.default.T) -> bool
+
+      *_check_type()* función privada que verifica que el tipo de dato del elemento que se quiere agregar al SeparateChaining sea del mismo tipo contenido dentro de los elementos del SeparateChaining.
+
+      :raises TypeError: error si el tipo de dato del elemento que se quiere agregar no es el mismo que el tipo de dato de los elementos que ya contiene el SeparateChaining.
+
+      :param element: elemento que se quiere procesar en SeparateChaining.
+      :type element: T
+
+      :returns: operador que indica si el ADT SeparateChaining es del mismo tipo que el elemento que se quiere procesar.
+      :rtype: bool
+
+
+   .. py:method:: is_empty() -> bool
+
+      *is_empty()* revisa si el SeparateChaining está vacío.
+
+      :returns: operador que indica si la estructura SeparateChaining está vacía.
+      :rtype: bool
+
+
+   .. py:method:: size() -> int
+
+      *size()* devuelve el numero de elementos que actualmente contiene el SeparateChaining.
+
+      :returns: tamaño de la estructura SeparateChaining.
+      :rtype: int
+
+
+   .. py:method:: contains(key: DISClib.Utils.default.T) -> bool
+
+      contains _summary_
+
+      :param key: _description_
+      :type key: T
+
+      :returns: _description_
+      :rtype: bool
+
+
+   .. py:method:: put(key: DISClib.Utils.default.T, value: DISClib.Utils.default.T) -> None
+
+      put _summary_
+
+      :param key: _description_
+      :type key: T
+      :param value: _description_
+      :type value: T
+
+      :raises Exception: _description_
+
+
+   .. py:method:: get(key: DISClib.Utils.default.T) -> Optional[DISClib.Utils.default.T]
+
+      get _summary_
+
+      :param key: _description_
+      :type key: T
+
+      :raises Exception: _description_
+
+      :returns: _description_
+      :rtype: Optional[T]
+
+
+   .. py:method:: remove(key: DISClib.Utils.default.T) -> None
+
+      remove _summary_
+
+      :param key: _description_
+      :type key: T
+
+      :raises Exception: _description_
+
+
+   .. py:method:: keys() -> DISClib.DataStructures.arraylist.ArrayList[DISClib.Utils.default.T]
+
+      keys _summary_
+
+      :returns: _description_
+      :rtype: ArrayList[T]
+
+
+   .. py:method:: values() -> DISClib.DataStructures.arraylist.ArrayList[DISClib.Utils.default.T]
+
+      values _summary_
+
+      :returns: _description_
+      :rtype: ArrayList[T]
+
+
+   .. py:method:: entries() -> DISClib.DataStructures.arraylist.ArrayList[DISClib.Utils.default.T]
+
+      entries _summary_
+
+      :returns: _description_
+      :rtype: ArrayList[T]
+
+
+   .. py:method:: rehash() -> None
+
+      rehash _summary_
+
+
+
+
+.. py:function:: newMap(numelements, prime, loadfactor, cmpfunction, datastructure)
+
+   Crea una tabla de simbolos (map) sin orden
+
+   Crea una tabla de hash con capacidad igual a nuelements
+   (primo mas cercano al doble de numelements).
+   prime es un número primo utilizado para  el cálculo de los codigos
+   de hash, si no es provisto se  utiliza el primo 109345121.
+
+   :param numelements: Tamaño inicial de la tabla
+   :param prime: Número primo utilizado en la función MAD
+   :param loadfactor: Factor de carga inicial de la tabla
+   :param cmpfunc: Funcion de comparación entre llaves
+
+   :returns: Un nuevo map
+
+   :raises Exception:
+
+
+.. py:function:: put(map, key, value)
+
+   Ingresa una pareja llave,valor a la tabla de hash.
+   Si la llave ya existe en la tabla, se reemplaza el valor
+
+   :param map: El map a donde se guarda la pareja
+   :param key: la llave asociada a la pareja
+   :param value: el valor asociado a la pareja
+
+   :returns: El map
+
+   :raises Exception:
+
+
+.. py:function:: rehash(map)
+
+   Se aumenta la capacida de la tabla al doble y se hace
+   rehash de todos los elementos de la tabla
+
+
+.. py:function:: hashValue(table, key)
+
+   Calcula un hash para una llave, utilizando el método
+   MAD : hashValue(y) = ((ay + b) % p) % M.
+   Donde:
+   M es el tamaño de la tabla, primo
+   p es un primo mayor a M,
+   a y b enteros aleatoreos dentro del intervalo [0,p-1], con a>0
+
+
+.. py:function:: isPrime(n)
+
+
+.. py:function:: nextPrime(N)
+
+
+.. py:function:: defaultcompare(key, element)
+
+

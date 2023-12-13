@@ -5,7 +5,7 @@
 
 .. autoapi-nested-parse::
 
-   Esta clase representa la registro de un Mapa no Ordenado (MapEntry), el cual es una estructura de datos dinámica que permite almacenar la información en parejas de llave-valor (key-value). La llave (key) es un identificador único para cada valor (value) almacenado en el Mapa no Ordenado (Map). Por su parte, el valor (value) puede ser cualquier tipo de dato.
+   Este ADT representa la registro de un Mapa no Ordenado (MapEntry), el cual es una estructura de datos dinámica que permite almacenar la información en parejas de llave-valor (key-value). La llave (key) es un identificador único para cada valor (value) almacenado en el Mapa no Ordenado (Map). Por su parte, el valor (value) puede ser cualquier tipo de dato.
 
    En el caso de las tablas de Hash, la llave (key) es el resultado de aplicar una función hash al valor (value) almacenado en el Mapa no Ordenado (Map). Esta estructura de datos es fundamental para implementar otros mapas no ordenados como: tablas de símbolos, diccionarios, entre otros.
 
@@ -36,7 +36,7 @@ Classes
 
    Bases: :py:obj:`Generic`\ [\ :py:obj:`DISClib.Utils.default.T`\ ]
 
-   *MapEntry* Es una clase que representa un registro de un mapa no ordenado. Contiene la llave y el valor del registro del mapa. Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.
+   **MapEntry** representa un registro de un mapa no ordenado. Contiene la llave y el valor del registro del mapa. Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.
 
    :param Generic: Tipo de dato genérico dentro del registro del mapa.
    :type Generic: T
@@ -55,12 +55,6 @@ Classes
       :type: Optional[DISClib.Utils.default.T]
 
       Es el valor del registro del mapa.
-
-   .. py:method:: __post_init__()
-
-      *__post_init__()* revisa que la información al crear un registro sea sea valida.
-
-
 
    .. py:method:: _handle_error(err: Exception) -> None
 

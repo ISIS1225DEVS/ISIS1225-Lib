@@ -16,7 +16,7 @@ Submodules
    binarysearchtree/index.rst
    bst/index.rst
    bstnode/index.rst
-   chaininghashmap/index.rst
+   chaininghashtable/index.rst
    doublelinkedlist/index.rst
    edge/index.rst
    heap/index.rst
@@ -25,8 +25,8 @@ Submodules
    listnode/index.rst
    mapentry/index.rst
    node/index.rst
-   probehashtable/index.rst
    probinghashmap/index.rst
+   probinghashtable/index.rst
    rbt/index.rst
    rbtnode/index.rst
    redblacktree/index.rst
@@ -45,6 +45,9 @@ Classes
    DISClib.DataStructures.ArrayList
    DISClib.DataStructures.SingleLinked
    DISClib.DataStructures.DoubleLinked
+   DISClib.DataStructures.MapEntry
+   DISClib.DataStructures.SeparateChaining
+   DISClib.DataStructures.LinearProbing
 
 
 
@@ -63,9 +66,9 @@ Attributes
 
    Bases: :py:obj:`Generic`\ [\ :py:obj:`DISClib.Utils.default.T`\ ]
 
-   *ArrayList* representa la estructura de datos para arreglos dinamicos (Array List), Implementada con la anotación '@dataclass' de python y el decorador 'Generic[T]' para que sea una estructura de datos genérica.
+   **ArrayList** representa la estructura de datos para arreglos dinamicos (Array List), Implementada con Generic[T] y @dataclass para que sea una estructura de datos genérica.
 
-   :param Generic: TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para representar una estructura de datos genéricas en python.
+   :param Generic: TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.
    :type Generic: T
 
    :returns: ADT de tipo ArrayList o Arreglo Dinámico.
@@ -85,21 +88,21 @@ Attributes
       :type: int
       :value: 0
 
-      Atributo privado que representa el tamaño de la estructura, por defecto es 0.
+      Es el número de elementos que contiene la estructura, por defecto es 0 y se actualiza con cada operación que modifica la estructura.
 
    .. py:attribute:: cmp_function
       :type: Optional[Callable[[DISClib.Utils.default.T, DISClib.Utils.default.T], int]]
 
-      Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es 'None' y el __post_init__ configura la función por defecto lt_default_cmp_funcion().
+      Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es None y el *__post_init__()* configura la función por defecto *lt_default_cmp_funcion()*.
 
    .. py:attribute:: key
       :type: Optional[str]
 
-      Nombre de la llave opcional que se utiliza para comparar los elementos del ArrayList, Por defecto es 'None' y el __post_init__ configura la llave por defecto la llave 'id' en DEFAULT_DICT_KEY.
+      Nombre de la llave opcional que se utiliza para comparar los elementos del ArrayList, Por defecto es 'None' y el *__post_init__()* configura la llave por defecto la llave 'id' en *DEFAULT_DICT_KEY*.
 
    .. py:method:: __post_init__() -> None
 
-      *__post_init__()* configura los valores por defecto para la llave (key) y la función de comparación (cmp_function). Si el usuario incluye una lista nativa de python como argumento, se agrega a la lista de elementos del ArrayList.
+      *__post_init__()* configura los valores por defecto para la llave ('key') y la función de comparación ('cmp_function'). Si el usuario incluye una lista nativa de python como argumento, se agrega a la lista de elementos del ArrayList.
 
 
 
@@ -120,7 +123,7 @@ Attributes
 
       *_handle_error()* función privada que maneja los errores que se pueden presentar en el ArrayList.
 
-      Si se presenta un error en el ArrayList, se formatea el error según el contexto (paquete/clase) y la función que lo generó, y lo reenvia al componente superior en la jerarquía de llamados para manejarlo segun sea considere conveniente.
+      Si se presenta un error en ArrayList, se formatea el error según el contexto (paquete/clase), la función que lo generó y lo reenvia al componente superior en la jerarquía de llamados para manejarlo segun se considere conveniente.
 
       :param err: Excepción que se generó en el ArrayList.
       :type err: Exception
@@ -149,7 +152,7 @@ Attributes
 
    .. py:method:: size() -> int
 
-      *size()* devuelve el numero de elementos que actualmente contiene el ArrayList.
+      *size()* devuelve el número de elementos que actualmente contiene el ArrayList.
 
       :returns: tamaño de la estructura ArrayList.
       :rtype: int
@@ -162,7 +165,7 @@ Attributes
       :param element: elemento que se quiere agregar a la estructura.
       :type element: T
 
-      :raises Exception: si la operación no se puede realizar, se invoca la función '_handle_error()' para manejar el error.
+      :raises Exception: si la operación no se puede realizar, se invoca la función *_handle_error()* para manejar el error.
 
 
    .. py:method:: add_last(element: DISClib.Utils.default.T) -> None
@@ -172,7 +175,7 @@ Attributes
       :param element: elemento que se quiere agregar a la estructura.
       :type element: T
 
-      :raises Exception: si la operación no se puede realizar, se invoca la función '_handle_error()' para manejar el error.
+      :raises Exception: si la operación no se puede realizar, se invoca la función *_handle_error()* para manejar el error.
 
 
    .. py:method:: add_element(element: DISClib.Utils.default.T, pos: int) -> None
@@ -212,8 +215,8 @@ Attributes
 
       *get_element()* lee un elemento en una posición dada del ArrayList.
 
-      Args:._size-1
-          pos (int): índice en la que se quiere agregar el elemento.
+      :param pos: índice en la que se quiere agregar el elemento.
+      :type pos: int
 
       :raises Exception: error si la estructura está vacía.
       :raises Exception: error si la posición es inválida.
@@ -271,9 +274,9 @@ Attributes
       :rtype: int
 
 
-   .. py:method:: is_present(element: DISClib.Utils.default.T) -> int
+   .. py:method:: find(element: DISClib.Utils.default.T) -> int
 
-      *is_present()* revisa si un elemento está en el ArrayList.
+      *find()* revisa si un elemento está en el ArrayList.
 
       :param element: elemento que se quiere revisar en el ArrayList.
       :type element: T
@@ -342,7 +345,7 @@ Attributes
 
    .. py:method:: __iter__()
 
-      *__iter__* iterador intervinido la función nativa __iter__ para recorrer un ArrayList dentro de un ciclo 'for' de python.
+      *__iter__()* iterador nativo de Python intervenida por la estructura de datos para recorrer los elementos del ArrayList utilizando un ciclo 'for' de python.
 
       :returns: iterador Python sobre los elementos del ArrayList.
       :rtype: __iter__
@@ -350,8 +353,7 @@ Attributes
 
    .. py:method:: __len__() -> int
 
-      *__len__* función nativa intervenida que devuelve el tamaño del
-      ArrayList.
+      *__len__()* función nativa de Python intervenida por la estructura de datosv para recuperar el tamaño del ArrayList.
 
       :returns: tamaño del ArrayList.
       :rtype: int
@@ -363,9 +365,9 @@ Attributes
 
    Bases: :py:obj:`Generic`\ [\ :py:obj:`DISClib.Utils.default.T`\ ]
 
-   *SingleLinked* Clase que representa una estructura de datos de tipo SingleLinked con la anotación '@dataclass' de python y el decorador 'Generic[T]' para indicar que es una estructura de datos genérica.
+   **SingleLinked** representa una estructura de datos dinámica de tipo lista sensillamente encadenada (Single Linked List), Implementada con Generic[T] y @dataclass para que sea una estructura de datos genérica.
 
-   :param Generic: TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para representar una estructura de datos genéricas en python.
+   :param Generic: TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.
    :type Generic: T
 
    :returns: ADT de tipo SingleLinked o Lista Sensillamente Encadenada.
@@ -379,32 +381,32 @@ Attributes
    .. py:attribute:: first
       :type: Optional[DISClib.DataStructures.listnode.SingleNode[DISClib.Utils.default.T]]
 
-      Atributo publico que representa el primer nodo del SingleLinked.
+      Representa el la referencia en memoria al primer nodo del SingleLinked.
 
    .. py:attribute:: last
       :type: Optional[DISClib.DataStructures.listnode.SingleNode[DISClib.Utils.default.T]]
 
-      Atributo publico que representa el último nodo del SingleLinked.
+      Representa la referencia en memoria al último nodo del SingleLinked.
 
    .. py:attribute:: _size
       :type: int
       :value: 0
 
-      Atributo privado que representa el tamaño de la estructura, por defecto es 0.
+      Es el número de elementos que contiene la estructura, por defecto es 0 y se actualiza con cada operación que modifica la estructura.
 
    .. py:attribute:: cmp_function
       :type: Optional[Callable[[DISClib.Utils.default.T, DISClib.Utils.default.T], int]]
 
-      Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es 'None' y el __post_init__ configura la función por defecto lt_default_cmp_funcion().
+      Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es None y el *__post_init__()* configura la función por defecto *lt_default_cmp_funcion()*.
 
    .. py:attribute:: key
       :type: Optional[str]
 
-      Nombre de la llave opcional que se utiliza para comparar los elementos del ArrayList, Por defecto es 'None' y el __post_init__ configura la llave por defecto la llave 'id' en DEFAULT_DICT_KEY.
+      Nombre de la llave opcional que se utiliza para comparar los elementos del ArrayList, Por defecto es None y el *__post_init__()* configura la llave por defecto la llave 'id' en *DEFAULT_DICT_KEY*.
 
    .. py:method:: __post_init__() -> None
 
-      *__post_init__()* configura los valores por defecto para la llave (key) y la función de comparación (cmp_function). Si el usuario incluye una lista nativa de python como argumento, se agrega a la lista de elementos del SingleLinked.
+      *__post_init__()* configura los valores por defecto para la llave ('key') y la función de comparación ('cmp_function'). Si el usuario incluye una lista nativa de python como argumento, se agrega a la lista de elementos del SingleLinked.
 
 
 
@@ -455,7 +457,7 @@ Attributes
 
    .. py:method:: size() -> int
 
-      *size()* devuelve el numero de elementos que actualmente contiene el SingleLinked.
+      *size()* devuelve el número de elementos que actualmente contiene el SingleLinked.
 
       :returns: tamaño de la estructura SingleLinked.
       :rtype: int
@@ -468,7 +470,7 @@ Attributes
       :param element: elemento que se quiere agregar a la estructura.
       :type element: T
 
-      :raises Exception: si la operación no se puede realizar, se invoca la función '_handle_error()' para manejar el error.
+      :raises Exception: si la operación no se puede realizar, se invoca la función *_handle_error()* para manejar el error.
 
 
    .. py:method:: add_last(element: DISClib.Utils.default.T) -> None
@@ -478,7 +480,7 @@ Attributes
       :param element: elemento que se quiere agregar a la estructura.
       :type element: T
 
-      :raises Exception: si la operación no se puede realizar, se invoca la función '_handle_error()' para manejar el error.
+      :raises Exception: si la operación no se puede realizar, se invoca la función *_handle_error()* para manejar el error.
 
 
    .. py:method:: add_element(element: DISClib.Utils.default.T, pos: int) -> None
@@ -577,9 +579,9 @@ Attributes
       :rtype: int
 
 
-   .. py:method:: is_present(element: DISClib.Utils.default.T) -> int
+   .. py:method:: find(element: DISClib.Utils.default.T) -> int
 
-      *is_present()* revisa si un elemento está en el SingleLinked.
+      *find()* revisa si un elemento está en el SingleLinked.
 
       :param element: elemento que se quiere revisar en el SingleLinked.
       :type element: T
@@ -648,15 +650,15 @@ Attributes
 
    .. py:method:: __iter__()
 
-      *__iter__* iterador intervinido la función nativa __iter__ para recorrer un SingleLinked dentro de un ciclo 'for' de python.
+      *__iter__()* iterador nativo de Python intervenida por la estructura de datos para recorrer los elementos del SingleLinked utilizando un ciclo 'for' de python.
 
       :returns: iterador sobre los elementos del SingleLinked.
-      :rtype: iterator
+      :rtype: __iter__
 
 
    .. py:method:: __len__() -> int
 
-      *__len__* función nativa intervenida que devuelve el tamaño del SingleLinked.
+      *__len__()* función nativa de Python intervenida por la estructura de datosv para recuperar el tamaño del SingleLinked.
 
       :returns: tamaño del SingleLinked.
       :rtype: int
@@ -668,9 +670,9 @@ Attributes
 
    Bases: :py:obj:`Generic`\ [\ :py:obj:`DISClib.Utils.default.T`\ ]
 
-   DoubleLinked Clase que representa una estructura de datos de tipo DoubleLinked con la anotación '@dataclass' de python y el decorador 'Generic[T]' para indicar que es una estructura de datos genérica.
+   **DoubleLinked** representa una estructura de datos de tipo DoubleLinked con la anotación '@dataclass' de python y el decorador 'Generic[T]' para indicar que es una estructura de datos genérica.
 
-   :param Generic: TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para representar una estructura de datos genéricas en python.
+   :param Generic: TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.
    :type Generic: T
 
    :returns: ADT de tipo DoubleLinked o Lista Doblemente Encadenada.
@@ -684,31 +686,31 @@ Attributes
    .. py:attribute:: _header
       :type: Optional[DISClib.DataStructures.listnode.DoubleNode[DISClib.Utils.default.T]]
 
-      Atributo privado que representa el nodo sentinela de la cabecera de la estructura, por defecto es un DoubleNode vacío.
+      Representa el nodo sentinela de la cabecera de la estructura, por defecto es un DoubleNode vacío.
 
    .. py:attribute:: _trailer
       :type: Optional[DISClib.DataStructures.listnode.DoubleNode[DISClib.Utils.default.T]]
 
-      Atributo privado que representa el nodo sentinela del final de la estructura, por defecto es un DoubleNode vacío.
+      Representa el nodo sentinela del final de la estructura, por defecto es un DoubleNode vacío.
 
    .. py:attribute:: _size
       :type: int
 
-      Atributo privado que representa el tamaño de la estructura, por defecto es -1 para ajustar por los nodos sentinela de la cabecera y el final de la estructura.
+      Es el número de elementos que contiene la estructura, por defecto es 0, por defecto es -1 para ajustar por los nodos sentinelas de la estructura.
 
    .. py:attribute:: cmp_function
       :type: Optional[Callable[[DISClib.Utils.default.T, DISClib.Utils.default.T], int]]
 
-      Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es 'None' y el __post_init__ configura la función por defecto lt_default_cmp_funcion().
+      Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es 'None' y el *__post_init__()* configura la función por defecto *lt_default_cmp_funcion()*.
 
    .. py:attribute:: key
       :type: Optional[str]
 
-      Nombre de la llave opcional que se utiliza para comparar los elementos del ArrayList, Por defecto es 'None' y el __post_init__ configura la llave por defecto la llave 'id' en DEFAULT_DICT_KEY.
+      Nombre de la llave opcional que se utiliza para comparar los elementos del ArrayList, Por defecto es 'None' y el *__post_init__()* configura la llave por defecto la llave 'id' en *DEFAULT_DICT_KEY*.
 
    .. py:method:: __post_init__() -> None
 
-      *__post_init__()* configura los valores por defecto para la llave (key) y la función de comparación (cmp_function). Si el usuario incluye una lista nativa de python como argumento, se agrega a la lista de elementos del DoubleLinked.
+      *__post_init__()* configura los valores por defecto para la llave ('key') y la función de comparación ('cmp_function'). Si el usuario incluye una lista nativa de python como argumento, se agrega a la lista de elementos del DoubleLinked.
 
 
 
@@ -758,7 +760,7 @@ Attributes
 
    .. py:method:: size() -> int
 
-      *size()* devuelve el numero de elementos que actualmente contiene el DoubleLinked.
+      *size()* devuelve el número de elementos que actualmente contiene el DoubleLinked.
 
       :returns: tamaño de la estructura DoubleLinked.
       :rtype: int
@@ -771,7 +773,7 @@ Attributes
       :param element: elemento que se quiere agregar a la estructura.
       :type element: T
 
-      :raises Exception: si la operación no se puede realizar, se invoca la función '_handle_error()' para manejar el error.
+      :raises Exception: si la operación no se puede realizar, se invoca la función *_handle_error()* para manejar el error.
 
 
    .. py:method:: add_last(element: DISClib.Utils.default.T) -> None
@@ -781,7 +783,7 @@ Attributes
       :param element: elemento que se quiere agregar a la estructura.
       :type element: T
 
-      :raises Exception: si la operación no se puede realizar, se invoca la función '_handle_error()' para manejar el error.
+      :raises Exception: si la operación no se puede realizar, se invoca la función *_handle_error()* para manejar el error.
 
 
    .. py:method:: add_element(element: DISClib.Utils.default.T, pos: int) -> None
@@ -880,9 +882,9 @@ Attributes
       :rtype: int
 
 
-   .. py:method:: is_present(element: DISClib.Utils.default.T) -> int
+   .. py:method:: find(element: DISClib.Utils.default.T) -> int
 
-      *is_present()* revisa si un elemento está en el DoubleLinked.
+      *find()* revisa si un elemento está en el DoubleLinked.
 
       :param element: elemento que se quiere revisar en el DoubleLinked.
       :type element: T
@@ -966,10 +968,519 @@ Attributes
 
    .. py:method:: __len__() -> int
 
-      *__len__* función nativa intervenida que devuelve el tamaño del DoubleLinked.
+      *__len__()* función nativa intervenida que devuelve el tamaño del DoubleLinked.
 
       :returns: tamaño del DoubleLinked.
       :rtype: int
+
+
+
+.. py:class:: MapEntry
+
+
+   Bases: :py:obj:`Generic`\ [\ :py:obj:`DISClib.Utils.default.T`\ ]
+
+   **MapEntry** representa un registro de un mapa no ordenado. Contiene la llave y el valor del registro del mapa. Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.
+
+   :param Generic: Tipo de dato genérico dentro del registro del mapa.
+   :type Generic: T
+
+   :raises TypeError: error si la información del registro del mapa (llave o valor) no son del tipo adecuado.
+
+   :returns: ADT de tipo MapEntry o registro de un mapa.
+   :rtype: MapEntry
+
+   .. py:attribute:: _key
+      :type: Optional[DISClib.Utils.default.T]
+
+      Es la llave del registro del mapa.
+
+   .. py:attribute:: _value
+      :type: Optional[DISClib.Utils.default.T]
+
+      Es el valor del registro del mapa.
+
+   .. py:method:: _handle_error(err: Exception) -> None
+
+      *_handle_error()* función privada para manejar los errores que se presentan en la clase MapEntry.
+
+      Si se presenta un error en el MapEntry, se formatea el error según el contexto (paquete/clase) y la función que lo generó, y lo reenvia al componente superior en la jerarquía de llamados para manejarlo segun se considere conveniente.
+
+      :param err: Excepción que se generó en el MapEntry.
+      :type err: Exception
+
+
+   .. py:method:: _check_key_type(key: DISClib.Utils.default.T) -> bool
+
+      *_check_key_type()* función privada que verifica que la información de la llave (key) del registro del mapa sea del tipo especificado.
+
+      :param key: llave que se quiere verificar en el registro del mapa.
+      :type key: T
+
+      :raises TypeError: error si la información del registro del mapa no es del tipo adecuado.
+
+      :returns: operador que indica si el tipo de dato de la llave es el mismo que el tipo de dato de la llave que ya contiene la estructura de datos.
+      :rtype: bool
+
+
+   .. py:method:: _check_value_type(value: DISClib.Utils.default.T) -> bool
+
+      *_check_value_type()* función privada que verifica que la información del valor (value) en el registro del mapa sea del tipo especificado.
+
+      :param value: valor que se quiere verificar en el registro del mapa.
+      :type value: T
+
+      :raises TypeError: error si la información del registro del mapa no es del tipo adecuado.
+
+      :returns: operador que indica si el tipo de dato del valor es el mismo que el tipo de dato de los elementos que ya contiene la estructura de datos.
+      :rtype: bool
+
+
+   .. py:method:: set_key(key: DISClib.Utils.default.T) -> None
+
+      *set_key()* introduce una nueva llave 'key' al registro del mapa.
+
+      :param key: la nueva llave del registro del mapa.
+      :type key: T
+
+
+   .. py:method:: set_value(value: DISClib.Utils.default.T) -> None
+
+      *set_value()* introduce un nuevo valor 'value' al registro del mapa.
+
+      :param value: el nuevo valor del registro del mapa.
+      :type value: T
+
+
+   .. py:method:: get_key() -> DISClib.Utils.default.T
+
+      *get_key()* recupera la llave 'key' contenida en el registro del mapa.
+
+      :returns: la llave del registro del mapa.
+      :rtype: T
+
+
+   .. py:method:: get_value() -> DISClib.Utils.default.T
+
+      *get_value()* recupera el valor 'value' contenido en el registro del mapa.
+
+      :returns: el valor del registro del mapa.
+      :rtype: T
+
+
+
+.. py:class:: SeparateChaining
+
+
+   Bases: :py:obj:`Generic`\ [\ :py:obj:`DISClib.Utils.default.T`\ ]
+
+   *SeparateChaining* Es una clase que representa una tabla de hash con el método de encadenamiento por de separación (Separate Chaining). Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.
+
+   :param Generic: Tipo de dato genérico dentro del registro del mapa.
+   :type Generic: T
+
+   :raises TypeError: error si la información del registro del mapa (llave o valor) no son del tipo adecuado.
+
+   :returns: ADT de tipo SeparateChaining o tabla de hash con separación por encadenamiento.
+   :rtype: SeparateChaining
+
+   .. py:attribute:: iodata
+      :type: Optional[List[DISClib.Utils.default.T]]
+
+      Lista nativa de Python que contiene los elementos de entrada a la estructura, por defecto es None y el usuario puede incluir una lista nativa de python como argumento.
+
+   .. py:attribute:: elements
+      :type: int
+      :value: 1
+
+      Es el espacio reservado para la tabla de hash (n), por defecto es 1, pero debe configurarse según el número de elementos que se espera almacenar.
+
+   .. py:attribute:: alpha
+      :type: Optional[float]
+
+      Es el factor de carga (alpha) con el que se inicializa la tabla de hash, por defecto es 4.0.
+
+   .. py:attribute:: prime
+      :type: Optional[int]
+
+      Es el número primo (P) utilizado para calcular el código hash de la llave con la función de compresión MAD, por defecto es 109345121.
+
+   .. py:attribute:: hash_table
+      :type: DISClib.DataStructures.arraylist.ArrayList[Bucket[DISClib.Utils.default.T]]
+
+      Es el indice de la tabla de hash donde se almacenan los 'Buckets', implementado con un 'ArrayList' de DISCLib. en el __post_init__ se inicializa con la capacidad inicial de la tabla de hash.
+
+   .. py:attribute:: rehashable
+      :type: bool
+      :value: True
+
+      Es un booleano que indica si la tabla de hash se puede reconstruir utilizando el método de rehash, por defecto es True.
+
+   .. py:attribute:: capacity
+      :type: int
+      :value: 1
+
+      Es la capacidad (M) con la que se inicializa la tabla de hash.
+
+   .. py:attribute:: _size
+      :type: int
+      :value: 0
+
+      Es el número de elementos (n) dentro de la tabla de hash, por defecto es 0 y se actualiza con cada operación que modifica la estructura.
+
+   .. py:attribute:: _collisions
+      :type: Optional[int]
+      :value: 0
+
+      Es el número de colisiones en la tabla de hash.
+
+   .. py:attribute:: _scale
+      :type: Optional[int]
+      :value: 0
+
+      Es el número utilizado para calcular el código hash de la llave.
+
+   .. py:attribute:: _shift
+      :type: Optional[int]
+      :value: 0
+
+      Es el número utilizado para calcular el código hash de la llave.
+
+   .. py:attribute:: _limit_alpha
+      :type: Optional[float]
+      :value: 0
+
+      Es el factor de carga limite antes de hacer rehash.
+
+   .. py:attribute:: _cur_alpha
+      :type: Optional[float]
+      :value: 0
+
+      Es el factor de carga actual de la tabla de hash.
+
+   .. py:attribute:: _data_type
+      :type: Optional[type]
+
+      Es el tipo de dato de los elementos que contiene la tabla de hash, por defecto es 'None' y se configura al cargar el primer elemento en el mapa.
+
+   .. py:attribute:: cmp_function
+      :type: Optional[Callable[[DISClib.Utils.default.T, DISClib.Utils.default.T], int]]
+
+      Función de comparación opcional que se utiliza para comparar los elementos del SeparateChaining, por defecto es 'None' y el __post_init__ configura la función por defecto lt_default_cmp_funcion().
+
+   .. py:attribute:: key
+      :type: Optional[str]
+
+      Nombre de la llave opcional que se utiliza para comparar los elementos del SeparateChaining, Por defecto es 'None' y el __post_init__ configura la llave por defecto la llave 'id' en DEFAULT_DICT_KEY.
+
+   .. py:method:: __post_init__() -> None
+
+      __post_init__ _summary_
+
+
+
+   .. py:method:: default_cmp_function(key1, entry2: DISClib.DataStructures.mapentry.MapEntry) -> int
+
+      *default_cmp_function()* procesa la llave existente en el elemento del 'SeparateChaining' y la compara con el elemento que se quiere agregar al 'SeparateChaining'.
+
+      :param key1: llave del primer elemento a comparar.
+      :type key1: Any
+      :param entry2: entrada del mapa del segundo elemento a comparar.
+      :type entry2: MapEntry
+
+      :returns: respuesta de la comparación entre los elementos, 0 si las llaves son iguales, 1 si key1 es mayor que la llave de entry2, -1 si key1 es menor.
+      :rtype: int
+
+
+   .. py:method:: _handle_error(err: Exception) -> None
+
+      *_handle_error()* función privada que maneja los errores que se pueden presentar en el SeparateChaining.
+
+      Si se presenta un error en el SeparateChaining, se formatea el error según el contexto (paquete/clase) y la función que lo generó, y lo reenvia al componente superior en la jerarquía de llamados para manejarlo segun sea considere conveniente.
+
+      :param err: Excepción que se generó en el SeparateChaining.
+      :type err: Exception
+
+
+   .. py:method:: _check_type(element: DISClib.Utils.default.T) -> bool
+
+      *_check_type()* función privada que verifica que el tipo de dato del elemento que se quiere agregar al SeparateChaining sea del mismo tipo contenido dentro de los elementos del SeparateChaining.
+
+      :raises TypeError: error si el tipo de dato del elemento que se quiere agregar no es el mismo que el tipo de dato de los elementos que ya contiene el SeparateChaining.
+
+      :param element: elemento que se quiere procesar en SeparateChaining.
+      :type element: T
+
+      :returns: operador que indica si el ADT SeparateChaining es del mismo tipo que el elemento que se quiere procesar.
+      :rtype: bool
+
+
+   .. py:method:: is_empty() -> bool
+
+      *is_empty()* revisa si el SeparateChaining está vacío.
+
+      :returns: operador que indica si la estructura SeparateChaining está vacía.
+      :rtype: bool
+
+
+   .. py:method:: size() -> int
+
+      *size()* devuelve el numero de elementos que actualmente contiene el SeparateChaining.
+
+      :returns: tamaño de la estructura SeparateChaining.
+      :rtype: int
+
+
+   .. py:method:: contains(key: DISClib.Utils.default.T) -> bool
+
+      contains _summary_
+
+      :param key: _description_
+      :type key: T
+
+      :returns: _description_
+      :rtype: bool
+
+
+   .. py:method:: put(key: DISClib.Utils.default.T, value: DISClib.Utils.default.T) -> None
+
+      put _summary_
+
+      :param key: _description_
+      :type key: T
+      :param value: _description_
+      :type value: T
+
+      :raises Exception: _description_
+
+
+   .. py:method:: get(key: DISClib.Utils.default.T) -> Optional[DISClib.Utils.default.T]
+
+      get _summary_
+
+      :param key: _description_
+      :type key: T
+
+      :raises Exception: _description_
+
+      :returns: _description_
+      :rtype: Optional[T]
+
+
+   .. py:method:: remove(key: DISClib.Utils.default.T) -> None
+
+      remove _summary_
+
+      :param key: _description_
+      :type key: T
+
+      :raises Exception: _description_
+
+
+   .. py:method:: keys() -> DISClib.DataStructures.arraylist.ArrayList[DISClib.Utils.default.T]
+
+      keys _summary_
+
+      :returns: _description_
+      :rtype: ArrayList[T]
+
+
+   .. py:method:: values() -> DISClib.DataStructures.arraylist.ArrayList[DISClib.Utils.default.T]
+
+      values _summary_
+
+      :returns: _description_
+      :rtype: ArrayList[T]
+
+
+   .. py:method:: entries() -> DISClib.DataStructures.arraylist.ArrayList[DISClib.Utils.default.T]
+
+      entries _summary_
+
+      :returns: _description_
+      :rtype: ArrayList[T]
+
+
+   .. py:method:: rehash() -> None
+
+      rehash _summary_
+
+
+
+
+.. py:class:: LinearProbing
+
+
+   Bases: :py:obj:`Generic`\ [\ :py:obj:`DISClib.Utils.default.T`\ ]
+
+   *LinearProbing* Es una clase que representa una tabla de hash con el método de encadenamiento por de separación (Separate Chaining). Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.
+
+   :param Generic: Tipo de dato genérico dentro del registro del mapa.
+   :type Generic: T
+
+   :raises TypeError: error si la información del registro del mapa (llave o valor) no son del tipo adecuado.
+
+   :returns: ADT de tipo LinearProbing o tabla de hash con separación por encadenamiento.
+   :rtype: LinearProbing
+
+   .. py:attribute:: iodata
+      :type: Optional[List[DISClib.Utils.default.T]]
+
+      Lista nativa de Python que contiene los elementos de entrada a la estructura, por defecto es None y el usuario puede incluir una lista nativa de python como argumento.
+
+   .. py:attribute:: elements
+      :type: int
+      :value: 1
+
+      Es el espacio reservado para la tabla de hash (n), por defecto es 1, pero debe configurarse según el número de elementos que se espera almacenar.
+
+   .. py:attribute:: aLpha
+      :type: Optional[float]
+
+      Es el factor de carga con el que se inicializa la tabla de hash, por defecto es 4.0.
+
+   .. py:attribute:: prime
+      :type: Optional[int]
+
+      Es el número primo utilizado para calcular el código hash de la llave con la función de compresión MAD, por defecto es 109345121.
+
+   .. py:attribute:: table
+      :type: DISClib.DataStructures.arraylist.ArrayList[DISClib.DataStructures.mapentry.MapEntry[DISClib.Utils.default.T]]
+
+      Es el indice de la tabla de hash donde se almacenan los 'Buckets', implementado con un 'ArrayList' de DISCLib. en el __post_init__ se inicializa con la capacidad inicial de la tabla de hash.
+
+   .. py:attribute:: rehashable
+      :type: bool
+      :value: True
+
+      Es un booleano que indica si la tabla de hash se puede reconstruir utilizando el método de rehash, por defecto es True.
+
+   .. py:attribute:: capacity
+      :type: int
+      :value: 1
+
+      Es la capacidad (m) con la que se inicializa la tabla de hash.
+
+   .. py:attribute:: _size
+      :type: int
+      :value: 0
+
+      Es el número de elementos dentro de la tabla de hash, por defecto es 0 y se actualiza con cada operación que modifica la estructura.
+
+   .. py:attribute:: _collisions
+      :type: Optional[int]
+      :value: 0
+
+      Es el número de colisiones en la tabla de hash.
+
+   .. py:attribute:: _scale
+      :type: Optional[int]
+      :value: 0
+
+      Es el número utilizado para calcular el código hash de la llave.
+
+   .. py:attribute:: _shift
+      :type: Optional[int]
+      :value: 0
+
+      Es el número utilizado para calcular el código hash de la llave.
+
+   .. py:attribute:: _limit_factor
+      :type: Optional[float]
+      :value: 0
+
+      Es el factor de carga limite antes de hacer rehash.
+
+   .. py:attribute:: _current_factor
+      :type: Optional[float]
+      :value: 0
+
+      Es el factor de carga actual de la tabla de hash.
+
+   .. py:attribute:: cmp_function
+      :type: Optional[Callable[[DISClib.Utils.default.T, DISClib.Utils.default.T], int]]
+
+      Función de comparación opcional que se utiliza para comparar los elementos del LinearProbing, por defecto es 'None' y el __post_init__ configura la función por defecto lt_default_cmp_funcion().
+
+   .. py:attribute:: key
+      :type: Optional[str]
+
+      Nombre de la llave opcional que se utiliza para comparar los elementos del LinearProbing, Por defecto es 'None' y el __post_init__ configura la llave por defecto la llave 'id' en DEFAULT_DICT_KEY.
+
+   .. py:method:: __post_init__() -> None
+
+
+   .. py:method:: default_cmp_function(elm1, elm2) -> int
+
+      *default_cmp_function()* procesa con algoritmica por defecto la lista de elementos que procesa el LinearProbing. Es una función crucial para que la estructura de datos funcione correctamente.
+
+      :param elm1: primer elemento a comparar.
+      :type elm1: Any
+      :param elm2: segundo elemento a comparar.
+      :type elm2: Any
+
+      :returns: respuesta de la comparación entre los elementos, 0 si son iguales, 1 si elm1 es mayor que elm2, -1 si elm1 es menor.
+      :rtype: int
+
+
+   .. py:method:: _handle_error(err: Exception) -> None
+
+      *_handle_error()* función privada que maneja los errores que se pueden presentar en el LinearProbing.
+
+      Si se presenta un error en el LinearProbing, se formatea el error según el contexto (paquete/clase) y la función que lo generó, y lo reenvia al componente superior en la jerarquía de llamados para manejarlo segun sea considere conveniente.
+
+      :param err: Excepción que se generó en el LinearProbing.
+      :type err: Exception
+
+
+   .. py:method:: _check_type(element: DISClib.Utils.default.T) -> bool
+
+      *_check_type()* función privada que verifica que el tipo de dato del elemento que se quiere agregar al LinearProbing sea del mismo tipo contenido dentro de los elementos del LinearProbing.
+
+      :raises TypeError: error si el tipo de dato del elemento que se quiere agregar no es el mismo que el tipo de dato de los elementos que ya contiene el LinearProbing.
+
+      :param element: elemento que se quiere procesar en LinearProbing.
+      :type element: T
+
+      :returns: operador que indica si el ADT LinearProbing es del mismo tipo que el elemento que se quiere procesar.
+      :rtype: bool
+
+
+   .. py:method:: is_empty() -> bool
+
+      *is_empty()* revisa si el LinearProbing está vacío.
+
+      :returns: operador que indica si la estructura LinearProbing está vacía.
+      :rtype: bool
+
+
+   .. py:method:: size() -> int
+
+      *size()* devuelve el numero de elementos que actualmente contiene el LinearProbing.
+
+      :returns: tamaño de la estructura LinearProbing.
+      :rtype: int
+
+
+   .. py:method:: contains(key: DISClib.Utils.default.T) -> bool
+
+
+   .. py:method:: put(key: DISClib.Utils.default.T, value: DISClib.Utils.default.T) -> None
+
+
+   .. py:method:: get(key: DISClib.Utils.default.T) -> Optional[DISClib.Utils.default.T]
+
+
+   .. py:method:: remove(key: DISClib.Utils.default.T) -> None
+
+
+   .. py:method:: keys() -> DISClib.DataStructures.arraylist.ArrayList[DISClib.Utils.default.T]
+
+
+   .. py:method:: values() -> DISClib.DataStructures.arraylist.ArrayList[DISClib.Utils.default.T]
+
+
+   .. py:method:: rehash() -> None
 
 
 

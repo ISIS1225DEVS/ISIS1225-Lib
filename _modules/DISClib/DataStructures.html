@@ -89,10 +89,20 @@
 <span class="kn">from</span> <span class="nn">.singlelinkedlist</span> <span class="kn">import</span> <span class="n">SingleLinked</span>
 <span class="kn">from</span> <span class="nn">.doublelinkedlist</span> <span class="kn">import</span> <span class="n">DoubleLinked</span>
 
+<span class="c1"># M2</span>
+<span class="kn">from</span> <span class="nn">.mapentry</span> <span class="kn">import</span> <span class="n">MapEntry</span>
+<span class="kn">from</span> <span class="nn">.chaininghashtable</span> <span class="kn">import</span> <span class="n">SeparateChaining</span>
+<span class="kn">from</span> <span class="nn">.probinghashtable</span> <span class="kn">import</span> <span class="n">LinearProbing</span>
+
 <span class="c1"># checking modules in M1 namespace</span>
 <span class="k">assert</span> <span class="n">ArrayList</span>
 <span class="k">assert</span> <span class="n">SingleLinked</span>
 <span class="k">assert</span> <span class="n">DoubleLinked</span>
+
+<span class="c1"># checking modules in M2 namespace</span>
+<span class="k">assert</span> <span class="n">MapEntry</span>
+<span class="k">assert</span> <span class="n">SeparateChaining</span>
+<span class="k">assert</span> <span class="n">LinearProbing</span>
 
 <span class="c1"># config the path to the DISCLib folder</span>
 <span class="c1"># TODO this used to be in config.py</span>

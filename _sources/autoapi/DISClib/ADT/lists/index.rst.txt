@@ -51,7 +51,7 @@ Attributes
 
 .. py:function:: List(dstruct: str = 'ArrayList', **kwargs) -> DISClib.Utils.default.T
 
-   *List()* Función con patrón de diseño 'factory' que retorna una     instancia del ADT List según el tipo de estructura de datos seleccionada por el usuario.
+   *List()* Función dinámica que que retorna una instancia del ADT List según el tipo de estructura de datos seleccionada por el usuario.
 
    :param dstruct: Tipo de estructura de datos a instanciar. Por defecto es "ArrayList". Puende ser "ArrayList", "SingleLinked" o "DoubleLinked".
    :type dstruct: str, optional

@@ -100,7 +100,7 @@
              
   <section id="module-DISClib.DataStructures.mapentry">
 <span id="disclib-datastructures-mapentry"></span><h1><a class="reference internal" href="#module-DISClib.DataStructures.mapentry" title="DISClib.DataStructures.mapentry"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.DataStructures.mapentry</span></code></a><a class="headerlink" href="#module-DISClib.DataStructures.mapentry" title="Link to this heading"></a></h1>
-<p>Esta clase representa la registro de un Mapa no Ordenado (MapEntry), el cual es una estructura de datos dinámica que permite almacenar la información en parejas de llave-valor (key-value). La llave (key) es un identificador único para cada valor (value) almacenado en el Mapa no Ordenado (Map). Por su parte, el valor (value) puede ser cualquier tipo de dato.</p>
+<p>Este ADT representa la registro de un Mapa no Ordenado (MapEntry), el cual es una estructura de datos dinámica que permite almacenar la información en parejas de llave-valor (key-value). La llave (key) es un identificador único para cada valor (value) almacenado en el Mapa no Ordenado (Map). Por su parte, el valor (value) puede ser cualquier tipo de dato.</p>
 <p>En el caso de las tablas de Hash, la llave (key) es el resultado de aplicar una función hash al valor (value) almacenado en el Mapa no Ordenado (Map). Esta estructura de datos es fundamental para implementar otros mapas no ordenados como: tablas de símbolos, diccionarios, entre otros.</p>
 <p>DISCLib utiliza el MapEntry para guardar la información de las tablas de Hash por Encadenamiento Separado (Separate Chaining) y las tablas por Sondeo Lineal (Linear Probing).</p>
 <p><em>IMPORTANTE:</em> Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:</p>
@@ -117,7 +117,7 @@
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.DataStructures.mapentry.MapEntry" title="DISClib.DataStructures.mapentry.MapEntry"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MapEntry</span></code></a></p></td>
-<td><p><em>MapEntry</em> Es una clase que representa un registro de un mapa no ordenado. Contiene la llave y el valor del registro del mapa. Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.</p></td>
+<td><p><strong>MapEntry</strong> representa un registro de un mapa no ordenado. Contiene la llave y el valor del registro del mapa. Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.</p></td>
 </tr>
 </tbody>
 </table>
@@ -125,7 +125,7 @@
 <dt class="sig sig-object py" id="DISClib.DataStructures.mapentry.MapEntry">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.mapentry.</span></span><span class="sig-name descname"><span class="pre">MapEntry</span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/mapentry.html#MapEntry"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.mapentry.MapEntry" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Generic</span></code>[<a class="reference internal" href="../../Utils/default/index.html#DISClib.Utils.default.T" title="DISClib.Utils.default.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DISClib.Utils.default.T</span></code></a>]</p>
-<p><em>MapEntry</em> Es una clase que representa un registro de un mapa no ordenado. Contiene la llave y el valor del registro del mapa. Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.</p>
+<p><strong>MapEntry</strong> representa un registro de un mapa no ordenado. Contiene la llave y el valor del registro del mapa. Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>Generic</strong> (<em>T</em>) – Tipo de dato genérico dentro del registro del mapa.</p>
@@ -150,12 +150,6 @@
 <dt class="sig sig-object py" id="DISClib.DataStructures.mapentry.MapEntry._value">
 <span class="sig-name descname"><span class="pre">_value</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">DISClib.Utils.default.T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/mapentry.html#MapEntry._value"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.mapentry.MapEntry._value" title="Link to this definition"></a></dt>
 <dd><p>Es el valor del registro del mapa.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="DISClib.DataStructures.mapentry.MapEntry.__post_init__">
-<span class="sig-name descname"><span class="pre">__post_init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/mapentry.html#MapEntry.__post_init__"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.mapentry.MapEntry.__post_init__" title="Link to this definition"></a></dt>
-<dd><p><em>__post_init__()</em> revisa que la información al crear un registro sea sea valida.</p>
 </dd></dl>
 
 <dl class="py method">

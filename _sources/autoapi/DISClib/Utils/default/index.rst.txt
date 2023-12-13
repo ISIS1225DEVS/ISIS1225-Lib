@@ -24,6 +24,7 @@ Functions
 .. autoapisummary::
 
    DISClib.Utils.default.lt_default_cmp_funcion
+   DISClib.Utils.default.ht_default_cmp_funcion
 
 
 
@@ -35,6 +36,7 @@ Attributes
    DISClib.Utils.default.VALID_DATA_TYPE_LT
    DISClib.Utils.default.DEFAULT_DICT_KEY
    DISClib.Utils.default.VALID_IO_TYPE
+   DISClib.Utils.default.DEFAULT_PRIME
    DISClib.Utils.default.T
 
 
@@ -48,7 +50,7 @@ Attributes
    :type: str
    :value: 'id'
 
-   Llave por defecto para comparar diccionarios en los ADTs.
+   Llave por defecto para comparar diccionarios dentro de los ADTs.
 
 .. py:data:: VALID_IO_TYPE
    :type: tuple
@@ -56,13 +58,19 @@ Attributes
 
    Tupla con los tipos de datos nativos en Python que son válidos para entrada y salida de datos al inicializar un ADT.
 
+.. py:data:: DEFAULT_PRIME
+   :type: int
+   :value: 109345121
+
+   Número primo grande por defecto para la función de compresión MAD en las tablas de Hash.
+
 .. py:data:: T
 
-   Variable nativa de Python para definir un tipo de @dataclass genérico.
+   Variable nativa de Python para definir una estructura de datos genérica en los ADTs.
 
 .. py:function:: lt_default_cmp_funcion(key, elm1, elm2) -> int
 
-   lt_default_cmp_funcion función de comparación por defecto para los elementos del ADT List (ArrayList, SingleLinked, DoublyLinked). pueden ser de tipo nativo o definido por el usuario.
+   *lt_default_cmp_funcion()* función de comparación por defecto para los elementos del ADT List (ArrayList, SingleLinked, DoubleLinked). pueden ser de tipo nativo o definido por el usuario.
 
    :param key: llave para comparar los elementos de tipo diccionario.
    :type key: str
@@ -76,6 +84,19 @@ Attributes
    :raises TypeError: error de tipo de dato si los elementos no son comparables.
 
    :returns: retorna -1 si elm1 es menor que elm2, 0 si son iguales y 1 si elm1 es mayor que elm2.
+   :rtype: int
+
+
+.. py:function:: ht_default_cmp_funcion(key1, entry2) -> int
+
+   *ht_default_cmp_funcion()* función de comparación por defecto para los elementos del ADT Map (HashTable). pueden ser de tipo nativo o definido por el usuario.
+
+   :param key1: llave (key) para comparar del primer elemento (pareja llave-valor), el cual siempre es un MapEntry.
+   :type key1: any
+   :param entry2: segundo elemento (pareja llave-valor) a comparar de tipo MapEntry. puede contener cualquier tipo de dato.
+   :type entry2: any
+
+   :returns: retorna -1 si key1 es menor que la llave de entry2, 0 si las llaves son iguales y 1 si key1 es mayor que la llave de entry2.
    :rtype: int
 
 

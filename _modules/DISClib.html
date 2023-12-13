@@ -80,8 +80,8 @@
   <h1>Código fuente para DISClib</h1><div class="highlight"><pre>
 <span></span><span class="c1"># MAIN __init__ file for the DISCLib package</span>
 <span class="c1"># import python modules</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">sys</span>
+<span class="c1"># import os</span>
+<span class="c1"># import sys</span>
 
 <span class="c1"># import all the modules to package</span>
 <span class="c1"># M1</span>
@@ -91,7 +91,7 @@
 <span class="kn">from</span> <span class="nn">.ADT.stack</span> <span class="kn">import</span> <span class="n">Stack</span>
 
 <span class="c1"># M2</span>
-<span class="c1"># from .ADT import maps</span>
+<span class="kn">from</span> <span class="nn">.ADT.maps</span> <span class="kn">import</span> <span class="n">Map</span>
 
 <span class="c1"># M3</span>
 <span class="c1"># from .ADT import orderedmap</span>
@@ -152,10 +152,15 @@
 
 <span class="c1"># import all the modules in the Utils namespaces</span>
 <span class="kn">from</span> <span class="nn">.Utils.error</span> <span class="kn">import</span> <span class="n">error_handler</span>
-<span class="kn">from</span> <span class="nn">.Utils.error</span> <span class="kn">import</span> <span class="n">init_type_checker</span>
+<span class="c1"># from .Utils.error import init_type_checker</span>
 
 <span class="c1"># import all the modules in the Default namespaces</span>
 <span class="kn">from</span> <span class="nn">.Utils.default</span> <span class="kn">import</span> <span class="n">T</span>
+
+<span class="c1"># import all the modules in the Numbers namespaces</span>
+<span class="kn">from</span> <span class="nn">.Utils.numbers</span> <span class="kn">import</span> <span class="n">is_prime</span>
+<span class="kn">from</span> <span class="nn">.Utils.numbers</span> <span class="kn">import</span> <span class="n">next_prime</span>
+<span class="kn">from</span> <span class="nn">.Utils.numbers</span> <span class="kn">import</span> <span class="n">hash_compress</span>
 
 <span class="c1"># asserting modules</span>
 <span class="c1"># M1</span>
@@ -163,8 +168,9 @@
 <span class="k">assert</span> <span class="n">List</span>
 <span class="k">assert</span> <span class="n">Queue</span>
 <span class="k">assert</span> <span class="n">Stack</span>
+
 <span class="c1"># M2</span>
-<span class="c1"># assert maps</span>
+<span class="k">assert</span> <span class="n">Map</span>
 
 <span class="c1"># M3</span>
 <span class="c1"># assert orderedmap</span>
@@ -176,22 +182,18 @@
 
 <span class="c1"># Utils</span>
 <span class="k">assert</span> <span class="n">error_handler</span>
-<span class="k">assert</span> <span class="n">init_type_checker</span>
+<span class="c1"># assert init_type_checker</span>
+
 <span class="c1"># Default</span>
 <span class="k">assert</span> <span class="n">T</span>
 
+<span class="c1"># Numbers</span>
+<span class="k">assert</span> <span class="n">is_prime</span>
+<span class="k">assert</span> <span class="n">next_prime</span>
+<span class="k">assert</span> <span class="n">hash_compress</span>
+
+
 <span class="c1"># config the path to the DISCLib folder</span>
-<span class="c1"># TODO this used to be in config.py</span>
-<div class="viewcode-block" id="file_path">
-<a class="viewcode-back" href="../autoapi/DISClib/index.html#DISClib.file_path">[documentos]</a>
-<span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="s1">&#39;..&#39;</span><span class="p">,</span> <span class="s1">&#39;..&#39;</span><span class="p">)</span></div>
-
-<div class="viewcode-block" id="file_dir">
-<a class="viewcode-back" href="../autoapi/DISClib/index.html#DISClib.file_dir">[documentos]</a>
-<span class="n">file_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="s1">&#39;__file__&#39;</span><span class="p">))</span></div>
-
-<span class="c1"># impoting the path to the DISCLib folder</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">file_path</span><span class="p">))</span>
 
 <span class="c1"># __path__ = sys.path</span>
 <span class="c1"># # print(__path__)</span>

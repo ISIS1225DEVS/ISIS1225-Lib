@@ -104,8 +104,7 @@
 </section>
 <section id="configurador-dinamico-para-adts">
 <h2>Configurador Dinamico para ADTs<a class="headerlink" href="#configurador-dinamico-para-adts" title="Link to this heading"></a></h2>
-<p id="module-DISClib.ADT.dynamic">Esta clase permite importar dinámicamente módulos y clases de módulos
-dentro de DISClib.</p>
+<p id="module-DISClib.ADT.dynamic">Este módulo permite importar dinámicamente módulos, funciones y estructuras de datos (ADTs) de módulos dentro de DISClib según las especificaciones del usuario.</p>
 <p><em>IMPORTANTE:</em> Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:</p>
 <blockquote>
 <div><ol class="arabic simple">
@@ -117,7 +116,7 @@ dentro de DISClib.</p>
 <dt class="sig sig-object py" id="DISClib.ADT.dynamic.DynamicImporter">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DISClib.ADT.dynamic.</span></span><span class="sig-name descname"><span class="pre">DynamicImporter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">implementation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">package</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/ADT/dynamic.html#DynamicImporter"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.dynamic.DynamicImporter" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p><em>DynamicImporter</em> permite importar dinámicamente módulos y clases de módulos según la configuración de un archivo JSON y las especificaciones del usuario.</p>
+<p><strong>DynamicImporter</strong> permite importar dinámicamente módulos y clases de módulos según la configuración de un archivo JSON y las especificaciones del usuario.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Muestra<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>ValueError</strong> – no se puede importar el módulo especificado.</p>
@@ -487,200 +486,8 @@ seleccionada</p>
 </dd></dl>
 
 </section>
-<section id="module-DISClib.ADT.indexminpq">
-<span id="disclib-adt-indexminpq-module"></span><h2>DISClib.ADT.indexminpq module<a class="headerlink" href="#module-DISClib.ADT.indexminpq" title="Link to this heading"></a></h2>
-<blockquote>
-<div><p># TODO cambiar comentarios de lincencia segun estandard del equipo
-* Copyright 2020, Departamento de sistemas y Computación,
-* Universidad de Los Andes
-*
-* Desarrollado para el curso ISIS1225 - Estructuras de Datos y Algoritmos
-*
-*
-* This program is free software: you can redistribute it and/or modify
-* it under the terms of the GNU General Public License as published by
-* the Free Software Foundation, either version 3 of the License, or
-* (at your option) any later version.
-*
-* This program is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU General Public License for more details.
-*
-* You should have received a copy of the GNU General Public License
-* along with this program.  If not, see &lt;<a class="reference external" href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</p>
-</div></blockquote>
-<ul class="simple">
-<li><p>Contribución de:</p></li>
-</ul>
-<blockquote>
-<div><ul class="simple">
-<li></li>
-<li><p>Dario Correal</p></li>
-<li></li>
-</ul>
-</div></blockquote>
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.ADT.indexminpq.contains">
-<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.indexminpq.</span></span><span class="sig-name descname"><span class="pre">contains</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iminpq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/ADT/indexminpq.html#contains"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.indexminpq.contains" title="Link to this definition"></a></dt>
-<dd><p>Indica si la llave key se encuentra en el heap</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>iheap</strong> – El heap a revisar</p>
-</dd>
-<dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>El numero de elementos</p>
-</dd>
-<dt class="field-odd">Muestra<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>Exception</strong> – </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.ADT.indexminpq.decreaseKey">
-<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.indexminpq.</span></span><span class="sig-name descname"><span class="pre">decreaseKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iminpq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newindex</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/ADT/indexminpq.html#decreaseKey"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.indexminpq.decreaseKey" title="Link to this definition"></a></dt>
-<dd><p>Decrementa el indice de un llave</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>iheap</strong> – El heap a revisar</p></li>
-<li><p><strong>key</strong> – la llave a decrementar</p></li>
-<li><p><strong>newindex</strong> – El nuevo indice de la llave</p></li>
-</ul>
-</dd>
-<dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>El numero de elementos</p>
-</dd>
-<dt class="field-odd">Muestra<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>Exception</strong> – </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.ADT.indexminpq.delMin">
-<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.indexminpq.</span></span><span class="sig-name descname"><span class="pre">delMin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iminpq</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/ADT/indexminpq.html#delMin"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.indexminpq.delMin" title="Link to this definition"></a></dt>
-<dd><p>Elimina el elemento de mayor prioridad</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>iheap</strong> – El heap a revisar</p>
-</dd>
-<dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>El numero de elementos</p>
-</dd>
-<dt class="field-odd">Muestra<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>Exception</strong> – </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.ADT.indexminpq.increaseKey">
-<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.indexminpq.</span></span><span class="sig-name descname"><span class="pre">increaseKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iminpq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newindex</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/ADT/indexminpq.html#increaseKey"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.indexminpq.increaseKey" title="Link to this definition"></a></dt>
-<dd><p>Incrementa el indice de un llave</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>iheap</strong> – El heap a revisar</p></li>
-<li><p><strong>key</strong> – la llave a incrementar</p></li>
-<li><p><strong>newindex</strong> – El nuevo indice de la llave</p></li>
-</ul>
-</dd>
-<dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>El numero de elementos</p>
-</dd>
-<dt class="field-odd">Muestra<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>Exception</strong> – </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.ADT.indexminpq.insert">
-<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.indexminpq.</span></span><span class="sig-name descname"><span class="pre">insert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iminpq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/ADT/indexminpq.html#insert"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.indexminpq.insert" title="Link to this definition"></a></dt>
-<dd><p>Inserta la llave key con prioridad index</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>iheap</strong> – La cola de prioridad</p>
-</dd>
-<dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>La cola de prioridad con la nueva paraja indexada</p>
-</dd>
-<dt class="field-odd">Muestra<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>Exception</strong> – </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.ADT.indexminpq.isEmpty">
-<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.indexminpq.</span></span><span class="sig-name descname"><span class="pre">isEmpty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iminpq</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/ADT/indexminpq.html#isEmpty"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.indexminpq.isEmpty" title="Link to this definition"></a></dt>
-<dd><p>Informa si una cola de prioridad indexada es vacia</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>iminpq</strong> – La cola de prioridad indexada a revisar</p>
-</dd>
-<dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>True si esta vacia</p>
-</dd>
-<dt class="field-odd">Muestra<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>Exception</strong> – </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.ADT.indexminpq.min">
-<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.indexminpq.</span></span><span class="sig-name descname"><span class="pre">min</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iminpq</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/ADT/indexminpq.html#min"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.indexminpq.min" title="Link to this definition"></a></dt>
-<dd><p>Retorna la llave de mayor prioridad</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>iheap</strong> – El heap a revisar</p>
-</dd>
-<dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>El numero de elementos</p>
-</dd>
-<dt class="field-odd">Muestra<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>Exception</strong> – </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.ADT.indexminpq.newIndexMinPQ">
-<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.indexminpq.</span></span><span class="sig-name descname"><span class="pre">newIndexMinPQ</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmpfunction</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/ADT/indexminpq.html#newIndexMinPQ"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.indexminpq.newIndexMinPQ" title="Link to this definition"></a></dt>
-<dd><p>Crea un cola de prioridad indexada orientada a menor</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>cmpfunction</strong> – La funcion de comparacion</p>
-</dd>
-<dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>Una nueva cola de prioridad indexada</p>
-</dd>
-<dt class="field-odd">Muestra<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>Exception</strong> – </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.ADT.indexminpq.size">
-<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.indexminpq.</span></span><span class="sig-name descname"><span class="pre">size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iminpq</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/ADT/indexminpq.html#size"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.indexminpq.size" title="Link to this definition"></a></dt>
-<dd><p>Retorna el número de elementos en la cola de prioridad indexada</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>iminpq</strong> – La cola de prioridad indexada a revisar</p>
-</dd>
-<dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>El numero de elementos</p>
-</dd>
-<dt class="field-odd">Muestra<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>Exception</strong> – </p>
-</dd>
-</dl>
-</dd></dl>
-
+<section id="disclib-adt-indexminpq-module">
+<h2>DISClib.ADT.indexminpq module<a class="headerlink" href="#disclib-adt-indexminpq-module" title="Link to this heading"></a></h2>
 </section>
 <section id="module-DISClib.ADT.lists">
 <span id="disclib-adt-lists-module"></span><h2>DISClib.ADT.lists module<a class="headerlink" href="#module-DISClib.ADT.lists" title="Link to this heading"></a></h2>
@@ -707,7 +514,7 @@ seleccionada</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="DISClib.ADT.lists.List">
 <span class="sig-prename descclassname"><span class="pre">DISClib.ADT.lists.</span></span><span class="sig-name descname"><span class="pre">List</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dstruct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'ArrayList'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/DISClib/ADT/lists.html#List"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.lists.List" title="Link to this definition"></a></dt>
-<dd><p><em>List()</em> Función con patrón de diseño “factory” que retorna una     instancia del ADT List según el tipo de estructura de datos seleccionada por el usuario.</p>
+<dd><p><em>List()</em> Función dinámica que que retorna una instancia del ADT List según el tipo de estructura de datos seleccionada por el usuario.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>dstruct</strong> (<em>str</em><em>, </em><em>optional</em>) – Tipo de estructura de datos a instanciar. Por defecto es «ArrayList». Puende ser «ArrayList», «SingleLinked» o «DoubleLinked».</p>
@@ -767,343 +574,89 @@ seleccionada</p>
 </section>
 <section id="module-DISClib.ADT.maps">
 <span id="disclib-adt-maps-module"></span><h2>DISClib.ADT.maps module<a class="headerlink" href="#module-DISClib.ADT.maps" title="Link to this heading"></a></h2>
-<ul class="simple">
-<li><p>Copyright 2020, Departamento de sistemas y Computación</p></li>
-<li><p>Universidad de Los Andes</p></li>
-<li></li>
-<li></li>
-<li><p>Desarrolado para el curso ISIS1225 - Estructuras de Datos y Algoritmos</p></li>
-<li></li>
-<li></li>
-<li><p>This program is free software: you can redistribute it and/or modify</p></li>
-<li><p>it under the terms of the GNU General Public License as published by</p></li>
-<li><p>the Free Software Foundation, either version 3 of the License, or</p></li>
-<li><p>(at your option) any later version.</p></li>
-<li></li>
-<li><p>This program is distributed in the hope that it will be useful,</p></li>
-<li><p>but WITHOUT ANY WARRANTY; without even the implied warranty of</p></li>
-<li><p>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</p></li>
-<li><p>GNU General Public License for more details.</p></li>
-<li></li>
-<li><p>You should have received a copy of the GNU General Public License</p></li>
-<li><p>along with this program.  If not, see &lt;<a class="reference external" href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</p></li>
-<li></li>
-<li><p>Contribución de:</p></li>
-<li></li>
-<li><p>Dario Correal</p></li>
-<li></li>
-</ul>
+<p>Este módulo implementa el tipo abstracto de datos (TAD) Map sin orden. Se puede implementar sobre una estructura de datos Hash Table, con resolución de colisiones por sondeo lineal (Linear Probing) o encadenamiento por separado (Separate Chaining).</p>
+<p><em>IMPORTANTE:</em> Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.</p></li>
+<li><p>Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H. Goldwasser.</p></li>
+</ol>
+</div></blockquote>
+<dl class="py data">
+<dt class="sig sig-object py" id="DISClib.ADT.maps.ADT_HT_MOD_DICT">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.maps.</span></span><span class="sig-name descname"><span class="pre">ADT_HT_MOD_DICT</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'LinearProbing':</span> <span class="pre">'probinghashtable',</span> <span class="pre">'SeparateChaining':</span> <span class="pre">'chaininghashtable'}</span></em><a class="reference internal" href="_modules/DISClib/ADT/maps.html#ADT_HT_MOD_DICT"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.maps.ADT_HT_MOD_DICT" title="Link to this definition"></a></dt>
+<dd><p>Referencia a los posibles módulos de implementación del ADT Map. Pueden ser «SeparateChaining» o «LinearProbing».</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="DISClib.ADT.maps.ADT_HT_PGK_PATH">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.maps.</span></span><span class="sig-name descname"><span class="pre">ADT_HT_PGK_PATH</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'DISClib.DataStructures'</span></em><a class="reference internal" href="_modules/DISClib/ADT/maps.html#ADT_HT_PGK_PATH"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.maps.ADT_HT_PGK_PATH" title="Link to this definition"></a></dt>
+<dd><p>Ruta relativa del paquete principal para instanciar el ADT Map.</p>
+</dd></dl>
+
 <dl class="py function">
-<dt class="sig sig-object py" id="DISClib.ADT.maps.contains">
-<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.maps.</span></span><span class="sig-name descname"><span class="pre">contains</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/ADT/maps.html#contains"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.maps.contains" title="Link to this definition"></a></dt>
-<dd><dl class="simple">
-<dt>Retorna True si la llave key se encuentra en el map</dt><dd><p>o False en caso contrario.</p>
-</dd>
-</dl>
+<dt class="sig sig-object py" id="DISClib.ADT.maps.Map">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.maps.</span></span><span class="sig-name descname"><span class="pre">Map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dstruct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'SeparateChaining'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/DISClib/ADT/maps.html#Map"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.maps.Map" title="Link to this definition"></a></dt>
+<dd><p><em>Map()</em> Función dinámica que retorna una instancia del ADT Map según el tipo de estructura de datos seleccionada por el usuario.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>map</strong> – El map a donde se guarda la pareja</p></li>
-<li><p><strong>key</strong> – la llave asociada a la pareja</p></li>
-</ul>
-</dd>
-<dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>True / False</p>
-</dd>
-<dt class="field-odd">Muestra<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>Exception</strong> – </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.ADT.maps.get">
-<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.maps.</span></span><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/ADT/maps.html#get"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.maps.get" title="Link to this definition"></a></dt>
-<dd><p>Retorna la pareja llave, valor, cuya llave sea igual a key
-:param map: El map a donde se guarda la pareja
-:param key: la llave asociada a la pareja</p>
-<dl class="field-list simple">
-<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Una pareja &lt;llave,valor&gt;</p>
+<dd class="field-odd"><p><strong>dstruct</strong> (<em>str</em><em>, </em><em>optional</em>) – Tipo de estructura de datos a instanciar. Por defecto es «SeparateChaining». Puende ser «SeparateChaining» o «LinearProbing».</p>
 </dd>
 <dt class="field-even">Muestra<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>Exception</strong> – </p>
+<dd class="field-even"><p><strong>ValueError</strong> – error si el tipo de estructura de datos seleccionada no es válida.</p>
 </dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.ADT.maps.isEmpty">
-<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.maps.</span></span><span class="sig-name descname"><span class="pre">isEmpty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/ADT/maps.html#isEmpty"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.maps.isEmpty" title="Link to this definition"></a></dt>
-<dd><p>Informa si la tabla de hash se encuentra vacia
-:param map: El map</p>
-<dl class="field-list simple">
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>El map esta vacio
-False: El map no esta vacio</p>
+<dd class="field-odd"><p>instancia del ADT Map que puede ser «SeparateChaining» o «LinearProbing».</p>
 </dd>
 <dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
-<dd class="field-even"><p>True</p>
-</dd>
-<dt class="field-odd">Muestra<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>Exception</strong> – </p>
+<dd class="field-even"><p>T</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="DISClib.ADT.maps.keySet">
-<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.maps.</span></span><span class="sig-name descname"><span class="pre">keySet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/ADT/maps.html#keySet"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.maps.keySet" title="Link to this definition"></a></dt>
-<dd><p>Retorna una lista con todas las llaves de la tabla de hash</p>
+<dt class="sig sig-object py" id="DISClib.ADT.maps.clone">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.maps.</span></span><span class="sig-name descname"><span class="pre">clone</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dstruct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/DISClib/ADT/maps.html#clone"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.maps.clone" title="Link to this definition"></a></dt>
+<dd><p><em>clone()</em> copia una instancia del ADT Map con una estructura de datos seleccionada.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>map</strong> – El map</p>
+<dd class="field-odd"><p><strong>dstruct</strong> (<em>T</em>) – instancia del ADT Map a copiar.</p>
 </dd>
 <dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>lista de llaves</p>
+<dd class="field-even"><p>copia independiente de la instancia del ADT Map.</p>
 </dd>
-<dt class="field-odd">Muestra<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>Exception</strong> – </p>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>T</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="DISClib.ADT.maps.mapSelector">
-<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.maps.</span></span><span class="sig-name descname"><span class="pre">mapSelector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datastructure</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/ADT/maps.html#mapSelector"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.maps.mapSelector" title="Link to this definition"></a></dt>
-<dd><p>Carga dinamicamente el import de la estructura de datos
-seleccionada</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.ADT.maps.newMap">
-<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.maps.</span></span><span class="sig-name descname"><span class="pre">newMap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numelements</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">17</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">109345121</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maptype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CHAINING'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loadfactor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmpfunction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/ADT/maps.html#newMap"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.maps.newMap" title="Link to this definition"></a></dt>
-<dd><p>Crea una tabla de simbolos (map) sin orden</p>
+<dt class="sig sig-object py" id="DISClib.ADT.maps.translate">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.maps.</span></span><span class="sig-name descname"><span class="pre">translate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src_lt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tgt_dstruct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'LinearProbing'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/DISClib/ADT/maps.html#translate"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.maps.translate" title="Link to this definition"></a></dt>
+<dd><p><em>translate()</em> Transforma una instancia del ADT Map con una estructura de datos seleccionada en otra instancia del ADT Map con otra estructura de datos seleccionada.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>numelements</strong> – Tamaño inicial de la tabla</p></li>
-<li><p><strong>prime</strong> – Número primo utilizado en la función MAD</p></li>
-<li><p><strong>maptype</strong> – separate chaining (“CHAINING” ) o linear probing(“PROBING”)</p></li>
-<li><p><strong>loadfactor</strong> – Factor de carga inicial de la tabla</p></li>
-<li><p><strong>cmpfunction</strong> – Funcion de comparación entre llaves</p></li>
+<li><p><strong>src_lt</strong> (<em>T</em>) – instancia del ADT Map a transformar.</p></li>
+<li><p><strong>tgt_dstruct</strong> (<em>str</em><em>, </em><em>optional</em>) – Tipo de estructura de datos objetivo a instanciar. Por defecto es «LinearProbing». Puenden ser «SeparateChaining» o «LinearProbing».</p></li>
 </ul>
 </dd>
-<dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>Un nuevo map</p>
-</dd>
-<dt class="field-odd">Muestra<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>Exception</strong> – </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.ADT.maps.put">
-<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.maps.</span></span><span class="sig-name descname"><span class="pre">put</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/ADT/maps.html#put"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.maps.put" title="Link to this definition"></a></dt>
-<dd><p>Ingresa una pareja llave,valor a la tabla de hash.
-Si la llave ya existe en la tabla, se reemplaza el valor</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>map</strong> – El map a donde se guarda la pareja</p></li>
-<li><p><strong>key</strong> – la llave asociada a la pareja</p></li>
-<li><p><strong>value</strong> – el valor asociado a la pareja</p></li>
-</ul>
-</dd>
-<dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>El map</p>
-</dd>
-<dt class="field-odd">Muestra<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>Exception</strong> – </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.ADT.maps.remove">
-<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.maps.</span></span><span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/ADT/maps.html#remove"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.maps.remove" title="Link to this definition"></a></dt>
-<dd><p>Elimina la pareja llave,valor, donde llave == key.
-:param map: El map a donde se guarda la pareja
-:param key: la llave asociada a la pareja</p>
-<dl class="field-list simple">
-<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>El map</p>
-</dd>
 <dt class="field-even">Muestra<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>Exception</strong> – </p>
+<dd class="field-even"><p><strong>ValueError</strong> – error si el tipo de estructura de datos no es válido.</p>
 </dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.ADT.maps.size">
-<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.maps.</span></span><span class="sig-name descname"><span class="pre">size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/ADT/maps.html#size"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.maps.size" title="Link to this definition"></a></dt>
-<dd><p>Retorna  el número de entradas en la tabla de hash.
-:param map: El map</p>
-<dl class="field-list simple">
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Tamaño del map</p>
+<dd class="field-odd"><p>instancia del ADT Map que puede ser «SeparateChaining» o «LinearProbing».</p>
 </dd>
-<dt class="field-even">Muestra<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>Exception</strong> – </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.ADT.maps.valueSet">
-<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.maps.</span></span><span class="sig-name descname"><span class="pre">valueSet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/ADT/maps.html#valueSet"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.maps.valueSet" title="Link to this definition"></a></dt>
-<dd><p>Retorna una lista con todos los valores de la tabla de hash</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>map</strong> – El map</p>
-</dd>
-<dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>lista de valores</p>
-</dd>
-<dt class="field-odd">Muestra<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>Exception</strong> – </p>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>T</p>
 </dd>
 </dl>
 </dd></dl>
 
 </section>
-<section id="module-DISClib.ADT.minpq">
-<span id="disclib-adt-minpq-module"></span><h2>DISClib.ADT.minpq module<a class="headerlink" href="#module-DISClib.ADT.minpq" title="Link to this heading"></a></h2>
-<ul class="simple">
-<li><p>Copyright 2020, Departamento de sistemas y Computación,</p></li>
-<li><p>Universidad de Los Andes</p></li>
-<li></li>
-<li><p>Desarrollado para el curso ISIS1225 - Estructuras de Datos y Algoritmos</p></li>
-<li></li>
-<li></li>
-<li><p>This program is free software: you can redistribute it and/or modify</p></li>
-<li><p>it under the terms of the GNU General Public License as published by</p></li>
-<li><p>the Free Software Foundation, either version 3 of the License, or</p></li>
-<li><p>(at your option) any later version.</p></li>
-<li></li>
-<li><p>This program is distributed in the hope that it will be useful,</p></li>
-<li><p>but WITHOUT ANY WARRANTY; without even the implied warranty of</p></li>
-<li><p>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</p></li>
-<li><p>GNU General Public License for more details.</p></li>
-<li></li>
-<li><p>You should have received a copy of the GNU General Public License</p></li>
-<li><p>along with this program.  If not, see &lt;<a class="reference external" href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</p></li>
-<li></li>
-<li><p>Contribución de:</p></li>
-<li></li>
-<li><p>Dario Correal</p></li>
-<li></li>
-</ul>
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.ADT.minpq.delMin">
-<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.minpq.</span></span><span class="sig-name descname"><span class="pre">delMin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">minpq</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/ADT/minpq.html#delMin"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.minpq.delMin" title="Link to this definition"></a></dt>
-<dd><p>Retorna el menor elemento de la MinPQ y lo elimina.
-Se reemplaza con el último elemento y se hace sink.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>minpq</strong> – La cola de prioridad</p>
-</dd>
-<dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>El menor elemento eliminado</p>
-</dd>
-<dt class="field-odd">Muestra<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>Exception</strong> – </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.ADT.minpq.insert">
-<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.minpq.</span></span><span class="sig-name descname"><span class="pre">insert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">minpq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/ADT/minpq.html#insert"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.minpq.insert" title="Link to this definition"></a></dt>
-<dd><p>Guarda el elemento “element” en la cola de prioridad.
-Lo guarda en la última posición y luego hace swim del elemento</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>minpq</strong> – El arreglo con la informacion</p></li>
-<li><p><strong>element</strong> – El elemento a guardar</p></li>
-</ul>
-</dd>
-<dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>La MinPQ con el nuevo elemento</p>
-</dd>
-<dt class="field-odd">Muestra<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>Exception</strong> – </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.ADT.minpq.isEmpty">
-<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.minpq.</span></span><span class="sig-name descname"><span class="pre">isEmpty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">minpq</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/ADT/minpq.html#isEmpty"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.minpq.isEmpty" title="Link to this definition"></a></dt>
-<dd><p>Indica si la MinPQ está vacía</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>heap</strong> – El arreglo con la informacion</p>
-</dd>
-<dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>True si esta vacia</p>
-</dd>
-<dt class="field-odd">Muestra<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>Exception</strong> – </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.ADT.minpq.min">
-<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.minpq.</span></span><span class="sig-name descname"><span class="pre">min</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">minpq</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/ADT/minpq.html#min"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.minpq.min" title="Link to this definition"></a></dt>
-<dd><p>Retorna el primer elemento de la MinPQ, es decir el menor elemento</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>minpq</strong> – La cola de prioridad</p>
-</dd>
-<dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>El menor elemento de la MinPQ</p>
-</dd>
-<dt class="field-odd">Muestra<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>Exception</strong> – </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.ADT.minpq.newMinPQ">
-<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.minpq.</span></span><span class="sig-name descname"><span class="pre">newMinPQ</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmpfunction</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/ADT/minpq.html#newMinPQ"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.minpq.newMinPQ" title="Link to this definition"></a></dt>
-<dd><p>Crea un cola de prioridad orientada a menor</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>cmpfunction</strong> – La funcion de comparacion</p></li>
-<li><p><strong>size</strong> – El numero de elementos</p></li>
-</ul>
-</dd>
-<dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>El heap</p>
-</dd>
-<dt class="field-odd">Muestra<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>Exception</strong> – </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.ADT.minpq.size">
-<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.minpq.</span></span><span class="sig-name descname"><span class="pre">size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">minpq</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/ADT/minpq.html#size"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.minpq.size" title="Link to this definition"></a></dt>
-<dd><p>Retorna el número de elementos en la MinPQ
-:param minpq: la cola de prioridad</p>
-<dl class="field-list simple">
-<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>El tamaño de la MinPQ</p>
-</dd>
-<dt class="field-even">Muestra<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>Exception</strong> – </p>
-</dd>
-</dl>
-</dd></dl>
-
+<section id="disclib-adt-minpq-module">
+<h2>DISClib.ADT.minpq module<a class="headerlink" href="#disclib-adt-minpq-module" title="Link to this heading"></a></h2>
 </section>
 <section id="module-DISClib.ADT.orderedmap">
 <span id="disclib-adt-orderedmap-module"></span><h2>DISClib.ADT.orderedmap module<a class="headerlink" href="#module-DISClib.ADT.orderedmap" title="Link to this heading"></a></h2>
@@ -1497,7 +1050,7 @@ innecesaria.</p>
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>SingleLinked</strong> (<em>dataclass</em>) – ADT DISClib que implementa las funciones básicas de una lista sencillamente encadenada.</p></li>
-<li><p><strong>Generic</strong> (<em>T</em>) – TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para representar una estructura de datos genéricas en python.</p></li>
+<li><p><strong>Generic</strong> (<em>T</em>) – TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Devuelve<span class="colon">:</span></dt>
@@ -1602,7 +1155,7 @@ innecesaria.</p>
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>DoubleLinked</strong> (<em>dataclass</em>) – ADT DISClib que implementa las funciones básicas de una lista doblemente encadenada.</p></li>
-<li><p><strong>Generic</strong> (<em>T</em>) – TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para representar una estructura de datos genéricas en python.</p></li>
+<li><p><strong>Generic</strong> (<em>T</em>) – TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Devuelve<span class="colon">:</span></dt>

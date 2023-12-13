@@ -81,7 +81,7 @@
              
   <h1>Código fuente para DISClib.DataStructures.arraylist</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Esta clase representa una estructura de datos lineal, específicamente un arreglo dinámico (ArrayList). El arreglo dinámico es una estructura de datos que permite almacenar un conjunto de elementos del mismo tipo, en la cual se puede acceder y procesar sus elementos utilizando las funciones/métodos propios de la estructura.</span>
+<span class="sd">Este ADT representa una estructura de datos lineal, específicamente un arreglo dinámico (ArrayList). El arreglo dinámico es una estructura de datos que permite almacenar un conjunto de elementos del mismo tipo, en la cual se puede acceder y procesar sus elementos utilizando las funciones/métodos propios de la estructura.</span>
 
 <span class="sd">*IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:</span>
 
@@ -100,15 +100,13 @@
 <span class="c1"># custom modules</span>
 <span class="c1"># generic error handling and type checking</span>
 <span class="kn">from</span> <span class="nn">DISClib.Utils.error</span> <span class="kn">import</span> <span class="n">error_handler</span>
-<span class="kn">from</span> <span class="nn">DISClib.Utils.error</span> <span class="kn">import</span> <span class="n">init_type_checker</span>
 <span class="kn">from</span> <span class="nn">DISClib.Utils.default</span> <span class="kn">import</span> <span class="n">lt_default_cmp_funcion</span>
 <span class="kn">from</span> <span class="nn">DISClib.Utils.default</span> <span class="kn">import</span> <span class="n">T</span>
 <span class="kn">from</span> <span class="nn">DISClib.Utils.default</span> <span class="kn">import</span> <span class="n">DEFAULT_DICT_KEY</span>
 <span class="kn">from</span> <span class="nn">DISClib.Utils.default</span> <span class="kn">import</span> <span class="n">VALID_IO_TYPE</span>
 
-<span class="c1"># checking costum modules</span>
+<span class="c1"># checking custom modules</span>
 <span class="k">assert</span> <span class="n">error_handler</span>
-<span class="k">assert</span> <span class="n">init_type_checker</span>
 <span class="k">assert</span> <span class="n">lt_default_cmp_funcion</span>
 <span class="k">assert</span> <span class="n">T</span>
 <span class="k">assert</span> <span class="n">DEFAULT_DICT_KEY</span>
@@ -119,10 +117,10 @@
 <div class="viewcode-block" id="ArrayList">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.arraylist.ArrayList">[documentos]</a>
 <span class="k">class</span> <span class="nc">ArrayList</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">T</span><span class="p">]):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;*ArrayList* representa la estructura de datos para arreglos dinamicos (Array List), Implementada con la anotación &#39;@dataclass&#39; de python y el decorador &#39;Generic[T]&#39; para que sea una estructura de datos genérica.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;**ArrayList** representa la estructura de datos para arreglos dinamicos (Array List), Implementada con Generic[T] y @dataclass para que sea una estructura de datos genérica.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para representar una estructura de datos genéricas en python.</span>
+<span class="sd">        Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        ArrayList: ADT de tipo ArrayList o Arreglo Dinámico.</span>
@@ -156,7 +154,7 @@
     <span class="n">_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Atributo privado que representa el tamaño de la estructura, por defecto es 0.</span>
+<span class="sd">    Es el número de elementos que contiene la estructura, por defecto es 0 y se actualiza con cada operación que modifica la estructura.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># the cmp_function is used to compare elements, not defined by default</span>
@@ -166,7 +164,7 @@
     <span class="n">cmp_function</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">[[</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="p">],</span> <span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es &#39;None&#39; y el __post_init__ configura la función por defecto lt_default_cmp_funcion().</span>
+<span class="sd">    Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es None y el *__post_init__()* configura la función por defecto *lt_default_cmp_funcion()*.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># the key is used to compare elements, not defined by default</span>
@@ -176,13 +174,13 @@
     <span class="n">key</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Nombre de la llave opcional que se utiliza para comparar los elementos del ArrayList, Por defecto es &#39;None&#39; y el __post_init__ configura la llave por defecto la llave &#39;id&#39; en DEFAULT_DICT_KEY.</span>
+<span class="sd">    Nombre de la llave opcional que se utiliza para comparar los elementos del ArrayList, Por defecto es &#39;None&#39; y el *__post_init__()* configura la llave por defecto la llave &#39;id&#39; en *DEFAULT_DICT_KEY*.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="ArrayList.__post_init__">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.arraylist.ArrayList.__post_init__">[documentos]</a>
     <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*__post_init__()* configura los valores por defecto para la llave (key) y la función de comparación (cmp_function). Si el usuario incluye una lista nativa de python como argumento, se agrega a la lista de elementos del ArrayList.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*__post_init__()* configura los valores por defecto para la llave (&#39;key&#39;) y la función de comparación (&#39;cmp_function&#39;). Si el usuario incluye una lista nativa de python como argumento, se agrega a la lista de elementos del ArrayList.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="c1"># if the key is not defined, use the default</span>
@@ -225,7 +223,7 @@
     <span class="k">def</span> <span class="nf">_handle_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">err</span><span class="p">:</span> <span class="ne">Exception</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*_handle_error()* función privada que maneja los errores que se pueden presentar en el ArrayList.</span>
 
-<span class="sd">        Si se presenta un error en el ArrayList, se formatea el error según el contexto (paquete/clase) y la función que lo generó, y lo reenvia al componente superior en la jerarquía de llamados para manejarlo segun sea considere conveniente.</span>
+<span class="sd">        Si se presenta un error en ArrayList, se formatea el error según el contexto (paquete/clase), la función que lo generó y lo reenvia al componente superior en la jerarquía de llamados para manejarlo segun se considere conveniente.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            err (Exception): Excepción que se generó en el ArrayList.</span>
@@ -284,7 +282,7 @@
 <div class="viewcode-block" id="ArrayList.size">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.arraylist.ArrayList.size">[documentos]</a>
     <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*size()* devuelve el numero de elementos que actualmente contiene el ArrayList.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*size()* devuelve el número de elementos que actualmente contiene el ArrayList.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            int: tamaño de la estructura ArrayList.</span>
@@ -305,7 +303,7 @@
 <span class="sd">            element (T): elemento que se quiere agregar a la estructura.</span>
 
 <span class="sd">        Raises:</span>
-<span class="sd">            Exception: si la operación no se puede realizar, se invoca la función &#39;_handle_error()&#39; para manejar el error.</span>
+<span class="sd">            Exception: si la operación no se puede realizar, se invoca la función *_handle_error()* para manejar el error.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="c1"># if the element type is valid, add it to the list</span>
@@ -325,7 +323,7 @@
 <span class="sd">            element (T): elemento que se quiere agregar a la estructura.</span>
 
 <span class="sd">        Raises:</span>
-<span class="sd">            Exception: si la operación no se puede realizar, se invoca la función &#39;_handle_error()&#39; para manejar el error.</span>
+<span class="sd">            Exception: si la operación no se puede realizar, se invoca la función *_handle_error()* para manejar el error.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="c1"># if the element type is valid, add it to the list</span>
@@ -406,7 +404,7 @@
     <span class="k">def</span> <span class="nf">get_element</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*get_element()* lee un elemento en una posición dada del ArrayList.</span>
 
-<span class="sd">        Args:._size-1</span>
+<span class="sd">        Args:</span>
 <span class="sd">            pos (int): índice en la que se quiere agregar el elemento.</span>
 
 <span class="sd">        Raises:</span>
@@ -526,10 +524,10 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="ArrayList.is_present">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.arraylist.ArrayList.is_present">[documentos]</a>
-    <span class="k">def</span> <span class="nf">is_present</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*is_present()* revisa si un elemento está en el ArrayList.</span>
+<div class="viewcode-block" id="ArrayList.find">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.arraylist.ArrayList.find">[documentos]</a>
+    <span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*find()* revisa si un elemento está en el ArrayList.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            element (T): elemento que se quiere revisar en el ArrayList.</span>
@@ -688,7 +686,7 @@
 <div class="viewcode-block" id="ArrayList.__iter__">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.arraylist.ArrayList.__iter__">[documentos]</a>
     <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*__iter__* iterador intervinido la función nativa __iter__ para recorrer un ArrayList dentro de un ciclo &#39;for&#39; de python.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*__iter__()* iterador nativo de Python intervenida por la estructura de datos para recorrer los elementos del ArrayList utilizando un ciclo &#39;for&#39; de python.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            __iter__: iterador Python sobre los elementos del ArrayList.</span>
@@ -702,8 +700,7 @@
 <div class="viewcode-block" id="ArrayList.__len__">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.arraylist.ArrayList.__len__">[documentos]</a>
     <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*__len__* función nativa intervenida que devuelve el tamaño del</span>
-<span class="sd">        ArrayList.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*__len__()* función nativa de Python intervenida por la estructura de datosv para recuperar el tamaño del ArrayList.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            int: tamaño del ArrayList.</span>

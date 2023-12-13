@@ -5,7 +5,7 @@
 
 .. autoapi-nested-parse::
 
-   Esta clase representa un nodo de información de una estructura de datos dinámica, las cuales pueden ser: listas sencillas, listas doblemente encadenadas, pilas, colas, BST, RBT, entre otras.
+   Esta ADT representa un nodo de información de una estructura de datos dinámica, las cuales pueden ser: listas sencillas, listas doblemente encadenadas, pilas, colas, BST, RBT, entre otras.
 
    *IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:
 
@@ -32,9 +32,9 @@ Classes
 
    Bases: :py:obj:`Generic`\ [\ :py:obj:`DISClib.Utils.default.T`\ ]
 
-   *Node* Es una clase que representar un nodo de una lista sencilla o doblemente encadenada. Contiene la información del nodo y las funciones basicas para acceder a ella.
+   **Node** Es el ADT que representar la información de un nodo de una estructura de datos dinámica y las funciones basicas para acceder a ella. Puede utilizarse para representar un nodo de una lista sencilla o doblemente encadenada.
 
-   :param Generic: Tipo de dato genérico dentro del nodo.
+   :param Generic: TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.
    :type Generic: T
 
    :raises TypeError: error si la información del nodo no es del tipo adecuado.
@@ -47,17 +47,11 @@ Classes
 
       Es la información contenida en el nodo.
 
-   .. py:method:: __post_init__()
-
-      *__post_init__()* revisa que la información al crear un nodo sea valida.
-
-
-
    .. py:method:: _handle_error(err: Exception) -> None
 
       *_handle_error()* función privada para manejar los errores que se presentan en la clase Node.
 
-      Si se presenta un error en el Node, se formatea el error según el contexto (paquete/clase) y la función que lo generó, y lo reenvia al componente superior en la jerarquía de llamados para manejarlo segun se considere conveniente.
+      Si se presenta un error en Node, se formatea el error según el contexto (paquete/clase), la función que lo generó y lo reenvia al componente superior en la jerarquía de llamados para manejarlo segun se considere conveniente.
 
       :param err: Excepción que se generó en el Node.
       :type err: Exception

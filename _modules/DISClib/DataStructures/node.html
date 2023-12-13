@@ -81,7 +81,7 @@
              
   <h1>Código fuente para DISClib.DataStructures.node</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Esta clase representa un nodo de información de una estructura de datos dinámica, las cuales pueden ser: listas sencillas, listas doblemente encadenadas, pilas, colas, BST, RBT, entre otras.</span>
+<span class="sd">Esta ADT representa un nodo de información de una estructura de datos dinámica, las cuales pueden ser: listas sencillas, listas doblemente encadenadas, pilas, colas, BST, RBT, entre otras.</span>
 
 <span class="sd">*IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:</span>
 
@@ -101,12 +101,11 @@
 <span class="c1"># custom modules</span>
 <span class="c1"># generic error handling and type checking</span>
 <span class="kn">from</span> <span class="nn">DISClib.Utils.error</span> <span class="kn">import</span> <span class="n">error_handler</span>
-<span class="kn">from</span> <span class="nn">DISClib.Utils.error</span> <span class="kn">import</span> <span class="n">init_type_checker</span>
+<span class="c1"># from DISClib.Utils.error import init_type_checker</span>
 <span class="kn">from</span> <span class="nn">DISClib.Utils.default</span> <span class="kn">import</span> <span class="n">T</span>
 
-<span class="c1"># checking costum modules</span>
+<span class="c1"># checking custom modules</span>
 <span class="k">assert</span> <span class="n">error_handler</span>
-<span class="k">assert</span> <span class="n">init_type_checker</span>
 <span class="k">assert</span> <span class="n">T</span>
 
 
@@ -114,10 +113,10 @@
 <div class="viewcode-block" id="Node">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/node/index.html#DISClib.DataStructures.node.Node">[documentos]</a>
 <span class="k">class</span> <span class="nc">Node</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">T</span><span class="p">]):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;*Node* Es una clase que representar un nodo de una lista sencilla o doblemente encadenada. Contiene la información del nodo y las funciones basicas para acceder a ella.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;**Node** Es el ADT que representar la información de un nodo de una estructura de datos dinámica y las funciones basicas para acceder a ella. Puede utilizarse para representar un nodo de una lista sencilla o doblemente encadenada.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        Generic (T): Tipo de dato genérico dentro del nodo.</span>
+<span class="sd">        Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.</span>
 
 <span class="sd">    Raises:</span>
 <span class="sd">        TypeError: error si la información del nodo no es del tipo adecuado.</span>
@@ -135,28 +134,12 @@
 <span class="sd">    Es la información contenida en el nodo.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="Node.__post_init__">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/node/index.html#DISClib.DataStructures.node.Node.__post_init__">[documentos]</a>
-    <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*__post_init__()* revisa que la información al crear un nodo sea valida.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="c1"># if the info attribute is not None, check its type</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">info</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="n">cur_function</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">currentframe</span><span class="p">()</span><span class="o">.</span><span class="n">f_code</span><span class="o">.</span><span class="n">co_name</span>
-                <span class="n">cur_context</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
-                <span class="n">init_type_checker</span><span class="p">(</span><span class="n">cur_context</span><span class="p">,</span> <span class="n">cur_function</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">)</span>
-        <span class="c1"># if an error occurs, handle it</span>
-        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
-
-
 <div class="viewcode-block" id="Node._handle_error">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/node/index.html#DISClib.DataStructures.node.Node._handle_error">[documentos]</a>
     <span class="k">def</span> <span class="nf">_handle_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">err</span><span class="p">:</span> <span class="ne">Exception</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*_handle_error()* función privada para manejar los errores que se presentan en la clase Node.</span>
 
-<span class="sd">        Si se presenta un error en el Node, se formatea el error según el contexto (paquete/clase) y la función que lo generó, y lo reenvia al componente superior en la jerarquía de llamados para manejarlo segun se considere conveniente.</span>
+<span class="sd">        Si se presenta un error en Node, se formatea el error según el contexto (paquete/clase), la función que lo generó y lo reenvia al componente superior en la jerarquía de llamados para manejarlo segun se considere conveniente.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            err (Exception): Excepción que se generó en el Node.</span>
@@ -180,7 +163,7 @@
 <span class="sd">        Returns:</span>
 <span class="sd">            bool: operador que indica si el tipo de dato del elemento es el mismo que el tipo de dato de los elementos que ya contiene la estructura de datos.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">element</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">)):</span>
             <span class="n">err_msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Invalid data type: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">)</span><span class="si">}</span><span class="s2"> &quot;</span>
             <span class="n">err_msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;for element info: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">element</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">err_msg</span><span class="p">)</span>

@@ -59,11 +59,11 @@ def Map(dstruct: str = "SeparateChaining", **kwargs) -> T:
         raise ValueError(err_msg)
 
 
-def translate(src_lt: T, tgt_dstruct: str = "LinearProbing") -> T:
+def translate(src_ht: T, tgt_dstruct: str = "LinearProbing") -> T:
     """*translate()* Transforma una instancia del ADT Map con una estructura de datos seleccionada en otra instancia del ADT Map con otra estructura de datos seleccionada.
 
     Args:
-        src_lt (T): instancia del ADT Map a transformar.
+        src_ht (T): instancia del ADT Map a transformar.
         tgt_dstruct (str, optional): Tipo de estructura de datos objetivo a instanciar. Por defecto es "LinearProbing". Puenden ser "SeparateChaining" o "LinearProbing".
 
     Raises:
@@ -74,12 +74,16 @@ def translate(src_lt: T, tgt_dstruct: str = "LinearProbing") -> T:
     """
     # TODO update for separate chaining to linear probing
     try:
-        tgt_lt = Map(dstruct=tgt_dstruct,
-                     cmp_function=src_lt.cmp_function,
-                     key=src_lt.key)
-        for elm in src_lt:
-            tgt_lt.add_last(elm)
-        return tgt_lt
+        tgt_ht = Map(dstruct=tgt_dstruct,
+                     cmp_function=src_ht.cmp_function,
+                     key=src_ht.key)
+        # get keys and values from source map
+        keys_lt = src_ht.keys()
+        values_lt = src_ht.values()
+        # put keys and values in target map
+        for k, v in zip(keys_lt, values_lt):
+            tgt_ht.put(k, v)
+        return tgt_ht
     except Exception as exp:
         err_msg = f"Map type '{tgt_dstruct}' not found"
         err_msg += f" in {STRUCT_PGK_PATH}, "

@@ -693,11 +693,14 @@ class DoubleLinked(Generic[T]):
         Yields:
             iterator: iterador sobre los elementos del DoubleLinked.
         """
-
-        current = self._trailer.prev()
-        while current is not self._header:
-            yield current.get_info()
-            current = current.prev()
+        try:
+            # FIXME do I need the try/except block?
+            current = self._trailer.prev()
+            while current is not self._header:
+                yield current.get_info()
+                current = current.prev()
+        except Exception as err:
+            self._handle_error(err)
 
     def __len__(self) -> int:
         """*__len__()* función nativa intervenida que devuelve el tamaño del DoubleLinked.

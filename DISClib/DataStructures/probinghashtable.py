@@ -49,6 +49,14 @@ assert DEFAULT_PRIME
 # :data: DEFAULT_CHAINING_ALPHA
 DEFAULT_CHAINING_ALPHA: float = 4.0
 
+# minimum load factor for separating chaining
+# :data: MIN_CHAINING_ALPHA
+MIN_CHAINING_ALPHA: float = 1.0
+
+# maximum load factor for separating chaining
+# :data: MAX_CHAINING_ALPHA
+MAX_CHAINING_ALPHA: float = 8.0
+
 
 @dataclass
 class LinearProbing(Generic[T]):

@@ -1,5 +1,5 @@
 """
-Esta clase representa una cola/fila implementada sobre una lista. Esta cola o fila (queue) es una estructura de datos que permite almacenar una colección de elementos y operar sobre ellos en el mismo orden en que fueron agregados (FIFO).
+Este ADT representa una cola/fila implementada sobre una lista. Esta cola o fila (queue) es una estructura de datos que permite almacenar una colección de elementos y operar sobre ellos en el mismo orden en que fueron agregados (FIFO).
 
 La implementación de la cola se realiza sobre una lista simplemente
 encadenada (SingleLinked) para garantizar que las operaciones de agregar y
@@ -29,9 +29,7 @@ assert T
 
 @dataclass
 class Queue(SingleLinked, Generic[T]):
-    """*Queue* Clase que representa una cola implementada sobre una lista sencillamente encadenada ('SingleLinked'). Esta cola o fila (queue) es un Tipo Abstracto de Datos (TAD/ADT) que permite almacenar una colección de elementos y operarlos en el mismo orden en que fueron agregados (FIFO - Firts In First Out).
-
-    Ademas, la clase 'Queue' esta implementada con la anotación '@dataclass' de python y el decorador 'Generic[T]' para indicar que es una estructura de datos genérica.
+    """**Queue** representa una cola implementada sobre una lista sencillamente encadenada (SingleLinked), Generic[T] y @dataclass para que sea una estructura de datos genérica. Esta cola o fila (queue) es un Tipo Abstracto de Datos (TAD/ADT) que permite almacenar una colección de elementos y operarlos en el mismo orden en que fueron agregados (FIFO - Firts In First Out).
 
     *IMPORTANTE:* 'Queue' extiende de la clase 'SingleLinked', por lo que hereda todos sus parametros internos y funciones.
 
@@ -83,6 +81,7 @@ class Queue(SingleLinked, Generic[T]):
         Returns:
             bool: operador que indica si la cola/fila Queue esta vacía.
         """
+        # TODO do I need this method?, SingleLinked already has it
         try:
             return self._size == 0
         except Exception as exp:
@@ -94,6 +93,7 @@ class Queue(SingleLinked, Generic[T]):
         Returns:
             int: número de elementos en el Queue.
         """
+        # TODO do I need this method?, SingleLinked already has it
         try:
             return self._size
         except Exception as exp:

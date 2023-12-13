@@ -1,5 +1,5 @@
 """
-Esta clase representa una pila implementada sobre una lista doblemente encadenada. Esta pila (Stack) es un Tipo Abstracto de Datos (TAD/ADT) que permite almacenar una colección de elementos y operarlos en el mismo orden en que fueron agregados (LIFO - Last In First Out).
+Este ADT representa una pila implementada sobre una lista doblemente encadenada. Esta pila (Stack) es un Tipo Abstracto de Datos (TAD/ADT) que permite almacenar una colección de elementos y operarlos en el mismo orden en que fueron agregados (LIFO - Last In First Out).
 
 La implementación de la cola se realiza sobre una lista doblemente
 encadenada (DoubleLinked) para garantizar que las operaciones de agregar y
@@ -28,11 +28,9 @@ assert T
 
 @dataclass
 class Stack(DoubleLinked, Generic[T]):
-    """*Stack* Clase que representa una pila implementada sobre una lista doblemente encadenada ('DoubleLinked'). Esta pila (Stack) es un Tipo Abstracto de Datos (TAD/ADT) que permite almacenar una colección de elementos y operarlos en el mismo orden en que fueron agregados (LIFO - Last In First Out).
+    """**Stack** representa una pila implementada sobre una lista doblemente encadenada (DoubleLinked), Generic[T] y @dataclass para que sea una estructura de datos genérica. Esta pila (Stack) es un Tipo Abstracto de Datos (TAD/ADT) que permite almacenar una colección de elementos y operarlos en el mismo orden en que fueron agregados (LIFO - Last In First Out).
 
-    Ademas, la clase 'Stack' esta implementada con la anotación '@dataclass' de python y el decorador 'Generic[T]' para indicar que es una estructura de datos genérica.
-
-    *IMPORTANTE:* 'Stack' extiende de la clase 'DoubleLinked', por lo que hereda todos sus parametros internos y funciones.
+    **IMPORTANTE:** *Stack* extiende de la clase *DoubleLinked*, por lo que hereda todos sus parametros internos y funciones.
 
     Args:
         DoubleLinked (dataclass): ADT DISClib que implementa las funciones básicas de una lista doblemente encadenada.
@@ -82,6 +80,7 @@ class Stack(DoubleLinked, Generic[T]):
         Returns:
             bool: operador que indica si la pila Stack esta vacía.
         """
+        # TODO do I need this method?, DoubleLinked already has it
         try:
             return self._size == 0
         except Exception as exp:
@@ -93,6 +92,7 @@ class Stack(DoubleLinked, Generic[T]):
         Returns:
             int: número de elementos en el Stack.
         """
+        # TODO do I need this method?, DoubleLinked already has it
         try:
             return self._size
         except Exception as exp:

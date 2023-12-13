@@ -1,5 +1,5 @@
 """
-Esta clase representa la registro de un Mapa no Ordenado (MapEntry), el cual es una estructura de datos dinámica que permite almacenar la información en parejas de llave-valor (key-value). La llave (key) es un identificador único para cada valor (value) almacenado en el Mapa no Ordenado (Map). Por su parte, el valor (value) puede ser cualquier tipo de dato.
+Este ADT representa la registro de un Mapa no Ordenado (MapEntry), el cual es una estructura de datos dinámica que permite almacenar la información en parejas de llave-valor (key-value). La llave (key) es un identificador único para cada valor (value) almacenado en el Mapa no Ordenado (Map). Por su parte, el valor (value) puede ser cualquier tipo de dato.
 
 En el caso de las tablas de Hash, la llave (key) es el resultado de aplicar una función hash al valor (value) almacenado en el Mapa no Ordenado (Map). Esta estructura de datos es fundamental para implementar otros mapas no ordenados como: tablas de símbolos, diccionarios, entre otros.
 
@@ -32,7 +32,7 @@ assert T
 
 @dataclass
 class MapEntry(Generic[T]):
-    """*MapEntry* Es una clase que representa un registro de un mapa no ordenado. Contiene la llave y el valor del registro del mapa. Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.
+    """**MapEntry** representa un registro de un mapa no ordenado. Contiene la llave y el valor del registro del mapa. Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.
 
     Args:
         Generic (T): Tipo de dato genérico dentro del registro del mapa.
@@ -56,20 +56,6 @@ class MapEntry(Generic[T]):
     """
     Es el valor del registro del mapa.
     """
-
-    def __post_init__(self):
-        """*__post_init__()* revisa que la información al crear un registro sea sea valida.
-        """
-        try:
-            # if the _value attribute is not None, check its type
-            if self._value is not None:
-                cur_function = inspect.currentframe().f_code.co_name
-                cur_context = self.__class__.__name__
-                init_type_checker(cur_context, cur_function, self._value)
-                init_type_checker(cur_context, cur_function, self._key)
-        # if an error occurs, handle it
-        except Exception as err:
-            self._handle_error(err)
 
     def _handle_error(self, err: Exception) -> None:
         """*_handle_error()* función privada para manejar los errores que se presentan en la clase MapEntry.
@@ -96,7 +82,7 @@ class MapEntry(Generic[T]):
             bool: operador que indica si el tipo de dato de la llave es el mismo que el tipo de dato de la llave que ya contiene la estructura de datos.
         """
         # TODO check usability of this function
-        if key is not None and not isinstance(key, type(self._key)):
+        if not isinstance(key, type(self._key)):
             err_msg = f"Invalid data type: {type(self._key)} "
             err_msg += f"for key data: {type(key)}"
             raise TypeError(err_msg)
@@ -115,7 +101,7 @@ class MapEntry(Generic[T]):
             bool: operador que indica si el tipo de dato del valor es el mismo que el tipo de dato de los elementos que ya contiene la estructura de datos.
         """
         # TODO check usability of this function
-        if value is not None and not isinstance(value, type(self._value)):
+        if not isinstance(value, type(self._value)):
             err_msg = f"Invalid data type: {type(self._value)} "
             err_msg += f"for value data: {type(value)}"
             raise TypeError(err_msg)

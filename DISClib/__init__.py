@@ -1,7 +1,7 @@
 # MAIN __init__ file for the DISCLib package
 # import python modules
-import os
-import sys
+# import os
+# import sys
 
 # import all the modules to package
 # M1
@@ -11,7 +11,7 @@ from .ADT.queue import Queue
 from .ADT.stack import Stack
 
 # M2
-# from .ADT import maps
+from .ADT.maps import Map
 
 # M3
 # from .ADT import orderedmap
@@ -72,10 +72,15 @@ from .ADT.stack import Stack
 
 # import all the modules in the Utils namespaces
 from .Utils.error import error_handler
-from .Utils.error import init_type_checker
+# from .Utils.error import init_type_checker
 
 # import all the modules in the Default namespaces
 from .Utils.default import T
+
+# import all the modules in the Numbers namespaces
+from .Utils.numbers import is_prime
+from .Utils.numbers import next_prime
+from .Utils.numbers import hash_compress
 
 # asserting modules
 # M1
@@ -83,8 +88,9 @@ assert DynamicImporter
 assert List
 assert Queue
 assert Stack
+
 # M2
-# assert maps
+assert Map
 
 # M3
 # assert orderedmap
@@ -96,16 +102,18 @@ assert Stack
 
 # Utils
 assert error_handler
-assert init_type_checker
+# assert init_type_checker
+
 # Default
 assert T
 
+# Numbers
+assert is_prime
+assert next_prime
+assert hash_compress
+
+
 # config the path to the DISCLib folder
-# TODO this used to be in config.py
-file_path = os.path.join(os.path.dirname(__file__), '..', '..')
-file_dir = os.path.dirname(os.path.realpath('__file__'))
-# impoting the path to the DISCLib folder
-sys.path.insert(0, os.path.abspath(file_path))
 
 # __path__ = sys.path
 # # print(__path__)

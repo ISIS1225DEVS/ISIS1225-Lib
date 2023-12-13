@@ -3,8 +3,13 @@ from DISClib.ADT.stack import Stack
 from DISClib.ADT.lists import clone
 from DISClib.ADT.lists import translate
 from DISClib.ADT.queue import Queue
+from DISClib.ADT.maps import Map
 import random
 # from DISClib.ADT.lists import List2
+from dataclasses import dataclass
+from typing import Generic, Optional, TypeVar
+
+T = TypeVar("T")
 
 
 def cmp_test(a, b):
@@ -150,3 +155,50 @@ if __name__ == "__main__":
     aaaa = clone(bb)
     print(aaaa)
     print(trans)
+
+    print("----------- Maps -----------")
+    m = Map(dstruct="SeparateChaining",
+            elements=20)
+            # rehashable=False)
+            # cmp_function=cmp_test)
+    print(m)
+
+    test_data = (
+        # {"testkey": 1, "testvalue": "one"},
+        {"testkey": 2, "testvalue": "two"},
+        {"testkey": 3, "testvalue": "three"},
+        {"testkey": 4, "testvalue": "four"},
+        {"testkey": 5, "testvalue": "five"},
+    )
+    print(type(m))
+    print(type(type(m)))
+    print(m.is_empty())
+    print(m.size())
+    print(m.contains(1))
+    m.put(1, {"testkey": 1, "testvalue": List(iodata=(1, 2, 3, 4, 5))})
+    m.put(2, {"testkey": 2, "testvalue": "one"})
+    m.put(3, {"testkey": 3, "testvalue": "one"})
+    m.put(4, {"testkey": 4, "testvalue": "one"})
+    m.put(5, {"testkey": 5, "testvalue": "one"})
+    m.put(6, {"testkey": 6, "testvalue": "one"})
+    m.put(7, {"testkey": 7, "testvalue": "one"})
+    m.put(8, {"testkey": 8, "testvalue": "one"})
+    m.put(9, {"testkey": 9, "testvalue": "one"})
+    m.put(10, {"testkey": 10, "testvalue": "one"})
+    m.put(11, {"testkey": 11, "testvalue": "one"})
+    
+
+    # print(isinstance(m, (T)))
+
+    for a in test_data:
+        # print(a)
+        k = a.get("testkey")
+        # print(k, a)
+        m.put(k, a)
+    #     # m.put(k, v)
+    print(m)
+    print(m.size())
+    print(m.hash_table.size())
+    print(m.values())
+    print(m.keys())
+    print(m.items())

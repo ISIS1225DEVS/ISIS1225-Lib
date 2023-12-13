@@ -1,46 +1,314 @@
 """
- * Copyright 2020, Departamento de sistemas y Computación
- * Universidad de Los Andes
- *
- *
- * Desarrolado para el curso ISIS1225 - Estructuras de Datos y Algoritmos
- *
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- * Contribución de:
- *
- * Dario Correal
- *
- """
+# -*- coding: utf-8 -*-
+# TODO add docstring
 
-import random as rd
-import math
-# import config
-from DISClib.DataStructures import mapentry as me
-from DISClib.ADT import lists as lt
-from DISClib.Utils import error as error
-# assert config
+*IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:
 
+    #. Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.
+    #. Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H. Goldwasser.
 """
-Implementación de una tabla de hash, utilizando linear probing como
-mecanismo de manejo de colisiones.
+# native python modules
+# import dataclass to define the hash table
+from dataclasses import dataclass, field
+# import modules for defining the element's type in the hash table
+from typing import List, Optional, Callable, Generic
+# import inspect for getting the name of the current function
+import inspect
+# random module for the MAD compression function
+import random
 
-Este código está basado en las implementaciones propuestas en:
-- Algorithms, 4th Edition.  R. Sedgewick
-- Data Structures and Algorithms in Java, 6th Edition.  Michael Goodrich
-"""
+# custom modules
+# generic error handling and type checking
+from DISClib.DataStructures.mapentry import MapEntry
+from DISClib.DataStructures.arraylist import ArrayList
+from DISClib.Utils.numbers import next_prime
+from DISClib.Utils.numbers import hash_compress
+from DISClib.Utils.error import error_handler
+# from DISClib.Utils.error import init_type_checker
+from DISClib.Utils.default import ht_default_cmp_funcion
+from DISClib.Utils.default import T
+from DISClib.Utils.default import DEFAULT_DICT_KEY
+from DISClib.Utils.default import VALID_IO_TYPE
+from DISClib.Utils.default import DEFAULT_PRIME
+
+
+# checking custom modules
+assert MapEntry
+assert ArrayList
+assert next_prime
+assert hash_compress
+assert error_handler
+# assert init_type_checker
+assert ht_default_cmp_funcion
+assert T
+assert DEFAULT_DICT_KEY
+assert VALID_IO_TYPE
+assert DEFAULT_PRIME
+
+# default load factor for separating chaining
+# :data: DEFAULT_CHAINING_ALPHA
+DEFAULT_CHAINING_ALPHA: float = 4.0
+
+
+@dataclass
+class LinearProbing(Generic[T]):
+    """*LinearProbing* Es una clase que representa una tabla de hash con el método de encadenamiento por de separación (Separate Chaining). Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.
+
+    Args:
+        Generic (T): Tipo de dato genérico dentro del registro del mapa.
+
+    Raises:
+        TypeError: error si la información del registro del mapa (llave o valor) no son del tipo adecuado.
+
+    Returns:
+        LinearProbing: ADT de tipo LinearProbing o tabla de hash con separación por encadenamiento.
+    """
+    # input elements from python list
+    # :attr: iodata
+    iodata: Optional[List[T]] = None
+    """
+    Lista nativa de Python que contiene los elementos de entrada a la estructura, por defecto es None y el usuario puede incluir una lista nativa de python como argumento.
+    """
+
+    # reserved space for the hash table
+    # :attr: N
+    elements: int = 1
+    """
+    Es el espacio reservado para la tabla de hash (n), por defecto es 1, pero debe configurarse según el número de elementos que se espera almacenar.
+    """
+
+    # starting load factor for the hash table
+    # :attr: _load_factor
+    aLpha: Optional[float] = DEFAULT_CHAINING_ALPHA
+    """
+    Es el factor de carga con el que se inicializa la tabla de hash, por defecto es 4.0.
+    """
+
+    # prime number for the mad compression function
+    # :attr: prime
+    prime: Optional[int] = DEFAULT_PRIME
+    """
+    Es el número primo utilizado para calcular el código hash de la llave con la función de compresión MAD, por defecto es 109345121.
+    """
+
+    # actual place to store the elements in the hash table
+    # :attr: table
+    table: ArrayList[MapEntry[T]] = field(default_factory=ArrayList)
+
+    """
+    Es el indice de la tabla de hash donde se almacenan los 'Buckets', implementado con un 'ArrayList' de DISCLib. en el __post_init__ se inicializa con la capacidad inicial de la tabla de hash.
+    """
+
+    # boolean to indicate if the hash table can be rehashed
+    # :attr: rehashable
+    rehashable: bool = True
+    """
+    Es un booleano que indica si la tabla de hash se puede reconstruir utilizando el método de rehash, por defecto es True.
+    """
+
+    # starting capacity for the hash table
+    # :attr: capacity
+    capacity: int = 1
+    """
+    Es la capacidad (m) con la que se inicializa la tabla de hash.
+    """
+
+    # actual number of elements in the hash table
+    # FIXME inconsistent use of _size and size()
+    # :attr: _size
+    _size: int = 0
+    """
+    Es el número de elementos dentro de la tabla de hash, por defecto es 0 y se actualiza con cada operación que modifica la estructura.
+    """
+
+    # :attr: collisions
+    _collisions: Optional[int] = 0
+    """
+    Es el número de colisiones en la tabla de hash.
+    """
+
+    # TODO create a MAD class to handle the compression function
+    # private scale factor for the mad compression function
+    # :attr: _scale
+    _scale: Optional[int] = 0
+    """
+    Es el número utilizado para calcular el código hash de la llave.
+    """
+    # private shift factor for the mad compression function
+    # :attr: _shift
+    _shift: Optional[int] = 0
+    """
+    Es el número utilizado para calcular el código hash de la llave.
+    """
+
+    # optional limit factor
+    # :attr: _limit_factor
+    _limit_factor: Optional[float] = 0
+    """
+    Es el factor de carga limite antes de hacer rehash.
+    """
+    # optional current factor
+    # :attr: _current_factor
+    _current_factor: Optional[float] = 0
+    """
+    Es el factor de carga actual de la tabla de hash.
+    """
+
+    # the cmp_function is used to compare elements, not defined by default
+    # :attr: cmp_function
+    cmp_function: Optional[Callable[[T, T], int]] = None
+    """
+    Función de comparación opcional que se utiliza para comparar los elementos del LinearProbing, por defecto es 'None' y el __post_init__ configura la función por defecto lt_default_cmp_funcion().
+    """
+
+    # the key is used to compare elements, not defined by default
+    # :attr: key
+    key: Optional[str] = None
+    """
+    Nombre de la llave opcional que se utiliza para comparar los elementos del LinearProbing, Por defecto es 'None' y el __post_init__ configura la llave por defecto la llave 'id' en DEFAULT_DICT_KEY.
+    """
+
+    def __post_init__(self) -> None:
+        try:
+            # setting capacity
+            self.capacity = self._next_prime(self.elements // self.aLpha)
+            # setting scale and shift for MAD compression function
+            self._scale = random.randint(1, self.prime - 1)
+            self._shift = random.randint(0, self.prime - 1)
+            # setting the default compare function
+            if self.cmp_function is None:
+                self.cmp_function = self.default_cmp_function
+            # setting the default key
+            if self.key is None:
+                self.key = DEFAULT_DICT_KEY
+            # setting the default limit factor
+            if self._limit_factor == 0:
+                self._limit_factor = self.aLpha
+            # setting the default current factor
+            if self._current_factor == 0:
+                self._current_factor = self._size / self.capacity
+
+            self.table = ArrayList(cmp_function=self.cmp_function,
+                                   key=self.key)
+            i = 0
+            while i < self.capacity:
+                bucket = Bucket(cmp_function=self.cmp_function,
+                                key=self.key)
+                self.table.add_last(bucket)
+                i += 1
+
+            if isinstance(self.iodata, VALID_IO_TYPE):
+                for entry in self.iodata:
+                    self.put(entry[self.key], entry)
+            self.iodata = None
+        except Exception as err:
+            self._handle_error(err)
+
+    def default_cmp_function(self, elm1, elm2) -> int:
+        """*default_cmp_function()* procesa con algoritmica por defecto la lista de elementos que procesa el LinearProbing. Es una función crucial para que la estructura de datos funcione correctamente.
+
+        Args:
+            elm1 (Any): primer elemento a comparar.
+            elm2 (Any): segundo elemento a comparar.
+
+        Returns:
+            int: respuesta de la comparación entre los elementos, 0 si son iguales, 1 si elm1 es mayor que elm2, -1 si elm1 es menor.
+        """
+        try:
+            # passing self as the first argument to simulate a method
+            return ht_default_cmp_funcion(self.key, elm1, elm2)
+        except Exception as err:
+            self._handle_error(err)
+
+    def _handle_error(self, err: Exception) -> None:
+        """*_handle_error()* función privada que maneja los errores que se pueden presentar en el LinearProbing.
+
+        Si se presenta un error en el LinearProbing, se formatea el error según el contexto (paquete/clase) y la función que lo generó, y lo reenvia al componente superior en la jerarquía de llamados para manejarlo segun sea considere conveniente.
+
+        Args:
+            err (Exception): Excepción que se generó en el LinearProbing.
+        """
+        # TODO check usability of this function
+        cur_context = self.__class__.__name__
+        cur_function = inspect.currentframe().f_code.co_name
+        error_handler(cur_context, cur_function, err)
+
+    def _check_type(self, element: T) -> bool:
+        """*_check_type()* función privada que verifica que el tipo de dato del elemento que se quiere agregar al LinearProbing sea del mismo tipo contenido dentro de los elementos del LinearProbing.
+
+        Raises:
+            TypeError: error si el tipo de dato del elemento que se quiere agregar no es el mismo que el tipo de dato de los elementos que ya contiene el LinearProbing.
+
+        Args:
+            element (T): elemento que se quiere procesar en LinearProbing.
+
+        Returns:
+            bool: operador que indica si el ADT LinearProbing es del mismo tipo que el elemento que se quiere procesar.
+        """
+        # TODO check usability of this function
+        # if the structure is not empty, check the first element type
+        if not self.is_empty():
+            # get the type of the first element
+            lt_type = type(self.elements[0])
+            # raise an exception if the type is not valid
+            if not isinstance(element, lt_type):
+                err_msg = f"Invalid data type: {type(lt_type)} "
+                err_msg += f"for element info: {type(element)}"
+                raise TypeError(err_msg)
+        # otherwise, any type is valid
+        return True
+
+    # @property
+    def is_empty(self) -> bool:
+        """*is_empty()* revisa si el LinearProbing está vacío.
+
+        Returns:
+            bool: operador que indica si la estructura LinearProbing está vacía.
+        """
+        # TODO change the method name to "empty" or @property "empty"?
+        try:
+            return self._size == 0
+        except Exception as err:
+            self._handle_error(err)
+
+    # @property
+    def size(self) -> int:
+        """*size()* devuelve el numero de elementos que actualmente contiene el LinearProbing.
+
+        Returns:
+            int: tamaño de la estructura LinearProbing.
+        """
+        # TODO change the method to @property "size"?
+        try:
+            return self._size
+        except Exception as err:
+            self._handle_error(err)
+
+    def contains(self, key: T) -> bool:
+        pass
+
+    def put(self, key: T, value: T) -> None:
+        pass
+
+    def get(self, key: T) -> Optional[T]:
+        pass
+
+    def remove(self, key: T) -> None:
+        pass
+
+    def keys(self) -> ArrayList[T]:
+        pass
+
+    def values(self) -> ArrayList[T]:
+        pass
+
+    def rehash(self) -> None:
+        pass
+
+
+
+
+
 
 # GENERAL
 #FIXME Cambiar todas las funciones y variables al formato snake_case

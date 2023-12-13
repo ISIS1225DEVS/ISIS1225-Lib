@@ -94,6 +94,7 @@
 <span class="c1"># custom modules</span>
 <span class="c1"># node class for the linked list</span>
 <span class="kn">from</span> <span class="nn">.dynamic</span> <span class="kn">import</span> <span class="n">DynamicImporter</span>
+<span class="kn">from</span> <span class="nn">.dynamic</span> <span class="kn">import</span> <span class="n">STRUCT_PGK_PATH</span>
 
 <span class="c1"># generic error handling and type checking</span>
 <span class="kn">from</span> <span class="nn">DISClib.Utils.default</span> <span class="kn">import</span> <span class="n">T</span>
@@ -101,16 +102,6 @@
 <span class="c1"># checking costum modules and functions</span>
 <span class="k">assert</span> <span class="n">DynamicImporter</span>
 <span class="k">assert</span> <span class="n">T</span>
-
-<span class="c1"># main package data structure path</span>
-<span class="c1"># :param ADT_LT_PGK_PATH</span>
-<div class="viewcode-block" id="ADT_LT_PGK_PATH">
-<a class="viewcode-back" href="../../../autoapi/DISClib/ADT/lists/index.html#DISClib.ADT.lists.ADT_LT_PGK_PATH">[documentos]</a>
-<span class="n">ADT_LT_PGK_PATH</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;DISClib.DataStructures&quot;</span></div>
-
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Ruta relativa del paquete principal para instanciar el ADT List.</span>
-<span class="sd">&quot;&quot;&quot;</span>
 
 
 <span class="c1"># posible implementations for the ADT</span>
@@ -144,14 +135,14 @@
 <span class="sd">        T: instancia del ADT List que puede ser &quot;ArrayList&quot;, &quot;SingleLinked&quot; o &quot;DoubleLinked&quot;.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">package</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ADT_LT_PGK_PATH</span><span class="si">}</span><span class="s2">.&quot;</span>
+        <span class="n">package</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">STRUCT_PGK_PATH</span><span class="si">}</span><span class="s2">.&quot;</span>
         <span class="n">package</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ADT_LT_MOD_DICT</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">dstruct</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="n">adt_list</span> <span class="o">=</span> <span class="n">DynamicImporter</span><span class="p">(</span><span class="n">dstruct</span><span class="p">,</span> <span class="n">package</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="n">adt_instance</span> <span class="o">=</span> <span class="n">adt_list</span><span class="o">.</span><span class="n">get_instance</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">adt_instance</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
         <span class="n">err_msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;List type &#39;</span><span class="si">{</span><span class="n">dstruct</span><span class="si">}</span><span class="s2">&#39; not found&quot;</span>
-        <span class="n">err_msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot; in </span><span class="si">{</span><span class="n">ADT_LT_PGK_PATH</span><span class="si">}</span><span class="s2">, &quot;</span>
+        <span class="n">err_msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot; in </span><span class="si">{</span><span class="n">STRUCT_PGK_PATH</span><span class="si">}</span><span class="s2">, &quot;</span>
         <span class="n">err_msg</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">exp</span><span class="p">)</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">err_msg</span><span class="p">)</span></div>
 
@@ -182,7 +173,7 @@
         <span class="k">return</span> <span class="n">tgt_lt</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
         <span class="n">err_msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;List type &#39;</span><span class="si">{</span><span class="n">tgt_dstruct</span><span class="si">}</span><span class="s2">&#39; not found&quot;</span>
-        <span class="n">err_msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot; in </span><span class="si">{</span><span class="n">ADT_LT_PGK_PATH</span><span class="si">}</span><span class="s2">, &quot;</span>
+        <span class="n">err_msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot; in </span><span class="si">{</span><span class="n">STRUCT_PGK_PATH</span><span class="si">}</span><span class="s2">, &quot;</span>
         <span class="n">err_msg</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">exp</span><span class="p">)</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">err_msg</span><span class="p">)</span></div>
 

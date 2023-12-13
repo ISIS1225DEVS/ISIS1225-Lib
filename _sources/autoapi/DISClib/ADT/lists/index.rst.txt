@@ -34,15 +34,8 @@ Attributes
 
 .. autoapisummary::
 
-   DISClib.ADT.lists.ADT_LT_PGK_PATH
    DISClib.ADT.lists.ADT_LT_MOD_DICT
 
-
-.. py:data:: ADT_LT_PGK_PATH
-   :type: str
-   :value: 'DISClib.DataStructures'
-
-   Ruta relativa del paquete principal para instanciar el ADT List.
 
 .. py:data:: ADT_LT_MOD_DICT
    :type: dict

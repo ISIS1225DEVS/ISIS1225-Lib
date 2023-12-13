@@ -27,6 +27,20 @@ Classes
 
 
 
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   DISClib.ADT.dynamic.STRUCT_PGK_PATH
+
+
+.. py:data:: STRUCT_PGK_PATH
+   :type: str
+   :value: 'DISClib.DataStructures'
+
+   Ruta relativa del paquete principal para instanciar el ADT List.
+
 .. py:class:: DynamicImporter(implementation: str, package: str, **kwargs)
 
 

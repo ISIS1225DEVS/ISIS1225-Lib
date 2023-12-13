@@ -34,15 +34,8 @@ Attributes
 
 .. autoapisummary::
 
-   DISClib.ADT.maps.ADT_HT_PGK_PATH
    DISClib.ADT.maps.ADT_HT_MOD_DICT
 
-
-.. py:data:: ADT_HT_PGK_PATH
-   :type: str
-   :value: 'DISClib.DataStructures'
-
-   Ruta relativa del paquete principal para instanciar el ADT Map.
 
 .. py:data:: ADT_HT_MOD_DICT
    :type: dict

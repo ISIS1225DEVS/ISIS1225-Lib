@@ -13,11 +13,9 @@ Módulo con funciones de utilidad para el manejo de datos en los mapas no ordena
 # python native modules
 # math module for getting the prime numbers
 import math
-import inspect
 
 # custom modules
 # error handler and datatypes
-from DISClib.Utils.error import error_handler
 from DISClib.Utils.default import T
 
 
@@ -80,11 +78,36 @@ def next_prime(n: int) -> int:
     return prime
 
 
+def previous_prime(n: int) -> int:
+    """*previous_prime()* devuelve el número primo anterior a n.
+
+    Args:
+        n (int): número entero para calcular el siguiente número primo.
+
+    Returns:
+        int: el siguiente número primo menor que n.
+    """
+    # base case
+    if n < 2:
+        return 2
+
+    # working with the next odd number
+    prime = n
+    found = False
+
+    # Loop continuously until isPrime returns
+    while not found:
+        prime -= 1
+        # True for a prime number greater than n
+        if is_prime(prime) is True:
+            found = True
+
+
 def hash_compress(key: T,
                   scale: int,
                   shift: int,
                   prime: int,
-                  capacity: int) -> int:
+                  mcapacity: int) -> int:
 
     """*hash_compress()* función de compresión para los índices de las tablas de Hash utilizando el método MAD (Multiply-Add-and-Divide).
     MAD se define como: hash_compress(y) = ((a*y + b) % p) % M, donde:
@@ -97,19 +120,13 @@ def hash_compress(key: T,
         scale (int): pendiente de la función de compresión.
         shift (int): desplazamiento de la función de compresión.
         prime (int): número  primo mucho mayor a la capacidad de la tabla de Hash.
-        capacity (int): tamaño de la tabla de Hash, es un número primo para evitar colisiones.
+        mcapacity (int): tamaño de la tabla de Hash, es un número primo para evitar colisiones.
 
     Returns:
         int: el índice del elemento en la tabla de Hash.
     """
-    try:
-        # getting the hash of the key
-        hkey = hash(key)
-        # calculating the index with the MAD compression function
-        idx = int((abs(scale * hkey + shift) % prime) % capacity)
-        return idx
-    except Exception as exp:
-        # FIXME Ajustar mensaje de error para que sea más claro
-        cur_context = __name__
-        cur_function = inspect.stack()[0][3]
-        error_handler(cur_context, cur_function, exp)
+    # getting the hash of the key
+    hkey = hash(key)
+    # calculating the index with the MAD compression function
+    idx = int((abs(scale * hkey + shift) % prime) % mcapacity)
+    return idx

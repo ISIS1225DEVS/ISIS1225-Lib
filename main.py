@@ -24,6 +24,19 @@ def cmp_test(a, b):
         return 0
 
 
+def cmp_test2(ka, eb):
+    kb = eb.get_key()
+    if type(ka) is not type(kb):
+        err_msg = f"Invalid comparison between {type(ka)} and "
+        err_msg += f"{type(kb)} keys"
+        raise TypeError(err_msg)
+    if (ka == kb):
+        return 0
+    elif (ka > kb):
+        return 1
+    return -1
+
+
 # main del ejercicio
 if __name__ == "__main__":
     imp = "DoubleLinked"   # "SingleLinked", "DoubleLinked", "ArrayList"
@@ -158,10 +171,11 @@ if __name__ == "__main__":
 
     print("----------- Maps -----------")
     m = Map(dstruct="SeparateChaining",
-            elements=20)
+            nentries=2,
+            max_alpha=4,
             # rehashable=False)
-            # cmp_function=cmp_test)
-    print(m)
+            cmp_function=cmp_test2)
+    print(m.mcapacity)
 
     test_data = (
         # {"testkey": 1, "testvalue": "one"},
@@ -186,7 +200,6 @@ if __name__ == "__main__":
     m.put(9, {"testkey": 9, "testvalue": "one"})
     m.put(10, {"testkey": 10, "testvalue": "one"})
     m.put(11, {"testkey": 11, "testvalue": "one"})
-    
 
     # print(isinstance(m, (T)))
 
@@ -198,6 +211,18 @@ if __name__ == "__main__":
     #     # m.put(k, v)
     print(m)
     print(m.size())
+    print(m.hash_table.size())
+    print(m.values())
+    print(m.keys())
+    print(m.entries())
+
+    for a in test_data:
+        k = a.get("testkey")
+        print(m.remove(k))
+
+    print(m.mcapacity)
+    print(m.size())
+    print(m.nentries)
     print(m.hash_table.size())
     print(m.values())
     print(m.keys())

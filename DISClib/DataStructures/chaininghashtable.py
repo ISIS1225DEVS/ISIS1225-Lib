@@ -22,10 +22,13 @@ import random
 from DISClib.DataStructures.mapentry import MapEntry
 from DISClib.DataStructures.arraylist import ArrayList
 from DISClib.DataStructures.singlelinkedlist import SingleLinked
+# util functions for the hash table
 from DISClib.Utils.numbers import next_prime
 from DISClib.Utils.numbers import hash_compress
 from DISClib.Utils.error import error_handler
+# default cmp function for the hash table
 from DISClib.Utils.default import ht_default_cmp_funcion
+# default data type for the hash table
 from DISClib.Utils.default import T
 from DISClib.Utils.default import VALID_DATA_TYPE_LT
 from DISClib.Utils.default import DEFAULT_DICT_KEY
@@ -50,6 +53,21 @@ assert DEFAULT_PRIME
 # default load factor for separating chaining
 # :data: DEFAULT_CHAINING_ALPHA
 DEFAULT_CHAINING_ALPHA: float = 4.0
+"""
+Factor de carga (alpha) por defecto e ideal para el SeparateChaining, por defecto es 4.0.
+"""
+
+# :data: MAX_CHAINING_ALPHA
+MAX_CHAINING_ALPHA: float = 8.0
+"""
+Factor de carga (alpha) máximo para el SeparateChaining, por defecto es 8.0.
+"""
+
+# :data: MIN_CHAINING_ALPHA
+MIN_CHAINING_ALPHA: float = 2.0
+"""
+Factor de carga (alpha) mínimo para el SeparateChaining, por defecto es 2.0.
+"""
 
 
 @dataclass
@@ -60,6 +78,7 @@ class Bucket(SingleLinked, Generic[T]):
         SingleLinked (T): Lista sencillamente encadenada que representa un bucket de una tabla de hash con el método de encadenamiento por separación (Separate Chaining).
         Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para representar una estructura de datos genérica en python.
     """
+    # the same as ..
     pass
 
 
@@ -76,7 +95,7 @@ class SeparateChaining(Generic[T]):
     Returns:
         SeparateChaining: ADT de tipo SeparateChaining o tabla de hash con separación por encadenamiento.
     """
-    # input elements from python list
+    # input tuples from python list
     # :attr: iodata
     iodata: Optional[List[T]] = None
     """
@@ -84,10 +103,10 @@ class SeparateChaining(Generic[T]):
     """
 
     # reserved space for the hash table
-    # :attr: N
-    elements: int = 1
+    # :attr: nentries
+    nentries: int = 1
     """
-    Es el espacio reservado para la tabla de hash (n), por defecto es 1, pero debe configurarse según el número de elementos que se espera almacenar.
+    Es el espacio reservado para la tabla de hash (n), por defecto es 1, pero debe configurarse según el número de entradas que se espera almacenar.
     """
 
     # starting load factor (alpha) for the hash table
@@ -104,7 +123,7 @@ class SeparateChaining(Generic[T]):
     Es el número primo (P) utilizado para calcular el código hash de la llave con la función de compresión MAD, por defecto es 109345121.
     """
 
-    # actual place to store the elements in the hash table
+    # actual place to store the entries in the hash table
     # :attr: hash_table
     hash_table: ArrayList[Bucket[T]] = field(default_factory=ArrayList)
 
@@ -119,14 +138,14 @@ class SeparateChaining(Generic[T]):
     Es un booleano que indica si la tabla de hash se puede reconstruir utilizando el método de rehash, por defecto es True.
     """
 
-    # starting capacity (M) for the hash table
-    # :attr: capacity
-    capacity: int = 1
+    # starting capacity (M|m) for the hash table
+    # :attr: mcapacity
+    mcapacity: int = 1
     """
     Es la capacidad (M) con la que se inicializa la tabla de hash.
     """
 
-    # actual number of elements (n) in the hash table
+    # actual number of used entries (n) in the hash table
     # FIXME inconsistent use of _size and size()
     # :attr: _size
     _size: int = 0
@@ -154,47 +173,55 @@ class SeparateChaining(Generic[T]):
     Es el número utilizado para calcular el código hash de la llave.
     """
 
-    # optional limit load factor (alpha) for rehashing
-    # :attr: _limit_alpha
-    _limit_alpha: Optional[float] = 0
-    """
-    Es el factor de carga limite antes de hacer rehash.
-    """
-    # optional current factor (alpha) for the working hash table
+    # current factor (alpha) for the working hash table
     # :attr: _cur_alpha
     _cur_alpha: Optional[float] = 0
     """
     Es el factor de carga actual de la tabla de hash.
     """
 
-    # the type of the elements in the hash table
+    # maximum load factor (alpha) for the hash table
+    # :attr: max_alpha
+    max_alpha: Optional[float] = MAX_CHAINING_ALPHA
+    """
+    Es el factor de carga máximo de la tabla de hash, por defecto es 8.0.
+    """
+
+    # minimum load factor (alpha) for the hash table
+    # :attr: min_alpha
+    min_alpha: Optional[float] = MIN_CHAINING_ALPHA
+    """
+    Es el factor de carga mínimo de la tabla de hash, por defecto es 2.0.
+    """
+
+    # the type of the entries in the hash table
     # :attr: _data_type
     _data_type: Optional[type] = None
     """
     Es el tipo de dato de los elementos que contiene la tabla de hash, por defecto es 'None' y se configura al cargar el primer elemento en el mapa.
     """
 
-    # the cmp_function is used to compare elements, not defined by default
+    # the cmp_function is used to compare emtries, not defined by default
     # :attr: cmp_function
     cmp_function: Optional[Callable[[T, T], int]] = None
     """
-    Función de comparación opcional que se utiliza para comparar los elementos del SeparateChaining, por defecto es 'None' y el __post_init__ configura la función por defecto lt_default_cmp_funcion().
+    Función de comparación opcional que se utiliza para comparar los elementos del SeparateChaining, por defecto es 'None' y el *__post_init__()* configura la función por defecto *ht_default_cmp_funcion()*.
     """
 
-    # the key is used to compare elements, not defined by default
+    # the key is used to compare entries, not defined by default
     # :attr: key
     key: Optional[str] = None
     """
-    Nombre de la llave opcional que se utiliza para comparar los elementos del SeparateChaining, Por defecto es 'None' y el __post_init__ configura la llave por defecto la llave 'id' en DEFAULT_DICT_KEY.
+    Nombre de la llave opcional que se utiliza para comparar los elementos del SeparateChaining, Por defecto es 'None' y el __post_init__ configura la llave por defecto la llave 'id' en *DEFAULT_DICT_KEY*.
     """
 
     def __post_init__(self) -> None:
-        """__post_init__ _summary_
+        """*__post_init__()* configura los valores por defecto de la estructura SeparateChaining después de la inicialización de la misma. Configura los factores de carga (alpha), el número primo (P) para la función de compresión MAD, la capacidad (M) de la tabla de hash, la función de comparación y la llave para comparar los elementos del SeparateChaining, y finalmente inicializa la tabla de hash con la capacidad (M) configurada.
         """
         # TODO check if this is the best way make the initialization
         try:
             # setting capacity
-            self.capacity = next_prime(self.elements // self.alpha)
+            self.mcapacity = next_prime(self.nentries // self.alpha)
             # setting scale and shift for MAD compression function
             self._scale = random.randint(1, self.prime - 1)
             self._shift = random.randint(0, self.prime - 1)
@@ -204,15 +231,12 @@ class SeparateChaining(Generic[T]):
             # setting the default key
             if self.key is None:
                 self.key = DEFAULT_DICT_KEY
-            # setting the default limit factor
-            if self._limit_alpha == 0:
-                self._limit_alpha = self.alpha
 
             # initializing the hash table
             self.hash_table = ArrayList()
             i = 0
             # bulding buckets in the hash table
-            while i < self.capacity:
+            while i < self.mcapacity:
                 bucket = Bucket(cmp_function=self.cmp_function,
                                 key=self.key)
                 self.hash_table.add_last(bucket)
@@ -220,7 +244,7 @@ class SeparateChaining(Generic[T]):
 
             # setting the current load factor
             if self._cur_alpha == 0:
-                self._cur_alpha = self._size / self.capacity
+                self._cur_alpha = self._size / self.mcapacity
 
             # TODO check if this is the best way to initialize the structure
             if isinstance(self.iodata, VALID_IO_TYPE):
@@ -232,11 +256,10 @@ class SeparateChaining(Generic[T]):
             self._handle_error(err)
 
     def default_cmp_function(self, key1, entry2: MapEntry) -> int:
-        """*default_cmp_function()* procesa la llave existente en el elemento del 'SeparateChaining' y la compara con el elemento que se quiere agregar al 'SeparateChaining'.
-
+        """*default_cmp_function()* procesa la llave existente en la entrada del SeparateChaining y la compara con la llave del a entrada que se quiere agregar al SeparateChaining.
         Args:
-            key1 (Any): llave del primer elemento a comparar.
-            entry2 (MapEntry): entrada del mapa del segundo elemento a comparar.
+            key1 (Any): llave de la primera entrada a comparar.
+            entry2 (MapEntry): segunda entrada (par llave-valor) a comparar.
 
         Returns:
             int: respuesta de la comparación entre los elementos, 0 si las llaves son iguales, 1 si key1 es mayor que la llave de entry2, -1 si key1 es menor.
@@ -332,7 +355,7 @@ class SeparateChaining(Generic[T]):
                                  self._scale,
                                  self._shift,
                                  self.prime,
-                                 self.capacity)
+                                 self.mcapacity)
             # look into the bucket
             bucket = self.hash_table.get_element(hkey)
             idx = bucket.find(key)
@@ -344,14 +367,14 @@ class SeparateChaining(Generic[T]):
             self._handle_error(err)
 
     def put(self, key: T, value: T) -> None:
-        """put _summary_
+        """*put()* agrega una entrada (pareja llave-valor) al SeparateChaining, si la llave ya existe en el SeparateChaining, se reemplaza el valor.
 
         Args:
-            key (T): _description_
-            value (T): _description_
+            key (T): llave asociada a la nueva entrada.
+            value (T): el valor asociado a la nueva entrada.
 
         Raises:
-            Exception: _description_
+            Exception: si el indice de la entrada en el mapa está fuera de los limites establecidos, se genera un error.
         """
         try:
             # create a new entry for the element
@@ -361,11 +384,11 @@ class SeparateChaining(Generic[T]):
                                  self._scale,
                                  self._shift,
                                  self.prime,
-                                 self.capacity)
+                                 self.mcapacity)
             # TODO do i need this?
-            if hkey < 0 or hkey >= self.capacity:
+            if hkey < 0 or hkey >= self.mcapacity:
                 err_msg = f"The hash for the key: {key}"
-                err_msg += f"is out of range fo capacity: {self.capacity}"
+                err_msg += f"is out of range fo capacity: {self.mcapacity}"
                 raise Exception(err_msg)
             # checking the bucket
             bucket = self.hash_table.get_element(hkey)
@@ -379,24 +402,24 @@ class SeparateChaining(Generic[T]):
                     self._collisions += 1
                 bucket.add_last(new_entry)
                 self._size += 1
-                self._cur_alpha = self._size / self.capacity
+                self._cur_alpha = self._size / self.mcapacity
             # check if the structure needs to be rehashed
-            if self._cur_alpha >= self._limit_alpha:
+            if self._cur_alpha >= self.max_alpha:
                 self.rehash()
         except Exception as err:
             self._handle_error(err)
 
     def get(self, key: T) -> Optional[T]:
-        """get _summary_
+        """*get()* devuelve la entrada (pareja llave-valor) cuya llave sea igual a key dentro del SeparateChaining, si no existe una entrada con la llave key, devuelve None.
 
         Args:
-            key (T): _description_
+            key (T): llave asociada a la entrada que se quiere buscar.
 
         Raises:
-            Exception: _description_
+            Exception: error si la estructura está vacía.
 
         Returns:
-            Optional[T]: _description_
+            Optional[T]: entrada (pareja llave-valor) con la llave igual a key dentro del SeparateChaining, None si no existe la entrada asociada a la llave key.
         """
         try:
             if self.is_empty():
@@ -409,7 +432,7 @@ class SeparateChaining(Generic[T]):
                                      self._scale,
                                      self._shift,
                                      self.prime,
-                                     self.capacity)
+                                     self.mcapacity)
                 # checking the bucket
                 bucket = self.hash_table.get_element(hkey)
                 idx = bucket.find(key)
@@ -420,46 +443,86 @@ class SeparateChaining(Generic[T]):
         except Exception as err:
             self._handle_error(err)
 
-    def remove(self, key: T) -> None:
-        """remove _summary_
+    def check_bucket(self, key: T) -> Optional[T]:
+        """*check_bucket()* devuelve el bucket asociado a la llave key dentro del SeparateChaining, si no existe una entrada con la llave key, devuelve None.
 
         Args:
-            key (T): _description_
+            key (T): llave asociada al bucket que se quiere buscar.
 
         Raises:
-            Exception: _description_
-        """
+            Exception: error si la estructura está vacía.
+
+        Returns:
+            Optional[T]: bucket asociado a la llave key dentro del SeparateChaining, None si no existe la entrada asociada a la llave key.
+        """        
         try:
             if self.is_empty():
                 raise Exception("The structure is empty")
             else:
+                # assume the element is not in the structure
+                bucket = None
                 # get the hash key for the element
                 hkey = hash_compress(key,
                                      self._scale,
                                      self._shift,
                                      self.prime,
-                                     self.capacity)
+                                     self.mcapacity)
                 # checking the bucket
                 bucket = self.hash_table.get_element(hkey)
-                if bucket is not None:
+                return bucket
+        except Exception as err:
+            self._handle_error(err)
 
+    def remove(self, key: T) -> Optional[T]:
+        """*remove()* elimina la entrada (pareja llave-valor) cuya llave sea igual a key dentro del SeparateChaining, si no existe una entrada con la llave key, devuelve None.
+
+        Args:
+            key (T): llave asociada a la entrada que se quiere eliminar.
+
+        Raises:
+            Exception: error si la estructura está vacía.
+            Exception: error si la entrada que se quiere eliminar no existe dentro del bucket
+
+        Returns:
+            Optional[T]: entrada (pareja llave-valor) que se eliminó del SeparateChaining, None si no existe la entrada asociada a la llave key.
+        """
+        try:
+            if self.is_empty():
+                raise Exception("The structure is empty")
+            else:
+                entry = None
+                # get the hash key for the element
+                hkey = hash_compress(key,
+                                     self._scale,
+                                     self._shift,
+                                     self.prime,
+                                     self.mcapacity)
+                # checking the bucket
+                bucket = self.hash_table.get_element(hkey)
+                if not bucket.is_empty():
                     idx = bucket.find(key)
-                    if idx > -1:
-                        bucket.delete_element(idx)
+                    if idx >= 0:
+                        entry = bucket.remove_element(idx)
                         self._size -= 1
-                        self._cur_alpha = self._size / self.capacity
+                        self._cur_alpha = self._size / self.mcapacity
+                    # TODO maybe i don't need this
+                    else:
+                        raise Exception(f"Entry for Key: {key} not found")
+            if self._cur_alpha < self.min_alpha:
+                self.rehash()
+            return entry
         except Exception as err:
             self._handle_error(err)
 
     def keys(self) -> ArrayList[T]:
-        """keys _summary_
+        """*keys()* devuelve una lista (ArrayList) con todas las llaves de las entradas (parejas llave-valor) del SeparateChaining.
 
         Returns:
-            ArrayList[T]: _description_
+            ArrayList[T]: lista (ArrayList) con todas las llaves del SeparateChaining.
         """
         try:
             keys_lt = ArrayList(cmp_function=self.cmp_function,
-                                   key=self.key)
+                                key=self.key)
             for bucket in self.hash_table:
                 print(bucket)
                 if not bucket.is_empty():
@@ -471,14 +534,14 @@ class SeparateChaining(Generic[T]):
             self._handle_error(err)
 
     def values(self) -> ArrayList[T]:
-        """values _summary_
+        """*values()* devuelve una lista (ArrayList) con todos los valores de las entradas (parejas llave-valor) del SeparateChaining.
 
         Returns:
-            ArrayList[T]: _description_
+            ArrayList[T]: lista (ArrayList) con todos los valores del SeparateChaining.
         """
         try:
             values_lt = ArrayList(cmp_function=self.cmp_function,
-                                     key=self.key)
+                                  key=self.key)
             for bucket in self.hash_table:
                 if not bucket.is_empty():
                     for entry in bucket:
@@ -488,407 +551,69 @@ class SeparateChaining(Generic[T]):
             self._handle_error(err)
 
     def entries(self) -> ArrayList[T]:
-        """entries _summary_
+        """*entries()* devuelve una lista (ArrayList) con todas las entradas (parejas llave-valor) del SeparateChaining.
 
         Returns:
-            ArrayList[T]: _description_
+            ArrayList[T]: lista (ArrayList) con todas las entradas del SeparateChaining.
         """
         try:
             items_lt = ArrayList(cmp_function=self.cmp_function,
-                                    key=self.key)
+                                 key=self.key)
             for bucket in self.hash_table:
                 if not bucket.is_empty():
                     for entry in bucket:
-                        items_lt.add_last(entry)
+                        data = (entry.get_key(), entry.get_value())
+                        items_lt.add_last(data)
             return items_lt
         except Exception as err:
             self._handle_error(err)
 
     def rehash(self) -> None:
-        """rehash _summary_
+        """*rehash()* reconstruye la tabla de hash con una nueva capacidad (M) y un nuevo factor de carga (alpha) según los límites establecidos por el usuario en los atributos *max_alpha* y *min_alpha*.
+
+        Si el factor de carga (alpha) es mayor que el límite superior (max_alpha), se duplica la capacidad (M) buscando el siguiente número primo y se reconstruye la tabla de hash.
+
+        Si el factor de carga (alpha) es menor que el límite inferior (min_alpha), se reduce a la mitad la capacidad (M) de la tabla de hash buscando el siguiente número primo y se reconstruye la tabla de hash.
         """
         try:
             # check if the structure is rehashable
             if self.rehashable:
-                # create a new hash table
-                new_table = ArrayList(cmp_function=self.cmp_function,
-                                      key=self.key)
-                # keep the old table
-                old_table = self.hash_table
-                # find the new capacity
-                new_capacity = next_prime(self.capacity * 2)
-                self.capacity = new_capacity
+                # find the new capacity according to limits
+                # augmenting the capacity
+                if self._cur_alpha >= self.max_alpha:
+                    new_capacity = next_prime(self.mcapacity * 2)
+                # reducing the capacity
+                elif self._cur_alpha < self.min_alpha:
+                    new_capacity = next_prime(self.mcapacity // 2)
+
+                # asigning the new capacity
+                self.mcapacity = new_capacity
 
                 # reseting the size, collisions and current load factor
                 self._size = 0
                 self._collisions = 0
                 self._cur_alpha = 0
 
-                # populate the new table with empty buckets
-                i = 0
-                while i < new_capacity:
-                    bucket = Bucket(cmp_function=self.cmp_function,
-                                    key=self.key)
-                    new_table.add_last(bucket)
-                    i += 1
+                # creating the new hash table
+                new_table = ArrayList(cmp_function=self.cmp_function,
+                                      key=self.key)
+                # keep in memory the old hash table
+                old_table = self.hash_table
+
+                # Create new table with empty buckets
+                new_table = ArrayList([Bucket(cmp_function=self.cmp_function,
+                                              key=self.key) for _ in range(self.mcapacity)])
+
                 # replace the old table with the new one
                 self.hash_table = new_table
+
                 # iterate over the old table
                 for bucket in old_table:
                     if not bucket.is_empty():
                         for entry in bucket:
                             key = entry.get_key()
                             value = entry.get_value()
-                            print(key, value)
+                            # print(key, value)
                             self.put(key, value)
         except Exception as err:
             self._handle_error(err)
-
-# GENERAL
-#FIXME Cambiar todas las funciones y variables al formato snake_case
-#TODO Explicar más a profundidad que tipo de excepciones y errores puede generar cada función
-
-#FIXME Modificar documentación relacionada a numelements
-def newMap(numelements, prime, loadfactor, cmpfunction, datastructure):
-    """Crea una tabla de simbolos (map) sin orden
-
-    Crea una tabla de hash con capacidad igual a nuelements
-    (primo mas cercano al doble de numelements).
-    prime es un número primo utilizado para  el cálculo de los codigos
-    de hash, si no es provisto se  utiliza el primo 109345121.
-
-    Args:
-        numelements: Tamaño inicial de la tabla
-        prime: Número primo utilizado en la función MAD
-        loadfactor: Factor de carga inicial de la tabla
-        cmpfunc: Funcion de comparación entre llaves
-    Returns:
-        Un nuevo map
-    Raises:
-        Exception
-    """
-    try:
-        capacity = nextPrime(numelements//loadfactor)
-        scale = rd.randint(1, prime-1)
-        shift = rd.randint(0, prime-1)
-        #FIXME Cambiar por dataclass para facilitar su modelado y manejo errores
-        hashtable = {'prime': prime,
-                     'capacity': capacity,
-                     'scale': scale,
-                     'shift': shift,
-                     'table': None,
-                     'size': 0,
-                     'limitfactor': loadfactor,
-                     'currentfactor': 0,
-                     'type': 'CHAINING',
-                     'datastructure': datastructure}
-        if(cmpfunction is None):
-            cmpfunc = defaultcompare
-        else:
-            cmpfunc = cmpfunction
-        hashtable['cmpfunction'] = cmpfunc
-        hashtable['table'] = lt.newList(datastructure='ARRAY_LIST',
-                                        cmpfunction=cmpfunc)
-        for _ in range(capacity):
-            bucket = lt.newList(datastructure='SINGLE_LINKED',
-                                cmpfunction=hashtable['cmpfunction'])
-            lt.addLast(hashtable['table'], bucket)
-        return hashtable
-    except Exception as exp:
-        # FIXME Ajustar mensaje de error para que sea más claro
-        error.reraise(exp, 'Chain:newMap')
-
-# #TODO Indicar en el retorno cuando es True y cuando es False, similar a la documentación de isEmpty
-# def contains(map, key):
-#     """ Retorna True si la llave key se encuentra en el map
-#         o False en caso contrario.
-#     Args:
-#         map: El map a donde se guarda la pareja
-#         key: la llave asociada a la pareja
-
-#     Returns:
-#         True / False
-#     Raises:
-#         Exception
-#     """
-#     try:
-#         hash = hashValue(map, key)
-#         bucket = lt.getElement(map['table'], hash)
-#         pos = lt.isPresent(bucket, key)
-#         if pos > 0:
-#             return True
-#         else:
-#             return False
-#     except Exception as exp:
-#         # FIXME Ajustar mensaje de error para que sea más claro
-#         error.reraise(exp, 'Chain:contains')
-
-
-def put(map, key, value):
-    """ Ingresa una pareja llave,valor a la tabla de hash.
-    Si la llave ya existe en la tabla, se reemplaza el valor
-
-    Args:
-        map: El map a donde se guarda la pareja
-        key: la llave asociada a la pareja
-        value: el valor asociado a la pareja
-    Returns:
-        El map
-    Raises:
-        Exception
-    """
-    try:
-        hash = hashValue(map, key)
-        bucket = lt.getElement(map['table'], hash)
-        entry = me.newMapEntry(key, value)
-        pos = lt.isPresent(bucket, key)
-        if pos > 0:    # La pareja ya exista, se reemplaza el valor
-            lt.changeInfo(bucket, pos, entry)
-        else:
-            lt.addLast(bucket, entry)   # La llave no existia
-            map['size'] += 1
-            map['currentfactor'] = map['size'] / map['capacity']
-
-        if (map['currentfactor'] >= map['limitfactor']):
-            rehash(map)
-
-        return map
-    except Exception as exp:
-        # FIXME Ajustar mensaje de error para que sea más claro
-        error.reraise(exp, 'Chain:put')
-
-# #TODO Indicar que la pareja llave valor es un mapentry
-# def get(map, key):
-#     """ Retorna la pareja llave, valor, cuya llave sea igual a key
-#     Args:
-#         map: El map a donde se guarda la pareja
-#         key: la llave asociada a la pareja
-
-#     Returns:
-#         Una pareja <llave,valor>
-#     Raises:
-#         Exception
-#     """
-#     try:
-#         hash = hashValue(map, key)
-#         bucket = lt.getElement(map['table'], hash)
-#         pos = lt.isPresent(bucket, key)
-#         if pos > 0:
-#             return lt.getElement(bucket, pos)
-#         else:
-#             return None
-#     except Exception as exp:
-#         # FIXME Ajustar mensaje de error para que sea más claro
-#         error.reraise(exp, 'Chain:get')
-
-# #TODO Modificar documentación para que sea similar a las demás funciones
-# def remove(map, key):
-#     """ Elimina la pareja llave,valor, donde llave == key.
-#     Args:
-#         map: El map a donde se guarda la pareja
-#         key: la llave asociada a la pareja
-
-#     Returns:
-#         El map
-#     Raises:
-#         Exception
-#     """
-#     try:
-#         hash = hashValue(map, key)
-#         bucket = lt.getElement(map['table'], hash)
-#         if (bucket is not None):
-#             pos = lt.isPresent(bucket, key)
-#             if pos > 0:
-#                 lt.deleteElement(bucket, pos)
-#                 map['size'] -= 1
-#         return map
-#     except Exception as exp:
-#         # FIXME Ajustar mensaje de error para que sea más claro
-#         error.reraise(exp, 'Chain:remove')
-
-
-# def size(map):
-#     """  Retorna  el número de entradas en la tabla de hash.
-#     Args:
-#         map: El map
-#     Returns:
-#         Tamaño del map
-#     Raises:
-#         Exception
-#     """
-#     return map['size']
-
-
-# def isEmpty(map):
-#     """ Informa si la tabla de hash se encuentra vacia
-#     Args:
-#         map: El map
-#     Returns:
-#         True: El map esta vacio
-#         False: El map no esta vacio
-#     Raises:
-#         Exception
-#     """
-#     try:
-#         bucket = lt.newList()
-#         empty = True
-#         for pos in range(lt.size(map['table'])):
-#             bucket = lt.getElement(map['table'], pos+1)
-#             if lt.isEmpty(bucket) is False:
-#                 empty = False
-#                 break
-#         return empty
-#     except Exception as exp:
-#         # FIXME Ajustar mensaje de error para que sea más claro
-#         error.reraise(exp, 'Chain:isempty')
-
-# #TODO Indicar que la lista es de DISCLib
-# def keySet(map):
-#     """
-#     Retorna una lista con todas las llaves de la tabla de hash
-
-#     Args:
-#         map: El map
-#     Returns:
-#         lista de llaves
-#     Raises:
-#         Exception
-#     """
-#     try:
-#         ltset = lt.newList('SINGLE_LINKED', map['cmpfunction'])
-#         for pos in range(lt.size(map['table'])):
-#             bucket = lt.getElement(map['table'], pos+1)
-#             if(not lt.isEmpty(bucket)):
-#                 for element in range(lt.size(bucket)):
-#                     entry = lt.getElement(bucket, element+1)
-#                     lt.addLast(ltset, entry['key'])
-#         return ltset
-#     except Exception as exp:
-#         # FIXME Ajustar mensaje de error para que sea más claro
-#         error.reraise(exp, 'Chain:keyset')
-
-# #TODO Indicar que la lista es de DISCLib
-# def valueSet(map):
-#     """
-#     Retorna una lista con todos los valores de la tabla de hash
-
-#     Args:
-#         map: El map
-#     Returns:
-#         lista de valores
-#     Raises:
-#         Exception
-#     """
-#     try:
-#         ltset = lt.newList('SINGLE_LINKED', map['cmpfunction'])
-#         for pos in range(lt.size(map['table'])):
-#             bucket = lt.getElement(map['table'], pos+1)
-#             if (not lt.isEmpty(bucket)):
-#                 for element in range(lt.size(bucket)):
-#                     entry = lt.getElement(bucket, element+1)
-#                     lt.addLast(ltset, entry['value'])
-#         return ltset
-#     except Exception as exp:
-#         # FIXME Ajustar mensaje de error para que sea más claro
-#         error.reraise(exp, 'Chain, valueset')
-
-
-# __________________________________________________________________
-#       Helper Functions
-# __________________________________________________________________
-
-#FIXME Agregar parametros, retorno y excepciones en la documentación.
-def rehash(map):
-    """
-    Se aumenta la capacida de la tabla al doble y se hace
-    rehash de todos los elementos de la tabla
-    """
-    try:
-        newtable = lt.newList('ARRAY_LIST', map['cmpfunction'])
-        capacity = nextPrime(map['capacity']*2)
-        oldtable = map['table']
-        for _ in range(capacity):
-            bucket = lt.newList(datastructure='SINGLE_LINKED',
-                                cmpfunction=map['cmpfunction'])
-            lt.addLast(newtable, bucket)
-        map['size'] = 0
-        map['currentfactor'] = 0
-        map['table'] = newtable
-        map['capacity'] = capacity
-        for pos in range(1, lt.size(oldtable)+1):
-            bucket = lt.getElement(oldtable, pos)
-            if (lt.size(bucket) > 0):
-                for posbucket in range(1, lt.size(bucket)+1):
-                    entry = lt.getElement(bucket, posbucket)
-                    put(map, entry['key'], entry['value'])
-        return map
-    except Exception as exp:
-        # FIXME Ajustar mensaje de error para que sea más claro
-        error.reraise(exp, "Chain:rehash")
-
-#FIXME Agregar parametros, retorno y excepciones en la documentación.
-def hashValue(table, key):
-    """
-    Calcula un hash para una llave, utilizando el método
-    MAD : hashValue(y) = ((ay + b) % p) % M.
-    Donde:
-    M es el tamaño de la tabla, primo
-    p es un primo mayor a M,
-    a y b enteros aleatoreos dentro del intervalo [0,p-1], con a>0
-    """
-    h = (hash(key))
-    a = table['scale']
-    b = table['shift']
-    p = table['prime']
-    m = table['capacity']
-    value = int((abs(a*h + b) % p) % m) + 1
-    return value
-
-
-# Function that returns True if n
-# is prime else returns False
-# This code is contributed by Sanjit_Prasad
-
-#FIXME Agregar documentación para que siga el formato que las demás funciones.
-def isPrime(n):
-    # Corner cases
-    if(n <= 1):
-        return False
-    if(n <= 3):
-        return True
-
-    if(n % 2 == 0 or n % 3 == 0):
-        return False
-
-    for i in range(5, int(math.sqrt(n) + 1), 6):
-        if(n % i == 0 or n % (i + 2) == 0):
-            return False
-
-    return True
-
-
-# Function to return the smallest
-# prime number greater than N
-# # This code is contributed by Sanjit_Prasad
-#FIXME Agregar documentación para que siga el formato que las demás funciones.
-def nextPrime(N):
-    # Base case
-    if (N <= 1):
-        return 2
-    prime = int(N)
-    found = False
-    # Loop continuously until isPrime returns
-    # True for a number greater than n
-    while(not found):
-        prime = prime + 1
-        if(isPrime(prime) is True):
-            found = True
-    return int(prime)
-
-#FIXME Agregar documentación para que siga el formato que las demás funciones.
-def defaultcompare(key, element):
-    if(key == element['key']):
-        return 0
-    elif(key > element['key']):
-        return 1
-    return -1

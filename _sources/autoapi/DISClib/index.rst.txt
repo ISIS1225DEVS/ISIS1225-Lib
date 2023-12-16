@@ -322,7 +322,7 @@ Attributes
    :rtype: int
 
 
-.. py:function:: hash_compress(key: DISClib.Utils.default.T, scale: int, shift: int, prime: int, capacity: int) -> int
+.. py:function:: hash_compress(key: DISClib.Utils.default.T, scale: int, shift: int, prime: int, mcapacity: int) -> int
 
    *hash_compress()* función de compresión para los índices de las tablas de Hash utilizando el método MAD (Multiply-Add-and-Divide).
    MAD se define como: hash_compress(y) = ((a*y + b) % p) % M, donde:
@@ -338,8 +338,8 @@ Attributes
    :type shift: int
    :param prime: número  primo mucho mayor a la capacidad de la tabla de Hash.
    :type prime: int
-   :param capacity: tamaño de la tabla de Hash, es un número primo para evitar colisiones.
-   :type capacity: int
+   :param mcapacity: tamaño de la tabla de Hash, es un número primo para evitar colisiones.
+   :type mcapacity: int
 
    :returns: el índice del elemento en la tabla de Hash.
    :rtype: int

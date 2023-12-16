@@ -104,10 +104,13 @@
 <span class="kn">from</span> <span class="nn">DISClib.DataStructures.mapentry</span> <span class="kn">import</span> <span class="n">MapEntry</span>
 <span class="kn">from</span> <span class="nn">DISClib.DataStructures.arraylist</span> <span class="kn">import</span> <span class="n">ArrayList</span>
 <span class="kn">from</span> <span class="nn">DISClib.DataStructures.singlelinkedlist</span> <span class="kn">import</span> <span class="n">SingleLinked</span>
+<span class="c1"># util functions for the hash table</span>
 <span class="kn">from</span> <span class="nn">DISClib.Utils.numbers</span> <span class="kn">import</span> <span class="n">next_prime</span>
 <span class="kn">from</span> <span class="nn">DISClib.Utils.numbers</span> <span class="kn">import</span> <span class="n">hash_compress</span>
 <span class="kn">from</span> <span class="nn">DISClib.Utils.error</span> <span class="kn">import</span> <span class="n">error_handler</span>
+<span class="c1"># default cmp function for the hash table</span>
 <span class="kn">from</span> <span class="nn">DISClib.Utils.default</span> <span class="kn">import</span> <span class="n">ht_default_cmp_funcion</span>
+<span class="c1"># default data type for the hash table</span>
 <span class="kn">from</span> <span class="nn">DISClib.Utils.default</span> <span class="kn">import</span> <span class="n">T</span>
 <span class="kn">from</span> <span class="nn">DISClib.Utils.default</span> <span class="kn">import</span> <span class="n">VALID_DATA_TYPE_LT</span>
 <span class="kn">from</span> <span class="nn">DISClib.Utils.default</span> <span class="kn">import</span> <span class="n">DEFAULT_DICT_KEY</span>
@@ -135,6 +138,27 @@
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashtable/index.html#DISClib.DataStructures.chaininghashtable.DEFAULT_CHAINING_ALPHA">[documentos]</a>
 <span class="n">DEFAULT_CHAINING_ALPHA</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">4.0</span></div>
 
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Factor de carga (alpha) por defecto e ideal para el SeparateChaining, por defecto es 4.0.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># :data: MAX_CHAINING_ALPHA</span>
+<div class="viewcode-block" id="MAX_CHAINING_ALPHA">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashtable/index.html#DISClib.DataStructures.chaininghashtable.MAX_CHAINING_ALPHA">[documentos]</a>
+<span class="n">MAX_CHAINING_ALPHA</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">8.0</span></div>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Factor de carga (alpha) máximo para el SeparateChaining, por defecto es 8.0.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># :data: MIN_CHAINING_ALPHA</span>
+<div class="viewcode-block" id="MIN_CHAINING_ALPHA">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashtable/index.html#DISClib.DataStructures.chaininghashtable.MIN_CHAINING_ALPHA">[documentos]</a>
+<span class="n">MIN_CHAINING_ALPHA</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">2.0</span></div>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Factor de carga (alpha) mínimo para el SeparateChaining, por defecto es 2.0.</span>
+<span class="sd">&quot;&quot;&quot;</span>
 
 
 <span class="nd">@dataclass</span>
@@ -147,6 +171,7 @@
 <span class="sd">        SingleLinked (T): Lista sencillamente encadenada que representa un bucket de una tabla de hash con el método de encadenamiento por separación (Separate Chaining).</span>
 <span class="sd">        Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para representar una estructura de datos genérica en python.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># the same as ..</span>
     <span class="k">pass</span></div>
 
 
@@ -166,7 +191,7 @@
 <span class="sd">    Returns:</span>
 <span class="sd">        SeparateChaining: ADT de tipo SeparateChaining o tabla de hash con separación por encadenamiento.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># input elements from python list</span>
+    <span class="c1"># input tuples from python list</span>
     <span class="c1"># :attr: iodata</span>
 <div class="viewcode-block" id="SeparateChaining.iodata">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashtable/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.iodata">[documentos]</a>
@@ -177,13 +202,13 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># reserved space for the hash table</span>
-    <span class="c1"># :attr: N</span>
-<div class="viewcode-block" id="SeparateChaining.elements">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashtable/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.elements">[documentos]</a>
-    <span class="n">elements</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span></div>
+    <span class="c1"># :attr: nentries</span>
+<div class="viewcode-block" id="SeparateChaining.nentries">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashtable/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.nentries">[documentos]</a>
+    <span class="n">nentries</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Es el espacio reservado para la tabla de hash (n), por defecto es 1, pero debe configurarse según el número de elementos que se espera almacenar.</span>
+<span class="sd">    Es el espacio reservado para la tabla de hash (n), por defecto es 1, pero debe configurarse según el número de entradas que se espera almacenar.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># starting load factor (alpha) for the hash table</span>
@@ -206,7 +231,7 @@
 <span class="sd">    Es el número primo (P) utilizado para calcular el código hash de la llave con la función de compresión MAD, por defecto es 109345121.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="c1"># actual place to store the elements in the hash table</span>
+    <span class="c1"># actual place to store the entries in the hash table</span>
     <span class="c1"># :attr: hash_table</span>
 <div class="viewcode-block" id="SeparateChaining.hash_table">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashtable/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.hash_table">[documentos]</a>
@@ -227,17 +252,17 @@
 <span class="sd">    Es un booleano que indica si la tabla de hash se puede reconstruir utilizando el método de rehash, por defecto es True.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="c1"># starting capacity (M) for the hash table</span>
-    <span class="c1"># :attr: capacity</span>
-<div class="viewcode-block" id="SeparateChaining.capacity">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashtable/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.capacity">[documentos]</a>
-    <span class="n">capacity</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span></div>
+    <span class="c1"># starting capacity (M|m) for the hash table</span>
+    <span class="c1"># :attr: mcapacity</span>
+<div class="viewcode-block" id="SeparateChaining.mcapacity">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashtable/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.mcapacity">[documentos]</a>
+    <span class="n">mcapacity</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Es la capacidad (M) con la que se inicializa la tabla de hash.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="c1"># actual number of elements (n) in the hash table</span>
+    <span class="c1"># actual number of used entries (n) in the hash table</span>
     <span class="c1"># FIXME inconsistent use of _size and size()</span>
     <span class="c1"># :attr: _size</span>
 <div class="viewcode-block" id="SeparateChaining._size">
@@ -277,16 +302,7 @@
 <span class="sd">    Es el número utilizado para calcular el código hash de la llave.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="c1"># optional limit load factor (alpha) for rehashing</span>
-    <span class="c1"># :attr: _limit_alpha</span>
-<div class="viewcode-block" id="SeparateChaining._limit_alpha">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashtable/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining._limit_alpha">[documentos]</a>
-    <span class="n">_limit_alpha</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span></div>
-
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Es el factor de carga limite antes de hacer rehash.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># optional current factor (alpha) for the working hash table</span>
+    <span class="c1"># current factor (alpha) for the working hash table</span>
     <span class="c1"># :attr: _cur_alpha</span>
 <div class="viewcode-block" id="SeparateChaining._cur_alpha">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashtable/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining._cur_alpha">[documentos]</a>
@@ -296,7 +312,27 @@
 <span class="sd">    Es el factor de carga actual de la tabla de hash.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="c1"># the type of the elements in the hash table</span>
+    <span class="c1"># maximum load factor (alpha) for the hash table</span>
+    <span class="c1"># :attr: max_alpha</span>
+<div class="viewcode-block" id="SeparateChaining.max_alpha">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashtable/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.max_alpha">[documentos]</a>
+    <span class="n">max_alpha</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="n">MAX_CHAINING_ALPHA</span></div>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Es el factor de carga máximo de la tabla de hash, por defecto es 8.0.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># minimum load factor (alpha) for the hash table</span>
+    <span class="c1"># :attr: min_alpha</span>
+<div class="viewcode-block" id="SeparateChaining.min_alpha">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashtable/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.min_alpha">[documentos]</a>
+    <span class="n">min_alpha</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="n">MIN_CHAINING_ALPHA</span></div>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Es el factor de carga mínimo de la tabla de hash, por defecto es 2.0.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># the type of the entries in the hash table</span>
     <span class="c1"># :attr: _data_type</span>
 <div class="viewcode-block" id="SeparateChaining._data_type">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashtable/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining._data_type">[documentos]</a>
@@ -306,35 +342,35 @@
 <span class="sd">    Es el tipo de dato de los elementos que contiene la tabla de hash, por defecto es &#39;None&#39; y se configura al cargar el primer elemento en el mapa.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="c1"># the cmp_function is used to compare elements, not defined by default</span>
+    <span class="c1"># the cmp_function is used to compare emtries, not defined by default</span>
     <span class="c1"># :attr: cmp_function</span>
 <div class="viewcode-block" id="SeparateChaining.cmp_function">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashtable/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.cmp_function">[documentos]</a>
     <span class="n">cmp_function</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">[[</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="p">],</span> <span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Función de comparación opcional que se utiliza para comparar los elementos del SeparateChaining, por defecto es &#39;None&#39; y el __post_init__ configura la función por defecto lt_default_cmp_funcion().</span>
+<span class="sd">    Función de comparación opcional que se utiliza para comparar los elementos del SeparateChaining, por defecto es &#39;None&#39; y el *__post_init__()* configura la función por defecto *ht_default_cmp_funcion()*.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="c1"># the key is used to compare elements, not defined by default</span>
+    <span class="c1"># the key is used to compare entries, not defined by default</span>
     <span class="c1"># :attr: key</span>
 <div class="viewcode-block" id="SeparateChaining.key">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashtable/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.key">[documentos]</a>
     <span class="n">key</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Nombre de la llave opcional que se utiliza para comparar los elementos del SeparateChaining, Por defecto es &#39;None&#39; y el __post_init__ configura la llave por defecto la llave &#39;id&#39; en DEFAULT_DICT_KEY.</span>
+<span class="sd">    Nombre de la llave opcional que se utiliza para comparar los elementos del SeparateChaining, Por defecto es &#39;None&#39; y el __post_init__ configura la llave por defecto la llave &#39;id&#39; en *DEFAULT_DICT_KEY*.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="SeparateChaining.__post_init__">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.__post_init__">[documentos]</a>
     <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;__post_init__ _summary_</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*__post_init__()* configura los valores por defecto de la estructura SeparateChaining después de la inicialización de la misma. Configura los factores de carga (alpha), el número primo (P) para la función de compresión MAD, la capacidad (M) de la tabla de hash, la función de comparación y la llave para comparar los elementos del SeparateChaining, y finalmente inicializa la tabla de hash con la capacidad (M) configurada.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># TODO check if this is the best way make the initialization</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="c1"># setting capacity</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">capacity</span> <span class="o">=</span> <span class="n">next_prime</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">elements</span> <span class="o">//</span> <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span> <span class="o">=</span> <span class="n">next_prime</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nentries</span> <span class="o">//</span> <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span><span class="p">)</span>
             <span class="c1"># setting scale and shift for MAD compression function</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_scale</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">prime</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_shift</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">prime</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
@@ -344,15 +380,12 @@
             <span class="c1"># setting the default key</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">key</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">key</span> <span class="o">=</span> <span class="n">DEFAULT_DICT_KEY</span>
-            <span class="c1"># setting the default limit factor</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_limit_alpha</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_limit_alpha</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span>
 
             <span class="c1"># initializing the hash table</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span> <span class="o">=</span> <span class="n">ArrayList</span><span class="p">()</span>
             <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
             <span class="c1"># bulding buckets in the hash table</span>
-            <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">capacity</span><span class="p">:</span>
+            <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span><span class="p">:</span>
                 <span class="n">bucket</span> <span class="o">=</span> <span class="n">Bucket</span><span class="p">(</span><span class="n">cmp_function</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cmp_function</span><span class="p">,</span>
                                 <span class="n">key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">bucket</span><span class="p">)</span>
@@ -360,7 +393,7 @@
 
             <span class="c1"># setting the current load factor</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cur_alpha</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_cur_alpha</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">capacity</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_cur_alpha</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span>
 
             <span class="c1"># TODO check if this is the best way to initialize the structure</span>
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">iodata</span><span class="p">,</span> <span class="n">VALID_IO_TYPE</span><span class="p">):</span>
@@ -375,11 +408,10 @@
 <div class="viewcode-block" id="SeparateChaining.default_cmp_function">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.default_cmp_function">[documentos]</a>
     <span class="k">def</span> <span class="nf">default_cmp_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key1</span><span class="p">,</span> <span class="n">entry2</span><span class="p">:</span> <span class="n">MapEntry</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*default_cmp_function()* procesa la llave existente en el elemento del &#39;SeparateChaining&#39; y la compara con el elemento que se quiere agregar al &#39;SeparateChaining&#39;.</span>
-
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*default_cmp_function()* procesa la llave existente en la entrada del SeparateChaining y la compara con la llave del a entrada que se quiere agregar al SeparateChaining.</span>
 <span class="sd">        Args:</span>
-<span class="sd">            key1 (Any): llave del primer elemento a comparar.</span>
-<span class="sd">            entry2 (MapEntry): entrada del mapa del segundo elemento a comparar.</span>
+<span class="sd">            key1 (Any): llave de la primera entrada a comparar.</span>
+<span class="sd">            entry2 (MapEntry): segunda entrada (par llave-valor) a comparar.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            int: respuesta de la comparación entre los elementos, 0 si las llaves son iguales, 1 si key1 es mayor que la llave de entry2, -1 si key1 es menor.</span>
@@ -490,7 +522,7 @@
                                  <span class="bp">self</span><span class="o">.</span><span class="n">_scale</span><span class="p">,</span>
                                  <span class="bp">self</span><span class="o">.</span><span class="n">_shift</span><span class="p">,</span>
                                  <span class="bp">self</span><span class="o">.</span><span class="n">prime</span><span class="p">,</span>
-                                 <span class="bp">self</span><span class="o">.</span><span class="n">capacity</span><span class="p">)</span>
+                                 <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span><span class="p">)</span>
             <span class="c1"># look into the bucket</span>
             <span class="n">bucket</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">hkey</span><span class="p">)</span>
             <span class="n">idx</span> <span class="o">=</span> <span class="n">bucket</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
@@ -505,14 +537,14 @@
 <div class="viewcode-block" id="SeparateChaining.put">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.put">[documentos]</a>
     <span class="k">def</span> <span class="nf">put</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;put _summary_</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*put()* agrega una entrada (pareja llave-valor) al SeparateChaining, si la llave ya existe en el SeparateChaining, se reemplaza el valor.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            key (T): _description_</span>
-<span class="sd">            value (T): _description_</span>
+<span class="sd">            key (T): llave asociada a la nueva entrada.</span>
+<span class="sd">            value (T): el valor asociado a la nueva entrada.</span>
 
 <span class="sd">        Raises:</span>
-<span class="sd">            Exception: _description_</span>
+<span class="sd">            Exception: si el indice de la entrada en el mapa está fuera de los limites establecidos, se genera un error.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="c1"># create a new entry for the element</span>
@@ -522,11 +554,11 @@
                                  <span class="bp">self</span><span class="o">.</span><span class="n">_scale</span><span class="p">,</span>
                                  <span class="bp">self</span><span class="o">.</span><span class="n">_shift</span><span class="p">,</span>
                                  <span class="bp">self</span><span class="o">.</span><span class="n">prime</span><span class="p">,</span>
-                                 <span class="bp">self</span><span class="o">.</span><span class="n">capacity</span><span class="p">)</span>
+                                 <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span><span class="p">)</span>
             <span class="c1"># TODO do i need this?</span>
-            <span class="k">if</span> <span class="n">hkey</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">hkey</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">capacity</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">hkey</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">hkey</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span><span class="p">:</span>
                 <span class="n">err_msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;The hash for the key: </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&quot;</span>
-                <span class="n">err_msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;is out of range fo capacity: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">capacity</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="n">err_msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;is out of range fo capacity: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span><span class="si">}</span><span class="s2">&quot;</span>
                 <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">err_msg</span><span class="p">)</span>
             <span class="c1"># checking the bucket</span>
             <span class="n">bucket</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">hkey</span><span class="p">)</span>
@@ -540,9 +572,9 @@
                     <span class="bp">self</span><span class="o">.</span><span class="n">_collisions</span> <span class="o">+=</span> <span class="mi">1</span>
                 <span class="n">bucket</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">new_entry</span><span class="p">)</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">+=</span> <span class="mi">1</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_cur_alpha</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">capacity</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_cur_alpha</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span>
             <span class="c1"># check if the structure needs to be rehashed</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cur_alpha</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_limit_alpha</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cur_alpha</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_alpha</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">rehash</span><span class="p">()</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
@@ -551,16 +583,16 @@
 <div class="viewcode-block" id="SeparateChaining.get">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.get">[documentos]</a>
     <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;get _summary_</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*get()* devuelve la entrada (pareja llave-valor) cuya llave sea igual a key dentro del SeparateChaining, si no existe una entrada con la llave key, devuelve None.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            key (T): _description_</span>
+<span class="sd">            key (T): llave asociada a la entrada que se quiere buscar.</span>
 
 <span class="sd">        Raises:</span>
-<span class="sd">            Exception: _description_</span>
+<span class="sd">            Exception: error si la estructura está vacía.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            Optional[T]: _description_</span>
+<span class="sd">            Optional[T]: entrada (pareja llave-valor) con la llave igual a key dentro del SeparateChaining, None si no existe la entrada asociada a la llave key.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
@@ -573,7 +605,7 @@
                                      <span class="bp">self</span><span class="o">.</span><span class="n">_scale</span><span class="p">,</span>
                                      <span class="bp">self</span><span class="o">.</span><span class="n">_shift</span><span class="p">,</span>
                                      <span class="bp">self</span><span class="o">.</span><span class="n">prime</span><span class="p">,</span>
-                                     <span class="bp">self</span><span class="o">.</span><span class="n">capacity</span><span class="p">)</span>
+                                     <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span><span class="p">)</span>
                 <span class="c1"># checking the bucket</span>
                 <span class="n">bucket</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">hkey</span><span class="p">)</span>
                 <span class="n">idx</span> <span class="o">=</span> <span class="n">bucket</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
@@ -585,36 +617,79 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="SeparateChaining.remove">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.remove">[documentos]</a>
-    <span class="k">def</span> <span class="nf">remove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;remove _summary_</span>
+<div class="viewcode-block" id="SeparateChaining.check_bucket">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.check_bucket">[documentos]</a>
+    <span class="k">def</span> <span class="nf">check_bucket</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*check_bucket()* devuelve el bucket asociado a la llave key dentro del SeparateChaining, si no existe una entrada con la llave key, devuelve None.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            key (T): _description_</span>
+<span class="sd">            key (T): llave asociada al bucket que se quiere buscar.</span>
 
 <span class="sd">        Raises:</span>
-<span class="sd">            Exception: _description_</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">            Exception: error si la estructura está vacía.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Optional[T]: bucket asociado a la llave key dentro del SeparateChaining, None si no existe la entrada asociada a la llave key.</span>
+<span class="sd">        &quot;&quot;&quot;</span>        
         <span class="k">try</span><span class="p">:</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
                 <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;The structure is empty&quot;</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># assume the element is not in the structure</span>
+                <span class="n">bucket</span> <span class="o">=</span> <span class="kc">None</span>
                 <span class="c1"># get the hash key for the element</span>
                 <span class="n">hkey</span> <span class="o">=</span> <span class="n">hash_compress</span><span class="p">(</span><span class="n">key</span><span class="p">,</span>
                                      <span class="bp">self</span><span class="o">.</span><span class="n">_scale</span><span class="p">,</span>
                                      <span class="bp">self</span><span class="o">.</span><span class="n">_shift</span><span class="p">,</span>
                                      <span class="bp">self</span><span class="o">.</span><span class="n">prime</span><span class="p">,</span>
-                                     <span class="bp">self</span><span class="o">.</span><span class="n">capacity</span><span class="p">)</span>
+                                     <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span><span class="p">)</span>
                 <span class="c1"># checking the bucket</span>
                 <span class="n">bucket</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">hkey</span><span class="p">)</span>
-                <span class="k">if</span> <span class="n">bucket</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">bucket</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
 
+
+<div class="viewcode-block" id="SeparateChaining.remove">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.remove">[documentos]</a>
+    <span class="k">def</span> <span class="nf">remove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*remove()* elimina la entrada (pareja llave-valor) cuya llave sea igual a key dentro del SeparateChaining, si no existe una entrada con la llave key, devuelve None.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            key (T): llave asociada a la entrada que se quiere eliminar.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            Exception: error si la estructura está vacía.</span>
+<span class="sd">            Exception: error si la entrada que se quiere eliminar no existe dentro del bucket</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Optional[T]: entrada (pareja llave-valor) que se eliminó del SeparateChaining, None si no existe la entrada asociada a la llave key.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
+                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;The structure is empty&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">entry</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="c1"># get the hash key for the element</span>
+                <span class="n">hkey</span> <span class="o">=</span> <span class="n">hash_compress</span><span class="p">(</span><span class="n">key</span><span class="p">,</span>
+                                     <span class="bp">self</span><span class="o">.</span><span class="n">_scale</span><span class="p">,</span>
+                                     <span class="bp">self</span><span class="o">.</span><span class="n">_shift</span><span class="p">,</span>
+                                     <span class="bp">self</span><span class="o">.</span><span class="n">prime</span><span class="p">,</span>
+                                     <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span><span class="p">)</span>
+                <span class="c1"># checking the bucket</span>
+                <span class="n">bucket</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">hkey</span><span class="p">)</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">bucket</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
                     <span class="n">idx</span> <span class="o">=</span> <span class="n">bucket</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-                    <span class="k">if</span> <span class="n">idx</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
-                        <span class="n">bucket</span><span class="o">.</span><span class="n">delete_element</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">idx</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="n">entry</span> <span class="o">=</span> <span class="n">bucket</span><span class="o">.</span><span class="n">remove_element</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
                         <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">-=</span> <span class="mi">1</span>
-                        <span class="bp">self</span><span class="o">.</span><span class="n">_cur_alpha</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">capacity</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_cur_alpha</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span>
+                    <span class="c1"># TODO maybe i don&#39;t need this</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Entry for Key: </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> not found&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cur_alpha</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">min_alpha</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">rehash</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">entry</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
 
@@ -622,14 +697,14 @@
 <div class="viewcode-block" id="SeparateChaining.keys">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.keys">[documentos]</a>
     <span class="k">def</span> <span class="nf">keys</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ArrayList</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;keys _summary_</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*keys()* devuelve una lista (ArrayList) con todas las llaves de las entradas (parejas llave-valor) del SeparateChaining.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            ArrayList[T]: _description_</span>
+<span class="sd">            ArrayList[T]: lista (ArrayList) con todas las llaves del SeparateChaining.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">keys_lt</span> <span class="o">=</span> <span class="n">ArrayList</span><span class="p">(</span><span class="n">cmp_function</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cmp_function</span><span class="p">,</span>
-                                   <span class="n">key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
+                                <span class="n">key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
             <span class="k">for</span> <span class="n">bucket</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span><span class="n">bucket</span><span class="p">)</span>
                 <span class="k">if</span> <span class="ow">not</span> <span class="n">bucket</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
@@ -644,14 +719,14 @@
 <div class="viewcode-block" id="SeparateChaining.values">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.values">[documentos]</a>
     <span class="k">def</span> <span class="nf">values</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ArrayList</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;values _summary_</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*values()* devuelve una lista (ArrayList) con todos los valores de las entradas (parejas llave-valor) del SeparateChaining.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            ArrayList[T]: _description_</span>
+<span class="sd">            ArrayList[T]: lista (ArrayList) con todos los valores del SeparateChaining.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">values_lt</span> <span class="o">=</span> <span class="n">ArrayList</span><span class="p">(</span><span class="n">cmp_function</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cmp_function</span><span class="p">,</span>
-                                     <span class="n">key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
+                                  <span class="n">key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
             <span class="k">for</span> <span class="n">bucket</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="p">:</span>
                 <span class="k">if</span> <span class="ow">not</span> <span class="n">bucket</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
                     <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">bucket</span><span class="p">:</span>
@@ -664,18 +739,19 @@
 <div class="viewcode-block" id="SeparateChaining.entries">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.entries">[documentos]</a>
     <span class="k">def</span> <span class="nf">entries</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ArrayList</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;entries _summary_</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*entries()* devuelve una lista (ArrayList) con todas las entradas (parejas llave-valor) del SeparateChaining.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            ArrayList[T]: _description_</span>
+<span class="sd">            ArrayList[T]: lista (ArrayList) con todas las entradas del SeparateChaining.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">items_lt</span> <span class="o">=</span> <span class="n">ArrayList</span><span class="p">(</span><span class="n">cmp_function</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cmp_function</span><span class="p">,</span>
-                                    <span class="n">key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
+                                 <span class="n">key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
             <span class="k">for</span> <span class="n">bucket</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="p">:</span>
                 <span class="k">if</span> <span class="ow">not</span> <span class="n">bucket</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
                     <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">bucket</span><span class="p">:</span>
-                        <span class="n">items_lt</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+                        <span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">entry</span><span class="o">.</span><span class="n">get_key</span><span class="p">(),</span> <span class="n">entry</span><span class="o">.</span><span class="n">get_value</span><span class="p">())</span>
+                        <span class="n">items_lt</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">items_lt</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
@@ -684,415 +760,55 @@
 <div class="viewcode-block" id="SeparateChaining.rehash">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.rehash">[documentos]</a>
     <span class="k">def</span> <span class="nf">rehash</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;rehash _summary_</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*rehash()* reconstruye la tabla de hash con una nueva capacidad (M) y un nuevo factor de carga (alpha) según los límites establecidos por el usuario en los atributos *max_alpha* y *min_alpha*.</span>
+
+<span class="sd">        Si el factor de carga (alpha) es mayor que el límite superior (max_alpha), se duplica la capacidad (M) buscando el siguiente número primo y se reconstruye la tabla de hash.</span>
+
+<span class="sd">        Si el factor de carga (alpha) es menor que el límite inferior (min_alpha), se reduce a la mitad la capacidad (M) de la tabla de hash buscando el siguiente número primo y se reconstruye la tabla de hash.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="c1"># check if the structure is rehashable</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rehashable</span><span class="p">:</span>
-                <span class="c1"># create a new hash table</span>
-                <span class="n">new_table</span> <span class="o">=</span> <span class="n">ArrayList</span><span class="p">(</span><span class="n">cmp_function</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cmp_function</span><span class="p">,</span>
-                                      <span class="n">key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
-                <span class="c1"># keep the old table</span>
-                <span class="n">old_table</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span>
-                <span class="c1"># find the new capacity</span>
-                <span class="n">new_capacity</span> <span class="o">=</span> <span class="n">next_prime</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">capacity</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">capacity</span> <span class="o">=</span> <span class="n">new_capacity</span>
+                <span class="c1"># find the new capacity according to limits</span>
+                <span class="c1"># augmenting the capacity</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cur_alpha</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_alpha</span><span class="p">:</span>
+                    <span class="n">new_capacity</span> <span class="o">=</span> <span class="n">next_prime</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+                <span class="c1"># reducing the capacity</span>
+                <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cur_alpha</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">min_alpha</span><span class="p">:</span>
+                    <span class="n">new_capacity</span> <span class="o">=</span> <span class="n">next_prime</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
+
+                <span class="c1"># asigning the new capacity</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span> <span class="o">=</span> <span class="n">new_capacity</span>
 
                 <span class="c1"># reseting the size, collisions and current load factor</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">=</span> <span class="mi">0</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_collisions</span> <span class="o">=</span> <span class="mi">0</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_cur_alpha</span> <span class="o">=</span> <span class="mi">0</span>
 
-                <span class="c1"># populate the new table with empty buckets</span>
-                <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-                <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">new_capacity</span><span class="p">:</span>
-                    <span class="n">bucket</span> <span class="o">=</span> <span class="n">Bucket</span><span class="p">(</span><span class="n">cmp_function</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cmp_function</span><span class="p">,</span>
-                                    <span class="n">key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
-                    <span class="n">new_table</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">bucket</span><span class="p">)</span>
-                    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="c1"># creating the new hash table</span>
+                <span class="n">new_table</span> <span class="o">=</span> <span class="n">ArrayList</span><span class="p">(</span><span class="n">cmp_function</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cmp_function</span><span class="p">,</span>
+                                      <span class="n">key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
+                <span class="c1"># keep in memory the old hash table</span>
+                <span class="n">old_table</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span>
+
+                <span class="c1"># Create new table with empty buckets</span>
+                <span class="n">new_table</span> <span class="o">=</span> <span class="n">ArrayList</span><span class="p">([</span><span class="n">Bucket</span><span class="p">(</span><span class="n">cmp_function</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cmp_function</span><span class="p">,</span>
+                                              <span class="n">key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span><span class="p">)])</span>
+
                 <span class="c1"># replace the old table with the new one</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span> <span class="o">=</span> <span class="n">new_table</span>
+
                 <span class="c1"># iterate over the old table</span>
                 <span class="k">for</span> <span class="n">bucket</span> <span class="ow">in</span> <span class="n">old_table</span><span class="p">:</span>
                     <span class="k">if</span> <span class="ow">not</span> <span class="n">bucket</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
                         <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">bucket</span><span class="p">:</span>
                             <span class="n">key</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get_key</span><span class="p">()</span>
                             <span class="n">value</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get_value</span><span class="p">()</span>
-                            <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+                            <span class="c1"># print(key, value)</span>
                             <span class="bp">self</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
 </div>
-
-
-<span class="c1"># GENERAL</span>
-<span class="c1">#FIXME Cambiar todas las funciones y variables al formato snake_case</span>
-<span class="c1">#TODO Explicar más a profundidad que tipo de excepciones y errores puede generar cada función</span>
-
-<span class="c1">#FIXME Modificar documentación relacionada a numelements</span>
-<div class="viewcode-block" id="newMap">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashtable/index.html#DISClib.DataStructures.chaininghashtable.newMap">[documentos]</a>
-<span class="k">def</span> <span class="nf">newMap</span><span class="p">(</span><span class="n">numelements</span><span class="p">,</span> <span class="n">prime</span><span class="p">,</span> <span class="n">loadfactor</span><span class="p">,</span> <span class="n">cmpfunction</span><span class="p">,</span> <span class="n">datastructure</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Crea una tabla de simbolos (map) sin orden</span>
-
-<span class="sd">    Crea una tabla de hash con capacidad igual a nuelements</span>
-<span class="sd">    (primo mas cercano al doble de numelements).</span>
-<span class="sd">    prime es un número primo utilizado para  el cálculo de los codigos</span>
-<span class="sd">    de hash, si no es provisto se  utiliza el primo 109345121.</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        numelements: Tamaño inicial de la tabla</span>
-<span class="sd">        prime: Número primo utilizado en la función MAD</span>
-<span class="sd">        loadfactor: Factor de carga inicial de la tabla</span>
-<span class="sd">        cmpfunc: Funcion de comparación entre llaves</span>
-<span class="sd">    Returns:</span>
-<span class="sd">        Un nuevo map</span>
-<span class="sd">    Raises:</span>
-<span class="sd">        Exception</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">capacity</span> <span class="o">=</span> <span class="n">nextPrime</span><span class="p">(</span><span class="n">numelements</span><span class="o">//</span><span class="n">loadfactor</span><span class="p">)</span>
-        <span class="n">scale</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">prime</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">shift</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">prime</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-        <span class="c1">#FIXME Cambiar por dataclass para facilitar su modelado y manejo errores</span>
-        <span class="n">hashtable</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;prime&#39;</span><span class="p">:</span> <span class="n">prime</span><span class="p">,</span>
-                     <span class="s1">&#39;capacity&#39;</span><span class="p">:</span> <span class="n">capacity</span><span class="p">,</span>
-                     <span class="s1">&#39;scale&#39;</span><span class="p">:</span> <span class="n">scale</span><span class="p">,</span>
-                     <span class="s1">&#39;shift&#39;</span><span class="p">:</span> <span class="n">shift</span><span class="p">,</span>
-                     <span class="s1">&#39;table&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
-                     <span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-                     <span class="s1">&#39;limitfactor&#39;</span><span class="p">:</span> <span class="n">loadfactor</span><span class="p">,</span>
-                     <span class="s1">&#39;currentfactor&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-                     <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;CHAINING&#39;</span><span class="p">,</span>
-                     <span class="s1">&#39;datastructure&#39;</span><span class="p">:</span> <span class="n">datastructure</span><span class="p">}</span>
-        <span class="k">if</span><span class="p">(</span><span class="n">cmpfunction</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
-            <span class="n">cmpfunc</span> <span class="o">=</span> <span class="n">defaultcompare</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">cmpfunc</span> <span class="o">=</span> <span class="n">cmpfunction</span>
-        <span class="n">hashtable</span><span class="p">[</span><span class="s1">&#39;cmpfunction&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cmpfunc</span>
-        <span class="n">hashtable</span><span class="p">[</span><span class="s1">&#39;table&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">newList</span><span class="p">(</span><span class="n">datastructure</span><span class="o">=</span><span class="s1">&#39;ARRAY_LIST&#39;</span><span class="p">,</span>
-                                        <span class="n">cmpfunction</span><span class="o">=</span><span class="n">cmpfunc</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">capacity</span><span class="p">):</span>
-            <span class="n">bucket</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">newList</span><span class="p">(</span><span class="n">datastructure</span><span class="o">=</span><span class="s1">&#39;SINGLE_LINKED&#39;</span><span class="p">,</span>
-                                <span class="n">cmpfunction</span><span class="o">=</span><span class="n">hashtable</span><span class="p">[</span><span class="s1">&#39;cmpfunction&#39;</span><span class="p">])</span>
-            <span class="n">lt</span><span class="o">.</span><span class="n">addLast</span><span class="p">(</span><span class="n">hashtable</span><span class="p">[</span><span class="s1">&#39;table&#39;</span><span class="p">],</span> <span class="n">bucket</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">hashtable</span>
-    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
-        <span class="c1"># FIXME Ajustar mensaje de error para que sea más claro</span>
-        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;Chain:newMap&#39;</span><span class="p">)</span></div>
-
-
-<span class="c1"># #TODO Indicar en el retorno cuando es True y cuando es False, similar a la documentación de isEmpty</span>
-<span class="c1"># def contains(map, key):</span>
-<span class="c1">#     &quot;&quot;&quot; Retorna True si la llave key se encuentra en el map</span>
-<span class="c1">#         o False en caso contrario.</span>
-<span class="c1">#     Args:</span>
-<span class="c1">#         map: El map a donde se guarda la pareja</span>
-<span class="c1">#         key: la llave asociada a la pareja</span>
-
-<span class="c1">#     Returns:</span>
-<span class="c1">#         True / False</span>
-<span class="c1">#     Raises:</span>
-<span class="c1">#         Exception</span>
-<span class="c1">#     &quot;&quot;&quot;</span>
-<span class="c1">#     try:</span>
-<span class="c1">#         hash = hashValue(map, key)</span>
-<span class="c1">#         bucket = lt.getElement(map[&#39;table&#39;], hash)</span>
-<span class="c1">#         pos = lt.isPresent(bucket, key)</span>
-<span class="c1">#         if pos &gt; 0:</span>
-<span class="c1">#             return True</span>
-<span class="c1">#         else:</span>
-<span class="c1">#             return False</span>
-<span class="c1">#     except Exception as exp:</span>
-<span class="c1">#         # FIXME Ajustar mensaje de error para que sea más claro</span>
-<span class="c1">#         error.reraise(exp, &#39;Chain:contains&#39;)</span>
-
-
-<div class="viewcode-block" id="put">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashtable/index.html#DISClib.DataStructures.chaininghashtable.put">[documentos]</a>
-<span class="k">def</span> <span class="nf">put</span><span class="p">(</span><span class="nb">map</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot; Ingresa una pareja llave,valor a la tabla de hash.</span>
-<span class="sd">    Si la llave ya existe en la tabla, se reemplaza el valor</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        map: El map a donde se guarda la pareja</span>
-<span class="sd">        key: la llave asociada a la pareja</span>
-<span class="sd">        value: el valor asociado a la pareja</span>
-<span class="sd">    Returns:</span>
-<span class="sd">        El map</span>
-<span class="sd">    Raises:</span>
-<span class="sd">        Exception</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="nb">hash</span> <span class="o">=</span> <span class="n">hashValue</span><span class="p">(</span><span class="nb">map</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
-        <span class="n">bucket</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">getElement</span><span class="p">(</span><span class="nb">map</span><span class="p">[</span><span class="s1">&#39;table&#39;</span><span class="p">],</span> <span class="nb">hash</span><span class="p">)</span>
-        <span class="n">entry</span> <span class="o">=</span> <span class="n">me</span><span class="o">.</span><span class="n">newMapEntry</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-        <span class="n">pos</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">isPresent</span><span class="p">(</span><span class="n">bucket</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">pos</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>    <span class="c1"># La pareja ya exista, se reemplaza el valor</span>
-            <span class="n">lt</span><span class="o">.</span><span class="n">changeInfo</span><span class="p">(</span><span class="n">bucket</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">entry</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">lt</span><span class="o">.</span><span class="n">addLast</span><span class="p">(</span><span class="n">bucket</span><span class="p">,</span> <span class="n">entry</span><span class="p">)</span>   <span class="c1"># La llave no existia</span>
-            <span class="nb">map</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="nb">map</span><span class="p">[</span><span class="s1">&#39;currentfactor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">map</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="nb">map</span><span class="p">[</span><span class="s1">&#39;capacity&#39;</span><span class="p">]</span>
-
-        <span class="k">if</span> <span class="p">(</span><span class="nb">map</span><span class="p">[</span><span class="s1">&#39;currentfactor&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="nb">map</span><span class="p">[</span><span class="s1">&#39;limitfactor&#39;</span><span class="p">]):</span>
-            <span class="n">rehash</span><span class="p">(</span><span class="nb">map</span><span class="p">)</span>
-
-        <span class="k">return</span> <span class="nb">map</span>
-    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
-        <span class="c1"># FIXME Ajustar mensaje de error para que sea más claro</span>
-        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;Chain:put&#39;</span><span class="p">)</span></div>
-
-
-<span class="c1"># #TODO Indicar que la pareja llave valor es un mapentry</span>
-<span class="c1"># def get(map, key):</span>
-<span class="c1">#     &quot;&quot;&quot; Retorna la pareja llave, valor, cuya llave sea igual a key</span>
-<span class="c1">#     Args:</span>
-<span class="c1">#         map: El map a donde se guarda la pareja</span>
-<span class="c1">#         key: la llave asociada a la pareja</span>
-
-<span class="c1">#     Returns:</span>
-<span class="c1">#         Una pareja &lt;llave,valor&gt;</span>
-<span class="c1">#     Raises:</span>
-<span class="c1">#         Exception</span>
-<span class="c1">#     &quot;&quot;&quot;</span>
-<span class="c1">#     try:</span>
-<span class="c1">#         hash = hashValue(map, key)</span>
-<span class="c1">#         bucket = lt.getElement(map[&#39;table&#39;], hash)</span>
-<span class="c1">#         pos = lt.isPresent(bucket, key)</span>
-<span class="c1">#         if pos &gt; 0:</span>
-<span class="c1">#             return lt.getElement(bucket, pos)</span>
-<span class="c1">#         else:</span>
-<span class="c1">#             return None</span>
-<span class="c1">#     except Exception as exp:</span>
-<span class="c1">#         # FIXME Ajustar mensaje de error para que sea más claro</span>
-<span class="c1">#         error.reraise(exp, &#39;Chain:get&#39;)</span>
-
-<span class="c1"># #TODO Modificar documentación para que sea similar a las demás funciones</span>
-<span class="c1"># def remove(map, key):</span>
-<span class="c1">#     &quot;&quot;&quot; Elimina la pareja llave,valor, donde llave == key.</span>
-<span class="c1">#     Args:</span>
-<span class="c1">#         map: El map a donde se guarda la pareja</span>
-<span class="c1">#         key: la llave asociada a la pareja</span>
-
-<span class="c1">#     Returns:</span>
-<span class="c1">#         El map</span>
-<span class="c1">#     Raises:</span>
-<span class="c1">#         Exception</span>
-<span class="c1">#     &quot;&quot;&quot;</span>
-<span class="c1">#     try:</span>
-<span class="c1">#         hash = hashValue(map, key)</span>
-<span class="c1">#         bucket = lt.getElement(map[&#39;table&#39;], hash)</span>
-<span class="c1">#         if (bucket is not None):</span>
-<span class="c1">#             pos = lt.isPresent(bucket, key)</span>
-<span class="c1">#             if pos &gt; 0:</span>
-<span class="c1">#                 lt.deleteElement(bucket, pos)</span>
-<span class="c1">#                 map[&#39;size&#39;] -= 1</span>
-<span class="c1">#         return map</span>
-<span class="c1">#     except Exception as exp:</span>
-<span class="c1">#         # FIXME Ajustar mensaje de error para que sea más claro</span>
-<span class="c1">#         error.reraise(exp, &#39;Chain:remove&#39;)</span>
-
-
-<span class="c1"># def size(map):</span>
-<span class="c1">#     &quot;&quot;&quot;  Retorna  el número de entradas en la tabla de hash.</span>
-<span class="c1">#     Args:</span>
-<span class="c1">#         map: El map</span>
-<span class="c1">#     Returns:</span>
-<span class="c1">#         Tamaño del map</span>
-<span class="c1">#     Raises:</span>
-<span class="c1">#         Exception</span>
-<span class="c1">#     &quot;&quot;&quot;</span>
-<span class="c1">#     return map[&#39;size&#39;]</span>
-
-
-<span class="c1"># def isEmpty(map):</span>
-<span class="c1">#     &quot;&quot;&quot; Informa si la tabla de hash se encuentra vacia</span>
-<span class="c1">#     Args:</span>
-<span class="c1">#         map: El map</span>
-<span class="c1">#     Returns:</span>
-<span class="c1">#         True: El map esta vacio</span>
-<span class="c1">#         False: El map no esta vacio</span>
-<span class="c1">#     Raises:</span>
-<span class="c1">#         Exception</span>
-<span class="c1">#     &quot;&quot;&quot;</span>
-<span class="c1">#     try:</span>
-<span class="c1">#         bucket = lt.newList()</span>
-<span class="c1">#         empty = True</span>
-<span class="c1">#         for pos in range(lt.size(map[&#39;table&#39;])):</span>
-<span class="c1">#             bucket = lt.getElement(map[&#39;table&#39;], pos+1)</span>
-<span class="c1">#             if lt.isEmpty(bucket) is False:</span>
-<span class="c1">#                 empty = False</span>
-<span class="c1">#                 break</span>
-<span class="c1">#         return empty</span>
-<span class="c1">#     except Exception as exp:</span>
-<span class="c1">#         # FIXME Ajustar mensaje de error para que sea más claro</span>
-<span class="c1">#         error.reraise(exp, &#39;Chain:isempty&#39;)</span>
-
-<span class="c1"># #TODO Indicar que la lista es de DISCLib</span>
-<span class="c1"># def keySet(map):</span>
-<span class="c1">#     &quot;&quot;&quot;</span>
-<span class="c1">#     Retorna una lista con todas las llaves de la tabla de hash</span>
-
-<span class="c1">#     Args:</span>
-<span class="c1">#         map: El map</span>
-<span class="c1">#     Returns:</span>
-<span class="c1">#         lista de llaves</span>
-<span class="c1">#     Raises:</span>
-<span class="c1">#         Exception</span>
-<span class="c1">#     &quot;&quot;&quot;</span>
-<span class="c1">#     try:</span>
-<span class="c1">#         ltset = lt.newList(&#39;SINGLE_LINKED&#39;, map[&#39;cmpfunction&#39;])</span>
-<span class="c1">#         for pos in range(lt.size(map[&#39;table&#39;])):</span>
-<span class="c1">#             bucket = lt.getElement(map[&#39;table&#39;], pos+1)</span>
-<span class="c1">#             if(not lt.isEmpty(bucket)):</span>
-<span class="c1">#                 for element in range(lt.size(bucket)):</span>
-<span class="c1">#                     entry = lt.getElement(bucket, element+1)</span>
-<span class="c1">#                     lt.addLast(ltset, entry[&#39;key&#39;])</span>
-<span class="c1">#         return ltset</span>
-<span class="c1">#     except Exception as exp:</span>
-<span class="c1">#         # FIXME Ajustar mensaje de error para que sea más claro</span>
-<span class="c1">#         error.reraise(exp, &#39;Chain:keyset&#39;)</span>
-
-<span class="c1"># #TODO Indicar que la lista es de DISCLib</span>
-<span class="c1"># def valueSet(map):</span>
-<span class="c1">#     &quot;&quot;&quot;</span>
-<span class="c1">#     Retorna una lista con todos los valores de la tabla de hash</span>
-
-<span class="c1">#     Args:</span>
-<span class="c1">#         map: El map</span>
-<span class="c1">#     Returns:</span>
-<span class="c1">#         lista de valores</span>
-<span class="c1">#     Raises:</span>
-<span class="c1">#         Exception</span>
-<span class="c1">#     &quot;&quot;&quot;</span>
-<span class="c1">#     try:</span>
-<span class="c1">#         ltset = lt.newList(&#39;SINGLE_LINKED&#39;, map[&#39;cmpfunction&#39;])</span>
-<span class="c1">#         for pos in range(lt.size(map[&#39;table&#39;])):</span>
-<span class="c1">#             bucket = lt.getElement(map[&#39;table&#39;], pos+1)</span>
-<span class="c1">#             if (not lt.isEmpty(bucket)):</span>
-<span class="c1">#                 for element in range(lt.size(bucket)):</span>
-<span class="c1">#                     entry = lt.getElement(bucket, element+1)</span>
-<span class="c1">#                     lt.addLast(ltset, entry[&#39;value&#39;])</span>
-<span class="c1">#         return ltset</span>
-<span class="c1">#     except Exception as exp:</span>
-<span class="c1">#         # FIXME Ajustar mensaje de error para que sea más claro</span>
-<span class="c1">#         error.reraise(exp, &#39;Chain, valueset&#39;)</span>
-
-
-<span class="c1"># __________________________________________________________________</span>
-<span class="c1">#       Helper Functions</span>
-<span class="c1"># __________________________________________________________________</span>
-
-<span class="c1">#FIXME Agregar parametros, retorno y excepciones en la documentación.</span>
-<div class="viewcode-block" id="rehash">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashtable/index.html#DISClib.DataStructures.chaininghashtable.rehash">[documentos]</a>
-<span class="k">def</span> <span class="nf">rehash</span><span class="p">(</span><span class="nb">map</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Se aumenta la capacida de la tabla al doble y se hace</span>
-<span class="sd">    rehash de todos los elementos de la tabla</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">newtable</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">newList</span><span class="p">(</span><span class="s1">&#39;ARRAY_LIST&#39;</span><span class="p">,</span> <span class="nb">map</span><span class="p">[</span><span class="s1">&#39;cmpfunction&#39;</span><span class="p">])</span>
-        <span class="n">capacity</span> <span class="o">=</span> <span class="n">nextPrime</span><span class="p">(</span><span class="nb">map</span><span class="p">[</span><span class="s1">&#39;capacity&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
-        <span class="n">oldtable</span> <span class="o">=</span> <span class="nb">map</span><span class="p">[</span><span class="s1">&#39;table&#39;</span><span class="p">]</span>
-        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">capacity</span><span class="p">):</span>
-            <span class="n">bucket</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">newList</span><span class="p">(</span><span class="n">datastructure</span><span class="o">=</span><span class="s1">&#39;SINGLE_LINKED&#39;</span><span class="p">,</span>
-                                <span class="n">cmpfunction</span><span class="o">=</span><span class="nb">map</span><span class="p">[</span><span class="s1">&#39;cmpfunction&#39;</span><span class="p">])</span>
-            <span class="n">lt</span><span class="o">.</span><span class="n">addLast</span><span class="p">(</span><span class="n">newtable</span><span class="p">,</span> <span class="n">bucket</span><span class="p">)</span>
-        <span class="nb">map</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="nb">map</span><span class="p">[</span><span class="s1">&#39;currentfactor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="nb">map</span><span class="p">[</span><span class="s1">&#39;table&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">newtable</span>
-        <span class="nb">map</span><span class="p">[</span><span class="s1">&#39;capacity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">capacity</span>
-        <span class="k">for</span> <span class="n">pos</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">lt</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">oldtable</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-            <span class="n">bucket</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">getElement</span><span class="p">(</span><span class="n">oldtable</span><span class="p">,</span> <span class="n">pos</span><span class="p">)</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">lt</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">bucket</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
-                <span class="k">for</span> <span class="n">posbucket</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">lt</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">bucket</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-                    <span class="n">entry</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">getElement</span><span class="p">(</span><span class="n">bucket</span><span class="p">,</span> <span class="n">posbucket</span><span class="p">)</span>
-                    <span class="n">put</span><span class="p">(</span><span class="nb">map</span><span class="p">,</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">],</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">])</span>
-        <span class="k">return</span> <span class="nb">map</span>
-    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
-        <span class="c1"># FIXME Ajustar mensaje de error para que sea más claro</span>
-        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s2">&quot;Chain:rehash&quot;</span><span class="p">)</span></div>
-
-
-<span class="c1">#FIXME Agregar parametros, retorno y excepciones en la documentación.</span>
-<div class="viewcode-block" id="hashValue">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashtable/index.html#DISClib.DataStructures.chaininghashtable.hashValue">[documentos]</a>
-<span class="k">def</span> <span class="nf">hashValue</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Calcula un hash para una llave, utilizando el método</span>
-<span class="sd">    MAD : hashValue(y) = ((ay + b) % p) % M.</span>
-<span class="sd">    Donde:</span>
-<span class="sd">    M es el tamaño de la tabla, primo</span>
-<span class="sd">    p es un primo mayor a M,</span>
-<span class="sd">    a y b enteros aleatoreos dentro del intervalo [0,p-1], con a&gt;0</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">h</span> <span class="o">=</span> <span class="p">(</span><span class="nb">hash</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="s1">&#39;scale&#39;</span><span class="p">]</span>
-    <span class="n">b</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="s1">&#39;shift&#39;</span><span class="p">]</span>
-    <span class="n">p</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="s1">&#39;prime&#39;</span><span class="p">]</span>
-    <span class="n">m</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="s1">&#39;capacity&#39;</span><span class="p">]</span>
-    <span class="n">value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="nb">abs</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">h</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">%</span> <span class="n">p</span><span class="p">)</span> <span class="o">%</span> <span class="n">m</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">value</span></div>
-
-
-
-<span class="c1"># Function that returns True if n</span>
-<span class="c1"># is prime else returns False</span>
-<span class="c1"># This code is contributed by Sanjit_Prasad</span>
-
-<span class="c1">#FIXME Agregar documentación para que siga el formato que las demás funciones.</span>
-<div class="viewcode-block" id="isPrime">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashtable/index.html#DISClib.DataStructures.chaininghashtable.isPrime">[documentos]</a>
-<span class="k">def</span> <span class="nf">isPrime</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="c1"># Corner cases</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">):</span>
-        <span class="k">return</span> <span class="kc">False</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">):</span>
-        <span class="k">return</span> <span class="kc">True</span>
-
-    <span class="k">if</span><span class="p">(</span><span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
-        <span class="k">return</span> <span class="kc">False</span>
-
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">6</span><span class="p">):</span>
-        <span class="k">if</span><span class="p">(</span><span class="n">n</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">n</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
-            <span class="k">return</span> <span class="kc">False</span>
-
-    <span class="k">return</span> <span class="kc">True</span></div>
-
-
-
-<span class="c1"># Function to return the smallest</span>
-<span class="c1"># prime number greater than N</span>
-<span class="c1"># # This code is contributed by Sanjit_Prasad</span>
-<span class="c1">#FIXME Agregar documentación para que siga el formato que las demás funciones.</span>
-<div class="viewcode-block" id="nextPrime">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashtable/index.html#DISClib.DataStructures.chaininghashtable.nextPrime">[documentos]</a>
-<span class="k">def</span> <span class="nf">nextPrime</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-    <span class="c1"># Base case</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">N</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">):</span>
-        <span class="k">return</span> <span class="mi">2</span>
-    <span class="n">prime</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
-    <span class="n">found</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="c1"># Loop continuously until isPrime returns</span>
-    <span class="c1"># True for a number greater than n</span>
-    <span class="k">while</span><span class="p">(</span><span class="ow">not</span> <span class="n">found</span><span class="p">):</span>
-        <span class="n">prime</span> <span class="o">=</span> <span class="n">prime</span> <span class="o">+</span> <span class="mi">1</span>
-        <span class="k">if</span><span class="p">(</span><span class="n">isPrime</span><span class="p">(</span><span class="n">prime</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">):</span>
-            <span class="n">found</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">prime</span><span class="p">)</span></div>
-
-
-<span class="c1">#FIXME Agregar documentación para que siga el formato que las demás funciones.</span>
-<div class="viewcode-block" id="defaultcompare">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashtable/index.html#DISClib.DataStructures.chaininghashtable.defaultcompare">[documentos]</a>
-<span class="k">def</span> <span class="nf">defaultcompare</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">element</span><span class="p">):</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">key</span> <span class="o">==</span> <span class="n">element</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]):</span>
-        <span class="k">return</span> <span class="mi">0</span>
-    <span class="k">elif</span><span class="p">(</span><span class="n">key</span> <span class="o">&gt;</span> <span class="n">element</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]):</span>
-        <span class="k">return</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span></div>
 
 </pre></div>
 

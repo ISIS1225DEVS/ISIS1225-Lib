@@ -120,7 +120,10 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#DISClib.Utils.numbers.next_prime" title="DISClib.Utils.numbers.next_prime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">next_prime</span></code></a>(→ int)</p></td>
 <td><p><em>next_prime()</em> devuelve el siguiente número primo mayor que n.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.Utils.numbers.hash_compress" title="DISClib.Utils.numbers.hash_compress"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hash_compress</span></code></a>(→ int)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.Utils.numbers.previous_prime" title="DISClib.Utils.numbers.previous_prime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">previous_prime</span></code></a>(→ int)</p></td>
+<td><p><em>previous_prime()</em> devuelve el número primo anterior a n.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#DISClib.Utils.numbers.hash_compress" title="DISClib.Utils.numbers.hash_compress"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hash_compress</span></code></a>(→ int)</p></td>
 <td><p><em>hash_compress()</em> función de compresión para los índices de las tablas de Hash utilizando el método MAD (Multiply-Add-and-Divide).</p></td>
 </tr>
 </tbody>
@@ -160,8 +163,25 @@
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="DISClib.Utils.numbers.previous_prime">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Utils.numbers.</span></span><span class="sig-name descname"><span class="pre">previous_prime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/Utils/numbers.html#previous_prime"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Utils.numbers.previous_prime" title="Link to this definition"></a></dt>
+<dd><p><em>previous_prime()</em> devuelve el número primo anterior a n.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>n</strong> (<em>int</em>) – número entero para calcular el siguiente número primo.</p>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>el siguiente número primo menor que n.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="DISClib.Utils.numbers.hash_compress">
-<span class="sig-prename descclassname"><span class="pre">DISClib.Utils.numbers.</span></span><span class="sig-name descname"><span class="pre">hash_compress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shift</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prime</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">capacity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/Utils/numbers.html#hash_compress"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Utils.numbers.hash_compress" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">DISClib.Utils.numbers.</span></span><span class="sig-name descname"><span class="pre">hash_compress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shift</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prime</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mcapacity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/Utils/numbers.html#hash_compress"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Utils.numbers.hash_compress" title="Link to this definition"></a></dt>
 <dd><p><em>hash_compress()</em> función de compresión para los índices de las tablas de Hash utilizando el método MAD (Multiply-Add-and-Divide).
 MAD se define como: hash_compress(y) = ((a*y + b) % p) % M, donde:</p>
 <blockquote>
@@ -176,7 +196,7 @@ M (capacity) es el tamaño de la tabla, primo</p>
 <li><p><strong>scale</strong> (<em>int</em>) – pendiente de la función de compresión.</p></li>
 <li><p><strong>shift</strong> (<em>int</em>) – desplazamiento de la función de compresión.</p></li>
 <li><p><strong>prime</strong> (<em>int</em>) – número  primo mucho mayor a la capacidad de la tabla de Hash.</p></li>
-<li><p><strong>capacity</strong> (<em>int</em>) – tamaño de la tabla de Hash, es un número primo para evitar colisiones.</p></li>
+<li><p><strong>mcapacity</strong> (<em>int</em>) – tamaño de la tabla de Hash, es un número primo para evitar colisiones.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Devuelve<span class="colon">:</span></dt>

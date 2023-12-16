@@ -1089,11 +1089,11 @@ Attributes
 
       Lista nativa de Python que contiene los elementos de entrada a la estructura, por defecto es None y el usuario puede incluir una lista nativa de python como argumento.
 
-   .. py:attribute:: elements
+   .. py:attribute:: nentries
       :type: int
       :value: 1
 
-      Es el espacio reservado para la tabla de hash (n), por defecto es 1, pero debe configurarse según el número de elementos que se espera almacenar.
+      Es el espacio reservado para la tabla de hash (n), por defecto es 1, pero debe configurarse según el número de entradas que se espera almacenar.
 
    .. py:attribute:: alpha
       :type: Optional[float]
@@ -1116,7 +1116,7 @@ Attributes
 
       Es un booleano que indica si la tabla de hash se puede reconstruir utilizando el método de rehash, por defecto es True.
 
-   .. py:attribute:: capacity
+   .. py:attribute:: mcapacity
       :type: int
       :value: 1
 
@@ -1146,17 +1146,21 @@ Attributes
 
       Es el número utilizado para calcular el código hash de la llave.
 
-   .. py:attribute:: _limit_alpha
-      :type: Optional[float]
-      :value: 0
-
-      Es el factor de carga limite antes de hacer rehash.
-
    .. py:attribute:: _cur_alpha
       :type: Optional[float]
       :value: 0
 
       Es el factor de carga actual de la tabla de hash.
+
+   .. py:attribute:: max_alpha
+      :type: Optional[float]
+
+      Es el factor de carga máximo de la tabla de hash, por defecto es 8.0.
+
+   .. py:attribute:: min_alpha
+      :type: Optional[float]
+
+      Es el factor de carga mínimo de la tabla de hash, por defecto es 2.0.
 
    .. py:attribute:: _data_type
       :type: Optional[type]
@@ -1166,26 +1170,25 @@ Attributes
    .. py:attribute:: cmp_function
       :type: Optional[Callable[[DISClib.Utils.default.T, DISClib.Utils.default.T], int]]
 
-      Función de comparación opcional que se utiliza para comparar los elementos del SeparateChaining, por defecto es 'None' y el __post_init__ configura la función por defecto lt_default_cmp_funcion().
+      Función de comparación opcional que se utiliza para comparar los elementos del SeparateChaining, por defecto es 'None' y el *__post_init__()* configura la función por defecto *ht_default_cmp_funcion()*.
 
    .. py:attribute:: key
       :type: Optional[str]
 
-      Nombre de la llave opcional que se utiliza para comparar los elementos del SeparateChaining, Por defecto es 'None' y el __post_init__ configura la llave por defecto la llave 'id' en DEFAULT_DICT_KEY.
+      Nombre de la llave opcional que se utiliza para comparar los elementos del SeparateChaining, Por defecto es 'None' y el __post_init__ configura la llave por defecto la llave 'id' en *DEFAULT_DICT_KEY*.
 
    .. py:method:: __post_init__() -> None
 
-      __post_init__ _summary_
+      *__post_init__()* configura los valores por defecto de la estructura SeparateChaining después de la inicialización de la misma. Configura los factores de carga (alpha), el número primo (P) para la función de compresión MAD, la capacidad (M) de la tabla de hash, la función de comparación y la llave para comparar los elementos del SeparateChaining, y finalmente inicializa la tabla de hash con la capacidad (M) configurada.
 
 
 
    .. py:method:: default_cmp_function(key1, entry2: DISClib.DataStructures.mapentry.MapEntry) -> int
 
-      *default_cmp_function()* procesa la llave existente en el elemento del 'SeparateChaining' y la compara con el elemento que se quiere agregar al 'SeparateChaining'.
-
-      :param key1: llave del primer elemento a comparar.
+      *default_cmp_function()* procesa la llave existente en la entrada del SeparateChaining y la compara con la llave del a entrada que se quiere agregar al SeparateChaining.
+      :param key1: llave de la primera entrada a comparar.
       :type key1: Any
-      :param entry2: entrada del mapa del segundo elemento a comparar.
+      :param entry2: segunda entrada (par llave-valor) a comparar.
       :type entry2: MapEntry
 
       :returns: respuesta de la comparación entre los elementos, 0 si las llaves son iguales, 1 si key1 es mayor que la llave de entry2, -1 si key1 es menor.
@@ -1244,67 +1247,87 @@ Attributes
 
    .. py:method:: put(key: DISClib.Utils.default.T, value: DISClib.Utils.default.T) -> None
 
-      put _summary_
+      *put()* agrega una entrada (pareja llave-valor) al SeparateChaining, si la llave ya existe en el SeparateChaining, se reemplaza el valor.
 
-      :param key: _description_
+      :param key: llave asociada a la nueva entrada.
       :type key: T
-      :param value: _description_
+      :param value: el valor asociado a la nueva entrada.
       :type value: T
 
-      :raises Exception: _description_
+      :raises Exception: si el indice de la entrada en el mapa está fuera de los limites establecidos, se genera un error.
 
 
    .. py:method:: get(key: DISClib.Utils.default.T) -> Optional[DISClib.Utils.default.T]
 
-      get _summary_
+      *get()* devuelve la entrada (pareja llave-valor) cuya llave sea igual a key dentro del SeparateChaining, si no existe una entrada con la llave key, devuelve None.
 
-      :param key: _description_
+      :param key: llave asociada a la entrada que se quiere buscar.
       :type key: T
 
-      :raises Exception: _description_
+      :raises Exception: error si la estructura está vacía.
 
-      :returns: _description_
+      :returns: entrada (pareja llave-valor) con la llave igual a key dentro del SeparateChaining, None si no existe la entrada asociada a la llave key.
       :rtype: Optional[T]
 
 
-   .. py:method:: remove(key: DISClib.Utils.default.T) -> None
+   .. py:method:: check_bucket(key: DISClib.Utils.default.T) -> Optional[DISClib.Utils.default.T]
 
-      remove _summary_
+      *check_bucket()* devuelve el bucket asociado a la llave key dentro del SeparateChaining, si no existe una entrada con la llave key, devuelve None.
 
-      :param key: _description_
+      :param key: llave asociada al bucket que se quiere buscar.
       :type key: T
 
-      :raises Exception: _description_
+      :raises Exception: error si la estructura está vacía.
+
+      :returns: bucket asociado a la llave key dentro del SeparateChaining, None si no existe la entrada asociada a la llave key.
+      :rtype: Optional[T]
+
+
+   .. py:method:: remove(key: DISClib.Utils.default.T) -> Optional[DISClib.Utils.default.T]
+
+      *remove()* elimina la entrada (pareja llave-valor) cuya llave sea igual a key dentro del SeparateChaining, si no existe una entrada con la llave key, devuelve None.
+
+      :param key: llave asociada a la entrada que se quiere eliminar.
+      :type key: T
+
+      :raises Exception: error si la estructura está vacía.
+      :raises Exception: error si la entrada que se quiere eliminar no existe dentro del bucket
+
+      :returns: entrada (pareja llave-valor) que se eliminó del SeparateChaining, None si no existe la entrada asociada a la llave key.
+      :rtype: Optional[T]
 
 
    .. py:method:: keys() -> DISClib.DataStructures.arraylist.ArrayList[DISClib.Utils.default.T]
 
-      keys _summary_
+      *keys()* devuelve una lista (ArrayList) con todas las llaves de las entradas (parejas llave-valor) del SeparateChaining.
 
-      :returns: _description_
+      :returns: lista (ArrayList) con todas las llaves del SeparateChaining.
       :rtype: ArrayList[T]
 
 
    .. py:method:: values() -> DISClib.DataStructures.arraylist.ArrayList[DISClib.Utils.default.T]
 
-      values _summary_
+      *values()* devuelve una lista (ArrayList) con todos los valores de las entradas (parejas llave-valor) del SeparateChaining.
 
-      :returns: _description_
+      :returns: lista (ArrayList) con todos los valores del SeparateChaining.
       :rtype: ArrayList[T]
 
 
    .. py:method:: entries() -> DISClib.DataStructures.arraylist.ArrayList[DISClib.Utils.default.T]
 
-      entries _summary_
+      *entries()* devuelve una lista (ArrayList) con todas las entradas (parejas llave-valor) del SeparateChaining.
 
-      :returns: _description_
+      :returns: lista (ArrayList) con todas las entradas del SeparateChaining.
       :rtype: ArrayList[T]
 
 
    .. py:method:: rehash() -> None
 
-      rehash _summary_
+      *rehash()* reconstruye la tabla de hash con una nueva capacidad (M) y un nuevo factor de carga (alpha) según los límites establecidos por el usuario en los atributos *max_alpha* y *min_alpha*.
 
+      Si el factor de carga (alpha) es mayor que el límite superior (max_alpha), se duplica la capacidad (M) buscando el siguiente número primo y se reconstruye la tabla de hash.
+
+      Si el factor de carga (alpha) es menor que el límite inferior (min_alpha), se reduce a la mitad la capacidad (M) de la tabla de hash buscando el siguiente número primo y se reconstruye la tabla de hash.
 
 
 

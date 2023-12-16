@@ -1719,9 +1719,9 @@
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining.elements">
-<span class="sig-name descname"><span class="pre">elements</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining.elements" title="Link to this definition"></a></dt>
-<dd><p>Es el espacio reservado para la tabla de hash (n), por defecto es 1, pero debe configurarse según el número de elementos que se espera almacenar.</p>
+<dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining.nentries">
+<span class="sig-name descname"><span class="pre">nentries</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining.nentries" title="Link to this definition"></a></dt>
+<dd><p>Es el espacio reservado para la tabla de hash (n), por defecto es 1, pero debe configurarse según el número de entradas que se espera almacenar.</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -1749,8 +1749,8 @@
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining.capacity">
-<span class="sig-name descname"><span class="pre">capacity</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining.capacity" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining.mcapacity">
+<span class="sig-name descname"><span class="pre">mcapacity</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining.mcapacity" title="Link to this definition"></a></dt>
 <dd><p>Es la capacidad (M) con la que se inicializa la tabla de hash.</p>
 </dd></dl>
 
@@ -1779,15 +1779,21 @@
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining._limit_alpha">
-<span class="sig-name descname"><span class="pre">_limit_alpha</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining._limit_alpha" title="Link to this definition"></a></dt>
-<dd><p>Es el factor de carga limite antes de hacer rehash.</p>
-</dd></dl>
-
-<dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining._cur_alpha">
 <span class="sig-name descname"><span class="pre">_cur_alpha</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining._cur_alpha" title="Link to this definition"></a></dt>
 <dd><p>Es el factor de carga actual de la tabla de hash.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining.max_alpha">
+<span class="sig-name descname"><span class="pre">max_alpha</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining.max_alpha" title="Link to this definition"></a></dt>
+<dd><p>Es el factor de carga máximo de la tabla de hash, por defecto es 8.0.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining.min_alpha">
+<span class="sig-name descname"><span class="pre">min_alpha</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining.min_alpha" title="Link to this definition"></a></dt>
+<dd><p>Es el factor de carga mínimo de la tabla de hash, por defecto es 2.0.</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -1799,37 +1805,35 @@
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining.cmp_function">
 <span class="sig-name descname"><span class="pre">cmp_function</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining.cmp_function" title="Link to this definition"></a></dt>
-<dd><p>Función de comparación opcional que se utiliza para comparar los elementos del SeparateChaining, por defecto es “None” y el __post_init__ configura la función por defecto lt_default_cmp_funcion().</p>
+<dd><p>Función de comparación opcional que se utiliza para comparar los elementos del SeparateChaining, por defecto es “None” y el <em>__post_init__()</em> configura la función por defecto <em>ht_default_cmp_funcion()</em>.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining.key">
 <span class="sig-name descname"><span class="pre">key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining.key" title="Link to this definition"></a></dt>
-<dd><p>Nombre de la llave opcional que se utiliza para comparar los elementos del SeparateChaining, Por defecto es “None” y el __post_init__ configura la llave por defecto la llave “id” en DEFAULT_DICT_KEY.</p>
+<dd><p>Nombre de la llave opcional que se utiliza para comparar los elementos del SeparateChaining, Por defecto es “None” y el __post_init__ configura la llave por defecto la llave “id” en <em>DEFAULT_DICT_KEY</em>.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining.__post_init__">
 <span class="sig-name descname"><span class="pre">__post_init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining.__post_init__"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining.__post_init__" title="Link to this definition"></a></dt>
-<dd><p>__post_init__ _summary_</p>
+<dd><p><em>__post_init__()</em> configura los valores por defecto de la estructura SeparateChaining después de la inicialización de la misma. Configura los factores de carga (alpha), el número primo (P) para la función de compresión MAD, la capacidad (M) de la tabla de hash, la función de comparación y la llave para comparar los elementos del SeparateChaining, y finalmente inicializa la tabla de hash con la capacidad (M) configurada.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining.default_cmp_function">
 <span class="sig-name descname"><span class="pre">default_cmp_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="mapentry/index.html#DISClib.DataStructures.mapentry.MapEntry" title="DISClib.DataStructures.mapentry.MapEntry"><span class="pre">DISClib.DataStructures.mapentry.MapEntry</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining.default_cmp_function"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining.default_cmp_function" title="Link to this definition"></a></dt>
-<dd><p><em>default_cmp_function()</em> procesa la llave existente en el elemento del “SeparateChaining” y la compara con el elemento que se quiere agregar al “SeparateChaining”.</p>
+<dd><p><em>default_cmp_function()</em> procesa la llave existente en la entrada del SeparateChaining y la compara con la llave del a entrada que se quiere agregar al SeparateChaining.
+:param key1: llave de la primera entrada a comparar.
+:type key1: Any
+:param entry2: segunda entrada (par llave-valor) a comparar.
+:type entry2: MapEntry</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>key1</strong> (<em>Any</em>) – llave del primer elemento a comparar.</p></li>
-<li><p><strong>entry2</strong> (<a class="reference internal" href="#DISClib.DataStructures.MapEntry" title="DISClib.DataStructures.MapEntry"><em>MapEntry</em></a>) – entrada del mapa del segundo elemento a comparar.</p></li>
-</ul>
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>respuesta de la comparación entre los elementos, 0 si las llaves son iguales, 1 si key1 es mayor que la llave de entry2, -1 si key1 es menor.</p>
 </dd>
-<dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>respuesta de la comparación entre los elementos, 0 si las llaves son iguales, 1 si key1 es mayor que la llave de entry2, -1 si key1 es menor.</p>
-</dd>
-<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
-<dd class="field-odd"><p>int</p>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1914,16 +1918,16 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining.put">
 <span class="sig-name descname"><span class="pre">put</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining.put"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining.put" title="Link to this definition"></a></dt>
-<dd><p>put _summary_</p>
+<dd><p><em>put()</em> agrega una entrada (pareja llave-valor) al SeparateChaining, si la llave ya existe en el SeparateChaining, se reemplaza el valor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>key</strong> (<em>T</em>) – _description_</p></li>
-<li><p><strong>value</strong> (<em>T</em>) – _description_</p></li>
+<li><p><strong>key</strong> (<em>T</em>) – llave asociada a la nueva entrada.</p></li>
+<li><p><strong>value</strong> (<em>T</em>) – el valor asociado a la nueva entrada.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Muestra<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>Exception</strong> – _description_</p>
+<dd class="field-even"><p><strong>Exception</strong> – si el indice de la entrada en el mapa está fuera de los limites establecidos, se genera un error.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1931,16 +1935,36 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining.get">
 <span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DISClib.Utils.default.T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining.get"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining.get" title="Link to this definition"></a></dt>
-<dd><p>get _summary_</p>
+<dd><p><em>get()</em> devuelve la entrada (pareja llave-valor) cuya llave sea igual a key dentro del SeparateChaining, si no existe una entrada con la llave key, devuelve None.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>key</strong> (<em>T</em>) – _description_</p>
+<dd class="field-odd"><p><strong>key</strong> (<em>T</em>) – llave asociada a la entrada que se quiere buscar.</p>
 </dd>
 <dt class="field-even">Muestra<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>Exception</strong> – _description_</p>
+<dd class="field-even"><p><strong>Exception</strong> – error si la estructura está vacía.</p>
 </dd>
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>_description_</p>
+<dd class="field-odd"><p>entrada (pareja llave-valor) con la llave igual a key dentro del SeparateChaining, None si no existe la entrada asociada a la llave key.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>Optional[T]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining.check_bucket">
+<span class="sig-name descname"><span class="pre">check_bucket</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DISClib.Utils.default.T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining.check_bucket"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining.check_bucket" title="Link to this definition"></a></dt>
+<dd><p><em>check_bucket()</em> devuelve el bucket asociado a la llave key dentro del SeparateChaining, si no existe una entrada con la llave key, devuelve None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>key</strong> (<em>T</em>) – llave asociada al bucket que se quiere buscar.</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – error si la estructura está vacía.</p>
+</dd>
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bucket asociado a la llave key dentro del SeparateChaining, None si no existe la entrada asociada a la llave key.</p>
 </dd>
 <dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-even"><p>Optional[T]</p>
@@ -1950,14 +1974,23 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining.remove">
-<span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining.remove"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining.remove" title="Link to this definition"></a></dt>
-<dd><p>remove _summary_</p>
+<span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DISClib.Utils.default.T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining.remove"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining.remove" title="Link to this definition"></a></dt>
+<dd><p><em>remove()</em> elimina la entrada (pareja llave-valor) cuya llave sea igual a key dentro del SeparateChaining, si no existe una entrada con la llave key, devuelve None.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>key</strong> (<em>T</em>) – _description_</p>
+<dd class="field-odd"><p><strong>key</strong> (<em>T</em>) – llave asociada a la entrada que se quiere eliminar.</p>
 </dd>
 <dt class="field-even">Muestra<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>Exception</strong> – _description_</p>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>Exception</strong> – error si la estructura está vacía.</p></li>
+<li><p><strong>Exception</strong> – error si la entrada que se quiere eliminar no existe dentro del bucket</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>entrada (pareja llave-valor) que se eliminó del SeparateChaining, None si no existe la entrada asociada a la llave key.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>Optional[T]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1965,10 +1998,10 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining.keys">
 <span class="sig-name descname"><span class="pre">keys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList" title="DISClib.DataStructures.arraylist.ArrayList"><span class="pre">DISClib.DataStructures.arraylist.ArrayList</span></a><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining.keys"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining.keys" title="Link to this definition"></a></dt>
-<dd><p>keys _summary_</p>
+<dd><p><em>keys()</em> devuelve una lista (ArrayList) con todas las llaves de las entradas (parejas llave-valor) del SeparateChaining.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>_description_</p>
+<dd class="field-odd"><p>lista (ArrayList) con todas las llaves del SeparateChaining.</p>
 </dd>
 <dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="#DISClib.DataStructures.ArrayList" title="DISClib.DataStructures.ArrayList">ArrayList</a>[T]</p>
@@ -1979,10 +2012,10 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining.values">
 <span class="sig-name descname"><span class="pre">values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList" title="DISClib.DataStructures.arraylist.ArrayList"><span class="pre">DISClib.DataStructures.arraylist.ArrayList</span></a><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining.values"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining.values" title="Link to this definition"></a></dt>
-<dd><p>values _summary_</p>
+<dd><p><em>values()</em> devuelve una lista (ArrayList) con todos los valores de las entradas (parejas llave-valor) del SeparateChaining.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>_description_</p>
+<dd class="field-odd"><p>lista (ArrayList) con todos los valores del SeparateChaining.</p>
 </dd>
 <dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="#DISClib.DataStructures.ArrayList" title="DISClib.DataStructures.ArrayList">ArrayList</a>[T]</p>
@@ -1993,10 +2026,10 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining.entries">
 <span class="sig-name descname"><span class="pre">entries</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList" title="DISClib.DataStructures.arraylist.ArrayList"><span class="pre">DISClib.DataStructures.arraylist.ArrayList</span></a><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining.entries"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining.entries" title="Link to this definition"></a></dt>
-<dd><p>entries _summary_</p>
+<dd><p><em>entries()</em> devuelve una lista (ArrayList) con todas las entradas (parejas llave-valor) del SeparateChaining.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>_description_</p>
+<dd class="field-odd"><p>lista (ArrayList) con todas las entradas del SeparateChaining.</p>
 </dd>
 <dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="#DISClib.DataStructures.ArrayList" title="DISClib.DataStructures.ArrayList">ArrayList</a>[T]</p>
@@ -2007,7 +2040,9 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining.rehash">
 <span class="sig-name descname"><span class="pre">rehash</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining.rehash"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining.rehash" title="Link to this definition"></a></dt>
-<dd><p>rehash _summary_</p>
+<dd><p><em>rehash()</em> reconstruye la tabla de hash con una nueva capacidad (M) y un nuevo factor de carga (alpha) según los límites establecidos por el usuario en los atributos <em>max_alpha</em> y <em>min_alpha</em>.</p>
+<p>Si el factor de carga (alpha) es mayor que el límite superior (max_alpha), se duplica la capacidad (M) buscando el siguiente número primo y se reconstruye la tabla de hash.</p>
+<p>Si el factor de carga (alpha) es menor que el límite inferior (min_alpha), se reduce a la mitad la capacidad (M) de la tabla de hash buscando el siguiente número primo y se reconstruye la tabla de hash.</p>
 </dd></dl>
 
 </dd></dl>

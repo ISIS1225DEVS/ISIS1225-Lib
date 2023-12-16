@@ -94,11 +94,9 @@
 <span class="c1"># python native modules</span>
 <span class="c1"># math module for getting the prime numbers</span>
 <span class="kn">import</span> <span class="nn">math</span>
-<span class="kn">import</span> <span class="nn">inspect</span>
 
 <span class="c1"># custom modules</span>
 <span class="c1"># error handler and datatypes</span>
-<span class="kn">from</span> <span class="nn">DISClib.Utils.error</span> <span class="kn">import</span> <span class="n">error_handler</span>
 <span class="kn">from</span> <span class="nn">DISClib.Utils.default</span> <span class="kn">import</span> <span class="n">T</span>
 
 
@@ -167,13 +165,41 @@
 
 
 
+<div class="viewcode-block" id="previous_prime">
+<a class="viewcode-back" href="../../../autoapi/DISClib/Utils/numbers/index.html#DISClib.Utils.numbers.previous_prime">[documentos]</a>
+<span class="k">def</span> <span class="nf">previous_prime</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;*previous_prime()* devuelve el número primo anterior a n.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        n (int): número entero para calcular el siguiente número primo.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: el siguiente número primo menor que n.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># base case</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">2</span>
+
+    <span class="c1"># working with the next odd number</span>
+    <span class="n">prime</span> <span class="o">=</span> <span class="n">n</span>
+    <span class="n">found</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="c1"># Loop continuously until isPrime returns</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">found</span><span class="p">:</span>
+        <span class="n">prime</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="c1"># True for a prime number greater than n</span>
+        <span class="k">if</span> <span class="n">is_prime</span><span class="p">(</span><span class="n">prime</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">found</span> <span class="o">=</span> <span class="kc">True</span></div>
+
+
+
 <div class="viewcode-block" id="hash_compress">
 <a class="viewcode-back" href="../../../autoapi/DISClib/index.html#DISClib.Utils.numbers.hash_compress">[documentos]</a>
 <span class="k">def</span> <span class="nf">hash_compress</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span>
                   <span class="n">scale</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
                   <span class="n">shift</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
                   <span class="n">prime</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-                  <span class="n">capacity</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+                  <span class="n">mcapacity</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;*hash_compress()* función de compresión para los índices de las tablas de Hash utilizando el método MAD (Multiply-Add-and-Divide).</span>
 <span class="sd">    MAD se define como: hash_compress(y) = ((a*y + b) % p) % M, donde:</span>
@@ -186,22 +212,16 @@
 <span class="sd">        scale (int): pendiente de la función de compresión.</span>
 <span class="sd">        shift (int): desplazamiento de la función de compresión.</span>
 <span class="sd">        prime (int): número  primo mucho mayor a la capacidad de la tabla de Hash.</span>
-<span class="sd">        capacity (int): tamaño de la tabla de Hash, es un número primo para evitar colisiones.</span>
+<span class="sd">        mcapacity (int): tamaño de la tabla de Hash, es un número primo para evitar colisiones.</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        int: el índice del elemento en la tabla de Hash.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="c1"># getting the hash of the key</span>
-        <span class="n">hkey</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-        <span class="c1"># calculating the index with the MAD compression function</span>
-        <span class="n">idx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="nb">abs</span><span class="p">(</span><span class="n">scale</span> <span class="o">*</span> <span class="n">hkey</span> <span class="o">+</span> <span class="n">shift</span><span class="p">)</span> <span class="o">%</span> <span class="n">prime</span><span class="p">)</span> <span class="o">%</span> <span class="n">capacity</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">idx</span>
-    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
-        <span class="c1"># FIXME Ajustar mensaje de error para que sea más claro</span>
-        <span class="n">cur_context</span> <span class="o">=</span> <span class="vm">__name__</span>
-        <span class="n">cur_function</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">stack</span><span class="p">()[</span><span class="mi">0</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span>
-        <span class="n">error_handler</span><span class="p">(</span><span class="n">cur_context</span><span class="p">,</span> <span class="n">cur_function</span><span class="p">,</span> <span class="n">exp</span><span class="p">)</span></div>
+    <span class="c1"># getting the hash of the key</span>
+    <span class="n">hkey</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+    <span class="c1"># calculating the index with the MAD compression function</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="nb">abs</span><span class="p">(</span><span class="n">scale</span> <span class="o">*</span> <span class="n">hkey</span> <span class="o">+</span> <span class="n">shift</span><span class="p">)</span> <span class="o">%</span> <span class="n">prime</span><span class="p">)</span> <span class="o">%</span> <span class="n">mcapacity</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">idx</span></div>
 
 </pre></div>
 

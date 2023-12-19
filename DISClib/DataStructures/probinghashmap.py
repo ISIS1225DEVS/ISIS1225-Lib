@@ -1,582 +1,418 @@
-"""
- * Copyright 2020, Departamento de sistemas y Computación
- * Universidad de Los Andes
- *
- *
- * Desarrolado para el curso ISIS1225 - Estructuras de Datos y Algoritmos
- *
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- * Dario Correal
- *
- """
 
-# import config
-from DISClib.DataStructures import listnode as lknode
-from DISClib.Utils import error as error
-import csv
-# assert config
 
-"""
-  Este módulo implementa una estructura de datos lineal mediante una lista
-  encadenada doblemente para almacenar una colección de elementos.
-  Los elementos se cuentan desde la posición 1.
-"""
+# GENERAL
+# FIXME Cambiar todas las funciones y variables al formato snake_case
+# TODO Explicar más a profundidad que tipo de excepciones y errores puede generar cada función
 
-#TODO Mejorar la documentación para especificar el uso del parámetro "key" en listas
-#TODO Eliminar la carga de datos de la función newList
-#FIXME Cambiar el nombre de la funcion para usar snake_case
-def newList(cmpfunction, module,  key, filename, delim):
-    """Crea una lista vacia.
+# FIXME Modificar documentación relacionada a numelements
+def newMap(numelements, prime, loadfactor, cmpfunction, datastructure):
+    """Crea una tabla de simbolos (map) sin orden
 
-    Se inicializan los apuntadores a la primera y ultima posicion en None.
-    El tipo de la listase inicializa como SINGLE_LINKED
+    Crea una tabla de hash con capacidad igual a nuelements
+    (primo mas cercano al doble de numelements).
+    prime es un número primo utilizado para  el cálculo de los codigos
+    de hash, si no es provisto se  utiliza el primo 109345121.
+
     Args:
-        cmpfunction: Función de comparación para los elementos de la lista.
-        Si no se provee una función de comparación, se utilizará la función
-        de comparación por defecto pero se debe suministrar un valor para key
+        numelements: Tamaño inicial de la tabla
+        prime: Número primo utilizado en la función MAD
+        loadfactor: Factor de carga maximo de la tabla
+        cmpfunction: Funcion de comparación entre llaves
+        datastructure: estructura de datos seleccionada
+    Returns:
+        Un nuevo map
+    Raises:
+        Exception
+    """
+    try:
+        capacity = nextPrime(numelements//loadfactor)
+        scale = rd.randint(1, prime-1)
+        shift = rd.randint(0, prime-1)
+        # FIXME Cambiar por dataclass para facilitar su modelado y manejo errores
+        hashtable = {'prime': prime,
+                     'capacity': capacity,
+                     'scale': scale,
+                     'shift': shift,
+                     'table': None,
+                     'currentfactor': 0,
+                     'limitfactor': loadfactor,
+                     'cmpfunction': None,
+                     'size': 0,
+                     'type': 'PROBING',
+                     'datastructure': datastructure}
+        if (cmpfunction is None):
+            cmpfunc = defaultcompare
+        else:
+            cmpfunc = cmpfunction
+        hashtable['cmpfunction'] = cmpfunc
+        hashtable['table'] = lt.newList(datastructure='ARRAY_LIST',
+                                        cmpfunction=cmpfunc)
+        for _ in range(capacity):
+            entry = me.newMapEntry(None, None)
+            lt.addLast(hashtable['table'], entry)
+        return hashtable
+    except Exception as exp:
+        # FIXME Ajustar mensaje de error para que sea más claro
+        error.reraise(exp, 'Probe:newMap')
 
-        key: Identificador que se debe utilizar para la comparación de
-        elementos de la lista
 
-        filename: Si se provee este valor, se creará una lista a partir de
-        la informacion que se encuentra en el archivo CSV
+def put(map, key, value):
+    """ Ingresa una pareja llave,valor a la tabla de hash.
+    Si la llave ya existe en la tabla, se reemplaza el valor
 
-        delimiter: Si se provee un archivo para crear la lista, indica el
-        delimitador a usar para separar los campos del archivo CSV
+    Args:
+        map: El map a donde se guarda la pareja
+        key: la llave asociada a la pareja
+        value: el valor asociado a la pareja
+    Returns:
+        El map
+    Raises:
+        Exception
+    """
+    try:
+        hash = hashValue(map, key)      # Se obtiene el hashcode de la llave
+        entry = me.newMapEntry(key, value)
+        pos = findSlot(map, key, hash, map['cmpfunction'])
+        lt.changeInfo(map['table'], abs(pos), entry)
+        if (pos < 0):           # Se reemplaza el valor con el nuevo valor
+            map['size'] += 1
+            map['currentfactor'] = map['size'] / map['capacity']
+
+        if (map['currentfactor'] >= map['limitfactor']):
+            rehash(map)
+        return map
+    except Exception as exp:
+        # FIXME Ajustar mensaje de error para que sea más claro
+        error.reraise(exp, 'Probe:put')
+
+# TODO Indicar en el retorno cuando es True y cuando es False, similar a la documentación de isEmpty
+
+
+def contains(map, key):
+    """ Retorna True si la llave key se encuentra en el map
+        o False en caso contrario.
+    Args:
+        map: El map a donde se guarda la pareja
+        key: la llave asociada a la pareja
 
     Returns:
-        Un diccionario que representa la estructura de datos de una lista
-        encadanada vacia.
-
+        True / False
     Raises:
-
+        Exception
     """
-    newlist = {'first': None,
-               'last': None,
-               'size': 0,
-               'key': key,
-               'type': 'DOUBLE_LINKED',
-               'datastructure': module
-               }
+    try:
+        hash = hashValue(map, key)
+        pos = findSlot(map, key, hash, map['cmpfunction'])
+        if (pos > 0):
+            return True
+        else:
+            return False
+    except Exception as exp:
+        # FIXME Ajustar mensaje de error para que sea más claro
+        error.reraise(exp, 'Probe:contains')
 
-    if(cmpfunction is None):
-        newlist['cmpfunction'] = defaultfunction
-    else:
-        newlist['cmpfunction'] = cmpfunction
+# TODO Indicar que la pareja llave valor es un mapentry
 
-    if (filename is not None):
-        input_file = csv.DictReader(open(filename, encoding="utf-8"),
-                                    delimiter=delim)
-        for line in input_file:
-            addLast(newlist, line)
-    return newlist
 
-#FIXME Cambiar el nombre de la funcion para usar snake_case
-#TODO Implementar manejo más detallado de excepciones con mensajes más especificos
-#TODO Verificar que el elemento que se esta agregando no sea None
-def addFirst(lst, element):
-    """Agrega un elemento a la lista en la primera posicion.
-
-    Agrega un elemento en la primera posición de la lista, ajusta el apuntador
-    al primer elemento e incrementa el tamaño de la lista.
-
+def get(map, key):
+    """ Retorna la pareja llave, valor, cuya llave sea igual a key
     Args:
-        lst:  La lista don de inserta el elemento
-        element:  El elemento a insertar en la lista
+        map: El map a donde se guarda la pareja
+        key: la llave asociada a la pareja
 
     Returns:
-        La lista con el nuevo elemento en la primera posición, si el proceso
-        fue exitoso
-
+        Una pareja <llave,valor>
     Raises:
         Exception
     """
     try:
-        new_node = lknode.newDoubleNode(element)
-
-        if (lst['size'] == 0):
-            lst['last'] = new_node
-            lst['first'] = new_node
-        else:
-            new_node['next'] = lst['first']
-            lst['first'] = new_node
-
-        lst['size'] += 1
-        return lst
-    except Exception as exp:
-        error.reraise(exp, 'doublelinkedlist->addFirst: ')
-
-#FIXME Cambiar el nombre de la funcion para usar snake_case
-#TODO Implementar manejo más detallado de excepciones con mensajes más especificos
-#TODO Verificar que el elemento que se esta agregando no sea None
-def addLast(lst, element):
-    """ Agrega un elemento en la última posición de la lista.
-
-    Se adiciona un elemento en la última posición de la lista y se actualiza
-     el apuntador a la útima posición.
-    Se incrementa el tamaño de la lista en 1
-    Args:
-        lst: La lista en la que se inserta el elemento
-        element: El elemento a insertar
-
-    Raises:
-        Exception
-    """
-    try:
-        new_node = lknode.newDoubleNode(element)
-
-        if lst['size'] == 0:
-            lst['first'] = new_node
-        else:
-            new_node['prev'] = lst['last']
-            lst['last']['next'] = new_node
-        lst['last'] = new_node
-        lst['size'] += 1
-        return lst
-    except Exception as exp:
-        error.reraise(exp, 'doublelinkedlist->addLast: ')
-
-#FIXME Cambiar el nombre de la funcion para usar snake_case
-#TODO Implementar manejo más detallado de excepciones con mensajes más especificos
-
-def isEmpty(lst):
-    """ Indica si la lista está vacía
-    Args:
-        lst: La lista a examinar
-
-    Raises:
-        Exception
-    """
-    try:
-        return lst['size'] == 0
-    except Exception as exp:
-        error.reraise(exp, 'doublelinkedlist->isEmpty: ')
-
-#TODO Implementar manejo más detallado de excepciones con mensajes más especificos
-
-def size(lst):
-    """ Informa el número de elementos de la lista.
-    Args
-        lst: La lista a examinar
-
-    Raises:
-        Exception
-    """
-    try:
-        return lst['size']
-    except Exception as exp:
-        error.reraise(exp, 'doublelinkedlist->size: ')
-
-#FIXME Cambiar el nombre de la funcion para usar snake_case
-#TODO Implementar manejo más detallado de excepciones con mensajes más especificos
-
-def firstElement(lst):
-    """ Retorna el primer elemento de una lista no vacía.
-     No se elimina el elemento.
-
-    Args:
-        lst: La lista a examinar
-
-    Raises:
-        Exception
-    """
-    try:
-        if lst['first'] is not None:
-            return lst['first']['info']
-    except Exception as exp:
-        error.reraise(exp, 'doublelinkedlist->fisrtElement: ')
-
-#FIXME Cambiar el nombre de la funcion para usar snake_case
-#TODO Implementar manejo más detallado de excepciones con mensajes más especificos
-
-def lastElement(lst):
-    """ Retorna el último elemento de una  lista no vacia.
-        No se elimina el elemento.
-
-    Args:
-        lst: La lista a examinar
-
-    Raises:
-        Exception
-    """
-    try:
-        if lst['last'] is not None:
-            return lst['last']['info']
-    except Exception as exp:
-        error.reraise(exp, 'doublelinkedlist->lastElement: ')
-
-#FIXME Cambiar el nombre de la funcion para usar snake_case
-#TODO Implementar manejo más detallado de excepciones con mensajes más especificos
-
-def getElement(lst, pos):
-    """ Retorna el elemento en la posición pos de la lista.
-
-    Se recorre la lista hasta el elemento pos, el cual  debe ser
-    mayor que cero y menor o igual al tamaño de la lista.
-    Se retorna el elemento en dicha posición sin eleminarlo.
-    La lista no puede ser vacia.
-
-    Args:
-        lst: La lista a examinar
-        pos: Posición del elemento a retornar
-
-    Raises:
-        Exception
-    """
-    try:
-        searchpos = 1
-        node = lst['first']
-        while searchpos < pos:
-            searchpos += 1
-            node = node['next']
-        return node['info']
-    except Exception as exp:
-        error.reraise(exp, 'doublelinkedlist->getElement: ')
-
-#FIXME Cambiar el nombre de la funcion para usar snake_case
-#TODO Implementar manejo más detallado de excepciones con mensajes más especificos
-
-def deleteElement(lst, pos):
-    """ Elimina el elemento en la posición pos de la lista.
-
-    Elimina el elemento que se encuentra en la posición pos de la lista.
-    Pos debe ser mayor que cero y menor o igual al tamaño de la lista.
-    Se decrementa en un uno el tamñao de la lista.
-    La lista no puede estar vacia.
-
-    Args:
-        lst: La lista a retoranr
-        pos: Posición del elemento a eliminar.
-
-    Raises:
-        Exception
-    """
-    try:
-        if (lst['size'] == 1) and (pos == 1):
-            lst['first'] = None
-            lst['last'] = None
-
-        node = lst['first']
-        searchpos = 1
-
-        while searchpos < pos:
-            searchpos += 1
-            node = node['next']
-        prev = node['prev']
-        sig = node['next']
-
-        if (prev is not None):
-            prev['next'] = sig
-        if (sig is not None):
-            sig['prev'] = prev
-
-        if(pos == lst['size']):
-            lst['last'] = prev
-
-        lst['size'] -= 1
-        return lst
-    except Exception as exp:
-        error.reraise(exp, 'doublelinkedlist->deleteElement: ')
-
-#FIXME Cambiar el nombre de la funcion para usar snake_case
-#TODO Implementar manejo más detallado de excepciones con mensajes más especificos
-
-def removeFirst(lst):
-    """ Remueve el primer elemento de la lista.
-    Elimina y retorna el primer elemento de la lista.
-    El tamaño de la lista se decrementa en uno.  Si la lista
-    es vacía se retorna None.
-    Args:
-        lst: La lista a examinar
-
-    Raises:
-        Exception
-    """
-    try:
-        if lst['first'] is not None:
-            temp = lst['first']['next']
-            node = lst['first']
-            lst['first'] = temp
-            lst['size'] -= 1
-            if (lst['size'] == 0):
-                lst['last'] = lst['first']
-            return node['info']
+        hash = hashValue(map, key)
+        pos = findSlot(map, key, hash, map['cmpfunction'])
+        if pos > 0:
+            element = lt.getElement(map['table'], pos)
+            return element
         else:
             return None
     except Exception as exp:
-        error.reraise(exp, 'doublelinkedlist->removeFirst: ')
+        # FIXME Ajustar mensaje de error para que sea más claro
+        error.reraise(exp, 'Probe:get')
 
-#FIXME Cambiar el nombre de la funcion para usar snake_case
-#TODO Implementar manejo más detallado de excepciones con mensajes más especificos
+# TODO Modificar documentación para que sea similar a la de las demás funciones
 
-def removeLast(lst):
-    """ Remueve el último elemento de la lista.
 
-    Elimina el último elemento de la lista  y lo retorna en caso de existir.
-    El tamaño de la lista se decrementa en 1.
-    Si la lista es vacía  retorna None.
-
+def remove(map, key):
+    """ Elimina la pareja llave,valor, donde llave == key.
     Args:
-        lst: La lista a examinar
+        map: El map a donde se guarda la pareja
+        key: la llave asociada a la pareja
 
+    Returns:
+        El map
     Raises:
         Exception
     """
     try:
-        if lst['size'] > 0:
-            if lst['first'] == lst['last']:
-                node = lst['first']
-                lst['last'] = None
-                lst['first'] = None
-            else:
-                temp = lst['last']['prev']
-                node = lst['last']
-                lst['last'] = temp
-                if (temp is not None):
-                    lst['last']['next'] = None
-            lst['size'] -= 1
-            return node['info']
-        else:
-            return None
+        hash = hashValue(map, key)
+        pos = findSlot(map, key, hash, map['cmpfunction'])
+        if pos > 0:
+            entry = me.newMapEntry('__EMPTY__', '__EMPTY__')
+            lt.changeInfo(map['table'], pos, entry)
+            map['size'] -= 1
+        return map
     except Exception as exp:
-        error.reraise(exp, 'doublelinkedlist->remoLast: ')
+        # FIXME Ajustar mensaje de error para que sea más claro
+        error.reraise(exp, 'Probe:remove')
 
-#FIXME Cambiar el nombre de la funcion para usar snake_case
-#TODO Implementar manejo más detallado de excepciones con mensajes más especificos
-#TODO Verificar que el elemento que se esta agregando no sea None
-def insertElement(lst, element, pos):
-    """ Inserta el elemento element en la posición pos de la lista.
 
-    Inserta el elemento en la posición pos de la lista.
-    La lista puede ser vacía.  Se incrementa en 1 el tamaño de la lista.
-
+def size(map):
+    """  Retorna  el número de entradas en la tabla de hash.
     Args:
-        lst: La lista en la que se va a insertar el elemento
-        element: El elemento a insertar
-        pos: posición en la que se va a insertar el elemento,
-        0 < pos <= size(lst)
-
+        map: El map
+    Returns:
+        Tamaño del map
     Raises:
         Exception
     """
     try:
-        new_node = lknode.newDoubleNode(element)
-
-        if (pos == 1):
-            new_node['next'] = lst['first']
-            if (lst['first'] is not None):
-                lst['first']['prev'] = new_node
-            else:
-                lst['last'] = new_node
-            lst['first'] = new_node
-        else:
-            searchpos = 1
-            node = lst['first']
-
-            while searchpos < pos:
-                searchpos += 1
-                node = node['next']
-            prev = node['prev']
-
-            if (prev is not None):
-                prev['next'] = new_node
-                new_node['prev'] = prev
-                new_node['next'] = node
-
-            if(pos == lst['size']):
-                lst['last'] = new_node
-
-        lst['size'] += 1
-        return lst
+        return map['size']
     except Exception as exp:
-        error.reraise(exp, 'doublelinkedlist->insertElement: ')
+        # FIXME Ajustar mensaje de error para que sea más claro
+        error.reraise(exp, 'Probe:size')
 
-#FIXME Cambiar el nombre de la funcion para usar snake_case
-#TODO Implementar manejo más detallado de excepciones con mensajes más especificos
 
-def isPresent(lst, element):
-    """ Informa si el elemento element esta presente en la lista.
-
-    Informa si un elemento está en la lista.  Si esta presente,
-    retorna la posición en la que se encuentra  o cero (0) si no esta presente.
-    Se utiliza la función de comparación utilizada durante la creación
-    de la lista para comparar los elementos.
-    La cual debe retornar cero en caso de que los elementos sean iguales.
-
+def isEmpty(map):
+    """ Informa si la tabla de hash se encuentra vacia
     Args:
-        lst: La lista a examinar
-        element: El elemento a buscar
-
+        map: El map
+    Returns:
+        True: El map esta vacio
+        False: El map no esta vacio
     Raises:
         Exception
     """
     try:
-        size = lst['size']
-        if size > 0:
-            node = lst['first']
-            keyexist = False
-            for keypos in range(1, size+1):
-                if (node is not None):
-                    if (compareElements(lst, element, node['info']) == 0):
-                        keyexist = True
-                        break
-                    node = node['next']
-            if keyexist:
-                return keypos
-        return 0
+        empty = True
+        for pos in range(lt.size(map['table'])):
+            entry = lt.getElement(map['table'], pos+1)
+            if (entry['key'] is not None and entry['key'] != '__EMPTY__'):
+                empty = False
+                break
+        return empty
     except Exception as exp:
-        error.reraise(exp, 'doublelinkedlist->isPresent: ')
+        # FIXME Ajustar mensaje de error para que sea más claro
+        error.reraise(exp, 'Probe:isEmpty')
 
-#FIXME Cambiar el nombre de la funcion para usar snake_case
-#TODO Implementar manejo más detallado de excepciones con mensajes más especificos
+# TODO indicar que la lista retornada es de la librería DISCLib
 
-def changeInfo(lst, pos, newinfo):
-    """ Cambia la informacion contenida en el nodo de la lista que se encuentra
-         en la posicion pos.
 
-    Args:
-        lst: La lista a examinar
-        pos: la posición de la lista con la información a cambiar
-        newinfo: La nueva información que se debe poner en el nodo de
-        la posición pos
+# def keySet(map):
+#     """
+#     Retorna una lista con todas las llaves de la tabla de hash
 
-    Raises:
-        Exception
+#     Args:
+#         map: El map
+#     Returns:
+#         lista de llaves
+#     Raises:
+#         Exception
+#     """
+#     try:
+#         ltset = lt.newList()
+#         for pos in range(lt.size(map['table'])):
+#             entry = lt.getElement(map['table'], pos+1)
+#             if (entry['key'] is not None and entry['key'] != '__EMPTY__'):
+#                 lt.addLast(ltset, entry['key'])
+#         return ltset
+#     except Exception as exp:
+#         # FIXME Ajustar mensaje de error para que sea más claro
+#         error.reraise(exp, 'Probe:keyset')
+
+# TODO indicar que la lista retornada es de la librería DISCLib
+
+
+# def valueSet(map):
+#     """
+#     Retorna una lista con todos los valores de la tabla de hash
+
+#     Args:
+#         map: El map
+#     Returns:
+#         lista de valores
+#     Raises:
+#         Exception
+#     """
+#     try:
+#         ltset = lt.newList()
+#         for pos in range(lt.size(map['table'])):
+#             entry = lt.getElement(map['table'], pos+1)
+#             if (entry['value'] is not None and entry['value'] != '__EMPTY__'):
+#                 lt.addLast(ltset, entry['value'])
+#         return ltset
+#     except Exception as exp:
+#         # FIXME Ajustar mensaje de error para que sea más claro
+#         error.reraise(exp, 'Probe:valueset')
+
+
+# __________________________________________________________________
+#       Helper Functions
+# __________________________________________________________________
+
+# # FIXME Agregar parametros, retorno y excepciones en la documentación.
+# def hashValue(table, key):
+#     """
+#     Calcula un hash para una llave, utilizando el método
+#     MAD : hashValue(y) = ((ay + b) % p) % M.
+#     Donde:
+#     M es el tamaño de la tabla, primo
+#     p es un primo mayor a M,
+#     a y b enteros aleatoreos dentro del intervalo [0,p-1], con a>0
+#     """
+#     try:
+#         h = (hash(key))
+#         a = table['scale']
+#         b = table['shift']
+#         p = table['prime']
+#         m = table['capacity']
+#         value = int((abs(a*h + b) % p) % m) + 1
+#         return value
+#     except Exception as exp:
+#         # FIXME Ajustar mensaje de error para que sea más claro
+#         error.reraise(exp, 'Probe:hashvalue')
+
+# FIXME Añadir retorno y manejo de excepciones en la documentación
+
+
+def findSlot(map, key, hashvalue, cmpfunction):
+    """
+    Encuentra una posición libre en la tabla de hash.
+    map: la tabla de hash
+    key: la llave
+    hashvalue: La posición inicial de la llave
+    cmpfunction: funcion de comparación para la búsqueda de la llave
     """
     try:
-        current = lst['first']
-        cont = 1
-        while cont < pos:
-            current = current['next']
-            cont += 1
-        current['info'] = newinfo
-        return lst
+        avail = -1          # no se ha encontrado una posición aun
+        searchpos = 0
+        table = map['table']
+        while (searchpos != hashvalue):  # Se busca una posición
+            if (searchpos == 0):
+                searchpos = hashvalue
+            if isAvailable(table, searchpos):  # La posición esta disponible
+                element = lt.getElement(table, searchpos)
+                if (avail == -1):
+                    avail = searchpos            # primera posición disponible
+                if element['key'] is None:       # nunca ha sido utilizada
+                    break
+            else:                    # la posicion no estaba disponible
+                element = lt.getElement(table, searchpos)
+                if cmpfunction(key, element) == 0:  # Es la llave
+                    return searchpos               # Se  retorna la posicion
+            searchpos = (((searchpos) % map['capacity'])+1)
+        return -(avail)    # numero negativo indica que el elemento no estaba
     except Exception as exp:
-        error.reraise(exp, 'doublelinkedlist->changeInfo: ')
+        # FIXME Ajustar mensaje de error para que sea más claro
+        error.reraise(exp, 'Probe:findslot')
 
-#TODO Implementar manejo más detallado de excepciones con mensajes más especificos
+# FIXME Agregar parametros, retorno y excepciones en la documentación.
 
-def exchange(lst, pos1, pos2):
-    """ Intercambia la informacion en las posiciones pos1 y pos2 de la lista.
 
-    Args:
-        lst: La lista a examinar
-        pos1: Posición del primer elemento
-        pos2: Posiocion del segundo elemento
-
-    Raises:
-        Exception
+def isAvailable(table, pos):
+    """
+    Informa si la posición pos esta disponible en la tabla de hash.
+    Se entiende que una posición está disponible
+    si su contenido es igual a None (no se ha usado esa posicion)
+    o a __EMPTY__ (la posición fue liberada)
     """
     try:
-        infopos1 = getElement(lst, pos1)
-        infopos2 = getElement(lst, pos2)
-        changeInfo(lst, pos1, infopos2)
-        changeInfo(lst, pos2, infopos1)
-        return lst
+        entry = lt.getElement(table, pos)
+        if (entry['key'] is None or entry['key'] == '__EMPTY__'):
+            return True
+        return False
     except Exception as exp:
-        error.reraise(exp, 'doublelinkedlist->exchange: ')
+        # FIXME Ajustar mensaje de error para que sea más claro
+        error.reraise(exp, 'Probe:isAvailable')
 
-#FIXME Cambiar el nombre de la funcion para usar snake_case
-#TODO Implementar manejo más detallado de excepciones con mensajes más especificos
+# FIXME Agregar parametros, retorno y excepciones en la documentación.
 
-def subList(lst, pos, numelem):
-    """ Retorna una sublista de la lista lst.
 
-    Se retorna una lista que contiene los elementos a partir de la
-    posicion pos,con una longitud de numelem elementos.
-    Se crea una copia de dichos elementos y se retorna una lista nueva.
-
-    Args:
-        lst: La lista a examinar
-        pos: Posición a partir de la que se desea obtener la sublista
-        numelem: Numero de elementos a copiar en la sublista
-
-    Raises:
-        Exception
+def rehash(map):
+    """
+    Se aumenta la capacidad de la tabla al doble y se hace rehash de
+    todos los elementos de la tabla.
     """
     try:
-        sublst = {'first': None,
-                  'last': None,
-                  'size': 0,
-                  'type': 'DOUBLE_LINKED',
-                  'key': lst['key'],
-                  'datastructure': lst['datastructure'],
-                  'cmpfunction': lst['cmpfunction']}
-        cont = 1
-        loc = pos
-        while cont <= numelem:
-            elem = getElement(lst, loc)
-            addLast(sublst, elem)
-            loc += 1
-            cont += 1
-        return sublst
+        newtable = lt.newList('ARRAY_LIST', map['cmpfunction'])
+        capacity = nextPrime(map['capacity']*2)
+        for _ in range(capacity):
+            entry = me.newMapEntry(None, None)
+            lt.addLast(newtable, entry)
+        oldtable = map['table']
+        map['size'] = 0
+        map['currentfactor'] = 0
+        map['table'] = newtable
+        map['capacity'] = capacity
+        for pos in range(lt.size(oldtable)):
+            entry = lt.getElement(oldtable, pos+1)
+            if (entry['key'] is not None and entry['key'] != '__EMPTY__'):
+                hash = hashValue(map, entry['key'])
+                loc = findSlot(map, entry['key'], hash, map['cmpfunction'])
+                lt.changeInfo(map['table'], abs(loc), entry)
+                if (loc < 0):
+                    map['size'] += 1
+                    map['currentfactor'] = map['size'] / map['capacity']
+        return map
     except Exception as exp:
-        error.reraise(exp, 'doublelinkedlist->subList: ')
+        # FIXME Ajustar mensaje de error para que sea más claro
+        error.reraise(exp, 'Probe:rehash')
 
-#TODO Implementar manejo más detallado de excepciones con mensajes más especificos
 
-def iterator(lst):
-    """ Retorna un iterador para la lista.
-    Args:
-        lst: La lista a iterar
+# Function that returns True if n
+# is prime else returns False
+# This code is contributed by Sanjit_Prasad
 
-    Raises:
-        Exception
-    """
-    try:
-        if(lst is not None):
-            current = lst['first']
-            while current is not None:
-                yield current['info']
-                current = current['next']
-    except Exception as exp:
-        error.reraise(exp, 'doublelinkedlist->Iterator')
+# # FIXME Agregar documentación para que siga el formato que las demás funciones.
+# def isPrime(n):
+#     # Corner cases
+#     if (n <= 1):
+#         return False
+#     if (n <= 3):
+#         return True
 
-#FIXME Cambiar el nombre de la funcion para usar snake_case
-#TODO Implementar manejo más detallado de excepciones con mensajes más especificos
+#     if (n % 2 == 0 or n % 3 == 0):
+#         return False
 
-def compareElements(lst, element, info):
-    """ Compara dos elementos
+#     for i in range(5, int(math.sqrt(n) + 1), 6):
+#         if (n % i == 0 or n % (i + 2) == 0):
+#             return False
 
-    Se utiliza la función de comparación por defecto si key es None
-    o la función provista por el usuario en caso contrario
-    Args:
-        lst: La lista con los elementos
-        element:  El elemento que se esta buscando en la lista
-        info: El elemento de la lista que se está analizando
+#     return True
 
-    Returns:  0 si los elementos son iguales
+# FIXME Agregar documentación para que siga el formato que las demás funciones.
+# Function to return the smallest
+# prime number greater than N
+# # This code is contributed by Sanjit_Prasad
 
-    Raises:
-        Exception
-    """
-    try:
-        if(lst['key'] is not None):
-            return lst['cmpfunction'](element[lst['key']], info[lst['key']])
-        else:
-            return lst['cmpfunction'](element, info)
-    except Exception as exp:
-        error.reraise(exp, 'doublelinkedlist->compareElements')
 
-#FIXME Cambiar el nombre de la funcion para usar snake_case
-#FIXME Cambiar el nombre de la funcion para que referencie mejor a una compare function
+# def nextPrime(N):
+#     # Base case
+#     if (N <= 1):
+#         return 2
+#     prime = int(N)
+#     found = False
+#     # Loop continuously until isPrime returns
+#     # True for a number greater than n
+#     while (not found):
+#         prime = prime + 1
+#         if (isPrime(prime) is True):
+#             found = True
+#     return int(prime)
 
-def defaultfunction(id1, id2):
-    if id1 > id2:
-        return 1
-    elif id1 < id2:
-        return -1
-    return 0
+# # FIXME Agregar documentación.
+
+
+# def defaultcompare(key, element):
+#     if (key == element['key']):
+#         return 0
+#     elif (key > element['key']):
+#         return 1
+#     return -1

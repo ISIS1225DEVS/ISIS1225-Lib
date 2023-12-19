@@ -10,7 +10,7 @@
 # native python modules
 # import dataclass to define the hash table
 from dataclasses import dataclass, field
-# import modules for defining the element's type in the hash table
+# import modules for defining the entry type in the hash table
 from typing import List, Optional, Callable, Generic
 # import inspect for getting the name of the current function
 import inspect
@@ -21,12 +21,15 @@ import random
 # generic error handling and type checking
 from DISClib.DataStructures.mapentry import MapEntry
 from DISClib.DataStructures.arraylist import ArrayList
+# util functions for the hash table
 from DISClib.Utils.numbers import next_prime
 from DISClib.Utils.numbers import hash_compress
 from DISClib.Utils.error import error_handler
-# from DISClib.Utils.error import init_type_checker
+# default cmp function for the hash table
 from DISClib.Utils.default import ht_default_cmp_funcion
+# default data type for the hash table
 from DISClib.Utils.default import T
+from DISClib.Utils.default import VALID_DATA_TYPE_LT
 from DISClib.Utils.default import DEFAULT_DICT_KEY
 from DISClib.Utils.default import VALID_IO_TYPE
 from DISClib.Utils.default import DEFAULT_PRIME
@@ -38,24 +41,37 @@ assert ArrayList
 assert next_prime
 assert hash_compress
 assert error_handler
-# assert init_type_checker
 assert ht_default_cmp_funcion
 assert T
+assert VALID_DATA_TYPE_LT
 assert DEFAULT_DICT_KEY
 assert VALID_IO_TYPE
 assert DEFAULT_PRIME
 
 # default load factor for separating chaining
-# :data: DEFAULT_CHAINING_ALPHA
-DEFAULT_CHAINING_ALPHA: float = 4.0
+# :data: DEFAULT_PROBING_ALPHA
+DEFAULT_PROBING_ALPHA: float = 0.5
+"""
+Factor de carga (alpha) por defecto e ideal para el LinearProbing, por defecto es 0.5.
+"""
 
-# minimum load factor for separating chaining
-# :data: MIN_CHAINING_ALPHA
-MIN_CHAINING_ALPHA: float = 1.0
+# :data: MAX_PROBING_ALPHA
+MAX_PROBING_ALPHA: float = 0.8
+"""
+Factor de carga (alpha) máximo para el LinearProbing, por defecto es 8.0.
+"""
 
-# maximum load factor for separating chaining
-# :data: MAX_CHAINING_ALPHA
-MAX_CHAINING_ALPHA: float = 8.0
+# :data: MIN_PROBING_ALPHA
+MIN_PROBING_ALPHA: float = 0.2
+"""
+Factor de carga (alpha) mínimo para el LinearProbing, por defecto es 2.0.
+"""
+
+# :data: EMPTY
+EMPTY = "__EMPTY__"
+"""
+Constante que representa una entrada vacío en el LinearProbing, por defecto es "__EMPTY__".
+"""
 
 
 @dataclass
@@ -71,7 +87,7 @@ class LinearProbing(Generic[T]):
     Returns:
         LinearProbing: ADT de tipo LinearProbing o tabla de hash con separación por encadenamiento.
     """
-    # input elements from python list
+    # input tuples from python list
     # :attr: iodata
     iodata: Optional[List[T]] = None
     """
@@ -79,32 +95,32 @@ class LinearProbing(Generic[T]):
     """
 
     # reserved space for the hash table
-    # :attr: N
-    elements: int = 1
+    # :attr: nentries
+    nentries: int = 1
     """
-    Es el espacio reservado para la tabla de hash (n), por defecto es 1, pero debe configurarse según el número de elementos que se espera almacenar.
-    """
-
-    # starting load factor for the hash table
-    # :attr: _load_factor
-    aLpha: Optional[float] = DEFAULT_CHAINING_ALPHA
-    """
-    Es el factor de carga con el que se inicializa la tabla de hash, por defecto es 4.0.
+    Es el espacio reservado para la tabla de hash (n), por defecto es 1, pero debe configurarse según el número de entradas que se espera almacenar.
     """
 
-    # prime number for the mad compression function
+    # starting load factor (alpha) for the hash table
+    # :attr: alpha
+    alpha: Optional[float] = DEFAULT_PROBING_ALPHA
+    """
+    Es el factor de carga (alpha) con el que se inicializa la tabla de hash, por defecto es 4.0.
+    """
+
+    # prime number (P) for the MAD compression function
     # :attr: prime
     prime: Optional[int] = DEFAULT_PRIME
     """
-    Es el número primo utilizado para calcular el código hash de la llave con la función de compresión MAD, por defecto es 109345121.
+    Es el número primo (P) utilizado para calcular el código hash de la llave con la función de compresión MAD, por defecto es 109345121.
     """
 
-    # actual place to store the elements in the hash table
-    # :attr: table
-    table: ArrayList[MapEntry[T]] = field(default_factory=ArrayList)
+    # actual place to store the entries in the hash table
+    # :attr: hash_table
+    hash_table: ArrayList[MapEntry[T]] = field(default_factory=ArrayList)
 
     """
-    Es el indice de la tabla de hash donde se almacenan los 'Buckets', implementado con un 'ArrayList' de DISCLib. en el __post_init__ se inicializa con la capacidad inicial de la tabla de hash.
+    Es el indice de la tabla de hash donde se almacenan los *MapEntry*, implementado con un *ArrayList* de DISCLib. en el *__post_init__()* se inicializa con la capacidad inicial de la tabla de hash.
     """
 
     # boolean to indicate if the hash table can be rehashed
@@ -114,19 +130,19 @@ class LinearProbing(Generic[T]):
     Es un booleano que indica si la tabla de hash se puede reconstruir utilizando el método de rehash, por defecto es True.
     """
 
-    # starting capacity for the hash table
-    # :attr: capacity
-    capacity: int = 1
+    # starting capacity (M|m) for the hash table
+    # :attr: mcapacity
+    mcapacity: int = 1
     """
-    Es la capacidad (m) con la que se inicializa la tabla de hash.
+    Es la capacidad (M) con la que se inicializa la tabla de hash.
     """
 
-    # actual number of elements in the hash table
+    # actual number of used entries (n) in the hash table
     # FIXME inconsistent use of _size and size()
     # :attr: _size
     _size: int = 0
     """
-    Es el número de elementos dentro de la tabla de hash, por defecto es 0 y se actualiza con cada operación que modifica la estructura.
+    Es el número de elementos (n) dentro de la tabla de hash, por defecto es 0 y se actualiza con cada operación que modifica la estructura.
     """
 
     # :attr: collisions
@@ -135,96 +151,116 @@ class LinearProbing(Generic[T]):
     Es el número de colisiones en la tabla de hash.
     """
 
-    # TODO create a MAD class to handle the compression function
-    # private scale factor for the mad compression function
+    # TODO create a MAD class to handle the compression function?
+    # private scale (a) factor for the mad compression function
     # :attr: _scale
     _scale: Optional[int] = 0
     """
     Es el número utilizado para calcular el código hash de la llave.
     """
-    # private shift factor for the mad compression function
+    # private shift (b) factor for the mad compression function
     # :attr: _shift
     _shift: Optional[int] = 0
     """
     Es el número utilizado para calcular el código hash de la llave.
     """
 
-    # optional limit factor
-    # :attr: _limit_factor
-    _limit_factor: Optional[float] = 0
-    """
-    Es el factor de carga limite antes de hacer rehash.
-    """
-    # optional current factor
-    # :attr: _current_factor
-    _current_factor: Optional[float] = 0
+    # current factor (alpha) for the working hash table
+    # :attr: _cur_alpha
+    _cur_alpha: Optional[float] = 0
     """
     Es el factor de carga actual de la tabla de hash.
     """
 
-    # the cmp_function is used to compare elements, not defined by default
+    # maximum load factor (alpha) for the hash table
+    # :attr: max_alpha
+    max_alpha: Optional[float] = MAX_PROBING_ALPHA
+    """
+    Es el factor de carga máximo de la tabla de hash, por defecto es 8.0.
+    """
+
+    # minimum load factor (alpha) for the hash table
+    # :attr: min_alpha
+    min_alpha: Optional[float] = MIN_PROBING_ALPHA
+    """
+    Es el factor de carga mínimo de la tabla de hash, por defecto es 2.0.
+    """
+
+    # the type of the entries in the hash table
+    # :attr: _data_type
+    _data_type: Optional[type] = None
+    """
+    Es el tipo de dato de los elementos que contiene la tabla de hash, por defecto es *None* y se configura al cargar el primer entrada en el mapa.
+    """
+
+    # the cmp_function is used to compare emtries, not defined by default
     # :attr: cmp_function
     cmp_function: Optional[Callable[[T, T], int]] = None
     """
-    Función de comparación opcional que se utiliza para comparar los elementos del LinearProbing, por defecto es 'None' y el __post_init__ configura la función por defecto lt_default_cmp_funcion().
+    Función de comparación opcional que se utiliza para comparar los elementos del LinearProbing, por defecto es *None* y el *__post_init__()* configura la función por defecto *ht_default_cmp_funcion()*.
     """
 
-    # the key is used to compare elements, not defined by default
+    # the key is used to compare entries, not defined by default
     # :attr: key
     key: Optional[str] = None
     """
-    Nombre de la llave opcional que se utiliza para comparar los elementos del LinearProbing, Por defecto es 'None' y el __post_init__ configura la llave por defecto la llave 'id' en DEFAULT_DICT_KEY.
+    Nombre de la llave opcional que se utiliza para comparar los elementos del LinearProbing, Por defecto es *None* y el *__post_init__()* configura la llave por defecto la llave *id* en *DEFAULT_DICT_KEY*.
     """
 
     def __post_init__(self) -> None:
+        """*__post_init__()* configura los valores por defecto de la estructura LinearProbing después de la inicialización de la misma. Configura los factores de carga (alpha), el número primo (P) para la función de compresión MAD, la capacidad (M) de la tabla de hash, la función de comparación y la llave para comparar los elementos del LinearProbing, y finalmente inicializa la tabla de hash con la capacidad (M) configurada.
+        """
+        # TODO check if this is the best way make the initialization
         try:
             # setting capacity
-            self.capacity = self._next_prime(self.elements // self.aLpha)
+            self.mcapacity = next_prime(self.nentries // self.alpha)
             # setting scale and shift for MAD compression function
             self._scale = random.randint(1, self.prime - 1)
             self._shift = random.randint(0, self.prime - 1)
             # setting the default compare function
             if self.cmp_function is None:
-                self.cmp_function = self.default_cmp_function
+                self.cmp_function = ht_default_cmp_funcion
             # setting the default key
             if self.key is None:
                 self.key = DEFAULT_DICT_KEY
-            # setting the default limit factor
-            if self._limit_factor == 0:
-                self._limit_factor = self.aLpha
-            # setting the default current factor
-            if self._current_factor == 0:
-                self._current_factor = self._size / self.capacity
 
-            self.table = ArrayList(cmp_function=self.cmp_function,
-                                   key=self.key)
+            # initializing the hash table
+            self.hash_table = ArrayList(cmp_function=self.cmp_function,
+                                        key=self.key)
             i = 0
-            while i < self.capacity:
-                bucket = Bucket(cmp_function=self.cmp_function,
-                                key=self.key)
-                self.table.add_last(bucket)
+            # bulding buckets in the hash table
+            while i < self.mcapacity:
+                # adding an empty entry to the hash table
+                entry = MapEntry(None, None)
+                self.hash_table.add_last(entry)
                 i += 1
 
+            # setting the current load factor
+            if self._cur_alpha == 0:
+                self._cur_alpha = self._size / self.mcapacity
+
+            # TODO check if this is the best way to initialize the structure
             if isinstance(self.iodata, VALID_IO_TYPE):
                 for entry in self.iodata:
-                    self.put(entry[self.key], entry)
+                    key = entry.get(self.key)
+                    self.put(key, entry)
             self.iodata = None
+            self.nentries = self._size
         except Exception as err:
             self._handle_error(err)
 
-    def default_cmp_function(self, elm1, elm2) -> int:
-        """*default_cmp_function()* procesa con algoritmica por defecto la lista de elementos que procesa el LinearProbing. Es una función crucial para que la estructura de datos funcione correctamente.
-
+    def default_cmp_function(self, key1, entry2: MapEntry) -> int:
+        """*default_cmp_function()* procesa la llave existente en la entrada del LinearProbing y la compara con la llave del a entrada que se quiere agregar al LinearProbing.
         Args:
-            elm1 (Any): primer elemento a comparar.
-            elm2 (Any): segundo elemento a comparar.
+            key1 (Any): llave de la primera entrada a comparar.
+            entry2 (MapEntry): segunda entrada (pareja llave-valor) a comparar.
 
         Returns:
-            int: respuesta de la comparación entre los elementos, 0 si son iguales, 1 si elm1 es mayor que elm2, -1 si elm1 es menor.
+            int: respuesta de la comparación entre los elementos, 0 si las llaves son iguales, 1 si key1 es mayor que la llave de entry2, -1 si key1 es menor.
         """
         try:
             # passing self as the first argument to simulate a method
-            return ht_default_cmp_funcion(self.key, elm1, elm2)
+            return ht_default_cmp_funcion(key1, entry2)
         except Exception as err:
             self._handle_error(err)
 
@@ -241,29 +277,33 @@ class LinearProbing(Generic[T]):
         cur_function = inspect.currentframe().f_code.co_name
         error_handler(cur_context, cur_function, err)
 
-    def _check_type(self, element: T) -> bool:
-        """*_check_type()* función privada que verifica que el tipo de dato del elemento que se quiere agregar al LinearProbing sea del mismo tipo contenido dentro de los elementos del LinearProbing.
+    def _check_type(self, entry: T) -> bool:
+        """*_check_type()* función privada que verifica que el tipo de dato de la entrada que se quiere agregar al LinearProbing sea del mismo tipo contenido dentro de los elementos del LinearProbing.
 
         Raises:
-            TypeError: error si el tipo de dato del elemento que se quiere agregar no es el mismo que el tipo de dato de los elementos que ya contiene el LinearProbing.
+            TypeError: error si el tipo de dato de la entrada que se quiere agregar no es el mismo que el tipo de dato de los elementos que ya contiene el LinearProbing.
 
         Args:
-            element (T): elemento que se quiere procesar en LinearProbing.
+            entry (T): entrada que se quiere procesar en LinearProbing.
 
         Returns:
-            bool: operador que indica si el ADT LinearProbing es del mismo tipo que el elemento que se quiere procesar.
+            bool: operador que indica si el ADT LinearProbing es del mismo tipo que la entrada que se quiere procesar.
         """
         # TODO check usability of this function
-        # if the structure is not empty, check the first element type
-        if not self.is_empty():
-            # get the type of the first element
-            lt_type = type(self.elements[0])
-            # raise an exception if the type is not valid
-            if not isinstance(element, lt_type):
-                err_msg = f"Invalid data type: {type(lt_type)} "
-                err_msg += f"for element info: {type(element)}"
-                raise TypeError(err_msg)
-        # otherwise, any type is valid
+        # if datastruct is empty, set the entry type
+        if self.is_empty():
+            self._data_type = type(entry)
+        # else if the structure is not empty, check the entry data type
+        elif self._data_type is not type(entry):
+            err_msg = f"Invalid data type: {type(entry)} "
+            err_msg += f"for structure configured with type: {self._data_type}"
+            raise TypeError(err_msg)
+        # finally, check if the new entry is a valid datatype
+        elif self._data_type not in VALID_DATA_TYPE_LT:
+            err_msg = f"Invalid data type: {type(self._data_type)}"
+            err_msg += f"for entry info: {type(entry)}"
+            raise TypeError(err_msg)
+        # otherwise, the type is valid
         return True
 
     # @property
@@ -293,424 +333,385 @@ class LinearProbing(Generic[T]):
             self._handle_error(err)
 
     def contains(self, key: T) -> bool:
-        pass
+        """*contains()* responde si el LinearProbing contiene una entrada con la llave key.
+
+        Args:
+            key (T): llave de la entrada (pareja llave-valor) que se quiere buscar en el LinearProbing.
+
+        Returns:
+            bool: operador que indica si el LinearProbing contiene o no una entrada con la llave key.
+        """
+        try:
+            # assume the entry is not in the structure
+            found = False
+            # use the MAD compression function to get the hash key
+            hkey = hash_compress(key,
+                                 self._scale,
+                                 self._shift,
+                                 self.prime,
+                                 self.mcapacity)
+            # look for the entry in the hash table
+            idx = self._find_slot(hkey, key)
+            # if the index of the entry is inside the hash table
+            if idx > -1:
+                found = True
+            return found
+        except Exception as err:
+            self._handle_error(err)
 
     def put(self, key: T, value: T) -> None:
-        pass
+        """*put()* agrega una entrada (pareja llave-valor) al LinearProbing, si la llave ya existe en el LinearProbing, se reemplaza el valor.
+
+        Args:
+            key (T): llave asociada a la nueva entrada.
+            value (T): el valor asociado a la nueva entrada.
+
+        Raises:
+            Exception: si el indice de la entrada en el mapa está fuera de los limites establecidos, se genera un error.
+        """
+        try:
+            # create a new entry for the entry
+            new_entry = MapEntry(key, value)
+            # get the hash key for the entry
+            hkey = hash_compress(key,
+                                 self._scale,
+                                 self._shift,
+                                 self.prime,
+                                 self.mcapacity)
+            # TODO do i need this?
+            if hkey < 0 or hkey >= self.mcapacity:
+                err_msg = f"The hash for the key: {key}"
+                err_msg += f"is out of range fo capacity: {self.mcapacity}"
+                raise Exception(err_msg)
+            # check the entry availability in the hash table
+            idx = self._find_slot(hkey, key)
+            # there is no space available in the hash table
+            if idx == -1:
+                raise Exception(f"Space not available for key: {key}")
+            # otherwise, the entry is not in the hash table, add it
+            else:
+                # get the entry of the hash table
+                entry = self.hash_table.get_element(idx)
+                # if the entry hasnt been added, add it
+                if entry is None:
+                    self.hash_table.add_element(new_entry, idx)
+                # otherwise, update the entry
+                else:
+                    self.hash_table.change_info(new_entry, idx)
+                # check if there was a collision
+                if hkey != idx:
+                    self._collisions += 1
+                # update the size of the hash table
+                self._size += 1
+                self._cur_alpha = self._size / self.mcapacity
+            # check if the structure needs to be rehashed
+            if self._cur_alpha >= self.max_alpha:
+                self.rehash()
+        except Exception as err:
+            self._handle_error(err)
 
     def get(self, key: T) -> Optional[T]:
-        pass
+        """*get()* devuelve la entrada (pareja llave-valor) cuya llave sea igual a key dentro del LinearProbing, si no existe una entrada con la llave key, devuelve None.
 
-    def remove(self, key: T) -> None:
-        pass
+        Args:
+            key (T): llave asociada a la entrada que se quiere buscar.
+
+        Raises:
+            Exception: error si la estructura está vacía.
+
+        Returns:
+            Optional[T]: entrada (pareja llave-valor) con la llave igual a key dentro del LinearProbing, None si no existe la entrada asociada a la llave key.
+        """
+        try:
+            if self.is_empty():
+                raise Exception("The structure is empty")
+            else:
+                # assume the entry is not in the structure
+                entry = None
+                # get the hash key for the entry
+                hkey = hash_compress(key,
+                                     self._scale,
+                                     self._shift,
+                                     self.prime,
+                                     self.mcapacity)
+                # checking the entry index in the hash table
+                idx = self._find_slot(hkey, key)
+                # if the entry is in the hashmap, return it
+                if idx >= 0:
+                    entry = self.hash_table.get_element(idx)
+                return entry
+        except Exception as err:
+            self._handle_error(err)
+
+    def check_bucket(self, key: T) -> Optional[T]:
+        """*check_bucket()* devuelve el bucket asociado a la llave key dentro del LinearProbing, si no existe una entrada con la llave key, devuelve None.
+
+        Args:
+            key (T): llave asociada al bucket que se quiere buscar.
+
+        Raises:
+            Exception: error si la estructura está vacía.
+
+        Returns:
+            Optional[T]: bucket asociado a la llave key dentro del LinearProbing, None si no existe la entrada asociada a la llave key.
+        """
+        try:
+            if self.is_empty():
+                raise Exception("The structure is empty")
+            else:
+                # assume the entry is not in the structure
+                bucket = None
+                # get the hash key for the entry
+                hkey = hash_compress(key,
+                                     self._scale,
+                                     self._shift,
+                                     self.prime,
+                                     self.mcapacity)
+                # checking the entry index in the hash table
+                idx = self._find_slot(hkey, key)
+                # get the bucket according to the index
+                bucket = self.hash_table.get_element(idx)
+            return bucket
+        except Exception as err:
+            self._handle_error(err)
+
+    def remove(self, key: T) -> Optional[T]:
+        """*remove()* elimina la entrada (pareja llave-valor) cuya llave sea igual a key dentro del LinearProbing, si no existe una entrada con la llave key, devuelve None.
+
+        Args:
+            key (T): llave asociada a la entrada que se quiere eliminar.
+
+        Raises:
+            Exception: error si la estructura está vacía.
+            Exception: error si la entrada que se quiere eliminar no existe dentro del bucket
+
+        Returns:
+            Optional[T]: entrada (pareja llave-valor) que se eliminó del LinearProbing, None si no existe la entrada asociada a la llave key.
+        """
+        try:
+            if self.is_empty():
+                raise Exception("The structure is empty")
+            else:
+                entry = None
+                # get the hash key for the entry
+                hkey = hash_compress(key,
+                                     self._scale,
+                                     self._shift,
+                                     self.prime,
+                                     self.mcapacity)
+                # finding the entry index in the hash table
+                idx = self._find_slot(hkey, key)
+                # checking the bucket
+                bucket = self.hash_table.get_element(idx)
+                if bucket is not None:
+                    if idx >= 0:
+                        # gettting the entry from the hash table
+                        entry = bucket
+                        # create a clean entry
+                        clean_entry = MapEntry(None, None)
+                        # update the entry in the hash table
+                        self.hash_table.change_info(clean_entry, idx)
+                        self._size -= 1
+                        self._cur_alpha = self._size / self.mcapacity
+                    # TODO maybe i don't need this
+                    else:
+                        raise Exception(f"Entry for Key: {key} not found")
+            if self._cur_alpha < self.min_alpha:
+                self.rehash()
+            return entry
+        except Exception as err:
+            self._handle_error(err)
 
     def keys(self) -> ArrayList[T]:
-        pass
+        """*keys()* devuelve una lista (ArrayList) con todas las llaves de las entradas (parejas llave-valor) del LinearProbing.
+
+        Returns:
+            ArrayList[T]: lista (ArrayList) con todas las llaves del LinearProbing.
+        """
+        try:
+            keys_lt = ArrayList(key=self.key)
+            for bucket in self.hash_table:
+                if not bucket.is_empty():
+                    for entry in bucket:
+                        print(entry)
+                        keys_lt.add_last(entry.get_key())
+            return keys_lt
+        except Exception as err:
+            self._handle_error(err)
 
     def values(self) -> ArrayList[T]:
-        pass
+        """*values()* devuelve una lista (ArrayList) con todos los valores de las entradas (parejas llave-valor) del LinearProbing.
+
+        Returns:
+            ArrayList[T]: lista (ArrayList) con todos los valores del LinearProbing.
+        """
+        try:
+            values_lt = ArrayList(key=self.key)
+            for bucket in self.hash_table:
+                if not bucket.is_empty():
+                    for entry in bucket:
+                        values_lt.add_last(entry.get_value())
+            return values_lt
+        except Exception as err:
+            self._handle_error(err)
+
+    def entries(self) -> ArrayList[T]:
+        """*entries()* devuelve una lista (ArrayList) con todas las entradas (parejas llave-valor) del LinearProbing.
+
+        Returns:
+            ArrayList[T]: lista (ArrayList) con todas las entradas del LinearProbing.
+        """
+        try:
+            items_lt = ArrayList(key=self.key)
+            for bucket in self.hash_table:
+                if not bucket.is_empty():
+                    for entry in bucket:
+                        data = (entry.get_key(), entry.get_value())
+                        items_lt.add_last(data)
+            return items_lt
+        except Exception as err:
+            self._handle_error(err)
+
+    def _find_slot(self, hkey: int, key: T) -> int:
+        """_find_slot _summary_
+
+        Args:
+            hkey (int): _description_
+            key (T): _description_
+
+        Returns:
+            int: _description_
+        """
+        # TODO add docstring
+        try:
+            # assume we don't find the entry
+            idx = -1
+            # sets a limit for the number of probes
+            max_probing = self.hash_table.size()
+            # sets the initial search index
+            i = hkey
+            # setting the found flag
+            found = False
+            # setting the number of probes
+            j = 0
+            # look for the correct entry in the hash table
+            while not found or j < max_probing:
+                # if the entry is empty, return the index
+                if self._is_available(i):
+                    entry = self.hash_table.get_element(idx)
+                    if idx == -1:
+                        idx = i
+                    if entry.get_key() == key:
+                        found = True
+                    # idx = i
+                # otherwise, the entry has data, check if the key is the same
+                else:
+                    # get the entry in the hash table
+                    entry = self.hash_table.get_element(i)
+                    if self.cmp_function(key, entry) == 0:
+                        idx = i
+                        found = True
+                    else:
+                        i = (i + 1) % self.mcapacity
+                # i += 1
+                if i >= self.mcapacity:
+                    i = 0
+                j += 1
+            return idx
+        except Exception as err:
+            self._handle_error(err)
+            
+    def _probe_slot(self, hkey: int, key: T) -> int:
+        """_probe_slot _summary_
+
+        Args:
+            hkey (int): _description_
+            key (T): _description_
+
+        Returns:
+            int: _description_
+        """     
+        # TODO add docstring
+        try:
+            pass
+        except Exception as err:
+            self._handle_error(err)
+               
+
+    def _is_available(self, idx: int) -> bool:
+        """_is_available _summary_
+
+        Args:
+            idx (int): _description_
+
+        Returns:
+            bool: _description_
+        """
+        # TODO add docstring
+        available = False
+        entry = self.hash_table.get_element(idx)
+        if entry.get_key() is None:
+            available = True
+        else:
+            raise Exception(f"Hash table index: {idx} is not available")
+        # # if the bucket is null, return True
+        # if bucket is None:
+        #     available = True
+        # # otherwise the bucket has been used 
+        # elif isinstance(bucket, MapEntry):
+        #     # if the entry is empty, return True
+        #     if bucket.get_key() is None:
+        #         available = True
+        # # if entry.get_key() in (None, EMPTY):
+        #     # return True
+        return available
 
     def rehash(self) -> None:
-        pass
+        """*rehash()* reconstruye la tabla de hash con una nueva capacidad (M) y un nuevo factor de carga (alpha) según los límites establecidos por el usuario en los atributos *max_alpha* y *min_alpha*.
 
+        Si el factor de carga (alpha) es mayor que el límite superior (max_alpha), se duplica la capacidad (M) buscando el siguiente número primo y se reconstruye la tabla de hash.
 
+        Si el factor de carga (alpha) es menor que el límite inferior (min_alpha), se reduce a la mitad la capacidad (M) de la tabla de hash buscando el siguiente número primo y se reconstruye la tabla de hash.
+        """
+        try:
+            # check if the structure is rehashable
+            if self.rehashable:
+                # find the new capacity according to limits
+                # augmenting the capacity
+                if self._cur_alpha >= self.max_alpha:
+                    new_capacity = next_prime(self.mcapacity * 2)
+                # reducing the capacity
+                elif self._cur_alpha < self.min_alpha:
+                    new_capacity = next_prime(self.mcapacity // 2)
 
+                # asigning the new capacity
+                self.mcapacity = new_capacity
 
+                # reseting the size, collisions and current load factor
+                self._size = 0
+                self._collisions = 0
+                self._cur_alpha = 0
 
+                # creating the new hash table
+                new_table = ArrayList(cmp_function=self.cmp_function,
+                                      key=self.key)
+                # keep in memory the old hash table
+                old_table = self.hash_table
 
-# GENERAL
-#FIXME Cambiar todas las funciones y variables al formato snake_case
-#TODO Explicar más a profundidad que tipo de excepciones y errores puede generar cada función
+                # Create new table with empty buckets
+                new_table = ArrayList([Bucket(cmp_function=self.cmp_function,
+                                              key=self.key) for _ in range(self.mcapacity)])
 
-#FIXME Modificar documentación relacionada a numelements
-def newMap(numelements, prime, loadfactor, cmpfunction, datastructure):
-    """Crea una tabla de simbolos (map) sin orden
+                # replace the old table with the new one
+                self.hash_table = new_table
 
-    Crea una tabla de hash con capacidad igual a nuelements
-    (primo mas cercano al doble de numelements).
-    prime es un número primo utilizado para  el cálculo de los codigos
-    de hash, si no es provisto se  utiliza el primo 109345121.
-
-    Args:
-        numelements: Tamaño inicial de la tabla
-        prime: Número primo utilizado en la función MAD
-        loadfactor: Factor de carga maximo de la tabla
-        cmpfunction: Funcion de comparación entre llaves
-        datastructure: estructura de datos seleccionada
-    Returns:
-        Un nuevo map
-    Raises:
-        Exception
-    """
-    try:
-        capacity = nextPrime(numelements//loadfactor)
-        scale = rd.randint(1, prime-1)
-        shift = rd.randint(0, prime-1)
-        #FIXME Cambiar por dataclass para facilitar su modelado y manejo errores
-        hashtable = {'prime': prime,
-                     'capacity': capacity,
-                     'scale': scale,
-                     'shift': shift,
-                     'table': None,
-                     'currentfactor': 0,
-                     'limitfactor': loadfactor,
-                     'cmpfunction': None,
-                     'size': 0,
-                     'type': 'PROBING',
-                     'datastructure': datastructure}
-        if(cmpfunction is None):
-            cmpfunc = defaultcompare
-        else:
-            cmpfunc = cmpfunction
-        hashtable['cmpfunction'] = cmpfunc
-        hashtable['table'] = lt.newList(datastructure='ARRAY_LIST',
-                                        cmpfunction=cmpfunc)
-        for _ in range(capacity):
-            entry = me.newMapEntry(None, None)
-            lt.addLast(hashtable['table'], entry)
-        return hashtable
-    except Exception as exp:
-        # FIXME Ajustar mensaje de error para que sea más claro
-        error.reraise(exp, 'Probe:newMap')
-
-
-def put(map, key, value):
-    """ Ingresa una pareja llave,valor a la tabla de hash.
-    Si la llave ya existe en la tabla, se reemplaza el valor
-
-    Args:
-        map: El map a donde se guarda la pareja
-        key: la llave asociada a la pareja
-        value: el valor asociado a la pareja
-    Returns:
-        El map
-    Raises:
-        Exception
-    """
-    try:
-        hash = hashValue(map, key)      # Se obtiene el hashcode de la llave
-        entry = me.newMapEntry(key, value)
-        pos = findSlot(map, key, hash, map['cmpfunction'])
-        lt.changeInfo(map['table'], abs(pos), entry)
-        if (pos < 0):           # Se reemplaza el valor con el nuevo valor
-            map['size'] += 1
-            map['currentfactor'] = map['size'] / map['capacity']
-
-        if (map['currentfactor'] >= map['limitfactor']):
-            rehash(map)
-        return map
-    except Exception as exp:
-        # FIXME Ajustar mensaje de error para que sea más claro
-        error.reraise(exp, 'Probe:put')
-
-#TODO Indicar en el retorno cuando es True y cuando es False, similar a la documentación de isEmpty
-def contains(map, key):
-    """ Retorna True si la llave key se encuentra en el map
-        o False en caso contrario.
-    Args:
-        map: El map a donde se guarda la pareja
-        key: la llave asociada a la pareja
-
-    Returns:
-        True / False
-    Raises:
-        Exception
-    """
-    try:
-        hash = hashValue(map, key)
-        pos = findSlot(map, key, hash, map['cmpfunction'])
-        if (pos > 0):
-            return True
-        else:
-            return False
-    except Exception as exp:
-        # FIXME Ajustar mensaje de error para que sea más claro
-        error.reraise(exp, 'Probe:contains')
-
-#TODO Indicar que la pareja llave valor es un mapentry
-def get(map, key):
-    """ Retorna la pareja llave, valor, cuya llave sea igual a key
-    Args:
-        map: El map a donde se guarda la pareja
-        key: la llave asociada a la pareja
-
-    Returns:
-        Una pareja <llave,valor>
-    Raises:
-        Exception
-    """
-    try:
-        hash = hashValue(map, key)
-        pos = findSlot(map, key, hash, map['cmpfunction'])
-        if pos > 0:
-            element = lt.getElement(map['table'], pos)
-            return element
-        else:
-            return None
-    except Exception as exp:
-        # FIXME Ajustar mensaje de error para que sea más claro
-        error.reraise(exp, 'Probe:get')
-
-#TODO Modificar documentación para que sea similar a la de las demás funciones
-def remove(map, key):
-    """ Elimina la pareja llave,valor, donde llave == key.
-    Args:
-        map: El map a donde se guarda la pareja
-        key: la llave asociada a la pareja
-
-    Returns:
-        El map
-    Raises:
-        Exception
-    """
-    try:
-        hash = hashValue(map, key)
-        pos = findSlot(map, key, hash, map['cmpfunction'])
-        if pos > 0:
-            entry = me.newMapEntry('__EMPTY__', '__EMPTY__')
-            lt.changeInfo(map['table'], pos, entry)
-            map['size'] -= 1
-        return map
-    except Exception as exp:
-        # FIXME Ajustar mensaje de error para que sea más claro
-        error.reraise(exp, 'Probe:remove')
-
-
-def size(map):
-    """  Retorna  el número de entradas en la tabla de hash.
-    Args:
-        map: El map
-    Returns:
-        Tamaño del map
-    Raises:
-        Exception
-    """
-    try:
-        return map['size']
-    except Exception as exp:
-        # FIXME Ajustar mensaje de error para que sea más claro
-        error.reraise(exp, 'Probe:size')
-
-
-def isEmpty(map):
-    """ Informa si la tabla de hash se encuentra vacia
-    Args:
-        map: El map
-    Returns:
-        True: El map esta vacio
-        False: El map no esta vacio
-    Raises:
-        Exception
-    """
-    try:
-        empty = True
-        for pos in range(lt.size(map['table'])):
-            entry = lt.getElement(map['table'], pos+1)
-            if (entry['key'] is not None and entry['key'] != '__EMPTY__'):
-                empty = False
-                break
-        return empty
-    except Exception as exp:
-        # FIXME Ajustar mensaje de error para que sea más claro
-        error.reraise(exp, 'Probe:isEmpty')
-
-#TODO indicar que la lista retornada es de la librería DISCLib
-def keySet(map):
-    """
-    Retorna una lista con todas las llaves de la tabla de hash
-
-    Args:
-        map: El map
-    Returns:
-        lista de llaves
-    Raises:
-        Exception
-    """
-    try:
-        ltset = lt.newList()
-        for pos in range(lt.size(map['table'])):
-            entry = lt.getElement(map['table'], pos+1)
-            if (entry['key'] is not None and entry['key'] != '__EMPTY__'):
-                lt.addLast(ltset, entry['key'])
-        return ltset
-    except Exception as exp:
-        # FIXME Ajustar mensaje de error para que sea más claro
-        error.reraise(exp, 'Probe:keyset')
-
-#TODO indicar que la lista retornada es de la librería DISCLib
-def valueSet(map):
-    """
-    Retorna una lista con todos los valores de la tabla de hash
-
-    Args:
-        map: El map
-    Returns:
-        lista de valores
-    Raises:
-        Exception
-    """
-    try:
-        ltset = lt.newList()
-        for pos in range(lt.size(map['table'])):
-            entry = lt.getElement(map['table'], pos+1)
-            if (entry['value'] is not None and entry['value'] != '__EMPTY__'):
-                lt.addLast(ltset, entry['value'])
-        return ltset
-    except Exception as exp:
-        # FIXME Ajustar mensaje de error para que sea más claro
-        error.reraise(exp, 'Probe:valueset')
-
-
-# __________________________________________________________________
-#       Helper Functions
-# __________________________________________________________________
-
-#FIXME Agregar parametros, retorno y excepciones en la documentación.
-def hashValue(table, key):
-    """
-    Calcula un hash para una llave, utilizando el método
-    MAD : hashValue(y) = ((ay + b) % p) % M.
-    Donde:
-    M es el tamaño de la tabla, primo
-    p es un primo mayor a M,
-    a y b enteros aleatoreos dentro del intervalo [0,p-1], con a>0
-    """
-    try:
-        h = (hash(key))
-        a = table['scale']
-        b = table['shift']
-        p = table['prime']
-        m = table['capacity']
-        value = int((abs(a*h + b) % p) % m) + 1
-        return value
-    except Exception as exp:
-        # FIXME Ajustar mensaje de error para que sea más claro
-        error.reraise(exp, 'Probe:hashvalue')
-
-#FIXME Añadir retorno y manejo de excepciones en la documentación
-def findSlot(map, key, hashvalue, cmpfunction):
-    """
-    Encuentra una posición libre en la tabla de hash.
-    map: la tabla de hash
-    key: la llave
-    hashvalue: La posición inicial de la llave
-    cmpfunction: funcion de comparación para la búsqueda de la llave
-    """
-    try:
-        avail = -1          # no se ha encontrado una posición aun
-        searchpos = 0
-        table = map['table']
-        while (searchpos != hashvalue):  # Se busca una posición
-            if (searchpos == 0):
-                searchpos = hashvalue
-            if isAvailable(table, searchpos):  # La posición esta disponible
-                element = lt.getElement(table, searchpos)
-                if (avail == -1):
-                    avail = searchpos            # primera posición disponible
-                if element['key'] is None:       # nunca ha sido utilizada
-                    break
-            else:                    # la posicion no estaba disponible
-                element = lt.getElement(table, searchpos)
-                if cmpfunction(key, element) == 0:  # Es la llave
-                    return searchpos               # Se  retorna la posicion
-            searchpos = (((searchpos) % map['capacity'])+1)
-        return -(avail)    # numero negativo indica que el elemento no estaba
-    except Exception as exp:
-        # FIXME Ajustar mensaje de error para que sea más claro
-        error.reraise(exp, 'Probe:findslot')
-
-#FIXME Agregar parametros, retorno y excepciones en la documentación.
-def isAvailable(table, pos):
-    """
-    Informa si la posición pos esta disponible en la tabla de hash.
-    Se entiende que una posición está disponible
-    si su contenido es igual a None (no se ha usado esa posicion)
-    o a __EMPTY__ (la posición fue liberada)
-    """
-    try:
-        entry = lt.getElement(table, pos)
-        if (entry['key'] is None or entry['key'] == '__EMPTY__'):
-            return True
-        return False
-    except Exception as exp:
-        # FIXME Ajustar mensaje de error para que sea más claro
-        error.reraise(exp, 'Probe:isAvailable')
-
-#FIXME Agregar parametros, retorno y excepciones en la documentación.
-def rehash(map):
-    """
-    Se aumenta la capacidad de la tabla al doble y se hace rehash de
-    todos los elementos de la tabla.
-    """
-    try:
-        newtable = lt.newList('ARRAY_LIST', map['cmpfunction'])
-        capacity = nextPrime(map['capacity']*2)
-        for _ in range(capacity):
-            entry = me.newMapEntry(None, None)
-            lt.addLast(newtable, entry)
-        oldtable = map['table']
-        map['size'] = 0
-        map['currentfactor'] = 0
-        map['table'] = newtable
-        map['capacity'] = capacity
-        for pos in range(lt.size(oldtable)):
-            entry = lt.getElement(oldtable, pos+1)
-            if (entry['key'] is not None and entry['key'] != '__EMPTY__'):
-                hash = hashValue(map, entry['key'])
-                loc = findSlot(map, entry['key'], hash, map['cmpfunction'])
-                lt.changeInfo(map['table'], abs(loc), entry)
-                if (loc < 0):
-                    map['size'] += 1
-                    map['currentfactor'] = map['size'] / map['capacity']
-        return map
-    except Exception as exp:
-        # FIXME Ajustar mensaje de error para que sea más claro
-        error.reraise(exp, 'Probe:rehash')
-
-
-# Function that returns True if n
-# is prime else returns False
-# This code is contributed by Sanjit_Prasad
-
-#FIXME Agregar documentación para que siga el formato que las demás funciones.
-def isPrime(n):
-    # Corner cases
-    if(n <= 1):
-        return False
-    if(n <= 3):
-        return True
-
-    if(n % 2 == 0 or n % 3 == 0):
-        return False
-
-    for i in range(5, int(math.sqrt(n) + 1), 6):
-        if(n % i == 0 or n % (i + 2) == 0):
-            return False
-
-    return True
-
-#FIXME Agregar documentación para que siga el formato que las demás funciones.
-# Function to return the smallest
-# prime number greater than N
-# # This code is contributed by Sanjit_Prasad
-def nextPrime(N):
-    # Base case
-    if (N <= 1):
-        return 2
-    prime = int(N)
-    found = False
-    # Loop continuously until isPrime returns
-    # True for a number greater than n
-    while(not found):
-        prime = prime + 1
-        if(isPrime(prime) is True):
-            found = True
-    return int(prime)
-
-#FIXME Agregar documentación.
-def defaultcompare(key, element):
-    if(key == element['key']):
-        return 0
-    elif(key > element['key']):
-        return 1
-    return -1
+                # iterate over the old table
+                for bucket in old_table:
+                    if not bucket.is_empty():
+                        for entry in bucket:
+                            key = entry.get_key()
+                            value = entry.get_value()
+                            # print(key, value)
+                            self.put(key, value)
+        except Exception as err:
+            self._handle_error(err)

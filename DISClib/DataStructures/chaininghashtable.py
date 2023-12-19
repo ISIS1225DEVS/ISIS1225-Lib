@@ -10,7 +10,7 @@
 # native python modules
 # import dataclass to define the hash table
 from dataclasses import dataclass, field
-# import modules for defining the element's type in the hash table
+# import modules for defining the entries type in the hash table
 from typing import List, Optional, Callable, Generic
 # import inspect for getting the name of the current function
 import inspect
@@ -128,7 +128,7 @@ class SeparateChaining(Generic[T]):
     hash_table: ArrayList[Bucket[T]] = field(default_factory=ArrayList)
 
     """
-    Es el indice de la tabla de hash donde se almacenan los 'Buckets', implementado con un 'ArrayList' de DISCLib. en el __post_init__ se inicializa con la capacidad inicial de la tabla de hash.
+    Es el indice de la tabla de hash donde se almacenan los *Buckets*, implementado con un *ArrayList* de DISCLib. en el *__post_init__()* se inicializa con la capacidad inicial de la tabla de hash.
     """
 
     # boolean to indicate if the hash table can be rehashed
@@ -198,21 +198,21 @@ class SeparateChaining(Generic[T]):
     # :attr: _data_type
     _data_type: Optional[type] = None
     """
-    Es el tipo de dato de los elementos que contiene la tabla de hash, por defecto es 'None' y se configura al cargar el primer elemento en el mapa.
+    Es el tipo de dato de los elementos que contiene la tabla de hash, por defecto es *None* y se configura al cargar el primera entrada en el mapa.
     """
 
     # the cmp_function is used to compare emtries, not defined by default
     # :attr: cmp_function
     cmp_function: Optional[Callable[[T, T], int]] = None
     """
-    Función de comparación opcional que se utiliza para comparar los elementos del SeparateChaining, por defecto es 'None' y el *__post_init__()* configura la función por defecto *ht_default_cmp_funcion()*.
+    Función de comparación opcional que se utiliza para comparar los elementos del SeparateChaining, por defecto es *None* y el *__post_init__()* configura la función por defecto *ht_default_cmp_funcion()*.
     """
 
     # the key is used to compare entries, not defined by default
     # :attr: key
     key: Optional[str] = None
     """
-    Nombre de la llave opcional que se utiliza para comparar los elementos del SeparateChaining, Por defecto es 'None' y el __post_init__ configura la llave por defecto la llave 'id' en *DEFAULT_DICT_KEY*.
+    Nombre de la llave opcional que se utiliza para comparar los elementos del SeparateChaining, Por defecto es *None* y el *__post_init__()* configura la llave por defecto la llave *id* en *DEFAULT_DICT_KEY*.
     """
 
     def __post_init__(self) -> None:
@@ -259,7 +259,7 @@ class SeparateChaining(Generic[T]):
         """*default_cmp_function()* procesa la llave existente en la entrada del SeparateChaining y la compara con la llave del a entrada que se quiere agregar al SeparateChaining.
         Args:
             key1 (Any): llave de la primera entrada a comparar.
-            entry2 (MapEntry): segunda entrada (par llave-valor) a comparar.
+            entry2 (MapEntry): segunda entrada (pareja llave-valor) a comparar.
 
         Returns:
             int: respuesta de la comparación entre los elementos, 0 si las llaves son iguales, 1 si key1 es mayor que la llave de entry2, -1 si key1 es menor.
@@ -283,31 +283,31 @@ class SeparateChaining(Generic[T]):
         cur_function = inspect.currentframe().f_code.co_name
         error_handler(cur_context, cur_function, err)
 
-    def _check_type(self, element: T) -> bool:
-        """*_check_type()* función privada que verifica que el tipo de dato del elemento que se quiere agregar al SeparateChaining sea del mismo tipo contenido dentro de los elementos del SeparateChaining.
+    def _check_type(self, entry: T) -> bool:
+        """*_check_type()* función privada que verifica que el tipo de dato de la entrada que se quiere agregar al SeparateChaining sea del mismo tipo contenido dentro de los elementos del SeparateChaining.
 
         Raises:
-            TypeError: error si el tipo de dato del elemento que se quiere agregar no es el mismo que el tipo de dato de los elementos que ya contiene el SeparateChaining.
+            TypeError: error si el tipo de dato de la entrada que se quiere agregar no es el mismo que el tipo de dato de los elementos que ya contiene el SeparateChaining.
 
         Args:
-            element (T): elemento que se quiere procesar en SeparateChaining.
+            entry (T): entrada que se quiere procesar en SeparateChaining.
 
         Returns:
-            bool: operador que indica si el ADT SeparateChaining es del mismo tipo que el elemento que se quiere procesar.
+            bool: operador que indica si el ADT SeparateChaining es del mismo tipo que el entrada que se quiere procesar.
         """
         # TODO check usability of this function
         # if datastruct is empty, set the entry type
         if self.is_empty():
-            self._data_type = type(element)
-        # else if the structure is not empty, check the element data type
-        elif self._data_type is not type(element):
-            err_msg = f"Invalid data type: {type(element)} "
+            self._data_type = type(entry)
+        # else if the structure is not empty, check the entry data type
+        elif self._data_type is not type(entry):
+            err_msg = f"Invalid data type: {type(entry)} "
             err_msg += f"for structure configured with type: {self._data_type}"
             raise TypeError(err_msg)
-        # finally, check if the new element is a valid datatype
+        # finally, check if the new entry is a valid datatype
         elif self._data_type not in VALID_DATA_TYPE_LT:
             err_msg = f"Invalid data type: {type(self._data_type)}"
-            err_msg += f"for element info: {type(element)}"
+            err_msg += f"for entry info: {type(entry)}"
             raise TypeError(err_msg)
         # otherwise, the type is valid
         return True
@@ -339,16 +339,16 @@ class SeparateChaining(Generic[T]):
             self._handle_error(err)
 
     def contains(self, key: T) -> bool:
-        """contains _summary_
+        """*contains()* responde si el SeparateChaining contiene una entrada con la llave key.
 
         Args:
-            key (T): _description_
+            key (T): llave de la entrada (pareja llave-valor) que se quiere buscar en el SeparateChaining.
 
         Returns:
-            bool: _description_
+            bool: operador que indica si el SeparateChaining contiene o no una entrada con la llave key.
         """
         try:
-            # assume the element is not in the structure
+            # assume the entry is not in the structure
             found = False
             # use the MAD compression function to get the hash key
             hkey = hash_compress(key,
@@ -359,7 +359,7 @@ class SeparateChaining(Generic[T]):
             # look into the bucket
             bucket = self.hash_table.get_element(hkey)
             idx = bucket.find(key)
-            # if the element is in the bucket, return True
+            # if the entry is in the bucket, return True
             if idx > -1:
                 found = True
             return found
@@ -377,9 +377,9 @@ class SeparateChaining(Generic[T]):
             Exception: si el indice de la entrada en el mapa está fuera de los limites establecidos, se genera un error.
         """
         try:
-            # create a new entry for the element
+            # create a new entry for the entry
             new_entry = MapEntry(key, value)
-            # get the hash key for the element
+            # get the hash key for the entry
             hkey = hash_compress(key,
                                  self._scale,
                                  self._shift,
@@ -425,9 +425,9 @@ class SeparateChaining(Generic[T]):
             if self.is_empty():
                 raise Exception("The structure is empty")
             else:
-                # assume the element is not in the structure
+                # assume the entry is not in the structure
                 entry = None
-                # get the hash key for the element
+                # get the hash key for the entry
                 hkey = hash_compress(key,
                                      self._scale,
                                      self._shift,
@@ -436,7 +436,7 @@ class SeparateChaining(Generic[T]):
                 # checking the bucket
                 bucket = self.hash_table.get_element(hkey)
                 idx = bucket.find(key)
-                # if the element is in the bucket, return it
+                # if the entry is in the bucket, return it
                 if idx > -1:
                     entry = bucket.get_element(idx)
                 return entry
@@ -459,9 +459,9 @@ class SeparateChaining(Generic[T]):
             if self.is_empty():
                 raise Exception("The structure is empty")
             else:
-                # assume the element is not in the structure
+                # assume the entry is not in the structure
                 bucket = None
-                # get the hash key for the element
+                # get the hash key for the entry
                 hkey = hash_compress(key,
                                      self._scale,
                                      self._shift,
@@ -491,7 +491,7 @@ class SeparateChaining(Generic[T]):
                 raise Exception("The structure is empty")
             else:
                 entry = None
-                # get the hash key for the element
+                # get the hash key for the entry
                 hkey = hash_compress(key,
                                      self._scale,
                                      self._shift,
@@ -521,10 +521,8 @@ class SeparateChaining(Generic[T]):
             ArrayList[T]: lista (ArrayList) con todas las llaves del SeparateChaining.
         """
         try:
-            keys_lt = ArrayList(cmp_function=self.cmp_function,
-                                key=self.key)
+            keys_lt = ArrayList(key=self.key)
             for bucket in self.hash_table:
-                print(bucket)
                 if not bucket.is_empty():
                     for entry in bucket:
                         print(entry)
@@ -540,8 +538,7 @@ class SeparateChaining(Generic[T]):
             ArrayList[T]: lista (ArrayList) con todos los valores del SeparateChaining.
         """
         try:
-            values_lt = ArrayList(cmp_function=self.cmp_function,
-                                  key=self.key)
+            values_lt = ArrayList(key=self.key)
             for bucket in self.hash_table:
                 if not bucket.is_empty():
                     for entry in bucket:
@@ -557,8 +554,7 @@ class SeparateChaining(Generic[T]):
             ArrayList[T]: lista (ArrayList) con todas las entradas del SeparateChaining.
         """
         try:
-            items_lt = ArrayList(cmp_function=self.cmp_function,
-                                 key=self.key)
+            items_lt = ArrayList(key=self.key)
             for bucket in self.hash_table:
                 if not bucket.is_empty():
                     for entry in bucket:

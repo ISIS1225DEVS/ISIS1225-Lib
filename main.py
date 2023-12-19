@@ -170,12 +170,13 @@ if __name__ == "__main__":
     print(trans)
 
     print("----------- Maps -----------")
-    m = Map(dstruct="SeparateChaining",
+    m = Map(dstruct="LinearProbing",   # "LinearProbing", "SeparateChaining"
             nentries=2,
-            max_alpha=4,
+            # max_alpha=4,
             # rehashable=False)
             cmp_function=cmp_test2)
     print(m.mcapacity)
+    print(m)
 
     test_data = (
         # {"testkey": 1, "testvalue": "one"},
@@ -189,41 +190,44 @@ if __name__ == "__main__":
     print(m.is_empty())
     print(m.size())
     print(m.contains(1))
-    m.put(1, {"testkey": 1, "testvalue": List(iodata=(1, 2, 3, 4, 5))})
-    m.put(2, {"testkey": 2, "testvalue": "one"})
-    m.put(3, {"testkey": 3, "testvalue": "one"})
-    m.put(4, {"testkey": 4, "testvalue": "one"})
-    m.put(5, {"testkey": 5, "testvalue": "one"})
-    m.put(6, {"testkey": 6, "testvalue": "one"})
-    m.put(7, {"testkey": 7, "testvalue": "one"})
-    m.put(8, {"testkey": 8, "testvalue": "one"})
-    m.put(9, {"testkey": 9, "testvalue": "one"})
-    m.put(10, {"testkey": 10, "testvalue": "one"})
-    m.put(11, {"testkey": 11, "testvalue": "one"})
-
-    # print(isinstance(m, (T)))
-
-    for a in test_data:
-        # print(a)
-        k = a.get("testkey")
-        # print(k, a)
-        m.put(k, a)
-    #     # m.put(k, v)
     print(m)
-    print(m.size())
-    print(m.hash_table.size())
-    print(m.values())
-    print(m.keys())
-    print(m.entries())
+    # m.put(1, {"testkey": 1, "testvalue": List(iodata=(1, 2, 3, 4, 5))})
+    # m.put(2, {"testkey": 2, "testvalue": "one"})
+    # m.put(3, {"testkey": 3, "testvalue": "one"})
+    # m.put(4, {"testkey": 4, "testvalue": "one"})
+    # m.put(5, {"testkey": 5, "testvalue": "one"})
+    # m.put(6, {"testkey": 6, "testvalue": "one"})
+    # m.put(7, {"testkey": 7, "testvalue": "one"})
+    # m.put(8, {"testkey": 8, "testvalue": "one"})
+    # m.put(9, {"testkey": 9, "testvalue": "one"})
+    # m.put(10, {"testkey": 10, "testvalue": "one"})
+    # m.put(11, {"testkey": 11, "testvalue": "one"})
 
-    for a in test_data:
-        k = a.get("testkey")
-        print(m.remove(k))
+    # # print(isinstance(m, (T)))
 
-    print(m.mcapacity)
-    print(m.size())
-    print(m.nentries)
-    print(m.hash_table.size())
-    print(m.values())
-    print(m.keys())
-    print(m.entries())
+    # for a in test_data:
+    #     # print(a)
+    #     k = a.get("testkey")
+    #     # print(k, a)
+    #     m.put(k, a)
+    # #     # m.put(k, v)
+    # print(m)
+    # print(m.size())
+    # print(m.hash_table.size())
+    # print(m.values())
+    # print(m.keys())
+    # print(m.entries())
+
+    # for a in test_data:
+    #     k = a.get("testkey")
+    #     print(m.remove(k))
+
+    # print(m.mcapacity)
+    # print(m.size())
+    # print(m.nentries)
+    # print(m.hash_table.size())
+    # print(m.values())
+    # print(m.keys())
+    # print(m.entries())
+    
+    # print(type(None))

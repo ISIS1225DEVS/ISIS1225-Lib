@@ -109,7 +109,7 @@ Attributes
    .. py:attribute:: hash_table
       :type: DISClib.DataStructures.arraylist.ArrayList[Bucket[DISClib.Utils.default.T]]
 
-      Es el indice de la tabla de hash donde se almacenan los 'Buckets', implementado con un 'ArrayList' de DISCLib. en el __post_init__ se inicializa con la capacidad inicial de la tabla de hash.
+      Es el indice de la tabla de hash donde se almacenan los *Buckets*, implementado con un *ArrayList* de DISCLib. en el *__post_init__()* se inicializa con la capacidad inicial de la tabla de hash.
 
    .. py:attribute:: rehashable
       :type: bool
@@ -166,17 +166,17 @@ Attributes
    .. py:attribute:: _data_type
       :type: Optional[type]
 
-      Es el tipo de dato de los elementos que contiene la tabla de hash, por defecto es 'None' y se configura al cargar el primer elemento en el mapa.
+      Es el tipo de dato de los elementos que contiene la tabla de hash, por defecto es *None* y se configura al cargar el primera entrada en el mapa.
 
    .. py:attribute:: cmp_function
       :type: Optional[Callable[[DISClib.Utils.default.T, DISClib.Utils.default.T], int]]
 
-      Función de comparación opcional que se utiliza para comparar los elementos del SeparateChaining, por defecto es 'None' y el *__post_init__()* configura la función por defecto *ht_default_cmp_funcion()*.
+      Función de comparación opcional que se utiliza para comparar los elementos del SeparateChaining, por defecto es *None* y el *__post_init__()* configura la función por defecto *ht_default_cmp_funcion()*.
 
    .. py:attribute:: key
       :type: Optional[str]
 
-      Nombre de la llave opcional que se utiliza para comparar los elementos del SeparateChaining, Por defecto es 'None' y el __post_init__ configura la llave por defecto la llave 'id' en *DEFAULT_DICT_KEY*.
+      Nombre de la llave opcional que se utiliza para comparar los elementos del SeparateChaining, Por defecto es *None* y el *__post_init__()* configura la llave por defecto la llave *id* en *DEFAULT_DICT_KEY*.
 
    .. py:method:: __post_init__() -> None
 
@@ -189,7 +189,7 @@ Attributes
       *default_cmp_function()* procesa la llave existente en la entrada del SeparateChaining y la compara con la llave del a entrada que se quiere agregar al SeparateChaining.
       :param key1: llave de la primera entrada a comparar.
       :type key1: Any
-      :param entry2: segunda entrada (par llave-valor) a comparar.
+      :param entry2: segunda entrada (pareja llave-valor) a comparar.
       :type entry2: MapEntry
 
       :returns: respuesta de la comparación entre los elementos, 0 si las llaves son iguales, 1 si key1 es mayor que la llave de entry2, -1 si key1 es menor.
@@ -206,16 +206,16 @@ Attributes
       :type err: Exception
 
 
-   .. py:method:: _check_type(element: DISClib.Utils.default.T) -> bool
+   .. py:method:: _check_type(entry: DISClib.Utils.default.T) -> bool
 
-      *_check_type()* función privada que verifica que el tipo de dato del elemento que se quiere agregar al SeparateChaining sea del mismo tipo contenido dentro de los elementos del SeparateChaining.
+      *_check_type()* función privada que verifica que el tipo de dato de la entrada que se quiere agregar al SeparateChaining sea del mismo tipo contenido dentro de los elementos del SeparateChaining.
 
-      :raises TypeError: error si el tipo de dato del elemento que se quiere agregar no es el mismo que el tipo de dato de los elementos que ya contiene el SeparateChaining.
+      :raises TypeError: error si el tipo de dato de la entrada que se quiere agregar no es el mismo que el tipo de dato de los elementos que ya contiene el SeparateChaining.
 
-      :param element: elemento que se quiere procesar en SeparateChaining.
-      :type element: T
+      :param entry: entrada que se quiere procesar en SeparateChaining.
+      :type entry: T
 
-      :returns: operador que indica si el ADT SeparateChaining es del mismo tipo que el elemento que se quiere procesar.
+      :returns: operador que indica si el ADT SeparateChaining es del mismo tipo que el entrada que se quiere procesar.
       :rtype: bool
 
 
@@ -237,12 +237,12 @@ Attributes
 
    .. py:method:: contains(key: DISClib.Utils.default.T) -> bool
 
-      contains _summary_
+      *contains()* responde si el SeparateChaining contiene una entrada con la llave key.
 
-      :param key: _description_
+      :param key: llave de la entrada (pareja llave-valor) que se quiere buscar en el SeparateChaining.
       :type key: T
 
-      :returns: _description_
+      :returns: operador que indica si el SeparateChaining contiene o no una entrada con la llave key.
       :rtype: bool
 
 

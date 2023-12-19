@@ -27,57 +27,40 @@ Classes
 
 
 
-Functions
-~~~~~~~~~
-
-.. autoapisummary::
-
-   DISClib.DataStructures.probinghashtable.newMap
-   DISClib.DataStructures.probinghashtable.put
-   DISClib.DataStructures.probinghashtable.contains
-   DISClib.DataStructures.probinghashtable.get
-   DISClib.DataStructures.probinghashtable.remove
-   DISClib.DataStructures.probinghashtable.size
-   DISClib.DataStructures.probinghashtable.isEmpty
-   DISClib.DataStructures.probinghashtable.keySet
-   DISClib.DataStructures.probinghashtable.valueSet
-   DISClib.DataStructures.probinghashtable.hashValue
-   DISClib.DataStructures.probinghashtable.findSlot
-   DISClib.DataStructures.probinghashtable.isAvailable
-   DISClib.DataStructures.probinghashtable.rehash
-   DISClib.DataStructures.probinghashtable.isPrime
-   DISClib.DataStructures.probinghashtable.nextPrime
-   DISClib.DataStructures.probinghashtable.defaultcompare
-
-
 
 Attributes
 ~~~~~~~~~~
 
 .. autoapisummary::
 
-   DISClib.DataStructures.probinghashtable.DEFAULT_CHAINING_ALPHA
-   DISClib.DataStructures.probinghashtable.MIN_CHAINING_ALPHA
-   DISClib.DataStructures.probinghashtable.MAX_CHAINING_ALPHA
+   DISClib.DataStructures.probinghashtable.DEFAULT_PROBING_ALPHA
+   DISClib.DataStructures.probinghashtable.MAX_PROBING_ALPHA
+   DISClib.DataStructures.probinghashtable.MIN_PROBING_ALPHA
+   DISClib.DataStructures.probinghashtable.EMPTY
 
 
-.. py:data:: DEFAULT_CHAINING_ALPHA
+.. py:data:: DEFAULT_PROBING_ALPHA
    :type: float
-   :value: 4.0
+   :value: 0.5
 
-   
+   Factor de carga (alpha) por defecto e ideal para el LinearProbing, por defecto es 0.5.
 
-.. py:data:: MIN_CHAINING_ALPHA
+.. py:data:: MAX_PROBING_ALPHA
    :type: float
-   :value: 1.0
+   :value: 0.8
 
-   
+   Factor de carga (alpha) máximo para el LinearProbing, por defecto es 8.0.
 
-.. py:data:: MAX_CHAINING_ALPHA
+.. py:data:: MIN_PROBING_ALPHA
    :type: float
-   :value: 8.0
+   :value: 0.2
 
-   
+   Factor de carga (alpha) mínimo para el LinearProbing, por defecto es 2.0.
+
+.. py:data:: EMPTY
+   :value: '__EMPTY__'
+
+   Constante que representa una entrada vacío en el LinearProbing, por defecto es "__EMPTY__".
 
 .. py:class:: LinearProbing
 
@@ -99,26 +82,26 @@ Attributes
 
       Lista nativa de Python que contiene los elementos de entrada a la estructura, por defecto es None y el usuario puede incluir una lista nativa de python como argumento.
 
-   .. py:attribute:: elements
+   .. py:attribute:: nentries
       :type: int
       :value: 1
 
-      Es el espacio reservado para la tabla de hash (n), por defecto es 1, pero debe configurarse según el número de elementos que se espera almacenar.
+      Es el espacio reservado para la tabla de hash (n), por defecto es 1, pero debe configurarse según el número de entradas que se espera almacenar.
 
-   .. py:attribute:: aLpha
+   .. py:attribute:: alpha
       :type: Optional[float]
 
-      Es el factor de carga con el que se inicializa la tabla de hash, por defecto es 4.0.
+      Es el factor de carga (alpha) con el que se inicializa la tabla de hash, por defecto es 4.0.
 
    .. py:attribute:: prime
       :type: Optional[int]
 
-      Es el número primo utilizado para calcular el código hash de la llave con la función de compresión MAD, por defecto es 109345121.
+      Es el número primo (P) utilizado para calcular el código hash de la llave con la función de compresión MAD, por defecto es 109345121.
 
-   .. py:attribute:: table
+   .. py:attribute:: hash_table
       :type: DISClib.DataStructures.arraylist.ArrayList[DISClib.DataStructures.mapentry.MapEntry[DISClib.Utils.default.T]]
 
-      Es el indice de la tabla de hash donde se almacenan los 'Buckets', implementado con un 'ArrayList' de DISCLib. en el __post_init__ se inicializa con la capacidad inicial de la tabla de hash.
+      Es el indice de la tabla de hash donde se almacenan los *MapEntry*, implementado con un *ArrayList* de DISCLib. en el *__post_init__()* se inicializa con la capacidad inicial de la tabla de hash.
 
    .. py:attribute:: rehashable
       :type: bool
@@ -126,17 +109,17 @@ Attributes
 
       Es un booleano que indica si la tabla de hash se puede reconstruir utilizando el método de rehash, por defecto es True.
 
-   .. py:attribute:: capacity
+   .. py:attribute:: mcapacity
       :type: int
       :value: 1
 
-      Es la capacidad (m) con la que se inicializa la tabla de hash.
+      Es la capacidad (M) con la que se inicializa la tabla de hash.
 
    .. py:attribute:: _size
       :type: int
       :value: 0
 
-      Es el número de elementos dentro de la tabla de hash, por defecto es 0 y se actualiza con cada operación que modifica la estructura.
+      Es el número de elementos (n) dentro de la tabla de hash, por defecto es 0 y se actualiza con cada operación que modifica la estructura.
 
    .. py:attribute:: _collisions
       :type: Optional[int]
@@ -156,41 +139,52 @@ Attributes
 
       Es el número utilizado para calcular el código hash de la llave.
 
-   .. py:attribute:: _limit_factor
-      :type: Optional[float]
-      :value: 0
-
-      Es el factor de carga limite antes de hacer rehash.
-
-   .. py:attribute:: _current_factor
+   .. py:attribute:: _cur_alpha
       :type: Optional[float]
       :value: 0
 
       Es el factor de carga actual de la tabla de hash.
 
+   .. py:attribute:: max_alpha
+      :type: Optional[float]
+
+      Es el factor de carga máximo de la tabla de hash, por defecto es 8.0.
+
+   .. py:attribute:: min_alpha
+      :type: Optional[float]
+
+      Es el factor de carga mínimo de la tabla de hash, por defecto es 2.0.
+
+   .. py:attribute:: _data_type
+      :type: Optional[type]
+
+      Es el tipo de dato de los elementos que contiene la tabla de hash, por defecto es *None* y se configura al cargar el primer entrada en el mapa.
+
    .. py:attribute:: cmp_function
       :type: Optional[Callable[[DISClib.Utils.default.T, DISClib.Utils.default.T], int]]
 
-      Función de comparación opcional que se utiliza para comparar los elementos del LinearProbing, por defecto es 'None' y el __post_init__ configura la función por defecto lt_default_cmp_funcion().
+      Función de comparación opcional que se utiliza para comparar los elementos del LinearProbing, por defecto es *None* y el *__post_init__()* configura la función por defecto *ht_default_cmp_funcion()*.
 
    .. py:attribute:: key
       :type: Optional[str]
 
-      Nombre de la llave opcional que se utiliza para comparar los elementos del LinearProbing, Por defecto es 'None' y el __post_init__ configura la llave por defecto la llave 'id' en DEFAULT_DICT_KEY.
+      Nombre de la llave opcional que se utiliza para comparar los elementos del LinearProbing, Por defecto es *None* y el *__post_init__()* configura la llave por defecto la llave *id* en *DEFAULT_DICT_KEY*.
 
    .. py:method:: __post_init__() -> None
 
+      *__post_init__()* configura los valores por defecto de la estructura LinearProbing después de la inicialización de la misma. Configura los factores de carga (alpha), el número primo (P) para la función de compresión MAD, la capacidad (M) de la tabla de hash, la función de comparación y la llave para comparar los elementos del LinearProbing, y finalmente inicializa la tabla de hash con la capacidad (M) configurada.
 
-   .. py:method:: default_cmp_function(elm1, elm2) -> int
 
-      *default_cmp_function()* procesa con algoritmica por defecto la lista de elementos que procesa el LinearProbing. Es una función crucial para que la estructura de datos funcione correctamente.
 
-      :param elm1: primer elemento a comparar.
-      :type elm1: Any
-      :param elm2: segundo elemento a comparar.
-      :type elm2: Any
+   .. py:method:: default_cmp_function(key1, entry2: DISClib.DataStructures.mapentry.MapEntry) -> int
 
-      :returns: respuesta de la comparación entre los elementos, 0 si son iguales, 1 si elm1 es mayor que elm2, -1 si elm1 es menor.
+      *default_cmp_function()* procesa la llave existente en la entrada del LinearProbing y la compara con la llave del a entrada que se quiere agregar al LinearProbing.
+      :param key1: llave de la primera entrada a comparar.
+      :type key1: Any
+      :param entry2: segunda entrada (pareja llave-valor) a comparar.
+      :type entry2: MapEntry
+
+      :returns: respuesta de la comparación entre los elementos, 0 si las llaves son iguales, 1 si key1 es mayor que la llave de entry2, -1 si key1 es menor.
       :rtype: int
 
 
@@ -204,16 +198,16 @@ Attributes
       :type err: Exception
 
 
-   .. py:method:: _check_type(element: DISClib.Utils.default.T) -> bool
+   .. py:method:: _check_type(entry: DISClib.Utils.default.T) -> bool
 
-      *_check_type()* función privada que verifica que el tipo de dato del elemento que se quiere agregar al LinearProbing sea del mismo tipo contenido dentro de los elementos del LinearProbing.
+      *_check_type()* función privada que verifica que el tipo de dato de la entrada que se quiere agregar al LinearProbing sea del mismo tipo contenido dentro de los elementos del LinearProbing.
 
-      :raises TypeError: error si el tipo de dato del elemento que se quiere agregar no es el mismo que el tipo de dato de los elementos que ya contiene el LinearProbing.
+      :raises TypeError: error si el tipo de dato de la entrada que se quiere agregar no es el mismo que el tipo de dato de los elementos que ya contiene el LinearProbing.
 
-      :param element: elemento que se quiere procesar en LinearProbing.
-      :type element: T
+      :param entry: entrada que se quiere procesar en LinearProbing.
+      :type entry: T
 
-      :returns: operador que indica si el ADT LinearProbing es del mismo tipo que el elemento que se quiere procesar.
+      :returns: operador que indica si el ADT LinearProbing es del mismo tipo que la entrada que se quiere procesar.
       :rtype: bool
 
 
@@ -235,177 +229,135 @@ Attributes
 
    .. py:method:: contains(key: DISClib.Utils.default.T) -> bool
 
+      *contains()* responde si el LinearProbing contiene una entrada con la llave key.
+
+      :param key: llave de la entrada (pareja llave-valor) que se quiere buscar en el LinearProbing.
+      :type key: T
+
+      :returns: operador que indica si el LinearProbing contiene o no una entrada con la llave key.
+      :rtype: bool
+
 
    .. py:method:: put(key: DISClib.Utils.default.T, value: DISClib.Utils.default.T) -> None
+
+      *put()* agrega una entrada (pareja llave-valor) al LinearProbing, si la llave ya existe en el LinearProbing, se reemplaza el valor.
+
+      :param key: llave asociada a la nueva entrada.
+      :type key: T
+      :param value: el valor asociado a la nueva entrada.
+      :type value: T
+
+      :raises Exception: si el indice de la entrada en el mapa está fuera de los limites establecidos, se genera un error.
 
 
    .. py:method:: get(key: DISClib.Utils.default.T) -> Optional[DISClib.Utils.default.T]
 
+      *get()* devuelve la entrada (pareja llave-valor) cuya llave sea igual a key dentro del LinearProbing, si no existe una entrada con la llave key, devuelve None.
 
-   .. py:method:: remove(key: DISClib.Utils.default.T) -> None
+      :param key: llave asociada a la entrada que se quiere buscar.
+      :type key: T
+
+      :raises Exception: error si la estructura está vacía.
+
+      :returns: entrada (pareja llave-valor) con la llave igual a key dentro del LinearProbing, None si no existe la entrada asociada a la llave key.
+      :rtype: Optional[T]
+
+
+   .. py:method:: check_bucket(key: DISClib.Utils.default.T) -> Optional[DISClib.Utils.default.T]
+
+      *check_bucket()* devuelve el bucket asociado a la llave key dentro del LinearProbing, si no existe una entrada con la llave key, devuelve None.
+
+      :param key: llave asociada al bucket que se quiere buscar.
+      :type key: T
+
+      :raises Exception: error si la estructura está vacía.
+
+      :returns: bucket asociado a la llave key dentro del LinearProbing, None si no existe la entrada asociada a la llave key.
+      :rtype: Optional[T]
+
+
+   .. py:method:: remove(key: DISClib.Utils.default.T) -> Optional[DISClib.Utils.default.T]
+
+      *remove()* elimina la entrada (pareja llave-valor) cuya llave sea igual a key dentro del LinearProbing, si no existe una entrada con la llave key, devuelve None.
+
+      :param key: llave asociada a la entrada que se quiere eliminar.
+      :type key: T
+
+      :raises Exception: error si la estructura está vacía.
+      :raises Exception: error si la entrada que se quiere eliminar no existe dentro del bucket
+
+      :returns: entrada (pareja llave-valor) que se eliminó del LinearProbing, None si no existe la entrada asociada a la llave key.
+      :rtype: Optional[T]
 
 
    .. py:method:: keys() -> DISClib.DataStructures.arraylist.ArrayList[DISClib.Utils.default.T]
 
+      *keys()* devuelve una lista (ArrayList) con todas las llaves de las entradas (parejas llave-valor) del LinearProbing.
+
+      :returns: lista (ArrayList) con todas las llaves del LinearProbing.
+      :rtype: ArrayList[T]
+
 
    .. py:method:: values() -> DISClib.DataStructures.arraylist.ArrayList[DISClib.Utils.default.T]
+
+      *values()* devuelve una lista (ArrayList) con todos los valores de las entradas (parejas llave-valor) del LinearProbing.
+
+      :returns: lista (ArrayList) con todos los valores del LinearProbing.
+      :rtype: ArrayList[T]
+
+
+   .. py:method:: entries() -> DISClib.DataStructures.arraylist.ArrayList[DISClib.Utils.default.T]
+
+      *entries()* devuelve una lista (ArrayList) con todas las entradas (parejas llave-valor) del LinearProbing.
+
+      :returns: lista (ArrayList) con todas las entradas del LinearProbing.
+      :rtype: ArrayList[T]
+
+
+   .. py:method:: _find_slot(hkey: int, key: DISClib.Utils.default.T) -> int
+
+      _find_slot _summary_
+
+      :param hkey: _description_
+      :type hkey: int
+      :param key: _description_
+      :type key: T
+
+      :returns: _description_
+      :rtype: int
+
+
+   .. py:method:: _probe_slot(hkey: int, key: DISClib.Utils.default.T) -> int
+
+      _probe_slot _summary_
+
+      :param hkey: _description_
+      :type hkey: int
+      :param key: _description_
+      :type key: T
+
+      :returns: _description_
+      :rtype: int
+
+
+   .. py:method:: _is_available(idx: int) -> bool
+
+      _is_available _summary_
+
+      :param idx: _description_
+      :type idx: int
+
+      :returns: _description_
+      :rtype: bool
 
 
    .. py:method:: rehash() -> None
 
+      *rehash()* reconstruye la tabla de hash con una nueva capacidad (M) y un nuevo factor de carga (alpha) según los límites establecidos por el usuario en los atributos *max_alpha* y *min_alpha*.
 
+      Si el factor de carga (alpha) es mayor que el límite superior (max_alpha), se duplica la capacidad (M) buscando el siguiente número primo y se reconstruye la tabla de hash.
 
-.. py:function:: newMap(numelements, prime, loadfactor, cmpfunction, datastructure)
+      Si el factor de carga (alpha) es menor que el límite inferior (min_alpha), se reduce a la mitad la capacidad (M) de la tabla de hash buscando el siguiente número primo y se reconstruye la tabla de hash.
 
-   Crea una tabla de simbolos (map) sin orden
-
-   Crea una tabla de hash con capacidad igual a nuelements
-   (primo mas cercano al doble de numelements).
-   prime es un número primo utilizado para  el cálculo de los codigos
-   de hash, si no es provisto se  utiliza el primo 109345121.
-
-   :param numelements: Tamaño inicial de la tabla
-   :param prime: Número primo utilizado en la función MAD
-   :param loadfactor: Factor de carga maximo de la tabla
-   :param cmpfunction: Funcion de comparación entre llaves
-   :param datastructure: estructura de datos seleccionada
-
-   :returns: Un nuevo map
-
-   :raises Exception:
-
-
-.. py:function:: put(map, key, value)
-
-   Ingresa una pareja llave,valor a la tabla de hash.
-   Si la llave ya existe en la tabla, se reemplaza el valor
-
-   :param map: El map a donde se guarda la pareja
-   :param key: la llave asociada a la pareja
-   :param value: el valor asociado a la pareja
-
-   :returns: El map
-
-   :raises Exception:
-
-
-.. py:function:: contains(map, key)
-
-   Retorna True si la llave key se encuentra en el map
-       o False en caso contrario.
-   :param map: El map a donde se guarda la pareja
-   :param key: la llave asociada a la pareja
-
-   :returns: True / False
-
-   :raises Exception:
-
-
-.. py:function:: get(map, key)
-
-   Retorna la pareja llave, valor, cuya llave sea igual a key
-   :param map: El map a donde se guarda la pareja
-   :param key: la llave asociada a la pareja
-
-   :returns: Una pareja <llave,valor>
-
-   :raises Exception:
-
-
-.. py:function:: remove(map, key)
-
-   Elimina la pareja llave,valor, donde llave == key.
-   :param map: El map a donde se guarda la pareja
-   :param key: la llave asociada a la pareja
-
-   :returns: El map
-
-   :raises Exception:
-
-
-.. py:function:: size(map)
-
-   Retorna  el número de entradas en la tabla de hash.
-   :param map: El map
-
-   :returns: Tamaño del map
-
-   :raises Exception:
-
-
-.. py:function:: isEmpty(map)
-
-   Informa si la tabla de hash se encuentra vacia
-   :param map: El map
-
-   :returns: El map esta vacio
-             False: El map no esta vacio
-   :rtype: True
-
-   :raises Exception:
-
-
-.. py:function:: keySet(map)
-
-   Retorna una lista con todas las llaves de la tabla de hash
-
-   :param map: El map
-
-   :returns: lista de llaves
-
-   :raises Exception:
-
-
-.. py:function:: valueSet(map)
-
-   Retorna una lista con todos los valores de la tabla de hash
-
-   :param map: El map
-
-   :returns: lista de valores
-
-   :raises Exception:
-
-
-.. py:function:: hashValue(table, key)
-
-   Calcula un hash para una llave, utilizando el método
-   MAD : hashValue(y) = ((ay + b) % p) % M.
-   Donde:
-   M es el tamaño de la tabla, primo
-   p es un primo mayor a M,
-   a y b enteros aleatoreos dentro del intervalo [0,p-1], con a>0
-
-
-.. py:function:: findSlot(map, key, hashvalue, cmpfunction)
-
-   Encuentra una posición libre en la tabla de hash.
-   map: la tabla de hash
-   key: la llave
-   hashvalue: La posición inicial de la llave
-   cmpfunction: funcion de comparación para la búsqueda de la llave
-
-
-.. py:function:: isAvailable(table, pos)
-
-   Informa si la posición pos esta disponible en la tabla de hash.
-   Se entiende que una posición está disponible
-   si su contenido es igual a None (no se ha usado esa posicion)
-   o a __EMPTY__ (la posición fue liberada)
-
-
-.. py:function:: rehash(map)
-
-   Se aumenta la capacidad de la tabla al doble y se hace rehash de
-   todos los elementos de la tabla.
-
-
-.. py:function:: isPrime(n)
-
-
-.. py:function:: nextPrime(N)
-
-
-.. py:function:: defaultcompare(key, element)
 
 

@@ -2621,46 +2621,22 @@ en la última posición</p>
 </section>
 <section id="module-DISClib.DataStructures.probinghashmap">
 <span id="disclib-datastructures-probinghashmap-module"></span><h2>DISClib.DataStructures.probinghashmap module<a class="headerlink" href="#module-DISClib.DataStructures.probinghashmap" title="Link to this heading"></a></h2>
-<ul class="simple">
-<li><p>Copyright 2020, Departamento de sistemas y Computación</p></li>
-<li><p>Universidad de Los Andes</p></li>
-<li></li>
-<li></li>
-<li><p>Desarrolado para el curso ISIS1225 - Estructuras de Datos y Algoritmos</p></li>
-<li></li>
-<li></li>
-<li><p>This program is free software: you can redistribute it and/or modify</p></li>
-<li><p>it under the terms of the GNU General Public License as published by</p></li>
-<li><p>the Free Software Foundation, either version 3 of the License, or</p></li>
-<li><p>(at your option) any later version.</p></li>
-<li></li>
-<li><p>This program is distributed in the hope that it will be useful,</p></li>
-<li><p>but WITHOUT ANY WARRANTY; without even the implied warranty of</p></li>
-<li><p>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</p></li>
-<li><p>GNU General Public License for more details.</p></li>
-<li></li>
-<li><p>You should have received a copy of the GNU General Public License</p></li>
-<li><p>along with this program.  If not, see &lt;<a class="reference external" href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</p></li>
-<li></li>
-<li><p>Dario Correal</p></li>
-<li></li>
-</ul>
 <dl class="py function">
-<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashmap.addFirst">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashmap.</span></span><span class="sig-name descname"><span class="pre">addFirst</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/DataStructures/probinghashmap.html#addFirst"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashmap.addFirst" title="Link to this definition"></a></dt>
-<dd><p>Agrega un elemento a la lista en la primera posicion.</p>
-<p>Agrega un elemento en la primera posición de la lista, ajusta el apuntador
-al primer elemento e incrementa el tamaño de la lista.</p>
+<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashmap.contains">
+<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashmap.</span></span><span class="sig-name descname"><span class="pre">contains</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/DataStructures/probinghashmap.html#contains"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashmap.contains" title="Link to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Retorna True si la llave key se encuentra en el map</dt><dd><p>o False en caso contrario.</p>
+</dd>
+</dl>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>lst</strong> – La lista don de inserta el elemento</p></li>
-<li><p><strong>element</strong> – El elemento a insertar en la lista</p></li>
+<li><p><strong>map</strong> – El map a donde se guarda la pareja</p></li>
+<li><p><strong>key</strong> – la llave asociada a la pareja</p></li>
 </ul>
 </dd>
 <dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>La lista con el nuevo elemento en la primera posición, si el proceso
-fue exitoso</p>
+<dd class="field-even"><p>True / False</p>
 </dd>
 <dt class="field-odd">Muestra<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>Exception</strong> – </p>
@@ -2669,38 +2645,24 @@ fue exitoso</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashmap.addLast">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashmap.</span></span><span class="sig-name descname"><span class="pre">addLast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/DataStructures/probinghashmap.html#addLast"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashmap.addLast" title="Link to this definition"></a></dt>
-<dd><p>Agrega un elemento en la última posición de la lista.</p>
-<dl class="simple">
-<dt>Se adiciona un elemento en la última posición de la lista y se actualiza</dt><dd><p>el apuntador a la útima posición.</p>
-</dd>
-</dl>
-<p>Se incrementa el tamaño de la lista en 1
-:param lst: La lista en la que se inserta el elemento
-:param element: El elemento a insertar</p>
-<dl class="field-list simple">
-<dt class="field-odd">Muestra<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>Exception</strong> – </p>
-</dd>
-</dl>
+<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashmap.findSlot">
+<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashmap.</span></span><span class="sig-name descname"><span class="pre">findSlot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hashvalue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmpfunction</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/DataStructures/probinghashmap.html#findSlot"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashmap.findSlot" title="Link to this definition"></a></dt>
+<dd><p>Encuentra una posición libre en la tabla de hash.
+map: la tabla de hash
+key: la llave
+hashvalue: La posición inicial de la llave
+cmpfunction: funcion de comparación para la búsqueda de la llave</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashmap.changeInfo">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashmap.</span></span><span class="sig-name descname"><span class="pre">changeInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newinfo</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/DataStructures/probinghashmap.html#changeInfo"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashmap.changeInfo" title="Link to this definition"></a></dt>
-<dd><dl class="simple">
-<dt>Cambia la informacion contenida en el nodo de la lista que se encuentra</dt><dd><p>en la posicion pos.</p>
-</dd>
-</dl>
+<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashmap.get">
+<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashmap.</span></span><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/DataStructures/probinghashmap.html#get"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashmap.get" title="Link to this definition"></a></dt>
+<dd><p>Retorna la pareja llave, valor, cuya llave sea igual a key
+:param map: El map a donde se guarda la pareja
+:param key: la llave asociada a la pareja</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>lst</strong> – La lista a examinar</p></li>
-<li><p><strong>pos</strong> (<em>la posición</em>) – la posición de la lista con la información a cambiar</p></li>
-<li><p><strong>newinfo</strong> – La nueva información que se debe poner en el nodo de</p></li>
-<li><p><strong>pos</strong> – </p></li>
-</ul>
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Una pareja &lt;llave,valor&gt;</p>
 </dd>
 <dt class="field-even">Muestra<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>Exception</strong> – </p>
@@ -2709,131 +2671,27 @@ fue exitoso</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashmap.compareElements">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashmap.</span></span><span class="sig-name descname"><span class="pre">compareElements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">info</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/DataStructures/probinghashmap.html#compareElements"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashmap.compareElements" title="Link to this definition"></a></dt>
-<dd><p>Compara dos elementos</p>
-<p>Se utiliza la función de comparación por defecto si key es None
-o la función provista por el usuario en caso contrario
-:param lst: La lista con los elementos
-:param element: El elemento que se esta buscando en la lista
-:param info: El elemento de la lista que se está analizando</p>
-<p>Returns:  0 si los elementos son iguales</p>
-<dl class="field-list simple">
-<dt class="field-odd">Muestra<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>Exception</strong> – </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashmap.defaultfunction">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashmap.</span></span><span class="sig-name descname"><span class="pre">defaultfunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/DataStructures/probinghashmap.html#defaultfunction"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashmap.defaultfunction" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashmap.deleteElement">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashmap.</span></span><span class="sig-name descname"><span class="pre">deleteElement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/DataStructures/probinghashmap.html#deleteElement"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashmap.deleteElement" title="Link to this definition"></a></dt>
-<dd><p>Elimina el elemento en la posición pos de la lista.</p>
-<p>Elimina el elemento que se encuentra en la posición pos de la lista.
-Pos debe ser mayor que cero y menor o igual al tamaño de la lista.
-Se decrementa en un uno el tamñao de la lista.
-La lista no puede estar vacia.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>lst</strong> – La lista a retoranr</p></li>
-<li><p><strong>pos</strong> – Posición del elemento a eliminar.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Muestra<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>Exception</strong> – </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashmap.exchange">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashmap.</span></span><span class="sig-name descname"><span class="pre">exchange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/DataStructures/probinghashmap.html#exchange"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashmap.exchange" title="Link to this definition"></a></dt>
-<dd><p>Intercambia la informacion en las posiciones pos1 y pos2 de la lista.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>lst</strong> – La lista a examinar</p></li>
-<li><p><strong>pos1</strong> – Posición del primer elemento</p></li>
-<li><p><strong>pos2</strong> – Posiocion del segundo elemento</p></li>
-</ul>
-</dd>
-<dt class="field-even">Muestra<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>Exception</strong> – </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashmap.firstElement">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashmap.</span></span><span class="sig-name descname"><span class="pre">firstElement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/DataStructures/probinghashmap.html#firstElement"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashmap.firstElement" title="Link to this definition"></a></dt>
-<dd><dl class="simple">
-<dt>Retorna el primer elemento de una lista no vacía.</dt><dd><p>No se elimina el elemento.</p>
-</dd>
-</dl>
-<dl class="field-list simple">
-<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>lst</strong> – La lista a examinar</p>
-</dd>
-<dt class="field-even">Muestra<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>Exception</strong> – </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashmap.getElement">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashmap.</span></span><span class="sig-name descname"><span class="pre">getElement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/DataStructures/probinghashmap.html#getElement"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashmap.getElement" title="Link to this definition"></a></dt>
-<dd><p>Retorna el elemento en la posición pos de la lista.</p>
-<p>Se recorre la lista hasta el elemento pos, el cual  debe ser
-mayor que cero y menor o igual al tamaño de la lista.
-Se retorna el elemento en dicha posición sin eleminarlo.
-La lista no puede ser vacia.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>lst</strong> – La lista a examinar</p></li>
-<li><p><strong>pos</strong> – Posición del elemento a retornar</p></li>
-</ul>
-</dd>
-<dt class="field-even">Muestra<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>Exception</strong> – </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashmap.insertElement">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashmap.</span></span><span class="sig-name descname"><span class="pre">insertElement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/DataStructures/probinghashmap.html#insertElement"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashmap.insertElement" title="Link to this definition"></a></dt>
-<dd><p>Inserta el elemento element en la posición pos de la lista.</p>
-<p>Inserta el elemento en la posición pos de la lista.
-La lista puede ser vacía.  Se incrementa en 1 el tamaño de la lista.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>lst</strong> – La lista en la que se va a insertar el elemento</p></li>
-<li><p><strong>element</strong> – El elemento a insertar</p></li>
-<li><p><strong>pos</strong> – posición en la que se va a insertar el elemento,</p></li>
-<li><p><strong>size</strong> (<em>0 &lt; pos &lt;=</em>) – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Muestra<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>Exception</strong> – </p>
-</dd>
-</dl>
+<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashmap.isAvailable">
+<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashmap.</span></span><span class="sig-name descname"><span class="pre">isAvailable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/DataStructures/probinghashmap.html#isAvailable"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashmap.isAvailable" title="Link to this definition"></a></dt>
+<dd><p>Informa si la posición pos esta disponible en la tabla de hash.
+Se entiende que una posición está disponible
+si su contenido es igual a None (no se ha usado esa posicion)
+o a __EMPTY__ (la posición fue liberada)</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="DISClib.DataStructures.probinghashmap.isEmpty">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashmap.</span></span><span class="sig-name descname"><span class="pre">isEmpty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/DataStructures/probinghashmap.html#isEmpty"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashmap.isEmpty" title="Link to this definition"></a></dt>
-<dd><p>Indica si la lista está vacía
-:param lst: La lista a examinar</p>
+<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashmap.</span></span><span class="sig-name descname"><span class="pre">isEmpty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/DataStructures/probinghashmap.html#isEmpty"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashmap.isEmpty" title="Link to this definition"></a></dt>
+<dd><p>Informa si la tabla de hash se encuentra vacia
+:param map: El map</p>
 <dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>El map esta vacio
+False: El map no esta vacio</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>True</p>
+</dd>
 <dt class="field-odd">Muestra<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>Exception</strong> – </p>
 </dd>
@@ -2841,33 +2699,26 @@ La lista puede ser vacía.  Se incrementa en 1 el tamaño de la lista.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashmap.isPresent">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashmap.</span></span><span class="sig-name descname"><span class="pre">isPresent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/DataStructures/probinghashmap.html#isPresent"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashmap.isPresent" title="Link to this definition"></a></dt>
-<dd><p>Informa si el elemento element esta presente en la lista.</p>
-<p>Informa si un elemento está en la lista.  Si esta presente,
-retorna la posición en la que se encuentra  o cero (0) si no esta presente.
-Se utiliza la función de comparación utilizada durante la creación
-de la lista para comparar los elementos.
-La cual debe retornar cero en caso de que los elementos sean iguales.</p>
+<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashmap.newMap">
+<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashmap.</span></span><span class="sig-name descname"><span class="pre">newMap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numelements</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loadfactor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmpfunction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datastructure</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/DataStructures/probinghashmap.html#newMap"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashmap.newMap" title="Link to this definition"></a></dt>
+<dd><p>Crea una tabla de simbolos (map) sin orden</p>
+<p>Crea una tabla de hash con capacidad igual a nuelements
+(primo mas cercano al doble de numelements).
+prime es un número primo utilizado para  el cálculo de los codigos
+de hash, si no es provisto se  utiliza el primo 109345121.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>lst</strong> – La lista a examinar</p></li>
-<li><p><strong>element</strong> – El elemento a buscar</p></li>
+<li><p><strong>numelements</strong> – Tamaño inicial de la tabla</p></li>
+<li><p><strong>prime</strong> – Número primo utilizado en la función MAD</p></li>
+<li><p><strong>loadfactor</strong> – Factor de carga maximo de la tabla</p></li>
+<li><p><strong>cmpfunction</strong> – Funcion de comparación entre llaves</p></li>
+<li><p><strong>datastructure</strong> – estructura de datos seleccionada</p></li>
 </ul>
 </dd>
-<dt class="field-even">Muestra<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>Exception</strong> – </p>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Un nuevo map</p>
 </dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashmap.iterator">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashmap.</span></span><span class="sig-name descname"><span class="pre">iterator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/DataStructures/probinghashmap.html#iterator"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashmap.iterator" title="Link to this definition"></a></dt>
-<dd><p>Retorna un iterador para la lista.
-:param lst: La lista a iterar</p>
-<dl class="field-list simple">
 <dt class="field-odd">Muestra<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>Exception</strong> – </p>
 </dd>
@@ -2875,72 +2726,43 @@ La cual debe retornar cero en caso de que los elementos sean iguales.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashmap.lastElement">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashmap.</span></span><span class="sig-name descname"><span class="pre">lastElement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/DataStructures/probinghashmap.html#lastElement"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashmap.lastElement" title="Link to this definition"></a></dt>
-<dd><dl class="simple">
-<dt>Retorna el último elemento de una  lista no vacia.</dt><dd><p>No se elimina el elemento.</p>
-</dd>
-</dl>
+<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashmap.put">
+<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashmap.</span></span><span class="sig-name descname"><span class="pre">put</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/DataStructures/probinghashmap.html#put"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashmap.put" title="Link to this definition"></a></dt>
+<dd><p>Ingresa una pareja llave,valor a la tabla de hash.
+Si la llave ya existe en la tabla, se reemplaza el valor</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>lst</strong> – La lista a examinar</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>map</strong> – El map a donde se guarda la pareja</p></li>
+<li><p><strong>key</strong> – la llave asociada a la pareja</p></li>
+<li><p><strong>value</strong> – el valor asociado a la pareja</p></li>
+</ul>
 </dd>
-<dt class="field-even">Muestra<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>Exception</strong> – </p>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>El map</p>
+</dd>
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – </p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashmap.newList">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashmap.</span></span><span class="sig-name descname"><span class="pre">newList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmpfunction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delim</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/DataStructures/probinghashmap.html#newList"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashmap.newList" title="Link to this definition"></a></dt>
-<dd><p>Crea una lista vacia.</p>
-<p>Se inicializan los apuntadores a la primera y ultima posicion en None.
-El tipo de la listase inicializa como SINGLE_LINKED
-:param cmpfunction: Función de comparación para los elementos de la lista.
-:param Si no se provee una función de comparación:
-:param se utilizará la función:
-:param de comparación por defecto pero se debe suministrar un valor para key:
-:param key: Identificador que se debe utilizar para la comparación de
-:param elementos de la lista:
-:param filename: Si se provee este valor, se creará una lista a partir de
-:param la informacion que se encuentra en el archivo CSV:
-:param delimiter: Si se provee un archivo para crear la lista, indica el
-:param delimitador a usar para separar los campos del archivo CSV:</p>
+<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashmap.rehash">
+<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashmap.</span></span><span class="sig-name descname"><span class="pre">rehash</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/DataStructures/probinghashmap.html#rehash"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashmap.rehash" title="Link to this definition"></a></dt>
+<dd><p>Se aumenta la capacidad de la tabla al doble y se hace rehash de
+todos los elementos de la tabla.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashmap.remove">
+<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashmap.</span></span><span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/DataStructures/probinghashmap.html#remove"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashmap.remove" title="Link to this definition"></a></dt>
+<dd><p>Elimina la pareja llave,valor, donde llave == key.
+:param map: El map a donde se guarda la pareja
+:param key: la llave asociada a la pareja</p>
 <dl class="field-list simple">
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Un diccionario que representa la estructura de datos de una lista
-encadanada vacia.</p>
-</dd>
-</dl>
-<p>Raises:</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashmap.removeFirst">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashmap.</span></span><span class="sig-name descname"><span class="pre">removeFirst</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/DataStructures/probinghashmap.html#removeFirst"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashmap.removeFirst" title="Link to this definition"></a></dt>
-<dd><p>Remueve el primer elemento de la lista.
-Elimina y retorna el primer elemento de la lista.
-El tamaño de la lista se decrementa en uno.  Si la lista
-es vacía se retorna None.
-:param lst: La lista a examinar</p>
-<dl class="field-list simple">
-<dt class="field-odd">Muestra<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>Exception</strong> – </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashmap.removeLast">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashmap.</span></span><span class="sig-name descname"><span class="pre">removeLast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/DataStructures/probinghashmap.html#removeLast"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashmap.removeLast" title="Link to this definition"></a></dt>
-<dd><p>Remueve el último elemento de la lista.</p>
-<p>Elimina el último elemento de la lista  y lo retorna en caso de existir.
-El tamaño de la lista se decrementa en 1.
-Si la lista es vacía  retorna None.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>lst</strong> – La lista a examinar</p>
+<dd class="field-odd"><p>El map</p>
 </dd>
 <dt class="field-even">Muestra<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>Exception</strong> – </p>
@@ -2950,33 +2772,12 @@ Si la lista es vacía  retorna None.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="DISClib.DataStructures.probinghashmap.size">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashmap.</span></span><span class="sig-name descname"><span class="pre">size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/DataStructures/probinghashmap.html#size"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashmap.size" title="Link to this definition"></a></dt>
-<dd><p>Informa el número de elementos de la lista.
-Args</p>
-<blockquote>
-<div><p>lst: La lista a examinar</p>
-</div></blockquote>
+<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashmap.</span></span><span class="sig-name descname"><span class="pre">size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/DataStructures/probinghashmap.html#size"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashmap.size" title="Link to this definition"></a></dt>
+<dd><p>Retorna  el número de entradas en la tabla de hash.
+:param map: El map</p>
 <dl class="field-list simple">
-<dt class="field-odd">Muestra<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>Exception</strong> – </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashmap.subList">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashmap.</span></span><span class="sig-name descname"><span class="pre">subList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numelem</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/DataStructures/probinghashmap.html#subList"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashmap.subList" title="Link to this definition"></a></dt>
-<dd><p>Retorna una sublista de la lista lst.</p>
-<p>Se retorna una lista que contiene los elementos a partir de la
-posicion pos,con una longitud de numelem elementos.
-Se crea una copia de dichos elementos y se retorna una lista nueva.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>lst</strong> – La lista a examinar</p></li>
-<li><p><strong>pos</strong> – Posición a partir de la que se desea obtener la sublista</p></li>
-<li><p><strong>numelem</strong> – Numero de elementos a copiar en la sublista</p></li>
-</ul>
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tamaño del map</p>
 </dd>
 <dt class="field-even">Muestra<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>Exception</strong> – </p>

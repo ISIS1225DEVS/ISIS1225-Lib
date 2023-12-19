@@ -218,7 +218,7 @@
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.chaininghashtable.SeparateChaining.hash_table">
 <span class="sig-name descname"><span class="pre">hash_table</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList" title="DISClib.DataStructures.arraylist.ArrayList"><span class="pre">DISClib.DataStructures.arraylist.ArrayList</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#DISClib.DataStructures.chaininghashtable.Bucket" title="DISClib.DataStructures.chaininghashtable.Bucket"><span class="pre">Bucket</span></a><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining.hash_table"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.chaininghashtable.SeparateChaining.hash_table" title="Link to this definition"></a></dt>
-<dd><p>Es el indice de la tabla de hash donde se almacenan los “Buckets”, implementado con un “ArrayList” de DISCLib. en el __post_init__ se inicializa con la capacidad inicial de la tabla de hash.</p>
+<dd><p>Es el indice de la tabla de hash donde se almacenan los <em>Buckets</em>, implementado con un <em>ArrayList</em> de DISCLib. en el <em>__post_init__()</em> se inicializa con la capacidad inicial de la tabla de hash.</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -278,19 +278,19 @@
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.chaininghashtable.SeparateChaining._data_type">
 <span class="sig-name descname"><span class="pre">_data_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">type</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining._data_type"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.chaininghashtable.SeparateChaining._data_type" title="Link to this definition"></a></dt>
-<dd><p>Es el tipo de dato de los elementos que contiene la tabla de hash, por defecto es “None” y se configura al cargar el primer elemento en el mapa.</p>
+<dd><p>Es el tipo de dato de los elementos que contiene la tabla de hash, por defecto es <em>None</em> y se configura al cargar el primera entrada en el mapa.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.chaininghashtable.SeparateChaining.cmp_function">
 <span class="sig-name descname"><span class="pre">cmp_function</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining.cmp_function"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.chaininghashtable.SeparateChaining.cmp_function" title="Link to this definition"></a></dt>
-<dd><p>Función de comparación opcional que se utiliza para comparar los elementos del SeparateChaining, por defecto es “None” y el <em>__post_init__()</em> configura la función por defecto <em>ht_default_cmp_funcion()</em>.</p>
+<dd><p>Función de comparación opcional que se utiliza para comparar los elementos del SeparateChaining, por defecto es <em>None</em> y el <em>__post_init__()</em> configura la función por defecto <em>ht_default_cmp_funcion()</em>.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.chaininghashtable.SeparateChaining.key">
 <span class="sig-name descname"><span class="pre">key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining.key"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.chaininghashtable.SeparateChaining.key" title="Link to this definition"></a></dt>
-<dd><p>Nombre de la llave opcional que se utiliza para comparar los elementos del SeparateChaining, Por defecto es “None” y el __post_init__ configura la llave por defecto la llave “id” en <em>DEFAULT_DICT_KEY</em>.</p>
+<dd><p>Nombre de la llave opcional que se utiliza para comparar los elementos del SeparateChaining, Por defecto es <em>None</em> y el <em>__post_init__()</em> configura la llave por defecto la llave <em>id</em> en <em>DEFAULT_DICT_KEY</em>.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -305,7 +305,7 @@
 <dd><p><em>default_cmp_function()</em> procesa la llave existente en la entrada del SeparateChaining y la compara con la llave del a entrada que se quiere agregar al SeparateChaining.
 :param key1: llave de la primera entrada a comparar.
 :type key1: Any
-:param entry2: segunda entrada (par llave-valor) a comparar.
+:param entry2: segunda entrada (pareja llave-valor) a comparar.
 :type entry2: MapEntry</p>
 <dl class="field-list simple">
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
@@ -331,17 +331,17 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.chaininghashtable.SeparateChaining._check_type">
-<span class="sig-name descname"><span class="pre">_check_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining._check_type"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.chaininghashtable.SeparateChaining._check_type" title="Link to this definition"></a></dt>
-<dd><p><em>_check_type()</em> función privada que verifica que el tipo de dato del elemento que se quiere agregar al SeparateChaining sea del mismo tipo contenido dentro de los elementos del SeparateChaining.</p>
+<span class="sig-name descname"><span class="pre">_check_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining._check_type"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.chaininghashtable.SeparateChaining._check_type" title="Link to this definition"></a></dt>
+<dd><p><em>_check_type()</em> función privada que verifica que el tipo de dato de la entrada que se quiere agregar al SeparateChaining sea del mismo tipo contenido dentro de los elementos del SeparateChaining.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Muestra<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>TypeError</strong> – error si el tipo de dato del elemento que se quiere agregar no es el mismo que el tipo de dato de los elementos que ya contiene el SeparateChaining.</p>
+<dd class="field-odd"><p><strong>TypeError</strong> – error si el tipo de dato de la entrada que se quiere agregar no es el mismo que el tipo de dato de los elementos que ya contiene el SeparateChaining.</p>
 </dd>
 <dt class="field-even">Parámetros<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>element</strong> (<em>T</em>) – elemento que se quiere procesar en SeparateChaining.</p>
+<dd class="field-even"><p><strong>entry</strong> (<em>T</em>) – entrada que se quiere procesar en SeparateChaining.</p>
 </dd>
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>operador que indica si el ADT SeparateChaining es del mismo tipo que el elemento que se quiere procesar.</p>
+<dd class="field-odd"><p>operador que indica si el ADT SeparateChaining es del mismo tipo que el entrada que se quiere procesar.</p>
 </dd>
 <dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-even"><p>bool</p>
@@ -380,13 +380,13 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.chaininghashtable.SeparateChaining.contains">
 <span class="sig-name descname"><span class="pre">contains</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining.contains"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.chaininghashtable.SeparateChaining.contains" title="Link to this definition"></a></dt>
-<dd><p>contains _summary_</p>
+<dd><p><em>contains()</em> responde si el SeparateChaining contiene una entrada con la llave key.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>key</strong> (<em>T</em>) – _description_</p>
+<dd class="field-odd"><p><strong>key</strong> (<em>T</em>) – llave de la entrada (pareja llave-valor) que se quiere buscar en el SeparateChaining.</p>
 </dd>
 <dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>_description_</p>
+<dd class="field-even"><p>operador que indica si el SeparateChaining contiene o no una entrada con la llave key.</p>
 </dd>
 <dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-odd"><p>bool</p>

@@ -1739,7 +1739,7 @@
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining.hash_table">
 <span class="sig-name descname"><span class="pre">hash_table</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList" title="DISClib.DataStructures.arraylist.ArrayList"><span class="pre">DISClib.DataStructures.arraylist.ArrayList</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="chaininghashtable/index.html#DISClib.DataStructures.chaininghashtable.Bucket" title="DISClib.DataStructures.chaininghashtable.Bucket"><span class="pre">Bucket</span></a><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining.hash_table" title="Link to this definition"></a></dt>
-<dd><p>Es el indice de la tabla de hash donde se almacenan los “Buckets”, implementado con un “ArrayList” de DISCLib. en el __post_init__ se inicializa con la capacidad inicial de la tabla de hash.</p>
+<dd><p>Es el indice de la tabla de hash donde se almacenan los <em>Buckets</em>, implementado con un <em>ArrayList</em> de DISCLib. en el <em>__post_init__()</em> se inicializa con la capacidad inicial de la tabla de hash.</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -1799,19 +1799,19 @@
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining._data_type">
 <span class="sig-name descname"><span class="pre">_data_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">type</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining._data_type" title="Link to this definition"></a></dt>
-<dd><p>Es el tipo de dato de los elementos que contiene la tabla de hash, por defecto es “None” y se configura al cargar el primer elemento en el mapa.</p>
+<dd><p>Es el tipo de dato de los elementos que contiene la tabla de hash, por defecto es <em>None</em> y se configura al cargar el primera entrada en el mapa.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining.cmp_function">
 <span class="sig-name descname"><span class="pre">cmp_function</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining.cmp_function" title="Link to this definition"></a></dt>
-<dd><p>Función de comparación opcional que se utiliza para comparar los elementos del SeparateChaining, por defecto es “None” y el <em>__post_init__()</em> configura la función por defecto <em>ht_default_cmp_funcion()</em>.</p>
+<dd><p>Función de comparación opcional que se utiliza para comparar los elementos del SeparateChaining, por defecto es <em>None</em> y el <em>__post_init__()</em> configura la función por defecto <em>ht_default_cmp_funcion()</em>.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining.key">
 <span class="sig-name descname"><span class="pre">key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining.key" title="Link to this definition"></a></dt>
-<dd><p>Nombre de la llave opcional que se utiliza para comparar los elementos del SeparateChaining, Por defecto es “None” y el __post_init__ configura la llave por defecto la llave “id” en <em>DEFAULT_DICT_KEY</em>.</p>
+<dd><p>Nombre de la llave opcional que se utiliza para comparar los elementos del SeparateChaining, Por defecto es <em>None</em> y el <em>__post_init__()</em> configura la llave por defecto la llave <em>id</em> en <em>DEFAULT_DICT_KEY</em>.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1826,7 +1826,7 @@
 <dd><p><em>default_cmp_function()</em> procesa la llave existente en la entrada del SeparateChaining y la compara con la llave del a entrada que se quiere agregar al SeparateChaining.
 :param key1: llave de la primera entrada a comparar.
 :type key1: Any
-:param entry2: segunda entrada (par llave-valor) a comparar.
+:param entry2: segunda entrada (pareja llave-valor) a comparar.
 :type entry2: MapEntry</p>
 <dl class="field-list simple">
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
@@ -1852,17 +1852,17 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining._check_type">
-<span class="sig-name descname"><span class="pre">_check_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining._check_type"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining._check_type" title="Link to this definition"></a></dt>
-<dd><p><em>_check_type()</em> función privada que verifica que el tipo de dato del elemento que se quiere agregar al SeparateChaining sea del mismo tipo contenido dentro de los elementos del SeparateChaining.</p>
+<span class="sig-name descname"><span class="pre">_check_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining._check_type"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining._check_type" title="Link to this definition"></a></dt>
+<dd><p><em>_check_type()</em> función privada que verifica que el tipo de dato de la entrada que se quiere agregar al SeparateChaining sea del mismo tipo contenido dentro de los elementos del SeparateChaining.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Muestra<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>TypeError</strong> – error si el tipo de dato del elemento que se quiere agregar no es el mismo que el tipo de dato de los elementos que ya contiene el SeparateChaining.</p>
+<dd class="field-odd"><p><strong>TypeError</strong> – error si el tipo de dato de la entrada que se quiere agregar no es el mismo que el tipo de dato de los elementos que ya contiene el SeparateChaining.</p>
 </dd>
 <dt class="field-even">Parámetros<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>element</strong> (<em>T</em>) – elemento que se quiere procesar en SeparateChaining.</p>
+<dd class="field-even"><p><strong>entry</strong> (<em>T</em>) – entrada que se quiere procesar en SeparateChaining.</p>
 </dd>
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>operador que indica si el ADT SeparateChaining es del mismo tipo que el elemento que se quiere procesar.</p>
+<dd class="field-odd"><p>operador que indica si el ADT SeparateChaining es del mismo tipo que el entrada que se quiere procesar.</p>
 </dd>
 <dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-even"><p>bool</p>
@@ -1901,13 +1901,13 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.SeparateChaining.contains">
 <span class="sig-name descname"><span class="pre">contains</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining.contains"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.SeparateChaining.contains" title="Link to this definition"></a></dt>
-<dd><p>contains _summary_</p>
+<dd><p><em>contains()</em> responde si el SeparateChaining contiene una entrada con la llave key.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>key</strong> (<em>T</em>) – _description_</p>
+<dd class="field-odd"><p><strong>key</strong> (<em>T</em>) – llave de la entrada (pareja llave-valor) que se quiere buscar en el SeparateChaining.</p>
 </dd>
 <dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>_description_</p>
+<dd class="field-even"><p>operador que indica si el SeparateChaining contiene o no una entrada con la llave key.</p>
 </dd>
 <dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-odd"><p>bool</p>
@@ -2073,27 +2073,27 @@
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing.elements">
-<span class="sig-name descname"><span class="pre">elements</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#DISClib.DataStructures.LinearProbing.elements" title="Link to this definition"></a></dt>
-<dd><p>Es el espacio reservado para la tabla de hash (n), por defecto es 1, pero debe configurarse según el número de elementos que se espera almacenar.</p>
+<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing.nentries">
+<span class="sig-name descname"><span class="pre">nentries</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#DISClib.DataStructures.LinearProbing.nentries" title="Link to this definition"></a></dt>
+<dd><p>Es el espacio reservado para la tabla de hash (n), por defecto es 1, pero debe configurarse según el número de entradas que se espera almacenar.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing.aLpha">
-<span class="sig-name descname"><span class="pre">aLpha</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.LinearProbing.aLpha" title="Link to this definition"></a></dt>
-<dd><p>Es el factor de carga con el que se inicializa la tabla de hash, por defecto es 4.0.</p>
+<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing.alpha">
+<span class="sig-name descname"><span class="pre">alpha</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.LinearProbing.alpha" title="Link to this definition"></a></dt>
+<dd><p>Es el factor de carga (alpha) con el que se inicializa la tabla de hash, por defecto es 4.0.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing.prime">
 <span class="sig-name descname"><span class="pre">prime</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.LinearProbing.prime" title="Link to this definition"></a></dt>
-<dd><p>Es el número primo utilizado para calcular el código hash de la llave con la función de compresión MAD, por defecto es 109345121.</p>
+<dd><p>Es el número primo (P) utilizado para calcular el código hash de la llave con la función de compresión MAD, por defecto es 109345121.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing.table">
-<span class="sig-name descname"><span class="pre">table</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList" title="DISClib.DataStructures.arraylist.ArrayList"><span class="pre">DISClib.DataStructures.arraylist.ArrayList</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="mapentry/index.html#DISClib.DataStructures.mapentry.MapEntry" title="DISClib.DataStructures.mapentry.MapEntry"><span class="pre">DISClib.DataStructures.mapentry.MapEntry</span></a><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#DISClib.DataStructures.LinearProbing.table" title="Link to this definition"></a></dt>
-<dd><p>Es el indice de la tabla de hash donde se almacenan los “Buckets”, implementado con un “ArrayList” de DISCLib. en el __post_init__ se inicializa con la capacidad inicial de la tabla de hash.</p>
+<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing.hash_table">
+<span class="sig-name descname"><span class="pre">hash_table</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList" title="DISClib.DataStructures.arraylist.ArrayList"><span class="pre">DISClib.DataStructures.arraylist.ArrayList</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="mapentry/index.html#DISClib.DataStructures.mapentry.MapEntry" title="DISClib.DataStructures.mapentry.MapEntry"><span class="pre">DISClib.DataStructures.mapentry.MapEntry</span></a><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#DISClib.DataStructures.LinearProbing.hash_table" title="Link to this definition"></a></dt>
+<dd><p>Es el indice de la tabla de hash donde se almacenan los <em>MapEntry</em>, implementado con un <em>ArrayList</em> de DISCLib. en el <em>__post_init__()</em> se inicializa con la capacidad inicial de la tabla de hash.</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -2103,15 +2103,15 @@
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing.capacity">
-<span class="sig-name descname"><span class="pre">capacity</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#DISClib.DataStructures.LinearProbing.capacity" title="Link to this definition"></a></dt>
-<dd><p>Es la capacidad (m) con la que se inicializa la tabla de hash.</p>
+<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing.mcapacity">
+<span class="sig-name descname"><span class="pre">mcapacity</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#DISClib.DataStructures.LinearProbing.mcapacity" title="Link to this definition"></a></dt>
+<dd><p>Es la capacidad (M) con la que se inicializa la tabla de hash.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing._size">
 <span class="sig-name descname"><span class="pre">_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#DISClib.DataStructures.LinearProbing._size" title="Link to this definition"></a></dt>
-<dd><p>Es el número de elementos dentro de la tabla de hash, por defecto es 0 y se actualiza con cada operación que modifica la estructura.</p>
+<dd><p>Es el número de elementos (n) dentro de la tabla de hash, por defecto es 0 y se actualiza con cada operación que modifica la estructura.</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -2133,50 +2133,61 @@
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing._limit_factor">
-<span class="sig-name descname"><span class="pre">_limit_factor</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#DISClib.DataStructures.LinearProbing._limit_factor" title="Link to this definition"></a></dt>
-<dd><p>Es el factor de carga limite antes de hacer rehash.</p>
+<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing._cur_alpha">
+<span class="sig-name descname"><span class="pre">_cur_alpha</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#DISClib.DataStructures.LinearProbing._cur_alpha" title="Link to this definition"></a></dt>
+<dd><p>Es el factor de carga actual de la tabla de hash.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing._current_factor">
-<span class="sig-name descname"><span class="pre">_current_factor</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#DISClib.DataStructures.LinearProbing._current_factor" title="Link to this definition"></a></dt>
-<dd><p>Es el factor de carga actual de la tabla de hash.</p>
+<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing.max_alpha">
+<span class="sig-name descname"><span class="pre">max_alpha</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.LinearProbing.max_alpha" title="Link to this definition"></a></dt>
+<dd><p>Es el factor de carga máximo de la tabla de hash, por defecto es 8.0.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing.min_alpha">
+<span class="sig-name descname"><span class="pre">min_alpha</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.LinearProbing.min_alpha" title="Link to this definition"></a></dt>
+<dd><p>Es el factor de carga mínimo de la tabla de hash, por defecto es 2.0.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing._data_type">
+<span class="sig-name descname"><span class="pre">_data_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">type</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.LinearProbing._data_type" title="Link to this definition"></a></dt>
+<dd><p>Es el tipo de dato de los elementos que contiene la tabla de hash, por defecto es <em>None</em> y se configura al cargar el primer entrada en el mapa.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing.cmp_function">
 <span class="sig-name descname"><span class="pre">cmp_function</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.LinearProbing.cmp_function" title="Link to this definition"></a></dt>
-<dd><p>Función de comparación opcional que se utiliza para comparar los elementos del LinearProbing, por defecto es “None” y el __post_init__ configura la función por defecto lt_default_cmp_funcion().</p>
+<dd><p>Función de comparación opcional que se utiliza para comparar los elementos del LinearProbing, por defecto es <em>None</em> y el <em>__post_init__()</em> configura la función por defecto <em>ht_default_cmp_funcion()</em>.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing.key">
 <span class="sig-name descname"><span class="pre">key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.LinearProbing.key" title="Link to this definition"></a></dt>
-<dd><p>Nombre de la llave opcional que se utiliza para comparar los elementos del LinearProbing, Por defecto es “None” y el __post_init__ configura la llave por defecto la llave “id” en DEFAULT_DICT_KEY.</p>
+<dd><p>Nombre de la llave opcional que se utiliza para comparar los elementos del LinearProbing, Por defecto es <em>None</em> y el <em>__post_init__()</em> configura la llave por defecto la llave <em>id</em> en <em>DEFAULT_DICT_KEY</em>.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing.__post_init__">
 <span class="sig-name descname"><span class="pre">__post_init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.__post_init__"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.LinearProbing.__post_init__" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p><em>__post_init__()</em> configura los valores por defecto de la estructura LinearProbing después de la inicialización de la misma. Configura los factores de carga (alpha), el número primo (P) para la función de compresión MAD, la capacidad (M) de la tabla de hash, la función de comparación y la llave para comparar los elementos del LinearProbing, y finalmente inicializa la tabla de hash con la capacidad (M) configurada.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing.default_cmp_function">
-<span class="sig-name descname"><span class="pre">default_cmp_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elm1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elm2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.default_cmp_function"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.LinearProbing.default_cmp_function" title="Link to this definition"></a></dt>
-<dd><p><em>default_cmp_function()</em> procesa con algoritmica por defecto la lista de elementos que procesa el LinearProbing. Es una función crucial para que la estructura de datos funcione correctamente.</p>
+<span class="sig-name descname"><span class="pre">default_cmp_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="mapentry/index.html#DISClib.DataStructures.mapentry.MapEntry" title="DISClib.DataStructures.mapentry.MapEntry"><span class="pre">DISClib.DataStructures.mapentry.MapEntry</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.default_cmp_function"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.LinearProbing.default_cmp_function" title="Link to this definition"></a></dt>
+<dd><p><em>default_cmp_function()</em> procesa la llave existente en la entrada del LinearProbing y la compara con la llave del a entrada que se quiere agregar al LinearProbing.
+:param key1: llave de la primera entrada a comparar.
+:type key1: Any
+:param entry2: segunda entrada (pareja llave-valor) a comparar.
+:type entry2: MapEntry</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>elm1</strong> (<em>Any</em>) – primer elemento a comparar.</p></li>
-<li><p><strong>elm2</strong> (<em>Any</em>) – segundo elemento a comparar.</p></li>
-</ul>
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>respuesta de la comparación entre los elementos, 0 si las llaves son iguales, 1 si key1 es mayor que la llave de entry2, -1 si key1 es menor.</p>
 </dd>
-<dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>respuesta de la comparación entre los elementos, 0 si son iguales, 1 si elm1 es mayor que elm2, -1 si elm1 es menor.</p>
-</dd>
-<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
-<dd class="field-odd"><p>int</p>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2195,17 +2206,17 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing._check_type">
-<span class="sig-name descname"><span class="pre">_check_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing._check_type"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.LinearProbing._check_type" title="Link to this definition"></a></dt>
-<dd><p><em>_check_type()</em> función privada que verifica que el tipo de dato del elemento que se quiere agregar al LinearProbing sea del mismo tipo contenido dentro de los elementos del LinearProbing.</p>
+<span class="sig-name descname"><span class="pre">_check_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing._check_type"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.LinearProbing._check_type" title="Link to this definition"></a></dt>
+<dd><p><em>_check_type()</em> función privada que verifica que el tipo de dato de la entrada que se quiere agregar al LinearProbing sea del mismo tipo contenido dentro de los elementos del LinearProbing.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Muestra<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>TypeError</strong> – error si el tipo de dato del elemento que se quiere agregar no es el mismo que el tipo de dato de los elementos que ya contiene el LinearProbing.</p>
+<dd class="field-odd"><p><strong>TypeError</strong> – error si el tipo de dato de la entrada que se quiere agregar no es el mismo que el tipo de dato de los elementos que ya contiene el LinearProbing.</p>
 </dd>
 <dt class="field-even">Parámetros<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>element</strong> (<em>T</em>) – elemento que se quiere procesar en LinearProbing.</p>
+<dd class="field-even"><p><strong>entry</strong> (<em>T</em>) – entrada que se quiere procesar en LinearProbing.</p>
 </dd>
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>operador que indica si el ADT LinearProbing es del mismo tipo que el elemento que se quiere procesar.</p>
+<dd class="field-odd"><p>operador que indica si el ADT LinearProbing es del mismo tipo que la entrada que se quiere procesar.</p>
 </dd>
 <dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-even"><p>bool</p>
@@ -2244,37 +2255,206 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing.contains">
 <span class="sig-name descname"><span class="pre">contains</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.contains"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.LinearProbing.contains" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p><em>contains()</em> responde si el LinearProbing contiene una entrada con la llave key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>key</strong> (<em>T</em>) – llave de la entrada (pareja llave-valor) que se quiere buscar en el LinearProbing.</p>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>operador que indica si el LinearProbing contiene o no una entrada con la llave key.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing.put">
 <span class="sig-name descname"><span class="pre">put</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.put"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.LinearProbing.put" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p><em>put()</em> agrega una entrada (pareja llave-valor) al LinearProbing, si la llave ya existe en el LinearProbing, se reemplaza el valor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> (<em>T</em>) – llave asociada a la nueva entrada.</p></li>
+<li><p><strong>value</strong> (<em>T</em>) – el valor asociado a la nueva entrada.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – si el indice de la entrada en el mapa está fuera de los limites establecidos, se genera un error.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing.get">
 <span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DISClib.Utils.default.T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.get"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.LinearProbing.get" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p><em>get()</em> devuelve la entrada (pareja llave-valor) cuya llave sea igual a key dentro del LinearProbing, si no existe una entrada con la llave key, devuelve None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>key</strong> (<em>T</em>) – llave asociada a la entrada que se quiere buscar.</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – error si la estructura está vacía.</p>
+</dd>
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>entrada (pareja llave-valor) con la llave igual a key dentro del LinearProbing, None si no existe la entrada asociada a la llave key.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>Optional[T]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing.check_bucket">
+<span class="sig-name descname"><span class="pre">check_bucket</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DISClib.Utils.default.T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.check_bucket"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.LinearProbing.check_bucket" title="Link to this definition"></a></dt>
+<dd><p><em>check_bucket()</em> devuelve el bucket asociado a la llave key dentro del LinearProbing, si no existe una entrada con la llave key, devuelve None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>key</strong> (<em>T</em>) – llave asociada al bucket que se quiere buscar.</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – error si la estructura está vacía.</p>
+</dd>
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bucket asociado a la llave key dentro del LinearProbing, None si no existe la entrada asociada a la llave key.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>Optional[T]</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing.remove">
-<span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.remove"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.LinearProbing.remove" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DISClib.Utils.default.T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.remove"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.LinearProbing.remove" title="Link to this definition"></a></dt>
+<dd><p><em>remove()</em> elimina la entrada (pareja llave-valor) cuya llave sea igual a key dentro del LinearProbing, si no existe una entrada con la llave key, devuelve None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>key</strong> (<em>T</em>) – llave asociada a la entrada que se quiere eliminar.</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>Exception</strong> – error si la estructura está vacía.</p></li>
+<li><p><strong>Exception</strong> – error si la entrada que se quiere eliminar no existe dentro del bucket</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>entrada (pareja llave-valor) que se eliminó del LinearProbing, None si no existe la entrada asociada a la llave key.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>Optional[T]</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing.keys">
 <span class="sig-name descname"><span class="pre">keys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList" title="DISClib.DataStructures.arraylist.ArrayList"><span class="pre">DISClib.DataStructures.arraylist.ArrayList</span></a><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.keys"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.LinearProbing.keys" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p><em>keys()</em> devuelve una lista (ArrayList) con todas las llaves de las entradas (parejas llave-valor) del LinearProbing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>lista (ArrayList) con todas las llaves del LinearProbing.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#DISClib.DataStructures.ArrayList" title="DISClib.DataStructures.ArrayList">ArrayList</a>[T]</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing.values">
 <span class="sig-name descname"><span class="pre">values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList" title="DISClib.DataStructures.arraylist.ArrayList"><span class="pre">DISClib.DataStructures.arraylist.ArrayList</span></a><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.values"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.LinearProbing.values" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p><em>values()</em> devuelve una lista (ArrayList) con todos los valores de las entradas (parejas llave-valor) del LinearProbing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>lista (ArrayList) con todos los valores del LinearProbing.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#DISClib.DataStructures.ArrayList" title="DISClib.DataStructures.ArrayList">ArrayList</a>[T]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing.entries">
+<span class="sig-name descname"><span class="pre">entries</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList" title="DISClib.DataStructures.arraylist.ArrayList"><span class="pre">DISClib.DataStructures.arraylist.ArrayList</span></a><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.entries"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.LinearProbing.entries" title="Link to this definition"></a></dt>
+<dd><p><em>entries()</em> devuelve una lista (ArrayList) con todas las entradas (parejas llave-valor) del LinearProbing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>lista (ArrayList) con todas las entradas del LinearProbing.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#DISClib.DataStructures.ArrayList" title="DISClib.DataStructures.ArrayList">ArrayList</a>[T]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing._find_slot">
+<span class="sig-name descname"><span class="pre">_find_slot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hkey</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing._find_slot"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.LinearProbing._find_slot" title="Link to this definition"></a></dt>
+<dd><p>_find_slot _summary_</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hkey</strong> (<em>int</em>) – _description_</p></li>
+<li><p><strong>key</strong> (<em>T</em>) – _description_</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>_description_</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing._probe_slot">
+<span class="sig-name descname"><span class="pre">_probe_slot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hkey</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing._probe_slot"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.LinearProbing._probe_slot" title="Link to this definition"></a></dt>
+<dd><p>_probe_slot _summary_</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hkey</strong> (<em>int</em>) – _description_</p></li>
+<li><p><strong>key</strong> (<em>T</em>) – _description_</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>_description_</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing._is_available">
+<span class="sig-name descname"><span class="pre">_is_available</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing._is_available"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.LinearProbing._is_available" title="Link to this definition"></a></dt>
+<dd><p>_is_available _summary_</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>idx</strong> (<em>int</em>) – _description_</p>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>_description_</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.LinearProbing.rehash">
 <span class="sig-name descname"><span class="pre">rehash</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.rehash"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.LinearProbing.rehash" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p><em>rehash()</em> reconstruye la tabla de hash con una nueva capacidad (M) y un nuevo factor de carga (alpha) según los límites establecidos por el usuario en los atributos <em>max_alpha</em> y <em>min_alpha</em>.</p>
+<p>Si el factor de carga (alpha) es mayor que el límite superior (max_alpha), se duplica la capacidad (M) buscando el siguiente número primo y se reconstruye la tabla de hash.</p>
+<p>Si el factor de carga (alpha) es menor que el límite inferior (min_alpha), se reduce a la mitad la capacidad (M) de la tabla de hash buscando el siguiente número primo y se reconstruye la tabla de hash.</p>
+</dd></dl>
 
 </dd></dl>
 

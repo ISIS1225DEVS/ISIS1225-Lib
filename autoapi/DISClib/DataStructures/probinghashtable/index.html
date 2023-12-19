@@ -121,90 +121,47 @@
 </tbody>
 </table>
 </section>
-<section id="functions">
-<h3>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h3>
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.DataStructures.probinghashtable.newMap" title="DISClib.DataStructures.probinghashtable.newMap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">newMap</span></code></a>(numelements, prime, loadfactor, cmpfunction, ...)</p></td>
-<td><p>Crea una tabla de simbolos (map) sin orden</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#DISClib.DataStructures.probinghashtable.put" title="DISClib.DataStructures.probinghashtable.put"><code class="xref py py-obj docutils literal notranslate"><span class="pre">put</span></code></a>(map, key, value)</p></td>
-<td><p>Ingresa una pareja llave,valor a la tabla de hash.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.DataStructures.probinghashtable.contains" title="DISClib.DataStructures.probinghashtable.contains"><code class="xref py py-obj docutils literal notranslate"><span class="pre">contains</span></code></a>(map, key)</p></td>
-<td><p>Retorna True si la llave key se encuentra en el map</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#DISClib.DataStructures.probinghashtable.get" title="DISClib.DataStructures.probinghashtable.get"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get</span></code></a>(map, key)</p></td>
-<td><p>Retorna la pareja llave, valor, cuya llave sea igual a key</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.DataStructures.probinghashtable.remove" title="DISClib.DataStructures.probinghashtable.remove"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove</span></code></a>(map, key)</p></td>
-<td><p>Elimina la pareja llave,valor, donde llave == key.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#DISClib.DataStructures.probinghashtable.size" title="DISClib.DataStructures.probinghashtable.size"><code class="xref py py-obj docutils literal notranslate"><span class="pre">size</span></code></a>(map)</p></td>
-<td><p>Retorna  el número de entradas en la tabla de hash.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.DataStructures.probinghashtable.isEmpty" title="DISClib.DataStructures.probinghashtable.isEmpty"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isEmpty</span></code></a>(map)</p></td>
-<td><p>Informa si la tabla de hash se encuentra vacia</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#DISClib.DataStructures.probinghashtable.keySet" title="DISClib.DataStructures.probinghashtable.keySet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">keySet</span></code></a>(map)</p></td>
-<td><p>Retorna una lista con todas las llaves de la tabla de hash</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.DataStructures.probinghashtable.valueSet" title="DISClib.DataStructures.probinghashtable.valueSet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">valueSet</span></code></a>(map)</p></td>
-<td><p>Retorna una lista con todos los valores de la tabla de hash</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#DISClib.DataStructures.probinghashtable.hashValue" title="DISClib.DataStructures.probinghashtable.hashValue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hashValue</span></code></a>(table, key)</p></td>
-<td><p>Calcula un hash para una llave, utilizando el método</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.DataStructures.probinghashtable.findSlot" title="DISClib.DataStructures.probinghashtable.findSlot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">findSlot</span></code></a>(map, key, hashvalue, cmpfunction)</p></td>
-<td><p>Encuentra una posición libre en la tabla de hash.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#DISClib.DataStructures.probinghashtable.isAvailable" title="DISClib.DataStructures.probinghashtable.isAvailable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isAvailable</span></code></a>(table, pos)</p></td>
-<td><p>Informa si la posición pos esta disponible en la tabla de hash.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.DataStructures.probinghashtable.rehash" title="DISClib.DataStructures.probinghashtable.rehash"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rehash</span></code></a>(map)</p></td>
-<td><p>Se aumenta la capacidad de la tabla al doble y se hace rehash de</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#DISClib.DataStructures.probinghashtable.isPrime" title="DISClib.DataStructures.probinghashtable.isPrime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isPrime</span></code></a>(n)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.DataStructures.probinghashtable.nextPrime" title="DISClib.DataStructures.probinghashtable.nextPrime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nextPrime</span></code></a>(N)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#DISClib.DataStructures.probinghashtable.defaultcompare" title="DISClib.DataStructures.probinghashtable.defaultcompare"><code class="xref py py-obj docutils literal notranslate"><span class="pre">defaultcompare</span></code></a>(key, element)</p></td>
-<td><p></p></td>
-</tr>
-</tbody>
-</table>
-</section>
 <section id="attributes">
 <h3>Attributes<a class="headerlink" href="#attributes" title="Link to this heading"></a></h3>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.DataStructures.probinghashtable.DEFAULT_CHAINING_ALPHA" title="DISClib.DataStructures.probinghashtable.DEFAULT_CHAINING_ALPHA"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DEFAULT_CHAINING_ALPHA</span></code></a></p></td>
-<td><p></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.DataStructures.probinghashtable.DEFAULT_PROBING_ALPHA" title="DISClib.DataStructures.probinghashtable.DEFAULT_PROBING_ALPHA"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DEFAULT_PROBING_ALPHA</span></code></a></p></td>
+<td><p>Factor de carga (alpha) por defecto e ideal para el LinearProbing, por defecto es 0.5.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#DISClib.DataStructures.probinghashtable.MIN_CHAINING_ALPHA" title="DISClib.DataStructures.probinghashtable.MIN_CHAINING_ALPHA"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MIN_CHAINING_ALPHA</span></code></a></p></td>
-<td><p></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#DISClib.DataStructures.probinghashtable.MAX_PROBING_ALPHA" title="DISClib.DataStructures.probinghashtable.MAX_PROBING_ALPHA"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MAX_PROBING_ALPHA</span></code></a></p></td>
+<td><p>Factor de carga (alpha) máximo para el LinearProbing, por defecto es 8.0.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.DataStructures.probinghashtable.MAX_CHAINING_ALPHA" title="DISClib.DataStructures.probinghashtable.MAX_CHAINING_ALPHA"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MAX_CHAINING_ALPHA</span></code></a></p></td>
-<td><p></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.DataStructures.probinghashtable.MIN_PROBING_ALPHA" title="DISClib.DataStructures.probinghashtable.MIN_PROBING_ALPHA"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MIN_PROBING_ALPHA</span></code></a></p></td>
+<td><p>Factor de carga (alpha) mínimo para el LinearProbing, por defecto es 2.0.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#DISClib.DataStructures.probinghashtable.EMPTY" title="DISClib.DataStructures.probinghashtable.EMPTY"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EMPTY</span></code></a></p></td>
+<td><p>Constante que representa una entrada vacío en el LinearProbing, por defecto es &quot;__EMPTY__&quot;.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py data">
-<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.DEFAULT_CHAINING_ALPHA">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashtable.</span></span><span class="sig-name descname"><span class="pre">DEFAULT_CHAINING_ALPHA</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4.0</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#DEFAULT_CHAINING_ALPHA"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.DEFAULT_CHAINING_ALPHA" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.DEFAULT_PROBING_ALPHA">
+<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashtable.</span></span><span class="sig-name descname"><span class="pre">DEFAULT_PROBING_ALPHA</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.5</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#DEFAULT_PROBING_ALPHA"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.DEFAULT_PROBING_ALPHA" title="Link to this definition"></a></dt>
+<dd><p>Factor de carga (alpha) por defecto e ideal para el LinearProbing, por defecto es 0.5.</p>
+</dd></dl>
 
 <dl class="py data">
-<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.MIN_CHAINING_ALPHA">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashtable.</span></span><span class="sig-name descname"><span class="pre">MIN_CHAINING_ALPHA</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1.0</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#MIN_CHAINING_ALPHA"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.MIN_CHAINING_ALPHA" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.MAX_PROBING_ALPHA">
+<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashtable.</span></span><span class="sig-name descname"><span class="pre">MAX_PROBING_ALPHA</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.8</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#MAX_PROBING_ALPHA"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.MAX_PROBING_ALPHA" title="Link to this definition"></a></dt>
+<dd><p>Factor de carga (alpha) máximo para el LinearProbing, por defecto es 8.0.</p>
+</dd></dl>
 
 <dl class="py data">
-<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.MAX_CHAINING_ALPHA">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashtable.</span></span><span class="sig-name descname"><span class="pre">MAX_CHAINING_ALPHA</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">8.0</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#MAX_CHAINING_ALPHA"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.MAX_CHAINING_ALPHA" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.MIN_PROBING_ALPHA">
+<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashtable.</span></span><span class="sig-name descname"><span class="pre">MIN_PROBING_ALPHA</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.2</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#MIN_PROBING_ALPHA"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.MIN_PROBING_ALPHA" title="Link to this definition"></a></dt>
+<dd><p>Factor de carga (alpha) mínimo para el LinearProbing, por defecto es 2.0.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.EMPTY">
+<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashtable.</span></span><span class="sig-name descname"><span class="pre">EMPTY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'__EMPTY__'</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#EMPTY"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.EMPTY" title="Link to this definition"></a></dt>
+<dd><p>Constante que representa una entrada vacío en el LinearProbing, por defecto es «__EMPTY__».</p>
+</dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.LinearProbing">
@@ -232,27 +189,27 @@
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.LinearProbing.elements">
-<span class="sig-name descname"><span class="pre">elements</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.elements"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.LinearProbing.elements" title="Link to this definition"></a></dt>
-<dd><p>Es el espacio reservado para la tabla de hash (n), por defecto es 1, pero debe configurarse según el número de elementos que se espera almacenar.</p>
+<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.LinearProbing.nentries">
+<span class="sig-name descname"><span class="pre">nentries</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.nentries"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.LinearProbing.nentries" title="Link to this definition"></a></dt>
+<dd><p>Es el espacio reservado para la tabla de hash (n), por defecto es 1, pero debe configurarse según el número de entradas que se espera almacenar.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.LinearProbing.aLpha">
-<span class="sig-name descname"><span class="pre">aLpha</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.aLpha"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.LinearProbing.aLpha" title="Link to this definition"></a></dt>
-<dd><p>Es el factor de carga con el que se inicializa la tabla de hash, por defecto es 4.0.</p>
+<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.LinearProbing.alpha">
+<span class="sig-name descname"><span class="pre">alpha</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.alpha"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.LinearProbing.alpha" title="Link to this definition"></a></dt>
+<dd><p>Es el factor de carga (alpha) con el que se inicializa la tabla de hash, por defecto es 4.0.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.LinearProbing.prime">
 <span class="sig-name descname"><span class="pre">prime</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.prime"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.LinearProbing.prime" title="Link to this definition"></a></dt>
-<dd><p>Es el número primo utilizado para calcular el código hash de la llave con la función de compresión MAD, por defecto es 109345121.</p>
+<dd><p>Es el número primo (P) utilizado para calcular el código hash de la llave con la función de compresión MAD, por defecto es 109345121.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.LinearProbing.table">
-<span class="sig-name descname"><span class="pre">table</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList" title="DISClib.DataStructures.arraylist.ArrayList"><span class="pre">DISClib.DataStructures.arraylist.ArrayList</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../mapentry/index.html#DISClib.DataStructures.mapentry.MapEntry" title="DISClib.DataStructures.mapentry.MapEntry"><span class="pre">DISClib.DataStructures.mapentry.MapEntry</span></a><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.table"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.LinearProbing.table" title="Link to this definition"></a></dt>
-<dd><p>Es el indice de la tabla de hash donde se almacenan los “Buckets”, implementado con un “ArrayList” de DISCLib. en el __post_init__ se inicializa con la capacidad inicial de la tabla de hash.</p>
+<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.LinearProbing.hash_table">
+<span class="sig-name descname"><span class="pre">hash_table</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList" title="DISClib.DataStructures.arraylist.ArrayList"><span class="pre">DISClib.DataStructures.arraylist.ArrayList</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../mapentry/index.html#DISClib.DataStructures.mapentry.MapEntry" title="DISClib.DataStructures.mapentry.MapEntry"><span class="pre">DISClib.DataStructures.mapentry.MapEntry</span></a><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.hash_table"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.LinearProbing.hash_table" title="Link to this definition"></a></dt>
+<dd><p>Es el indice de la tabla de hash donde se almacenan los <em>MapEntry</em>, implementado con un <em>ArrayList</em> de DISCLib. en el <em>__post_init__()</em> se inicializa con la capacidad inicial de la tabla de hash.</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -262,15 +219,15 @@
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.LinearProbing.capacity">
-<span class="sig-name descname"><span class="pre">capacity</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.capacity"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.LinearProbing.capacity" title="Link to this definition"></a></dt>
-<dd><p>Es la capacidad (m) con la que se inicializa la tabla de hash.</p>
+<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.LinearProbing.mcapacity">
+<span class="sig-name descname"><span class="pre">mcapacity</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.mcapacity"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.LinearProbing.mcapacity" title="Link to this definition"></a></dt>
+<dd><p>Es la capacidad (M) con la que se inicializa la tabla de hash.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.LinearProbing._size">
 <span class="sig-name descname"><span class="pre">_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing._size"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.LinearProbing._size" title="Link to this definition"></a></dt>
-<dd><p>Es el número de elementos dentro de la tabla de hash, por defecto es 0 y se actualiza con cada operación que modifica la estructura.</p>
+<dd><p>Es el número de elementos (n) dentro de la tabla de hash, por defecto es 0 y se actualiza con cada operación que modifica la estructura.</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -292,50 +249,61 @@
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.LinearProbing._limit_factor">
-<span class="sig-name descname"><span class="pre">_limit_factor</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing._limit_factor"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.LinearProbing._limit_factor" title="Link to this definition"></a></dt>
-<dd><p>Es el factor de carga limite antes de hacer rehash.</p>
+<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.LinearProbing._cur_alpha">
+<span class="sig-name descname"><span class="pre">_cur_alpha</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing._cur_alpha"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.LinearProbing._cur_alpha" title="Link to this definition"></a></dt>
+<dd><p>Es el factor de carga actual de la tabla de hash.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.LinearProbing._current_factor">
-<span class="sig-name descname"><span class="pre">_current_factor</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing._current_factor"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.LinearProbing._current_factor" title="Link to this definition"></a></dt>
-<dd><p>Es el factor de carga actual de la tabla de hash.</p>
+<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.LinearProbing.max_alpha">
+<span class="sig-name descname"><span class="pre">max_alpha</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.max_alpha"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.LinearProbing.max_alpha" title="Link to this definition"></a></dt>
+<dd><p>Es el factor de carga máximo de la tabla de hash, por defecto es 8.0.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.LinearProbing.min_alpha">
+<span class="sig-name descname"><span class="pre">min_alpha</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.min_alpha"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.LinearProbing.min_alpha" title="Link to this definition"></a></dt>
+<dd><p>Es el factor de carga mínimo de la tabla de hash, por defecto es 2.0.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.LinearProbing._data_type">
+<span class="sig-name descname"><span class="pre">_data_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">type</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing._data_type"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.LinearProbing._data_type" title="Link to this definition"></a></dt>
+<dd><p>Es el tipo de dato de los elementos que contiene la tabla de hash, por defecto es <em>None</em> y se configura al cargar el primer entrada en el mapa.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.LinearProbing.cmp_function">
 <span class="sig-name descname"><span class="pre">cmp_function</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.cmp_function"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.LinearProbing.cmp_function" title="Link to this definition"></a></dt>
-<dd><p>Función de comparación opcional que se utiliza para comparar los elementos del LinearProbing, por defecto es “None” y el __post_init__ configura la función por defecto lt_default_cmp_funcion().</p>
+<dd><p>Función de comparación opcional que se utiliza para comparar los elementos del LinearProbing, por defecto es <em>None</em> y el <em>__post_init__()</em> configura la función por defecto <em>ht_default_cmp_funcion()</em>.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.LinearProbing.key">
 <span class="sig-name descname"><span class="pre">key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.key"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.LinearProbing.key" title="Link to this definition"></a></dt>
-<dd><p>Nombre de la llave opcional que se utiliza para comparar los elementos del LinearProbing, Por defecto es “None” y el __post_init__ configura la llave por defecto la llave “id” en DEFAULT_DICT_KEY.</p>
+<dd><p>Nombre de la llave opcional que se utiliza para comparar los elementos del LinearProbing, Por defecto es <em>None</em> y el <em>__post_init__()</em> configura la llave por defecto la llave <em>id</em> en <em>DEFAULT_DICT_KEY</em>.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.LinearProbing.__post_init__">
 <span class="sig-name descname"><span class="pre">__post_init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.__post_init__"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.LinearProbing.__post_init__" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p><em>__post_init__()</em> configura los valores por defecto de la estructura LinearProbing después de la inicialización de la misma. Configura los factores de carga (alpha), el número primo (P) para la función de compresión MAD, la capacidad (M) de la tabla de hash, la función de comparación y la llave para comparar los elementos del LinearProbing, y finalmente inicializa la tabla de hash con la capacidad (M) configurada.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.LinearProbing.default_cmp_function">
-<span class="sig-name descname"><span class="pre">default_cmp_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elm1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elm2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.default_cmp_function"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.LinearProbing.default_cmp_function" title="Link to this definition"></a></dt>
-<dd><p><em>default_cmp_function()</em> procesa con algoritmica por defecto la lista de elementos que procesa el LinearProbing. Es una función crucial para que la estructura de datos funcione correctamente.</p>
+<span class="sig-name descname"><span class="pre">default_cmp_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../mapentry/index.html#DISClib.DataStructures.mapentry.MapEntry" title="DISClib.DataStructures.mapentry.MapEntry"><span class="pre">DISClib.DataStructures.mapentry.MapEntry</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.default_cmp_function"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.LinearProbing.default_cmp_function" title="Link to this definition"></a></dt>
+<dd><p><em>default_cmp_function()</em> procesa la llave existente en la entrada del LinearProbing y la compara con la llave del a entrada que se quiere agregar al LinearProbing.
+:param key1: llave de la primera entrada a comparar.
+:type key1: Any
+:param entry2: segunda entrada (pareja llave-valor) a comparar.
+:type entry2: MapEntry</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>elm1</strong> (<em>Any</em>) – primer elemento a comparar.</p></li>
-<li><p><strong>elm2</strong> (<em>Any</em>) – segundo elemento a comparar.</p></li>
-</ul>
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>respuesta de la comparación entre los elementos, 0 si las llaves son iguales, 1 si key1 es mayor que la llave de entry2, -1 si key1 es menor.</p>
 </dd>
-<dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>respuesta de la comparación entre los elementos, 0 si son iguales, 1 si elm1 es mayor que elm2, -1 si elm1 es menor.</p>
-</dd>
-<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
-<dd class="field-odd"><p>int</p>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
 </dd>
 </dl>
 </dd></dl>
@@ -354,17 +322,17 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.LinearProbing._check_type">
-<span class="sig-name descname"><span class="pre">_check_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing._check_type"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.LinearProbing._check_type" title="Link to this definition"></a></dt>
-<dd><p><em>_check_type()</em> función privada que verifica que el tipo de dato del elemento que se quiere agregar al LinearProbing sea del mismo tipo contenido dentro de los elementos del LinearProbing.</p>
+<span class="sig-name descname"><span class="pre">_check_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing._check_type"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.LinearProbing._check_type" title="Link to this definition"></a></dt>
+<dd><p><em>_check_type()</em> función privada que verifica que el tipo de dato de la entrada que se quiere agregar al LinearProbing sea del mismo tipo contenido dentro de los elementos del LinearProbing.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Muestra<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>TypeError</strong> – error si el tipo de dato del elemento que se quiere agregar no es el mismo que el tipo de dato de los elementos que ya contiene el LinearProbing.</p>
+<dd class="field-odd"><p><strong>TypeError</strong> – error si el tipo de dato de la entrada que se quiere agregar no es el mismo que el tipo de dato de los elementos que ya contiene el LinearProbing.</p>
 </dd>
 <dt class="field-even">Parámetros<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>element</strong> (<em>T</em>) – elemento que se quiere procesar en LinearProbing.</p>
+<dd class="field-even"><p><strong>entry</strong> (<em>T</em>) – entrada que se quiere procesar en LinearProbing.</p>
 </dd>
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>operador que indica si el ADT LinearProbing es del mismo tipo que el elemento que se quiere procesar.</p>
+<dd class="field-odd"><p>operador que indica si el ADT LinearProbing es del mismo tipo que la entrada que se quiere procesar.</p>
 </dd>
 <dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-even"><p>bool</p>
@@ -403,263 +371,208 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.LinearProbing.contains">
 <span class="sig-name descname"><span class="pre">contains</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.contains"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.LinearProbing.contains" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p><em>contains()</em> responde si el LinearProbing contiene una entrada con la llave key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>key</strong> (<em>T</em>) – llave de la entrada (pareja llave-valor) que se quiere buscar en el LinearProbing.</p>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>operador que indica si el LinearProbing contiene o no una entrada con la llave key.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.LinearProbing.put">
 <span class="sig-name descname"><span class="pre">put</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.put"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.LinearProbing.put" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p><em>put()</em> agrega una entrada (pareja llave-valor) al LinearProbing, si la llave ya existe en el LinearProbing, se reemplaza el valor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> (<em>T</em>) – llave asociada a la nueva entrada.</p></li>
+<li><p><strong>value</strong> (<em>T</em>) – el valor asociado a la nueva entrada.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – si el indice de la entrada en el mapa está fuera de los limites establecidos, se genera un error.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.LinearProbing.get">
 <span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DISClib.Utils.default.T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.get"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.LinearProbing.get" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p><em>get()</em> devuelve la entrada (pareja llave-valor) cuya llave sea igual a key dentro del LinearProbing, si no existe una entrada con la llave key, devuelve None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>key</strong> (<em>T</em>) – llave asociada a la entrada que se quiere buscar.</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – error si la estructura está vacía.</p>
+</dd>
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>entrada (pareja llave-valor) con la llave igual a key dentro del LinearProbing, None si no existe la entrada asociada a la llave key.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>Optional[T]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.LinearProbing.check_bucket">
+<span class="sig-name descname"><span class="pre">check_bucket</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DISClib.Utils.default.T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.check_bucket"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.LinearProbing.check_bucket" title="Link to this definition"></a></dt>
+<dd><p><em>check_bucket()</em> devuelve el bucket asociado a la llave key dentro del LinearProbing, si no existe una entrada con la llave key, devuelve None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>key</strong> (<em>T</em>) – llave asociada al bucket que se quiere buscar.</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – error si la estructura está vacía.</p>
+</dd>
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bucket asociado a la llave key dentro del LinearProbing, None si no existe la entrada asociada a la llave key.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>Optional[T]</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.LinearProbing.remove">
-<span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.remove"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.LinearProbing.remove" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DISClib.Utils.default.T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.remove"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.LinearProbing.remove" title="Link to this definition"></a></dt>
+<dd><p><em>remove()</em> elimina la entrada (pareja llave-valor) cuya llave sea igual a key dentro del LinearProbing, si no existe una entrada con la llave key, devuelve None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>key</strong> (<em>T</em>) – llave asociada a la entrada que se quiere eliminar.</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>Exception</strong> – error si la estructura está vacía.</p></li>
+<li><p><strong>Exception</strong> – error si la entrada que se quiere eliminar no existe dentro del bucket</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>entrada (pareja llave-valor) que se eliminó del LinearProbing, None si no existe la entrada asociada a la llave key.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>Optional[T]</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.LinearProbing.keys">
 <span class="sig-name descname"><span class="pre">keys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList" title="DISClib.DataStructures.arraylist.ArrayList"><span class="pre">DISClib.DataStructures.arraylist.ArrayList</span></a><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.keys"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.LinearProbing.keys" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p><em>keys()</em> devuelve una lista (ArrayList) con todas las llaves de las entradas (parejas llave-valor) del LinearProbing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>lista (ArrayList) con todas las llaves del LinearProbing.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="../arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList" title="DISClib.DataStructures.arraylist.ArrayList">ArrayList</a>[T]</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.LinearProbing.values">
 <span class="sig-name descname"><span class="pre">values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList" title="DISClib.DataStructures.arraylist.ArrayList"><span class="pre">DISClib.DataStructures.arraylist.ArrayList</span></a><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.values"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.LinearProbing.values" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p><em>values()</em> devuelve una lista (ArrayList) con todos los valores de las entradas (parejas llave-valor) del LinearProbing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>lista (ArrayList) con todos los valores del LinearProbing.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="../arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList" title="DISClib.DataStructures.arraylist.ArrayList">ArrayList</a>[T]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.LinearProbing.entries">
+<span class="sig-name descname"><span class="pre">entries</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList" title="DISClib.DataStructures.arraylist.ArrayList"><span class="pre">DISClib.DataStructures.arraylist.ArrayList</span></a><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.entries"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.LinearProbing.entries" title="Link to this definition"></a></dt>
+<dd><p><em>entries()</em> devuelve una lista (ArrayList) con todas las entradas (parejas llave-valor) del LinearProbing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>lista (ArrayList) con todas las entradas del LinearProbing.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="../arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList" title="DISClib.DataStructures.arraylist.ArrayList">ArrayList</a>[T]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.LinearProbing._find_slot">
+<span class="sig-name descname"><span class="pre">_find_slot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hkey</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing._find_slot"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.LinearProbing._find_slot" title="Link to this definition"></a></dt>
+<dd><p>_find_slot _summary_</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hkey</strong> (<em>int</em>) – _description_</p></li>
+<li><p><strong>key</strong> (<em>T</em>) – _description_</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>_description_</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.LinearProbing._probe_slot">
+<span class="sig-name descname"><span class="pre">_probe_slot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hkey</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing._probe_slot"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.LinearProbing._probe_slot" title="Link to this definition"></a></dt>
+<dd><p>_probe_slot _summary_</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hkey</strong> (<em>int</em>) – _description_</p></li>
+<li><p><strong>key</strong> (<em>T</em>) – _description_</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>_description_</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.LinearProbing._is_available">
+<span class="sig-name descname"><span class="pre">_is_available</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing._is_available"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.LinearProbing._is_available" title="Link to this definition"></a></dt>
+<dd><p>_is_available _summary_</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>idx</strong> (<em>int</em>) – _description_</p>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>_description_</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.LinearProbing.rehash">
 <span class="sig-name descname"><span class="pre">rehash</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.rehash"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.LinearProbing.rehash" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
+<dd><p><em>rehash()</em> reconstruye la tabla de hash con una nueva capacidad (M) y un nuevo factor de carga (alpha) según los límites establecidos por el usuario en los atributos <em>max_alpha</em> y <em>min_alpha</em>.</p>
+<p>Si el factor de carga (alpha) es mayor que el límite superior (max_alpha), se duplica la capacidad (M) buscando el siguiente número primo y se reconstruye la tabla de hash.</p>
+<p>Si el factor de carga (alpha) es menor que el límite inferior (min_alpha), se reduce a la mitad la capacidad (M) de la tabla de hash buscando el siguiente número primo y se reconstruye la tabla de hash.</p>
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.newMap">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashtable.</span></span><span class="sig-name descname"><span class="pre">newMap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numelements</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loadfactor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmpfunction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datastructure</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#newMap"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.newMap" title="Link to this definition"></a></dt>
-<dd><p>Crea una tabla de simbolos (map) sin orden</p>
-<p>Crea una tabla de hash con capacidad igual a nuelements
-(primo mas cercano al doble de numelements).
-prime es un número primo utilizado para  el cálculo de los codigos
-de hash, si no es provisto se  utiliza el primo 109345121.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>numelements</strong> – Tamaño inicial de la tabla</p></li>
-<li><p><strong>prime</strong> – Número primo utilizado en la función MAD</p></li>
-<li><p><strong>loadfactor</strong> – Factor de carga maximo de la tabla</p></li>
-<li><p><strong>cmpfunction</strong> – Funcion de comparación entre llaves</p></li>
-<li><p><strong>datastructure</strong> – estructura de datos seleccionada</p></li>
-</ul>
-</dd>
-<dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>Un nuevo map</p>
-</dd>
-<dt class="field-odd">Muestra<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>Exception</strong> – </p>
-</dd>
-</dl>
 </dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.put">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashtable.</span></span><span class="sig-name descname"><span class="pre">put</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#put"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.put" title="Link to this definition"></a></dt>
-<dd><p>Ingresa una pareja llave,valor a la tabla de hash.
-Si la llave ya existe en la tabla, se reemplaza el valor</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>map</strong> – El map a donde se guarda la pareja</p></li>
-<li><p><strong>key</strong> – la llave asociada a la pareja</p></li>
-<li><p><strong>value</strong> – el valor asociado a la pareja</p></li>
-</ul>
-</dd>
-<dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>El map</p>
-</dd>
-<dt class="field-odd">Muestra<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>Exception</strong> – </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.contains">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashtable.</span></span><span class="sig-name descname"><span class="pre">contains</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#contains"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.contains" title="Link to this definition"></a></dt>
-<dd><dl class="simple">
-<dt>Retorna True si la llave key se encuentra en el map</dt><dd><p>o False en caso contrario.</p>
-</dd>
-</dl>
-<dl class="field-list simple">
-<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>map</strong> – El map a donde se guarda la pareja</p></li>
-<li><p><strong>key</strong> – la llave asociada a la pareja</p></li>
-</ul>
-</dd>
-<dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>True / False</p>
-</dd>
-<dt class="field-odd">Muestra<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>Exception</strong> – </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.get">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashtable.</span></span><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#get"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.get" title="Link to this definition"></a></dt>
-<dd><p>Retorna la pareja llave, valor, cuya llave sea igual a key
-:param map: El map a donde se guarda la pareja
-:param key: la llave asociada a la pareja</p>
-<dl class="field-list simple">
-<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Una pareja &lt;llave,valor&gt;</p>
-</dd>
-<dt class="field-even">Muestra<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>Exception</strong> – </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.remove">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashtable.</span></span><span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#remove"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.remove" title="Link to this definition"></a></dt>
-<dd><p>Elimina la pareja llave,valor, donde llave == key.
-:param map: El map a donde se guarda la pareja
-:param key: la llave asociada a la pareja</p>
-<dl class="field-list simple">
-<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>El map</p>
-</dd>
-<dt class="field-even">Muestra<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>Exception</strong> – </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.size">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashtable.</span></span><span class="sig-name descname"><span class="pre">size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#size"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.size" title="Link to this definition"></a></dt>
-<dd><p>Retorna  el número de entradas en la tabla de hash.
-:param map: El map</p>
-<dl class="field-list simple">
-<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Tamaño del map</p>
-</dd>
-<dt class="field-even">Muestra<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>Exception</strong> – </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.isEmpty">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashtable.</span></span><span class="sig-name descname"><span class="pre">isEmpty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#isEmpty"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.isEmpty" title="Link to this definition"></a></dt>
-<dd><p>Informa si la tabla de hash se encuentra vacia
-:param map: El map</p>
-<dl class="field-list simple">
-<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>El map esta vacio
-False: El map no esta vacio</p>
-</dd>
-<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
-<dd class="field-even"><p>True</p>
-</dd>
-<dt class="field-odd">Muestra<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>Exception</strong> – </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.keySet">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashtable.</span></span><span class="sig-name descname"><span class="pre">keySet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#keySet"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.keySet" title="Link to this definition"></a></dt>
-<dd><p>Retorna una lista con todas las llaves de la tabla de hash</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>map</strong> – El map</p>
-</dd>
-<dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>lista de llaves</p>
-</dd>
-<dt class="field-odd">Muestra<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>Exception</strong> – </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.valueSet">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashtable.</span></span><span class="sig-name descname"><span class="pre">valueSet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#valueSet"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.valueSet" title="Link to this definition"></a></dt>
-<dd><p>Retorna una lista con todos los valores de la tabla de hash</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>map</strong> – El map</p>
-</dd>
-<dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>lista de valores</p>
-</dd>
-<dt class="field-odd">Muestra<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>Exception</strong> – </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.hashValue">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashtable.</span></span><span class="sig-name descname"><span class="pre">hashValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#hashValue"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.hashValue" title="Link to this definition"></a></dt>
-<dd><p>Calcula un hash para una llave, utilizando el método
-MAD : hashValue(y) = ((ay + b) % p) % M.
-Donde:
-M es el tamaño de la tabla, primo
-p es un primo mayor a M,
-a y b enteros aleatoreos dentro del intervalo [0,p-1], con a&gt;0</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.findSlot">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashtable.</span></span><span class="sig-name descname"><span class="pre">findSlot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hashvalue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmpfunction</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#findSlot"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.findSlot" title="Link to this definition"></a></dt>
-<dd><p>Encuentra una posición libre en la tabla de hash.
-map: la tabla de hash
-key: la llave
-hashvalue: La posición inicial de la llave
-cmpfunction: funcion de comparación para la búsqueda de la llave</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.isAvailable">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashtable.</span></span><span class="sig-name descname"><span class="pre">isAvailable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#isAvailable"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.isAvailable" title="Link to this definition"></a></dt>
-<dd><p>Informa si la posición pos esta disponible en la tabla de hash.
-Se entiende que una posición está disponible
-si su contenido es igual a None (no se ha usado esa posicion)
-o a __EMPTY__ (la posición fue liberada)</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.rehash">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashtable.</span></span><span class="sig-name descname"><span class="pre">rehash</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#rehash"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.rehash" title="Link to this definition"></a></dt>
-<dd><p>Se aumenta la capacidad de la tabla al doble y se hace rehash de
-todos los elementos de la tabla.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.isPrime">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashtable.</span></span><span class="sig-name descname"><span class="pre">isPrime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#isPrime"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.isPrime" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.nextPrime">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashtable.</span></span><span class="sig-name descname"><span class="pre">nextPrime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#nextPrime"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.nextPrime" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.defaultcompare">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.probinghashtable.</span></span><span class="sig-name descname"><span class="pre">defaultcompare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#defaultcompare"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.defaultcompare" title="Link to this definition"></a></dt>
-<dd></dd></dl>
 
 </section>
 </section>

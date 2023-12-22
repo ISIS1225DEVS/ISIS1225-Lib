@@ -492,8 +492,200 @@ seleccionada</p>
 </dd></dl>
 
 </section>
-<section id="disclib-adt-indexminpq-module">
-<h2>DISClib.ADT.indexminpq module<a class="headerlink" href="#disclib-adt-indexminpq-module" title="Link to this heading"></a></h2>
+<section id="module-DISClib.ADT.indexminpq">
+<span id="disclib-adt-indexminpq-module"></span><h2>DISClib.ADT.indexminpq module<a class="headerlink" href="#module-DISClib.ADT.indexminpq" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p># TODO cambiar comentarios de lincencia segun estandard del equipo
+* Copyright 2020, Departamento de sistemas y Computación,
+* Universidad de Los Andes
+*
+* Desarrollado para el curso ISIS1225 - Estructuras de Datos y Algoritmos
+*
+*
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with this program.  If not, see &lt;<a class="reference external" href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>Contribución de:</p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li></li>
+<li><p>Dario Correal</p></li>
+<li></li>
+</ul>
+</div></blockquote>
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.indexminpq.contains">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.indexminpq.</span></span><span class="sig-name descname"><span class="pre">contains</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iminpq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/ADT/indexminpq.html#contains"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.indexminpq.contains" title="Link to this definition"></a></dt>
+<dd><p>Indica si la llave key se encuentra en el heap</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>iheap</strong> – El heap a revisar</p>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>El numero de elementos</p>
+</dd>
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.indexminpq.decreaseKey">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.indexminpq.</span></span><span class="sig-name descname"><span class="pre">decreaseKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iminpq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newindex</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/ADT/indexminpq.html#decreaseKey"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.indexminpq.decreaseKey" title="Link to this definition"></a></dt>
+<dd><p>Decrementa el indice de un llave</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>iheap</strong> – El heap a revisar</p></li>
+<li><p><strong>key</strong> – la llave a decrementar</p></li>
+<li><p><strong>newindex</strong> – El nuevo indice de la llave</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>El numero de elementos</p>
+</dd>
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.indexminpq.delMin">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.indexminpq.</span></span><span class="sig-name descname"><span class="pre">delMin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iminpq</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/ADT/indexminpq.html#delMin"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.indexminpq.delMin" title="Link to this definition"></a></dt>
+<dd><p>Elimina el elemento de mayor prioridad</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>iheap</strong> – El heap a revisar</p>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>El numero de elementos</p>
+</dd>
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.indexminpq.increaseKey">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.indexminpq.</span></span><span class="sig-name descname"><span class="pre">increaseKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iminpq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newindex</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/ADT/indexminpq.html#increaseKey"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.indexminpq.increaseKey" title="Link to this definition"></a></dt>
+<dd><p>Incrementa el indice de un llave</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>iheap</strong> – El heap a revisar</p></li>
+<li><p><strong>key</strong> – la llave a incrementar</p></li>
+<li><p><strong>newindex</strong> – El nuevo indice de la llave</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>El numero de elementos</p>
+</dd>
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.indexminpq.insert">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.indexminpq.</span></span><span class="sig-name descname"><span class="pre">insert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iminpq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/ADT/indexminpq.html#insert"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.indexminpq.insert" title="Link to this definition"></a></dt>
+<dd><p>Inserta la llave key con prioridad index</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>iheap</strong> – La cola de prioridad</p>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>La cola de prioridad con la nueva paraja indexada</p>
+</dd>
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.indexminpq.isEmpty">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.indexminpq.</span></span><span class="sig-name descname"><span class="pre">isEmpty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iminpq</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/ADT/indexminpq.html#isEmpty"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.indexminpq.isEmpty" title="Link to this definition"></a></dt>
+<dd><p>Informa si una cola de prioridad indexada es vacia</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>iminpq</strong> – La cola de prioridad indexada a revisar</p>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>True si esta vacia</p>
+</dd>
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.indexminpq.min">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.indexminpq.</span></span><span class="sig-name descname"><span class="pre">min</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iminpq</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/ADT/indexminpq.html#min"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.indexminpq.min" title="Link to this definition"></a></dt>
+<dd><p>Retorna la llave de mayor prioridad</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>iheap</strong> – El heap a revisar</p>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>El numero de elementos</p>
+</dd>
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.indexminpq.newIndexMinPQ">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.indexminpq.</span></span><span class="sig-name descname"><span class="pre">newIndexMinPQ</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmpfunction</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/ADT/indexminpq.html#newIndexMinPQ"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.indexminpq.newIndexMinPQ" title="Link to this definition"></a></dt>
+<dd><p>Crea un cola de prioridad indexada orientada a menor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cmpfunction</strong> – La funcion de comparacion</p>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Una nueva cola de prioridad indexada</p>
+</dd>
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.indexminpq.size">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.indexminpq.</span></span><span class="sig-name descname"><span class="pre">size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iminpq</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/ADT/indexminpq.html#size"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.indexminpq.size" title="Link to this definition"></a></dt>
+<dd><p>Retorna el número de elementos en la cola de prioridad indexada</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>iminpq</strong> – La cola de prioridad indexada a revisar</p>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>El numero de elementos</p>
+</dd>
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 <section id="module-DISClib.ADT.lists">
 <span id="disclib-adt-lists-module"></span><h2>DISClib.ADT.lists module<a class="headerlink" href="#module-DISClib.ADT.lists" title="Link to this heading"></a></h2>

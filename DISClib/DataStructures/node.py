@@ -19,7 +19,6 @@ import inspect
 # custom modules
 # generic error handling and type checking
 from DISClib.Utils.error import error_handler
-# from DISClib.Utils.error import init_type_checker
 from DISClib.Utils.default import T
 
 # checking custom modules

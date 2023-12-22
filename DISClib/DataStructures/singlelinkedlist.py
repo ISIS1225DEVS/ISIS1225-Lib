@@ -50,6 +50,13 @@ class SingleLinked(Generic[T]):
     Lista nativa de Python que contiene los elementos de entrada a la estructura, por defecto es None y el usuario puede incluir una lista nativa de python como argumento.
     """
 
+    # the cmp_function is used to compare elements, not defined by default
+    # :attr: cmp_function
+    cmp_function: Optional[Callable[[T, T], int]] = None
+    """
+    Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es None y el *__post_init__()* configura la función por defecto *lt_default_cmp_funcion()*.
+    """
+
     # reference to the first node of the list
     # :attr: first
     first: Optional[SingleNode[T]] = None
@@ -64,26 +71,19 @@ class SingleLinked(Generic[T]):
     Representa la referencia en memoria al último nodo del SingleLinked.
     """
 
+    # the key is used to compare elements, not defined by default
+    # :attr: key
+    key: Optional[str] = None
+    """
+    Nombre de la llave opcional que se utiliza para comparar los elementos del ArrayList, Por defecto es None y el *__post_init__()* configura la llave por defecto la llave 'id' en *DEFAULT_DICT_KEY*.
+    """
+
     # by default, the list is empty
     # FIXME inconsistent use between _size and size()
     # :attr: _size
     _size: int = 0
     """
     Es el número de elementos que contiene la estructura, por defecto es 0 y se actualiza con cada operación que modifica la estructura.
-    """
-
-    # the cmp_function is used to compare elements, not defined by default
-    # :attr: cmp_function
-    cmp_function: Optional[Callable[[T, T], int]] = None
-    """
-    Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es None y el *__post_init__()* configura la función por defecto *lt_default_cmp_funcion()*.
-    """
-
-    # the key is used to compare elements, not defined by default
-    # :attr: key
-    key: Optional[str] = None
-    """
-    Nombre de la llave opcional que se utiliza para comparar los elementos del ArrayList, Por defecto es None y el *__post_init__()* configura la llave por defecto la llave 'id' en *DEFAULT_DICT_KEY*.
     """
 
     def __post_init__(self) -> None:

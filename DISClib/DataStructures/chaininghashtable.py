@@ -1,6 +1,7 @@
 """
-# -*- coding: utf-8 -*-
-# TODO add docstring
+Este ADT representa una tabla de hash con el método de encadenamiento por de separación (Separate Chaining). Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.
+
+Ademas, contiene la estructura **Bucket** basada en una lista sencillamente enlazada (SingleLinked) donde se almacenan las entradas (parejas llave-valor) que sufren colisiones en la tabla de hash. 
 
 *IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:
 
@@ -72,7 +73,7 @@ Factor de carga (alpha) mínimo para el SeparateChaining, por defecto es 2.0.
 
 @dataclass
 class Bucket(SingleLinked, Generic[T]):
-    """*Bucket* Clase que representa un bucket de una tabla de hash. Esta clase hereda de la clase SingleLinked de DISCLib para representar un bucket de una tabla de hash con el método de encadenamiento por separación (Separate Chaining).
+    """**Bucket** Clase que representa un bucket de una tabla de hash. Esta clase hereda de la clase SingleLinked de DISCLib para representar un bucket de una tabla de hash con el método de encadenamiento por separación (Separate Chaining).
 
     Args:
         SingleLinked (T): Lista sencillamente encadenada que representa un bucket de una tabla de hash con el método de encadenamiento por separación (Separate Chaining).
@@ -84,7 +85,7 @@ class Bucket(SingleLinked, Generic[T]):
 
 @dataclass
 class SeparateChaining(Generic[T]):
-    """*SeparateChaining* Es una clase que representa una tabla de hash con el método de encadenamiento por de separación (Separate Chaining). Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.
+    """**SeparateChaining** Es una clase que representa una tabla de hash con el método de encadenamiento por de separación (Separate Chaining). Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.
 
     Args:
         Generic (T): Tipo de dato genérico dentro del registro del mapa.

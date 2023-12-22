@@ -131,15 +131,18 @@ def lt_default_cmp_funcion(key, elm1, elm2) -> int:
                 return 0
 
 
-def ht_default_cmp_funcion(key1, entry2) -> int:
+def ht_default_cmp_funcion(key1: T, entry2) -> int:
     """*ht_default_cmp_funcion()* función de comparación por defecto para los elementos del ADT Map (HashTable). pueden ser de tipo nativo o definido por el usuario.
 
     Args:
-        key1 (any): llave (key) para comparar del primer elemento (pareja llave-valor), el cual siempre es un MapEntry.
-        entry2 (any): segundo elemento (pareja llave-valor) a comparar de tipo MapEntry. puede contener cualquier tipo de dato.
+        key1 (T): llave (key) de la primera entrada (pareja llave-valor) a comparar.
+        entry2 (MapEntry): segunda entrada (pareja llave-valor) a comparar de tipo *MapEntry*. puede contener cualquier tipo de estructura, dato o ADT.
+
+    Raises:
+        TypeError: error de tipo de dato si las llaves no son comparables.
 
     Returns:
-        int: retorna -1 si key1 es menor que la llave de entry2, 0 si las llaves son iguales y 1 si key1 es mayor que la llave de entry2.
+        int: retorna -1 si key1 es menor que la llave de entry2, 0 si las llaves son iguales y 1 si la llave key1 es mayor que la llave de entry2.
     """
     key2 = entry2.get_key()
     if type(key1) is not type(key2):

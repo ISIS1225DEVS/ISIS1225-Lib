@@ -483,7 +483,6 @@ class SingleLinked(Generic[T]):
         Returns:
             int: la posición del elemento en el SingleLinked, -1 si no está.
         """
-        # TODO change the method name to "find()"?
         try:
             lt_size = self.size()
             pos = -1

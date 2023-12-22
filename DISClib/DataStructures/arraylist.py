@@ -386,7 +386,6 @@ class ArrayList(Generic[T]):
         Returns:
             int: la posición del elemento en el ArrayList, -1 si no está.
         """
-        # TODO change the method name to "find()"?
         try:
             pos = -1
             lt_size = self.size()

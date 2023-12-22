@@ -155,10 +155,15 @@ Attributes
 
       Es el factor de carga mínimo de la tabla de hash, por defecto es 2.0.
 
-   .. py:attribute:: _data_type
+   .. py:attribute:: _value_type
       :type: Optional[type]
 
-      Es el tipo de dato de los elementos que contiene la tabla de hash, por defecto es *None* y se configura al cargar el primer entrada en el mapa.
+      Es el tipo de dato de los valores en la entrada que contiene la tabla de hash, por defecto es *None* y se configura al cargar el primera entrada en el mapa.
+
+   .. py:attribute:: _key_type
+      :type: Optional[type]
+
+      Es el tipo de dato de las llaves en la entrada que contiene la tabla de hash, por defecto es *None* y se configura al cargar el primera entrada en el mapa.
 
    .. py:attribute:: cmp_function
       :type: Optional[Callable[[DISClib.Utils.default.T, DISClib.Utils.default.T], int]]
@@ -327,17 +332,22 @@ Attributes
       :rtype: int
 
 
-   .. py:method:: _probe_slot(hkey: int, key: DISClib.Utils.default.T) -> int
+   .. py:method:: findSlot2(key, hashvalue, cmpfunction)
 
-      _probe_slot _summary_
+      Encuentra una posición libre en la tabla de hash.
+      map: la tabla de hash
+      key: la llave
+      hashvalue: La posición inicial de la llave
+      cmpfunction: funcion de comparación para la búsqueda de la llave
 
-      :param hkey: _description_
-      :type hkey: int
-      :param key: _description_
-      :type key: T
 
-      :returns: _description_
-      :rtype: int
+   .. py:method:: findSlot3(key, hashvalue, cmpfunction)
+
+      Encuentra una posición libre en la tabla de hash.
+      map: la tabla de hash
+      key: la llave
+      hashvalue: La posición inicial de la llave
+      cmpfunction: funcion de comparación para la búsqueda de la llave
 
 
    .. py:method:: _is_available(idx: int) -> bool

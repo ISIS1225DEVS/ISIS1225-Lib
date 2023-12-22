@@ -163,10 +163,15 @@ Attributes
 
       Es el factor de carga mínimo de la tabla de hash, por defecto es 2.0.
 
-   .. py:attribute:: _data_type
+   .. py:attribute:: _value_type
       :type: Optional[type]
 
-      Es el tipo de dato de los elementos que contiene la tabla de hash, por defecto es *None* y se configura al cargar el primera entrada en el mapa.
+      Es el tipo de dato de los valores en la entrada que contiene la tabla de hash, por defecto es *None* y se configura al cargar el primera entrada en el mapa.
+
+   .. py:attribute:: _key_type
+      :type: Optional[type]
+
+      Es el tipo de dato de las llaves en la entrada que contiene la tabla de hash, por defecto es *None* y se configura al cargar el primera entrada en el mapa.
 
    .. py:attribute:: cmp_function
       :type: Optional[Callable[[DISClib.Utils.default.T, DISClib.Utils.default.T], int]]
@@ -206,13 +211,13 @@ Attributes
       :type err: Exception
 
 
-   .. py:method:: _check_type(entry: DISClib.Utils.default.T) -> bool
+   .. py:method:: _check_type(entry: DISClib.DataStructures.mapentry.MapEntry) -> bool
 
       *_check_type()* función privada que verifica que el tipo de dato de la entrada que se quiere agregar al SeparateChaining sea del mismo tipo contenido dentro de los elementos del SeparateChaining.
 
       :raises TypeError: error si el tipo de dato de la entrada que se quiere agregar no es el mismo que el tipo de dato de los elementos que ya contiene el SeparateChaining.
 
-      :param entry: entrada que se quiere procesar en SeparateChaining.
+      :param entry: entrada (pareja llave-valor) que se quiere procesar en SeparateChaining.
       :type entry: T
 
       :returns: operador que indica si el ADT SeparateChaining es del mismo tipo que el entrada que se quiere procesar.
@@ -298,28 +303,28 @@ Attributes
       :rtype: Optional[T]
 
 
-   .. py:method:: keys() -> DISClib.DataStructures.arraylist.ArrayList[DISClib.Utils.default.T]
+   .. py:method:: keys() -> DISClib.DataStructures.singlelinkedlist.SingleLinked[DISClib.Utils.default.T]
 
-      *keys()* devuelve una lista (ArrayList) con todas las llaves de las entradas (parejas llave-valor) del SeparateChaining.
+      *keys()* devuelve una lista (SingleLinked) con todas las llaves de las entradas (parejas llave-valor) del SeparateChaining.
 
-      :returns: lista (ArrayList) con todas las llaves del SeparateChaining.
-      :rtype: ArrayList[T]
-
-
-   .. py:method:: values() -> DISClib.DataStructures.arraylist.ArrayList[DISClib.Utils.default.T]
-
-      *values()* devuelve una lista (ArrayList) con todos los valores de las entradas (parejas llave-valor) del SeparateChaining.
-
-      :returns: lista (ArrayList) con todos los valores del SeparateChaining.
-      :rtype: ArrayList[T]
+      :returns: lista (ArrSingleLinkedayList) con todas las llaves del SeparateChaining.
+      :rtype: SingleLinked[T]
 
 
-   .. py:method:: entries() -> DISClib.DataStructures.arraylist.ArrayList[DISClib.Utils.default.T]
+   .. py:method:: values() -> DISClib.DataStructures.singlelinkedlist.SingleLinked[DISClib.Utils.default.T]
 
-      *entries()* devuelve una lista (ArrayList) con todas las entradas (parejas llave-valor) del SeparateChaining.
+      *values()* devuelve una lista (SingleLinked) con todos los valores de las entradas (parejas llave-valor) del SeparateChaining.
 
-      :returns: lista (ArrayList) con todas las entradas del SeparateChaining.
-      :rtype: ArrayList[T]
+      :returns: lista (SingleLinked) con todos los valores del SeparateChaining.
+      :rtype: SingleLinked[T]
+
+
+   .. py:method:: entries() -> DISClib.DataStructures.singlelinkedlist.SingleLinked[DISClib.Utils.default.T]
+
+      *entries()* devuelve una lista (SingleLinked) con todas las entradas (parejas llave-valor) del SeparateChaining.
+
+      :returns: lista (SingleLinked) con todas las entradas del SeparateChaining.
+      :rtype: SingleLinked[T]
 
 
    .. py:method:: rehash() -> None

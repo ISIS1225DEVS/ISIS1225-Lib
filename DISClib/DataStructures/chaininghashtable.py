@@ -102,40 +102,18 @@ class SeparateChaining(Generic[T]):
     Lista nativa de Python que contiene los elementos de entrada a la estructura, por defecto es None y el usuario puede incluir una lista nativa de python como argumento.
     """
 
-    # reserved space for the hash table
-    # :attr: nentries
-    nentries: int = 1
-    """
-    Es el espacio reservado para la tabla de hash (n), por defecto es 1, pero debe configurarse según el número de entradas que se espera almacenar.
-    """
-
-    # starting load factor (alpha) for the hash table
-    # :attr: alpha
-    alpha: Optional[float] = DEFAULT_CHAINING_ALPHA
-    """
-    Es el factor de carga (alpha) con el que se inicializa la tabla de hash, por defecto es 4.0.
-    """
-
-    # prime number (P) for the MAD compression function
-    # :attr: prime
-    prime: Optional[int] = DEFAULT_PRIME
-    """
-    Es el número primo (P) utilizado para calcular el código hash de la llave con la función de compresión MAD, por defecto es 109345121.
-    """
-
-    # actual place to store the entries in the hash table
-    # :attr: hash_table
-    hash_table: ArrayList[Bucket[T]] = field(default_factory=ArrayList)
-
-    """
-    Es el indice de la tabla de hash donde se almacenan los *Buckets*, implementado con un *ArrayList* de DISCLib. en el *__post_init__()* se inicializa con la capacidad inicial de la tabla de hash.
-    """
-
     # boolean to indicate if the hash table can be rehashed
     # :attr: rehashable
     rehashable: bool = True
     """
     Es un booleano que indica si la tabla de hash se puede reconstruir utilizando el método de rehash, por defecto es True.
+    """
+
+    # reserved space for the hash table
+    # :attr: nentries
+    nentries: int = 1
+    """
+    Es el espacio reservado para la tabla de hash (n), por defecto es 1, pero debe configurarse según el número de entradas que se espera almacenar.
     """
 
     # starting capacity (M|m) for the hash table
@@ -145,18 +123,39 @@ class SeparateChaining(Generic[T]):
     Es la capacidad (M) con la que se inicializa la tabla de hash.
     """
 
-    # actual number of used entries (n) in the hash table
-    # FIXME inconsistent use of _size and size()
-    # :attr: _size
-    _size: int = 0
+    # starting load factor (alpha) for the hash table
+    # :attr: alpha
+    alpha: Optional[float] = DEFAULT_CHAINING_ALPHA
     """
-    Es el número de elementos (n) dentro de la tabla de hash, por defecto es 0 y se actualiza con cada operación que modifica la estructura.
+    Es el factor de carga (alpha) con el que se inicializa la tabla de hash, por defecto es 4.0.
     """
 
-    # :attr: collisions
-    _collisions: Optional[int] = 0
+    # the cmp_function is used to compare emtries, not defined by default
+    # :attr: cmp_function
+    cmp_function: Optional[Callable[[T, T], int]] = None
     """
-    Es el número de colisiones en la tabla de hash.
+    Función de comparación opcional que se utiliza para comparar los elementos del SeparateChaining, por defecto es *None* y el *__post_init__()* configura la función por defecto *ht_default_cmp_funcion()*.
+    """
+
+    # actual place to store the entries in the hash table
+    # :attr: hash_table
+    hash_table: ArrayList[Bucket[T]] = field(default_factory=ArrayList)
+
+    """
+    Es el indice de la tabla de hash donde se almacenan los *Buckets*, implementado con un *ArrayList* de DISCLib. en el *__post_init__()* se inicializa con la capacidad inicial de la tabla de hash.
+    """
+    # the key is used to compare entries, not defined by default
+    # :attr: key
+    key: Optional[str] = None
+    """
+    Nombre de la llave opcional que se utiliza para comparar los elementos del SeparateChaining, Por defecto es *None* y el *__post_init__()* configura la llave por defecto la llave *id* en *DEFAULT_DICT_KEY*.
+    """
+
+    # prime number (P) for the MAD compression function
+    # :attr: prime
+    prime: Optional[int] = DEFAULT_PRIME
+    """
+    Es el número primo (P) utilizado para calcular el código hash de la llave con la función de compresión MAD, por defecto es 109345121.
     """
 
     # TODO create a MAD class to handle the compression function?
@@ -194,6 +193,20 @@ class SeparateChaining(Generic[T]):
     Es el factor de carga mínimo de la tabla de hash, por defecto es 2.0.
     """
 
+    # actual number of used entries (n) in the hash table
+    # FIXME inconsistent use of _size and size()
+    # :attr: _size
+    _size: int = 0
+    """
+    Es el número de elementos (n) dentro de la tabla de hash, por defecto es 0 y se actualiza con cada operación que modifica la estructura.
+    """
+
+    # :attr: collisions
+    _collisions: Optional[int] = 0
+    """
+    Es el número de colisiones en la tabla de hash.
+    """
+
     # the type of the entry values in the hash table
     # :attr: _value_type
     _value_type: Optional[type] = None
@@ -206,20 +219,6 @@ class SeparateChaining(Generic[T]):
     _key_type: Optional[type] = None
     """
     Es el tipo de dato de las llaves en la entrada que contiene la tabla de hash, por defecto es *None* y se configura al cargar el primera entrada en el mapa.
-    """
-
-    # the cmp_function is used to compare emtries, not defined by default
-    # :attr: cmp_function
-    cmp_function: Optional[Callable[[T, T], int]] = None
-    """
-    Función de comparación opcional que se utiliza para comparar los elementos del SeparateChaining, por defecto es *None* y el *__post_init__()* configura la función por defecto *ht_default_cmp_funcion()*.
-    """
-
-    # the key is used to compare entries, not defined by default
-    # :attr: key
-    key: Optional[str] = None
-    """
-    Nombre de la llave opcional que se utiliza para comparar los elementos del SeparateChaining, Por defecto es *None* y el *__post_init__()* configura la llave por defecto la llave *id* en *DEFAULT_DICT_KEY*.
     """
 
     def __post_init__(self) -> None:

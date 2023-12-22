@@ -1606,30 +1606,12 @@ Attributes
       :rtype: int
 
 
-   .. py:method:: findSlot2(key, hashvalue, cmpfunction)
-
-      Encuentra una posición libre en la tabla de hash.
-      map: la tabla de hash
-      key: la llave
-      hashvalue: La posición inicial de la llave
-      cmpfunction: funcion de comparación para la búsqueda de la llave
-
-
-   .. py:method:: findSlot3(key, hashvalue, cmpfunction)
-
-      Encuentra una posición libre en la tabla de hash.
-      map: la tabla de hash
-      key: la llave
-      hashvalue: La posición inicial de la llave
-      cmpfunction: funcion de comparación para la búsqueda de la llave
-
-
-   .. py:method:: _is_available(idx: int) -> bool
+   .. py:method:: _is_available(entry: DISClib.DataStructures.mapentry.MapEntry) -> bool
 
       _is_available _summary_
 
-      :param idx: _description_
-      :type idx: int
+      :param entry: _description_
+      :type entry: MapEntry
 
       :returns: _description_
       :rtype: bool

@@ -100,8 +100,8 @@
              
   <section id="module-DISClib.DataStructures.chaininghashtable">
 <span id="disclib-datastructures-chaininghashtable"></span><h1><a class="reference internal" href="#module-DISClib.DataStructures.chaininghashtable" title="DISClib.DataStructures.chaininghashtable"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.DataStructures.chaininghashtable</span></code></a><a class="headerlink" href="#module-DISClib.DataStructures.chaininghashtable" title="Link to this heading"></a></h1>
-<p># -<em>- coding: utf-8 -</em>-
-# TODO add docstring</p>
+<p>Este ADT representa una tabla de hash con el método de encadenamiento por de separación (Separate Chaining). Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.</p>
+<p>Ademas, contiene la estructura <strong>Bucket</strong> basada en una lista sencillamente enlazada (SingleLinked) donde se almacenan las entradas (parejas llave-valor) que sufren colisiones en la tabla de hash.</p>
 <p><em>IMPORTANTE:</em> Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:</p>
 <blockquote>
 <div><ol class="arabic simple">
@@ -116,10 +116,10 @@
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.DataStructures.chaininghashtable.Bucket" title="DISClib.DataStructures.chaininghashtable.Bucket"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bucket</span></code></a></p></td>
-<td><p><em>Bucket</em> Clase que representa un bucket de una tabla de hash. Esta clase hereda de la clase SingleLinked de DISCLib para representar un bucket de una tabla de hash con el método de encadenamiento por separación (Separate Chaining).</p></td>
+<td><p><strong>Bucket</strong> Clase que representa un bucket de una tabla de hash. Esta clase hereda de la clase SingleLinked de DISCLib para representar un bucket de una tabla de hash con el método de encadenamiento por separación (Separate Chaining).</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#DISClib.DataStructures.chaininghashtable.SeparateChaining" title="DISClib.DataStructures.chaininghashtable.SeparateChaining"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SeparateChaining</span></code></a></p></td>
-<td><p><em>SeparateChaining</em> Es una clase que representa una tabla de hash con el método de encadenamiento por de separación (Separate Chaining). Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.</p></td>
+<td><p><strong>SeparateChaining</strong> Es una clase que representa una tabla de hash con el método de encadenamiento por de separación (Separate Chaining). Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.</p></td>
 </tr>
 </tbody>
 </table>
@@ -161,7 +161,7 @@
 <dt class="sig sig-object py" id="DISClib.DataStructures.chaininghashtable.Bucket">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.chaininghashtable.</span></span><span class="sig-name descname"><span class="pre">Bucket</span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/chaininghashtable.html#Bucket"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.chaininghashtable.Bucket" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="../singlelinkedlist/index.html#DISClib.DataStructures.singlelinkedlist.SingleLinked" title="DISClib.DataStructures.singlelinkedlist.SingleLinked"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DISClib.DataStructures.singlelinkedlist.SingleLinked</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">Generic</span></code>[<a class="reference internal" href="../../Utils/default/index.html#DISClib.Utils.default.T" title="DISClib.Utils.default.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DISClib.Utils.default.T</span></code></a>]</p>
-<p><em>Bucket</em> Clase que representa un bucket de una tabla de hash. Esta clase hereda de la clase SingleLinked de DISCLib para representar un bucket de una tabla de hash con el método de encadenamiento por separación (Separate Chaining).</p>
+<p><strong>Bucket</strong> Clase que representa un bucket de una tabla de hash. Esta clase hereda de la clase SingleLinked de DISCLib para representar un bucket de una tabla de hash con el método de encadenamiento por separación (Separate Chaining).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -176,7 +176,7 @@
 <dt class="sig sig-object py" id="DISClib.DataStructures.chaininghashtable.SeparateChaining">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.chaininghashtable.</span></span><span class="sig-name descname"><span class="pre">SeparateChaining</span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.chaininghashtable.SeparateChaining" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Generic</span></code>[<a class="reference internal" href="../../Utils/default/index.html#DISClib.Utils.default.T" title="DISClib.Utils.default.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DISClib.Utils.default.T</span></code></a>]</p>
-<p><em>SeparateChaining</em> Es una clase que representa una tabla de hash con el método de encadenamiento por de separación (Separate Chaining). Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.</p>
+<p><strong>SeparateChaining</strong> Es una clase que representa una tabla de hash con el método de encadenamiento por de separación (Separate Chaining). Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>Generic</strong> (<em>T</em>) – Tipo de dato genérico dentro del registro del mapa.</p>

@@ -81,8 +81,9 @@
              
   <h1>Código fuente para DISClib.DataStructures.chaininghashtable</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd"># -*- coding: utf-8 -*-</span>
-<span class="sd"># TODO add docstring</span>
+<span class="sd">Este ADT representa una tabla de hash con el método de encadenamiento por de separación (Separate Chaining). Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.</span>
+
+<span class="sd">Ademas, contiene la estructura **Bucket** basada en una lista sencillamente enlazada (SingleLinked) donde se almacenan las entradas (parejas llave-valor) que sufren colisiones en la tabla de hash. </span>
 
 <span class="sd">*IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:</span>
 
@@ -165,7 +166,7 @@
 <div class="viewcode-block" id="Bucket">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashtable/index.html#DISClib.DataStructures.chaininghashtable.Bucket">[documentos]</a>
 <span class="k">class</span> <span class="nc">Bucket</span><span class="p">(</span><span class="n">SingleLinked</span><span class="p">,</span> <span class="n">Generic</span><span class="p">[</span><span class="n">T</span><span class="p">]):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;*Bucket* Clase que representa un bucket de una tabla de hash. Esta clase hereda de la clase SingleLinked de DISCLib para representar un bucket de una tabla de hash con el método de encadenamiento por separación (Separate Chaining).</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;**Bucket** Clase que representa un bucket de una tabla de hash. Esta clase hereda de la clase SingleLinked de DISCLib para representar un bucket de una tabla de hash con el método de encadenamiento por separación (Separate Chaining).</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        SingleLinked (T): Lista sencillamente encadenada que representa un bucket de una tabla de hash con el método de encadenamiento por separación (Separate Chaining).</span>
@@ -180,7 +181,7 @@
 <div class="viewcode-block" id="SeparateChaining">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining">[documentos]</a>
 <span class="k">class</span> <span class="nc">SeparateChaining</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">T</span><span class="p">]):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;*SeparateChaining* Es una clase que representa una tabla de hash con el método de encadenamiento por de separación (Separate Chaining). Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;**SeparateChaining** Es una clase que representa una tabla de hash con el método de encadenamiento por de separación (Separate Chaining). Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        Generic (T): Tipo de dato genérico dentro del registro del mapa.</span>

@@ -232,15 +232,18 @@
 
 <div class="viewcode-block" id="ht_default_cmp_funcion">
 <a class="viewcode-back" href="../../../autoapi/DISClib/Utils/default/index.html#DISClib.Utils.default.ht_default_cmp_funcion">[documentos]</a>
-<span class="k">def</span> <span class="nf">ht_default_cmp_funcion</span><span class="p">(</span><span class="n">key1</span><span class="p">,</span> <span class="n">entry2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="k">def</span> <span class="nf">ht_default_cmp_funcion</span><span class="p">(</span><span class="n">key1</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="n">entry2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;*ht_default_cmp_funcion()* función de comparación por defecto para los elementos del ADT Map (HashTable). pueden ser de tipo nativo o definido por el usuario.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        key1 (any): llave (key) para comparar del primer elemento (pareja llave-valor), el cual siempre es un MapEntry.</span>
-<span class="sd">        entry2 (any): segundo elemento (pareja llave-valor) a comparar de tipo MapEntry. puede contener cualquier tipo de dato.</span>
+<span class="sd">        key1 (T): llave (key) de la primera entrada (pareja llave-valor) a comparar.</span>
+<span class="sd">        entry2 (MapEntry): segunda entrada (pareja llave-valor) a comparar de tipo *MapEntry*. puede contener cualquier tipo de estructura, dato o ADT.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        TypeError: error de tipo de dato si las llaves no son comparables.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        int: retorna -1 si key1 es menor que la llave de entry2, 0 si las llaves son iguales y 1 si key1 es mayor que la llave de entry2.</span>
+<span class="sd">        int: retorna -1 si key1 es menor que la llave de entry2, 0 si las llaves son iguales y 1 si la llave key1 es mayor que la llave de entry2.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">key2</span> <span class="o">=</span> <span class="n">entry2</span><span class="o">.</span><span class="n">get_key</span><span class="p">()</span>
     <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">key1</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">type</span><span class="p">(</span><span class="n">key2</span><span class="p">):</span>

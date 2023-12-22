@@ -81,8 +81,9 @@
              
   <h1>Código fuente para DISClib.DataStructures.probinghashtable</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd"># -*- coding: utf-8 -*-</span>
-<span class="sd"># TODO add docstring</span>
+<span class="sd">Este ADT representa una tabla de hash con el método de sondeo lineal (Linear Probing). Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.</span>
+
+<span class="sd">En particular tiene funciones para encontrar espacio y entradas (pareja llave-valor) disponibles en la tabla en caso de colisiones segun el metodo de sondeo lineal.</span>
 
 <span class="sd">*IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:</span>
 
@@ -174,7 +175,7 @@
 <div class="viewcode-block" id="LinearProbing">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing">[documentos]</a>
 <span class="k">class</span> <span class="nc">LinearProbing</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">T</span><span class="p">]):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;*LinearProbing* Es una clase que representa una tabla de hash con el método de encadenamiento por de separación (Separate Chaining). Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;**LinearProbing** Es una clase que representa una tabla de hash con el método de encadenamiento por de separación (Separate Chaining). Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        Generic (T): Tipo de dato genérico dentro del registro del mapa.</span>

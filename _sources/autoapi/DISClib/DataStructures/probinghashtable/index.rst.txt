@@ -5,8 +5,9 @@
 
 .. autoapi-nested-parse::
 
-   # -*- coding: utf-8 -*-
-   # TODO add docstring
+   Este ADT representa una tabla de hash con el método de sondeo lineal (Linear Probing). Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.
+
+   En particular tiene funciones para encontrar espacio y entradas (pareja llave-valor) disponibles en la tabla en caso de colisiones segun el metodo de sondeo lineal.
 
    *IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:
 
@@ -67,7 +68,7 @@ Attributes
 
    Bases: :py:obj:`Generic`\ [\ :py:obj:`DISClib.Utils.default.T`\ ]
 
-   *LinearProbing* Es una clase que representa una tabla de hash con el método de encadenamiento por de separación (Separate Chaining). Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.
+   **LinearProbing** Es una clase que representa una tabla de hash con el método de encadenamiento por de separación (Separate Chaining). Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.
 
    :param Generic: Tipo de dato genérico dentro del registro del mapa.
    :type Generic: T

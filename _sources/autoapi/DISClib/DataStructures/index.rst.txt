@@ -25,7 +25,6 @@ Submodules
    listnode/index.rst
    mapentry/index.rst
    node/index.rst
-   probinghashmap/index.rst
    probinghashtable/index.rst
    rbt/index.rst
    rbtnode/index.rst
@@ -1089,32 +1088,17 @@ Attributes
 
       Lista nativa de Python que contiene los elementos de entrada a la estructura, por defecto es None y el usuario puede incluir una lista nativa de python como argumento.
 
-   .. py:attribute:: nentries
-      :type: int
-      :value: 1
-
-      Es el espacio reservado para la tabla de hash (n), por defecto es 1, pero debe configurarse según el número de entradas que se espera almacenar.
-
-   .. py:attribute:: alpha
-      :type: Optional[float]
-
-      Es el factor de carga (alpha) con el que se inicializa la tabla de hash, por defecto es 4.0.
-
-   .. py:attribute:: prime
-      :type: Optional[int]
-
-      Es el número primo (P) utilizado para calcular el código hash de la llave con la función de compresión MAD, por defecto es 109345121.
-
-   .. py:attribute:: hash_table
-      :type: DISClib.DataStructures.arraylist.ArrayList[Bucket[DISClib.Utils.default.T]]
-
-      Es el indice de la tabla de hash donde se almacenan los *Buckets*, implementado con un *ArrayList* de DISCLib. en el *__post_init__()* se inicializa con la capacidad inicial de la tabla de hash.
-
    .. py:attribute:: rehashable
       :type: bool
       :value: True
 
       Es un booleano que indica si la tabla de hash se puede reconstruir utilizando el método de rehash, por defecto es True.
+
+   .. py:attribute:: nentries
+      :type: int
+      :value: 1
+
+      Es el espacio reservado para la tabla de hash (n), por defecto es 1, pero debe configurarse según el número de entradas que se espera almacenar.
 
    .. py:attribute:: mcapacity
       :type: int
@@ -1122,17 +1106,30 @@ Attributes
 
       Es la capacidad (M) con la que se inicializa la tabla de hash.
 
-   .. py:attribute:: _size
-      :type: int
-      :value: 0
+   .. py:attribute:: alpha
+      :type: Optional[float]
 
-      Es el número de elementos (n) dentro de la tabla de hash, por defecto es 0 y se actualiza con cada operación que modifica la estructura.
+      Es el factor de carga (alpha) con el que se inicializa la tabla de hash, por defecto es 4.0.
 
-   .. py:attribute:: _collisions
+   .. py:attribute:: cmp_function
+      :type: Optional[Callable[[DISClib.Utils.default.T, DISClib.Utils.default.T], int]]
+
+      Función de comparación opcional que se utiliza para comparar los elementos del SeparateChaining, por defecto es *None* y el *__post_init__()* configura la función por defecto *ht_default_cmp_funcion()*.
+
+   .. py:attribute:: hash_table
+      :type: DISClib.DataStructures.arraylist.ArrayList[Bucket[DISClib.Utils.default.T]]
+
+      Es el indice de la tabla de hash donde se almacenan los *Buckets*, implementado con un *ArrayList* de DISCLib. en el *__post_init__()* se inicializa con la capacidad inicial de la tabla de hash.
+
+   .. py:attribute:: key
+      :type: Optional[str]
+
+      Nombre de la llave opcional que se utiliza para comparar los elementos del SeparateChaining, Por defecto es *None* y el *__post_init__()* configura la llave por defecto la llave *id* en *DEFAULT_DICT_KEY*.
+
+   .. py:attribute:: prime
       :type: Optional[int]
-      :value: 0
 
-      Es el número de colisiones en la tabla de hash.
+      Es el número primo (P) utilizado para calcular el código hash de la llave con la función de compresión MAD, por defecto es 109345121.
 
    .. py:attribute:: _scale
       :type: Optional[int]
@@ -1162,6 +1159,18 @@ Attributes
 
       Es el factor de carga mínimo de la tabla de hash, por defecto es 2.0.
 
+   .. py:attribute:: _size
+      :type: int
+      :value: 0
+
+      Es el número de elementos (n) dentro de la tabla de hash, por defecto es 0 y se actualiza con cada operación que modifica la estructura.
+
+   .. py:attribute:: _collisions
+      :type: Optional[int]
+      :value: 0
+
+      Es el número de colisiones en la tabla de hash.
+
    .. py:attribute:: _value_type
       :type: Optional[type]
 
@@ -1171,16 +1180,6 @@ Attributes
       :type: Optional[type]
 
       Es el tipo de dato de las llaves en la entrada que contiene la tabla de hash, por defecto es *None* y se configura al cargar el primera entrada en el mapa.
-
-   .. py:attribute:: cmp_function
-      :type: Optional[Callable[[DISClib.Utils.default.T, DISClib.Utils.default.T], int]]
-
-      Función de comparación opcional que se utiliza para comparar los elementos del SeparateChaining, por defecto es *None* y el *__post_init__()* configura la función por defecto *ht_default_cmp_funcion()*.
-
-   .. py:attribute:: key
-      :type: Optional[str]
-
-      Nombre de la llave opcional que se utiliza para comparar los elementos del SeparateChaining, Por defecto es *None* y el *__post_init__()* configura la llave por defecto la llave *id* en *DEFAULT_DICT_KEY*.
 
    .. py:method:: __post_init__() -> None
 
@@ -1356,32 +1355,17 @@ Attributes
 
       Lista nativa de Python que contiene los elementos de entrada a la estructura, por defecto es None y el usuario puede incluir una lista nativa de python como argumento.
 
-   .. py:attribute:: nentries
-      :type: int
-      :value: 1
-
-      Es el espacio reservado para la tabla de hash (n), por defecto es 1, pero debe configurarse según el número de entradas que se espera almacenar.
-
-   .. py:attribute:: alpha
-      :type: Optional[float]
-
-      Es el factor de carga (alpha) con el que se inicializa la tabla de hash, por defecto es 4.0.
-
-   .. py:attribute:: prime
-      :type: Optional[int]
-
-      Es el número primo (P) utilizado para calcular el código hash de la llave con la función de compresión MAD, por defecto es 109345121.
-
-   .. py:attribute:: hash_table
-      :type: DISClib.DataStructures.arraylist.ArrayList[DISClib.DataStructures.mapentry.MapEntry[DISClib.Utils.default.T]]
-
-      Es el indice de la tabla de hash donde se almacenan los *MapEntry*, implementado con un *ArrayList* de DISCLib. en el *__post_init__()* se inicializa con la capacidad inicial de la tabla de hash.
-
    .. py:attribute:: rehashable
       :type: bool
       :value: True
 
       Es un booleano que indica si la tabla de hash se puede reconstruir utilizando el método de rehash, por defecto es True.
+
+   .. py:attribute:: nentries
+      :type: int
+      :value: 1
+
+      Es el espacio reservado para la tabla de hash (n), por defecto es 1, pero debe configurarse según el número de entradas que se espera almacenar.
 
    .. py:attribute:: mcapacity
       :type: int
@@ -1389,17 +1373,30 @@ Attributes
 
       Es la capacidad (M) con la que se inicializa la tabla de hash.
 
-   .. py:attribute:: _size
-      :type: int
-      :value: 0
+   .. py:attribute:: alpha
+      :type: Optional[float]
 
-      Es el número de elementos (n) dentro de la tabla de hash, por defecto es 0 y se actualiza con cada operación que modifica la estructura.
+      Es el factor de carga (alpha) con el que se inicializa la tabla de hash, por defecto es 4.0.
 
-   .. py:attribute:: _collisions
+   .. py:attribute:: cmp_function
+      :type: Optional[Callable[[DISClib.Utils.default.T, DISClib.Utils.default.T], int]]
+
+      Función de comparación opcional que se utiliza para comparar los elementos del LinearProbing, por defecto es *None* y el *__post_init__()* configura la función por defecto *ht_default_cmp_funcion()*.
+
+   .. py:attribute:: hash_table
+      :type: DISClib.DataStructures.arraylist.ArrayList[DISClib.DataStructures.mapentry.MapEntry[DISClib.Utils.default.T]]
+
+      Es el indice de la tabla de hash donde se almacenan los *MapEntry*, implementado con un *ArrayList* de DISCLib. en el *__post_init__()* se inicializa con la capacidad inicial de la tabla de hash.
+
+   .. py:attribute:: key
+      :type: Optional[str]
+
+      Nombre de la llave opcional que se utiliza para comparar los elementos del LinearProbing, Por defecto es *None* y el *__post_init__()* configura la llave por defecto la llave *id* en *DEFAULT_DICT_KEY*.
+
+   .. py:attribute:: prime
       :type: Optional[int]
-      :value: 0
 
-      Es el número de colisiones en la tabla de hash.
+      Es el número primo (P) utilizado para calcular el código hash de la llave con la función de compresión MAD, por defecto es 109345121.
 
    .. py:attribute:: _scale
       :type: Optional[int]
@@ -1429,6 +1426,18 @@ Attributes
 
       Es el factor de carga mínimo de la tabla de hash, por defecto es 2.0.
 
+   .. py:attribute:: _size
+      :type: int
+      :value: 0
+
+      Es el número de elementos (n) dentro de la tabla de hash, por defecto es 0 y se actualiza con cada operación que modifica la estructura.
+
+   .. py:attribute:: _collisions
+      :type: Optional[int]
+      :value: 0
+
+      Es el número de colisiones en la tabla de hash.
+
    .. py:attribute:: _value_type
       :type: Optional[type]
 
@@ -1438,16 +1447,6 @@ Attributes
       :type: Optional[type]
 
       Es el tipo de dato de las llaves en la entrada que contiene la tabla de hash, por defecto es *None* y se configura al cargar el primera entrada en el mapa.
-
-   .. py:attribute:: cmp_function
-      :type: Optional[Callable[[DISClib.Utils.default.T, DISClib.Utils.default.T], int]]
-
-      Función de comparación opcional que se utiliza para comparar los elementos del LinearProbing, por defecto es *None* y el *__post_init__()* configura la función por defecto *ht_default_cmp_funcion()*.
-
-   .. py:attribute:: key
-      :type: Optional[str]
-
-      Nombre de la llave opcional que se utiliza para comparar los elementos del LinearProbing, Por defecto es *None* y el *__post_init__()* configura la llave por defecto la llave *id* en *DEFAULT_DICT_KEY*.
 
    .. py:method:: __post_init__() -> None
 
@@ -1569,7 +1568,7 @@ Attributes
       :rtype: Optional[T]
 
 
-   .. py:method:: keys() -> SingleLinked[DISClib.Utils.default.T]
+   .. py:method:: keys() -> DISClib.DataStructures.singlelinkedlist.SingleLinked[DISClib.Utils.default.T]
 
       *keys()* devuelve una lista (SingleLinked) con todas las llaves de las entradas (parejas llave-valor) del LinearProbing.
 
@@ -1577,7 +1576,7 @@ Attributes
       :rtype: SingleLinked[T]
 
 
-   .. py:method:: values() -> SingleLinked[DISClib.Utils.default.T]
+   .. py:method:: values() -> DISClib.DataStructures.singlelinkedlist.SingleLinked[DISClib.Utils.default.T]
 
       *values()* devuelve una lista (SingleLinked) con todos los valores de las entradas (parejas llave-valor) del LinearProbing.
 
@@ -1585,7 +1584,7 @@ Attributes
       :rtype: SingleLinked[T]
 
 
-   .. py:method:: entries() -> SingleLinked[DISClib.Utils.default.T]
+   .. py:method:: entries() -> DISClib.DataStructures.singlelinkedlist.SingleLinked[DISClib.Utils.default.T]
 
       *entries()* devuelve una lista (SingleLinked) con todas las entradas (parejas llave-valor) del LinearProbing.
 
@@ -1595,25 +1594,25 @@ Attributes
 
    .. py:method:: _find_slot(hkey: int, key: DISClib.Utils.default.T) -> int
 
-      _find_slot _summary_
+      *_find_slot()* encuentra el indice de la entrada (pareja llave-valor) en el LinearProbing, si la entrada no existe, devuelve el indice de la primera entrada disponible.
 
-      :param hkey: _description_
+      :param hkey: indice de la entrada (pareja llave-valor) en el LinearProbing.
       :type hkey: int
-      :param key: _description_
+      :param key: llave de la entrada (pareja llave-valor) que se quiere buscar.
       :type key: T
 
-      :returns: _description_
+      :returns: indice de la entrada (pareja llave-valor) en el LinearProbing, si la entrada no existe, devuelve el indice de la primera entrada disponible. -1 si no existe la entrada y no hay entradas disponibles.
       :rtype: int
 
 
    .. py:method:: _is_available(entry: DISClib.DataStructures.mapentry.MapEntry) -> bool
 
-      _is_available _summary_
+      *_is_available()* permite verificar si una entrada (pareja llave-valor) está disponible en el LinearProbing. Es decir si la llave es nula (None) o vacía (EMPTY).
 
-      :param entry: _description_
+      :param entry: entrada (pareja llave-valor) que se quiere verificar.
       :type entry: MapEntry
 
-      :returns: _description_
+      :returns: operador que indica si la entrada está disponible o no en el LinearProbing.
       :rtype: bool
 
 

@@ -198,33 +198,15 @@
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="DISClib.DataStructures.chaininghashtable.SeparateChaining.nentries">
-<span class="sig-name descname"><span class="pre">nentries</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining.nentries"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.chaininghashtable.SeparateChaining.nentries" title="Link to this definition"></a></dt>
-<dd><p>Es el espacio reservado para la tabla de hash (n), por defecto es 1, pero debe configurarse según el número de entradas que se espera almacenar.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="DISClib.DataStructures.chaininghashtable.SeparateChaining.alpha">
-<span class="sig-name descname"><span class="pre">alpha</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining.alpha"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.chaininghashtable.SeparateChaining.alpha" title="Link to this definition"></a></dt>
-<dd><p>Es el factor de carga (alpha) con el que se inicializa la tabla de hash, por defecto es 4.0.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="DISClib.DataStructures.chaininghashtable.SeparateChaining.prime">
-<span class="sig-name descname"><span class="pre">prime</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining.prime"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.chaininghashtable.SeparateChaining.prime" title="Link to this definition"></a></dt>
-<dd><p>Es el número primo (P) utilizado para calcular el código hash de la llave con la función de compresión MAD, por defecto es 109345121.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="DISClib.DataStructures.chaininghashtable.SeparateChaining.hash_table">
-<span class="sig-name descname"><span class="pre">hash_table</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList" title="DISClib.DataStructures.arraylist.ArrayList"><span class="pre">DISClib.DataStructures.arraylist.ArrayList</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#DISClib.DataStructures.chaininghashtable.Bucket" title="DISClib.DataStructures.chaininghashtable.Bucket"><span class="pre">Bucket</span></a><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining.hash_table"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.chaininghashtable.SeparateChaining.hash_table" title="Link to this definition"></a></dt>
-<dd><p>Es el indice de la tabla de hash donde se almacenan los <em>Buckets</em>, implementado con un <em>ArrayList</em> de DISCLib. en el <em>__post_init__()</em> se inicializa con la capacidad inicial de la tabla de hash.</p>
-</dd></dl>
-
-<dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.chaininghashtable.SeparateChaining.rehashable">
 <span class="sig-name descname"><span class="pre">rehashable</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining.rehashable"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.chaininghashtable.SeparateChaining.rehashable" title="Link to this definition"></a></dt>
 <dd><p>Es un booleano que indica si la tabla de hash se puede reconstruir utilizando el método de rehash, por defecto es True.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.chaininghashtable.SeparateChaining.nentries">
+<span class="sig-name descname"><span class="pre">nentries</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining.nentries"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.chaininghashtable.SeparateChaining.nentries" title="Link to this definition"></a></dt>
+<dd><p>Es el espacio reservado para la tabla de hash (n), por defecto es 1, pero debe configurarse según el número de entradas que se espera almacenar.</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -234,15 +216,33 @@
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="DISClib.DataStructures.chaininghashtable.SeparateChaining._size">
-<span class="sig-name descname"><span class="pre">_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining._size"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.chaininghashtable.SeparateChaining._size" title="Link to this definition"></a></dt>
-<dd><p>Es el número de elementos (n) dentro de la tabla de hash, por defecto es 0 y se actualiza con cada operación que modifica la estructura.</p>
+<dt class="sig sig-object py" id="DISClib.DataStructures.chaininghashtable.SeparateChaining.alpha">
+<span class="sig-name descname"><span class="pre">alpha</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining.alpha"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.chaininghashtable.SeparateChaining.alpha" title="Link to this definition"></a></dt>
+<dd><p>Es el factor de carga (alpha) con el que se inicializa la tabla de hash, por defecto es 4.0.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="DISClib.DataStructures.chaininghashtable.SeparateChaining._collisions">
-<span class="sig-name descname"><span class="pre">_collisions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining._collisions"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.chaininghashtable.SeparateChaining._collisions" title="Link to this definition"></a></dt>
-<dd><p>Es el número de colisiones en la tabla de hash.</p>
+<dt class="sig sig-object py" id="DISClib.DataStructures.chaininghashtable.SeparateChaining.cmp_function">
+<span class="sig-name descname"><span class="pre">cmp_function</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining.cmp_function"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.chaininghashtable.SeparateChaining.cmp_function" title="Link to this definition"></a></dt>
+<dd><p>Función de comparación opcional que se utiliza para comparar los elementos del SeparateChaining, por defecto es <em>None</em> y el <em>__post_init__()</em> configura la función por defecto <em>ht_default_cmp_funcion()</em>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.chaininghashtable.SeparateChaining.hash_table">
+<span class="sig-name descname"><span class="pre">hash_table</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList" title="DISClib.DataStructures.arraylist.ArrayList"><span class="pre">DISClib.DataStructures.arraylist.ArrayList</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#DISClib.DataStructures.chaininghashtable.Bucket" title="DISClib.DataStructures.chaininghashtable.Bucket"><span class="pre">Bucket</span></a><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining.hash_table"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.chaininghashtable.SeparateChaining.hash_table" title="Link to this definition"></a></dt>
+<dd><p>Es el indice de la tabla de hash donde se almacenan los <em>Buckets</em>, implementado con un <em>ArrayList</em> de DISCLib. en el <em>__post_init__()</em> se inicializa con la capacidad inicial de la tabla de hash.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.chaininghashtable.SeparateChaining.key">
+<span class="sig-name descname"><span class="pre">key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining.key"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.chaininghashtable.SeparateChaining.key" title="Link to this definition"></a></dt>
+<dd><p>Nombre de la llave opcional que se utiliza para comparar los elementos del SeparateChaining, Por defecto es <em>None</em> y el <em>__post_init__()</em> configura la llave por defecto la llave <em>id</em> en <em>DEFAULT_DICT_KEY</em>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.chaininghashtable.SeparateChaining.prime">
+<span class="sig-name descname"><span class="pre">prime</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining.prime"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.chaininghashtable.SeparateChaining.prime" title="Link to this definition"></a></dt>
+<dd><p>Es el número primo (P) utilizado para calcular el código hash de la llave con la función de compresión MAD, por defecto es 109345121.</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -276,6 +276,18 @@
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.chaininghashtable.SeparateChaining._size">
+<span class="sig-name descname"><span class="pre">_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining._size"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.chaininghashtable.SeparateChaining._size" title="Link to this definition"></a></dt>
+<dd><p>Es el número de elementos (n) dentro de la tabla de hash, por defecto es 0 y se actualiza con cada operación que modifica la estructura.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.chaininghashtable.SeparateChaining._collisions">
+<span class="sig-name descname"><span class="pre">_collisions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining._collisions"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.chaininghashtable.SeparateChaining._collisions" title="Link to this definition"></a></dt>
+<dd><p>Es el número de colisiones en la tabla de hash.</p>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.chaininghashtable.SeparateChaining._value_type">
 <span class="sig-name descname"><span class="pre">_value_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">type</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining._value_type"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.chaininghashtable.SeparateChaining._value_type" title="Link to this definition"></a></dt>
 <dd><p>Es el tipo de dato de los valores en la entrada que contiene la tabla de hash, por defecto es <em>None</em> y se configura al cargar el primera entrada en el mapa.</p>
@@ -285,18 +297,6 @@
 <dt class="sig sig-object py" id="DISClib.DataStructures.chaininghashtable.SeparateChaining._key_type">
 <span class="sig-name descname"><span class="pre">_key_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">type</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining._key_type"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.chaininghashtable.SeparateChaining._key_type" title="Link to this definition"></a></dt>
 <dd><p>Es el tipo de dato de las llaves en la entrada que contiene la tabla de hash, por defecto es <em>None</em> y se configura al cargar el primera entrada en el mapa.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="DISClib.DataStructures.chaininghashtable.SeparateChaining.cmp_function">
-<span class="sig-name descname"><span class="pre">cmp_function</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining.cmp_function"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.chaininghashtable.SeparateChaining.cmp_function" title="Link to this definition"></a></dt>
-<dd><p>Función de comparación opcional que se utiliza para comparar los elementos del SeparateChaining, por defecto es <em>None</em> y el <em>__post_init__()</em> configura la función por defecto <em>ht_default_cmp_funcion()</em>.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="DISClib.DataStructures.chaininghashtable.SeparateChaining.key">
-<span class="sig-name descname"><span class="pre">key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/chaininghashtable.html#SeparateChaining.key"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.chaininghashtable.SeparateChaining.key" title="Link to this definition"></a></dt>
-<dd><p>Nombre de la llave opcional que se utiliza para comparar los elementos del SeparateChaining, Por defecto es <em>None</em> y el <em>__post_init__()</em> configura la llave por defecto la llave <em>id</em> en <em>DEFAULT_DICT_KEY</em>.</p>
 </dd></dl>
 
 <dl class="py method">

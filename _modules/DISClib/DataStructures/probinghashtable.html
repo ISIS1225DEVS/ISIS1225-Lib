@@ -103,6 +103,7 @@
 <span class="c1"># generic error handling and type checking</span>
 <span class="kn">from</span> <span class="nn">DISClib.DataStructures.mapentry</span> <span class="kn">import</span> <span class="n">MapEntry</span>
 <span class="kn">from</span> <span class="nn">DISClib.DataStructures.arraylist</span> <span class="kn">import</span> <span class="n">ArrayList</span>
+<span class="kn">from</span> <span class="nn">DISClib.DataStructures.singlelinkedlist</span> <span class="kn">import</span> <span class="n">SingleLinked</span>
 <span class="c1"># util functions for the hash table</span>
 <span class="kn">from</span> <span class="nn">DISClib.Utils.numbers</span> <span class="kn">import</span> <span class="n">next_prime</span>
 <span class="kn">from</span> <span class="nn">DISClib.Utils.numbers</span> <span class="kn">import</span> <span class="n">hash_compress</span>
@@ -120,6 +121,7 @@
 <span class="c1"># checking custom modules</span>
 <span class="k">assert</span> <span class="n">MapEntry</span>
 <span class="k">assert</span> <span class="n">ArrayList</span>
+<span class="k">assert</span> <span class="n">SingleLinked</span>
 <span class="k">assert</span> <span class="n">next_prime</span>
 <span class="k">assert</span> <span class="n">hash_compress</span>
 <span class="k">assert</span> <span class="n">error_handler</span>
@@ -193,6 +195,16 @@
 <span class="sd">    Lista nativa de Python que contiene los elementos de entrada a la estructura, por defecto es None y el usuario puede incluir una lista nativa de python como argumento.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
+    <span class="c1"># boolean to indicate if the hash table can be rehashed</span>
+    <span class="c1"># :attr: rehashable</span>
+<div class="viewcode-block" id="LinearProbing.rehashable">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing.rehashable">[documentos]</a>
+    <span class="n">rehashable</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span></div>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Es un booleano que indica si la tabla de hash se puede reconstruir utilizando el método de rehash, por defecto es True.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="c1"># reserved space for the hash table</span>
     <span class="c1"># :attr: nentries</span>
 <div class="viewcode-block" id="LinearProbing.nentries">
@@ -201,6 +213,16 @@
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Es el espacio reservado para la tabla de hash (n), por defecto es 1, pero debe configurarse según el número de entradas que se espera almacenar.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># starting capacity (M|m) for the hash table</span>
+    <span class="c1"># :attr: mcapacity</span>
+<div class="viewcode-block" id="LinearProbing.mcapacity">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing.mcapacity">[documentos]</a>
+    <span class="n">mcapacity</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span></div>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Es la capacidad (M) con la que se inicializa la tabla de hash.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># starting load factor (alpha) for the hash table</span>
@@ -213,14 +235,14 @@
 <span class="sd">    Es el factor de carga (alpha) con el que se inicializa la tabla de hash, por defecto es 4.0.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="c1"># prime number (P) for the MAD compression function</span>
-    <span class="c1"># :attr: prime</span>
-<div class="viewcode-block" id="LinearProbing.prime">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing.prime">[documentos]</a>
-    <span class="n">prime</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">DEFAULT_PRIME</span></div>
+    <span class="c1"># the cmp_function is used to compare emtries, not defined by default</span>
+    <span class="c1"># :attr: cmp_function</span>
+<div class="viewcode-block" id="LinearProbing.cmp_function">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing.cmp_function">[documentos]</a>
+    <span class="n">cmp_function</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">[[</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="p">],</span> <span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Es el número primo (P) utilizado para calcular el código hash de la llave con la función de compresión MAD, por defecto es 109345121.</span>
+<span class="sd">    Función de comparación opcional que se utiliza para comparar los elementos del LinearProbing, por defecto es *None* y el *__post_init__()* configura la función por defecto *ht_default_cmp_funcion()*.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># actual place to store the entries in the hash table</span>
@@ -234,44 +256,24 @@
 <span class="sd">    Es el indice de la tabla de hash donde se almacenan los *MapEntry*, implementado con un *ArrayList* de DISCLib. en el *__post_init__()* se inicializa con la capacidad inicial de la tabla de hash.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="c1"># boolean to indicate if the hash table can be rehashed</span>
-    <span class="c1"># :attr: rehashable</span>
-<div class="viewcode-block" id="LinearProbing.rehashable">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing.rehashable">[documentos]</a>
-    <span class="n">rehashable</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span></div>
+    <span class="c1"># the key is used to compare entries, not defined by default</span>
+    <span class="c1"># :attr: key</span>
+<div class="viewcode-block" id="LinearProbing.key">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing.key">[documentos]</a>
+    <span class="n">key</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Es un booleano que indica si la tabla de hash se puede reconstruir utilizando el método de rehash, por defecto es True.</span>
+<span class="sd">    Nombre de la llave opcional que se utiliza para comparar los elementos del LinearProbing, Por defecto es *None* y el *__post_init__()* configura la llave por defecto la llave *id* en *DEFAULT_DICT_KEY*.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="c1"># starting capacity (M|m) for the hash table</span>
-    <span class="c1"># :attr: mcapacity</span>
-<div class="viewcode-block" id="LinearProbing.mcapacity">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing.mcapacity">[documentos]</a>
-    <span class="n">mcapacity</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span></div>
+    <span class="c1"># prime number (P) for the MAD compression function</span>
+    <span class="c1"># :attr: prime</span>
+<div class="viewcode-block" id="LinearProbing.prime">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing.prime">[documentos]</a>
+    <span class="n">prime</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">DEFAULT_PRIME</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Es la capacidad (M) con la que se inicializa la tabla de hash.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="c1"># actual number of used entries (n) in the hash table</span>
-    <span class="c1"># FIXME inconsistent use of _size and size()</span>
-    <span class="c1"># :attr: _size</span>
-<div class="viewcode-block" id="LinearProbing._size">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing._size">[documentos]</a>
-    <span class="n">_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span></div>
-
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Es el número de elementos (n) dentro de la tabla de hash, por defecto es 0 y se actualiza con cada operación que modifica la estructura.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="c1"># :attr: collisions</span>
-<div class="viewcode-block" id="LinearProbing._collisions">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing._collisions">[documentos]</a>
-    <span class="n">_collisions</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span></div>
-
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Es el número de colisiones en la tabla de hash.</span>
+<span class="sd">    Es el número primo (P) utilizado para calcular el código hash de la llave con la función de compresión MAD, por defecto es 109345121.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># TODO create a MAD class to handle the compression function?</span>
@@ -324,6 +326,26 @@
 <span class="sd">    Es el factor de carga mínimo de la tabla de hash, por defecto es 2.0.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
+    <span class="c1"># actual number of used entries (n) in the hash table</span>
+    <span class="c1"># FIXME inconsistent use of _size and size()</span>
+    <span class="c1"># :attr: _size</span>
+<div class="viewcode-block" id="LinearProbing._size">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing._size">[documentos]</a>
+    <span class="n">_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span></div>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Es el número de elementos (n) dentro de la tabla de hash, por defecto es 0 y se actualiza con cada operación que modifica la estructura.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># :attr: collisions</span>
+<div class="viewcode-block" id="LinearProbing._collisions">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing._collisions">[documentos]</a>
+    <span class="n">_collisions</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span></div>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Es el número de colisiones en la tabla de hash.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="c1"># the type of the entry values in the hash table</span>
     <span class="c1"># :attr: _value_type</span>
 <div class="viewcode-block" id="LinearProbing._value_type">
@@ -342,26 +364,6 @@
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Es el tipo de dato de las llaves en la entrada que contiene la tabla de hash, por defecto es *None* y se configura al cargar el primera entrada en el mapa.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="c1"># the cmp_function is used to compare emtries, not defined by default</span>
-    <span class="c1"># :attr: cmp_function</span>
-<div class="viewcode-block" id="LinearProbing.cmp_function">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing.cmp_function">[documentos]</a>
-    <span class="n">cmp_function</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">[[</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="p">],</span> <span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span></div>
-
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Función de comparación opcional que se utiliza para comparar los elementos del LinearProbing, por defecto es *None* y el *__post_init__()* configura la función por defecto *ht_default_cmp_funcion()*.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="c1"># the key is used to compare entries, not defined by default</span>
-    <span class="c1"># :attr: key</span>
-<div class="viewcode-block" id="LinearProbing.key">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing.key">[documentos]</a>
-    <span class="n">key</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></div>
-
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Nombre de la llave opcional que se utiliza para comparar los elementos del LinearProbing, Por defecto es *None* y el *__post_init__()* configura la llave por defecto la llave *id* en *DEFAULT_DICT_KEY*.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="LinearProbing.__post_init__">
@@ -765,14 +767,14 @@
 <div class="viewcode-block" id="LinearProbing._find_slot">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing._find_slot">[documentos]</a>
     <span class="k">def</span> <span class="nf">_find_slot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hkey</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;_find_slot _summary_</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*_find_slot()* encuentra el indice de la entrada (pareja llave-valor) en el LinearProbing, si la entrada no existe, devuelve el indice de la primera entrada disponible.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            hkey (int): _description_</span>
-<span class="sd">            key (T): _description_</span>
+<span class="sd">            hkey (int): indice de la entrada (pareja llave-valor) en el LinearProbing.</span>
+<span class="sd">            key (T): llave de la entrada (pareja llave-valor) que se quiere buscar.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            int: _description_</span>
+<span class="sd">            int: indice de la entrada (pareja llave-valor) en el LinearProbing, si la entrada no existe, devuelve el indice de la primera entrada disponible. -1 si no existe la entrada y no hay entradas disponibles.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># TODO add docstring</span>
         <span class="k">try</span><span class="p">:</span>
@@ -834,15 +836,14 @@
 <div class="viewcode-block" id="LinearProbing._is_available">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing._is_available">[documentos]</a>
     <span class="k">def</span> <span class="nf">_is_available</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entry</span><span class="p">:</span> <span class="n">MapEntry</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;_is_available _summary_</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*_is_available()* permite verificar si una entrada (pareja llave-valor) está disponible en el LinearProbing. Es decir si la llave es nula (None) o vacía (EMPTY).</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            entry (MapEntry): _description_</span>
+<span class="sd">            entry (MapEntry): entrada (pareja llave-valor) que se quiere verificar.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            bool: _description_</span>
+<span class="sd">            bool: operador que indica si la entrada está disponible o no en el LinearProbing.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># TODO add docstring</span>
         <span class="c1"># assume the slot is unavailable</span>
         <span class="n">available</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="c1"># check the entry availability</span>

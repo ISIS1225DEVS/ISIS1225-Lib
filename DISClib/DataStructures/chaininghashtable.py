@@ -194,11 +194,18 @@ class SeparateChaining(Generic[T]):
     Es el factor de carga mínimo de la tabla de hash, por defecto es 2.0.
     """
 
-    # the type of the entries in the hash table
-    # :attr: _data_type
-    _data_type: Optional[type] = None
+    # the type of the entry values in the hash table
+    # :attr: _value_type
+    _value_type: Optional[type] = None
     """
-    Es el tipo de dato de los elementos que contiene la tabla de hash, por defecto es *None* y se configura al cargar el primera entrada en el mapa.
+    Es el tipo de dato de los valores en la entrada que contiene la tabla de hash, por defecto es *None* y se configura al cargar el primera entrada en el mapa.
+    """
+
+    # the type of the entry keys in the hash table
+    # :attr: _key_type
+    _key_type: Optional[type] = None
+    """
+    Es el tipo de dato de las llaves en la entrada que contiene la tabla de hash, por defecto es *None* y se configura al cargar el primera entrada en el mapa.
     """
 
     # the cmp_function is used to compare emtries, not defined by default
@@ -232,13 +239,16 @@ class SeparateChaining(Generic[T]):
             if self.key is None:
                 self.key = DEFAULT_DICT_KEY
 
-            # initializing the hash table
-            self.hash_table = ArrayList()
+            # initializing new hash table
+            self.hash_table = ArrayList(cmp_function=self.cmp_function,
+                                        key=self.key)
             i = 0
             # bulding buckets in the hash table
             while i < self.mcapacity:
+                # bucket is a SingleLinked list
                 bucket = Bucket(cmp_function=self.cmp_function,
                                 key=self.key)
+                # add the bucket to the hash table
                 self.hash_table.add_last(bucket)
                 i += 1
 
@@ -246,7 +256,7 @@ class SeparateChaining(Generic[T]):
             if self._cur_alpha == 0:
                 self._cur_alpha = self._size / self.mcapacity
 
-            # TODO check if this is the best way to initialize the structure
+            # TODO is the best way to create the structure???
             if isinstance(self.iodata, VALID_IO_TYPE):
                 for entry in self.iodata:
                     key = entry.get(self.key)
@@ -283,14 +293,14 @@ class SeparateChaining(Generic[T]):
         cur_function = inspect.currentframe().f_code.co_name
         error_handler(cur_context, cur_function, err)
 
-    def _check_type(self, entry: T) -> bool:
+    def _check_type(self, entry: MapEntry) -> bool:
         """*_check_type()* función privada que verifica que el tipo de dato de la entrada que se quiere agregar al SeparateChaining sea del mismo tipo contenido dentro de los elementos del SeparateChaining.
 
         Raises:
             TypeError: error si el tipo de dato de la entrada que se quiere agregar no es el mismo que el tipo de dato de los elementos que ya contiene el SeparateChaining.
 
         Args:
-            entry (T): entrada que se quiere procesar en SeparateChaining.
+            entry (T): entrada (pareja llave-valor) que se quiere procesar en SeparateChaining.
 
         Returns:
             bool: operador que indica si el ADT SeparateChaining es del mismo tipo que el entrada que se quiere procesar.
@@ -298,16 +308,17 @@ class SeparateChaining(Generic[T]):
         # TODO check usability of this function
         # if datastruct is empty, set the entry type
         if self.is_empty():
-            self._data_type = type(entry)
-        # else if the structure is not empty, check the entry data type
-        elif self._data_type is not type(entry):
-            err_msg = f"Invalid data type: {type(entry)} "
-            err_msg += f"for structure configured with type: {self._data_type}"
+            self._key_type = type(entry.get_key())
+            self._value_type = type(entry.get_value())
+            # self._data_type = type(entry)
+        # check if the new entry is the same type as the other entries
+        elif self._key_type is not type(entry.get_key()):
+            err_msg = f"Invalid key type: {type(entry.get_key())} "
+            err_msg += f"for structure configured with type: {self._key_type}"
             raise TypeError(err_msg)
-        # finally, check if the new entry is a valid datatype
-        elif self._data_type not in VALID_DATA_TYPE_LT:
-            err_msg = f"Invalid data type: {type(self._data_type)}"
-            err_msg += f"for entry info: {type(entry)}"
+        elif self._value_type is not type(entry.get_value()):
+            err_msg = f"Invalid value type: {type(entry.get_value())} "
+            err_msg += f"for structure configured with type: {self._value_type}"
             raise TypeError(err_msg)
         # otherwise, the type is valid
         return True
@@ -379,33 +390,35 @@ class SeparateChaining(Generic[T]):
         try:
             # create a new entry for the entry
             new_entry = MapEntry(key, value)
-            # get the hash key for the entry
-            hkey = hash_compress(key,
-                                 self._scale,
-                                 self._shift,
-                                 self.prime,
-                                 self.mcapacity)
-            # TODO do i need this?
-            if hkey < 0 or hkey >= self.mcapacity:
-                err_msg = f"The hash for the key: {key}"
-                err_msg += f"is out of range fo capacity: {self.mcapacity}"
-                raise Exception(err_msg)
-            # checking the bucket
-            bucket = self.hash_table.get_element(hkey)
-            idx = bucket.find(key)
-            # the entry is not in the bucket, add it and a collision
-            if idx > 0:
-                bucket.change_info(new_entry, idx)
-            # otherwise, update the existing entry
-            else:
-                if not bucket.is_empty():
-                    self._collisions += 1
-                bucket.add_last(new_entry)
-                self._size += 1
-                self._cur_alpha = self._size / self.mcapacity
-            # check if the structure needs to be rehashed
-            if self._cur_alpha >= self.max_alpha:
-                self.rehash()
+            # cheking the type of the entry
+            if self._check_type(new_entry):
+                # get the hash key for the entry
+                hkey = hash_compress(key,
+                                     self._scale,
+                                     self._shift,
+                                     self.prime,
+                                     self.mcapacity)
+                # TODO do i need this?
+                if hkey < 0 or hkey >= self.mcapacity:
+                    err_msg = f"The hash for the key: {key} "
+                    err_msg += f"is out of range fo capacity: {self.mcapacity}"
+                    raise Exception(err_msg)
+                # checking the bucket
+                bucket = self.hash_table.get_element(hkey)
+                idx = bucket.find(key)
+                # the entry is not in the bucket, add it and a collision
+                if idx > 0:
+                    bucket.change_info(new_entry, idx)
+                # otherwise, update the existing entry
+                else:
+                    if not bucket.is_empty():
+                        self._collisions += 1
+                    bucket.add_last(new_entry)
+                    self._size += 1
+                    self._cur_alpha = self._size / self.mcapacity
+                # check if the structure needs to be rehashed
+                if self._cur_alpha >= self.max_alpha:
+                    self.rehash()
         except Exception as err:
             self._handle_error(err)
 
@@ -454,7 +467,7 @@ class SeparateChaining(Generic[T]):
 
         Returns:
             Optional[T]: bucket asociado a la llave key dentro del SeparateChaining, None si no existe la entrada asociada a la llave key.
-        """        
+        """
         try:
             if self.is_empty():
                 raise Exception("The structure is empty")
@@ -514,14 +527,15 @@ class SeparateChaining(Generic[T]):
         except Exception as err:
             self._handle_error(err)
 
-    def keys(self) -> ArrayList[T]:
-        """*keys()* devuelve una lista (ArrayList) con todas las llaves de las entradas (parejas llave-valor) del SeparateChaining.
+    def keys(self) -> SingleLinked[T]:
+        """*keys()* devuelve una lista (SingleLinked) con todas las llaves de las entradas (parejas llave-valor) del SeparateChaining.
 
         Returns:
-            ArrayList[T]: lista (ArrayList) con todas las llaves del SeparateChaining.
+            SingleLinked[T]: lista (ArrSingleLinkedayList) con todas las llaves del SeparateChaining.
         """
         try:
-            keys_lt = ArrayList(key=self.key)
+            keys_lt = SingleLinked(key=self.key)
+            # FIXME improve with SingleLinked concat() method?
             for bucket in self.hash_table:
                 if not bucket.is_empty():
                     for entry in bucket:
@@ -531,14 +545,15 @@ class SeparateChaining(Generic[T]):
         except Exception as err:
             self._handle_error(err)
 
-    def values(self) -> ArrayList[T]:
-        """*values()* devuelve una lista (ArrayList) con todos los valores de las entradas (parejas llave-valor) del SeparateChaining.
+    def values(self) -> SingleLinked[T]:
+        """*values()* devuelve una lista (SingleLinked) con todos los valores de las entradas (parejas llave-valor) del SeparateChaining.
 
         Returns:
-            ArrayList[T]: lista (ArrayList) con todos los valores del SeparateChaining.
+            SingleLinked[T]: lista (SingleLinked) con todos los valores del SeparateChaining.
         """
         try:
-            values_lt = ArrayList(key=self.key)
+            values_lt = SingleLinked(key=self.key)
+            # FIXME improve with SingleLinked concat() method?
             for bucket in self.hash_table:
                 if not bucket.is_empty():
                     for entry in bucket:
@@ -547,14 +562,15 @@ class SeparateChaining(Generic[T]):
         except Exception as err:
             self._handle_error(err)
 
-    def entries(self) -> ArrayList[T]:
-        """*entries()* devuelve una lista (ArrayList) con todas las entradas (parejas llave-valor) del SeparateChaining.
+    def entries(self) -> SingleLinked[T]:
+        """*entries()* devuelve una lista (SingleLinked) con todas las entradas (parejas llave-valor) del SeparateChaining.
 
         Returns:
-            ArrayList[T]: lista (ArrayList) con todas las entradas del SeparateChaining.
+            SingleLinked[T]: lista (SingleLinked) con todas las entradas del SeparateChaining.
         """
         try:
-            items_lt = ArrayList(key=self.key)
+            items_lt = SingleLinked(key=self.key)
+            # FIXME improve with SingleLinked concat() method?
             for bucket in self.hash_table:
                 if not bucket.is_empty():
                     for entry in bucket:
@@ -579,6 +595,7 @@ class SeparateChaining(Generic[T]):
                 if self._cur_alpha >= self.max_alpha:
                     new_capacity = next_prime(self.mcapacity * 2)
                 # reducing the capacity
+                # TODO check if the reduced capacity is a good fit
                 elif self._cur_alpha < self.min_alpha:
                     new_capacity = next_prime(self.mcapacity // 2)
 
@@ -596,9 +613,14 @@ class SeparateChaining(Generic[T]):
                 # keep in memory the old hash table
                 old_table = self.hash_table
 
-                # Create new table with empty buckets
-                new_table = ArrayList([Bucket(cmp_function=self.cmp_function,
-                                              key=self.key) for _ in range(self.mcapacity)])
+                # Create the empty buckets in thenew hash table
+                i = 0
+                while i < self.mcapacity:
+                    # bucket is a SingleLinked list
+                    bucket = Bucket(cmp_function=self.cmp_function,
+                                    key=self.key)
+                    new_table.add_last(bucket)
+                    i += 1
 
                 # replace the old table with the new one
                 self.hash_table = new_table

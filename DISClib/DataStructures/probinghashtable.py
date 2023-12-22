@@ -186,11 +186,18 @@ class LinearProbing(Generic[T]):
     Es el factor de carga mínimo de la tabla de hash, por defecto es 2.0.
     """
 
-    # the type of the entries in the hash table
-    # :attr: _data_type
-    _data_type: Optional[type] = None
+    # the type of the entry values in the hash table
+    # :attr: _value_type
+    _value_type: Optional[type] = None
     """
-    Es el tipo de dato de los elementos que contiene la tabla de hash, por defecto es *None* y se configura al cargar el primer entrada en el mapa.
+    Es el tipo de dato de los valores en la entrada que contiene la tabla de hash, por defecto es *None* y se configura al cargar el primera entrada en el mapa.
+    """
+
+    # the type of the entry keys in the hash table
+    # :attr: _key_type
+    _key_type: Optional[type] = None
+    """
+    Es el tipo de dato de las llaves en la entrada que contiene la tabla de hash, por defecto es *None* y se configura al cargar el primera entrada en el mapa.
     """
 
     # the cmp_function is used to compare emtries, not defined by default
@@ -231,7 +238,7 @@ class LinearProbing(Generic[T]):
             # bulding buckets in the hash table
             while i < self.mcapacity:
                 # adding an empty entry to the hash table
-                entry = MapEntry(None, None)
+                entry = MapEntry()
                 self.hash_table.add_last(entry)
                 i += 1
 
@@ -292,16 +299,17 @@ class LinearProbing(Generic[T]):
         # TODO check usability of this function
         # if datastruct is empty, set the entry type
         if self.is_empty():
-            self._data_type = type(entry)
-        # else if the structure is not empty, check the entry data type
-        elif self._data_type is not type(entry):
-            err_msg = f"Invalid data type: {type(entry)} "
-            err_msg += f"for structure configured with type: {self._data_type}"
+            self._key_type = type(entry.get_key())
+            self._value_type = type(entry.get_value())
+            # self._data_type = type(entry)
+        # check if the new entry is the same type as the other entries
+        elif self._key_type is not type(entry.get_key()):
+            err_msg = f"Invalid key type: {type(entry.get_key())} "
+            err_msg += f"for structure configured with type: {self._key_type}"
             raise TypeError(err_msg)
-        # finally, check if the new entry is a valid datatype
-        elif self._data_type not in VALID_DATA_TYPE_LT:
-            err_msg = f"Invalid data type: {type(self._data_type)}"
-            err_msg += f"for entry info: {type(entry)}"
+        elif self._value_type is not type(entry.get_value()):
+            err_msg = f"Invalid value type: {type(entry.get_value())} "
+            err_msg += f"for structure configured with type: {self._value_type}"
             raise TypeError(err_msg)
         # otherwise, the type is valid
         return True
@@ -372,6 +380,47 @@ class LinearProbing(Generic[T]):
         try:
             # create a new entry for the entry
             new_entry = MapEntry(key, value)
+            if self._check_type(new_entry):
+                # get the hash key for the entry
+                hkey = hash_compress(key,
+                                     self._scale,
+                                     self._shift,
+                                     self.prime,
+                                     self.mcapacity)
+                # TODO do i need this?
+                if hkey < 0 or hkey >= self.mcapacity:
+                    err_msg = f"The hash for the key: {key} "
+                    err_msg += f"is out of range fo capacity: {self.mcapacity}"
+                    raise Exception(err_msg)
+                # check the entry availability in the hash table
+                idx = self._find_slot(hkey, key)
+                self.hash_table.change_info(new_entry, idx)
+                # there is no space available in the hash table
+                if idx == -1:
+                    raise Exception(f"Space not available for key: {key}")
+                # otherwise, the entry is not in the hash table, add it
+                else:
+                    # get the entry of the hash table
+                    entry = self.hash_table.get_element(idx)
+                    # if the entry hasnt been added, add it
+                    if entry is None:
+                        self.hash_table.add_element(new_entry, idx)
+                    # otherwise, update the entry
+                    else:
+                        self.hash_table.change_info(new_entry, idx)
+                    # check if there was a collision
+                    if hkey != idx:
+                        self._collisions += 1
+                    # update the size of the hash table
+                    self._size += 1
+                    self._cur_alpha = self._size / self.mcapacity
+                # check if the structure needs to be rehashed
+                if self._cur_alpha >= self.max_alpha:
+                    self.rehash()
+            
+            
+            
+            
             # get the hash key for the entry
             hkey = hash_compress(key,
                                  self._scale,
@@ -385,6 +434,7 @@ class LinearProbing(Generic[T]):
                 raise Exception(err_msg)
             # check the entry availability in the hash table
             idx = self._find_slot(hkey, key)
+            self.hash_table.change_info(new_entry, idx)
             # there is no space available in the hash table
             if idx == -1:
                 raise Exception(f"Space not available for key: {key}")
@@ -585,58 +635,145 @@ class LinearProbing(Generic[T]):
         # TODO add docstring
         try:
             # assume we don't find the entry
+            print("inputs:", hkey, key)
             idx = -1
             # sets a limit for the number of probes
             max_probing = self.hash_table.size()
             # sets the initial search index
-            i = hkey
+            i = 0
+            # i = 
             # setting the found flag
             found = False
             # setting the number of probes
-            j = 0
+            cp = 0
             # look for the correct entry in the hash table
-            while not found or j < max_probing:
-                # if the entry is empty, return the index
+            print("max_probing:", max_probing)
+
+            while not found and cp < max_probing:
+                if cp == 0:
+                    i = hkey
                 if self._is_available(i):
-                    entry = self.hash_table.get_element(idx)
+                    entry = self.hash_table.get_element(i)
                     if idx == -1:
                         idx = i
-                    if entry.get_key() == key:
                         found = True
-                    # idx = i
-                # otherwise, the entry has data, check if the key is the same
+                    if entry.get_key() is None:
+                        found = True
                 else:
-                    # get the entry in the hash table
                     entry = self.hash_table.get_element(i)
                     if self.cmp_function(key, entry) == 0:
                         idx = i
                         found = True
-                    else:
-                        i = (i + 1) % self.mcapacity
-                # i += 1
-                if i >= self.mcapacity:
-                    i = 0
-                j += 1
+                i = int((i % self.mcapacity) + 1)
+                cp += 1
+            print(f"idx: {idx}, cp: {cp}")
             return idx
         except Exception as err:
             self._handle_error(err)
-            
-    def _probe_slot(self, hkey: int, key: T) -> int:
-        """_probe_slot _summary_
 
-        Args:
-            hkey (int): _description_
-            key (T): _description_
+        def findSlot(map, key, hkey_t, cmpfunction):
+            """
+            Encuentra una posición libre en la tabla de hash.
+            map: la tabla de hash
+            key: la llave
+            hkey_t: La posición inicial de la llave
+            cmpfunction: funcion de comparación para la búsqueda de la llave
+            """
+            try:
+                avail_idx = -1          # no se ha encontrado una posición aun
+                si = 0
+                table = map['table']
+                while (si != hkey_t):  # Se busca una posición
+                    if (si == 0):
+                        si = hkey_t
+                    if isAvailable(table, si):  # La posición esta disponible
+                        entry_elm = lt.getElement(table, si)
+                        if (avail_idx == -1):
+                            avail_idx = si            # primera posición disponible
+                        if entry_elm['key'] is None:       # nunca ha sido utilizada
+                            break
+                    else:                    # la posicion no estaba disponible
+                        entry_elm = lt.getElement(table, si)
+                        if cmpfunction(key, entry_elm) == 0:  # Es la llave
+                            return si               # Se  retorna la posicion
+                    si = (((si) % map['capacity'])+1)
+                return -(avail_idx)    # numero negativo indica que el elemento no estaba
+            except Exception as exp:
+                # FIXME Ajustar mensaje de error para que sea más claro
+                error.reraise(exp, 'Probe:findslot')
 
-        Returns:
-            int: _description_
-        """     
-        # TODO add docstring
+
+    def findSlot2(map, key, hashvalue, cmpfunction):
+        """
+        Encuentra una posición libre en la tabla de hash.
+        map: la tabla de hash
+        key: la llave
+        hashvalue: La posición inicial de la llave
+        cmpfunction: funcion de comparación para la búsqueda de la llave
+        """
         try:
-            pass
-        except Exception as err:
-            self._handle_error(err)
-               
+            avail = -1          # no se ha encontrado una posición aun
+            searchpos = hashvalue
+            table = map['table']
+            found = False       # flag to indicate if a position has been found
+
+            while not found:  # Se busca una posición
+                if isAvailable(table, searchpos):  # La posición esta disponible
+                    element = lt.getElement(table, searchpos)
+                    if (avail == -1):
+                        avail = searchpos            # primera posición disponible
+                    if element['key'] is None:       # nunca ha sido utilizada
+                        found = True
+                else:                    # la posicion no estaba disponible
+                    element = lt.getElement(table, searchpos)
+                    if cmpfunction(key, element) == 0:  # Es la llave
+                        found = True
+                if not found:
+                    searchpos = (((searchpos) % map['capacity'])+1)
+                    if searchpos == hashvalue:
+                        found = True
+
+            # numero negativo indica que el elemento no estaba
+            return searchpos if found else -(avail)
+        except Exception as exp:
+            # FIXME Ajustar mensaje de error para que sea más claro
+            error.reraise(exp, 'Probe:findslot')
+
+    def findSlot3(map, key, hashvalue, cmpfunction):
+        """
+        Encuentra una posición libre en la tabla de hash.
+        map: la tabla de hash
+        key: la llave
+        hashvalue: La posición inicial de la llave
+        cmpfunction: funcion de comparación para la búsqueda de la llave
+        """
+        try:
+            avail = -1          # no se ha encontrado una posición aun
+            searchpos = hashvalue
+            table = map['table']
+            probe_count = 0     # count the number of probes
+
+            # Se busca una posición
+            while (searchpos != hashvalue or probe_count < map['capacity']):
+                if isAvailable(table, searchpos):  # La posición esta disponible
+                    element = lt.getElement(table, searchpos)
+                    if (avail == -1):
+                        avail = searchpos            # primera posición disponible
+                    if element['key'] is None:       # nunca ha sido utilizada
+                        break
+                else:                    # la posicion no estaba disponible
+                    element = lt.getElement(table, searchpos)
+                    if cmpfunction(key, element) == 0:  # Es la llave
+                        avail = searchpos               # Se  guarda la posicion
+                        break
+                searchpos = (((searchpos) % map['capacity'])+1)
+                probe_count += 1  # increment the probe count
+
+            # numero negativo indica que el elemento no estaba
+            return -(avail) if avail == -1 else avail
+        except Exception as exp:
+            # FIXME Ajustar mensaje de error para que sea más claro
+            error.reraise(exp, 'Probe:findslot')
 
     def _is_available(self, idx: int) -> bool:
         """_is_available _summary_
@@ -648,22 +785,14 @@ class LinearProbing(Generic[T]):
             bool: _description_
         """
         # TODO add docstring
+        # assume the slot is unavailable
         available = False
+        # get the entry from the map
         entry = self.hash_table.get_element(idx)
-        if entry.get_key() is None:
+        # check the entry availability
+        if entry.get_key() in (None, EMPTY):
             available = True
-        else:
-            raise Exception(f"Hash table index: {idx} is not available")
-        # # if the bucket is null, return True
-        # if bucket is None:
-        #     available = True
-        # # otherwise the bucket has been used 
-        # elif isinstance(bucket, MapEntry):
-        #     # if the entry is empty, return True
-        #     if bucket.get_key() is None:
-        #         available = True
-        # # if entry.get_key() in (None, EMPTY):
-        #     # return True
+        # return the availability of the slot
         return available
 
     def rehash(self) -> None:
@@ -699,8 +828,8 @@ class LinearProbing(Generic[T]):
                 old_table = self.hash_table
 
                 # Create new table with empty buckets
-                new_table = ArrayList([Bucket(cmp_function=self.cmp_function,
-                                              key=self.key) for _ in range(self.mcapacity)])
+                new_table = ArrayList([MapEntry()
+                                       for _ in range(self.mcapacity)])
 
                 # replace the old table with the new one
                 self.hash_table = new_table

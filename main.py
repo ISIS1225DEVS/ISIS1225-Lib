@@ -173,24 +173,33 @@ if __name__ == "__main__":
     m = Map(dstruct="LinearProbing",   # "LinearProbing", "SeparateChaining"
             nentries=2,
             # max_alpha=4,
-            # rehashable=False)
+            rehashable=False,
             cmp_function=cmp_test2)
     print(m.mcapacity)
     print(m)
 
     test_data = (
-        # {"testkey": 1, "testvalue": "one"},
+        {"testkey": 1, "testvalue": "one"},
         {"testkey": 2, "testvalue": "two"},
         {"testkey": 3, "testvalue": "three"},
         {"testkey": 4, "testvalue": "four"},
         {"testkey": 5, "testvalue": "five"},
     )
     print(type(m))
-    print(type(type(m)))
+    # print(type(type(m)))
     print(m.is_empty())
     print(m.size())
-    print(m.contains(1))
+    print("\nadding data 1")
+    m.put(1, 1)
+    print("\nadding data 2")
+    m.put(2, 2)
+    # print(m)
+    print("\nadding data 11")
+    m.put(11, 11)
     print(m)
+    # print(m.contains(2))
+
+    # print(m)
     # m.put(1, {"testkey": 1, "testvalue": List(iodata=(1, 2, 3, 4, 5))})
     # m.put(2, {"testkey": 2, "testvalue": "one"})
     # m.put(3, {"testkey": 3, "testvalue": "one"})
@@ -202,8 +211,7 @@ if __name__ == "__main__":
     # m.put(9, {"testkey": 9, "testvalue": "one"})
     # m.put(10, {"testkey": 10, "testvalue": "one"})
     # m.put(11, {"testkey": 11, "testvalue": "one"})
-
-    # # print(isinstance(m, (T)))
+    # print(isinstance(m, (T)))
 
     # for a in test_data:
     #     # print(a)
@@ -229,5 +237,4 @@ if __name__ == "__main__":
     # print(m.values())
     # print(m.keys())
     # print(m.entries())
-    
     # print(type(None))

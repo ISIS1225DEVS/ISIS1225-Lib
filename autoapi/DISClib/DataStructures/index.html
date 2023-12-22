@@ -190,27 +190,27 @@
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="DISClib.DataStructures.ArrayList.elements">
-<span class="sig-name descname"><span class="pre">elements</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#DISClib.DataStructures.ArrayList.elements" title="Link to this definition"></a></dt>
-<dd><p>Lista nativa de Python que contiene los elementos de la estructura.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="DISClib.DataStructures.ArrayList._size">
-<span class="sig-name descname"><span class="pre">_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#DISClib.DataStructures.ArrayList._size" title="Link to this definition"></a></dt>
-<dd><p>Es el número de elementos que contiene la estructura, por defecto es 0 y se actualiza con cada operación que modifica la estructura.</p>
-</dd></dl>
-
-<dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.ArrayList.cmp_function">
 <span class="sig-name descname"><span class="pre">cmp_function</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.ArrayList.cmp_function" title="Link to this definition"></a></dt>
 <dd><p>Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es None y el <em>__post_init__()</em> configura la función por defecto <em>lt_default_cmp_funcion()</em>.</p>
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.ArrayList.elements">
+<span class="sig-name descname"><span class="pre">elements</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#DISClib.DataStructures.ArrayList.elements" title="Link to this definition"></a></dt>
+<dd><p>Lista nativa de Python que contiene los elementos de la estructura.</p>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.ArrayList.key">
 <span class="sig-name descname"><span class="pre">key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.ArrayList.key" title="Link to this definition"></a></dt>
 <dd><p>Nombre de la llave opcional que se utiliza para comparar los elementos del ArrayList, Por defecto es “None” y el <em>__post_init__()</em> configura la llave por defecto la llave “id” en <em>DEFAULT_DICT_KEY</em>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.ArrayList._size">
+<span class="sig-name descname"><span class="pre">_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#DISClib.DataStructures.ArrayList._size" title="Link to this definition"></a></dt>
+<dd><p>Es el número de elementos que contiene la estructura, por defecto es 0 y se actualiza con cada operación que modifica la estructura.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -645,6 +645,12 @@
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.SingleLinked.cmp_function">
+<span class="sig-name descname"><span class="pre">cmp_function</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.SingleLinked.cmp_function" title="Link to this definition"></a></dt>
+<dd><p>Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es None y el <em>__post_init__()</em> configura la función por defecto <em>lt_default_cmp_funcion()</em>.</p>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.SingleLinked.first">
 <span class="sig-name descname"><span class="pre">first</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="listnode/index.html#DISClib.DataStructures.listnode.SingleNode" title="DISClib.DataStructures.listnode.SingleNode"><span class="pre">DISClib.DataStructures.listnode.SingleNode</span></a><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.SingleLinked.first" title="Link to this definition"></a></dt>
 <dd><p>Representa el la referencia en memoria al primer nodo del SingleLinked.</p>
@@ -657,21 +663,15 @@
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="DISClib.DataStructures.SingleLinked._size">
-<span class="sig-name descname"><span class="pre">_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#DISClib.DataStructures.SingleLinked._size" title="Link to this definition"></a></dt>
-<dd><p>Es el número de elementos que contiene la estructura, por defecto es 0 y se actualiza con cada operación que modifica la estructura.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="DISClib.DataStructures.SingleLinked.cmp_function">
-<span class="sig-name descname"><span class="pre">cmp_function</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.SingleLinked.cmp_function" title="Link to this definition"></a></dt>
-<dd><p>Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es None y el <em>__post_init__()</em> configura la función por defecto <em>lt_default_cmp_funcion()</em>.</p>
-</dd></dl>
-
-<dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.SingleLinked.key">
 <span class="sig-name descname"><span class="pre">key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.SingleLinked.key" title="Link to this definition"></a></dt>
 <dd><p>Nombre de la llave opcional que se utiliza para comparar los elementos del ArrayList, Por defecto es None y el <em>__post_init__()</em> configura la llave por defecto la llave “id” en <em>DEFAULT_DICT_KEY</em>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.SingleLinked._size">
+<span class="sig-name descname"><span class="pre">_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#DISClib.DataStructures.SingleLinked._size" title="Link to this definition"></a></dt>
+<dd><p>Es el número de elementos que contiene la estructura, por defecto es 0 y se actualiza con cada operación que modifica la estructura.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1109,6 +1109,12 @@
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.DoubleLinked.cmp_function">
+<span class="sig-name descname"><span class="pre">cmp_function</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.DoubleLinked.cmp_function" title="Link to this definition"></a></dt>
+<dd><p>Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es “None” y el <em>__post_init__()</em> configura la función por defecto <em>lt_default_cmp_funcion()</em>.</p>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.DoubleLinked._header">
 <span class="sig-name descname"><span class="pre">_header</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="listnode/index.html#DISClib.DataStructures.listnode.DoubleNode" title="DISClib.DataStructures.listnode.DoubleNode"><span class="pre">DISClib.DataStructures.listnode.DoubleNode</span></a><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.DoubleLinked._header" title="Link to this definition"></a></dt>
 <dd><p>Representa el nodo sentinela de la cabecera de la estructura, por defecto es un DoubleNode vacío.</p>
@@ -1121,21 +1127,15 @@
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="DISClib.DataStructures.DoubleLinked._size">
-<span class="sig-name descname"><span class="pre">_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#DISClib.DataStructures.DoubleLinked._size" title="Link to this definition"></a></dt>
-<dd><p>Es el número de elementos que contiene la estructura, por defecto es 0, por defecto es -1 para ajustar por los nodos sentinelas de la estructura.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="DISClib.DataStructures.DoubleLinked.cmp_function">
-<span class="sig-name descname"><span class="pre">cmp_function</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.DoubleLinked.cmp_function" title="Link to this definition"></a></dt>
-<dd><p>Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es “None” y el <em>__post_init__()</em> configura la función por defecto <em>lt_default_cmp_funcion()</em>.</p>
-</dd></dl>
-
-<dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.DoubleLinked.key">
 <span class="sig-name descname"><span class="pre">key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.DoubleLinked.key" title="Link to this definition"></a></dt>
 <dd><p>Nombre de la llave opcional que se utiliza para comparar los elementos del ArrayList, Por defecto es “None” y el <em>__post_init__()</em> configura la llave por defecto la llave “id” en <em>DEFAULT_DICT_KEY</em>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.DoubleLinked._size">
+<span class="sig-name descname"><span class="pre">_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#DISClib.DataStructures.DoubleLinked._size" title="Link to this definition"></a></dt>
+<dd><p>Es el número de elementos que contiene la estructura, por defecto es 0, por defecto es -1 para ajustar por los nodos sentinelas de la estructura.</p>
 </dd></dl>
 
 <dl class="py method">

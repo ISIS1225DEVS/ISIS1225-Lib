@@ -5,8 +5,8 @@ import os
 import sys
 
 # importing all the test modules to package
-from .list import test_struct_list
-from .list import test_struct_nodes
+from .DataStructures.lists import test_struct_list
+from .DataStructures.lists import test_struct_nodes
 
 # asserting test packages
 assert test_struct_list

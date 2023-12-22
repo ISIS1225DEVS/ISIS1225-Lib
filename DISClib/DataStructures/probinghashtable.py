@@ -21,6 +21,7 @@ import random
 # generic error handling and type checking
 from DISClib.DataStructures.mapentry import MapEntry
 from DISClib.DataStructures.arraylist import ArrayList
+from DISClib.DataStructures.singlelinkedlist import SingleLinked
 # util functions for the hash table
 from DISClib.Utils.numbers import next_prime
 from DISClib.Utils.numbers import hash_compress
@@ -38,6 +39,7 @@ from DISClib.Utils.default import DEFAULT_PRIME
 # checking custom modules
 assert MapEntry
 assert ArrayList
+assert SingleLinked
 assert next_prime
 assert hash_compress
 assert error_handler
@@ -94,11 +96,25 @@ class LinearProbing(Generic[T]):
     Lista nativa de Python que contiene los elementos de entrada a la estructura, por defecto es None y el usuario puede incluir una lista nativa de python como argumento.
     """
 
+    # boolean to indicate if the hash table can be rehashed
+    # :attr: rehashable
+    rehashable: bool = True
+    """
+    Es un booleano que indica si la tabla de hash se puede reconstruir utilizando el método de rehash, por defecto es True.
+    """
+
     # reserved space for the hash table
     # :attr: nentries
     nentries: int = 1
     """
     Es el espacio reservado para la tabla de hash (n), por defecto es 1, pero debe configurarse según el número de entradas que se espera almacenar.
+    """
+
+    # starting capacity (M|m) for the hash table
+    # :attr: mcapacity
+    mcapacity: int = 1
+    """
+    Es la capacidad (M) con la que se inicializa la tabla de hash.
     """
 
     # starting load factor (alpha) for the hash table
@@ -108,11 +124,11 @@ class LinearProbing(Generic[T]):
     Es el factor de carga (alpha) con el que se inicializa la tabla de hash, por defecto es 4.0.
     """
 
-    # prime number (P) for the MAD compression function
-    # :attr: prime
-    prime: Optional[int] = DEFAULT_PRIME
+    # the cmp_function is used to compare emtries, not defined by default
+    # :attr: cmp_function
+    cmp_function: Optional[Callable[[T, T], int]] = None
     """
-    Es el número primo (P) utilizado para calcular el código hash de la llave con la función de compresión MAD, por defecto es 109345121.
+    Función de comparación opcional que se utiliza para comparar los elementos del LinearProbing, por defecto es *None* y el *__post_init__()* configura la función por defecto *ht_default_cmp_funcion()*.
     """
 
     # actual place to store the entries in the hash table
@@ -123,32 +139,18 @@ class LinearProbing(Generic[T]):
     Es el indice de la tabla de hash donde se almacenan los *MapEntry*, implementado con un *ArrayList* de DISCLib. en el *__post_init__()* se inicializa con la capacidad inicial de la tabla de hash.
     """
 
-    # boolean to indicate if the hash table can be rehashed
-    # :attr: rehashable
-    rehashable: bool = True
+    # the key is used to compare entries, not defined by default
+    # :attr: key
+    key: Optional[str] = None
     """
-    Es un booleano que indica si la tabla de hash se puede reconstruir utilizando el método de rehash, por defecto es True.
-    """
-
-    # starting capacity (M|m) for the hash table
-    # :attr: mcapacity
-    mcapacity: int = 1
-    """
-    Es la capacidad (M) con la que se inicializa la tabla de hash.
+    Nombre de la llave opcional que se utiliza para comparar los elementos del LinearProbing, Por defecto es *None* y el *__post_init__()* configura la llave por defecto la llave *id* en *DEFAULT_DICT_KEY*.
     """
 
-    # actual number of used entries (n) in the hash table
-    # FIXME inconsistent use of _size and size()
-    # :attr: _size
-    _size: int = 0
+    # prime number (P) for the MAD compression function
+    # :attr: prime
+    prime: Optional[int] = DEFAULT_PRIME
     """
-    Es el número de elementos (n) dentro de la tabla de hash, por defecto es 0 y se actualiza con cada operación que modifica la estructura.
-    """
-
-    # :attr: collisions
-    _collisions: Optional[int] = 0
-    """
-    Es el número de colisiones en la tabla de hash.
+    Es el número primo (P) utilizado para calcular el código hash de la llave con la función de compresión MAD, por defecto es 109345121.
     """
 
     # TODO create a MAD class to handle the compression function?
@@ -186,6 +188,20 @@ class LinearProbing(Generic[T]):
     Es el factor de carga mínimo de la tabla de hash, por defecto es 2.0.
     """
 
+    # actual number of used entries (n) in the hash table
+    # FIXME inconsistent use of _size and size()
+    # :attr: _size
+    _size: int = 0
+    """
+    Es el número de elementos (n) dentro de la tabla de hash, por defecto es 0 y se actualiza con cada operación que modifica la estructura.
+    """
+
+    # :attr: collisions
+    _collisions: Optional[int] = 0
+    """
+    Es el número de colisiones en la tabla de hash.
+    """
+
     # the type of the entry values in the hash table
     # :attr: _value_type
     _value_type: Optional[type] = None
@@ -198,20 +214,6 @@ class LinearProbing(Generic[T]):
     _key_type: Optional[type] = None
     """
     Es el tipo de dato de las llaves en la entrada que contiene la tabla de hash, por defecto es *None* y se configura al cargar el primera entrada en el mapa.
-    """
-
-    # the cmp_function is used to compare emtries, not defined by default
-    # :attr: cmp_function
-    cmp_function: Optional[Callable[[T, T], int]] = None
-    """
-    Función de comparación opcional que se utiliza para comparar los elementos del LinearProbing, por defecto es *None* y el *__post_init__()* configura la función por defecto *ht_default_cmp_funcion()*.
-    """
-
-    # the key is used to compare entries, not defined by default
-    # :attr: key
-    key: Optional[str] = None
-    """
-    Nombre de la llave opcional que se utiliza para comparar los elementos del LinearProbing, Por defecto es *None* y el *__post_init__()* configura la llave por defecto la llave *id* en *DEFAULT_DICT_KEY*.
     """
 
     def __post_init__(self) -> None:
@@ -571,14 +573,14 @@ class LinearProbing(Generic[T]):
             self._handle_error(err)
 
     def _find_slot(self, hkey: int, key: T) -> int:
-        """_find_slot _summary_
+        """*_find_slot()* encuentra el indice de la entrada (pareja llave-valor) en el LinearProbing, si la entrada no existe, devuelve el indice de la primera entrada disponible.
 
         Args:
-            hkey (int): _description_
-            key (T): _description_
+            hkey (int): indice de la entrada (pareja llave-valor) en el LinearProbing.
+            key (T): llave de la entrada (pareja llave-valor) que se quiere buscar.
 
         Returns:
-            int: _description_
+            int: indice de la entrada (pareja llave-valor) en el LinearProbing, si la entrada no existe, devuelve el indice de la primera entrada disponible. -1 si no existe la entrada y no hay entradas disponibles.
         """
         # TODO add docstring
         try:
@@ -637,15 +639,14 @@ class LinearProbing(Generic[T]):
             self._handle_error(err)
 
     def _is_available(self, entry: MapEntry) -> bool:
-        """_is_available _summary_
+        """*_is_available()* permite verificar si una entrada (pareja llave-valor) está disponible en el LinearProbing. Es decir si la llave es nula (None) o vacía (EMPTY).
 
         Args:
-            entry (MapEntry): _description_
+            entry (MapEntry): entrada (pareja llave-valor) que se quiere verificar.
 
         Returns:
-            bool: _description_
+            bool: operador que indica si la entrada está disponible o no en el LinearProbing.
         """
-        # TODO add docstring
         # assume the slot is unavailable
         available = False
         # check the entry availability

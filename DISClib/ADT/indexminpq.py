@@ -29,7 +29,6 @@
 # from DISClib.DataStructures import indexheap as h
 # from DataStructures.indexheap import indexheap as h
 from DISClib.Utils.error import error_handler
-from DISClib.Utils.error import init_type_checker
 import DISClib.DataStructures.indexheap as h
 
 """

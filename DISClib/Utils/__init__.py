@@ -26,7 +26,6 @@ from .numbers import hash_compress
 # assert import
 # from error module
 assert error_handler
-# assert init_type_checker
 
 # from default module
 assert VALID_DATA_TYPE_LT

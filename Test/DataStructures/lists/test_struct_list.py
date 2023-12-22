@@ -766,8 +766,8 @@ class TestArrayList(unittest.TestCase):
                         # test all 3 conditions are true
                         assert all([res1, res2, res3])
 
-    def test_is_present(self):
-        """*test_is_present()* prueba el método *is_present()* de *ArrayList* con estructuras de datos no vacías y no vacías. Comprueba que el número entero del indice devuelto sea válido, es decir que esté entre -1 y el tamaño de la estructura de datos menos 1. -1 significa que el elemento no está presente en la estructura de datos y los indices van desde 0 a n-1.
+    def test_find(self):
+        """*test_find()* prueba el método *find()* de *ArrayList* con estructuras de datos no vacías y no vacías. Comprueba que el número entero del indice devuelto sea válido, es decir que esté entre -1 y el tamaño de la estructura de datos menos 1. -1 significa que el elemento no está presente en la estructura de datos y los indices van desde 0 a n-1.
         """
         # iterates over global params and create filled ArrayList
         for key in self.global_params.keys():
@@ -1670,8 +1670,8 @@ class TestSingleLinked(unittest.TestCase):
                         # test all 3 conditions are true
                         assert all([res1, res2, res3])
 
-    def test_is_present(self):
-        """*test_is_present()* prueba el método *is_present()* de *SingleLinked* con estructuras de datos no vacías y no vacías. Comprueba que el número entero del indice devuelto sea válido, es decir que esté entre -1 y el tamaño de la estructura de datos menos 1. -1 significa que el elemento no está presente en la estructura de datos y los indices van desde 0 a n-1.
+    def test_find(self):
+        """*test_find()* prueba el método *find()* de *SingleLinked* con estructuras de datos no vacías y no vacías. Comprueba que el número entero del indice devuelto sea válido, es decir que esté entre -1 y el tamaño de la estructura de datos menos 1. -1 significa que el elemento no está presente en la estructura de datos y los indices van desde 0 a n-1.
         """
         # iterates over global params and create filled SingleLinked
         for key in self.global_params.keys():
@@ -2576,8 +2576,8 @@ class TestDoubleLinked(unittest.TestCase):
                         # test all 3 conditions are true
                         assert all([res1, res2, res3])
 
-    def test_is_present(self):
-        """*test_is_present()* prueba el método *is_present()* de *DoubleLinked* con estructuras de datos no vacías y no vacías. Comprueba que el número entero del indice devuelto sea válido, es decir que esté entre -1 y el tamaño de la estructura de datos menos 1. -1 significa que el elemento no está presente en la estructura de datos y los indices van desde 0 a n-1.
+    def test_find(self):
+        """*test_find()* prueba el método *find()* de *DoubleLinked* con estructuras de datos no vacías y no vacías. Comprueba que el número entero del indice devuelto sea válido, es decir que esté entre -1 y el tamaño de la estructura de datos menos 1. -1 significa que el elemento no está presente en la estructura de datos y los indices van desde 0 a n-1.
         """
         # iterates over global params and create filled DoubleLinked
         for key in self.global_params.keys():

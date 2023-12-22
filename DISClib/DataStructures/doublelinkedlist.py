@@ -50,6 +50,13 @@ class DoubleLinked(Generic[T]):
     Lista nativa de Python que contiene los elementos de entrada a la estructura, por defecto es None y el usuario puede incluir una lista nativa de python como argumento.
     """
 
+    # the cmp_function is used to compare elements, not defined by default
+    # :attr: cmp_function
+    cmp_function: Optional[Callable[[T, T], int]] = None
+    """
+    Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es 'None' y el *__post_init__()* configura la función por defecto *lt_default_cmp_funcion()*.
+    """
+
     # reference to the header node of the list, DoubleNode by default
     # :attr: _header
     _header: Optional[DoubleNode[T]] = field(
@@ -65,26 +72,19 @@ class DoubleLinked(Generic[T]):
     Representa el nodo sentinela del final de la estructura, por defecto es un DoubleNode vacío.
     """
 
+    # the key is used to compare elements, not defined by default
+    # :attr: key
+    key: Optional[str] = None
+    """
+    Nombre de la llave opcional que se utiliza para comparar los elementos del ArrayList, Por defecto es 'None' y el *__post_init__()* configura la llave por defecto la llave 'id' en *DEFAULT_DICT_KEY*.
+    """
+
     # by default, the list is empty, -1 for the header and trailer nodes
     # FIXME inconsistent use between _size and size()
     # :attr: _size
     _size: int = -1
     """
     Es el número de elementos que contiene la estructura, por defecto es 0, por defecto es -1 para ajustar por los nodos sentinelas de la estructura.
-    """
-
-    # the cmp_function is used to compare elements, not defined by default
-    # :attr: cmp_function
-    cmp_function: Optional[Callable[[T, T], int]] = None
-    """
-    Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es 'None' y el *__post_init__()* configura la función por defecto *lt_default_cmp_funcion()*.
-    """
-
-    # the key is used to compare elements, not defined by default
-    # :attr: key
-    key: Optional[str] = None
-    """
-    Nombre de la llave opcional que se utiliza para comparar los elementos del ArrayList, Por defecto es 'None' y el *__post_init__()* configura la llave por defecto la llave 'id' en *DEFAULT_DICT_KEY*.
     """
 
     def __post_init__(self) -> None:

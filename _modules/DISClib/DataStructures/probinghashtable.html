@@ -568,19 +568,14 @@
                     <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">err_msg</span><span class="p">)</span>
                 <span class="c1"># check the entry slot availability in the hash table</span>
                 <span class="n">idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find_slot</span><span class="p">(</span><span class="n">hkey</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;idx:&quot;</span><span class="p">,</span> <span class="n">idx</span><span class="p">)</span>
                 <span class="c1"># if the idx is inside the hash table, update hash table stats</span>
-                <span class="k">if</span> <span class="n">idx</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">idx</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">+=</span> <span class="mi">1</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">_cur_alpha</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span>
-                <span class="c1"># if idx &lt; 0:</span>
-                <span class="c1">#     print(&quot;weird&quot;, abs(idx))</span>
-                <span class="c1">#     # print(&quot;idx:&quot;, idx)</span>
                 <span class="c1"># update the hash table collisions stats</span>
                 <span class="k">if</span> <span class="n">hkey</span> <span class="o">!=</span> <span class="n">idx</span><span class="p">:</span>
-                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;collision!!&quot;</span><span class="p">,</span> <span class="n">hkey</span><span class="p">,</span> <span class="n">idx</span><span class="p">)</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">_collisions</span> <span class="o">+=</span> <span class="mi">1</span>
-                <span class="c1"># update the entry in the hash table ArrayList</span>
+                <span class="c1"># update the entry in the hash table</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="o">.</span><span class="n">change_info</span><span class="p">(</span><span class="n">new_entry</span><span class="p">,</span> <span class="n">idx</span><span class="p">)</span>
                 <span class="c1"># check if the structure needs to be rehashed</span>
                 <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cur_alpha</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_alpha</span><span class="p">:</span>
@@ -618,7 +613,7 @@
                 <span class="c1"># checking the entry index in the hash table</span>
                 <span class="n">idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find_slot</span><span class="p">(</span><span class="n">hkey</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
                 <span class="c1"># if the entry is in the hashmap, return it</span>
-                <span class="k">if</span> <span class="n">idx</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">idx</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
                     <span class="n">entry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
                 <span class="k">return</span> <span class="n">entry</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
@@ -688,21 +683,21 @@
                                      <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span><span class="p">)</span>
                 <span class="c1"># finding the entry index in the hash table</span>
                 <span class="n">idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find_slot</span><span class="p">(</span><span class="n">hkey</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
-                <span class="c1"># checking the bucket</span>
-                <span class="n">bucket</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
-                <span class="k">if</span> <span class="n">bucket</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                    <span class="k">if</span> <span class="n">idx</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
-                        <span class="c1"># gettting the entry from the hash table</span>
-                        <span class="n">entry</span> <span class="o">=</span> <span class="n">bucket</span>
-                        <span class="c1"># create a clean entry</span>
-                        <span class="n">clean_entry</span> <span class="o">=</span> <span class="n">MapEntry</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-                        <span class="c1"># update the entry in the hash table</span>
-                        <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="o">.</span><span class="n">change_info</span><span class="p">(</span><span class="n">clean_entry</span><span class="p">,</span> <span class="n">idx</span><span class="p">)</span>
-                        <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">-=</span> <span class="mi">1</span>
-                        <span class="bp">self</span><span class="o">.</span><span class="n">_cur_alpha</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span>
-                    <span class="c1"># TODO maybe i don&#39;t need this</span>
-                    <span class="k">else</span><span class="p">:</span>
-                        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Entry for Key: </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> not found&quot;</span><span class="p">)</span>
+                <span class="c1"># if the entry is not in the hashmap, raise an error</span>
+                <span class="k">if</span> <span class="n">idx</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Entry for Key: </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> not found&quot;</span><span class="p">)</span>
+                <span class="c1"># otherwise, remove the entry with the index</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c1"># gettting the entry from the hash table</span>
+                    <span class="n">entry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+                    <span class="c1"># create a clean entry</span>
+                    <span class="n">clean_entry</span> <span class="o">=</span> <span class="n">MapEntry</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+                    <span class="c1"># replace the entry with the clean entry</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="o">.</span><span class="n">change_info</span><span class="p">(</span><span class="n">clean_entry</span><span class="p">,</span> <span class="n">idx</span><span class="p">)</span>
+                    <span class="c1"># update the hash table stats</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">-=</span> <span class="mi">1</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_cur_alpha</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span>
+            <span class="c1"># if the structure needs to be rehashed, rehash it</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cur_alpha</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">min_alpha</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">rehash</span><span class="p">()</span>
             <span class="k">return</span> <span class="n">entry</span>
@@ -712,19 +707,17 @@
 
 <div class="viewcode-block" id="LinearProbing.keys">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing.keys">[documentos]</a>
-    <span class="k">def</span> <span class="nf">keys</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ArrayList</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*keys()* devuelve una lista (ArrayList) con todas las llaves de las entradas (parejas llave-valor) del LinearProbing.</span>
+    <span class="k">def</span> <span class="nf">keys</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SingleLinked</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*keys()* devuelve una lista (SingleLinked) con todas las llaves de las entradas (parejas llave-valor) del LinearProbing.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            ArrayList[T]: lista (ArrayList) con todas las llaves del LinearProbing.</span>
+<span class="sd">            SingleLinked[T]: lista (SingleLinked) con todas las llaves del LinearProbing.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">keys_lt</span> <span class="o">=</span> <span class="n">ArrayList</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
-            <span class="k">for</span> <span class="n">bucket</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="p">:</span>
-                <span class="k">if</span> <span class="ow">not</span> <span class="n">bucket</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
-                    <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">bucket</span><span class="p">:</span>
-                        <span class="nb">print</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
-                        <span class="n">keys_lt</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">entry</span><span class="o">.</span><span class="n">get_key</span><span class="p">())</span>
+            <span class="n">keys_lt</span> <span class="o">=</span> <span class="n">SingleLinked</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_available</span><span class="p">(</span><span class="n">entry</span><span class="p">):</span>
+                    <span class="n">keys_lt</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">entry</span><span class="o">.</span><span class="n">get_key</span><span class="p">())</span>
             <span class="k">return</span> <span class="n">keys_lt</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
@@ -732,18 +725,17 @@
 
 <div class="viewcode-block" id="LinearProbing.values">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing.values">[documentos]</a>
-    <span class="k">def</span> <span class="nf">values</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ArrayList</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*values()* devuelve una lista (ArrayList) con todos los valores de las entradas (parejas llave-valor) del LinearProbing.</span>
+    <span class="k">def</span> <span class="nf">values</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SingleLinked</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*values()* devuelve una lista (SingleLinked) con todos los valores de las entradas (parejas llave-valor) del LinearProbing.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            ArrayList[T]: lista (ArrayList) con todos los valores del LinearProbing.</span>
+<span class="sd">            SingleLinked[T]: lista (SingleLinked) con todos los valores del LinearProbing.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">values_lt</span> <span class="o">=</span> <span class="n">ArrayList</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
-            <span class="k">for</span> <span class="n">bucket</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="p">:</span>
-                <span class="k">if</span> <span class="ow">not</span> <span class="n">bucket</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
-                    <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">bucket</span><span class="p">:</span>
-                        <span class="n">values_lt</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">entry</span><span class="o">.</span><span class="n">get_value</span><span class="p">())</span>
+            <span class="n">values_lt</span> <span class="o">=</span> <span class="n">SingleLinked</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_available</span><span class="p">(</span><span class="n">entry</span><span class="p">):</span>
+                    <span class="n">values_lt</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">entry</span><span class="o">.</span><span class="n">get_value</span><span class="p">())</span>
             <span class="k">return</span> <span class="n">values_lt</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
@@ -751,20 +743,21 @@
 
 <div class="viewcode-block" id="LinearProbing.entries">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing.entries">[documentos]</a>
-    <span class="k">def</span> <span class="nf">entries</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ArrayList</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*entries()* devuelve una lista (ArrayList) con todas las entradas (parejas llave-valor) del LinearProbing.</span>
+    <span class="k">def</span> <span class="nf">entries</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SingleLinked</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*entries()* devuelve una lista (SingleLinked) con todas las entradas (parejas llave-valor) del LinearProbing.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            ArrayList[T]: lista (ArrayList) con todas las entradas del LinearProbing.</span>
+<span class="sd">            SingleLinked[T]: lista (SingleLinked) con todas las entradas del LinearProbing.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">items_lt</span> <span class="o">=</span> <span class="n">ArrayList</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
-            <span class="k">for</span> <span class="n">bucket</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="p">:</span>
-                <span class="k">if</span> <span class="ow">not</span> <span class="n">bucket</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
-                    <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">bucket</span><span class="p">:</span>
-                        <span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">entry</span><span class="o">.</span><span class="n">get_key</span><span class="p">(),</span> <span class="n">entry</span><span class="o">.</span><span class="n">get_value</span><span class="p">())</span>
-                        <span class="n">items_lt</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-            <span class="k">return</span> <span class="n">items_lt</span>
+            <span class="n">entries_lt</span> <span class="o">=</span> <span class="n">SingleLinked</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_available</span><span class="p">(</span><span class="n">entry</span><span class="p">):</span>
+                    <span class="n">key</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get_key</span><span class="p">()</span>
+                    <span class="n">value</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get_value</span><span class="p">()</span>
+                    <span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+                    <span class="n">entries_lt</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">entries_lt</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
 
@@ -876,6 +869,7 @@
                 <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cur_alpha</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_alpha</span><span class="p">:</span>
                     <span class="n">new_capacity</span> <span class="o">=</span> <span class="n">next_prime</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
                 <span class="c1"># reducing the capacity</span>
+                <span class="c1"># TODO check if the reduced capacity is a good fit</span>
                 <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cur_alpha</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">min_alpha</span><span class="p">:</span>
                     <span class="n">new_capacity</span> <span class="o">=</span> <span class="n">next_prime</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
 

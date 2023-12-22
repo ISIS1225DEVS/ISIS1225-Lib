@@ -295,28 +295,28 @@ Attributes
       :rtype: Optional[T]
 
 
-   .. py:method:: keys() -> DISClib.DataStructures.arraylist.ArrayList[DISClib.Utils.default.T]
+   .. py:method:: keys() -> SingleLinked[DISClib.Utils.default.T]
 
-      *keys()* devuelve una lista (ArrayList) con todas las llaves de las entradas (parejas llave-valor) del LinearProbing.
+      *keys()* devuelve una lista (SingleLinked) con todas las llaves de las entradas (parejas llave-valor) del LinearProbing.
 
-      :returns: lista (ArrayList) con todas las llaves del LinearProbing.
-      :rtype: ArrayList[T]
-
-
-   .. py:method:: values() -> DISClib.DataStructures.arraylist.ArrayList[DISClib.Utils.default.T]
-
-      *values()* devuelve una lista (ArrayList) con todos los valores de las entradas (parejas llave-valor) del LinearProbing.
-
-      :returns: lista (ArrayList) con todos los valores del LinearProbing.
-      :rtype: ArrayList[T]
+      :returns: lista (SingleLinked) con todas las llaves del LinearProbing.
+      :rtype: SingleLinked[T]
 
 
-   .. py:method:: entries() -> DISClib.DataStructures.arraylist.ArrayList[DISClib.Utils.default.T]
+   .. py:method:: values() -> SingleLinked[DISClib.Utils.default.T]
 
-      *entries()* devuelve una lista (ArrayList) con todas las entradas (parejas llave-valor) del LinearProbing.
+      *values()* devuelve una lista (SingleLinked) con todos los valores de las entradas (parejas llave-valor) del LinearProbing.
 
-      :returns: lista (ArrayList) con todas las entradas del LinearProbing.
-      :rtype: ArrayList[T]
+      :returns: lista (SingleLinked) con todos los valores del LinearProbing.
+      :rtype: SingleLinked[T]
+
+
+   .. py:method:: entries() -> SingleLinked[DISClib.Utils.default.T]
+
+      *entries()* devuelve una lista (SingleLinked) con todas las entradas (parejas llave-valor) del LinearProbing.
+
+      :returns: lista (SingleLinked) con todas las entradas del LinearProbing.
+      :rtype: SingleLinked[T]
 
 
    .. py:method:: _find_slot(hkey: int, key: DISClib.Utils.default.T) -> int

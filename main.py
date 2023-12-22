@@ -173,7 +173,7 @@ if __name__ == "__main__":
     m = Map(dstruct="LinearProbing",   # "LinearProbing", "SeparateChaining"
             nentries=2,
             # max_alpha=4,
-            rehashable=False,
+            rehashable=True,
             cmp_function=cmp_test2)
     print(m.mcapacity)
     print(m)
@@ -191,15 +191,21 @@ if __name__ == "__main__":
     print(m.size())
     print("\nadding data 1")
     m.put(1, 1)
+    print(m.hash_table)
     print("\nadding data 2")
     m.put(2, 2)
+    print(m.hash_table)
+
     # print(m)
     print("\nadding data 11")
     m.put(11, 11)
-    print(m)
-    # print(m.contains(2))
+    print(m.hash_table)
+    print("\nchecking data 9")
+    print(m.contains(9))
+    print("\nchecking data 11")
+    print(m.contains(11))
 
-    # print(m)
+    print(m)
     # m.put(1, {"testkey": 1, "testvalue": List(iodata=(1, 2, 3, 4, 5))})
     # m.put(2, {"testkey": 2, "testvalue": "one"})
     # m.put(3, {"testkey": 3, "testvalue": "one"})

@@ -569,14 +569,14 @@ class SeparateChaining(Generic[T]):
             SingleLinked[T]: lista (SingleLinked) con todas las entradas del SeparateChaining.
         """
         try:
-            items_lt = SingleLinked(key=self.key)
+            entries_lt = SingleLinked(key=self.key)
             # FIXME improve with SingleLinked concat() method?
             for bucket in self.hash_table:
                 if not bucket.is_empty():
                     for entry in bucket:
                         data = (entry.get_key(), entry.get_value())
-                        items_lt.add_last(data)
-            return items_lt
+                        entries_lt.add_last(data)
+            return entries_lt
         except Exception as err:
             self._handle_error(err)
 
@@ -631,7 +631,6 @@ class SeparateChaining(Generic[T]):
                         for entry in bucket:
                             key = entry.get_key()
                             value = entry.get_value()
-                            # print(key, value)
                             self.put(key, value)
         except Exception as err:
             self._handle_error(err)

@@ -395,19 +395,14 @@ class LinearProbing(Generic[T]):
                     raise Exception(err_msg)
                 # check the entry slot availability in the hash table
                 idx = self._find_slot(hkey, key)
-                print("idx:", idx)
                 # if the idx is inside the hash table, update hash table stats
-                if idx >= 0:
+                if idx > -1:
                     self._size += 1
                     self._cur_alpha = self._size / self.mcapacity
-                # if idx < 0:
-                #     print("weird", abs(idx))
-                #     # print("idx:", idx)
                 # update the hash table collisions stats
                 if hkey != idx:
-                    print("collision!!", hkey, idx)
                     self._collisions += 1
-                # update the entry in the hash table ArrayList
+                # update the entry in the hash table
                 self.hash_table.change_info(new_entry, idx)
                 # check if the structure needs to be rehashed
                 if self._cur_alpha >= self.max_alpha:
@@ -442,7 +437,7 @@ class LinearProbing(Generic[T]):
                 # checking the entry index in the hash table
                 idx = self._find_slot(hkey, key)
                 # if the entry is in the hashmap, return it
-                if idx >= 0:
+                if idx > -1:
                     entry = self.hash_table.get_element(idx)
                 return entry
         except Exception as err:
@@ -506,74 +501,72 @@ class LinearProbing(Generic[T]):
                                      self.mcapacity)
                 # finding the entry index in the hash table
                 idx = self._find_slot(hkey, key)
-                # checking the bucket
-                bucket = self.hash_table.get_element(idx)
-                if bucket is not None:
-                    if idx >= 0:
-                        # gettting the entry from the hash table
-                        entry = bucket
-                        # create a clean entry
-                        clean_entry = MapEntry(None, None)
-                        # update the entry in the hash table
-                        self.hash_table.change_info(clean_entry, idx)
-                        self._size -= 1
-                        self._cur_alpha = self._size / self.mcapacity
-                    # TODO maybe i don't need this
-                    else:
-                        raise Exception(f"Entry for Key: {key} not found")
+                # if the entry is not in the hashmap, raise an error
+                if idx == -1:
+                    raise Exception(f"Entry for Key: {key} not found")
+                # otherwise, remove the entry with the index
+                else:
+                    # gettting the entry from the hash table
+                    entry = self.hash_table.get_element(idx)
+                    # create a clean entry
+                    clean_entry = MapEntry(None, None)
+                    # replace the entry with the clean entry
+                    self.hash_table.change_info(clean_entry, idx)
+                    # update the hash table stats
+                    self._size -= 1
+                    self._cur_alpha = self._size / self.mcapacity
+            # if the structure needs to be rehashed, rehash it
             if self._cur_alpha < self.min_alpha:
                 self.rehash()
             return entry
         except Exception as err:
             self._handle_error(err)
 
-    def keys(self) -> ArrayList[T]:
-        """*keys()* devuelve una lista (ArrayList) con todas las llaves de las entradas (parejas llave-valor) del LinearProbing.
+    def keys(self) -> SingleLinked[T]:
+        """*keys()* devuelve una lista (SingleLinked) con todas las llaves de las entradas (parejas llave-valor) del LinearProbing.
 
         Returns:
-            ArrayList[T]: lista (ArrayList) con todas las llaves del LinearProbing.
+            SingleLinked[T]: lista (SingleLinked) con todas las llaves del LinearProbing.
         """
         try:
-            keys_lt = ArrayList(key=self.key)
-            for bucket in self.hash_table:
-                if not bucket.is_empty():
-                    for entry in bucket:
-                        print(entry)
-                        keys_lt.add_last(entry.get_key())
+            keys_lt = SingleLinked(key=self.key)
+            for entry in self.hash_table:
+                if not self._is_available(entry):
+                    keys_lt.add_last(entry.get_key())
             return keys_lt
         except Exception as err:
             self._handle_error(err)
 
-    def values(self) -> ArrayList[T]:
-        """*values()* devuelve una lista (ArrayList) con todos los valores de las entradas (parejas llave-valor) del LinearProbing.
+    def values(self) -> SingleLinked[T]:
+        """*values()* devuelve una lista (SingleLinked) con todos los valores de las entradas (parejas llave-valor) del LinearProbing.
 
         Returns:
-            ArrayList[T]: lista (ArrayList) con todos los valores del LinearProbing.
+            SingleLinked[T]: lista (SingleLinked) con todos los valores del LinearProbing.
         """
         try:
-            values_lt = ArrayList(key=self.key)
-            for bucket in self.hash_table:
-                if not bucket.is_empty():
-                    for entry in bucket:
-                        values_lt.add_last(entry.get_value())
+            values_lt = SingleLinked(key=self.key)
+            for entry in self.hash_table:
+                if not self._is_available(entry):
+                    values_lt.add_last(entry.get_value())
             return values_lt
         except Exception as err:
             self._handle_error(err)
 
-    def entries(self) -> ArrayList[T]:
-        """*entries()* devuelve una lista (ArrayList) con todas las entradas (parejas llave-valor) del LinearProbing.
+    def entries(self) -> SingleLinked[T]:
+        """*entries()* devuelve una lista (SingleLinked) con todas las entradas (parejas llave-valor) del LinearProbing.
 
         Returns:
-            ArrayList[T]: lista (ArrayList) con todas las entradas del LinearProbing.
+            SingleLinked[T]: lista (SingleLinked) con todas las entradas del LinearProbing.
         """
         try:
-            items_lt = ArrayList(key=self.key)
-            for bucket in self.hash_table:
-                if not bucket.is_empty():
-                    for entry in bucket:
-                        data = (entry.get_key(), entry.get_value())
-                        items_lt.add_last(data)
-            return items_lt
+            entries_lt = SingleLinked(key=self.key)
+            for entry in self.hash_table:
+                if not self._is_available(entry):
+                    key = entry.get_key()
+                    value = entry.get_value()
+                    data = (key, value)
+                    entries_lt.add_last(data)
+            return entries_lt
         except Exception as err:
             self._handle_error(err)
 
@@ -676,6 +669,7 @@ class LinearProbing(Generic[T]):
                 if self._cur_alpha >= self.max_alpha:
                     new_capacity = next_prime(self.mcapacity * 2)
                 # reducing the capacity
+                # TODO check if the reduced capacity is a good fit
                 elif self._cur_alpha < self.min_alpha:
                     new_capacity = next_prime(self.mcapacity // 2)
 

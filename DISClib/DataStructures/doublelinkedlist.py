@@ -274,8 +274,8 @@ class DoubleLinked(Generic[T]):
                         i += 1
                     # create a new node
                     new_node = DoubleNode(element,
-                                          prev=current,
-                                          next=current.next())
+                                          _prev=current,
+                                          _next=current.next())
                     current._next._prev = new_node
                     current._next = new_node
                     if self._size < 0:
@@ -444,7 +444,13 @@ class DoubleLinked(Generic[T]):
             if pos < 0 or pos > self._size - 1:
                 raise IndexError(f"Index {pos} is out of range")
             # Determine where to start based on the position
-            if pos < self._size // 2:
+            # if there is only one element, link the sentinel nodes
+            if self._size == 1:
+                info = self._header.next().get_info()
+                self._header._next = self._trailer
+                self._trailer._prev = self._header
+                # self._size = -1
+            elif pos < self._size // 2:
                 # Start from the beginning
                 i = 0
                 current = self._header.next()
@@ -458,17 +464,12 @@ class DoubleLinked(Generic[T]):
                 while i != pos:
                     current = current.prev()
                     i -= 1
-                # removing node by index
-                current.prev()._next = current.next()
-                current.next()._prev = current.prev()
-                self._size -= 1
+            # removing node by index
+            current.prev()._next = current.next()
+            current.next()._prev = current.prev()
+            info = current.get_info()
+            self._size -= 1
 
-                # if the list is empty, link the sentinel nodes
-                if self._size == 0:
-                    self._header.next = self._trailer
-                    self._trailer.prev = self._header
-                    self._size = -1
-                info = current.get_info()
             return info
         except Exception as err:
             self._handle_error(err)
@@ -508,7 +509,6 @@ class DoubleLinked(Generic[T]):
         Returns:
             int: la posición del elemento en el DoubleLinked, -1 si no está.
         """
-        # TODO change the method name to "find()"?
         try:
             lt_size = self.size()
             pos = -1
@@ -523,12 +523,10 @@ class DoubleLinked(Generic[T]):
                         found = True
                         pos = i
                     i += 1
-                    # setting the loop end by the trailer
-                    # if all(node.next(), node.next().get_info()):, alt!!!
                     if node.next() is not None:
-                        if node.next().get_info() is not None:
+                        if node.next() != self._trailer:
                             node = node.next()
-                        node = node.next()
+                        # node = node.next()
             return pos
         except Exception as err:
             self._handle_error(err)

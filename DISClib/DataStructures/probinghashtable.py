@@ -361,7 +361,8 @@ class LinearProbing(Generic[T]):
             # look for the entry in the hash table
             idx = self._find_slot(hkey, key)
             # if the index of the entry is inside the hash table
-            if idx > -1:
+            entry = self.hash_table.get_element(idx)
+            if entry.get_key() == key:
                 found = True
             return found
         except Exception as err:
@@ -392,71 +393,25 @@ class LinearProbing(Generic[T]):
                     err_msg = f"The hash for the key: {key} "
                     err_msg += f"is out of range fo capacity: {self.mcapacity}"
                     raise Exception(err_msg)
-                # check the entry availability in the hash table
+                # check the entry slot availability in the hash table
                 idx = self._find_slot(hkey, key)
-                self.hash_table.change_info(new_entry, idx)
-                # there is no space available in the hash table
-                if idx == -1:
-                    raise Exception(f"Space not available for key: {key}")
-                # otherwise, the entry is not in the hash table, add it
-                else:
-                    # get the entry of the hash table
-                    entry = self.hash_table.get_element(idx)
-                    # if the entry hasnt been added, add it
-                    if entry is None:
-                        self.hash_table.add_element(new_entry, idx)
-                    # otherwise, update the entry
-                    else:
-                        self.hash_table.change_info(new_entry, idx)
-                    # check if there was a collision
-                    if hkey != idx:
-                        self._collisions += 1
-                    # update the size of the hash table
+                print("idx:", idx)
+                # if the idx is inside the hash table, update hash table stats
+                if idx >= 0:
                     self._size += 1
                     self._cur_alpha = self._size / self.mcapacity
+                # if idx < 0:
+                #     print("weird", abs(idx))
+                #     # print("idx:", idx)
+                # update the hash table collisions stats
+                if hkey != idx:
+                    print("collision!!", hkey, idx)
+                    self._collisions += 1
+                # update the entry in the hash table ArrayList
+                self.hash_table.change_info(new_entry, idx)
                 # check if the structure needs to be rehashed
                 if self._cur_alpha >= self.max_alpha:
                     self.rehash()
-            
-            
-            
-            
-            # get the hash key for the entry
-            hkey = hash_compress(key,
-                                 self._scale,
-                                 self._shift,
-                                 self.prime,
-                                 self.mcapacity)
-            # TODO do i need this?
-            if hkey < 0 or hkey >= self.mcapacity:
-                err_msg = f"The hash for the key: {key}"
-                err_msg += f"is out of range fo capacity: {self.mcapacity}"
-                raise Exception(err_msg)
-            # check the entry availability in the hash table
-            idx = self._find_slot(hkey, key)
-            self.hash_table.change_info(new_entry, idx)
-            # there is no space available in the hash table
-            if idx == -1:
-                raise Exception(f"Space not available for key: {key}")
-            # otherwise, the entry is not in the hash table, add it
-            else:
-                # get the entry of the hash table
-                entry = self.hash_table.get_element(idx)
-                # if the entry hasnt been added, add it
-                if entry is None:
-                    self.hash_table.add_element(new_entry, idx)
-                # otherwise, update the entry
-                else:
-                    self.hash_table.change_info(new_entry, idx)
-                # check if there was a collision
-                if hkey != idx:
-                    self._collisions += 1
-                # update the size of the hash table
-                self._size += 1
-                self._cur_alpha = self._size / self.mcapacity
-            # check if the structure needs to be rehashed
-            if self._cur_alpha >= self.max_alpha:
-                self.rehash()
         except Exception as err:
             self._handle_error(err)
 
@@ -634,152 +589,65 @@ class LinearProbing(Generic[T]):
         """
         # TODO add docstring
         try:
-            # assume we don't find the entry
-            print("inputs:", hkey, key)
-            idx = -1
-            # sets a limit for the number of probes
-            max_probing = self.hash_table.size()
-            # sets the initial search index
-            i = 0
-            # i = 
-            # setting the found flag
-            found = False
-            # setting the number of probes
-            cp = 0
-            # look for the correct entry in the hash table
-            print("max_probing:", max_probing)
+            # define the max number of probes to avoid infinite loops
+            max_probes = self.mcapacity
 
-            while not found and cp < max_probing:
-                if cp == 0:
-                    i = hkey
-                if self._is_available(i):
-                    entry = self.hash_table.get_element(i)
+            # assume we don't find the entry or an available slot
+            # found flag to existing entry
+            found = False
+            # available flag to empty entry
+            available = False
+
+            # start the probe counter
+            pc = 0
+            # existing entry index
+            j = -1
+            # available entry index
+            idx = -1
+
+            # start in the hash key position
+            i = hkey
+
+            # loop entries while it's not found or available
+            while not (found or available) and pc < max_probes:
+                # get the entry from the hash table
+                entry = self.hash_table.get_element(i)
+                # check if the entry is available
+                if self._is_available(entry):
+                    # update the available entry index
                     if idx == -1:
                         idx = i
-                        found = True
+                    # update the available flag
                     if entry.get_key() is None:
-                        found = True
+                        available = True
+                # otherwise, check if the entry is the same
                 else:
-                    entry = self.hash_table.get_element(i)
+                    # compare the new kew with existing entry
                     if self.cmp_function(key, entry) == 0:
-                        idx = i
+                        # update the existing entry index and found flag
+                        j = i
                         found = True
-                i = int((i % self.mcapacity) + 1)
-                cp += 1
-            print(f"idx: {idx}, cp: {cp}")
-            return idx
+                # update the probe counter and the entry index
+                i = int(i % self.mcapacity) + 1
+                # if the entry index is out of range, reset it
+                if i >= self.mcapacity:
+                    i = 0
+                pc += 1
+
+            # if i found the entry, return the existing entry index
+            if found:
+                return j
+            # otherwise, return the available index for the new entry
+            else:
+                return idx
         except Exception as err:
             self._handle_error(err)
 
-        def findSlot(map, key, hkey_t, cmpfunction):
-            """
-            Encuentra una posición libre en la tabla de hash.
-            map: la tabla de hash
-            key: la llave
-            hkey_t: La posición inicial de la llave
-            cmpfunction: funcion de comparación para la búsqueda de la llave
-            """
-            try:
-                avail_idx = -1          # no se ha encontrado una posición aun
-                si = 0
-                table = map['table']
-                while (si != hkey_t):  # Se busca una posición
-                    if (si == 0):
-                        si = hkey_t
-                    if isAvailable(table, si):  # La posición esta disponible
-                        entry_elm = lt.getElement(table, si)
-                        if (avail_idx == -1):
-                            avail_idx = si            # primera posición disponible
-                        if entry_elm['key'] is None:       # nunca ha sido utilizada
-                            break
-                    else:                    # la posicion no estaba disponible
-                        entry_elm = lt.getElement(table, si)
-                        if cmpfunction(key, entry_elm) == 0:  # Es la llave
-                            return si               # Se  retorna la posicion
-                    si = (((si) % map['capacity'])+1)
-                return -(avail_idx)    # numero negativo indica que el elemento no estaba
-            except Exception as exp:
-                # FIXME Ajustar mensaje de error para que sea más claro
-                error.reraise(exp, 'Probe:findslot')
-
-
-    def findSlot2(map, key, hashvalue, cmpfunction):
-        """
-        Encuentra una posición libre en la tabla de hash.
-        map: la tabla de hash
-        key: la llave
-        hashvalue: La posición inicial de la llave
-        cmpfunction: funcion de comparación para la búsqueda de la llave
-        """
-        try:
-            avail = -1          # no se ha encontrado una posición aun
-            searchpos = hashvalue
-            table = map['table']
-            found = False       # flag to indicate if a position has been found
-
-            while not found:  # Se busca una posición
-                if isAvailable(table, searchpos):  # La posición esta disponible
-                    element = lt.getElement(table, searchpos)
-                    if (avail == -1):
-                        avail = searchpos            # primera posición disponible
-                    if element['key'] is None:       # nunca ha sido utilizada
-                        found = True
-                else:                    # la posicion no estaba disponible
-                    element = lt.getElement(table, searchpos)
-                    if cmpfunction(key, element) == 0:  # Es la llave
-                        found = True
-                if not found:
-                    searchpos = (((searchpos) % map['capacity'])+1)
-                    if searchpos == hashvalue:
-                        found = True
-
-            # numero negativo indica que el elemento no estaba
-            return searchpos if found else -(avail)
-        except Exception as exp:
-            # FIXME Ajustar mensaje de error para que sea más claro
-            error.reraise(exp, 'Probe:findslot')
-
-    def findSlot3(map, key, hashvalue, cmpfunction):
-        """
-        Encuentra una posición libre en la tabla de hash.
-        map: la tabla de hash
-        key: la llave
-        hashvalue: La posición inicial de la llave
-        cmpfunction: funcion de comparación para la búsqueda de la llave
-        """
-        try:
-            avail = -1          # no se ha encontrado una posición aun
-            searchpos = hashvalue
-            table = map['table']
-            probe_count = 0     # count the number of probes
-
-            # Se busca una posición
-            while (searchpos != hashvalue or probe_count < map['capacity']):
-                if isAvailable(table, searchpos):  # La posición esta disponible
-                    element = lt.getElement(table, searchpos)
-                    if (avail == -1):
-                        avail = searchpos            # primera posición disponible
-                    if element['key'] is None:       # nunca ha sido utilizada
-                        break
-                else:                    # la posicion no estaba disponible
-                    element = lt.getElement(table, searchpos)
-                    if cmpfunction(key, element) == 0:  # Es la llave
-                        avail = searchpos               # Se  guarda la posicion
-                        break
-                searchpos = (((searchpos) % map['capacity'])+1)
-                probe_count += 1  # increment the probe count
-
-            # numero negativo indica que el elemento no estaba
-            return -(avail) if avail == -1 else avail
-        except Exception as exp:
-            # FIXME Ajustar mensaje de error para que sea más claro
-            error.reraise(exp, 'Probe:findslot')
-
-    def _is_available(self, idx: int) -> bool:
+    def _is_available(self, entry: MapEntry) -> bool:
         """_is_available _summary_
 
         Args:
-            idx (int): _description_
+            entry (MapEntry): _description_
 
         Returns:
             bool: _description_
@@ -787,12 +655,10 @@ class LinearProbing(Generic[T]):
         # TODO add docstring
         # assume the slot is unavailable
         available = False
-        # get the entry from the map
-        entry = self.hash_table.get_element(idx)
         # check the entry availability
-        if entry.get_key() in (None, EMPTY):
+        if entry.get_key() is None or entry.get_key() == EMPTY:
             available = True
-        # return the availability of the slot
+        # return the slot availability
         return available
 
     def rehash(self) -> None:
@@ -827,20 +693,21 @@ class LinearProbing(Generic[T]):
                 # keep in memory the old hash table
                 old_table = self.hash_table
 
-                # Create new table with empty buckets
-                new_table = ArrayList([MapEntry()
-                                       for _ in range(self.mcapacity)])
+                # initializing the new hash table with empty entries
+                i = 0
+                while i < self.mcapacity:
+                    # adding an empty entry to the hash table
+                    entry = MapEntry()
+                    new_table.add_last(entry)
+                    i += 1
 
                 # replace the old table with the new one
                 self.hash_table = new_table
 
                 # iterate over the old table
-                for bucket in old_table:
-                    if not bucket.is_empty():
-                        for entry in bucket:
-                            key = entry.get_key()
-                            value = entry.get_value()
-                            # print(key, value)
-                            self.put(key, value)
+                for entry in old_table:
+                    key = entry.get_key()
+                    value = entry.get_value()
+                    self.put(key, value)
         except Exception as err:
             self._handle_error(err)

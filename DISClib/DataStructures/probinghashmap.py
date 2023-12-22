@@ -307,7 +307,7 @@ def findSlot(map, key, hashvalue, cmpfunction):
                 element = lt.getElement(table, searchpos)
                 if cmpfunction(key, element) == 0:  # Es la llave
                     return searchpos               # Se  retorna la posicion
-            searchpos = (((searchpos) % map['capacity'])+1)
+            searchpos = (((searchpos) % map['capacity']) + 1)
         return -(avail)    # numero negativo indica que el elemento no estaba
     except Exception as exp:
         # FIXME Ajustar mensaje de error para que sea más claro

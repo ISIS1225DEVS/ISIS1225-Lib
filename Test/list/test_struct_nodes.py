@@ -1,86 +1,29 @@
 ﻿# importing testing framework
 import unittest
 import pytest
-# importing the file(s) to test
+# importing the modules to test
 from DISClib.DataStructures.node import Node
 from DISClib.DataStructures.listnode import SingleNode
 from DISClib.DataStructures.listnode import DoubleNode
+
+# importing the data to test
+from Test.Data.test_data import get_node_test_data
+
 # asserting module imports
 assert Node
 assert SingleNode
 assert DoubleNode
 
 
-@pytest.fixture(scope="module")
-def global_params():
-    """global_params the function returns a dictionary with the global
-        parameters for testing.
-
-    Returns:
-        dict: dictionary with the global parameters for testing.
-    """
-    parameters = dict(
-        # global variables for testing
-        TEST_STR="Hello Node!",
-        TEST_INT=42,
-        TEST_FLOAT=42.0,
-        TEST_BOOL=True,
-        TEST_DICT={
-            "key1": "Hello Node!",
-            "key2": 42,
-            "key3": 42.0,
-            "key4": [
-                "value1",
-                "value2",
-                "value3",
-                ],
-            "key5": {
-                "key1": "value1",
-                "key2": "value2",
-                "key3": "value3",
-                },
-            "key6": None,
-            "key7": True,
-            },
-        TEST_LT=[
-            "value1",
-            "value2",
-            "value3",
-            42,
-            42.7,
-            "Hello Node!",
-            None,
-            True,
-            ],
-        CHECK_ERR_LT=[
-            int(1234),
-            list(),
-            dict(id=1, name="John Doe"),
-            float(42.87),
-            bool(False),
-            str("Hello Node!"),
-        ],
-        CHECK_TYPE_LT=[
-            str,
-            int,
-            float,
-            bool,
-            dict,
-            list
-        ]
-    )
-    return parameters
-
-
 class TestNode(unittest.TestCase):
     @pytest.fixture(autouse=True)
-    def inject_fixtures(self, global_params):
+    def inject_fixtures(self):
         """inject_fixtures it injects the global parameters as a fixture.
 
         Args:
             global_params (dict): global parameters for testing.
         """
-        self.global_params = global_params
+        self.global_params = get_node_test_data()
 
     def test_new_default_node(self):
         """test_new_default_node test the creation of an empty list node.
@@ -213,14 +156,13 @@ class TestSingleNode(unittest.TestCase):
     """
 
     @pytest.fixture(autouse=True)
-    def inject_fixtures(self, global_params):
+    def inject_fixtures(self):
         """inject_fixtures it injects the global parameters as a fixture.
 
         Args:
             global_params (dict): global parameters for testing.
         """
-        self.global_params = global_params
-
+        self.global_params = get_node_test_data()
     def test_new_default_single_node(self):
         """test_new_default_node test the creation of an empty single linked
             list node.
@@ -286,14 +228,13 @@ class TestDoubleNode(unittest.TestCase):
     """
 
     @pytest.fixture(autouse=True)
-    def inject_fixtures(self, global_params):
+    def inject_fixtures(self):
         """inject_fixtures it injects the global parameters as a fixture.
 
         Args:
             global_params (dict): global parameters for testing.
         """
-        self.global_params = global_params
-
+        self.global_params = get_node_test_data()
     def test_new_default_double_node(self):
         """test_new_default_node test the creation of an empty double linked.
         """

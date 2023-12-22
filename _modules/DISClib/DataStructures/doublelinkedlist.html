@@ -402,8 +402,8 @@
                         <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
                     <span class="c1"># create a new node</span>
                     <span class="n">new_node</span> <span class="o">=</span> <span class="n">DoubleNode</span><span class="p">(</span><span class="n">element</span><span class="p">,</span>
-                                          <span class="n">prev</span><span class="o">=</span><span class="n">current</span><span class="p">,</span>
-                                          <span class="nb">next</span><span class="o">=</span><span class="n">current</span><span class="o">.</span><span class="n">next</span><span class="p">())</span>
+                                          <span class="n">_prev</span><span class="o">=</span><span class="n">current</span><span class="p">,</span>
+                                          <span class="n">_next</span><span class="o">=</span><span class="n">current</span><span class="o">.</span><span class="n">next</span><span class="p">())</span>
                     <span class="n">current</span><span class="o">.</span><span class="n">_next</span><span class="o">.</span><span class="n">_prev</span> <span class="o">=</span> <span class="n">new_node</span>
                     <span class="n">current</span><span class="o">.</span><span class="n">_next</span> <span class="o">=</span> <span class="n">new_node</span>
                     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
@@ -590,7 +590,13 @@
             <span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">pos</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Index </span><span class="si">{</span><span class="n">pos</span><span class="si">}</span><span class="s2"> is out of range&quot;</span><span class="p">)</span>
             <span class="c1"># Determine where to start based on the position</span>
-            <span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">//</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="c1"># if there is only one element, link the sentinel nodes</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="o">.</span><span class="n">next</span><span class="p">()</span><span class="o">.</span><span class="n">get_info</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="o">.</span><span class="n">_next</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_trailer</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_trailer</span><span class="o">.</span><span class="n">_prev</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span>
+                <span class="c1"># self._size = -1</span>
+            <span class="k">elif</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">//</span> <span class="mi">2</span><span class="p">:</span>
                 <span class="c1"># Start from the beginning</span>
                 <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
                 <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
@@ -604,17 +610,12 @@
                 <span class="k">while</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">pos</span><span class="p">:</span>
                     <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">prev</span><span class="p">()</span>
                     <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span>
-                <span class="c1"># removing node by index</span>
-                <span class="n">current</span><span class="o">.</span><span class="n">prev</span><span class="p">()</span><span class="o">.</span><span class="n">_next</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
-                <span class="n">current</span><span class="o">.</span><span class="n">next</span><span class="p">()</span><span class="o">.</span><span class="n">_prev</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">prev</span><span class="p">()</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">-=</span> <span class="mi">1</span>
+            <span class="c1"># removing node by index</span>
+            <span class="n">current</span><span class="o">.</span><span class="n">prev</span><span class="p">()</span><span class="o">.</span><span class="n">_next</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+            <span class="n">current</span><span class="o">.</span><span class="n">next</span><span class="p">()</span><span class="o">.</span><span class="n">_prev</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">prev</span><span class="p">()</span>
+            <span class="n">info</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">get_info</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">-=</span> <span class="mi">1</span>
 
-                <span class="c1"># if the list is empty, link the sentinel nodes</span>
-                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_trailer</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">_trailer</span><span class="o">.</span><span class="n">prev</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-                <span class="n">info</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">get_info</span><span class="p">()</span>
             <span class="k">return</span> <span class="n">info</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
@@ -660,7 +661,6 @@
 <span class="sd">        Returns:</span>
 <span class="sd">            int: la posición del elemento en el DoubleLinked, -1 si no está.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># TODO change the method name to &quot;find()&quot;?</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">lt_size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
             <span class="n">pos</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
@@ -675,12 +675,10 @@
                         <span class="n">found</span> <span class="o">=</span> <span class="kc">True</span>
                         <span class="n">pos</span> <span class="o">=</span> <span class="n">i</span>
                     <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-                    <span class="c1"># setting the loop end by the trailer</span>
-                    <span class="c1"># if all(node.next(), node.next().get_info()):, alt!!!</span>
                     <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">next</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                        <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">next</span><span class="p">()</span><span class="o">.</span><span class="n">get_info</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">next</span><span class="p">()</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_trailer</span><span class="p">:</span>
                             <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
-                        <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+                        <span class="c1"># node = node.next()</span>
             <span class="k">return</span> <span class="n">pos</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>

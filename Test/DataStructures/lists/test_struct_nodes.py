@@ -16,17 +16,20 @@ assert DoubleNode
 
 
 class TestNode(unittest.TestCase):
+    """*TestNode* es la clase *unittest* que prueba la clase *Node*.
+
+    Args:
+        unittest (TestCase): clase *unittest.TestCase* para pruebas unitarias.
+    """
+
     @pytest.fixture(autouse=True)
     def inject_fixtures(self):
-        """inject_fixtures it injects the global parameters as a fixture.
-
-        Args:
-            global_params (dict): global parameters for testing.
+        """*inject_fixtures()* inyecta los parámetros globales de prueba para *Node* como un *fixture*.
         """
         self.global_params = get_node_test_data()
 
     def test_new_default_node(self):
-        """test_new_default_node test the creation of an empty list node.
+        """*test_new_default_node* prueba la creación de un nodo vacío de una lista enlazada.
         """
         # create an empty single linked list node
         node = Node()
@@ -34,8 +37,7 @@ class TestNode(unittest.TestCase):
         assert node.info is None
 
     def test_new_custom_node(self):
-        """test_new_custom_node test the creation of a list node with
-            custom data.
+        """*test_new_custom_node()* prueba la creación de un nodo *Node* de una lista enlazada con datos personalizados.
         """
         # getting the global variables
         dtype_lt = self.global_params.get("CHECK_TYPE_LT")
@@ -53,7 +55,7 @@ class TestNode(unittest.TestCase):
                 assert isinstance(node.info, dtype)
 
     def test_get_info(self):
-        """test_get_info test the retrieval of the list node information.
+        """*test_get_info()* prueba como obtener la información del nodo *Node* de la lista enlazada.
         """
         # getting the global variables
         dtype_lt = self.global_params.get("CHECK_TYPE_LT")
@@ -73,7 +75,7 @@ class TestNode(unittest.TestCase):
                 assert isinstance(node.get_info(), dtype)
 
     def test_set_info(self):
-        """test_set_info test the update of the list node information.
+        """*test_set_info()* prueba como actualizar la información del nodo *Node* de la lista enlazada.
         """
         # getting the global variables
         dtype_lt = self.global_params.get("CHECK_TYPE_LT")
@@ -94,8 +96,7 @@ class TestNode(unittest.TestCase):
                 assert isinstance(test_data, dtype)
 
     def test_node_typerr(self):
-        """test_node_typerr test the type error handling for invalid data types
-            in node info.
+        """*test_node_typerr()* prueba el manejo de errores y excepciones en el nodo *Node* de la lista enlazada.
         """
         # getting the global variables
         # type error test data list
@@ -123,49 +124,27 @@ class TestNode(unittest.TestCase):
                 assert dtype != err
 
     def test_node_handle_error(self):
-        """test_node_handle_error test the error handling ad raise in the
-            single linked list node.
+        """*test_node_handle_error()* prueba el manejo de errores y excepciones en el nodo *Node* de la lista enlazada.
         """
         # TODO complete test
-        # getting the global variables
-        # type error test data list
-        # type_err_lt = self.global_params.get("CHECK_ERR_LT")
-        # # data type list
-        # dtype_lt = self.global_params.get("CHECK_TYPE_LT")
-        # param_keys = self.global_params.keys()
-        # # iterate over the type error list and create a node for each type
-        # for key, dtype, err in zip(param_keys, dtype_lt, type_err_lt):
-        #     if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT"):
-        #         test_data = self.global_params.get(key)
-        #         # create a single linked list node with test_data
-        #         with pytest.raises(TypeError) as excinfo:
-        #             node = SingleNode(test_data)
-        #             node.set_info(err)
-        #         assert "Invalid data type" in str(excinfo.value)
-        #         assert isinstance(test_data, dtype)
-        #         assert dtype != err
-        #         assert all([c1, c2, c3])
         pass
 
 
 class TestSingleNode(unittest.TestCase):
-    """TestSingleNode test class for testing the SingleNode class.
+    """*TestSingleNode* es la clase *unittest* que prueba la clase *SingleNode*.
 
     Args:
-        unittest (class): python class for unit testing.
+        unittest (TestCase): clase *unittest.TestCase* para pruebas unitarias.
     """
 
     @pytest.fixture(autouse=True)
     def inject_fixtures(self):
-        """inject_fixtures it injects the global parameters as a fixture.
-
-        Args:
-            global_params (dict): global parameters for testing.
+        """*inject_fixtures()* inyecta los parámetros globales de prueba para *SingleNode* como un *fixture*.
         """
         self.global_params = get_node_test_data()
+
     def test_new_default_single_node(self):
-        """test_new_default_node test the creation of an empty single linked
-            list node.
+        """*test_new_default_node()* prueba la creación de un nodo vacío de una lista sencillamente encadenada *SingleNode*.
         """
         # create an empty single linked list node
         node = SingleNode()
@@ -175,8 +154,7 @@ class TestSingleNode(unittest.TestCase):
         assert (node.next() is None) and (node._next is None)
 
     def test_new_custom_single_node(self):
-        """test_new_custom_node test the creation of a single linked list node
-            with custom data.
+        """*test_new_custom_node()* prueba la creación de un nodo *SingleNode* de una lista sencillamente encadenada con datos personalizados.
         """
         # getting the global variables
         dtype_lt = self.global_params.get("CHECK_TYPE_LT")
@@ -196,8 +174,7 @@ class TestSingleNode(unittest.TestCase):
                 assert (node.next() is None) and (node._next is None)
 
     def test_single_node_next(self):
-        """test_node_next thes the node _next attribute and next() method in
-            the single linked list node.
+        """*test_node_next()* prueba el manejo de referencias del siguiente nodo *SingleNode* de la lista sencillamente encadenada.
         """
         # iterate over the global params list and create a node for each type
         for key in self.global_params.keys():
@@ -221,22 +198,20 @@ class TestSingleNode(unittest.TestCase):
 
 
 class TestDoubleNode(unittest.TestCase):
-    """TestDoubleNode test class for testing the DoubleNode class.
+    """*TestDoubleNode* es la clase *unittest* que prueba la clase *DoubleNode*.
 
     Args:
-        unittest (class): python class for unit testing.
+        unittest (TestCase): clase *unittest.TestCase* para pruebas unitarias.
     """
 
     @pytest.fixture(autouse=True)
     def inject_fixtures(self):
-        """inject_fixtures it injects the global parameters as a fixture.
-
-        Args:
-            global_params (dict): global parameters for testing.
+        """*inject_fixtures()* inyecta los parámetros globales de prueba para *DoubleNode* como un *fixture*.
         """
         self.global_params = get_node_test_data()
+
     def test_new_default_double_node(self):
-        """test_new_default_node test the creation of an empty double linked.
+        """*test_new_default_node()* prueba la creación de un nodo vacío de una lista doblemente encadenada *DoubleNode*.
         """
         # create an empty single linked list node
         node = DoubleNode()
@@ -248,8 +223,7 @@ class TestDoubleNode(unittest.TestCase):
         assert (node.prev() is None) and (node._prev is None)
 
     def test_new_custom_double_node(self):
-        """test_new_custom_node test the creation of a double linked list node
-            with custom data.
+        """*test_new_custom_node()* prueba la creación de un nodo *DoubleNode* de una lista doblemente encadenada con datos personalizados.
         """
         # getting the global variables
         dtype_lt = self.global_params.get("CHECK_TYPE_LT")
@@ -271,9 +245,7 @@ class TestDoubleNode(unittest.TestCase):
                 assert (node.prev() is None) and (node._prev is None)
 
     def test_double_node_refs(self):
-        """test_node_ref test the node references in the double linked list
-            node. This includes the _next, next(), _prev and prev() attributes
-            and methods.
+        """*test_double_node_refs()* prueba el manejo de referencias al siguiente y anterior nodo *DoubleNode* de la lista doblemente encadenada.
         """
         # getting the global variables
         # iterate over the global params and create a node for each type

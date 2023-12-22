@@ -73,7 +73,6 @@ from .ADT.maps import Map
 
 # import all the modules in the Utils namespaces
 from .Utils.error import error_handler
-# from .Utils.error import init_type_checker
 
 # import all the modules in the Default namespaces
 from .Utils.default import T
@@ -104,7 +103,6 @@ assert Map
 
 # Utils
 assert error_handler
-# assert init_type_checker
 
 # Default
 assert T

@@ -35,8 +35,8 @@ class TestDynamicList(unittest.TestCase):
         """
         self.global_params = get_dynalist_test_data()
 
-    def test_list(self):
-        """*test_list()* prueba la creación de una lista dinámica.
+    def test_List(self):
+        """*test_List()* prueba la creación de una lista dinámica.
         """
         # get the global parameters
         # params = self.global_params

@@ -21,4 +21,41 @@ assert get_dynamap_test_data
 
 
 class TestDynamicMap(unittest.TestCase):
-    pass
+    """TestDynamicMap _summary_
+
+    Args:
+        unittest (_type_): _description_
+    """
+
+    @pytest.fixture(autouse=True)
+    def inject_fixtures(self):
+        """*inject_fixtures()* inyecta los parámetros globales de prueba para *Map* como un *fixture*.
+        """
+        self.global_params = get_dynamap_test_data()
+
+    def test_Map(self):
+        """*test_Map()* prueba la creación de un mapa dinámico.
+        """
+        # get the global parameters
+        # params = self.global_params
+
+        # create the map
+        pass
+
+    def test_clone(self):
+        """*test_clone()* prueba la clonación de un mapa dinámico.
+        """
+        # get the global parameters
+        # params = self.global_params
+
+        # create the map
+        pass
+
+    def test_translate(self):
+        """*test_translate()* prueba la traducción de un mapa dinámico.
+        """
+        # get the global parameters
+        # params = self.global_params
+
+        # create the map
+        pass

@@ -1,6 +1,11 @@
-﻿# importing testing framework
+﻿"""
+*test_struct_nodes* es el módulo que prueba las estructuras de datos *Node*, *SingleNode* y *DoubleNode* para el ADT dinámico y configurable *List*.
+"""
+
+# import testing package
 import unittest
 import pytest
+
 # importing the modules to test
 from DISClib.DataStructures.node import Node
 from DISClib.DataStructures.listnode import SingleNode
@@ -13,6 +18,7 @@ from Test.Data.test_data import get_node_test_data
 assert Node
 assert SingleNode
 assert DoubleNode
+assert get_node_test_data
 
 
 class TestNode(unittest.TestCase):

@@ -244,3 +244,5 @@ if __name__ == "__main__":
     # print(m.keys())
     # print(m.entries())
     # print(type(None))
+    a = dict(t=dict(a=1, b=2, c=3))
+    print(a)

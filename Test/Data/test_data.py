@@ -1,4 +1,4 @@
-﻿# importing testing framework
+﻿# import testing package
 # import unittest
 # import pytest
 
@@ -8,10 +8,10 @@ Este módulo contiene datos de prueba para las pruebas unitarias para diferentes
 
 
 def get_node_test_data():
-    """*get_node_test_data()* recupera un diccionario con los datos de prueba para la clase *Node*.
+    """*get_node_test_data()* recupera un diccionario con los datos de prueba para la estructura *Node*.
 
     Returns:
-        dict: diccionario con los datos de prueba para la clase *Node*.
+        dict: diccionario con los datos de prueba para la estructura *Node*.
     """
     parameters = dict(
         # global variables for testing
@@ -67,7 +67,7 @@ def get_node_test_data():
 
 
 def get_list_test_data():
-    """*get_list_test_data()* recupera un diccionario con los datos de prueba para la clase *List*.
+    """*get_list_test_data()* recupera un diccionario con los datos de prueba para la clase *List*, esto incluye los datos de prueba para la estructura *ArrayList*, *SinglyLinked* y *DoubleLinked* y los ADTs *Stack* y *Queue*.
 
     Returns:
         dict: diccionario con los datos de prueba para la clase *List*.
@@ -177,4 +177,104 @@ def get_list_test_data():
             dict,
         ],
     )
+    return parameters
+
+
+def get_mapentry_test_data():
+    """*get_mapentry_test_data()* recupera un diccionario con los datos de prueba para la estructura de datos *MapEntry*.
+
+    Returns:
+        dict: diccionario con los datos de prueba para la estructura *MapEntry*.
+    """
+    parameters = dict(
+        TEST_STR=dict(key="Entry",
+                      value="Hello Entry!"),
+        TEST_INT=dict(key=42,
+                      value=42),
+        TEST_FLOAT=dict(key=42.0,
+                        value=42.0),
+        TEST_BOOL=dict(key=True,
+                       value=True),
+        TEST_DICT=dict(key="key1",
+                       value={
+                           "key1": "Hello Node!",
+                           "key2": 42,
+                           "key3": 42.0,
+                           "key4": [
+                               "value1",
+                               "value2",
+                               "value3", ],
+                           "key5": {
+                               "key1": "value1",
+                               "key2": "value2",
+                               "key3": "value3", },
+                           "key6": None,
+                           "key7": True, }),
+        TEST_LT=dict(key="value1",
+                     value=[
+                         "value1",
+                         "value2",
+                         "value3",
+                         42,
+                         42.7,
+                         "Hello Node!",
+                         None,
+                         True, ]),
+        CHECK_ERR_LT=[
+            int(1234),
+            list(),
+            dict(id=1, name="John Doe"),
+            float(42.87),
+            bool(False),
+            str("Hello Node!"),
+        ],
+        CHECK_TYPE_LT=[
+            str,
+            int,
+            float,
+            bool,
+            dict,
+            list
+        ]
+    )
+    return parameters
+
+
+def get_hashtable_test_data():
+    """*get_hashtable_test_data()* recupera un diccionario con los datos de prueba para las las estructuras *SeparateChaining* y *LinearProbing*.
+
+    Returns:
+        dict: diccionario con los datos de prueba para el ADT *Map*.
+    """
+    parameters = dict()
+    return parameters
+
+
+def get_dynamic_test_data():
+    """get_dynamic_test_data _summary_
+
+    Returns:
+        _type_: _description_
+    """
+    parameters = dict()
+    return parameters
+
+
+def get_dynamap_test_data():
+    """get_dynamap_test_data _summary_
+
+    Returns:
+        _type_: _description_
+    """
+    parameters = dict()
+    return parameters
+
+
+def get_dynalist_test_data():
+    """get_dynalist_test_data _summary_
+
+    Returns:
+        _type_: _description_
+    """
+    parameters = dict()
     return parameters

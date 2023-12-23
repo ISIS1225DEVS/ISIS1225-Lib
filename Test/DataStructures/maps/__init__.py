@@ -1,9 +1,16 @@
-# impoting the path to the DISCLib folder
-import os
-import sys
-# config the path to the DISCLib folder
-# TODO this used to be in config.py
-file_path = os.path.join(os.path.dirname(__file__), '..', '..')
-file_dir = os.path.dirname(os.path.realpath('__file__'))
-sys.path.insert(0, os.path.abspath(file_path))
-data_dir = os.path.join(os.path.dirname(__file__), '..', 'Data')
+# native imports
+# import os
+# import sys
+
+# importing all the test modules to package
+from .test_struct_hashtable import testSeparateChaining
+from .test_struct_hashtable import testLinearProbing
+# TODO create the cuadratic probing test
+# from .test_struct_hashtable import testQuadraticProbing
+from .test_struct_mapentry import testMapEntry
+
+# asserting test classes
+assert testSeparateChaining
+assert testLinearProbing
+# assert testQuadraticProbing
+assert testMapEntry

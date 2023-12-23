@@ -1,4 +1,7 @@
-﻿# TODO add docstring
+﻿"""
+*test_struct_list.py* es el módulo que prueba los ADTs *ArrayList*, *SingleLinked* y *DoubleLinked* con sus respectivas funciones para el ADT dinámico y configurable *List* de *DISCLib*.
+"""
+
 # impoting testing framework
 import unittest
 import pytest
@@ -16,135 +19,12 @@ from Test.Data.test_data import get_list_test_data
 assert ArrayList
 assert SingleLinked
 assert DoubleLinked
+assert get_list_test_data
 
 
 # @pytest.fixture(scope="module")
-# def global_params():
-#     """global_params the function returns a dictionary with the global
-#         parameters for testing.
-
-#     Returns:
-#         dict: dictionary with the global parameters for testing.
-#     """
-#     # TODO translate to spanish docstring
-#     parameters = dict(
-#         TEST_STR_LT=[
-#             "a",
-#             "b",
-#             "c",
-#             "d",
-#             "e",
-#             "f",
-#             "g",
-#         ],
-#         TEST_INT_LT=[
-#             1,
-#             2,
-#             3,
-#             4,
-#             5,
-#             6,
-#             7,
-#         ],
-#         TEST_FLOAT_LT=[
-#             1.1,
-#             2.2,
-#             3.3,
-#             4.4,
-#             5.5,
-#             6.6,
-#             7.7,
-#         ],
-#         TEST_BOOL_LT=[
-#             True,
-#             False,
-#             True,
-#             False,
-#             True,
-#             False,
-#             True,
-#         ],
-#         TEST_DICT_LT=[
-#             {"a": 1, "id": 1},
-#             {"a": 2, "id": 2},
-#             {"a": 3, "id": 3},
-#             {"a": 4, "id": 4},
-#             {"a": 5, "id": 5},
-#             {"a": 6, "id": 6},
-#             {"a": 7, "id": 7},
-#         ],
-#         TEST_CUSTOM_DICT_LT=[
-#             {"a": 1, "uuid": "a1", "b": 1.1, "id": 1},
-#             {"a": 2, "uuid": "a2", "b": 2.2, "id": 2},
-#             {"a": 3, "uuid": "a3", "b": 3.3, "id": 3},
-#             {"a": 4, "uuid": "a4", "b": 4.4, "id": 4},
-#             {"a": 5, "uuid": "a5", "b": 5.5, "id": 5},
-#             {"a": 6, "uuid": "a6", "b": 6.6, "id": 6},
-#             {"a": 7, "uuid": "a7", "b": 7.7, "id": 7},
-#         ],
-#         TEST_LIST_LT=[
-#             [1, 2, 3],
-#             [4, 5, 6],
-#             [7, 8, 9],
-#             [10, 11, 12],
-#             [13, 14, 15],
-#             [16, 17, 18],
-#             [19, 20, 21],
-#         ],
-#         TEST_TUPLE_LT=[
-#             (1, 2, 3),
-#             (4, 5, 6),
-#             (7, 8, 9),
-#             (10, 11, 12),
-#             (13, 14, 15),
-#             (16, 17, 18),
-#             (19, 20, 21),
-#         ],
-#         TEST_SET_LT=[
-#             {1, 2, 3},
-#             {4, 5, 6},
-#             {7, 8, 9},
-#             {10, 11, 12},
-#             {13, 14, 15},
-#             {16, 17, 18},
-#             {19, 20, 21},
-#         ],
-#         CHECK_TYPE_LT=[
-#             str,
-#             int,
-#             float,
-#             bool,
-#             dict,
-#             dict,
-#             list,
-#             tuple,
-#             set,
-#         ],
-#         CHECK_ERR_LT=[
-#             set,
-#             tuple,
-#             list,
-#             dict,
-#             bool,
-#             float,
-#             int,
-#             str,
-#             dict,
-#         ],
-#     )
-#     # FIXME do we need this? is this okey?
-#     TEST_ARRAY_LIST_LT = list()
-#     for i in parameters.get("TEST_INT_LT"):
-#         temp_lt = parameters.get("TEST_DICT_LT")
-#         tal = ArrayList(temp_lt)
-#         TEST_ARRAY_LIST_LT.append(tal)
-#     parameters["TEST_AL_LT"] = TEST_ARRAY_LIST_LT
-#     return parameters
-
-
-# @pytest.fixture(scope="module")
-def cmp_test_function(elm1: dict, elm2: dict) -> int:
-    """*cmp_test_function()* compara dos elementos en una lista (ArrayList, SingleLinked, DoubleLinked). Solo funciona con diccionarios con una llave "uuid".
+def cmp_lt_test_function(elm1: dict, elm2: dict) -> int:
+    """*cmp_lt_test_function()* compara dos elementos en una lista (ArrayList, SingleLinked, DoubleLinked). Solo funciona con diccionarios con una llave "uuid".
 
     Args:
         elm1 (dict): primer elemento a comparar.
@@ -310,7 +190,7 @@ class TestArrayList(unittest.TestCase):
             if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
                 test_data = self.global_params.get(key)
                 ar_lt = ArrayList(iodata=test_data,
-                                  cmp_function=cmp_test_function)
+                                  cmp_function=cmp_lt_test_function)
                 # test for the ArrayList is not None
                 assert ar_lt is not None
                 # test for the ArrayList size is equal to test_data
@@ -320,7 +200,7 @@ class TestArrayList(unittest.TestCase):
                 # test for the ArrayList key is the default "id"
                 assert ar_lt.key == "id"
                 # test for the ArrayList cmp_function is the custom function
-                assert ar_lt.cmp_function == cmp_test_function
+                assert ar_lt.cmp_function == cmp_lt_test_function
                 # test for the ArrayList is an instance of ArrayList
                 assert isinstance(ar_lt, ArrayList)
                 # test for the ArrayList elements are of the same type
@@ -749,7 +629,7 @@ class TestArrayList(unittest.TestCase):
                 # if it is the custom dict, use the custom cmp function
                 if key == "TEST_CUSTOM_DICT_LT":
                     ar_lt = ArrayList(iodata=test_data,
-                                      cmp_function=cmp_test_function)
+                                      cmp_function=cmp_lt_test_function)
                 # iterate over the test data
                 for i in range(0, len(test_data) - 1):
                     # to avoid index out of range
@@ -781,7 +661,7 @@ class TestArrayList(unittest.TestCase):
                 # if it is the custom dict, use the custom cmp function
                 if key == "TEST_CUSTOM_DICT_LT":
                     ar_lt = ArrayList(iodata=test_data,
-                                      cmp_function=cmp_test_function)
+                                      cmp_function=cmp_lt_test_function)
                 # select a random valid index in the test data
                 i = random.randint(0, test_len - 1)
                 t_data = test_data[i]
@@ -818,7 +698,7 @@ class TestArrayList(unittest.TestCase):
                 # if it is the custom dict, use the custom cmp function
                 if key == "TEST_CUSTOM_DICT_LT":
                     ar_lt = ArrayList(iodata=test_data,
-                                      cmp_function=cmp_test_function)
+                                      cmp_function=cmp_lt_test_function)
                 # select a random valid index in the test data
                 i = random.randint(0, test_len - 1)
                 # get the element in the test data
@@ -872,7 +752,7 @@ class TestArrayList(unittest.TestCase):
                 # if it is the custom dict, use the custom cmp function
                 if key == "TEST_CUSTOM_DICT_LT":
                     ar_lt = ArrayList(iodata=test_data,
-                                      cmp_function=cmp_test_function)
+                                      cmp_function=cmp_lt_test_function)
 
                 # force an exception in the exchange method
                 with pytest.raises(Exception) as excinfo:
@@ -929,7 +809,7 @@ class TestArrayList(unittest.TestCase):
                 # if it is the custom dict, use the custom cmp function
                 if key == "TEST_CUSTOM_DICT_LT":
                     ar_lt = ArrayList(iodata=test_data,
-                                      cmp_function=cmp_test_function)
+                                      cmp_function=cmp_lt_test_function)
                 i = random.randint(test_len * -1, -1)
                 j = random.randint(test_len + 1, test_len * 2)
                 # # sample(range(test_len * 2, test_len * 3), 2)
@@ -999,7 +879,7 @@ class TestArrayList(unittest.TestCase):
 
                 # create a new ArrayList with the wrong cmp function
                 ar_lt2 = ArrayList(iodata=test_data,
-                                   cmp_function=cmp_test_function)
+                                   cmp_function=cmp_lt_test_function)
                 # force an exception in the concat method
                 with pytest.raises(Exception) as excinfo:
                     ar_lt1.concat(ar_lt2)
@@ -1014,9 +894,9 @@ class TestArrayList(unittest.TestCase):
                 # if it is the custom dict, use the custom cmp function
                 if key == "TEST_CUSTOM_DICT_LT":
                     ar_lt1 = ArrayList(iodata=test_data,
-                                       cmp_function=cmp_test_function)
+                                       cmp_function=cmp_lt_test_function)
                     ar_lt2 = ArrayList(iodata=test_data,
-                                       cmp_function=cmp_test_function)
+                                       cmp_function=cmp_lt_test_function)
                 # get the elements in the test data
                 ar_lt1_data = ar_lt1.elements.copy()
                 ar_lt2_data = ar_lt2.elements.copy()
@@ -1048,7 +928,7 @@ class TestArrayList(unittest.TestCase):
                 # if it is the custom dict, use the custom cmp function
                 if key == "TEST_CUSTOM_DICT_LT":
                     ar_lt = ArrayList(iodata=test_data,
-                                      cmp_function=cmp_test_function)
+                                      cmp_function=cmp_lt_test_function)
                 # iterates over the ArrayList and the test data and compare
                 for element, data in zip(ar_lt, test_data):
                     # test for the element is equal to test_data
@@ -1208,7 +1088,7 @@ class TestSingleLinked(unittest.TestCase):
             if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
                 test_data = self.global_params.get(key)
                 sl_lt = SingleLinked(iodata=test_data,
-                                     cmp_function=cmp_test_function)
+                                     cmp_function=cmp_lt_test_function)
                 # testing SingleLinked is not None
                 assert sl_lt is not None
                 # testing SingleLinked size is equal to test_data
@@ -1219,7 +1099,7 @@ class TestSingleLinked(unittest.TestCase):
                 # testing SingleLinked key is the default "id"
                 assert sl_lt.key == "id"
                 # testing SingleLinked cmp_function is the custom function
-                assert sl_lt.cmp_function == cmp_test_function
+                assert sl_lt.cmp_function == cmp_lt_test_function
                 # testing SingleLinked is an instance of SingleLinked
                 assert isinstance(sl_lt, SingleLinked)
                 # testing SingleLinked elements are of the same type
@@ -1653,7 +1533,7 @@ class TestSingleLinked(unittest.TestCase):
                 # if it is the custom dict, use the custom cmp function
                 if key == "TEST_CUSTOM_DICT_LT":
                     sl_lt = SingleLinked(iodata=test_data,
-                                         cmp_function=cmp_test_function)
+                                         cmp_function=cmp_lt_test_function)
                 # iterate over the test data
                 for i in range(0, len(test_data) - 1):
                     # to avoid index out of range
@@ -1685,7 +1565,7 @@ class TestSingleLinked(unittest.TestCase):
                 # if it is the custom dict, use the custom cmp function
                 if key == "TEST_CUSTOM_DICT_LT":
                     sl_lt = SingleLinked(iodata=test_data,
-                                         cmp_function=cmp_test_function)
+                                         cmp_function=cmp_lt_test_function)
                 # select a random valid index in the test data
                 i = random.randint(0, test_len - 1)
                 t_data = test_data[i]
@@ -1721,7 +1601,7 @@ class TestSingleLinked(unittest.TestCase):
                 # if it is the custom dict, use the custom cmp function
                 if key == "TEST_CUSTOM_DICT_LT":
                     sl_lt = SingleLinked(iodata=test_data,
-                                         cmp_function=cmp_test_function)
+                                         cmp_function=cmp_lt_test_function)
                 # select a random valid index in the test data
                 i = random.randint(0, test_len - 1)
                 # get the element in the test data
@@ -1775,7 +1655,7 @@ class TestSingleLinked(unittest.TestCase):
                 # if it is the custom dict, use the custom cmp function
                 if key == "TEST_CUSTOM_DICT_LT":
                     sl_lt = SingleLinked(iodata=test_data,
-                                         cmp_function=cmp_test_function)
+                                         cmp_function=cmp_lt_test_function)
 
                 # force an exception in the exchange method
                 with pytest.raises(Exception) as excinfo:
@@ -1833,7 +1713,7 @@ class TestSingleLinked(unittest.TestCase):
                 # if it is the custom dict, use the custom cmp function
                 if key == "TEST_CUSTOM_DICT_LT":
                     sl_lt = SingleLinked(iodata=test_data,
-                                         cmp_function=cmp_test_function)
+                                         cmp_function=cmp_lt_test_function)
                 i = random.randint(test_len * -1, -1)
                 j = random.randint(test_len + 1, test_len * 2)
                 # # sample(range(test_len * 2, test_len * 3), 2)
@@ -1905,7 +1785,7 @@ class TestSingleLinked(unittest.TestCase):
 
                 # create a new SingleLinked with the wrong cmp function
                 sl_lt2 = SingleLinked(iodata=test_data,
-                                      cmp_function=cmp_test_function)
+                                      cmp_function=cmp_lt_test_function)
                 # force an exception in the concat method
                 with pytest.raises(Exception) as excinfo:
                     sl_lt1.concat(sl_lt2)
@@ -1920,9 +1800,9 @@ class TestSingleLinked(unittest.TestCase):
                 # if it is the custom dict, use the custom cmp function
                 if key == "TEST_CUSTOM_DICT_LT":
                     sl_lt1 = SingleLinked(iodata=test_data,
-                                          cmp_function=cmp_test_function)
+                                          cmp_function=cmp_lt_test_function)
                     sl_lt2 = SingleLinked(iodata=test_data,
-                                          cmp_function=cmp_test_function)
+                                          cmp_function=cmp_lt_test_function)
                 # create the new concatenated SingleLinked
 
                 sl_lt1_data = self.sll_to_list(sl_lt1)
@@ -1953,7 +1833,7 @@ class TestSingleLinked(unittest.TestCase):
                 # if it is the custom dict, use the custom cmp function
                 if key == "TEST_CUSTOM_DICT_LT":
                     sl_lt = SingleLinked(iodata=test_data,
-                                         cmp_function=cmp_test_function)
+                                         cmp_function=cmp_lt_test_function)
                 # iterates over the SingleLinked and the test data and compare
                 for element, data in zip(sl_lt, test_data):
                     # test for the element is equal to test_data
@@ -2114,7 +1994,7 @@ class TestDoubleLinked(unittest.TestCase):
             if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
                 test_data = self.global_params.get(key)
                 dl_lt = DoubleLinked(iodata=test_data,
-                                     cmp_function=cmp_test_function)
+                                     cmp_function=cmp_lt_test_function)
                 # testing DoubleLinked is not None
                 assert dl_lt is not None
                 # testing DoubleLinked size is equal to test_data
@@ -2125,7 +2005,7 @@ class TestDoubleLinked(unittest.TestCase):
                 # testing DoubleLinked key is the default "id"
                 assert dl_lt.key == "id"
                 # testing DoubleLinked cmp_function is the custom function
-                assert dl_lt.cmp_function == cmp_test_function
+                assert dl_lt.cmp_function == cmp_lt_test_function
                 # testing DoubleLinked is an instance of DoubleLinked
                 assert isinstance(dl_lt, DoubleLinked)
                 # testing DoubleLinked elements are of the same type
@@ -2559,7 +2439,7 @@ class TestDoubleLinked(unittest.TestCase):
                 # if it is the custom dict, use the custom cmp function
                 if key == "TEST_CUSTOM_DICT_LT":
                     dl_lt = DoubleLinked(iodata=test_data,
-                                         cmp_function=cmp_test_function)
+                                         cmp_function=cmp_lt_test_function)
                 # iterate over the test data
                 for i in range(0, len(test_data) - 1):
                     # to avoid index out of range
@@ -2591,7 +2471,7 @@ class TestDoubleLinked(unittest.TestCase):
                 # if it is the custom dict, use the custom cmp function
                 if key == "TEST_CUSTOM_DICT_LT":
                     dl_lt = DoubleLinked(iodata=test_data,
-                                         cmp_function=cmp_test_function)
+                                         cmp_function=cmp_lt_test_function)
                 # select a random valid index in the test data
                 i = random.randint(0, test_len - 1)
                 t_data = test_data[i]
@@ -2627,7 +2507,7 @@ class TestDoubleLinked(unittest.TestCase):
                 # if it is the custom dict, use the custom cmp function
                 if key == "TEST_CUSTOM_DICT_LT":
                     dl_lt = DoubleLinked(iodata=test_data,
-                                         cmp_function=cmp_test_function)
+                                         cmp_function=cmp_lt_test_function)
                 # select a random valid index in the test data
                 i = random.randint(0, test_len - 1)
                 # get the element in the test data
@@ -2681,7 +2561,7 @@ class TestDoubleLinked(unittest.TestCase):
                 # if it is the custom dict, use the custom cmp function
                 if key == "TEST_CUSTOM_DICT_LT":
                     dl_lt = DoubleLinked(iodata=test_data,
-                                         cmp_function=cmp_test_function)
+                                         cmp_function=cmp_lt_test_function)
 
                 # force an exception in the exchange method
                 with pytest.raises(Exception) as excinfo:
@@ -2739,7 +2619,7 @@ class TestDoubleLinked(unittest.TestCase):
                 # if it is the custom dict, use the custom cmp function
                 if key == "TEST_CUSTOM_DICT_LT":
                     dl_lt = DoubleLinked(iodata=test_data,
-                                         cmp_function=cmp_test_function)
+                                         cmp_function=cmp_lt_test_function)
                 i = random.randint(test_len * -1, -1)
                 j = random.randint(test_len + 1, test_len * 2)
                 # # sample(range(test_len * 2, test_len * 3), 2)
@@ -2811,7 +2691,7 @@ class TestDoubleLinked(unittest.TestCase):
 
                 # create a new DoubleLinked with the wrong cmp function
                 dl_lt2 = DoubleLinked(iodata=test_data,
-                                      cmp_function=cmp_test_function)
+                                      cmp_function=cmp_lt_test_function)
                 # force an exception in the concat method
                 with pytest.raises(Exception) as excinfo:
                     dl_lt1.concat(dl_lt2)
@@ -2826,9 +2706,9 @@ class TestDoubleLinked(unittest.TestCase):
                 # if it is the custom dict, use the custom cmp function
                 if key == "TEST_CUSTOM_DICT_LT":
                     dl_lt1 = DoubleLinked(iodata=test_data,
-                                          cmp_function=cmp_test_function)
+                                          cmp_function=cmp_lt_test_function)
                     dl_lt2 = DoubleLinked(iodata=test_data,
-                                          cmp_function=cmp_test_function)
+                                          cmp_function=cmp_lt_test_function)
                 # create the new concatenated DoubleLinked
 
                 sl_lt1_data = self.dll_to_list(dl_lt1)
@@ -2859,7 +2739,7 @@ class TestDoubleLinked(unittest.TestCase):
                 # if it is the custom dict, use the custom cmp function
                 if key == "TEST_CUSTOM_DICT_LT":
                     dl_lt = DoubleLinked(iodata=test_data,
-                                         cmp_function=cmp_test_function)
+                                         cmp_function=cmp_lt_test_function)
                 # iterates over the DoubleLinked and the test data and compare
                 for element, data in zip(dl_lt, test_data):
                     # test for the element is equal to test_data

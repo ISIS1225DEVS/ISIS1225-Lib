@@ -21,6 +21,17 @@ assert SingleLinked
 assert DoubleLinked
 assert get_list_test_data
 
+# list of keys to ignore in the global parameters
+# :data: IGNORE_KEYS_LT: list
+IGNORE_KEYS_LT = (
+    "CHECK_ERR_LT",
+    "CHECK_TYPE_LT",
+    "TEST_AL_LT"
+)
+"""
+Lista de llaves a ignorar en los parámetros globales en las pruebas.
+"""
+
 
 # @pytest.fixture(scope="module")
 def cmp_lt_test_function(elm1: dict, elm2: dict) -> int:
@@ -84,19 +95,19 @@ class TestArrayList(unittest.TestCase):
         """*test_new_default_arraylist()* prueba la inicialización de un *ArrayList* vacío.
         """
         # Test an empty ArrayList
-        empty_list = ArrayList()
+        ar_lt = ArrayList()
         # Test if ArrayList is not None
-        assert empty_list is not None
+        assert ar_lt is not None
         # Test if ArrayList is empty
-        assert empty_list._size == 0
+        assert ar_lt._size == 0
         # Test if ArrayList elements is empty
-        assert empty_list.elements == []
+        assert ar_lt.elements == []
         # Test if ArrayList key is "id"
-        assert empty_list.key == "id"
+        assert ar_lt.key == "id"
         # Test if ArrayList cmp_function is the default
-        assert empty_list.cmp_function == empty_list.default_cmp_function
+        assert ar_lt.cmp_function == ar_lt.default_cmp_function
         # Test if ArrayList is an instance of ArrayList
-        assert isinstance(empty_list, ArrayList)
+        assert isinstance(ar_lt, ArrayList)
 
     def test_default_cmp_function(self):
         """*test_default_cmp_function()* prueba la función de comparación predeterminada de *ArrayList* con diferentes tipos de elementos.
@@ -106,7 +117,7 @@ class TestArrayList(unittest.TestCase):
         # iterate over tglobal params and use the default cmp function
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # iterate over the test data
@@ -133,7 +144,7 @@ class TestArrayList(unittest.TestCase):
         # iterate over tglobal params and create single linked list node
         for key, data_type in zip(self.global_params.keys(), data_type_lt):
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 test_data = self.global_params.get(key)
                 # create a new ArrayList with the test data
                 ar_lt = ArrayList(test_data)
@@ -160,7 +171,7 @@ class TestArrayList(unittest.TestCase):
         # iterate over tglobal params and create single linked list node
         for key, dtype in zip(self.global_params.keys(), dtype_lt):
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 test_data = self.global_params.get(key)
                 ar_lt = ArrayList(iodata=test_data,
                                   key="uuid")
@@ -187,7 +198,7 @@ class TestArrayList(unittest.TestCase):
         # iterate over tglobal params and create single linked list node
         for key, dtype in zip(self.global_params.keys(), dtype_lt):
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 test_data = self.global_params.get(key)
                 ar_lt = ArrayList(iodata=test_data,
                                   cmp_function=cmp_lt_test_function)
@@ -222,7 +233,7 @@ class TestArrayList(unittest.TestCase):
         # iterates over global params and create filled ArrayList
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # getting the test data
                 test_data = self.global_params.get(key)
                 # create a new ArrayList with the test data
@@ -246,7 +257,7 @@ class TestArrayList(unittest.TestCase):
         # iterates over global params and create filled ArrayList
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # create a new ArrayList with the test data
@@ -271,7 +282,7 @@ class TestArrayList(unittest.TestCase):
         # iterate over the type error list and create a node for each type
         for key, dtype, err in zip(param_keys, dtype_lt, type_err_lt):
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 test_data = self.global_params.get(key)
                 # create a new ArrayList with the test data
                 with pytest.raises(TypeError) as excinfo:
@@ -315,7 +326,7 @@ class TestArrayList(unittest.TestCase):
         # iterate over the type error list and create a node for each type
         for key, dtype, err in zip(param_keys, dtype_lt, type_err_lt):
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 test_data = self.global_params.get(key)
                 # create a new ArrayList with the test data
                 with pytest.raises(TypeError) as excinfo:
@@ -361,7 +372,7 @@ class TestArrayList(unittest.TestCase):
         # iterates over global params and create filled ArrayList
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # get the length of the test data
@@ -410,7 +421,7 @@ class TestArrayList(unittest.TestCase):
         # iterates over global params and create filled ArrayList
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # get the length of the test data
@@ -438,7 +449,7 @@ class TestArrayList(unittest.TestCase):
         # iterates over global params and create filled ArrayList
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # get the length of the test data
@@ -467,7 +478,7 @@ class TestArrayList(unittest.TestCase):
         # iterates over global params and create filled ArrayList
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # get the length of the test data
@@ -507,7 +518,7 @@ class TestArrayList(unittest.TestCase):
         # iterates over global params and create filled ArrayList
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # get the length of the test data
@@ -537,7 +548,7 @@ class TestArrayList(unittest.TestCase):
         # iterates over global params and create filled ArrayList
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # get the length of the test data
@@ -572,7 +583,7 @@ class TestArrayList(unittest.TestCase):
         # iterates over global params and create filled ArrayList
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # get the length of the test data
@@ -621,7 +632,7 @@ class TestArrayList(unittest.TestCase):
         # iterates over global params and create filled ArrayList
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # create a new ArrayList with the test data
@@ -652,7 +663,7 @@ class TestArrayList(unittest.TestCase):
         # iterates over global params and create filled ArrayList
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # create a new ArrayList with the test data
@@ -688,7 +699,7 @@ class TestArrayList(unittest.TestCase):
         # iterates over global params and create filled ArrayList
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # get the length of the test data
@@ -742,7 +753,7 @@ class TestArrayList(unittest.TestCase):
         # iterates over global params and create filled ArrayList
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # get the length of the test data
@@ -798,7 +809,7 @@ class TestArrayList(unittest.TestCase):
         # iterates over global params and create filled ArrayList
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # create a new ArrayList with the test data
@@ -849,7 +860,7 @@ class TestArrayList(unittest.TestCase):
         # iterates over global params and create filled ArrayList
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # create a new ArrayList with the test data
@@ -914,12 +925,12 @@ class TestArrayList(unittest.TestCase):
                             ar_lt2.cmp_function))
 
     def test_iterator(self):
-        """*test_iterator()* prueba el método *iterator()* de *ArrayList* con estructuras de datos no vacías. También comprueba si los elementos se pueden iterar en conjunto con los elementos de otras estructuras de datos nativas de Python y que los elementos iterados sean iguales a los de la lista original.
+        """*test_iterator()* prueba el iterador *__iter__()* de *ArrayList* con estructuras de datos no vacías. También comprueba si los elementos se pueden iterar en conjunto con los elementos de otras estructuras de datos nativas de Python y que los elementos iterados sean iguales a los de la lista original.
         """
         # iterates over global params and create filled ArrayList
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # create a new ArrayList with the test data
@@ -977,21 +988,21 @@ class TestSingleLinked(unittest.TestCase):
         """*test_new_default_singlelinked()* prueba la inicialización de una lista sencillamente encadenada o *SingleLinked* vacía.
         """
         # Test an empty SingleLinked
-        empty_list = SingleLinked()
+        sl_lt = SingleLinked()
         # Test if SingleLinked is not None
-        assert empty_list is not None
+        assert sl_lt is not None
         # Test if SingleLinked is empty
-        assert empty_list._size == 0
+        assert sl_lt._size == 0
         # Test if the SingleLinked first element is empty
-        assert empty_list.first is None
+        assert sl_lt.first is None
         # Test if the SingleLinked last element is empty
-        assert empty_list.last is None
+        assert sl_lt.last is None
         # Test if SingleLinked key is "id"
-        assert empty_list.key == "id"
+        assert sl_lt.key == "id"
         # Test if SingleLinked cmp_function is the default
-        assert empty_list.cmp_function == empty_list.default_cmp_function
+        assert sl_lt.cmp_function == sl_lt.default_cmp_function
         # Test if list is an instance of SingleLinked
-        assert isinstance(empty_list, SingleLinked)
+        assert isinstance(sl_lt, SingleLinked)
 
     def test_default_cmp_function(self):
         """*test_default_cmp_function()* prueba la función de comparación predeterminada de *SingleLinked* con diferentes tipos de elementos.
@@ -1001,7 +1012,7 @@ class TestSingleLinked(unittest.TestCase):
         # iterate over tglobal params and use the default cmp function
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # iterate over the test data
@@ -1029,7 +1040,7 @@ class TestSingleLinked(unittest.TestCase):
         # iterate over tglobal params and create single linked list node
         for key, data_type in zip(self.global_params.keys(), data_type_lt):
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 test_data = self.global_params.get(key)
                 # create a new SingleLinked with the test data
                 sl_lt = SingleLinked(iodata=test_data)
@@ -1057,7 +1068,7 @@ class TestSingleLinked(unittest.TestCase):
         # iterate over tglobal params and create single linked list node
         for key, dtype in zip(self.global_params.keys(), dtype_lt):
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 test_data = self.global_params.get(key)
                 sl_lt = SingleLinked(iodata=test_data,
                                      key="uuid")
@@ -1085,7 +1096,7 @@ class TestSingleLinked(unittest.TestCase):
         # iterate over tglobal params and create single linked list node
         for key, dtype in zip(self.global_params.keys(), dtype_lt):
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 test_data = self.global_params.get(key)
                 sl_lt = SingleLinked(iodata=test_data,
                                      cmp_function=cmp_lt_test_function)
@@ -1121,7 +1132,7 @@ class TestSingleLinked(unittest.TestCase):
         # iterates over global params and create filled SingleLinked
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # getting the test data
                 test_data = self.global_params.get(key)
                 # create a new SingleLinked with the test data
@@ -1149,7 +1160,7 @@ class TestSingleLinked(unittest.TestCase):
         # iterates over global params and create filled SingleLinked
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # create a new SingleLinked with the test data
@@ -1175,7 +1186,7 @@ class TestSingleLinked(unittest.TestCase):
         # iterate over the type error list and create a node for each type
         for key, dtype, err in zip(param_keys, dtype_lt, type_err_lt):
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 test_data = self.global_params.get(key)
                 # create a new SingleLinked with the test data
                 with pytest.raises(TypeError) as excinfo:
@@ -1219,7 +1230,7 @@ class TestSingleLinked(unittest.TestCase):
         # iterate over the type error list and create a node for each type
         for key, dtype, err in zip(param_keys, dtype_lt, type_err_lt):
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 test_data = self.global_params.get(key)
                 # create a new SingleLinked with the test data
                 with pytest.raises(TypeError) as excinfo:
@@ -1265,7 +1276,7 @@ class TestSingleLinked(unittest.TestCase):
         # iterates over global params and create filled SingleLinked
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # get the length of the test data
@@ -1314,7 +1325,7 @@ class TestSingleLinked(unittest.TestCase):
         # iterates over global params and create filled SingleLinked
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # get the length of the test data
@@ -1342,7 +1353,7 @@ class TestSingleLinked(unittest.TestCase):
         # iterates over global params and create filled SingleLinked
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # get the length of the test data
@@ -1371,7 +1382,7 @@ class TestSingleLinked(unittest.TestCase):
         # iterates over global params and create filled SingleLinked
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # get the length of the test data
@@ -1411,7 +1422,7 @@ class TestSingleLinked(unittest.TestCase):
         # iterates over global params and create filled SingleLinked
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # get the length of the test data
@@ -1441,7 +1452,7 @@ class TestSingleLinked(unittest.TestCase):
         # iterates over global params and create filled SingleLinked
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # get the length of the test data
@@ -1476,7 +1487,7 @@ class TestSingleLinked(unittest.TestCase):
         # iterates over global params and create filled SingleLinked
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # get the length of the test data
@@ -1525,7 +1536,7 @@ class TestSingleLinked(unittest.TestCase):
         # iterates over global params and create filled SingleLinked
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # create a new SingleLinked with the test data
@@ -1556,7 +1567,7 @@ class TestSingleLinked(unittest.TestCase):
         # iterates over global params and create filled SingleLinked
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # create a new SingleLinked with the test data
@@ -1591,7 +1602,7 @@ class TestSingleLinked(unittest.TestCase):
         # iterates over global params and create filled SingleLinked
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # get the length of the test data
@@ -1645,7 +1656,7 @@ class TestSingleLinked(unittest.TestCase):
         # iterates over global params and create filled SingleLinked
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # get the length of the test data
@@ -1702,7 +1713,7 @@ class TestSingleLinked(unittest.TestCase):
         # iterates over global params and create filled SingleLinked
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # create a new SingleLinked with the test data
@@ -1755,7 +1766,7 @@ class TestSingleLinked(unittest.TestCase):
         # iterates over global params and create filled SingleLinked
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # create a new SingleLinked with the test data
@@ -1819,12 +1830,12 @@ class TestSingleLinked(unittest.TestCase):
                            sl_lt2.cmp_function))
 
     def test_iterator(self):
-        """*test_iterator()* prueba el método *iterator()* de *SingleLinked* con estructuras de datos no vacías. También comprueba si los elementos se pueden iterar en conjunto con los elementos de otras estructuras de datos nativas de Python y que los elementos iterados sean iguales a los de la lista original.
+        """*test_iterator()* prueba el iterador *__iter__()* de *SingleLinked* con estructuras de datos no vacías. También comprueba si los elementos se pueden iterar en conjunto con los elementos de otras estructuras de datos nativas de Python y que los elementos iterados sean iguales a los de la lista original.
         """
         # iterates over global params and create filled SingleLinked
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # create a new SingleLinked with the test data
@@ -1883,21 +1894,21 @@ class TestDoubleLinked(unittest.TestCase):
         """*test_new_default_singlelinked()* prueba la inicialización de una lista sencillamente encadenada o *DoubleLinked* vacía.
         """
         # Test an empty DoubleLinked
-        empty_list = DoubleLinked()
+        dl_lt = DoubleLinked()
         # Test if DoubleLinked is not None
-        assert empty_list is not None
+        assert dl_lt is not None
         # Test if DoubleLinked is empty
-        assert empty_list._size == -1
+        assert dl_lt._size == -1
         # Test if the DoubleLinked first element is empty
-        assert empty_list._header.get_info() is None
+        assert dl_lt._header.get_info() is None
         # Test if the DoubleLinked last element is empty
-        assert empty_list._trailer.get_info() is None
+        assert dl_lt._trailer.get_info() is None
         # Test if DoubleLinked key is "id"
-        assert empty_list.key == "id"
+        assert dl_lt.key == "id"
         # Test if DoubleLinked cmp_function is the default
-        assert empty_list.cmp_function == empty_list.default_cmp_function
+        assert dl_lt.cmp_function == dl_lt.default_cmp_function
         # Test if list is an instance of DoubleLinked
-        assert isinstance(empty_list, DoubleLinked)
+        assert isinstance(dl_lt, DoubleLinked)
 
     def test_default_cmp_function(self):
         """*test_default_cmp_function()* prueba la función de comparación predeterminada de *DoubleLinked* con diferentes tipos de elementos.
@@ -1907,7 +1918,7 @@ class TestDoubleLinked(unittest.TestCase):
         # iterate over tglobal params and use the default cmp function
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # iterate over the test data
@@ -1929,13 +1940,12 @@ class TestDoubleLinked(unittest.TestCase):
     def test_new_custom_singlelinked(self):
         """*test_new_custom_singlelinked()* prueba la inicialización de una *DoubleLinked* personalizada con elementos de diferentes tipos.
         """
-        # TODO translate to spanish docstring
         # getting the global variables
         data_type_lt = self.global_params.get("CHECK_TYPE_LT")
         # iterate over tglobal params and create single linked list node
         for key, data_type in zip(self.global_params.keys(), data_type_lt):
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 test_data = self.global_params.get(key)
                 # create a new DoubleLinked with the test data
                 dl_lt = DoubleLinked(iodata=test_data)
@@ -1963,7 +1973,7 @@ class TestDoubleLinked(unittest.TestCase):
         # iterate over tglobal params and create single linked list node
         for key, dtype in zip(self.global_params.keys(), dtype_lt):
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 test_data = self.global_params.get(key)
                 dl_lt = DoubleLinked(iodata=test_data,
                                      key="uuid")
@@ -1991,7 +2001,7 @@ class TestDoubleLinked(unittest.TestCase):
         # iterate over tglobal params and create single linked list node
         for key, dtype in zip(self.global_params.keys(), dtype_lt):
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 test_data = self.global_params.get(key)
                 dl_lt = DoubleLinked(iodata=test_data,
                                      cmp_function=cmp_lt_test_function)
@@ -2027,7 +2037,7 @@ class TestDoubleLinked(unittest.TestCase):
         # iterates over global params and create filled DoubleLinked
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # getting the test data
                 test_data = self.global_params.get(key)
                 # create a new DoubleLinked with the test data
@@ -2055,7 +2065,7 @@ class TestDoubleLinked(unittest.TestCase):
         # iterates over global params and create filled DoubleLinked
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # create a new DoubleLinked with the test data
@@ -2081,7 +2091,7 @@ class TestDoubleLinked(unittest.TestCase):
         # iterate over the type error list and create a node for each type
         for key, dtype, err in zip(param_keys, dtype_lt, type_err_lt):
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 test_data = self.global_params.get(key)
                 # create a new DoubleLinked with the test data
                 with pytest.raises(TypeError) as excinfo:
@@ -2125,7 +2135,7 @@ class TestDoubleLinked(unittest.TestCase):
         # iterate over the type error list and create a node for each type
         for key, dtype, err in zip(param_keys, dtype_lt, type_err_lt):
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 test_data = self.global_params.get(key)
                 # create a new DoubleLinked with the test data
                 with pytest.raises(TypeError) as excinfo:
@@ -2171,7 +2181,7 @@ class TestDoubleLinked(unittest.TestCase):
         # iterates over global params and create filled DoubleLinked
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # get the length of the test data
@@ -2220,7 +2230,7 @@ class TestDoubleLinked(unittest.TestCase):
         # iterates over global params and create filled DoubleLinked
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # get the length of the test data
@@ -2248,7 +2258,7 @@ class TestDoubleLinked(unittest.TestCase):
         # iterates over global params and create filled DoubleLinked
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # get the length of the test data
@@ -2277,7 +2287,7 @@ class TestDoubleLinked(unittest.TestCase):
         # iterates over global params and create filled DoubleLinked
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # get the length of the test data
@@ -2317,7 +2327,7 @@ class TestDoubleLinked(unittest.TestCase):
         # iterates over global params and create filled DoubleLinked
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # get the length of the test data
@@ -2347,7 +2357,7 @@ class TestDoubleLinked(unittest.TestCase):
         # iterates over global params and create filled DoubleLinked
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # get the length of the test data
@@ -2382,7 +2392,7 @@ class TestDoubleLinked(unittest.TestCase):
         # iterates over global params and create filled DoubleLinked
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # get the length of the test data
@@ -2431,7 +2441,7 @@ class TestDoubleLinked(unittest.TestCase):
         # iterates over global params and create filled DoubleLinked
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # create a new DoubleLinked with the test data
@@ -2462,7 +2472,7 @@ class TestDoubleLinked(unittest.TestCase):
         # iterates over global params and create filled DoubleLinked
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # create a new DoubleLinked with the test data
@@ -2497,7 +2507,7 @@ class TestDoubleLinked(unittest.TestCase):
         # iterates over global params and create filled DoubleLinked
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # get the length of the test data
@@ -2551,7 +2561,7 @@ class TestDoubleLinked(unittest.TestCase):
         # iterates over global params and create filled DoubleLinked
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # get the length of the test data
@@ -2608,7 +2618,7 @@ class TestDoubleLinked(unittest.TestCase):
         # iterates over global params and create filled DoubleLinked
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # create a new DoubleLinked with the test data
@@ -2661,7 +2671,7 @@ class TestDoubleLinked(unittest.TestCase):
         # iterates over global params and create filled DoubleLinked
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # create a new DoubleLinked with the test data
@@ -2725,12 +2735,12 @@ class TestDoubleLinked(unittest.TestCase):
                            dl_lt2.cmp_function))
 
     def test_iterator(self):
-        """*test_iterator()* prueba el método *iterator()* de *DoubleLinked* con estructuras de datos no vacías. También comprueba si los elementos se pueden iterar en conjunto con los elementos de otras estructuras de datos nativas de Python y que los elementos iterados sean iguales a los de la lista original.
+        """*test_iterator()* prueba el iterador *__iter__()* de *DoubleLinked* con estructuras de datos no vacías. También comprueba si los elementos se pueden iterar en conjunto con los elementos de otras estructuras de datos nativas de Python y que los elementos iterados sean iguales a los de la lista original.
         """
         # iterates over global params and create filled DoubleLinked
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
-            if key not in ("CHECK_ERR_LT", "CHECK_TYPE_LT", "TEST_AL_LT"):
+            if key not in IGNORE_KEYS_LT:
                 # get the test data
                 test_data = self.global_params.get(key)
                 # create a new DoubleLinked with the test data
@@ -2742,6 +2752,31 @@ class TestDoubleLinked(unittest.TestCase):
                                          cmp_function=cmp_lt_test_function)
                 # iterates over the DoubleLinked and the test data and compare
                 for element, data in zip(dl_lt, test_data):
+                    # test for the element is equal to test_data
+                    assert element == data
+                    # test for the element type is equal to test_data
+                    assert type(element) is type(data)
+                # test for the iterator is exhausted and the StopIteration
+                assert dl_lt.size() == test_len
+
+    def test_reversed(self):
+        """*test_reversed()* prueba el iterador invertido *__reversed__()* de *DoubleLinked* con estructuras de datos no vacías. También comprueba si los elementos se pueden iterar en conjunto con los elementos de otras estructuras de datos nativas de Python y que los elementos iterados sean iguales a los de la lista original.
+        """
+        # iterates over global params and create filled DoubleLinked
+        for key in self.global_params.keys():
+            # ignore 3 keys from the global params
+            if key not in IGNORE_KEYS_LT:
+                # get the test data
+                test_data = self.global_params.get(key)
+                # create a new DoubleLinked with the test data
+                test_len = len(test_data)
+                dl_lt = DoubleLinked(iodata=test_data)
+                # if it is the custom dict, use the custom cmp function
+                if key == "TEST_CUSTOM_DICT_LT":
+                    dl_lt = DoubleLinked(iodata=test_data,
+                                         cmp_function=cmp_lt_test_function)
+                # iterates over the DoubleLinked and the test data and compare
+                for element, data in zip(reversed(dl_lt), reversed(test_data)):
                     # test for the element is equal to test_data
                     assert element == data
                     # test for the element type is equal to test_data

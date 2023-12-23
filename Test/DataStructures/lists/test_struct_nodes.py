@@ -1,5 +1,5 @@
 ﻿"""
-*test_struct_nodes* es el módulo que prueba las estructuras de datos *Node*, *SingleNode* y *DoubleNode* para el ADT dinámico y configurable *List*.
+*test_struct_nodes* es el módulo que prueba las estructuras de datos **Node** (en TestNode), **SingleNode** (en TestSingleNode) y **DoubleNode** (en TestDoubleNode) para el ADT dinámico y configurable **List**.
 """
 
 # import testing package
@@ -22,7 +22,7 @@ assert get_node_test_data
 
 
 class TestNode(unittest.TestCase):
-    """*TestNode* es la clase *unittest* que prueba la clase *Node*.
+    """**TestNode** son las pruebas de tipo *unittest* que validan el funcionamiento de la estructura **Node**.
 
     Args:
         unittest (TestCase): clase *unittest.TestCase* para pruebas unitarias.
@@ -35,7 +35,7 @@ class TestNode(unittest.TestCase):
         self.global_params = get_node_test_data()
 
     def test_new_default_node(self):
-        """*test_new_default_node* prueba la creación de un nodo vacío de una lista enlazada.
+        """*test_new_default_node* prueba para crear un nodo vacío de una lista enlazada.
         """
         # create an empty single linked list node
         node = Node()
@@ -43,7 +43,7 @@ class TestNode(unittest.TestCase):
         assert node.info is None
 
     def test_new_custom_node(self):
-        """*test_new_custom_node()* prueba la creación de un nodo *Node* de una lista enlazada con datos personalizados.
+        """*test_new_custom_node()* prueba para crear un nodo *Node* de una lista enlazada con datos personalizados.
         """
         # getting the global variables
         dtype_lt = self.global_params.get("CHECK_TYPE_LT")
@@ -137,7 +137,7 @@ class TestNode(unittest.TestCase):
 
 
 class TestSingleNode(unittest.TestCase):
-    """*TestSingleNode* es la clase *unittest* que prueba la clase *SingleNode*.
+    """**TestSingleNode** son las pruebas tipo *unittest* que validan el funcionamiento de la estructura **SingleNode**.
 
     Args:
         unittest (TestCase): clase *unittest.TestCase* para pruebas unitarias.
@@ -150,17 +150,17 @@ class TestSingleNode(unittest.TestCase):
         self.global_params = get_node_test_data()
 
     def test_new_default_single_node(self):
-        """*test_new_default_node()* prueba la creación de un nodo vacío de una lista sencillamente encadenada *SingleNode*.
+        """*test_new_default_node()* prueba para crear un nodo vacío de una lista sencillamente encadenada *SingleNode*.
         """
         # create an empty single linked list node
         node = SingleNode()
         # assert for node information is None
-        assert (node.info is None)
+        assert node.info is None
         # assert for node _next and next() are None
         assert (node.next() is None) and (node._next is None)
 
     def test_new_custom_single_node(self):
-        """*test_new_custom_node()* prueba la creación de un nodo *SingleNode* de una lista sencillamente encadenada con datos personalizados.
+        """*test_new_custom_node()* prueba para crear un nodo *SingleNode* de una lista sencillamente encadenada con datos personalizados.
         """
         # getting the global variables
         dtype_lt = self.global_params.get("CHECK_TYPE_LT")
@@ -204,7 +204,7 @@ class TestSingleNode(unittest.TestCase):
 
 
 class TestDoubleNode(unittest.TestCase):
-    """*TestDoubleNode* es la clase *unittest* que prueba la clase *DoubleNode*.
+    """*TestDoubleNode* son las pruebas tipo *unittest* que validan el funcionamiento de la estructura **DoubleNode**.
 
     Args:
         unittest (TestCase): clase *unittest.TestCase* para pruebas unitarias.
@@ -217,7 +217,7 @@ class TestDoubleNode(unittest.TestCase):
         self.global_params = get_node_test_data()
 
     def test_new_default_double_node(self):
-        """*test_new_default_node()* prueba la creación de un nodo vacío de una lista doblemente encadenada *DoubleNode*.
+        """*test_new_default_node()* prueba para crear un nodo vacío de una lista doblemente encadenada *DoubleNode*.
         """
         # create an empty single linked list node
         node = DoubleNode()
@@ -229,7 +229,7 @@ class TestDoubleNode(unittest.TestCase):
         assert (node.prev() is None) and (node._prev is None)
 
     def test_new_custom_double_node(self):
-        """*test_new_custom_node()* prueba la creación de un nodo *DoubleNode* de una lista doblemente encadenada con datos personalizados.
+        """*test_new_custom_node()* prueba para crear un nodo *DoubleNode* de una lista doblemente encadenada con datos personalizados.
         """
         # getting the global variables
         dtype_lt = self.global_params.get("CHECK_TYPE_LT")

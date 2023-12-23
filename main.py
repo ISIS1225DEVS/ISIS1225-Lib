@@ -169,14 +169,20 @@ if __name__ == "__main__":
     print(aaaa)
     print(trans)
 
-    print("----------- Maps -----------")
-    m = Map(dstruct="LinearProbing",   # "LinearProbing", "SeparateChaining"
-            nentries=2,
-            # max_alpha=4,
-            rehashable=True,
-            cmp_function=cmp_test2)
-    print(m.mcapacity)
-    print(m)
+    TEST_STR_LT = [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f",
+        "g",
+        "h",
+        "i",
+        "j",
+        "k",
+        "l",
+    ]
 
     test_data = (
         {"testkey": 1, "testvalue": "one"},
@@ -185,28 +191,56 @@ if __name__ == "__main__":
         {"testkey": 4, "testvalue": "four"},
         {"testkey": 5, "testvalue": "five"},
     )
-    print(type(m))
-    # print(type(type(m)))
-    print(m.is_empty())
+
+    print("----------- Maps -----------")
+    m = Map(dstruct="SeparateChaining",   # "LinearProbing", "SeparateChaining"
+            iodata=test_data,
+            nentries=2,
+            min_alpha=0,
+            max_alpha=4,
+            rehashable=True,
+            key="testkey",
+            cmp_function=cmp_test2)
+    print(m.mcapacity)
+    print(m.nentries)
     print(m.size())
-    print("\nadding data 1")
-    m.put(1, 1)
     print(m.hash_table)
-    print("\nadding data 2")
-    m.put(2, 2)
-    print(m.hash_table)
+    print(m._key_type, m._value_type)
+    print(m._cur_alpha)
+    keys = m.keys()
+    print(keys.size(), type(keys), len(keys))
+    values = m.values()
+    print(values.size(), type(values), len(values))
+
+    # test_data = (
+    #     {"testkey": 1, "testvalue": "one"},
+    #     {"testkey": 2, "testvalue": "two"},
+    #     {"testkey": 3, "testvalue": "three"},
+    #     {"testkey": 4, "testvalue": "four"},
+    #     {"testkey": 5, "testvalue": "five"},
+    # )
+    # print(type(m))
+    # # print(type(type(m)))
+    # print(m.is_empty())
+    # print(m.size())
+    # # print("\nadding data 1")
+    # # m.put(1, 1)
+    # print(m.hash_table)
+    # # print("\nadding data 2")
+    # # m.put(2, 2)
+    # # print(m.hash_table)
+
+    # # # print(m)
+    # # print("\nadding data 11")
+    # # m.put(11, 11)
+    # # print(m.hash_table)
+    # # print("\nchecking data 9")
+    # # print(m.contains(9))
+    # # print("\nchecking data 11")
+    # print(m.contains(11))
 
     # print(m)
-    print("\nadding data 11")
-    m.put(11, 11)
-    print(m.hash_table)
-    print("\nchecking data 9")
-    print(m.contains(9))
-    print("\nchecking data 11")
-    print(m.contains(11))
-
-    print(m)
-    # m.put(1, {"testkey": 1, "testvalue": List(iodata=(1, 2, 3, 4, 5))})
+    # m.put(1, {"testkey": 1, "testvalue": "two"})
     # m.put(2, {"testkey": 2, "testvalue": "one"})
     # m.put(3, {"testkey": 3, "testvalue": "one"})
     # m.put(4, {"testkey": 4, "testvalue": "one"})
@@ -217,7 +251,7 @@ if __name__ == "__main__":
     # m.put(9, {"testkey": 9, "testvalue": "one"})
     # m.put(10, {"testkey": 10, "testvalue": "one"})
     # m.put(11, {"testkey": 11, "testvalue": "one"})
-    # print(isinstance(m, (T)))
+    # # print(isinstance(m, (T)))
 
     # for a in test_data:
     #     # print(a)
@@ -236,13 +270,12 @@ if __name__ == "__main__":
     #     k = a.get("testkey")
     #     print(m.remove(k))
 
-    # print(m.mcapacity)
-    # print(m.size())
-    # print(m.nentries)
-    # print(m.hash_table.size())
+    # # print(m.mcapacity)
+    # print(f"m.size(): {m.size()}")
+    # # print(m.nentries)
+    # # print(m.hash_table.size())
     # print(m.values())
     # print(m.keys())
     # print(m.entries())
-    # print(type(None))
-    a = dict(t=dict(a=1, b=2, c=3))
-    print(a)
+    print(m._value_type, m._key_type)
+    # # print(hash(m))

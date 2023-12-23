@@ -113,7 +113,7 @@ class LinearProbing(Generic[T]):
 
     # starting capacity (M|m) for the hash table
     # :attr: mcapacity
-    mcapacity: int = 1
+    mcapacity: int = 2
     """
     Es la capacidad (M) con la que se inicializa la tabla de hash.
     """
@@ -144,14 +144,14 @@ class LinearProbing(Generic[T]):
     # :attr: key
     key: Optional[str] = None
     """
-    Nombre de la llave opcional que se utiliza para comparar los elementos del LinearProbing, Por defecto es *None* y el *__post_init__()* configura la llave por defecto la llave *id* en *DEFAULT_DICT_KEY*.
+    Nombre de la llave opcional que se utiliza para comparar los elementos del SeparateChaining, Por defecto la llave es la cadena de caracteres *"id"* definida en *DEFAULT_DICT_KEY*.
     """
 
     # prime number (P) for the MAD compression function
     # :attr: prime
     prime: Optional[int] = DEFAULT_PRIME
     """
-    Es el número primo (P) utilizado para calcular el código hash de la llave con la función de compresión MAD, por defecto es 109345121.
+    Es el número primo (P) utilizado para calcular el código hash de la llave con la función de compresión MAD, por defecto es 109345121 definido en *DEFAULT_PRIME*.
     """
 
     # TODO create a MAD class to handle the compression function?
@@ -203,18 +203,18 @@ class LinearProbing(Generic[T]):
     Es el número de colisiones en la tabla de hash.
     """
 
-    # the type of the entry values in the hash table
-    # :attr: _value_type
-    _value_type: Optional[type] = None
-    """
-    Es el tipo de dato de los valores en la entrada que contiene la tabla de hash, por defecto es *None* y se configura al cargar el primera entrada en el mapa.
-    """
-
     # the type of the entry keys in the hash table
     # :attr: _key_type
     _key_type: Optional[type] = None
     """
     Es el tipo de dato de las llaves en la entrada que contiene la tabla de hash, por defecto es *None* y se configura al cargar el primera entrada en el mapa.
+    """
+
+    # the type of the entry values in the hash table
+    # :attr: _value_type
+    _value_type: Optional[type] = None
+    """
+    Es el tipo de dato de los valores en la entrada que contiene la tabla de hash, por defecto es *None* y se configura al cargar el primera entrada en el mapa.
     """
 
     def __post_init__(self) -> None:
@@ -230,9 +230,6 @@ class LinearProbing(Generic[T]):
             # setting the default compare function
             if self.cmp_function is None:
                 self.cmp_function = ht_default_cmp_funcion
-            # setting the default key
-            if self.key is None:
-                self.key = DEFAULT_DICT_KEY
 
             # initializing the hash table
             self.hash_table = ArrayList(cmp_function=self.cmp_function,

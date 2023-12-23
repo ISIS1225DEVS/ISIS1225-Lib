@@ -1,7 +1,7 @@
 """
 Este ADT representa una tabla de hash con el método de encadenamiento por de separación (Separate Chaining). Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.
 
-Ademas, contiene la estructura **Bucket** basada en una lista sencillamente enlazada (SingleLinked) donde se almacenan las entradas (parejas llave-valor) que sufren colisiones en la tabla de hash. 
+Ademas, contiene la estructura **Bucket** basada en una lista sencillamente enlazada (SingleLinked) donde se almacenan las entradas (parejas llave-valor) que sufren colisiones en la tabla de hash.
 
 *IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:
 
@@ -147,16 +147,16 @@ class SeparateChaining(Generic[T]):
     """
     # the key is used to compare entries, not defined by default
     # :attr: key
-    key: Optional[str] = None
+    key: Optional[str] = DEFAULT_DICT_KEY
     """
-    Nombre de la llave opcional que se utiliza para comparar los elementos del SeparateChaining, Por defecto es *None* y el *__post_init__()* configura la llave por defecto la llave *id* en *DEFAULT_DICT_KEY*.
+    Nombre de la llave opcional que se utiliza para comparar los elementos del SeparateChaining, Por defecto la llave es la cadena de caracteres *"id"* definida en *DEFAULT_DICT_KEY*.
     """
 
     # prime number (P) for the MAD compression function
     # :attr: prime
     prime: Optional[int] = DEFAULT_PRIME
     """
-    Es el número primo (P) utilizado para calcular el código hash de la llave con la función de compresión MAD, por defecto es 109345121.
+    Es el número primo (P) utilizado para calcular el código hash de la llave con la función de compresión MAD, por defecto es 109345121 definido en *DEFAULT_PRIME*.
     """
 
     # TODO create a MAD class to handle the compression function?
@@ -175,16 +175,9 @@ class SeparateChaining(Generic[T]):
 
     # current factor (alpha) for the working hash table
     # :attr: _cur_alpha
-    _cur_alpha: Optional[float] = 0
+    _cur_alpha: Optional[float] = 0.0
     """
     Es el factor de carga actual de la tabla de hash.
-    """
-
-    # maximum load factor (alpha) for the hash table
-    # :attr: max_alpha
-    max_alpha: Optional[float] = MAX_CHAINING_ALPHA
-    """
-    Es el factor de carga máximo de la tabla de hash, por defecto es 8.0.
     """
 
     # minimum load factor (alpha) for the hash table
@@ -192,6 +185,13 @@ class SeparateChaining(Generic[T]):
     min_alpha: Optional[float] = MIN_CHAINING_ALPHA
     """
     Es el factor de carga mínimo de la tabla de hash, por defecto es 2.0.
+    """
+
+    # maximum load factor (alpha) for the hash table
+    # :attr: max_alpha
+    max_alpha: Optional[float] = MAX_CHAINING_ALPHA
+    """
+    Es el factor de carga máximo de la tabla de hash, por defecto es 8.0.
     """
 
     # actual number of used entries (n) in the hash table
@@ -208,18 +208,18 @@ class SeparateChaining(Generic[T]):
     Es el número de colisiones en la tabla de hash.
     """
 
-    # the type of the entry values in the hash table
-    # :attr: _value_type
-    _value_type: Optional[type] = None
-    """
-    Es el tipo de dato de los valores en la entrada que contiene la tabla de hash, por defecto es *None* y se configura al cargar el primera entrada en el mapa.
-    """
-
     # the type of the entry keys in the hash table
     # :attr: _key_type
     _key_type: Optional[type] = None
     """
     Es el tipo de dato de las llaves en la entrada que contiene la tabla de hash, por defecto es *None* y se configura al cargar el primera entrada en el mapa.
+    """
+
+    # the type of the entry values in the hash table
+    # :attr: _value_type
+    _value_type: Optional[type] = None
+    """
+    Es el tipo de dato de los valores en la entrada que contiene la tabla de hash, por defecto es *None* y se configura al cargar el primera entrada en el mapa.
     """
 
     def __post_init__(self) -> None:
@@ -234,10 +234,7 @@ class SeparateChaining(Generic[T]):
             self._shift = random.randint(0, self.prime - 1)
             # setting the default compare function
             if self.cmp_function is None:
-                self.cmp_function = ht_default_cmp_funcion
-            # setting the default key
-            if self.key is None:
-                self.key = DEFAULT_DICT_KEY
+                self.cmp_function = self.default_cmp_function
 
             # initializing new hash table
             self.hash_table = ArrayList(cmp_function=self.cmp_function,
@@ -258,10 +255,21 @@ class SeparateChaining(Generic[T]):
 
             # TODO is the best way to create the structure???
             if isinstance(self.iodata, VALID_IO_TYPE):
-                for entry in self.iodata:
-                    key = entry.get(self.key)
-                    self.put(key, entry)
+                # get the type of the data in the list
+                # if is a dict, use the key type
+                print(type(self.iodata), self.iodata)
+                if isinstance(self.iodata[-1], dict):
+                    for entry in self.iodata:
+                        key = entry.get(self.key)
+                        self.put(key, entry)
+                # otherwise, manage as data list
+                else:
+                    for data in self.iodata:
+                        key = data
+                        self.put(key, data)
             self.iodata = None
+            if self._size != 0:
+                self.nentries = self._size
         except Exception as err:
             self._handle_error(err)
 
@@ -275,7 +283,7 @@ class SeparateChaining(Generic[T]):
             int: respuesta de la comparación entre los elementos, 0 si las llaves son iguales, 1 si key1 es mayor que la llave de entry2, -1 si key1 es menor.
         """
         try:
-            # passing self as the first argument to simulate a method
+            # using the default compare function for the key
             return ht_default_cmp_funcion(key1, entry2)
         except Exception as err:
             self._handle_error(err)

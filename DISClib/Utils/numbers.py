@@ -17,6 +17,7 @@ import math
 # custom modules
 # error handler and datatypes
 from DISClib.Utils.default import T
+from DISClib.Utils.default import VALID_IO_TYPE
 
 
 def is_prime(n: int) -> bool:
@@ -116,7 +117,7 @@ def hash_compress(key: T,
         M (capacity) es el tamaño de la tabla, primo
 
     Args:
-        key (T): llave para calcular el índice en la tabla de Hash, Puede ser cualquier tipo de dato.
+        key (T): llave para calcular el índice en la tabla de Hash, Puede ser cualquier tipo de dato nativo en Python o definido por el usuario.
         scale (int): pendiente de la función de compresión.
         shift (int): desplazamiento de la función de compresión.
         prime (int): número  primo mucho mayor a la capacidad de la tabla de Hash.
@@ -126,6 +127,12 @@ def hash_compress(key: T,
         int: el índice del elemento en la tabla de Hash.
     """
     # getting the hash of the key
+    # freesing dynamic data types (dict, list, set)
+    # TODO is easier if we cast the dynamic keys to strings?
+    if isinstance(key, VALID_IO_TYPE):
+        key = tuple(key)
+    elif isinstance(key, dict):
+        key = tuple(key.items())
     hkey = hash(key)
     # calculating the index with the MAD compression function
     idx = int((abs(scale * hkey + shift) % prime) % mcapacity)

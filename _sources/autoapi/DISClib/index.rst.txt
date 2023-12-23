@@ -330,7 +330,7 @@ Attributes
        p (prime) es un primo mayor a M,
        M (capacity) es el tamaño de la tabla, primo
 
-   :param key: llave para calcular el índice en la tabla de Hash, Puede ser cualquier tipo de dato.
+   :param key: llave para calcular el índice en la tabla de Hash, Puede ser cualquier tipo de dato nativo en Python o definido por el usuario.
    :type key: T
    :param scale: pendiente de la función de compresión.
    :type scale: int

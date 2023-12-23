@@ -98,6 +98,7 @@
 <span class="c1"># custom modules</span>
 <span class="c1"># error handler and datatypes</span>
 <span class="kn">from</span> <span class="nn">DISClib.Utils.default</span> <span class="kn">import</span> <span class="n">T</span>
+<span class="kn">from</span> <span class="nn">DISClib.Utils.default</span> <span class="kn">import</span> <span class="n">VALID_IO_TYPE</span>
 
 
 <div class="viewcode-block" id="is_prime">
@@ -208,7 +209,7 @@
 <span class="sd">        M (capacity) es el tamaño de la tabla, primo</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        key (T): llave para calcular el índice en la tabla de Hash, Puede ser cualquier tipo de dato.</span>
+<span class="sd">        key (T): llave para calcular el índice en la tabla de Hash, Puede ser cualquier tipo de dato nativo en Python o definido por el usuario.</span>
 <span class="sd">        scale (int): pendiente de la función de compresión.</span>
 <span class="sd">        shift (int): desplazamiento de la función de compresión.</span>
 <span class="sd">        prime (int): número  primo mucho mayor a la capacidad de la tabla de Hash.</span>
@@ -218,6 +219,12 @@
 <span class="sd">        int: el índice del elemento en la tabla de Hash.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># getting the hash of the key</span>
+    <span class="c1"># freesing dynamic data types (dict, list, set)</span>
+    <span class="c1"># TODO is easier if we cast the dynamic keys to strings?</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">VALID_IO_TYPE</span><span class="p">):</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">key</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
     <span class="n">hkey</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
     <span class="c1"># calculating the index with the MAD compression function</span>
     <span class="n">idx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="nb">abs</span><span class="p">(</span><span class="n">scale</span> <span class="o">*</span> <span class="n">hkey</span> <span class="o">+</span> <span class="n">shift</span><span class="p">)</span> <span class="o">%</span> <span class="n">prime</span><span class="p">)</span> <span class="o">%</span> <span class="n">mcapacity</span><span class="p">)</span>

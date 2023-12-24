@@ -373,7 +373,18 @@ def get_hashtable_test_data():
             {31, 32, 33},
             {34, 35, 36},
         ],
-        CHECK_TYPE_LT=[
+        CHECK_KEY_TYPE_LT=[
+            str,
+            int,
+            float,
+            bool,
+            int,
+            str,
+            list,
+            tuple,
+            set,
+        ],
+        CHECK_VALUE_TYPE_LT=[
             str,
             int,
             float,

@@ -39,7 +39,8 @@ IGNORE_KEYS_LT = (
     "TEST_SC_HT_CONFIG",
     "TEST_LP_HT_CONFIG",
     "CHECK_ERR_LT",
-    "CHECK_TYPE_LT",
+    "CHECK_KEY_TYPE_LT",
+    "CHECK_VALUE_TYPE_LT",
 )
 """
 Lista de llaves a ignorar en los parámetros globales en las pruebas.
@@ -97,8 +98,8 @@ class testSeparateChaining(unittest.TestCase):
             ans.append(elm)
         return ans
 
-    def test_new_default_separate_chaining(self):
-        """*test_new_default_separate_chaining()* prueba para crear una estructura *SeparateChaining* con parámetros por defecto.
+    def test_default_separate_chaining(self):
+        """*test_default_separate_chaining()* prueba para crear una estructura *SeparateChaining* con parámetros por defecto.
         """
         # create a new SeparateChaining
         sc_ht = SeparateChaining()
@@ -131,20 +132,61 @@ class testSeparateChaining(unittest.TestCase):
         # Test if the SeparateChaining has not define value type
         assert sc_ht._value_type is None
 
-    def test_new_custom_separate_chaining(self):
-        """*test_new_custom_separate_chaining()* prueba para crear una estructura *SeparateChaining* con parámetros personalizados.
+    def test_default_cmp_function(self):
+        """*test_default_cmp_function()* prueba la función de crear un ADT *SeparateChaining* con parámetros personalizados, junto con datos de inicialización nativos de Python y definidos por el usuario.
         """
-        # getting the global parameters
-        data_type_lt = self.global_params.get("CHECK_TYPE_LT")
-        test_nelements = self.global_params.get("TEST_NENTRIES")
-        test_sc_ht_config = self.global_params.get("TEST_SC_HT_CONFIG")
-        # iterate over tglobal params and create single linked list node
-        for key, data_type in zip(self.global_params.keys(), data_type_lt):
+        # create a new SeparateChaining with default cmp function
+        sc_ht = SeparateChaining()
+
+        # iterate over tglobal params and use the default cmp function
+        for key in self.global_params.keys():
             # ignore 3 keys from the global params
             if key not in IGNORE_KEYS_LT:
+                # get the test data
+                test_data = self.global_params.get(key)
+                # iterate over the test data
+                for i in range(0, len(test_data) - 1):
+                    # to avoid index out of range
+                    if i > 1 and i < len(test_data) - 1:
+                        # get current data, previous and next
+                        ce = test_data[i]
+                        pe = test_data[i - 1]
+                        ne = test_data[i + 1]
+                        # create the MapEntry for the data
+                        cme = MapEntry(ce, ce)
+                        pme = MapEntry(pe, pe)
+                        nme = MapEntry(ne, ne)
+                        # test the result of the default cmp function
+                        exp_res = (-1, 0, 1)
+                        res1 = sc_ht.default_cmp_function(ce, pme) in exp_res
+                        res2 = sc_ht.default_cmp_function(ce, cme) in exp_res
+                        res3 = sc_ht.default_cmp_function(ce, nme) in exp_res
+                        # test all 3 conditions are true
+                        assert all([res1, res2, res3])
+
+    def test_custom_separate_chaining(self):
+        """*test_custom_separate_chaining()* prueba para crear una estructura *SeparateChaining* con parámetros personalizados.
+        """
+        # getting the global parameters data
+        # key type list
+        data_ktype_lt = self.global_params.get("CHECK_KEY_TYPE_LT")
+        # value type list
+        data_vtype_lt = self.global_params.get("CHECK_VALUE_TYPE_LT")
+        # test data keys
+        param_lt = self.global_params.keys()
+        # hash table base number of elements (n)
+        test_nelements = self.global_params.get("TEST_NENTRIES")
+        # dict for the hash table configuration parameters
+        test_sc_ht_config = self.global_params.get("TEST_SC_HT_CONFIG")
+        # iterate over global param data to create a new SeparateChaining
+        for key, ktype, vtype in zip(param_lt, data_ktype_lt, data_vtype_lt):
+            # ignore some keys from the global params
+            if key not in IGNORE_KEYS_LT:
                 for config in test_sc_ht_config.keys():
+                    # custom dict id key
+                    custom_id = "uuid"
+                    # get SeparateChaining config for current test
                     tconfig = test_sc_ht_config.get(config)
-                    # get SeparateChaining data for current config
                     talpha = tconfig.get("alpha")
                     tmin = tconfig.get("_min_alpha")
                     tmax = tconfig.get("_max_alpha")
@@ -152,7 +194,10 @@ class testSeparateChaining(unittest.TestCase):
                     tkey = tconfig.get("key")
                     # get input test data for current hash table
                     test_data = self.global_params.get(key)
-                    dt = data_type
+                    # fix default key for dict to keep test consistency
+                    if key == "TEST_DICT_LT":
+                        tkey = "id"
+                        custom_id = "id"
                     # create a new SeparateChaining with the test data
                     sc_ht = SeparateChaining(iodata=test_data,
                                              nentries=test_nelements,
@@ -165,9 +210,9 @@ class testSeparateChaining(unittest.TestCase):
                     assert sc_ht is not None
                     # Test SeparateChaining data type
                     assert isinstance(sc_ht, SeparateChaining)
-                    # testing DoubleLinked key is "id"
-                    assert sc_ht.key == "uuid"
-                    # testing DoubleLinked cmp_function is the default
+                    # testing SeparateChaining key is "uuid"
+                    assert sc_ht.key == custom_id
+                    # testing SeparateChaining cmp_function is the default
                     assert sc_ht.cmp_function == sc_ht.default_cmp_function
                     # Test SeparateChaining alpha is the one defined
                     assert sc_ht.alpha == talpha
@@ -177,28 +222,121 @@ class testSeparateChaining(unittest.TestCase):
                     assert sc_ht.max_alpha == tmax
                     # Test SeparateChaining rehashable is the one defined
                     assert sc_ht.rehashable == trehash
-                    # Test SeparateChaining entry type is consistent
-                    assert sc_ht._value_type == dt
+                    # Test SeparateChaining value type is consistent
+                    assert sc_ht._value_type == vtype
+                    # Test SeparateChaining key type is consistent
+                    assert sc_ht._key_type == ktype
 
-    def test_custom_key(self):
-        """*test_custom_key()* prueba la creación de un ADT *SeparateChaining* con parámetros personalizados y función de comparación.
+    def test_custom_cmp_function(self):
+        """*test_default_cmp_function()* prueba la función de comparación por defecto para las entradas (pareka llave-valor) del ADT Map (HashTable). pueden ser de tipo nativo o definido por el usuario.
         """
-        pass
-
-    def test_custom_cmpfunction(self):
-        """*test_custom_cmpfunction()* prueba la creación de un ADT *SeparateChaining* con parámetros personalizados y función de comparación.
-        """
-        pass
+        # getting the global parameters data
+        # key type list
+        data_ktype_lt = self.global_params.get("CHECK_KEY_TYPE_LT")
+        # value type list
+        data_vtype_lt = self.global_params.get("CHECK_VALUE_TYPE_LT")
+        # test data keys
+        param_lt = self.global_params.keys()
+        # iterate over global param data to create a new SeparateChaining
+        for key, ktype, vtype in zip(param_lt, data_ktype_lt, data_vtype_lt):
+            # ignore some keys from the global params
+            if key not in IGNORE_KEYS_LT:
+                # get input test data for current hash table
+                test_data = self.global_params.get(key)
+                tkey = "uuid"
+                custom_id = "uuid"
+                # fix default key for dict to keep test consistency
+                if key == "TEST_DICT_LT":
+                    tkey = "id"
+                    custom_id = "id"
+                # create a new SeparateChaining with the test data
+                sc_ht = SeparateChaining(iodata=test_data,
+                                         cmp_function=cmp_ht_test_function,
+                                         key=tkey,)
+                # Test SeparateChaining is not None
+                assert sc_ht is not None
+                # Test SeparateChaining data type
+                assert isinstance(sc_ht, SeparateChaining)
+                # testing SeparateChaining key is "uuid"
+                assert sc_ht.key == custom_id
+                # testing SeparateChaining cmp_function is the custome one
+                assert sc_ht.cmp_function == cmp_ht_test_function
+                # Test SeparateChaining value type is consistent
+                assert sc_ht._value_type == vtype
+                # Test SeparateChaining key type is consistent
+                assert sc_ht._key_type == ktype
 
     def test_is_empty(self):
         """*test_is_empty()* prueba la función *is_empty()* del ADT *SeparateChaining*.
         """
-        pass
+        # create a new empty SeparateChaining
+        sc_ht = SeparateChaining()
+        # testing SeparateChaining is empty
+        assert sc_ht.is_empty() is True
+        # testing SeparateChaining elements is empty
+        sc_ht_keys = sc_ht.keys()
+        sc_ht_values = sc_ht.values()
+        sc_ht_kdata = self.sll_to_list(sc_ht_keys)
+        sc_ht_vdata = self.sll_to_list(sc_ht_values)
+        assert sc_ht_kdata == [] and sc_ht_vdata == []
+
+        # iterates over global params and create filled SeparateChaining
+        for key in self.global_params.keys():
+            # ignore 3 keys from the global params
+            if key not in IGNORE_KEYS_LT:
+                # get the test data
+                test_data = self.global_params.get(key)
+                # test_data_set = set(test_data)
+                # create a new SeparateChaining with the test data
+                sc_ht = SeparateChaining(iodata=test_data)
+                # testing SeparateChaining is not empty
+                assert sc_ht.is_empty() is False
+                # testing SeparateChaining keys and values have the same length
+                sc_ht_keys = sc_ht.keys()
+                sc_ht_values = sc_ht.values()
+                sc_ht_kdata = self.sll_to_list(sc_ht_keys)
+                sc_ht_vdata = self.sll_to_list(sc_ht_values)
+                # key-value length in hash table is always the same
+                assert len(sc_ht_kdata) == len(sc_ht_vdata)
 
     def test_size(self):
         """*test_size()* prueba la función *size()* del ADT *SeparateChaining*.
         """
-        pass
+        # create a new empty SeparateChaining
+        sc_ht = SeparateChaining()
+        # testing SeparateChaining size is 0 with size method
+        assert sc_ht.size() == 0
+        # testing SeparateChaining size is 0 with _size attribute
+        assert sc_ht._size == 0
+        # check if the SeparateChaining elements is empty
+        # testing SeparateChaining elements is empty
+        sc_ht_keys = sc_ht.keys()
+        sc_ht_values = sc_ht.values()
+        sc_ht_kdata = self.sll_to_list(sc_ht_keys)
+        sc_ht_vdata = self.sll_to_list(sc_ht_values)
+        assert sc_ht_kdata == [] and sc_ht_vdata == []
+
+        # iterates over global params and create filled SeparateChaining
+        for key in self.global_params.keys():
+            # ignore 3 keys from the global params
+            if key not in IGNORE_KEYS_LT:
+                # getting the test data
+                test_data = self.global_params.get(key)
+                # account for repeated keys in data
+                # test_data_set = set(test_data)
+                # create a new SeparateChaining with the test data
+                sc_ht = SeparateChaining(iodata=test_data)
+                # testing SeparateChaining keys and values have the same length
+                sc_ht_keys = sc_ht.keys()
+                sc_ht_values = sc_ht.values()
+                sc_ht_kdata = self.sll_to_list(sc_ht_keys)
+                sc_ht_vdata = self.sll_to_list(sc_ht_values)
+                # key-value length in hash table is always the same
+                assert len(sc_ht_kdata) == len(sc_ht_vdata)
+                # testing SeparateChaining size() is equal to test_data
+                assert sc_ht.size() == len(sc_ht_kdata) == len(sc_ht_vdata)
+                # testing SeparateChaining _size is equal to test_data
+                assert sc_ht._size == len(sc_ht_kdata) == len(sc_ht_vdata)
 
     def test_put(self):
         """*test_put()* prueba la función *put()* del ADT *SeparateChaining*.

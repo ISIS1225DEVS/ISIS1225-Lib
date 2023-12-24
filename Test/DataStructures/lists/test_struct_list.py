@@ -91,8 +91,8 @@ class TestArrayList(unittest.TestCase):
             TEST_ARRAY_LIST_LT.append(tal)
         self.global_params["TEST_AL_LT"] = TEST_ARRAY_LIST_LT
 
-    def test_new_default_arraylist(self):
-        """*test_new_default_arraylist()* prueba la inicialización de un *ArrayList* vacío.
+    def test_default_arraylist(self):
+        """*test_default_arraylist()* prueba la inicialización de un *ArrayList* vacío.
         """
         # Test an empty ArrayList
         ar_lt = ArrayList()
@@ -136,8 +136,8 @@ class TestArrayList(unittest.TestCase):
                         # test all 3 conditions are true
                         assert all([res1, res2, res3])
 
-    def test_new_custom_arraylist(self):
-        """*test_new_custom_arraylist()* prueba la inicialización de un *ArrayList* personalizado con elementos de diferentes tipos.
+    def test_custom_arraylist(self):
+        """*test_custom_arraylist()* prueba la inicialización de un *ArrayList* personalizado con elementos de diferentes tipos.
         """
         # getting the global variables
         data_type_lt = self.global_params.get("CHECK_TYPE_LT")
@@ -220,7 +220,7 @@ class TestArrayList(unittest.TestCase):
     def test_size(self):
         """*test_size()* prueba el método *size()* de *ArrayList* con estructuras de datos vacías y no vacías.
         """
-        # TODO translate to spanish docstring
+
         # create a new empty ArrayList
         ar_lt = ArrayList()
         # test for the ArrayList size is 0 with size method
@@ -984,8 +984,8 @@ class TestSingleLinked(unittest.TestCase):
             ans.append(elm)
         return ans
 
-    def test_new_default_singlelinked(self):
-        """*test_new_default_singlelinked()* prueba la inicialización de una lista sencillamente encadenada o *SingleLinked* vacía.
+    def test_default_singlelinked(self):
+        """*test_default_singlelinked()* prueba la inicialización de una lista sencillamente encadenada o *SingleLinked* vacía.
         """
         # Test an empty SingleLinked
         sl_lt = SingleLinked()
@@ -1031,10 +1031,10 @@ class TestSingleLinked(unittest.TestCase):
                         # test all 3 conditions are true
                         assert all([res1, res2, res3])
 
-    def test_new_custom_singlelinked(self):
-        """*test_new_custom_singlelinked()* prueba la inicialización de una *SingleLinked* personalizada con elementos de diferentes tipos.
+    def test_custom_singlelinked(self):
+        """*test_custom_singlelinked()* prueba la inicialización de una *SingleLinked* personalizada con elementos de diferentes tipos.
         """
-        # TODO translate to spanish docstring
+
         # getting the global variables
         data_type_lt = self.global_params.get("CHECK_TYPE_LT")
         # iterate over tglobal params and create single linked list node
@@ -1148,7 +1148,7 @@ class TestSingleLinked(unittest.TestCase):
     def test_is_empty(self):
         """*test_is_empty()* prueba el método *is_empty()* de *SingleLinked* con estructuras de datos vacías y no vacías.
         """
-        # TODO translate to spanish docstring
+
         # create a new empty SingleLinked
         sl_lt = SingleLinked()
         # testing SingleLinked is empty
@@ -1762,7 +1762,7 @@ class TestSingleLinked(unittest.TestCase):
     def test_concat(self):
         """*test_concat()* prueba el método *concat()* de *SingleLinked* con estructuras de datos no vacías. Comprueba las excepciones de *TypeError* para estructuras de datos no compatibles. También comprueba si los elementos de la sublista son iguales a los de la lista original.
         """
-        # TODO translate to spanish docstring
+
         # iterates over global params and create filled SingleLinked
         for key in self.global_params.keys():
             # ignore 3 keys from the global params
@@ -1866,7 +1866,7 @@ class TestDoubleLinked(unittest.TestCase):
     def inject_fixtures(self):
         """*inject_fixtures()* inyecta los parámetros globales de prueba para *DoubleLinked* como un *fixture*.
         """
-        # TODO translate to spanish docstring
+
         self.global_params = get_list_test_data()
         # FIXME do we need this? is this okey?
         TEST_ARRAY_LIST_LT = list()
@@ -1890,8 +1890,8 @@ class TestDoubleLinked(unittest.TestCase):
             ans.append(elm)
         return ans
 
-    def test_new_default_singlelinked(self):
-        """*test_new_default_singlelinked()* prueba la inicialización de una lista sencillamente encadenada o *DoubleLinked* vacía.
+    def test_default_singlelinked(self):
+        """*test_default_singlelinked()* prueba la inicialización de una lista sencillamente encadenada o *DoubleLinked* vacía.
         """
         # Test an empty DoubleLinked
         dl_lt = DoubleLinked()
@@ -1937,8 +1937,8 @@ class TestDoubleLinked(unittest.TestCase):
                         # test all 3 conditions are true
                         assert all([res1, res2, res3])
 
-    def test_new_custom_singlelinked(self):
-        """*test_new_custom_singlelinked()* prueba la inicialización de una *DoubleLinked* personalizada con elementos de diferentes tipos.
+    def test_custom_singlelinked(self):
+        """*test_custom_singlelinked()* prueba la inicialización de una *DoubleLinked* personalizada con elementos de diferentes tipos.
         """
         # getting the global variables
         data_type_lt = self.global_params.get("CHECK_TYPE_LT")
@@ -2053,7 +2053,7 @@ class TestDoubleLinked(unittest.TestCase):
     def test_is_empty(self):
         """*test_is_empty()* prueba el método *is_empty()* de *DoubleLinked* con estructuras de datos vacías y no vacías.
         """
-        # TODO translate to spanish docstring
+
         # create a new empty DoubleLinked
         dl_lt = DoubleLinked()
         # testing DoubleLinked is empty
@@ -2667,7 +2667,7 @@ class TestDoubleLinked(unittest.TestCase):
     def test_concat(self):
         """*test_concat()* prueba el método *concat()* de *DoubleLinked* con estructuras de datos no vacías. Comprueba las excepciones de *TypeError* para estructuras de datos no compatibles. También comprueba si los elementos de la sublista son iguales a los de la lista original.
         """
-        # TODO translate to spanish docstring
+
         # iterates over global params and create filled DoubleLinked
         for key in self.global_params.keys():
             # ignore 3 keys from the global params

@@ -68,11 +68,11 @@ Variable nativa de Python para definir una estructura de datos genérica en los 
 """
 
 
-def lt_default_cmp_funcion(key, elm1, elm2) -> int:
+def lt_default_cmp_funcion(key: str, elm1, elm2) -> int:
     """*lt_default_cmp_funcion()* función de comparación por defecto para los elementos del ADT List (ArrayList, SingleLinked, DoubleLinked). pueden ser de tipo nativo o definido por el usuario.
 
     Args:
-        key (str): llave para comparar los elementos de tipo diccionario.
+        key (str): llave para comparar los elementos de tipo diccionario que entrega el ADT List.
         elm1 (any): primer elemento a comparar.
         elm2 (any): segundo elemento a comparar.
 
@@ -131,11 +131,11 @@ def lt_default_cmp_funcion(key, elm1, elm2) -> int:
                 return 0
 
 
-def ht_default_cmp_funcion(key1: T, entry2) -> int:
+def ht_default_cmp_funcion2(key1: T, entry2) -> int:
     """*ht_default_cmp_funcion()* función de comparación por defecto para los elementos del ADT Map (HashTable). pueden ser de tipo nativo o definido por el usuario.
 
     Args:
-        key1 (T): llave (key) de la primera entrada (pareja llave-valor) a comparar.
+        key1 (T): la llave (key) de la primera entrada (pareja llave-valor) a comparar.
         entry2 (MapEntry): segunda entrada (pareja llave-valor) a comparar de tipo *MapEntry*. puede contener cualquier tipo de estructura, dato o ADT.
 
     Raises:
@@ -154,3 +154,53 @@ def ht_default_cmp_funcion(key1: T, entry2) -> int:
     elif (key1 > key2):
         return 1
     return -1
+
+
+def ht_default_cmp_funcion(key: str, ekey1: T, entry2) -> int:
+
+    # TODO can be improved
+    ekey2 = entry2.get_key()
+    ekey1_type = isinstance(ekey1, VALID_DATA_TYPE_LT)
+    ekey2_type = isinstance(ekey2, VALID_DATA_TYPE_LT)
+    # if the elements are from different types, raise an exception
+    if type(ekey1) is not type(ekey2):
+        err_msg = f"Invalid comparison between {type(ekey1)} and "
+        err_msg += f"{type(ekey2)} elements"
+        raise TypeError(err_msg)
+    # if there is a defined key
+    elif key is not None:
+        # if elements are dictionaries, compare their main key
+        if isinstance(ekey1, dict) and isinstance(ekey2, dict):
+            key1 = ekey1.get(DEFAULT_DICT_KEY)
+            key2 = ekey2.get(DEFAULT_DICT_KEY)
+            if None in [key1, key2]:
+                err_msg = f"Invalid key: {DEFAULT_DICT_KEY}, "
+                err_msg += "Key not found in one or both elements"
+                raise KeyError(err_msg)
+            # comparing elements
+            else:
+                # if one is less than the other, return -1
+                if key1 < key2:
+                    return -1
+                # if they are equal, return 0
+                elif key1 == key2:
+                    return 0
+                # if one is greater than the other, return 1
+                elif key1 > key2:
+                    return 1
+                # otherwise, raise an exception
+                else:
+                    err_msg = f"Invalid comparison between {key1} and "
+                    err_msg += f"{key2} keys in elements."
+                    raise TypeError(err_msg)
+        # if elements are native types, compare them directly
+        elif ekey1_type and ekey2_type:
+            # if one is less than the other, return -1
+            if ekey1 < ekey2:
+                return -1
+            # if one is greater than the other, return 1
+            elif ekey1 > ekey2:
+                return 1
+            # otherwise, they are equal, return 0
+            else:
+                return 0

@@ -114,7 +114,7 @@ class SeparateChaining(Generic[T]):
     # :attr: nentries
     nentries: int = 1
     """
-    Es el espacio reservado para la tabla de hash (n), por defecto es 1, pero debe configurarse según el número de entradas que se espera almacenar.
+    Es el espacio inicial reservado para la tabla de hash (n), por defecto es 1, pero debe configurarse según el número de entradas que se espera almacenar.
     """
 
     # starting capacity (M|m) for the hash table
@@ -257,8 +257,8 @@ class SeparateChaining(Generic[T]):
             if isinstance(self.iodata, VALID_IO_TYPE):
                 # get the type of the data in the list
                 # if is a dict, use the key type
-                print(type(self.iodata), self.iodata)
-                if isinstance(self.iodata[-1], dict):
+                # print(type(self.iodata), self.iodata)
+                if isinstance(self.iodata[0], dict):
                     for entry in self.iodata:
                         key = entry.get(self.key)
                         self.put(key, entry)
@@ -268,8 +268,9 @@ class SeparateChaining(Generic[T]):
                         key = data
                         self.put(key, data)
             self.iodata = None
-            if self._size != 0:
-                self.nentries = self._size
+            # # fix discrepancies between the size and the number of entries (n)
+            # if self._size != self.nentries:
+            #     self.nentries = self._size
         except Exception as err:
             self._handle_error(err)
 
@@ -284,7 +285,7 @@ class SeparateChaining(Generic[T]):
         """
         try:
             # using the default compare function for the key
-            return ht_default_cmp_funcion(key1, entry2)
+            return ht_default_cmp_funcion(self.key, key1, entry2)
         except Exception as err:
             self._handle_error(err)
 
@@ -415,9 +416,10 @@ class SeparateChaining(Generic[T]):
                 bucket = self.hash_table.get_element(hkey)
                 idx = bucket.find(key)
                 # the entry is not in the bucket, add it and a collision
-                if idx > 0:
+                # the entry is in the bucket, update it
+                if idx > -1:
                     bucket.change_info(new_entry, idx)
-                # otherwise, update the existing entry
+                # otherwise, is a new entry
                 else:
                     if not bucket.is_empty():
                         self._collisions += 1

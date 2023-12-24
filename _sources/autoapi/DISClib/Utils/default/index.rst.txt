@@ -24,6 +24,7 @@ Functions
 .. autoapisummary::
 
    DISClib.Utils.default.lt_default_cmp_funcion
+   DISClib.Utils.default.ht_default_cmp_funcion2
    DISClib.Utils.default.ht_default_cmp_funcion
 
 
@@ -68,11 +69,11 @@ Attributes
 
    Variable nativa de Python para definir una estructura de datos genérica en los ADTs.
 
-.. py:function:: lt_default_cmp_funcion(key, elm1, elm2) -> int
+.. py:function:: lt_default_cmp_funcion(key: str, elm1, elm2) -> int
 
    *lt_default_cmp_funcion()* función de comparación por defecto para los elementos del ADT List (ArrayList, SingleLinked, DoubleLinked). pueden ser de tipo nativo o definido por el usuario.
 
-   :param key: llave para comparar los elementos de tipo diccionario.
+   :param key: llave para comparar los elementos de tipo diccionario que entrega el ADT List.
    :type key: str
    :param elm1: primer elemento a comparar.
    :type elm1: any
@@ -87,11 +88,11 @@ Attributes
    :rtype: int
 
 
-.. py:function:: ht_default_cmp_funcion(key1: T, entry2) -> int
+.. py:function:: ht_default_cmp_funcion2(key1: T, entry2) -> int
 
    *ht_default_cmp_funcion()* función de comparación por defecto para los elementos del ADT Map (HashTable). pueden ser de tipo nativo o definido por el usuario.
 
-   :param key1: llave (key) de la primera entrada (pareja llave-valor) a comparar.
+   :param key1: la llave (key) de la primera entrada (pareja llave-valor) a comparar.
    :type key1: T
    :param entry2: segunda entrada (pareja llave-valor) a comparar de tipo *MapEntry*. puede contener cualquier tipo de estructura, dato o ADT.
    :type entry2: MapEntry
@@ -100,5 +101,8 @@ Attributes
 
    :returns: retorna -1 si key1 es menor que la llave de entry2, 0 si las llaves son iguales y 1 si la llave key1 es mayor que la llave de entry2.
    :rtype: int
+
+
+.. py:function:: ht_default_cmp_funcion(key: str, ekey1: T, entry2) -> int
 
 

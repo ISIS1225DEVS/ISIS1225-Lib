@@ -101,7 +101,7 @@ Attributes
       :type: int
       :value: 1
 
-      Es el espacio reservado para la tabla de hash (n), por defecto es 1, pero debe configurarse según el número de entradas que se espera almacenar.
+      Es el espacio inicial reservado para la tabla de hash (n), por defecto es 1, pero debe configurarse según el número de entradas que se espera almacenar.
 
    .. py:attribute:: mcapacity
       :type: int

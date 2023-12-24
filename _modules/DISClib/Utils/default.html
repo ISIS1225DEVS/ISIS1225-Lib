@@ -166,11 +166,11 @@
 
 <div class="viewcode-block" id="lt_default_cmp_funcion">
 <a class="viewcode-back" href="../../../autoapi/DISClib/Utils/default/index.html#DISClib.Utils.default.lt_default_cmp_funcion">[documentos]</a>
-<span class="k">def</span> <span class="nf">lt_default_cmp_funcion</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">elm1</span><span class="p">,</span> <span class="n">elm2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="k">def</span> <span class="nf">lt_default_cmp_funcion</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">elm1</span><span class="p">,</span> <span class="n">elm2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;*lt_default_cmp_funcion()* función de comparación por defecto para los elementos del ADT List (ArrayList, SingleLinked, DoubleLinked). pueden ser de tipo nativo o definido por el usuario.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        key (str): llave para comparar los elementos de tipo diccionario.</span>
+<span class="sd">        key (str): llave para comparar los elementos de tipo diccionario que entrega el ADT List.</span>
 <span class="sd">        elm1 (any): primer elemento a comparar.</span>
 <span class="sd">        elm2 (any): segundo elemento a comparar.</span>
 
@@ -230,13 +230,13 @@
 
 
 
-<div class="viewcode-block" id="ht_default_cmp_funcion">
-<a class="viewcode-back" href="../../../autoapi/DISClib/Utils/default/index.html#DISClib.Utils.default.ht_default_cmp_funcion">[documentos]</a>
-<span class="k">def</span> <span class="nf">ht_default_cmp_funcion</span><span class="p">(</span><span class="n">key1</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="n">entry2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<div class="viewcode-block" id="ht_default_cmp_funcion2">
+<a class="viewcode-back" href="../../../autoapi/DISClib/Utils/default/index.html#DISClib.Utils.default.ht_default_cmp_funcion2">[documentos]</a>
+<span class="k">def</span> <span class="nf">ht_default_cmp_funcion2</span><span class="p">(</span><span class="n">key1</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="n">entry2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;*ht_default_cmp_funcion()* función de comparación por defecto para los elementos del ADT Map (HashTable). pueden ser de tipo nativo o definido por el usuario.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        key1 (T): llave (key) de la primera entrada (pareja llave-valor) a comparar.</span>
+<span class="sd">        key1 (T): la llave (key) de la primera entrada (pareja llave-valor) a comparar.</span>
 <span class="sd">        entry2 (MapEntry): segunda entrada (pareja llave-valor) a comparar de tipo *MapEntry*. puede contener cualquier tipo de estructura, dato o ADT.</span>
 
 <span class="sd">    Raises:</span>
@@ -255,6 +255,59 @@
     <span class="k">elif</span> <span class="p">(</span><span class="n">key1</span> <span class="o">&gt;</span> <span class="n">key2</span><span class="p">):</span>
         <span class="k">return</span> <span class="mi">1</span>
     <span class="k">return</span> <span class="o">-</span><span class="mi">1</span></div>
+
+
+
+<div class="viewcode-block" id="ht_default_cmp_funcion">
+<a class="viewcode-back" href="../../../autoapi/DISClib/Utils/default/index.html#DISClib.Utils.default.ht_default_cmp_funcion">[documentos]</a>
+<span class="k">def</span> <span class="nf">ht_default_cmp_funcion</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">ekey1</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="n">entry2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+
+    <span class="c1"># TODO can be improved</span>
+    <span class="n">ekey2</span> <span class="o">=</span> <span class="n">entry2</span><span class="o">.</span><span class="n">get_key</span><span class="p">()</span>
+    <span class="n">ekey1_type</span> <span class="o">=</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ekey1</span><span class="p">,</span> <span class="n">VALID_DATA_TYPE_LT</span><span class="p">)</span>
+    <span class="n">ekey2_type</span> <span class="o">=</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ekey2</span><span class="p">,</span> <span class="n">VALID_DATA_TYPE_LT</span><span class="p">)</span>
+    <span class="c1"># if the elements are from different types, raise an exception</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">ekey1</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">type</span><span class="p">(</span><span class="n">ekey2</span><span class="p">):</span>
+        <span class="n">err_msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Invalid comparison between </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">ekey1</span><span class="p">)</span><span class="si">}</span><span class="s2"> and &quot;</span>
+        <span class="n">err_msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">ekey2</span><span class="p">)</span><span class="si">}</span><span class="s2"> elements&quot;</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">err_msg</span><span class="p">)</span>
+    <span class="c1"># if there is a defined key</span>
+    <span class="k">elif</span> <span class="n">key</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># if elements are dictionaries, compare their main key</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ekey1</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ekey2</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="n">key1</span> <span class="o">=</span> <span class="n">ekey1</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">DEFAULT_DICT_KEY</span><span class="p">)</span>
+            <span class="n">key2</span> <span class="o">=</span> <span class="n">ekey2</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">DEFAULT_DICT_KEY</span><span class="p">)</span>
+            <span class="k">if</span> <span class="kc">None</span> <span class="ow">in</span> <span class="p">[</span><span class="n">key1</span><span class="p">,</span> <span class="n">key2</span><span class="p">]:</span>
+                <span class="n">err_msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Invalid key: </span><span class="si">{</span><span class="n">DEFAULT_DICT_KEY</span><span class="si">}</span><span class="s2">, &quot;</span>
+                <span class="n">err_msg</span> <span class="o">+=</span> <span class="s2">&quot;Key not found in one or both elements&quot;</span>
+                <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">err_msg</span><span class="p">)</span>
+            <span class="c1"># comparing elements</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># if one is less than the other, return -1</span>
+                <span class="k">if</span> <span class="n">key1</span> <span class="o">&lt;</span> <span class="n">key2</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+                <span class="c1"># if they are equal, return 0</span>
+                <span class="k">elif</span> <span class="n">key1</span> <span class="o">==</span> <span class="n">key2</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="mi">0</span>
+                <span class="c1"># if one is greater than the other, return 1</span>
+                <span class="k">elif</span> <span class="n">key1</span> <span class="o">&gt;</span> <span class="n">key2</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="mi">1</span>
+                <span class="c1"># otherwise, raise an exception</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">err_msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Invalid comparison between </span><span class="si">{</span><span class="n">key1</span><span class="si">}</span><span class="s2"> and &quot;</span>
+                    <span class="n">err_msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key2</span><span class="si">}</span><span class="s2"> keys in elements.&quot;</span>
+                    <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">err_msg</span><span class="p">)</span>
+        <span class="c1"># if elements are native types, compare them directly</span>
+        <span class="k">elif</span> <span class="n">ekey1_type</span> <span class="ow">and</span> <span class="n">ekey2_type</span><span class="p">:</span>
+            <span class="c1"># if one is less than the other, return -1</span>
+            <span class="k">if</span> <span class="n">ekey1</span> <span class="o">&lt;</span> <span class="n">ekey2</span><span class="p">:</span>
+                <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="c1"># if one is greater than the other, return 1</span>
+            <span class="k">elif</span> <span class="n">ekey1</span> <span class="o">&gt;</span> <span class="n">ekey2</span><span class="p">:</span>
+                <span class="k">return</span> <span class="mi">1</span>
+            <span class="c1"># otherwise, they are equal, return 0</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="mi">0</span></div>
 
 </pre></div>
 

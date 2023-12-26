@@ -16,9 +16,9 @@ Submodules
    lists/index.rst
    maps/index.rst
    minpq/index.rst
-   orderedmap/index.rst
    queue/index.rst
    stack/index.rst
+   trees/index.rst
 
 
 Package Contents

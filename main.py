@@ -349,3 +349,21 @@ if __name__ == "__main__":
 
     res = search("Paul", test_list)
     print(res)
+
+    for i in reversed(test_lt_2):
+        print(i)
+    trans = translate(test_lt_2, "SingleLinked")
+    bb = Stack(cmp_function=cmp_test)
+    bbb = Stack(cmp_function=cmp_test)
+    bbb.push(22)
+    bbb.push(33)
+    bb.push(1)
+    print(bb)
+    print(type(bb))
+    print(bb.is_empty())
+    print(bb.size())
+    print(bb.top())
+    a = bb.pop()
+    print(a, bb.top())
+
+    # bb.enqueue("value")

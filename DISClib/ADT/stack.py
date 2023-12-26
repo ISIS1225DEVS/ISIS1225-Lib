@@ -70,7 +70,7 @@ class Stack(DoubleLinked, Generic[T]):
             T: el elemento en la primera posición de la pila (Stack).
         """
         try:
-            return self.last_element()
+            return self.get_last()
         except Exception as exp:
             self._handle_error(exp)
 

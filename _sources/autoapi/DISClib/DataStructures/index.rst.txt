@@ -21,7 +21,7 @@ Submodules
    heap/index.rst
    iminpqnode/index.rst
    indexheap/index.rst
-   lelftleaningtree/index.rst
+   leftleantree/index.rst
    listnode/index.rst
    mapentry/index.rst
    node/index.rst

@@ -25,7 +25,7 @@
 """
 
 
-from DISClib.DataStructures import edge as e
+from DISClib.DataStructures import adjcomponents as e
 from DISClib.ADT import lists as lt
 from DISClib.ADT import queue as q
 from DISClib.ADT import maps as map

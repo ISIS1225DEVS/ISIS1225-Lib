@@ -10,24 +10,23 @@ Submodules
    :titlesonly:
    :maxdepth: 1
 
+   adjcomponents/index.rst
    adjlist/index.rst
    adjmatrix/index.rst
    arraylist/index.rst
    binarysearchtree/index.rst
    bst/index.rst
-   bstnode/index.rst
    chaininghashtable/index.rst
    doublelinkedlist/index.rst
-   edge/index.rst
    heap/index.rst
    iminpqnode/index.rst
    indexheap/index.rst
+   leftredblacktree/index.rst
    listnode/index.rst
    mapentry/index.rst
    node/index.rst
    probinghashtable/index.rst
    rbt/index.rst
-   rbtnode/index.rst
    redblacktree/index.rst
    singlelinkedlist/index.rst
    treenode/index.rst

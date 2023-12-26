@@ -3,4 +3,225 @@
 
 .. py:module:: DISClib.DataStructures.treenode
 
+.. autoapi-nested-parse::
+
+   Estos ADTs representan los nodos para una lista sencillamente encadenada (SingleNode) y una lista doblemente encadenada (DoubleNode).
+
+   Estos nodos se utilizan respectivamente en las estructuras dinámicas de lista sencillamente encadenada (LinkedList) y lista doblemente encadenadA(DoubleLinkedList). Las cuales NO tienen un tamaño fijo y pueden crecer indefinidamente en la memoria disponible.
+
+   *IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:
+
+       #. Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.
+       #. Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H. Goldwasser.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   DISClib.DataStructures.treenode.BSTNode
+   DISClib.DataStructures.treenode.AVLNode
+   DISClib.DataStructures.treenode.RBTNode
+   DISClib.DataStructures.treenode.KDNode
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   DISClib.DataStructures.treenode.newNode
+   DISClib.DataStructures.treenode.getValue
+   DISClib.DataStructures.treenode.getKey
+   DISClib.DataStructures.treenode.newNode
+   DISClib.DataStructures.treenode.isRed
+   DISClib.DataStructures.treenode.getValue
+   DISClib.DataStructures.treenode.getKey
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   DISClib.DataStructures.treenode.RED
+   DISClib.DataStructures.treenode.BLACK
+
+
+.. py:class:: BSTNode
+
+
+   Bases: :py:obj:`DISClib.DataStructures.node.Node`, :py:obj:`Generic`\ [\ :py:obj:`DISClib.Utils.default.T`\ ]
+
+   BSTNode _summary_
+
+   :param Node: _description_
+   :type Node: _type_
+   :param Generic: _description_
+   :type Generic: _type_
+
+   .. py:attribute:: _next
+      :type: Optional[BSTNode[T]]
+
+      Referencia al siguiente nodo de la lista.
+
+   .. py:method:: next() -> Optional[BSTNode[T]]
+
+
+
+.. py:class:: AVLNode
+
+
+   Bases: :py:obj:`BSTNode`, :py:obj:`Generic`\ [\ :py:obj:`DISClib.Utils.default.T`\ ]
+
+   AVLNode _summary_
+
+   :param BSTNode: _description_
+   :type BSTNode: _type_
+   :param Generic: _description_
+   :type Generic: _type_
+
+   .. py:attribute:: _next
+      :type: Optional[AVLNode[T]]
+
+      Referencia al siguiente nodo de la lista.
+
+   .. py:method:: next() -> Optional[AVLNode[T]]
+
+
+
+.. py:class:: RBTNode
+
+
+   Bases: :py:obj:`BSTNode`, :py:obj:`Generic`\ [\ :py:obj:`DISClib.Utils.default.T`\ ]
+
+   RBTNode _summary_
+
+   :param BSTNode: _description_
+   :type BSTNode: _type_
+   :param Generic: _description_
+   :type Generic: _type_
+
+   .. py:attribute:: _next
+      :type: Optional[RBTNode[T]]
+
+      Referencia al siguiente nodo de la lista.
+
+   .. py:method:: next() -> Optional[RBTNode[T]]
+
+
+
+.. py:class:: KDNode
+
+
+   Bases: :py:obj:`BSTNode`, :py:obj:`Generic`\ [\ :py:obj:`DISClib.Utils.default.T`\ ]
+
+   KDNode _summary_
+
+   :param BSTNode: _description_
+   :type BSTNode: _type_
+   :param Generic: _description_
+   :type Generic: _type_
+
+   .. py:attribute:: _next
+      :type: Optional[KDNode[T]]
+
+      Referencia al siguiente nodo de la lista.
+
+   .. py:method:: next() -> Optional[KDNode[T]]
+
+
+
+.. py:function:: newNode(key, value, size)
+
+   Crea un nuevo nodo para un árbol binario y lo retorna
+   :param value: El valor asociado a la llave
+   :param key: la llave asociada a la pareja
+   :param size: El tamaño del subarbol que cuelga de este nodo
+
+   :returns: Un nodo con la pareja <llave, valor>
+
+   :raises Exception:
+
+
+.. py:function:: getValue(node)
+
+   Retorna el valor asociado a una pareja llave valor
+   :param node: El nodo con la pareja llave-valor
+
+   :returns: El valor almacenado en el nodo
+
+   :raises Exception:
+
+
+.. py:function:: getKey(node)
+
+   Retorna la llave asociado a una pareja llave valor
+   :param node: El nodo con la pareja llave-valor
+
+   :returns: La llave almacenada en el nodo
+
+   :raises Exception:
+
+
+.. py:data:: RED
+   :value: 0
+
+   
+
+.. py:data:: BLACK
+   :value: 1
+
+   
+
+.. py:function:: newNode(key, value, size, color)
+
+   Crea un nuevo nodo para un árbol rojo-negro  y lo retorna.
+   color:0 - rojo  color:1 - negro
+   :param value: El valor asociado a la llave
+   :param key: la llave asociada a la pareja
+   :param size: El tamaño del subarbol que cuelga de este nodo
+   :param color: El color inicial del nodo
+
+   :returns: Un nodo con la pareja <llave, valor>
+
+   :raises Exception:
+
+
+.. py:function:: isRed(node)
+
+   Informa si un nodo es rojo
+   :param node: El nodo a revisar
+
+   :returns: True si el nodo es rojo, False de lo contrario
+
+   :raises Exception:
+
+
+.. py:function:: getValue(node)
+
+   Retorna el valor asociado a una pareja llave valor
+   :param node: El nodo con la pareja llave-valor
+
+   :returns: El valor almacenado en el nodo
+
+   :raises Exception:
+
+
+.. py:function:: getKey(node)
+
+   Retorna la llave asociado a una pareja llave valor
+   :param node: El nodo con la pareja llave-valor
+
+   :returns: La llave almacenada en el nodo
+
+   :raises Exception:
+
 

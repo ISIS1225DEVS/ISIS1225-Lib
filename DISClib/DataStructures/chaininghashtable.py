@@ -257,7 +257,6 @@ class SeparateChaining(Generic[T]):
             if isinstance(self.iodata, VALID_IO_TYPE):
                 # get the type of the data in the list
                 # if is a dict, use the key type
-                # print(type(self.iodata), self.iodata)
                 if isinstance(self.iodata[0], dict):
                     for entry in self.iodata:
                         key = entry.get(self.key)
@@ -265,9 +264,10 @@ class SeparateChaining(Generic[T]):
                 # otherwise, manage as data list
                 else:
                     for data in self.iodata:
-                        key = data
-                        self.put(key, data)
+                        self.put(data, data)
+            # clean input data
             self.iodata = None
+            # TODO rethink this part
             # # fix discrepancies between the size and the number of entries (n)
             # if self._size != self.nentries:
             #     self.nentries = self._size
@@ -285,6 +285,7 @@ class SeparateChaining(Generic[T]):
         """
         try:
             # using the default compare function for the key
+            # return ht_default_cmp_funcion(key1, entry2)
             return ht_default_cmp_funcion(self.key, key1, entry2)
         except Exception as err:
             self._handle_error(err)
@@ -368,21 +369,24 @@ class SeparateChaining(Generic[T]):
             bool: operador que indica si el SeparateChaining contiene o no una entrada con la llave key.
         """
         try:
-            # assume the entry is not in the structure
-            found = False
-            # use the MAD compression function to get the hash key
-            hkey = hash_compress(key,
-                                 self._scale,
-                                 self._shift,
-                                 self.prime,
-                                 self.mcapacity)
-            # look into the bucket
-            bucket = self.hash_table.get_element(hkey)
-            idx = bucket.find(key)
-            # if the entry is in the bucket, return True
-            if idx > -1:
-                found = True
-            return found
+            if self.is_empty():
+                raise IndexError("Empty data structure")
+            else:
+                # assume the entry is not in the structure
+                found = False
+                # use the MAD compression function to get the hash key
+                hkey = hash_compress(key,
+                                     self._scale,
+                                     self._shift,
+                                     self.prime,
+                                     self.mcapacity)
+                # look into the bucket
+                bucket = self.hash_table.get_element(hkey)
+                idx = bucket.find(key)
+                # if the entry is in the bucket, return True
+                if idx > -1:
+                    found = True
+                return found
         except Exception as err:
             self._handle_error(err)
 
@@ -408,10 +412,10 @@ class SeparateChaining(Generic[T]):
                                      self.prime,
                                      self.mcapacity)
                 # TODO do i need this?
-                if hkey < 0 or hkey >= self.mcapacity:
+                if hkey < 0 or hkey > self.mcapacity - 1:
                     err_msg = f"The hash for the key: {key} "
                     err_msg += f"is out of range fo capacity: {self.mcapacity}"
-                    raise Exception(err_msg)
+                    raise IndexError(err_msg)
                 # checking the bucket
                 bucket = self.hash_table.get_element(hkey)
                 idx = bucket.find(key)
@@ -446,7 +450,7 @@ class SeparateChaining(Generic[T]):
         """
         try:
             if self.is_empty():
-                raise Exception("The structure is empty")
+                raise IndexError("Empty data structure")
             else:
                 # assume the entry is not in the structure
                 entry = None
@@ -456,6 +460,11 @@ class SeparateChaining(Generic[T]):
                                      self._shift,
                                      self.prime,
                                      self.mcapacity)
+                # TODO do i need this?
+                if hkey < 0 or hkey > self.mcapacity - 1:
+                    err_msg = f"The hash for the key: {key} "
+                    err_msg += f"is out of range fo capacity: {self.mcapacity}"
+                    raise IndexError(err_msg)
                 # checking the bucket
                 bucket = self.hash_table.get_element(hkey)
                 idx = bucket.find(key)
@@ -480,7 +489,7 @@ class SeparateChaining(Generic[T]):
         """
         try:
             if self.is_empty():
-                raise Exception("The structure is empty")
+                raise IndexError("Empty data structure")
             else:
                 # assume the entry is not in the structure
                 bucket = None
@@ -490,6 +499,11 @@ class SeparateChaining(Generic[T]):
                                      self._shift,
                                      self.prime,
                                      self.mcapacity)
+                # TODO do i need this?
+                if hkey < 0 or hkey > self.mcapacity - 1:
+                    err_msg = f"The hash for the key: {key} "
+                    err_msg += f"is out of range fo capacity: {self.mcapacity}"
+                    raise IndexError(err_msg)
                 # checking the bucket
                 bucket = self.hash_table.get_element(hkey)
                 return bucket
@@ -511,7 +525,7 @@ class SeparateChaining(Generic[T]):
         """
         try:
             if self.is_empty():
-                raise Exception("The structure is empty")
+                raise IndexError("Empty data structure")
             else:
                 entry = None
                 # get the hash key for the entry
@@ -520,6 +534,11 @@ class SeparateChaining(Generic[T]):
                                      self._shift,
                                      self.prime,
                                      self.mcapacity)
+                # TODO do i need this?
+                if hkey < 0 or hkey > self.mcapacity - 1:
+                    err_msg = f"The hash for the key: {key} "
+                    err_msg += f"is out of range fo capacity: {self.mcapacity}"
+                    raise IndexError(err_msg)
                 # checking the bucket
                 bucket = self.hash_table.get_element(hkey)
                 if not bucket.is_empty():
@@ -549,7 +568,6 @@ class SeparateChaining(Generic[T]):
             for bucket in self.hash_table:
                 if not bucket.is_empty():
                     for entry in bucket:
-                        print(entry)
                         keys_lt.add_last(entry.get_key())
             return keys_lt
         except Exception as err:
@@ -600,6 +618,8 @@ class SeparateChaining(Generic[T]):
         try:
             # check if the structure is rehashable
             if self.rehashable:
+                # gettting the current capacity to avoid null errors
+                new_capacity = self.mcapacity
                 # find the new capacity according to limits
                 # augmenting the capacity
                 if self._cur_alpha >= self.max_alpha:

@@ -144,6 +144,7 @@ def ht_default_cmp_funcion2(key1: T, entry2) -> int:
     Returns:
         int: retorna -1 si key1 es menor que la llave de entry2, 0 si las llaves son iguales y 1 si la llave key1 es mayor que la llave de entry2.
     """
+    # TODO to improve or delete, remain to check
     key2 = entry2.get_key()
     if type(key1) is not type(key2):
         err_msg = f"Invalid comparison between {type(key1)} and "
@@ -158,7 +159,7 @@ def ht_default_cmp_funcion2(key1: T, entry2) -> int:
 
 def ht_default_cmp_funcion(key: str, ekey1: T, entry2) -> int:
 
-    # TODO can be improved
+    # TODO to improve or delete, remain to check
     ekey2 = entry2.get_key()
     ekey1_type = isinstance(ekey1, VALID_DATA_TYPE_LT)
     ekey2_type = isinstance(ekey2, VALID_DATA_TYPE_LT)
@@ -193,8 +194,26 @@ def ht_default_cmp_funcion(key: str, ekey1: T, entry2) -> int:
                     err_msg = f"Invalid comparison between {key1} and "
                     err_msg += f"{key2} keys in elements."
                     raise TypeError(err_msg)
+        elif isinstance(ekey1, tuple) and isinstance(ekey2, tuple):
+            # change tuples to lists to compare them
+            ekey1 = list(ekey1)
+            ekey2 = list(ekey2)
+            # if one is less than the other, return -1
+            if ekey1 < ekey2:
+                return -1
+            # if they are equal, return 0
+            elif ekey1 == ekey2:
+                return 0
+            # if one is greater than the other, return 1
+            elif ekey1 > ekey2:
+                return 1
+            # otherwise, raise an exception
+            else:
+                err_msg = f"Invalid comparison between {ekey1} and "
+                err_msg += f"{ekey2} keys in elements."
+                raise TypeError(err_msg)
         # if elements are native types, compare them directly
-        elif ekey1_type and ekey2_type:
+        if ekey1_type and ekey2_type:
             # if one is less than the other, return -1
             if ekey1 < ekey2:
                 return -1

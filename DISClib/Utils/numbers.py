@@ -126,13 +126,12 @@ def hash_compress(key: T,
     Returns:
         int: el índice del elemento en la tabla de Hash.
     """
-    # getting the hash of the key
-    # freesing dynamic data types (dict, list, set)
     # TODO is easier if we cast the dynamic keys to strings?
-    if isinstance(key, VALID_IO_TYPE):
-        key = tuple(key)
-    elif isinstance(key, dict):
-        key = tuple(key.items())
+    # if it is a dynamic data type, we cast it to string
+    # data types are (dict, list, set, tuple)
+    if isinstance(key, VALID_IO_TYPE) or isinstance(key, dict):
+        key = str(key)
+    # getting the hash from the key
     hkey = hash(key)
     # calculating the index with the MAD compression function
     idx = int((abs(scale * hkey + shift) % prime) % mcapacity)

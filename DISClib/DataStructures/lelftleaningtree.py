@@ -32,14 +32,14 @@ assert VALID_IO_TYPE
 
 
 @dataclass
-class RedBlackTree(Generic[T]):
-    """**RedBlackTree** representa la estructura de datos para arreglos dinamicos (Array List), Implementada con Generic[T] y @dataclass para que sea una estructura de datos genérica.
+class LeftLeanRedBlackTree(Generic[T]):
+    """**LeftLeanRedBlackTree** representa la estructura de datos para arreglos dinamicos (Array List), Implementada con Generic[T] y @dataclass para que sea una estructura de datos genérica.
 
     Args:
         Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.
 
     Returns:
-        RedBlackTree: ADT de tipo RedBlackTree o Arreglo Dinámico.
+        LeftLeanRedBlackTree: ADT de tipo LeftLeanRedBlackTree o Arreglo Dinámico.
 
     """
     # input elements from python list
@@ -53,7 +53,7 @@ class RedBlackTree(Generic[T]):
     # :attr: cmp_function
     cmp_function: Optional[Callable[[T, T], int]] = None
     """
-    Función de comparación opcional que se utiliza para comparar los elementos del RedBlackTree, por defecto es None y el *__post_init__()* configura la función por defecto *lt_default_cmp_funcion()*.
+    Función de comparación opcional que se utiliza para comparar los elementos del LeftLeanRedBlackTree, por defecto es None y el *__post_init__()* configura la función por defecto *lt_default_cmp_funcion()*.
     """
 
     # using default_factory to generate an empty list
@@ -67,7 +67,7 @@ class RedBlackTree(Generic[T]):
     # :attr: key
     key: Optional[str] = None
     """
-    Nombre de la llave opcional que se utiliza para comparar los elementos del RedBlackTree, Por defecto es 'None' y el *__post_init__()* configura la llave por defecto la llave 'id' en *DEFAULT_DICT_KEY*.
+    Nombre de la llave opcional que se utiliza para comparar los elementos del LeftLeanRedBlackTree, Por defecto es 'None' y el *__post_init__()* configura la llave por defecto la llave 'id' en *DEFAULT_DICT_KEY*.
     """
 
     # by default, the list is empty
@@ -79,7 +79,7 @@ class RedBlackTree(Generic[T]):
     """
 
     def __post_init__(self) -> None:
-        """*__post_init__()* configura los valores por defecto para la llave ('key') y la función de comparación ('cmp_function'). Si el usuario incluye una lista nativa de python como argumento, se agrega a la lista de elementos del RedBlackTree.
+        """*__post_init__()* configura los valores por defecto para la llave ('key') y la función de comparación ('cmp_function'). Si el usuario incluye una lista nativa de python como argumento, se agrega a la lista de elementos del LeftLeanRedBlackTree.
         """
         try:
             # if the key is not defined, use the default
@@ -88,7 +88,7 @@ class RedBlackTree(Generic[T]):
             # if the compare function is not defined, use the default
             if self.cmp_function is None:
                 self.cmp_function = self.default_cmp_function
-            # if elements are in a list, add them to the RedBlackTree
+            # if elements are in a list, add them to the LeftLeanRedBlackTree
             # TODO sometime strange weird in tests
             if isinstance(self.iodata, VALID_IO_TYPE):
                 for elm in self.iodata:
@@ -98,7 +98,7 @@ class RedBlackTree(Generic[T]):
             self._handle_error(err)
 
     def default_cmp_function(self, elm1, elm2) -> int:
-        """*default_cmp_function()* procesa con algoritmica por defecto la lista de elementos que procesa el RedBlackTree. Es una función crucial para que la estructura de datos funcione correctamente.
+        """*default_cmp_function()* procesa con algoritmica por defecto la lista de elementos que procesa el LeftLeanRedBlackTree. Es una función crucial para que la estructura de datos funcione correctamente.
 
         Args:
             elm1 (Any): primer elemento a comparar.
@@ -114,12 +114,12 @@ class RedBlackTree(Generic[T]):
             self._handle_error(err)
 
     def _handle_error(self, err: Exception) -> None:
-        """*_handle_error()* función privada que maneja los errores que se pueden presentar en el RedBlackTree.
+        """*_handle_error()* función privada que maneja los errores que se pueden presentar en el LeftLeanRedBlackTree.
 
-        Si se presenta un error en RedBlackTree, se formatea el error según el contexto (paquete/clase), la función que lo generó y lo reenvia al componente superior en la jerarquía de llamados para manejarlo segun se considere conveniente.
+        Si se presenta un error en LeftLeanRedBlackTree, se formatea el error según el contexto (paquete/clase), la función que lo generó y lo reenvia al componente superior en la jerarquía de llamados para manejarlo segun se considere conveniente.
 
         Args:
-            err (Exception): Excepción que se generó en el RedBlackTree.
+            err (Exception): Excepción que se generó en el LeftLeanRedBlackTree.
         """
         # TODO check usability of this function
         cur_context = self.__class__.__name__
@@ -127,16 +127,16 @@ class RedBlackTree(Generic[T]):
         error_handler(cur_context, cur_function, err)
 
     def _check_type(self, element: T) -> bool:
-        """*_check_type()* función privada que verifica que el tipo de dato del elemento que se quiere agregar al RedBlackTree sea del mismo tipo contenido dentro de los elementos del RedBlackTree.
+        """*_check_type()* función privada que verifica que el tipo de dato del elemento que se quiere agregar al LeftLeanRedBlackTree sea del mismo tipo contenido dentro de los elementos del LeftLeanRedBlackTree.
 
         Raises:
-            TypeError: error si el tipo de dato del elemento que se quiere agregar no es el mismo que el tipo de dato de los elementos que ya contiene el RedBlackTree.
+            TypeError: error si el tipo de dato del elemento que se quiere agregar no es el mismo que el tipo de dato de los elementos que ya contiene el LeftLeanRedBlackTree.
 
         Args:
-            element (T): elemento que se quiere procesar en RedBlackTree.
+            element (T): elemento que se quiere procesar en LeftLeanRedBlackTree.
 
         Returns:
-            bool: operador que indica si el ADT RedBlackTree es del mismo tipo que el elemento que se quiere procesar.
+            bool: operador que indica si el ADT LeftLeanRedBlackTree es del mismo tipo que el elemento que se quiere procesar.
         """
         # TODO check usability of this function
         # if the structure is not empty, check the first element type

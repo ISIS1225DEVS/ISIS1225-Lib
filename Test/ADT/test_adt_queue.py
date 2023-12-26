@@ -16,6 +16,7 @@ from Test.Data.test_data import get_list_test_data
 assert Queue
 assert get_list_test_data
 
+
 class TestQueue(unittest.TestCase):
     """TestQueue _summary_
 

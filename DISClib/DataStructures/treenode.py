@@ -78,8 +78,8 @@ class RBTNode(BSTNode, Generic[T]):
 
 
 @dataclass
-class KDNode(BSTNode, Generic[T]):
-    """KDNode _summary_
+class KDTNode(BSTNode, Generic[T]):
+    """KDTNode _summary_
 
     Args:
         BSTNode (_type_): _description_
@@ -87,10 +87,10 @@ class KDNode(BSTNode, Generic[T]):
     """
     # optional reference to the next node of the same type
     # :attr: _next
-    _next: Optional["KDNode[T]"] = None
+    _next: Optional["KDTNode[T]"] = None
     """Referencia al siguiente nodo de la lista."""
 
-    def next(self) -> Optional["KDNode[T]"]:
+    def next(self) -> Optional["KDTNode[T]"]:
         pass
 
 

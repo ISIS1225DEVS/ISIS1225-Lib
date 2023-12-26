@@ -1,9 +1,9 @@
 import pytest
-import Test.omaps as omaps
+# import Test.omaps as omaps
 from DISClib.ADT import orderedmap as om
 from DISClib.ADT import lists as lt
 from DISClib.Algorithms.Trees import traversal as tr
-assert omaps
+# assert omaps
 
 
 @pytest.fixture

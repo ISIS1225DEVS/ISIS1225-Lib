@@ -44,8 +44,8 @@ Lista de llaves a ignorar en los parámetros globales en las pruebas.
 """
 
 
-class testVertex(unittest.TestCase):
-    """testVertex _summary_
+class TestVertex(unittest.TestCase):
+    """TestVertex _summary_
 
     Args:
         unittest (_type_): _description_
@@ -63,8 +63,8 @@ class testVertex(unittest.TestCase):
         pass
 
 
-class testEdge(unittest.TestCase):
-    """testEdge _summary_
+class TestEdge(unittest.TestCase):
+    """TestEdge _summary_
 
     Args:
         unittest (_type_): _description_
@@ -76,7 +76,7 @@ class testEdge(unittest.TestCase):
         """
         self.global_params = get_gedgevertex_test_data()
 
-    def test_default_Edge(self):
+    def test_default_edge(self):
         """test_default_vertex _summary_
         """
         pass

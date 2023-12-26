@@ -12,15 +12,23 @@ from .DataStructures.lists import test_struct_nodes
 from .ADT import test_adt_queue
 from .ADT import test_adt_stack
 
-# # Dynamic imports and ADTs
+# Dynamic imports and ADTs
 from .ADT import test_dynamic_import
 from .ADT import test_dynamic_lists
 from .ADT import test_dynamic_maps
 
-# # M2
+# M2
 from .DataStructures.maps import test_struct_mapentry
 from .DataStructures.maps import test_struct_hashtable
 
+# M3
+from .DataStructures.trees import test_struct_treenode
+from .DataStructures.trees import test_struct_searchtree
+from .DataStructures.trees import test_struct_balancedtree
+
+# M4
+from .DataStructures.graphs import test_struct_graph
+from .DataStructures.graphs import test_struct_adjacency
 
 # asserting test packages
 # M1
@@ -32,6 +40,17 @@ assert test_dynamic_import
 assert test_dynamic_lists
 assert test_dynamic_maps
 
-# # M2
+# M2
 assert test_struct_mapentry
 assert test_struct_hashtable
+
+# M3
+# TODO add tests for the trees
+assert test_struct_treenode
+assert test_struct_searchtree
+assert test_struct_balancedtree
+
+# M4
+# TODO add tests for the graphs
+assert test_struct_graph
+assert test_struct_adjacency

@@ -73,8 +73,8 @@ def cmp_g_test_function(key1: T, entry2: T) -> int:
     return -1
 
 
-class testVertex(unittest.TestCase):
-    """testVertex _summary_
+class TestAdjacencyList(unittest.TestCase):
+    """TestAdjacencyList _summary_
 
     Args:
         unittest (_type_): _description_
@@ -84,16 +84,16 @@ class testVertex(unittest.TestCase):
     def inject_fixtures(self):
         """*inject_fixtures()* inyecta los parámetros globales de prueba para *Vertex* como un *fixture*.
         """
-        self.global_params = get_gedgevertex_test_data()
+        self.global_params = get_graph_test_data()
 
-    def test_default_vertex(self):
+    def test_default_adjlist(self):
         """test_default_vertex _summary_
         """
         pass
 
 
-class testEdge(unittest.TestCase):
-    """testEdge _summary_
+class TestAdjacencyMatrix(unittest.TestCase):
+    """TestAdjacencyMatrix _summary_
 
     Args:
         unittest (_type_): _description_
@@ -103,9 +103,9 @@ class testEdge(unittest.TestCase):
     def inject_fixtures(self):
         """*inject_fixtures()* inyecta los parámetros globales de prueba para *Vertex* como un *fixture*.
         """
-        self.global_params = get_gedgevertex_test_data()
+        self.global_params = get_graph_test_data()
 
-    def test_default_Edge(self):
+    def test_default_adjmatrix(self):
         """test_default_vertex _summary_
         """
         pass

@@ -29,7 +29,7 @@
 # # import config
 from DISClib.ADT import maps as map
 from DISClib.ADT import lists as lt
-from DISClib.DataStructures import edge as e
+from DISClib.DataStructures import adjcomponents as e
 from DISClib.Utils import error as error
 # assert config
 

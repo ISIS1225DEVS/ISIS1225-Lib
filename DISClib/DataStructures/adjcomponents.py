@@ -1,4 +1,54 @@
 """
+# TODO agregar descripcion del modulo y del ADT que implementa!!!
+
+*IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:
+
+    #. Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.
+    #. Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H. Goldwasser.
+"""
+
+# TODO complete imports
+# native python modules
+# import dataclass for defining the node class
+from dataclasses import dataclass
+# import modules for defining the Node type
+from typing import Generic, Optional
+# import inspect for getting the name of the current function
+import inspect
+
+# custom modules
+# generic error handling and type checking
+from DISClib.Utils.error import error_handler
+from DISClib.Utils.default import T
+
+# checking custom modules
+assert error_handler
+assert T
+
+
+@dataclass
+class Edge(Generic[T]):
+    """Edge _summary_
+
+    Args:
+        Generic (_type_): _description_
+    """
+    # TODO implement the class
+    pass
+
+
+@dataclass
+class Vertex(Generic[T]):
+    """Vertex _summary_
+
+    Args:
+        Generic (_type_): _description_
+    """
+    # TODO implement the class
+    pass
+
+
+"""
  # TODO cambiar comentarios de lincencia segun estandard del equipo
  * Copyright 2020, Departamento de sistemas y Computación,
  * Universidad de Los Andes
@@ -22,7 +72,7 @@
  * Contribución de:
  * Darío Correal
  """
- 
+
 # FIXME agregar el manejo de excepciones de la libreria
 # TODO crear consistencia en para importar modulos
 # import config

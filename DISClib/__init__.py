@@ -6,7 +6,7 @@
 # import all the modules to package
 # M1
 from .ADT.dynamic import DynamicImporter
-from .ADT.dynamic import STRUCT_PGK_PATH
+# from .ADT.dynamic import STRUCT_PGK_PATH
 from .ADT.lists import List
 from .ADT.queue import Queue
 from .ADT.stack import Stack
@@ -85,7 +85,7 @@ from .Utils.numbers import hash_compress
 # asserting modules
 # M1
 assert DynamicImporter
-assert STRUCT_PGK_PATH
+# assert STRUCT_PGK_PATH
 assert List
 assert Queue
 assert Stack

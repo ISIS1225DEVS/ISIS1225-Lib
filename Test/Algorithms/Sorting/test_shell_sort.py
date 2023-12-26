@@ -23,7 +23,7 @@
 import pytest
 # import Test.sorting as cf
 from DISClib.ADT import lists as lt
-from DISClib.Algorithms.Sorting import selectionsort as sa
+from DISClib.Algorithms.Sorting import shellsort as sa
 
 
 @pytest.fixture

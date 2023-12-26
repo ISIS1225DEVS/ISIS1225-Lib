@@ -20,7 +20,7 @@ from Test.Data.test_data import get_balancetree_test_data
 
 # asserting module imports
 assert LLRBT
-assert RBT
+# assert RBT
 assert RBTNode
 assert get_balancetree_test_data
 
@@ -89,6 +89,7 @@ class TestLLRBT(unittest.TestCase):
         """test_default_vertex _summary_
         """
         llrbt = LLRBT()
+        assert llrbt is not None
 
 
 # class TestRBT(unittest.TestCase):

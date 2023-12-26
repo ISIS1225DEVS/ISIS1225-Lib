@@ -89,7 +89,8 @@ class TestAdjacencyList(unittest.TestCase):
     def test_default_adjlist(self):
         """test_default_vertex _summary_
         """
-        pass
+        graph = AdjancencyList()
+        assert graph is not None
 
 
 class TestAdjacencyMatrix(unittest.TestCase):
@@ -108,4 +109,5 @@ class TestAdjacencyMatrix(unittest.TestCase):
     def test_default_adjmatrix(self):
         """test_default_vertex _summary_
         """
-        pass
+        graph = AdjancecyMatrix()
+        assert graph is not None

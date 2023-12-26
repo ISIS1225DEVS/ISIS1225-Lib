@@ -16,6 +16,7 @@ from typing import List, Optional, Callable, Generic
 import inspect
 
 # custom modules
+from DISClib.DataStructures.treenode import BSTNode
 # generic error handling and type checking
 from DISClib.Utils.error import error_handler
 from DISClib.Utils.default import lt_default_cmp_funcion
@@ -24,6 +25,7 @@ from DISClib.Utils.default import DEFAULT_DICT_KEY
 from DISClib.Utils.default import VALID_IO_TYPE
 
 # checking custom modules
+assert BSTNode
 assert error_handler
 assert lt_default_cmp_funcion
 assert T

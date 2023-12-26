@@ -24,7 +24,7 @@ from .treenode import RBTNode
 from .binarysearchtree import BinarySearchTree
 # from .binarysearchtree import KDimensionalTree
 # balanced trees
-from .lelftleaningtree import LeftLeanRedBlackTree
+from .leftleantree import LeftLeanRedBlackTree
 # from .redblacktree import RedBlackTree
 # from .avltree import AVLTree
 

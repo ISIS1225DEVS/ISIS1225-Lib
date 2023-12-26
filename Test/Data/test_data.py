@@ -464,8 +464,8 @@ def get_nodetree_test_data():
     return parameters
 
 
-def get_bst_test_data():
-    """get_bst_test_data _summary_
+def get_searchtree_test_data():
+    """get_searchtree_test_data _summary_
 
     Returns:
         _type_: _description_
@@ -474,8 +474,8 @@ def get_bst_test_data():
     return parameters
 
 
-def get_rbt_test_data():
-    """get_rbt_test_data _summary_
+def get_balancetree_test_data():
+    """get_balancetree_test_data _summary_
 
     Returns:
         _type_: _description_

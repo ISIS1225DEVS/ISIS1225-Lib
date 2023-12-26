@@ -87,6 +87,7 @@ class TestBST(unittest.TestCase):
         """test_default_vertex _summary_
         """
         bst = BST()
+        assert bst is not None
 
 
 # class TestKDT(unittest.TestCase):

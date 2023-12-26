@@ -1,0 +1,22 @@
+:py:mod:`DISClib.Utils.memory`
+==============================
+
+.. py:module:: DISClib.Utils.memory
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   DISClib.Utils.memory.slot_dataclass
+
+
+
+.. py:function:: slot_dataclass(cls)
+
+

@@ -12,6 +12,7 @@ Submodules
 
    default/index.rst
    error/index.rst
+   memory/index.rst
    numbers/index.rst
 
 

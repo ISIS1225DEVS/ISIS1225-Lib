@@ -10,8 +10,8 @@ from typing import TypeVar
 
 
 # importing the classes to test
-from DISClib.DataStructures.lelftleantree import LeftLeanRedBlackTree as LLRBT
-from DISClib.DataStructures.redblacktree import RedBlackTree as RBT
+from DISClib.DataStructures.leftleantree import LeftLeanRedBlackTree as LLRBT
+# from DISClib.DataStructures.redblacktree import RedBlackTree as RBT
 from DISClib.DataStructures.binarysearchtree import RBTNode
 # from DISClib.DataStructures.avltree import AVLTree as AVL
 # from DISClib.DataStructures.avltree import AVLNode
@@ -88,23 +88,23 @@ class TestLLRBT(unittest.TestCase):
     def test_default_llrbt(self):
         """test_default_vertex _summary_
         """
-        pass
+        llrbt = LLRBT()
 
 
-class TestRBT(unittest.TestCase):
-    """TestRBT _summary_
+# class TestRBT(unittest.TestCase):
+#     """TestRBT _summary_
 
-    Args:
-        unittest (_type_): _description_
-    """
+#     Args:
+#         unittest (_type_): _description_
+#     """
 
-    @pytest.fixture(autouse=True)
-    def inject_fixtures(self):
-        """*inject_fixtures()* inyecta los parámetros globales de prueba para *Vertex* como un *fixture*.
-        """
-        self.global_params = get_balancetree_test_data()
+#     @pytest.fixture(autouse=True)
+#     def inject_fixtures(self):
+#         """*inject_fixtures()* inyecta los parámetros globales de prueba para *Vertex* como un *fixture*.
+#         """
+#         self.global_params = get_balancetree_test_data()
 
-    def test_default_rbt(self):
-        """test_default_vertex _summary_
-        """
-        pass
+#     def test_default_rbt(self):
+#         """test_default_vertex _summary_
+#         """
+#         rbt = RBT()

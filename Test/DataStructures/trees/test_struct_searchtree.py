@@ -86,23 +86,23 @@ class TestBST(unittest.TestCase):
     def test_default_bst(self):
         """test_default_vertex _summary_
         """
-        pass
+        bst = BST()
 
 
-class TestKDT(unittest.TestCase):
-    """TestKDT _summary_
+# class TestKDT(unittest.TestCase):
+#     """TestKDT _summary_
 
-    Args:
-        unittest (_type_): _description_
-    """
+#     Args:
+#         unittest (_type_): _description_
+#     """
 
-    @pytest.fixture(autouse=True)
-    def inject_fixtures(self):
-        """*inject_fixtures()* inyecta los parámetros globales de prueba para *Vertex* como un *fixture*.
-        """
-        self.global_params = get_searchtree_test_data()
+#     @pytest.fixture(autouse=True)
+#     def inject_fixtures(self):
+#         """*inject_fixtures()* inyecta los parámetros globales de prueba para *Vertex* como un *fixture*.
+#         """
+#         self.global_params = get_searchtree_test_data()
 
-    def test_default_kdt(self):
-        """test_default_vertex _summary_
-        """
-        pass
+#     def test_default_kdt(self):
+#         """test_default_vertex _summary_
+#         """
+#         kdt = KDT()

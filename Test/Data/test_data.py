@@ -395,7 +395,18 @@ def get_hashtable_test_data():
             tuple,
             set,
         ],
-        CHECK_ERR_LT=[
+        CHECK_KEY_ERR_LT=[
+            set,
+            tuple,
+            list,
+            dict,
+            bool,
+            float,
+            int,
+            str,
+            dict,
+        ],
+        CHECK_VALUE_ERR_LT=[
             set,
             tuple,
             list,

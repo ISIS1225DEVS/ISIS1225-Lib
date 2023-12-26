@@ -4,8 +4,8 @@
 
 # TODO create a test for the graph adjacency matrix
 # importing all the test modules to package
-from .test_struct_graph import TestGraphAdjacencyList
-# from .test_struct_graph import TestGraphAdjacencyMatrix
+from .test_struct_adjacency import TestGraphAdjacencyList
+from .test_struct_adjacency import TestGraphAdjacencyMatrix
 from .test_struct_graph import TestVertex
 from .test_struct_graph import TestEdge
 

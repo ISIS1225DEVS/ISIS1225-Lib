@@ -10,20 +10,16 @@ from typing import TypeVar
 
 
 # importing the classes to test
-from DISClib.DataStructures.adjlist import AdjancencyList
-from DISClib.DataStructures.adjmatrix import AdjancecyMatrix
 from DISClib.DataStructures.adjcomponents import Edge
 from DISClib.DataStructures.adjcomponents import Vertex
 
 # importing the data to test
-from Test.Data.test_data import get_graph_test_data
+from Test.Data.test_data import get_gedgevertex_test_data
 
 # asserting module imports
-assert AdjancecyMatrix
-assert AdjancencyList
 assert Edge
 assert Vertex
-assert get_graph_test_data
+assert get_gedgevertex_test_data
 
 # Type for the element stored in the list
 # :data: T: TypeVar
@@ -46,31 +42,6 @@ IGNORE_KEYS_LT = (
 """
 Lista de llaves a ignorar en los parámetros globales en las pruebas.
 """
-
-
-def cmp_g_test_function(key1: T, entry2: T) -> int:
-    """cmp_g_test_function _summary_
-
-    Args:
-        key1 (T): _description_
-        entry2 (T): _description_
-
-    Raises:
-        TypeError: _description_
-
-    Returns:
-        int: _description_
-    """
-    key2 = entry2.get_key()
-    if type(key1) is not type(key2):
-        err_msg = f"Invalid comparison between {type(key1)} and "
-        err_msg += f"{type(key2)} keys"
-        raise TypeError(err_msg)
-    if (key1 == key2):
-        return 0
-    elif (key1 > key2):
-        return 1
-    return -1
 
 
 class testVertex(unittest.TestCase):

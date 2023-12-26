@@ -1,7 +1,7 @@
 import pytest
 import unittest
 # import Test.graph as graph
-from DISClib.DataStructures import edge as e
+from DISClib.DataStructures import adjcomponents as e
 from DISClib.ADT import graph as g
 from DISClib.ADT import stack as stk
 from DISClib.Algorithms.Graphs import bfs

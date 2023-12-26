@@ -58,15 +58,6 @@ Classes
 
 
 
-Attributes
-~~~~~~~~~~
-
-.. autoapisummary::
-
-   DISClib.DataStructures.file_path
-   DISClib.DataStructures.file_dir
-
-
 .. py:class:: ArrayList
 
 
@@ -2024,12 +2015,4 @@ Attributes
       :rtype: bool
 
 
-
-.. py:data:: file_path
-
-   
-
-.. py:data:: file_dir
-
-   
 

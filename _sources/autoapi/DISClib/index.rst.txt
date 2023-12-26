@@ -49,7 +49,6 @@ Attributes
 
 .. autoapisummary::
 
-   DISClib.STRUCT_PGK_PATH
    DISClib.T
    DISClib.__version__
    DISClib.__author__
@@ -133,12 +132,6 @@ Attributes
       :rtype: bool
 
 
-
-.. py:data:: STRUCT_PGK_PATH
-   :type: str
-   :value: 'DISClib.DataStructures'
-
-   Ruta relativa del paquete principal para instanciar el ADT List.
 
 .. py:function:: List(dstruct: str = 'ArrayList', **kwargs) -> DISClib.Utils.default.T
 

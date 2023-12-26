@@ -27,7 +27,7 @@ Classes
    DISClib.DataStructures.treenode.BSTNode
    DISClib.DataStructures.treenode.AVLNode
    DISClib.DataStructures.treenode.RBTNode
-   DISClib.DataStructures.treenode.KDNode
+   DISClib.DataStructures.treenode.KDTNode
 
 
 
@@ -118,12 +118,12 @@ Attributes
 
 
 
-.. py:class:: KDNode
+.. py:class:: KDTNode
 
 
    Bases: :py:obj:`BSTNode`, :py:obj:`Generic`\ [\ :py:obj:`DISClib.Utils.default.T`\ ]
 
-   KDNode _summary_
+   KDTNode _summary_
 
    :param BSTNode: _description_
    :type BSTNode: _type_
@@ -131,11 +131,11 @@ Attributes
    :type Generic: _type_
 
    .. py:attribute:: _next
-      :type: Optional[KDNode[T]]
+      :type: Optional[KDTNode[T]]
 
       Referencia al siguiente nodo de la lista.
 
-   .. py:method:: next() -> Optional[KDNode[T]]
+   .. py:method:: next() -> Optional[KDTNode[T]]
 
 
 

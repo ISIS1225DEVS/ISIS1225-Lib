@@ -100,6 +100,133 @@
              
   <section id="module-DISClib.DataStructures.adjmatrix">
 <span id="disclib-datastructures-adjmatrix"></span><h1><a class="reference internal" href="#module-DISClib.DataStructures.adjmatrix" title="DISClib.DataStructures.adjmatrix"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.DataStructures.adjmatrix</span></code></a><a class="headerlink" href="#module-DISClib.DataStructures.adjmatrix" title="Link to this heading"></a></h1>
+<p># TODO: agregar descripción del módulo</p>
+<p><em>IMPORTANTE:</em> Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.</p></li>
+<li><p>Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H. Goldwasser.</p></li>
+</ol>
+</div></blockquote>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.DataStructures.adjmatrix.AdjacencyMatrix" title="DISClib.DataStructures.adjmatrix.AdjacencyMatrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AdjacencyMatrix</span></code></a></p></td>
+<td><p><strong>AdjacencyMatrix</strong> representa la estructura de datos para arreglos dinamicos (Array List), Implementada con Generic[T] y &#64;dataclass para que sea una estructura de datos genérica.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt class="sig sig-object py" id="DISClib.DataStructures.adjmatrix.AdjacencyMatrix">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.adjmatrix.</span></span><span class="sig-name descname"><span class="pre">AdjacencyMatrix</span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/adjmatrix.html#AdjacencyMatrix"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.adjmatrix.AdjacencyMatrix" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Generic</span></code>[<a class="reference internal" href="../../Utils/default/index.html#DISClib.Utils.default.T" title="DISClib.Utils.default.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DISClib.Utils.default.T</span></code></a>]</p>
+<p><strong>AdjacencyMatrix</strong> representa la estructura de datos para arreglos dinamicos (Array List), Implementada con Generic[T] y &#64;dataclass para que sea una estructura de datos genérica.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Generic</strong> (<em>T</em>) – TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.</p>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>ADT de tipo AdjacencyMatrix o Arreglo Dinámico.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#DISClib.DataStructures.adjmatrix.AdjacencyMatrix" title="DISClib.DataStructures.adjmatrix.AdjacencyMatrix">AdjacencyMatrix</a></p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.adjmatrix.AdjacencyMatrix.iodata">
+<span class="sig-name descname"><span class="pre">iodata</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/adjmatrix.html#AdjacencyMatrix.iodata"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.adjmatrix.AdjacencyMatrix.iodata" title="Link to this definition"></a></dt>
+<dd><p>Lista nativa de Python que contiene los elementos de entrada a la estructura, por defecto es None y el usuario puede incluir una lista nativa de python como argumento.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.adjmatrix.AdjacencyMatrix.cmp_function">
+<span class="sig-name descname"><span class="pre">cmp_function</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/adjmatrix.html#AdjacencyMatrix.cmp_function"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.adjmatrix.AdjacencyMatrix.cmp_function" title="Link to this definition"></a></dt>
+<dd><p>Función de comparación opcional que se utiliza para comparar los elementos del AdjacencyMatrix, por defecto es None y el <em>__post_init__()</em> configura la función por defecto <em>lt_default_cmp_funcion()</em>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.adjmatrix.AdjacencyMatrix.elements">
+<span class="sig-name descname"><span class="pre">elements</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/adjmatrix.html#AdjacencyMatrix.elements"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.adjmatrix.AdjacencyMatrix.elements" title="Link to this definition"></a></dt>
+<dd><p>Lista nativa de Python que contiene los elementos de la estructura.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.adjmatrix.AdjacencyMatrix.key">
+<span class="sig-name descname"><span class="pre">key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/adjmatrix.html#AdjacencyMatrix.key"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.adjmatrix.AdjacencyMatrix.key" title="Link to this definition"></a></dt>
+<dd><p>Nombre de la llave opcional que se utiliza para comparar los elementos del AdjacencyMatrix, Por defecto es “None” y el <em>__post_init__()</em> configura la llave por defecto la llave “id” en <em>DEFAULT_DICT_KEY</em>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.adjmatrix.AdjacencyMatrix._size">
+<span class="sig-name descname"><span class="pre">_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/adjmatrix.html#AdjacencyMatrix._size"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.adjmatrix.AdjacencyMatrix._size" title="Link to this definition"></a></dt>
+<dd><p>Es el número de elementos que contiene la estructura, por defecto es 0 y se actualiza con cada operación que modifica la estructura.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.adjmatrix.AdjacencyMatrix.__post_init__">
+<span class="sig-name descname"><span class="pre">__post_init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/adjmatrix.html#AdjacencyMatrix.__post_init__"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.adjmatrix.AdjacencyMatrix.__post_init__" title="Link to this definition"></a></dt>
+<dd><p><em>__post_init__()</em> configura los valores por defecto para la llave (“key”) y la función de comparación (“cmp_function”). Si el usuario incluye una lista nativa de python como argumento, se agrega a la lista de elementos del AdjacencyMatrix.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.adjmatrix.AdjacencyMatrix.default_cmp_function">
+<span class="sig-name descname"><span class="pre">default_cmp_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elm1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elm2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/adjmatrix.html#AdjacencyMatrix.default_cmp_function"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.adjmatrix.AdjacencyMatrix.default_cmp_function" title="Link to this definition"></a></dt>
+<dd><p><em>default_cmp_function()</em> procesa con algoritmica por defecto la lista de elementos que procesa el AdjacencyMatrix. Es una función crucial para que la estructura de datos funcione correctamente.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>elm1</strong> (<em>Any</em>) – primer elemento a comparar.</p></li>
+<li><p><strong>elm2</strong> (<em>Any</em>) – segundo elemento a comparar.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>respuesta de la comparación entre los elementos, 0 si son iguales, 1 si elm1 es mayor que elm2, -1 si elm1 es menor.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.adjmatrix.AdjacencyMatrix._handle_error">
+<span class="sig-name descname"><span class="pre">_handle_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">err</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Exception</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/adjmatrix.html#AdjacencyMatrix._handle_error"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.adjmatrix.AdjacencyMatrix._handle_error" title="Link to this definition"></a></dt>
+<dd><p><em>_handle_error()</em> función privada que maneja los errores que se pueden presentar en el AdjacencyMatrix.</p>
+<p>Si se presenta un error en AdjacencyMatrix, se formatea el error según el contexto (paquete/clase), la función que lo generó y lo reenvia al componente superior en la jerarquía de llamados para manejarlo segun se considere conveniente.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>err</strong> (<em>Exception</em>) – Excepción que se generó en el AdjacencyMatrix.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.adjmatrix.AdjacencyMatrix._check_type">
+<span class="sig-name descname"><span class="pre">_check_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/adjmatrix.html#AdjacencyMatrix._check_type"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.adjmatrix.AdjacencyMatrix._check_type" title="Link to this definition"></a></dt>
+<dd><p><em>_check_type()</em> función privada que verifica que el tipo de dato del elemento que se quiere agregar al AdjacencyMatrix sea del mismo tipo contenido dentro de los elementos del AdjacencyMatrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>TypeError</strong> – error si el tipo de dato del elemento que se quiere agregar no es el mismo que el tipo de dato de los elementos que ya contiene el AdjacencyMatrix.</p>
+</dd>
+<dt class="field-even">Parámetros<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>element</strong> (<em>T</em>) – elemento que se quiere procesar en AdjacencyMatrix.</p>
+</dd>
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>operador que indica si el ADT AdjacencyMatrix es del mismo tipo que el elemento que se quiere procesar.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
 </section>
 
 

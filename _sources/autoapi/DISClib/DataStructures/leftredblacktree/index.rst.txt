@@ -1,6 +1,0 @@
-:py:mod:`DISClib.DataStructures.leftredblacktree`
-=================================================
-
-.. py:module:: DISClib.DataStructures.leftredblacktree
-
-

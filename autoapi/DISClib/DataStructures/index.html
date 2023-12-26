@@ -114,7 +114,7 @@
 <li class="toctree-l1"><a class="reference internal" href="heap/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.DataStructures.heap</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="iminpqnode/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.DataStructures.iminpqnode</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="indexheap/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.DataStructures.indexheap</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="leftredblacktree/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.DataStructures.leftredblacktree</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="lelftleaningtree/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.DataStructures.lelftleaningtree</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="listnode/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.DataStructures.listnode</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="mapentry/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.DataStructures.mapentry</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="node/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.DataStructures.node</span></code></a></li>
@@ -149,6 +149,30 @@
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#DISClib.DataStructures.LinearProbing" title="DISClib.DataStructures.LinearProbing"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LinearProbing</span></code></a></p></td>
 <td><p><strong>LinearProbing</strong> Es una clase que representa una tabla de hash con el método de encadenamiento por de separación (Separate Chaining). Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.DataStructures.BSTNode" title="DISClib.DataStructures.BSTNode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BSTNode</span></code></a></p></td>
+<td><p>BSTNode _summary_</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#DISClib.DataStructures.RBTNode" title="DISClib.DataStructures.RBTNode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RBTNode</span></code></a></p></td>
+<td><p>RBTNode _summary_</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.DataStructures.BinarySearchTree" title="DISClib.DataStructures.BinarySearchTree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BinarySearchTree</span></code></a></p></td>
+<td><p><strong>BinarySearchTree</strong> representa la estructura de datos para arreglos dinamicos (Array List), Implementada con Generic[T] y &#64;dataclass para que sea una estructura de datos genérica.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#DISClib.DataStructures.LeftLeanRedBlackTree" title="DISClib.DataStructures.LeftLeanRedBlackTree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LeftLeanRedBlackTree</span></code></a></p></td>
+<td><p><strong>LeftLeanRedBlackTree</strong> representa la estructura de datos para arreglos dinamicos (Array List), Implementada con Generic[T] y &#64;dataclass para que sea una estructura de datos genérica.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.DataStructures.Vertex" title="DISClib.DataStructures.Vertex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Vertex</span></code></a></p></td>
+<td><p>Vertex _summary_</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#DISClib.DataStructures.Edge" title="DISClib.DataStructures.Edge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Edge</span></code></a></p></td>
+<td><p>Edge _summary_</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.DataStructures.AdjacencyList" title="DISClib.DataStructures.AdjacencyList"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AdjacencyList</span></code></a></p></td>
+<td><p><strong>AdjacencyList</strong> representa la estructura de datos para arreglos dinamicos (Array List), Implementada con Generic[T] y &#64;dataclass para que sea una estructura de datos genérica.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#DISClib.DataStructures.AdjacencyMatrix" title="DISClib.DataStructures.AdjacencyMatrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AdjacencyMatrix</span></code></a></p></td>
+<td><p><strong>AdjacencyMatrix</strong> representa la estructura de datos para arreglos dinamicos (Array List), Implementada con Generic[T] y &#64;dataclass para que sea una estructura de datos genérica.</p></td>
 </tr>
 </tbody>
 </table>
@@ -2444,6 +2468,506 @@
 <dd><p><em>rehash()</em> reconstruye la tabla de hash con una nueva capacidad (M) y un nuevo factor de carga (alpha) según los límites establecidos por el usuario en los atributos <em>max_alpha</em> y <em>min_alpha</em>.</p>
 <p>Si el factor de carga (alpha) es mayor que el límite superior (max_alpha), se duplica la capacidad (M) buscando el siguiente número primo y se reconstruye la tabla de hash.</p>
 <p>Si el factor de carga (alpha) es menor que el límite inferior (min_alpha), se reduce a la mitad la capacidad (M) de la tabla de hash buscando el siguiente número primo y se reconstruye la tabla de hash.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="DISClib.DataStructures.BSTNode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.</span></span><span class="sig-name descname"><span class="pre">BSTNode</span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/treenode.html#BSTNode"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.BSTNode" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="node/index.html#DISClib.DataStructures.node.Node" title="DISClib.DataStructures.node.Node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DISClib.DataStructures.node.Node</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">Generic</span></code>[<a class="reference internal" href="../Utils/default/index.html#DISClib.Utils.default.T" title="DISClib.Utils.default.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DISClib.Utils.default.T</span></code></a>]</p>
+<p>BSTNode _summary_</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Node</strong> (<em>_type_</em>) – _description_</p></li>
+<li><p><strong>Generic</strong> (<em>_type_</em>) – _description_</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.BSTNode._next">
+<span class="sig-name descname"><span class="pre">_next</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#DISClib.DataStructures.BSTNode" title="DISClib.DataStructures.BSTNode"><span class="pre">BSTNode</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.BSTNode._next" title="Link to this definition"></a></dt>
+<dd><p>Referencia al siguiente nodo de la lista.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.BSTNode.next">
+<span class="sig-name descname"><span class="pre">next</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#DISClib.DataStructures.BSTNode" title="DISClib.DataStructures.BSTNode"><span class="pre">BSTNode</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/treenode.html#BSTNode.next"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.BSTNode.next" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="DISClib.DataStructures.RBTNode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.</span></span><span class="sig-name descname"><span class="pre">RBTNode</span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/treenode.html#RBTNode"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.RBTNode" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#DISClib.DataStructures.BSTNode" title="DISClib.DataStructures.BSTNode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BSTNode</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">Generic</span></code>[<a class="reference internal" href="../Utils/default/index.html#DISClib.Utils.default.T" title="DISClib.Utils.default.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DISClib.Utils.default.T</span></code></a>]</p>
+<p>RBTNode _summary_</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>BSTNode</strong> (<em>_type_</em>) – _description_</p></li>
+<li><p><strong>Generic</strong> (<em>_type_</em>) – _description_</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.RBTNode._next">
+<span class="sig-name descname"><span class="pre">_next</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#DISClib.DataStructures.RBTNode" title="DISClib.DataStructures.RBTNode"><span class="pre">RBTNode</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.RBTNode._next" title="Link to this definition"></a></dt>
+<dd><p>Referencia al siguiente nodo de la lista.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.RBTNode.next">
+<span class="sig-name descname"><span class="pre">next</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#DISClib.DataStructures.RBTNode" title="DISClib.DataStructures.RBTNode"><span class="pre">RBTNode</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/treenode.html#RBTNode.next"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.RBTNode.next" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="DISClib.DataStructures.BinarySearchTree">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.</span></span><span class="sig-name descname"><span class="pre">BinarySearchTree</span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/binarysearchtree.html#BinarySearchTree"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.BinarySearchTree" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Generic</span></code>[<a class="reference internal" href="../Utils/default/index.html#DISClib.Utils.default.T" title="DISClib.Utils.default.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DISClib.Utils.default.T</span></code></a>]</p>
+<p><strong>BinarySearchTree</strong> representa la estructura de datos para arreglos dinamicos (Array List), Implementada con Generic[T] y &#64;dataclass para que sea una estructura de datos genérica.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Generic</strong> (<em>T</em>) – TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.</p>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>ADT de tipo BinarySearchTree o Arreglo Dinámico.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#DISClib.DataStructures.BinarySearchTree" title="DISClib.DataStructures.BinarySearchTree">BinarySearchTree</a></p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.BinarySearchTree.iodata">
+<span class="sig-name descname"><span class="pre">iodata</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.BinarySearchTree.iodata" title="Link to this definition"></a></dt>
+<dd><p>Lista nativa de Python que contiene los elementos de entrada a la estructura, por defecto es None y el usuario puede incluir una lista nativa de python como argumento.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.BinarySearchTree.cmp_function">
+<span class="sig-name descname"><span class="pre">cmp_function</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.BinarySearchTree.cmp_function" title="Link to this definition"></a></dt>
+<dd><p>Función de comparación opcional que se utiliza para comparar los elementos del BinarySearchTree, por defecto es None y el <em>__post_init__()</em> configura la función por defecto <em>lt_default_cmp_funcion()</em>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.BinarySearchTree.elements">
+<span class="sig-name descname"><span class="pre">elements</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#DISClib.DataStructures.BinarySearchTree.elements" title="Link to this definition"></a></dt>
+<dd><p>Lista nativa de Python que contiene los elementos de la estructura.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.BinarySearchTree.key">
+<span class="sig-name descname"><span class="pre">key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.BinarySearchTree.key" title="Link to this definition"></a></dt>
+<dd><p>Nombre de la llave opcional que se utiliza para comparar los elementos del BinarySearchTree, Por defecto es “None” y el <em>__post_init__()</em> configura la llave por defecto la llave “id” en <em>DEFAULT_DICT_KEY</em>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.BinarySearchTree._size">
+<span class="sig-name descname"><span class="pre">_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#DISClib.DataStructures.BinarySearchTree._size" title="Link to this definition"></a></dt>
+<dd><p>Es el número de elementos que contiene la estructura, por defecto es 0 y se actualiza con cada operación que modifica la estructura.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.BinarySearchTree.__post_init__">
+<span class="sig-name descname"><span class="pre">__post_init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/binarysearchtree.html#BinarySearchTree.__post_init__"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.BinarySearchTree.__post_init__" title="Link to this definition"></a></dt>
+<dd><p><em>__post_init__()</em> configura los valores por defecto para la llave (“key”) y la función de comparación (“cmp_function”). Si el usuario incluye una lista nativa de python como argumento, se agrega a la lista de elementos del BinarySearchTree.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.BinarySearchTree.default_cmp_function">
+<span class="sig-name descname"><span class="pre">default_cmp_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elm1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elm2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/binarysearchtree.html#BinarySearchTree.default_cmp_function"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.BinarySearchTree.default_cmp_function" title="Link to this definition"></a></dt>
+<dd><p><em>default_cmp_function()</em> procesa con algoritmica por defecto la lista de elementos que procesa el BinarySearchTree. Es una función crucial para que la estructura de datos funcione correctamente.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>elm1</strong> (<em>Any</em>) – primer elemento a comparar.</p></li>
+<li><p><strong>elm2</strong> (<em>Any</em>) – segundo elemento a comparar.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>respuesta de la comparación entre los elementos, 0 si son iguales, 1 si elm1 es mayor que elm2, -1 si elm1 es menor.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.BinarySearchTree._handle_error">
+<span class="sig-name descname"><span class="pre">_handle_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">err</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Exception</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/binarysearchtree.html#BinarySearchTree._handle_error"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.BinarySearchTree._handle_error" title="Link to this definition"></a></dt>
+<dd><p><em>_handle_error()</em> función privada que maneja los errores que se pueden presentar en el BinarySearchTree.</p>
+<p>Si se presenta un error en BinarySearchTree, se formatea el error según el contexto (paquete/clase), la función que lo generó y lo reenvia al componente superior en la jerarquía de llamados para manejarlo segun se considere conveniente.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>err</strong> (<em>Exception</em>) – Excepción que se generó en el BinarySearchTree.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.BinarySearchTree._check_type">
+<span class="sig-name descname"><span class="pre">_check_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/binarysearchtree.html#BinarySearchTree._check_type"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.BinarySearchTree._check_type" title="Link to this definition"></a></dt>
+<dd><p><em>_check_type()</em> función privada que verifica que el tipo de dato del elemento que se quiere agregar al BinarySearchTree sea del mismo tipo contenido dentro de los elementos del BinarySearchTree.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>TypeError</strong> – error si el tipo de dato del elemento que se quiere agregar no es el mismo que el tipo de dato de los elementos que ya contiene el BinarySearchTree.</p>
+</dd>
+<dt class="field-even">Parámetros<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>element</strong> (<em>T</em>) – elemento que se quiere procesar en BinarySearchTree.</p>
+</dd>
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>operador que indica si el ADT BinarySearchTree es del mismo tipo que el elemento que se quiere procesar.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="DISClib.DataStructures.LeftLeanRedBlackTree">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.</span></span><span class="sig-name descname"><span class="pre">LeftLeanRedBlackTree</span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/lelftleaningtree.html#LeftLeanRedBlackTree"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.LeftLeanRedBlackTree" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Generic</span></code>[<a class="reference internal" href="../Utils/default/index.html#DISClib.Utils.default.T" title="DISClib.Utils.default.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DISClib.Utils.default.T</span></code></a>]</p>
+<p><strong>LeftLeanRedBlackTree</strong> representa la estructura de datos para arreglos dinamicos (Array List), Implementada con Generic[T] y &#64;dataclass para que sea una estructura de datos genérica.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Generic</strong> (<em>T</em>) – TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.</p>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>ADT de tipo LeftLeanRedBlackTree o Arreglo Dinámico.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#DISClib.DataStructures.LeftLeanRedBlackTree" title="DISClib.DataStructures.LeftLeanRedBlackTree">LeftLeanRedBlackTree</a></p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.LeftLeanRedBlackTree.iodata">
+<span class="sig-name descname"><span class="pre">iodata</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.LeftLeanRedBlackTree.iodata" title="Link to this definition"></a></dt>
+<dd><p>Lista nativa de Python que contiene los elementos de entrada a la estructura, por defecto es None y el usuario puede incluir una lista nativa de python como argumento.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.LeftLeanRedBlackTree.cmp_function">
+<span class="sig-name descname"><span class="pre">cmp_function</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.LeftLeanRedBlackTree.cmp_function" title="Link to this definition"></a></dt>
+<dd><p>Función de comparación opcional que se utiliza para comparar los elementos del LeftLeanRedBlackTree, por defecto es None y el <em>__post_init__()</em> configura la función por defecto <em>lt_default_cmp_funcion()</em>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.LeftLeanRedBlackTree.elements">
+<span class="sig-name descname"><span class="pre">elements</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#DISClib.DataStructures.LeftLeanRedBlackTree.elements" title="Link to this definition"></a></dt>
+<dd><p>Lista nativa de Python que contiene los elementos de la estructura.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.LeftLeanRedBlackTree.key">
+<span class="sig-name descname"><span class="pre">key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.LeftLeanRedBlackTree.key" title="Link to this definition"></a></dt>
+<dd><p>Nombre de la llave opcional que se utiliza para comparar los elementos del LeftLeanRedBlackTree, Por defecto es “None” y el <em>__post_init__()</em> configura la llave por defecto la llave “id” en <em>DEFAULT_DICT_KEY</em>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.LeftLeanRedBlackTree._size">
+<span class="sig-name descname"><span class="pre">_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#DISClib.DataStructures.LeftLeanRedBlackTree._size" title="Link to this definition"></a></dt>
+<dd><p>Es el número de elementos que contiene la estructura, por defecto es 0 y se actualiza con cada operación que modifica la estructura.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.LeftLeanRedBlackTree.__post_init__">
+<span class="sig-name descname"><span class="pre">__post_init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/lelftleaningtree.html#LeftLeanRedBlackTree.__post_init__"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.LeftLeanRedBlackTree.__post_init__" title="Link to this definition"></a></dt>
+<dd><p><em>__post_init__()</em> configura los valores por defecto para la llave (“key”) y la función de comparación (“cmp_function”). Si el usuario incluye una lista nativa de python como argumento, se agrega a la lista de elementos del LeftLeanRedBlackTree.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.LeftLeanRedBlackTree.default_cmp_function">
+<span class="sig-name descname"><span class="pre">default_cmp_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elm1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elm2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/lelftleaningtree.html#LeftLeanRedBlackTree.default_cmp_function"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.LeftLeanRedBlackTree.default_cmp_function" title="Link to this definition"></a></dt>
+<dd><p><em>default_cmp_function()</em> procesa con algoritmica por defecto la lista de elementos que procesa el LeftLeanRedBlackTree. Es una función crucial para que la estructura de datos funcione correctamente.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>elm1</strong> (<em>Any</em>) – primer elemento a comparar.</p></li>
+<li><p><strong>elm2</strong> (<em>Any</em>) – segundo elemento a comparar.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>respuesta de la comparación entre los elementos, 0 si son iguales, 1 si elm1 es mayor que elm2, -1 si elm1 es menor.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.LeftLeanRedBlackTree._handle_error">
+<span class="sig-name descname"><span class="pre">_handle_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">err</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Exception</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/lelftleaningtree.html#LeftLeanRedBlackTree._handle_error"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.LeftLeanRedBlackTree._handle_error" title="Link to this definition"></a></dt>
+<dd><p><em>_handle_error()</em> función privada que maneja los errores que se pueden presentar en el LeftLeanRedBlackTree.</p>
+<p>Si se presenta un error en LeftLeanRedBlackTree, se formatea el error según el contexto (paquete/clase), la función que lo generó y lo reenvia al componente superior en la jerarquía de llamados para manejarlo segun se considere conveniente.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>err</strong> (<em>Exception</em>) – Excepción que se generó en el LeftLeanRedBlackTree.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.LeftLeanRedBlackTree._check_type">
+<span class="sig-name descname"><span class="pre">_check_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/lelftleaningtree.html#LeftLeanRedBlackTree._check_type"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.LeftLeanRedBlackTree._check_type" title="Link to this definition"></a></dt>
+<dd><p><em>_check_type()</em> función privada que verifica que el tipo de dato del elemento que se quiere agregar al LeftLeanRedBlackTree sea del mismo tipo contenido dentro de los elementos del LeftLeanRedBlackTree.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>TypeError</strong> – error si el tipo de dato del elemento que se quiere agregar no es el mismo que el tipo de dato de los elementos que ya contiene el LeftLeanRedBlackTree.</p>
+</dd>
+<dt class="field-even">Parámetros<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>element</strong> (<em>T</em>) – elemento que se quiere procesar en LeftLeanRedBlackTree.</p>
+</dd>
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>operador que indica si el ADT LeftLeanRedBlackTree es del mismo tipo que el elemento que se quiere procesar.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="DISClib.DataStructures.Vertex">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.</span></span><span class="sig-name descname"><span class="pre">Vertex</span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/adjcomponents.html#Vertex"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.Vertex" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Generic</span></code>[<a class="reference internal" href="../Utils/default/index.html#DISClib.Utils.default.T" title="DISClib.Utils.default.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DISClib.Utils.default.T</span></code></a>]</p>
+<p>Vertex _summary_</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Generic</strong> (<em>_type_</em>) – _description_</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="DISClib.DataStructures.Edge">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.</span></span><span class="sig-name descname"><span class="pre">Edge</span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/adjcomponents.html#Edge"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.Edge" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Generic</span></code>[<a class="reference internal" href="../Utils/default/index.html#DISClib.Utils.default.T" title="DISClib.Utils.default.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DISClib.Utils.default.T</span></code></a>]</p>
+<p>Edge _summary_</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Generic</strong> (<em>_type_</em>) – _description_</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="DISClib.DataStructures.AdjacencyList">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.</span></span><span class="sig-name descname"><span class="pre">AdjacencyList</span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/adjlist.html#AdjacencyList"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.AdjacencyList" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Generic</span></code>[<a class="reference internal" href="../Utils/default/index.html#DISClib.Utils.default.T" title="DISClib.Utils.default.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DISClib.Utils.default.T</span></code></a>]</p>
+<p><strong>AdjacencyList</strong> representa la estructura de datos para arreglos dinamicos (Array List), Implementada con Generic[T] y &#64;dataclass para que sea una estructura de datos genérica.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Generic</strong> (<em>T</em>) – TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.</p>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>ADT de tipo AdjacencyList o Arreglo Dinámico.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#DISClib.DataStructures.AdjacencyList" title="DISClib.DataStructures.AdjacencyList">AdjacencyList</a></p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.AdjacencyList.iodata">
+<span class="sig-name descname"><span class="pre">iodata</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.AdjacencyList.iodata" title="Link to this definition"></a></dt>
+<dd><p>Lista nativa de Python que contiene los elementos de entrada a la estructura, por defecto es None y el usuario puede incluir una lista nativa de python como argumento.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.AdjacencyList.cmp_function">
+<span class="sig-name descname"><span class="pre">cmp_function</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.AdjacencyList.cmp_function" title="Link to this definition"></a></dt>
+<dd><p>Función de comparación opcional que se utiliza para comparar los elementos del AdjacencyList, por defecto es None y el <em>__post_init__()</em> configura la función por defecto <em>lt_default_cmp_funcion()</em>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.AdjacencyList.elements">
+<span class="sig-name descname"><span class="pre">elements</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#DISClib.DataStructures.AdjacencyList.elements" title="Link to this definition"></a></dt>
+<dd><p>Lista nativa de Python que contiene los elementos de la estructura.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.AdjacencyList.key">
+<span class="sig-name descname"><span class="pre">key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.AdjacencyList.key" title="Link to this definition"></a></dt>
+<dd><p>Nombre de la llave opcional que se utiliza para comparar los elementos del AdjacencyList, Por defecto es “None” y el <em>__post_init__()</em> configura la llave por defecto la llave “id” en <em>DEFAULT_DICT_KEY</em>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.AdjacencyList._size">
+<span class="sig-name descname"><span class="pre">_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#DISClib.DataStructures.AdjacencyList._size" title="Link to this definition"></a></dt>
+<dd><p>Es el número de elementos que contiene la estructura, por defecto es 0 y se actualiza con cada operación que modifica la estructura.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.AdjacencyList.__post_init__">
+<span class="sig-name descname"><span class="pre">__post_init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/adjlist.html#AdjacencyList.__post_init__"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.AdjacencyList.__post_init__" title="Link to this definition"></a></dt>
+<dd><p><em>__post_init__()</em> configura los valores por defecto para la llave (“key”) y la función de comparación (“cmp_function”). Si el usuario incluye una lista nativa de python como argumento, se agrega a la lista de elementos del AdjacencyList.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.AdjacencyList.default_cmp_function">
+<span class="sig-name descname"><span class="pre">default_cmp_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elm1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elm2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/adjlist.html#AdjacencyList.default_cmp_function"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.AdjacencyList.default_cmp_function" title="Link to this definition"></a></dt>
+<dd><p><em>default_cmp_function()</em> procesa con algoritmica por defecto la lista de elementos que procesa el AdjacencyList. Es una función crucial para que la estructura de datos funcione correctamente.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>elm1</strong> (<em>Any</em>) – primer elemento a comparar.</p></li>
+<li><p><strong>elm2</strong> (<em>Any</em>) – segundo elemento a comparar.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>respuesta de la comparación entre los elementos, 0 si son iguales, 1 si elm1 es mayor que elm2, -1 si elm1 es menor.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.AdjacencyList._handle_error">
+<span class="sig-name descname"><span class="pre">_handle_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">err</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Exception</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/adjlist.html#AdjacencyList._handle_error"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.AdjacencyList._handle_error" title="Link to this definition"></a></dt>
+<dd><p><em>_handle_error()</em> función privada que maneja los errores que se pueden presentar en el AdjacencyList.</p>
+<p>Si se presenta un error en AdjacencyList, se formatea el error según el contexto (paquete/clase), la función que lo generó y lo reenvia al componente superior en la jerarquía de llamados para manejarlo segun se considere conveniente.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>err</strong> (<em>Exception</em>) – Excepción que se generó en el AdjacencyList.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.AdjacencyList._check_type">
+<span class="sig-name descname"><span class="pre">_check_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/adjlist.html#AdjacencyList._check_type"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.AdjacencyList._check_type" title="Link to this definition"></a></dt>
+<dd><p><em>_check_type()</em> función privada que verifica que el tipo de dato del elemento que se quiere agregar al AdjacencyList sea del mismo tipo contenido dentro de los elementos del AdjacencyList.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>TypeError</strong> – error si el tipo de dato del elemento que se quiere agregar no es el mismo que el tipo de dato de los elementos que ya contiene el AdjacencyList.</p>
+</dd>
+<dt class="field-even">Parámetros<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>element</strong> (<em>T</em>) – elemento que se quiere procesar en AdjacencyList.</p>
+</dd>
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>operador que indica si el ADT AdjacencyList es del mismo tipo que el elemento que se quiere procesar.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="DISClib.DataStructures.AdjacencyMatrix">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.</span></span><span class="sig-name descname"><span class="pre">AdjacencyMatrix</span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/adjmatrix.html#AdjacencyMatrix"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.AdjacencyMatrix" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Generic</span></code>[<a class="reference internal" href="../Utils/default/index.html#DISClib.Utils.default.T" title="DISClib.Utils.default.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DISClib.Utils.default.T</span></code></a>]</p>
+<p><strong>AdjacencyMatrix</strong> representa la estructura de datos para arreglos dinamicos (Array List), Implementada con Generic[T] y &#64;dataclass para que sea una estructura de datos genérica.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Generic</strong> (<em>T</em>) – TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.</p>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>ADT de tipo AdjacencyMatrix o Arreglo Dinámico.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#DISClib.DataStructures.AdjacencyMatrix" title="DISClib.DataStructures.AdjacencyMatrix">AdjacencyMatrix</a></p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.AdjacencyMatrix.iodata">
+<span class="sig-name descname"><span class="pre">iodata</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.AdjacencyMatrix.iodata" title="Link to this definition"></a></dt>
+<dd><p>Lista nativa de Python que contiene los elementos de entrada a la estructura, por defecto es None y el usuario puede incluir una lista nativa de python como argumento.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.AdjacencyMatrix.cmp_function">
+<span class="sig-name descname"><span class="pre">cmp_function</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.AdjacencyMatrix.cmp_function" title="Link to this definition"></a></dt>
+<dd><p>Función de comparación opcional que se utiliza para comparar los elementos del AdjacencyMatrix, por defecto es None y el <em>__post_init__()</em> configura la función por defecto <em>lt_default_cmp_funcion()</em>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.AdjacencyMatrix.elements">
+<span class="sig-name descname"><span class="pre">elements</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#DISClib.DataStructures.AdjacencyMatrix.elements" title="Link to this definition"></a></dt>
+<dd><p>Lista nativa de Python que contiene los elementos de la estructura.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.AdjacencyMatrix.key">
+<span class="sig-name descname"><span class="pre">key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#DISClib.DataStructures.AdjacencyMatrix.key" title="Link to this definition"></a></dt>
+<dd><p>Nombre de la llave opcional que se utiliza para comparar los elementos del AdjacencyMatrix, Por defecto es “None” y el <em>__post_init__()</em> configura la llave por defecto la llave “id” en <em>DEFAULT_DICT_KEY</em>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.AdjacencyMatrix._size">
+<span class="sig-name descname"><span class="pre">_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#DISClib.DataStructures.AdjacencyMatrix._size" title="Link to this definition"></a></dt>
+<dd><p>Es el número de elementos que contiene la estructura, por defecto es 0 y se actualiza con cada operación que modifica la estructura.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.AdjacencyMatrix.__post_init__">
+<span class="sig-name descname"><span class="pre">__post_init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/adjmatrix.html#AdjacencyMatrix.__post_init__"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.AdjacencyMatrix.__post_init__" title="Link to this definition"></a></dt>
+<dd><p><em>__post_init__()</em> configura los valores por defecto para la llave (“key”) y la función de comparación (“cmp_function”). Si el usuario incluye una lista nativa de python como argumento, se agrega a la lista de elementos del AdjacencyMatrix.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.AdjacencyMatrix.default_cmp_function">
+<span class="sig-name descname"><span class="pre">default_cmp_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elm1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elm2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/adjmatrix.html#AdjacencyMatrix.default_cmp_function"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.AdjacencyMatrix.default_cmp_function" title="Link to this definition"></a></dt>
+<dd><p><em>default_cmp_function()</em> procesa con algoritmica por defecto la lista de elementos que procesa el AdjacencyMatrix. Es una función crucial para que la estructura de datos funcione correctamente.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>elm1</strong> (<em>Any</em>) – primer elemento a comparar.</p></li>
+<li><p><strong>elm2</strong> (<em>Any</em>) – segundo elemento a comparar.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>respuesta de la comparación entre los elementos, 0 si son iguales, 1 si elm1 es mayor que elm2, -1 si elm1 es menor.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.AdjacencyMatrix._handle_error">
+<span class="sig-name descname"><span class="pre">_handle_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">err</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Exception</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/adjmatrix.html#AdjacencyMatrix._handle_error"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.AdjacencyMatrix._handle_error" title="Link to this definition"></a></dt>
+<dd><p><em>_handle_error()</em> función privada que maneja los errores que se pueden presentar en el AdjacencyMatrix.</p>
+<p>Si se presenta un error en AdjacencyMatrix, se formatea el error según el contexto (paquete/clase), la función que lo generó y lo reenvia al componente superior en la jerarquía de llamados para manejarlo segun se considere conveniente.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>err</strong> (<em>Exception</em>) – Excepción que se generó en el AdjacencyMatrix.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.AdjacencyMatrix._check_type">
+<span class="sig-name descname"><span class="pre">_check_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../../_modules/DISClib/DataStructures/adjmatrix.html#AdjacencyMatrix._check_type"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.AdjacencyMatrix._check_type" title="Link to this definition"></a></dt>
+<dd><p><em>_check_type()</em> función privada que verifica que el tipo de dato del elemento que se quiere agregar al AdjacencyMatrix sea del mismo tipo contenido dentro de los elementos del AdjacencyMatrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>TypeError</strong> – error si el tipo de dato del elemento que se quiere agregar no es el mismo que el tipo de dato de los elementos que ya contiene el AdjacencyMatrix.</p>
+</dd>
+<dt class="field-even">Parámetros<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>element</strong> (<em>T</em>) – elemento que se quiere procesar en AdjacencyMatrix.</p>
+</dd>
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>operador que indica si el ADT AdjacencyMatrix es del mismo tipo que el elemento que se quiere procesar.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

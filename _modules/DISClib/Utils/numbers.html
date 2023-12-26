@@ -218,13 +218,12 @@
 <span class="sd">    Returns:</span>
 <span class="sd">        int: el índice del elemento en la tabla de Hash.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># getting the hash of the key</span>
-    <span class="c1"># freesing dynamic data types (dict, list, set)</span>
     <span class="c1"># TODO is easier if we cast the dynamic keys to strings?</span>
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">VALID_IO_TYPE</span><span class="p">):</span>
-        <span class="n">key</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
-        <span class="n">key</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">key</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+    <span class="c1"># if it is a dynamic data type, we cast it to string</span>
+    <span class="c1"># data types are (dict, list, set, tuple)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">VALID_IO_TYPE</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+    <span class="c1"># getting the hash from the key</span>
     <span class="n">hkey</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
     <span class="c1"># calculating the index with the MAD compression function</span>
     <span class="n">idx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="nb">abs</span><span class="p">(</span><span class="n">scale</span> <span class="o">*</span> <span class="n">hkey</span> <span class="o">+</span> <span class="n">shift</span><span class="p">)</span> <span class="o">%</span> <span class="n">prime</span><span class="p">)</span> <span class="o">%</span> <span class="n">mcapacity</span><span class="p">)</span>

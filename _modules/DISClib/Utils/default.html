@@ -245,6 +245,7 @@
 <span class="sd">    Returns:</span>
 <span class="sd">        int: retorna -1 si key1 es menor que la llave de entry2, 0 si las llaves son iguales y 1 si la llave key1 es mayor que la llave de entry2.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># TODO to improve or delete, remain to check</span>
     <span class="n">key2</span> <span class="o">=</span> <span class="n">entry2</span><span class="o">.</span><span class="n">get_key</span><span class="p">()</span>
     <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">key1</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">type</span><span class="p">(</span><span class="n">key2</span><span class="p">):</span>
         <span class="n">err_msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Invalid comparison between </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">key1</span><span class="p">)</span><span class="si">}</span><span class="s2"> and &quot;</span>
@@ -262,7 +263,7 @@
 <a class="viewcode-back" href="../../../autoapi/DISClib/Utils/default/index.html#DISClib.Utils.default.ht_default_cmp_funcion">[documentos]</a>
 <span class="k">def</span> <span class="nf">ht_default_cmp_funcion</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">ekey1</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="n">entry2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 
-    <span class="c1"># TODO can be improved</span>
+    <span class="c1"># TODO to improve or delete, remain to check</span>
     <span class="n">ekey2</span> <span class="o">=</span> <span class="n">entry2</span><span class="o">.</span><span class="n">get_key</span><span class="p">()</span>
     <span class="n">ekey1_type</span> <span class="o">=</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ekey1</span><span class="p">,</span> <span class="n">VALID_DATA_TYPE_LT</span><span class="p">)</span>
     <span class="n">ekey2_type</span> <span class="o">=</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ekey2</span><span class="p">,</span> <span class="n">VALID_DATA_TYPE_LT</span><span class="p">)</span>
@@ -297,8 +298,26 @@
                     <span class="n">err_msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Invalid comparison between </span><span class="si">{</span><span class="n">key1</span><span class="si">}</span><span class="s2"> and &quot;</span>
                     <span class="n">err_msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key2</span><span class="si">}</span><span class="s2"> keys in elements.&quot;</span>
                     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">err_msg</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ekey1</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ekey2</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+            <span class="c1"># change tuples to lists to compare them</span>
+            <span class="n">ekey1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">ekey1</span><span class="p">)</span>
+            <span class="n">ekey2</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">ekey2</span><span class="p">)</span>
+            <span class="c1"># if one is less than the other, return -1</span>
+            <span class="k">if</span> <span class="n">ekey1</span> <span class="o">&lt;</span> <span class="n">ekey2</span><span class="p">:</span>
+                <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="c1"># if they are equal, return 0</span>
+            <span class="k">elif</span> <span class="n">ekey1</span> <span class="o">==</span> <span class="n">ekey2</span><span class="p">:</span>
+                <span class="k">return</span> <span class="mi">0</span>
+            <span class="c1"># if one is greater than the other, return 1</span>
+            <span class="k">elif</span> <span class="n">ekey1</span> <span class="o">&gt;</span> <span class="n">ekey2</span><span class="p">:</span>
+                <span class="k">return</span> <span class="mi">1</span>
+            <span class="c1"># otherwise, raise an exception</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">err_msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Invalid comparison between </span><span class="si">{</span><span class="n">ekey1</span><span class="si">}</span><span class="s2"> and &quot;</span>
+                <span class="n">err_msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ekey2</span><span class="si">}</span><span class="s2"> keys in elements.&quot;</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">err_msg</span><span class="p">)</span>
         <span class="c1"># if elements are native types, compare them directly</span>
-        <span class="k">elif</span> <span class="n">ekey1_type</span> <span class="ow">and</span> <span class="n">ekey2_type</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">ekey1_type</span> <span class="ow">and</span> <span class="n">ekey2_type</span><span class="p">:</span>
             <span class="c1"># if one is less than the other, return -1</span>
             <span class="k">if</span> <span class="n">ekey1</span> <span class="o">&lt;</span> <span class="n">ekey2</span><span class="p">:</span>
                 <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>

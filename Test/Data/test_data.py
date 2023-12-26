@@ -7,8 +7,8 @@ Este módulo contiene datos de prueba para las pruebas unitarias para diferentes
 """
 
 
-def get_node_test_data():
-    """*get_node_test_data()* recupera un diccionario con los datos de prueba para la estructura *Node*.
+def get_nodelist_test_data():
+    """*get_nodelist_test_data()* recupera un diccionario con los datos de prueba para la estructura *Node*.
 
     Returns:
         dict: diccionario con los datos de prueba para la estructura *Node*.
@@ -454,6 +454,56 @@ def get_hashtable_test_data():
     return parameters
 
 
+def get_nodetree_test_data():
+    """get_nodetree_test_data _summary_
+
+    Returns:
+        _type_: _description_
+    """
+    parameters = dict()
+    return parameters
+
+
+def get_bst_test_data():
+    """get_bst_test_data _summary_
+
+    Returns:
+        _type_: _description_
+    """
+    parameters = dict()
+    return parameters
+
+
+def get_rbt_test_data():
+    """get_rbt_test_data _summary_
+
+    Returns:
+        _type_: _description_
+    """
+    parameters = dict()
+    return parameters
+
+
+def get_gedgevertex_test_data():
+    """get_gedgevertex_test_data _summary_
+
+    Returns:
+        _type_: _description_
+    """
+    parameters = dict()
+    return parameters
+
+
+def get_graph_test_data():
+    """get_graph_test_data _summary_
+
+    Returns:
+        _type_: _description_
+    """
+    parameters = dict()
+    return parameters
+
+
 def get_dynamic_test_data():
     """get_dynamic_test_data _summary_
 
@@ -475,6 +525,36 @@ def get_dynamap_test_data():
 
 
 def get_dynalist_test_data():
+    """get_dynalist_test_data _summary_
+
+    Returns:
+        _type_: _description_
+    """
+    parameters = dict()
+    return parameters
+
+
+def get_dynapq_test_data():
+    """get_dynalist_test_data _summary_
+
+    Returns:
+        _type_: _description_
+    """
+    parameters = dict()
+    return parameters
+
+
+def get_dynomap_test_data():
+    """get_dynamap_test_data _summary_
+
+    Returns:
+        _type_: _description_
+    """
+    parameters = dict()
+    return parameters
+
+
+def get_dynagraph_test_data():
     """get_dynalist_test_data _summary_
 
     Returns:

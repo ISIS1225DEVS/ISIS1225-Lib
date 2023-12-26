@@ -12,13 +12,13 @@ from DISClib.DataStructures.listnode import SingleNode
 from DISClib.DataStructures.listnode import DoubleNode
 
 # importing the data to test
-from Test.Data.test_data import get_node_test_data
+from Test.Data.test_data import get_nodelist_test_data
 
 # asserting module imports
 assert Node
 assert SingleNode
 assert DoubleNode
-assert get_node_test_data
+assert get_nodelist_test_data
 
 
 class TestNode(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestNode(unittest.TestCase):
     def inject_fixtures(self):
         """*inject_fixtures()* inyecta los parámetros globales de prueba para *Node* como un *fixture*.
         """
-        self.global_params = get_node_test_data()
+        self.global_params = get_nodelist_test_data()
 
     def test_new_default_node(self):
         """*test_new_default_node* prueba para crear un nodo vacío de una lista enlazada.
@@ -147,7 +147,7 @@ class TestSingleNode(unittest.TestCase):
     def inject_fixtures(self):
         """*inject_fixtures()* inyecta los parámetros globales de prueba para *SingleNode* como un *fixture*.
         """
-        self.global_params = get_node_test_data()
+        self.global_params = get_nodelist_test_data()
 
     def test_new_default_single_node(self):
         """*test_new_default_node()* prueba para crear un nodo vacío de una lista sencillamente encadenada *SingleNode*.
@@ -214,7 +214,7 @@ class TestDoubleNode(unittest.TestCase):
     def inject_fixtures(self):
         """*inject_fixtures()* inyecta los parámetros globales de prueba para *DoubleNode* como un *fixture*.
         """
-        self.global_params = get_node_test_data()
+        self.global_params = get_nodelist_test_data()
 
     def test_new_default_double_node(self):
         """*test_new_default_node()* prueba para crear un nodo vacío de una lista doblemente encadenada *DoubleNode*.

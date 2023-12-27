@@ -581,35 +581,31 @@
                     <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">err_msg</span><span class="p">)</span>
                 <span class="c1"># check the entry slot availability in the hash table</span>
                 <span class="n">idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find_slot</span><span class="p">(</span><span class="n">hkey</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-------------`put`-------------&quot;</span><span class="p">)</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;capacity:&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span><span class="p">)</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;key:&quot;</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="s2">&quot;size:&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span><span class="p">,</span> <span class="s2">&quot;idx:&quot;</span><span class="p">,</span> <span class="n">idx</span><span class="p">)</span>
                 <span class="c1"># if the idx is inside the hash table, update hash table stats</span>
                 <span class="k">if</span> <span class="n">idx</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">idx</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span><span class="p">:</span>
                     <span class="c1"># check slot availability for hash table stats</span>
                     <span class="n">entry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+                    <span class="c1"># if the slot is available, update the size</span>
                     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_available</span><span class="p">(</span><span class="n">entry</span><span class="p">):</span>
                         <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">+=</span> <span class="mi">1</span>
-                    <span class="c1"># update the entry index in the hash table</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="o">.</span><span class="n">change_info</span><span class="p">(</span><span class="n">new_entry</span><span class="p">,</span> <span class="n">idx</span><span class="p">)</span>
-                    <span class="c1"># self._size += 1</span>
-                    <span class="c1"># self._cur_alpha = self._size / self.mcapacity</span>
-                    <span class="c1"># update the hash table collisions stats</span>
+                    <span class="c1"># if index and hash key are different, update collisions</span>
                     <span class="k">if</span> <span class="n">hkey</span> <span class="o">!=</span> <span class="n">idx</span><span class="p">:</span>
                         <span class="bp">self</span><span class="o">.</span><span class="n">_collisions</span> <span class="o">+=</span> <span class="mi">1</span>
-                <span class="c1"># there is no space, add and entry at the end of the hash table</span>
-                <span class="c1"># else:</span>
+                    <span class="c1"># update the entry index of the hash table regardless</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="o">.</span><span class="n">change_info</span><span class="p">(</span><span class="n">new_entry</span><span class="p">,</span> <span class="n">idx</span><span class="p">)</span>
+                <span class="c1"># if capacity is full, add the entry to the end of the table</span>
+                <span class="c1"># useful when rehash is disabled</span>
                 <span class="k">elif</span> <span class="n">idx</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
-                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;extending hash table!!!!!!!!!!!!!!&quot;</span><span class="p">)</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">+=</span> <span class="mi">1</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span> <span class="o">+=</span> <span class="mi">1</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_collisions</span> <span class="o">+=</span> <span class="mi">1</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">new_entry</span><span class="p">)</span>
 
+                <span class="c1"># updtate the current load factor</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_cur_alpha</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span>
 
                 <span class="c1"># check if the structure needs to be rehashed</span>
                 <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cur_alpha</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_alpha</span><span class="p">:</span>
-                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;rehashing!!!!!!!!!&quot;</span><span class="p">)</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">rehash</span><span class="p">()</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>

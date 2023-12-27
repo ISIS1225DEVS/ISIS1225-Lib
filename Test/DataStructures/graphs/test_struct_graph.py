@@ -10,8 +10,9 @@ from typing import TypeVar
 
 
 # importing the classes to test
-from DISClib.DataStructures.adjlist import AdjancencyList
-from DISClib.DataStructures.adjmatrix import AdjancecyMatrix
+from DISClib.DataStructures.adjlist import AdjacencyList
+# adjlist import AdjancencyList
+from DISClib.DataStructures.adjmatrix import AdjacencyMatrix
 from DISClib.DataStructures.adjcomponents import Edge
 from DISClib.DataStructures.adjcomponents import Vertex
 
@@ -19,8 +20,8 @@ from DISClib.DataStructures.adjcomponents import Vertex
 from Test.Data.test_data import get_graph_test_data
 
 # asserting module imports
-assert AdjancecyMatrix
-assert AdjancencyList
+assert AdjacencyList
+assert AdjacencyMatrix
 assert Edge
 assert Vertex
 assert get_graph_test_data

@@ -269,17 +269,17 @@ Attributes
       :rtype: Optional[T]
 
 
-   .. py:method:: check_bucket(key: DISClib.Utils.default.T) -> Optional[DISClib.Utils.default.T]
+   .. py:method:: check_slots(key: DISClib.Utils.default.T) -> Optional[DISClib.DataStructures.singlelinkedlist.SingleLinked[DISClib.Utils.default.T]]
 
-      *check_bucket()* devuelve el bucket asociado a la llave key dentro del LinearProbing, si no existe una entrada con la llave key, devuelve None.
+      *check_slots()* devuelve una lista (SingleLinked) con todas las entradas (parejas llave-valor) asociadas a la llave dentro del *LinearProbing*. Si no existe una entrada asociada, devuelve None.
 
-      :param key: llave asociada al bucket que se quiere buscar.
+      :param key: llave asociada al Slot que se quiere buscar.
       :type key: T
 
       :raises Exception: error si la estructura está vacía.
 
-      :returns: bucket asociado a la llave key dentro del LinearProbing, None si no existe la entrada asociada a la llave key.
-      :rtype: Optional[T]
+      :returns: lista sencillamente encadenada (SingleLinked) con todas las entradas (parejas llave-valor) asociadas a la llave key dentro del *LinearProbing*.
+      :rtype: Optional[SingleLinked[T]]
 
 
    .. py:method:: remove(key: DISClib.Utils.default.T) -> Optional[DISClib.Utils.default.T]

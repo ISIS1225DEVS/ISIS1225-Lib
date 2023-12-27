@@ -429,21 +429,21 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.LinearProbing.check_bucket">
-<span class="sig-name descname"><span class="pre">check_bucket</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DISClib.Utils.default.T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.check_bucket"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.LinearProbing.check_bucket" title="Link to this definition"></a></dt>
-<dd><p><em>check_bucket()</em> devuelve el bucket asociado a la llave key dentro del LinearProbing, si no existe una entrada con la llave key, devuelve None.</p>
+<dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.LinearProbing.check_slots">
+<span class="sig-name descname"><span class="pre">check_slots</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../singlelinkedlist/index.html#DISClib.DataStructures.singlelinkedlist.SingleLinked" title="DISClib.DataStructures.singlelinkedlist.SingleLinked"><span class="pre">DISClib.DataStructures.singlelinkedlist.SingleLinked</span></a><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing.check_slots"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.LinearProbing.check_slots" title="Link to this definition"></a></dt>
+<dd><p><em>check_slots()</em> devuelve una lista (SingleLinked) con todas las entradas (parejas llave-valor) asociadas a la llave dentro del <em>LinearProbing</em>. Si no existe una entrada asociada, devuelve None.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>key</strong> (<em>T</em>) – llave asociada al bucket que se quiere buscar.</p>
+<dd class="field-odd"><p><strong>key</strong> (<em>T</em>) – llave asociada al Slot que se quiere buscar.</p>
 </dd>
 <dt class="field-even">Muestra<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>Exception</strong> – error si la estructura está vacía.</p>
 </dd>
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>bucket asociado a la llave key dentro del LinearProbing, None si no existe la entrada asociada a la llave key.</p>
+<dd class="field-odd"><p>lista sencillamente encadenada (SingleLinked) con todas las entradas (parejas llave-valor) asociadas a la llave key dentro del <em>LinearProbing</em>.</p>
 </dd>
 <dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
-<dd class="field-even"><p>Optional[T]</p>
+<dd class="field-even"><p>Optional[<a class="reference internal" href="../singlelinkedlist/index.html#DISClib.DataStructures.singlelinkedlist.SingleLinked" title="DISClib.DataStructures.singlelinkedlist.SingleLinked">SingleLinked</a>[T]]</p>
 </dd>
 </dl>
 </dd></dl>

@@ -471,19 +471,22 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># TODO check usability of this function</span>
         <span class="c1"># if datastruct is empty, set the entry type</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get_key</span><span class="p">()</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get_value</span><span class="p">()</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_key_type</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">entry</span><span class="o">.</span><span class="n">get_key</span><span class="p">())</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_value_type</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">entry</span><span class="o">.</span><span class="n">get_value</span><span class="p">())</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_key_type</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_value_type</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
             <span class="c1"># self._data_type = type(entry)</span>
         <span class="c1"># check if the new entry is the same type as the other entries</span>
-        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_key_type</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">type</span><span class="p">(</span><span class="n">entry</span><span class="o">.</span><span class="n">get_key</span><span class="p">()):</span>
-            <span class="n">err_msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Invalid key type: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">entry</span><span class="o">.</span><span class="n">get_key</span><span class="p">())</span><span class="si">}</span><span class="s2"> &quot;</span>
-            <span class="n">err_msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;for structure configured with type: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_key_type</span><span class="si">}</span><span class="s2">&quot;</span>
-            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">err_msg</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value_type</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">type</span><span class="p">(</span><span class="n">entry</span><span class="o">.</span><span class="n">get_value</span><span class="p">()):</span>
-            <span class="n">err_msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Invalid value type: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">entry</span><span class="o">.</span><span class="n">get_value</span><span class="p">())</span><span class="si">}</span><span class="s2"> &quot;</span>
-            <span class="n">err_msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;for structure configured with type: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_value_type</span><span class="si">}</span><span class="s2">&quot;</span>
-            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">err_msg</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="o">!=</span> <span class="n">EMPTY</span> <span class="ow">and</span> <span class="n">value</span> <span class="o">!=</span> <span class="n">EMPTY</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_key_type</span><span class="p">):</span>
+                <span class="n">err_msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Invalid key type: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">key</span><span class="p">)</span><span class="si">}</span><span class="s2"> &quot;</span>
+                <span class="n">err_msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;for structure configured with: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_key_type</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">err_msg</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value_type</span><span class="p">):</span>
+                <span class="n">err_msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Invalid value type: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2"> &quot;</span>
+                <span class="n">err_msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;for structure configured with: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_value_type</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">err_msg</span><span class="p">)</span>
         <span class="c1"># otherwise, the type is valid</span>
         <span class="k">return</span> <span class="kc">True</span></div>
 
@@ -532,21 +535,24 @@
 <span class="sd">            bool: operador que indica si el LinearProbing contiene o no una entrada con la llave key.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="c1"># assume the entry is not in the structure</span>
-            <span class="n">found</span> <span class="o">=</span> <span class="kc">False</span>
-            <span class="c1"># use the MAD compression function to get the hash key</span>
-            <span class="n">hkey</span> <span class="o">=</span> <span class="n">hash_compress</span><span class="p">(</span><span class="n">key</span><span class="p">,</span>
-                                 <span class="bp">self</span><span class="o">.</span><span class="n">_scale</span><span class="p">,</span>
-                                 <span class="bp">self</span><span class="o">.</span><span class="n">_shift</span><span class="p">,</span>
-                                 <span class="bp">self</span><span class="o">.</span><span class="n">prime</span><span class="p">,</span>
-                                 <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span><span class="p">)</span>
-            <span class="c1"># look for the entry in the hash table</span>
-            <span class="n">idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find_slot</span><span class="p">(</span><span class="n">hkey</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
-            <span class="c1"># if the index of the entry is inside the hash table</span>
-            <span class="n">entry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">idx</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">entry</span><span class="o">.</span><span class="n">get_key</span><span class="p">()</span> <span class="o">==</span> <span class="n">key</span><span class="p">:</span>
-                <span class="n">found</span> <span class="o">=</span> <span class="kc">True</span>
-            <span class="k">return</span> <span class="n">found</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
+                <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;Empty data structure&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># assume the entry is not in the structure</span>
+                <span class="n">found</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="c1"># use the MAD compression function to get the hash key</span>
+                <span class="n">hkey</span> <span class="o">=</span> <span class="n">hash_compress</span><span class="p">(</span><span class="n">key</span><span class="p">,</span>
+                                     <span class="bp">self</span><span class="o">.</span><span class="n">_scale</span><span class="p">,</span>
+                                     <span class="bp">self</span><span class="o">.</span><span class="n">_shift</span><span class="p">,</span>
+                                     <span class="bp">self</span><span class="o">.</span><span class="n">prime</span><span class="p">,</span>
+                                     <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span><span class="p">)</span>
+                <span class="c1"># look for the entry in the hash table</span>
+                <span class="n">idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find_slot</span><span class="p">(</span><span class="n">hkey</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+                <span class="c1"># if the index of the entry is inside the hash table</span>
+                <span class="n">entry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">idx</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">entry</span><span class="o">.</span><span class="n">get_key</span><span class="p">()</span> <span class="o">==</span> <span class="n">key</span><span class="p">:</span>
+                    <span class="n">found</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">return</span> <span class="n">found</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
 
@@ -627,7 +633,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
-                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;The structure is empty&quot;</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;Empty data structure&quot;</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="c1"># assume the entry is not in the structure</span>
                 <span class="n">entry</span> <span class="o">=</span> <span class="kc">None</span>
@@ -647,37 +653,47 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="LinearProbing.check_bucket">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing.check_bucket">[documentos]</a>
-    <span class="k">def</span> <span class="nf">check_bucket</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*check_bucket()* devuelve el bucket asociado a la llave key dentro del LinearProbing, si no existe una entrada con la llave key, devuelve None.</span>
+<div class="viewcode-block" id="LinearProbing.check_slots">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing.check_slots">[documentos]</a>
+    <span class="k">def</span> <span class="nf">check_slots</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">SingleLinked</span><span class="p">[</span><span class="n">T</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*check_slots()* devuelve una lista (SingleLinked) con todas las entradas (parejas llave-valor) asociadas a la llave dentro del *LinearProbing*. Si no existe una entrada asociada, devuelve None.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            key (T): llave asociada al bucket que se quiere buscar.</span>
+<span class="sd">            key (T): llave asociada al Slot que se quiere buscar.</span>
 
 <span class="sd">        Raises:</span>
 <span class="sd">            Exception: error si la estructura está vacía.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            Optional[T]: bucket asociado a la llave key dentro del LinearProbing, None si no existe la entrada asociada a la llave key.</span>
+<span class="sd">            Optional[SingleLinked[T]]: lista sencillamente encadenada (SingleLinked) con todas las entradas (parejas llave-valor) asociadas a la llave key dentro del *LinearProbing*.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
-                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;The structure is empty&quot;</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;Empty data structure&quot;</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="c1"># assume the entry is not in the structure</span>
-                <span class="n">bucket</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="n">slots</span> <span class="o">=</span> <span class="n">SingleLinked</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">,</span>
+                                     <span class="n">cmp_function</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cmp_function</span><span class="p">)</span>
                 <span class="c1"># get the hash key for the entry</span>
                 <span class="n">hkey</span> <span class="o">=</span> <span class="n">hash_compress</span><span class="p">(</span><span class="n">key</span><span class="p">,</span>
                                      <span class="bp">self</span><span class="o">.</span><span class="n">_scale</span><span class="p">,</span>
                                      <span class="bp">self</span><span class="o">.</span><span class="n">_shift</span><span class="p">,</span>
                                      <span class="bp">self</span><span class="o">.</span><span class="n">prime</span><span class="p">,</span>
                                      <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span><span class="p">)</span>
+                <span class="n">entry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">hkey</span><span class="p">)</span>
+                <span class="c1"># adding the entry to the list if it&#39;s not empty</span>
+                <span class="k">if</span> <span class="n">entry</span><span class="o">.</span><span class="n">get_key</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">slots</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
                 <span class="c1"># checking the entry index in the hash table</span>
                 <span class="n">idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find_slot</span><span class="p">(</span><span class="n">hkey</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
-                <span class="c1"># get the bucket according to the index</span>
-                <span class="n">bucket</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
-            <span class="k">return</span> <span class="n">bucket</span>
+                <span class="c1"># if the entry is in the hashmap, return it</span>
+                <span class="k">if</span> <span class="n">idx</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="c1"># get the bucket according to the index</span>
+                    <span class="n">entry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+                    <span class="c1"># adding the entry to the list if it&#39;s not empty</span>
+                    <span class="k">if</span> <span class="n">entry</span><span class="o">.</span><span class="n">get_key</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="n">slots</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">slots</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
 
@@ -699,7 +715,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
-                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;The structure is empty&quot;</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;Empty data structure&quot;</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">entry</span> <span class="o">=</span> <span class="kc">None</span>
                 <span class="c1"># get the hash key for the entry</span>
@@ -708,22 +724,27 @@
                                      <span class="bp">self</span><span class="o">.</span><span class="n">_shift</span><span class="p">,</span>
                                      <span class="bp">self</span><span class="o">.</span><span class="n">prime</span><span class="p">,</span>
                                      <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span><span class="p">)</span>
+                <span class="c1"># TODO do i need this?</span>
+                <span class="k">if</span> <span class="n">hkey</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">hkey</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">err_msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;The hash for the key: </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> &quot;</span>
+                    <span class="n">err_msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;is out of range fo capacity: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span><span class="si">}</span><span class="s2">&quot;</span>
+                    <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="n">err_msg</span><span class="p">)</span>
                 <span class="c1"># finding the entry index in the hash table</span>
                 <span class="n">idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find_slot</span><span class="p">(</span><span class="n">hkey</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
-                <span class="c1"># if the entry is not in the hashmap, raise an error</span>
-                <span class="k">if</span> <span class="n">idx</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
-                    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Entry for Key: </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> not found&quot;</span><span class="p">)</span>
-                <span class="c1"># otherwise, remove the entry with the index</span>
-                <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># if the entry is in the hashmap, remove it</span>
+                <span class="k">if</span> <span class="n">idx</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">idx</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span><span class="p">:</span>
                     <span class="c1"># gettting the entry from the hash table</span>
                     <span class="n">entry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
                     <span class="c1"># create a clean entry</span>
-                    <span class="n">clean_entry</span> <span class="o">=</span> <span class="n">MapEntry</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+                    <span class="n">clean_entry</span> <span class="o">=</span> <span class="n">MapEntry</span><span class="p">(</span><span class="n">EMPTY</span><span class="p">,</span> <span class="n">EMPTY</span><span class="p">)</span>
                     <span class="c1"># replace the entry with the clean entry</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="o">.</span><span class="n">change_info</span><span class="p">(</span><span class="n">clean_entry</span><span class="p">,</span> <span class="n">idx</span><span class="p">)</span>
                     <span class="c1"># update the hash table stats</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">-=</span> <span class="mi">1</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">_cur_alpha</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span>
+                <span class="c1"># TODO maybe i don&#39;t need this</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Entry for Key: </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> not found&quot;</span><span class="p">)</span>
             <span class="c1"># if the structure needs to be rehashed, rehash it</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cur_alpha</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">min_alpha</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">rehash</span><span class="p">()</span>
@@ -846,7 +867,6 @@
                 <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span><span class="p">:</span>
                     <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
                 <span class="n">pc</span> <span class="o">+=</span> <span class="mi">1</span>
-
             <span class="c1"># if the entry is found, return the existing entry index</span>
             <span class="k">if</span> <span class="n">found</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">j</span>
@@ -930,7 +950,7 @@
 
                 <span class="c1"># iterate over the old table</span>
                 <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">old_table</span><span class="p">:</span>
-                    <span class="k">if</span> <span class="n">entry</span><span class="o">.</span><span class="n">get_key</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">entry</span><span class="o">.</span><span class="n">get_key</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">entry</span><span class="o">.</span><span class="n">get_key</span><span class="p">()</span> <span class="o">!=</span> <span class="n">EMPTY</span><span class="p">:</span>
                         <span class="n">key</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get_key</span><span class="p">()</span>
                         <span class="n">value</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get_value</span><span class="p">()</span>
                         <span class="bp">self</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>

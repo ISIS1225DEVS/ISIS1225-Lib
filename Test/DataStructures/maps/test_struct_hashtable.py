@@ -972,35 +972,262 @@ class TestLinearProbing(unittest.TestCase):
         """
         self.global_params = get_hashtable_test_data()
 
-    def test_default_separate_chaining(self):
-        """*test_default_separate_chaining()* prueba la creación de un ADT *LinearProbing* con parámetros por defecto.
-        """
-        pass
+    def sll_to_list(self, sl_lt: SingleLinked) -> list:
+        """*sll_to_list()* convierte una lista sencillamente encadenada nativa de *DISCLib* en una lista nativa de Python.
 
-    def test_custom_separate_chaining(self):
-        """*test_custom_separate_chaining()* prueba la creación de un ADT *LinearProbing* con parámetros personalizados.
-        """
-        pass
+        Args:
+            sl_lt (SingleLinked): Lista sencillamente encadenada nativa de *DISCLib* a convertir en lista nativa de Python.
 
-    def test_custom_key(self):
-        """*test_custom_key()* prueba la creación de un ADT *LinearProbing* con parámetros personalizados y función de comparación.
+        Returns:
+            list: lista nativa de Python traducida.
         """
-        pass
+        ans = list()
+        for elm in sl_lt:
+            ans.append(elm)
+        return ans
 
-    def test_custom_cmpfunction(self):
-        """*test_custom_cmpfunction()* prueba la creación de un ADT *LinearProbing* con parámetros personalizados y función de comparación.
+    def test_default_linear_probing(self):
+        """*test_default_linear_probing()* prueba la creación de un ADT *LinearProbing* con parámetros por defecto.
         """
-        pass
+        # create a new LinearProbing
+        lp_ht = LinearProbing()
+        # Test if the LinearProbing not is None
+        assert lp_ht is not None
+        # Test if the LinearProbing is rehashable
+        assert lp_ht.rehashable is True
+        # Test if the LinearProbing has the default number of elements
+        assert lp_ht.nentries == 1
+        # Test if the LinearProbing has the default capacity
+        assert lp_ht.mcapacity == 3
+        # Test if the LinearProbing has the default load factor
+        assert lp_ht.alpha == 0.5
+        # Test if the LinearProbing has the default hash function
+        assert lp_ht.cmp_function == lp_ht.default_cmp_function
+        # Test if the LinearProbing has the default key
+        assert lp_ht.key == "id"
+        # Test if the LinearProbing has the default prime number
+        assert lp_ht.prime == 109345121
+        # Test if the LinearProbing has the default min load factor
+        assert lp_ht.min_alpha == 0.2
+        # Test if the LinearProbing has the default max load factor
+        assert lp_ht.max_alpha == 0.8
+        # Test if the LinearProbing is empty
+        assert lp_ht._size == 0
+        # Test if the LinearProbing has no collisions
+        assert lp_ht._collisions == 0
+        # Test if the LinearProbing has not define key type
+        assert lp_ht._key_type is None
+        # Test if the LinearProbing has not define value type
+        assert lp_ht._value_type is None
+
+    def test_custom_linear_probing(self):
+        """*test_custom_linear_probing()* prueba la creación de un ADT *LinearProbing* con parámetros personalizados.
+        """
+        # getting the global parameters data
+        # key type list
+        data_ktype_lt = self.global_params.get("CHECK_KEY_TYPE_LT")
+        # value type list
+        data_vtype_lt = self.global_params.get("CHECK_VALUE_TYPE_LT")
+        # test data keys
+        param_lt = self.global_params.keys()
+        # hash table base number of elements (n)
+        test_nelements = self.global_params.get("TEST_NENTRIES")
+        # dict for the hash table configuration parameters
+        test_lp_ht_config = self.global_params.get("TEST_LP_HT_CONFIG")
+        # iterate over global param data to create a new LinearProbing
+        for key, ktype, vtype in zip(param_lt, data_ktype_lt, data_vtype_lt):
+            # ignore some keys from the global params
+            if key not in IGNORE_KEYS_LT:
+                for config in test_lp_ht_config.keys():
+                    # custom dict id key
+                    custom_id = "uuid"
+                    # get LinearProbing config for current test
+                    tconfig = test_lp_ht_config.get(config)
+                    talpha = tconfig.get("alpha")
+                    tmin = tconfig.get("_min_alpha")
+                    tmax = tconfig.get("_max_alpha")
+                    trehash = tconfig.get("rehashable")
+                    tkey = tconfig.get("key")
+                    # get input test data for current hash table
+                    test_data = self.global_params.get(key)
+                    # fix default key for dict to keep test consistency
+                    if key == "TEST_DICT_LT":
+                        tkey = "id"
+                        custom_id = "id"
+                    # create a new LinearProbing with the test data
+                    sc_ht = LinearProbing(iodata=test_data,
+                                          nentries=test_nelements,
+                                          alpha=talpha,
+                                          min_alpha=tmin,
+                                          max_alpha=tmax,
+                                          key=tkey,
+                                          rehashable=trehash,)
+                    # Test LinearProbing is not None
+                    assert sc_ht is not None
+                    # Test LinearProbing data type
+                    assert isinstance(sc_ht, LinearProbing)
+                    # testing LinearProbing key is "uuid"
+                    assert sc_ht.key == custom_id
+                    # testing LinearProbing cmp_function is the default
+                    assert sc_ht.cmp_function == sc_ht.default_cmp_function
+                    # Test LinearProbing alpha is the one defined
+                    assert sc_ht.alpha == talpha
+                    # Test LinearProbing min_alpha is the one defined
+                    assert sc_ht.min_alpha == tmin
+                    # Test LinearProbing max_alpha is the one defined
+                    assert sc_ht.max_alpha == tmax
+                    # Test LinearProbing rehashable is the one defined
+                    assert sc_ht.rehashable == trehash
+                    # Test LinearProbing value type is consistent
+                    assert sc_ht._value_type == vtype
+                    # Test LinearProbing key type is consistent
+                    assert sc_ht._key_type == ktype
+
+    def test_default_cmp_function(self):
+        """*test_default_cmp_function()* prueba la creación de un ADT *LinearProbing* con parámetros personalizados y función de comparación.
+        """
+        # create a new LinearProbing with default cmp function
+        lp_ht = LinearProbing()
+
+        # iterate over tglobal params and use the default cmp function
+        for key in self.global_params.keys():
+            # ignore 3 keys from the global params
+            if key not in IGNORE_KEYS_LT:
+                # get the test data
+                test_data = self.global_params.get(key)
+                # iterate over the test data
+                for i in range(0, len(test_data) - 1):
+                    # to avoid index out of range
+                    if i > 1 and i < len(test_data) - 1:
+                        # get current data, previous and next
+                        ce = test_data[i]
+                        pe = test_data[i - 1]
+                        ne = test_data[i + 1]
+                        # create the MapEntry for the data
+                        cme = MapEntry(ce, ce)
+                        pme = MapEntry(pe, pe)
+                        nme = MapEntry(ne, ne)
+                        # test the result of the default cmp function
+                        exp_res = (-1, 0, 1)
+                        res1 = lp_ht.default_cmp_function(ce, pme) in exp_res
+                        res2 = lp_ht.default_cmp_function(ce, cme) in exp_res
+                        res3 = lp_ht.default_cmp_function(ce, nme) in exp_res
+                        # test all 3 conditions are true
+                        assert all([res1, res2, res3])
+
+    def test_custom_cmp_function(self):
+        """*test_default_cmp_function()* prueba la función de comparación por defecto para las entradas (pareka llave-valor) del ADT Map (HashTable). pueden ser de tipo nativo o definido por el usuario.
+        """
+        # getting the global parameters data
+        # key type list
+        data_ktype_lt = self.global_params.get("CHECK_KEY_TYPE_LT")
+        # value type list
+        data_vtype_lt = self.global_params.get("CHECK_VALUE_TYPE_LT")
+        # test data keys
+        param_lt = self.global_params.keys()
+        # iterate over global param data to create a new LinearProbing
+        for key, ktype, vtype in zip(param_lt, data_ktype_lt, data_vtype_lt):
+            # ignore some keys from the global params
+            if key not in IGNORE_KEYS_LT:
+                # get input test data for current hash table
+                test_data = self.global_params.get(key)
+                tkey = "id"
+                custom_id = "id"
+                # fix custom dict id key to keep test consistency
+                if key == "TEST_CUSTOM_DICT_LT":
+                    tkey = "uuid"
+                    custom_id = "uuid"
+                # create a new LinearProbing with the test data
+                lp_ht = LinearProbing(iodata=test_data,
+                                      cmp_function=cmp_ht_test_function,
+                                      key=tkey,)
+                # Test LinearProbing is not None
+                assert lp_ht is not None
+                # Test LinearProbing data type
+                assert isinstance(lp_ht, LinearProbing)
+                # testing LinearProbing key is "uuid"
+                assert lp_ht.key == custom_id
+                # testing LinearProbing cmp_function is the custome one
+                assert lp_ht.cmp_function == cmp_ht_test_function
+                # Test LinearProbing value type is consistent
+                assert lp_ht._value_type == vtype
+                # Test LinearProbing key type is consistent
+                assert lp_ht._key_type == ktype
 
     def test_is_empty(self):
         """*test_is_empty()* prueba la función *is_empty()* del ADT *LinearProbing*.
         """
-        pass
+        # create a new empty LinearProbing
+        sc_ht = LinearProbing()
+        # testing LinearProbing is empty
+        assert sc_ht.is_empty() is True
+        # testing LinearProbing elements is empty
+        sc_ht_kdata = self.sll_to_list(sc_ht.keys())
+        sc_ht_vdata = self.sll_to_list(sc_ht.values())
+        assert sc_ht_kdata == [] and sc_ht_vdata == []
+
+        # iterates over global params and create filled LinearProbing
+        for key in self.global_params.keys():
+            # ignore 3 keys from the global params
+            if key not in IGNORE_KEYS_LT:
+                # get the test data
+                test_data = self.global_params.get(key)
+                # configure the key for the test data
+                tkey = "id"
+                # fix custom dict id key to keep test consistency
+                if key == "TEST_CUSTOM_DICT_LT":
+                    tkey = "uuid"
+                # create a new custom LinearProbing with the test data
+                sc_ht = LinearProbing(iodata=test_data,
+                                      cmp_function=cmp_ht_test_function,
+                                      key=tkey,)
+                # testing LinearProbing is not empty
+                assert sc_ht.is_empty() is False
+                # testing LinearProbing keys and values have the same length
+                sc_ht_kdata = self.sll_to_list(sc_ht.keys())
+                sc_ht_vdata = self.sll_to_list(sc_ht.values())
+                # key-value length in hash table is always the same
+                assert len(sc_ht_kdata) == len(sc_ht_vdata)
 
     def test_size(self):
         """*test_size()* prueba la función *size()* del ADT *LinearProbing*.
         """
-        pass
+        # create a new empty LinearProbing
+        lp_ht = LinearProbing()
+        # testing LinearProbing size is 0 with size method
+        assert lp_ht.size() == 0
+        # testing LinearProbing size is 0 with _size attribute
+        assert lp_ht._size == 0
+        # testing LinearProbing elements is empty
+        lp_ht_kdata = self.sll_to_list(lp_ht.keys())
+        lp_ht_vdata = self.sll_to_list(lp_ht.values())
+        assert lp_ht_kdata == [] and lp_ht_vdata == []
+
+        # iterates over global params and create filled LinearProbing
+        for key in self.global_params.keys():
+            # ignore 3 keys from the global params
+            if key not in IGNORE_KEYS_LT:
+                # getting the test data
+                test_data = self.global_params.get(key)
+                # configure the key for the test data
+                tkey = "id"
+                # fix custom dict id key to keep test consistency
+                if key == "TEST_CUSTOM_DICT_LT":
+                    tkey = "uuid"
+                # create a new custom LinearProbing with the test data
+                lp_ht = LinearProbing(iodata=test_data,
+                                      cmp_function=cmp_ht_test_function,
+                                      key=tkey,)
+                # testing LinearProbing keys and values have the same length
+                lp_ht_kdata = self.sll_to_list(lp_ht.keys())
+                lp_ht_vdata = self.sll_to_list(lp_ht.values())
+                # key-value length in hash table is always the same
+                print(lp_ht_kdata, "\n", lp_ht_vdata)
+                assert len(lp_ht_kdata) == len(lp_ht_vdata)
+                # testing LinearProbing size() is equal to test_data
+                assert lp_ht.size() == len(lp_ht_kdata) == len(lp_ht_vdata)
+                # testing LinearProbing _size is equal to test_data
+                assert lp_ht._size == len(lp_ht_kdata) == len(lp_ht_vdata)
 
     def test_put(self):
         """*test_put()* prueba la función *put()* del ADT *LinearProbing*.

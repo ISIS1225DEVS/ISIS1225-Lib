@@ -184,6 +184,21 @@ if __name__ == "__main__":
         "l",
     ]
 
+    TEST_BOOL_LT = [
+        True,
+        False,
+        True,
+        False,
+        True,
+        False,
+        True,
+        False,
+        True,
+        False,
+        True,
+        False,
+    ]
+
     test_data = (
         {"testkey": 1, "testvalue": "one"},
         {"testkey": 2, "testvalue": "two"},
@@ -193,14 +208,14 @@ if __name__ == "__main__":
     )
 
     print("----------- Maps -----------")
-    m = Map(dstruct="SeparateChaining",   # "LinearProbing", "SeparateChaining"
-            iodata=test_data,
-            nentries=2,
-            min_alpha=0,
-            max_alpha=4,
-            rehashable=True,
-            key="testkey",)
-            # cmp_function=cmp_test2)
+    m = Map(dstruct="LinearProbing",   # "LinearProbing", "SeparateChaining"
+            # iodata=test_data,
+            # nentries=5,
+            min_alpha=0.0,
+            max_alpha=0.5,
+            # rehashable=False,
+            # key="testkey",
+            cmp_function=cmp_test2)
     print(m.mcapacity)
     print(m.nentries)
     print(m.size())
@@ -223,8 +238,8 @@ if __name__ == "__main__":
     # # print(type(type(m)))
     # print(m.is_empty())
     # print(m.size())
-    # # print("\nadding data 1")
-    # # m.put(1, 1)
+    # print("\nadding data 1")
+    # m.put(1, 1)
     # print(m.hash_table)
     # # print("\nadding data 2")
     # # m.put(2, 2)
@@ -252,19 +267,20 @@ if __name__ == "__main__":
     # m.put(10, {"testkey": 10, "testvalue": "one"})
     # m.put(11, {"testkey": 11, "testvalue": "one"})
     # # print(isinstance(m, (T)))
-
-    # for a in test_data:
-    #     # print(a)
-    #     k = a.get("testkey")
-    #     # print(k, a)
-    #     m.put(k, a)
-    # #     # m.put(k, v)
+    print(TEST_STR_LT)
+    print("----------- Maps -----------")
+    for a in TEST_STR_LT:
+        print(a, type(a))
+        m.put(a, a)
+        # print("size:", m.size())
+    #     # m.put(k, v)
     # print(m)
-    # print(m.size())
-    # print(m.hash_table.size())
-    # print(m.values())
-    # print(m.keys())
+    print(m.size())
+    # print(m.hash_table)
+    print(m.values().size())
+    print(m.keys().size())
     # print(m.entries())
+    print([i for i in m.keys()])
 
     # for a in test_data:
     #     k = a.get("testkey")
@@ -364,6 +380,6 @@ if __name__ == "__main__":
     print(bb.size())
     print(bb.top())
     a = bb.pop()
-    print(a, bb.top())
+    # print(a, bb.top())
 
     # bb.enqueue("value")

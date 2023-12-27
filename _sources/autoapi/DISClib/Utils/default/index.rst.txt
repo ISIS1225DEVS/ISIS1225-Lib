@@ -24,7 +24,7 @@ Functions
 .. autoapisummary::
 
    DISClib.Utils.default.lt_default_cmp_funcion
-   DISClib.Utils.default.ht_default_cmp_funcion2
+   DISClib.Utils.default.ht_default_cmp_funcion_old
    DISClib.Utils.default.ht_default_cmp_funcion
 
 
@@ -88,7 +88,7 @@ Attributes
    :rtype: int
 
 
-.. py:function:: ht_default_cmp_funcion2(key1: T, entry2) -> int
+.. py:function:: ht_default_cmp_funcion_old(key1: T, entry2) -> int
 
    *ht_default_cmp_funcion()* función de comparación por defecto para los elementos del ADT Map (HashTable). pueden ser de tipo nativo o definido por el usuario.
 

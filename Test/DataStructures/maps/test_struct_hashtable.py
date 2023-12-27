@@ -701,7 +701,6 @@ class TestSeparateChaining(unittest.TestCase):
                         entry = sc_ht.remove(ikey)
                         entry_key = entry.get_key()
                         entry_val = entry.get_value()
-
                         # test if the key-value has the same type as test_data
                         dk_inst = isinstance(ikey, ktype)
                         ek_inst = isinstance(entry_key, ktype)
@@ -1158,13 +1157,13 @@ class TestLinearProbing(unittest.TestCase):
         """*test_is_empty()* prueba la función *is_empty()* del ADT *LinearProbing*.
         """
         # create a new empty LinearProbing
-        sc_ht = LinearProbing()
+        lp_ht = LinearProbing()
         # testing LinearProbing is empty
-        assert sc_ht.is_empty() is True
+        assert lp_ht.is_empty() is True
         # testing LinearProbing elements is empty
-        sc_ht_kdata = self.sll_to_list(sc_ht.keys())
-        sc_ht_vdata = self.sll_to_list(sc_ht.values())
-        assert sc_ht_kdata == [] and sc_ht_vdata == []
+        lp_ht_kdata = self.sll_to_list(lp_ht.keys())
+        lp_ht_vdata = self.sll_to_list(lp_ht.values())
+        assert lp_ht_kdata == [] and lp_ht_vdata == []
 
         # iterates over global params and create filled LinearProbing
         for key in self.global_params.keys():
@@ -1178,16 +1177,16 @@ class TestLinearProbing(unittest.TestCase):
                 if key == "TEST_CUSTOM_DICT_LT":
                     tkey = "uuid"
                 # create a new custom LinearProbing with the test data
-                sc_ht = LinearProbing(iodata=test_data,
+                lp_ht = LinearProbing(iodata=test_data,
                                       cmp_function=cmp_ht_test_function,
                                       key=tkey,)
                 # testing LinearProbing is not empty
-                assert sc_ht.is_empty() is False
+                assert lp_ht.is_empty() is False
                 # testing LinearProbing keys and values have the same length
-                sc_ht_kdata = self.sll_to_list(sc_ht.keys())
-                sc_ht_vdata = self.sll_to_list(sc_ht.values())
+                lp_ht_kdata = self.sll_to_list(lp_ht.keys())
+                lp_ht_vdata = self.sll_to_list(lp_ht.values())
                 # key-value length in hash table is always the same
-                assert len(sc_ht_kdata) == len(sc_ht_vdata)
+                assert len(lp_ht_kdata) == len(lp_ht_vdata)
 
     def test_size(self):
         """*test_size()* prueba la función *size()* del ADT *LinearProbing*.
@@ -1232,54 +1231,551 @@ class TestLinearProbing(unittest.TestCase):
     def test_put(self):
         """*test_put()* prueba la función *put()* del ADT *LinearProbing*.
         """
-        pass
+        # getting the global parameters data
+        # key type list
+        data_ktype_lt = self.global_params.get("CHECK_KEY_TYPE_LT")
+        # value type list
+        data_vtype_lt = self.global_params.get("CHECK_VALUE_TYPE_LT")
+        # key type error test data list
+        type_kerr_lt = self.global_params.get("CHECK_KEY_ERR_LT")
+        # value type error test data list
+        type_verr_lt = self.global_params.get("CHECK_VALUE_ERR_LT")
+        # test data keys
+        param_lt = self.global_params.keys()
+        # zip global params data
+        zip_lt = zip(param_lt,
+                     data_ktype_lt,
+                     data_vtype_lt,
+                     type_kerr_lt,
+                     type_verr_lt)
+        # iterate over global param data to create a new LinearProbing
+        for key, ktype, vtype, kerr, verr in zip_lt:
+            # ignore some keys from the global params
+            if key not in IGNORE_KEYS_LT:
+                # get input test data for current hash table
+                test_data = self.global_params.get(key)
+
+                # configure the key for the test data
+                tkey = "id"
+                # fix custom dict id key to keep test consistency
+                if key == "TEST_CUSTOM_DICT_LT":
+                    tkey = "uuid"
+                # create a new LinearProbing with the test data
+                with pytest.raises(TypeError) as excinfo:
+                    lp_ht = LinearProbing(iodata=test_data,
+                                          key=tkey,)
+                    # induce the error by adding an entry of other type
+                    lp_ht.put(kerr, verr)
+                # test for the exception type
+                assert excinfo.type == TypeError
+                # assert the type error is raised
+                key_err = "Invalid key type" in str(excinfo.value)
+                val_err = "Invalid value type" in str(excinfo.value)
+                assert key_err or val_err
+                # assert the entry value is the same type as test_data
+                assert isinstance(test_data[0], vtype)
+                # assert the key-value type anre not the same as the errors
+                assert ktype != kerr or vtype != verr
+
+                # create a new custom LinearProbing with the test data
+                lp_ht = LinearProbing(iodata=test_data,
+                                      cmp_function=cmp_ht_test_function,
+                                      key=tkey,)
+
+                # iterate over the test data
+                for i in range(0, len(test_data) - 1):
+                    # get the new entry (key, value)
+                    ikey = test_data[i]
+                    ivalue = test_data[i]
+                    # if the entry is a dict, get the proper key
+                    if key in ("TEST_CUSTOM_DICT_LT", "TEST_DICT_LT"):
+                        ikey = test_data[i].get(tkey)
+                        ivalue = test_data[i]
+                    # put the new entry in the LinearProbing
+                    lp_ht.put(ikey, ivalue)
+                    # recover the entry from the LinearProbing
+                    t_entry = lp_ht.get(ikey)
+                    # test the entry equals the new entry
+                    t_mentry = MapEntry(ikey, ivalue)
+                    assert t_entry == t_mentry
+                    # test if the LinearProbing size is the same as keys
+                    assert lp_ht.size() == lp_ht.keys().size()
 
     def test_contains(self):
-        """test_contains _summary_
+        """*test_contains()* prueba la función *contains()* del ADT *LinearProbing*.
         """
-        pass
+        # create a new empty LinearProbing
+        lp_ht = LinearProbing()
+        # testing LinearProbing size is 0 with size method
+        assert lp_ht.size() == 0
+        # testing LinearProbing size is 0 with _size attribute
+        assert lp_ht._size == 0
+
+        # test if empty LinearProbing raise the proper error
+        with pytest.raises(Exception) as excinfo:
+            # create a random entry
+            rkey = random.randint(0, 100)
+            lp_ht.contains(rkey)
+        # test for the exception type
+        assert excinfo.type == IndexError
+        # test for the exception message
+        assert "Empty data structure" in str(excinfo.value)
+
+        # getting the global parameters data
+        # test data keys
+        param_lt = self.global_params.keys()
+        # key type list
+        data_ktype_lt = self.global_params.get("CHECK_KEY_TYPE_LT")
+        # zip global params data
+        zip_lt = zip(param_lt,
+                     data_ktype_lt,)
+        # iterate over global param data to create a new LinearProbing
+        for key, ktype in zip_lt:
+            # ignore some keys from the global params
+            if key not in IGNORE_KEYS_LT:
+                # get input test data for current hash table
+                test_data = self.global_params.get(key)
+                tkey = "id"
+                # fix custom dict id key to keep test consistency
+                if key == "TEST_CUSTOM_DICT_LT":
+                    tkey = "uuid"
+                # create a new LinearProbing with the test data
+                lp_ht = LinearProbing(iodata=test_data,
+                                      key=tkey,
+                                      cmp_function=cmp_ht_test_function)
+                # iterate over the test data
+                for i in range(0, len(test_data) - 1):
+                    # get the new entry (key, value)
+                    ikey = test_data[i]
+                    # if the entry is a dict, get the proper key
+                    if key in ("TEST_CUSTOM_DICT_LT", "TEST_DICT_LT"):
+                        ikey = test_data[i].get(tkey)
+                    # put the new entry in the LinearProbing
+                    con = lp_ht.contains(ikey)
+                    # recover the keys from the LinearProbing
+                    lp_ht_keys_lt = self.sll_to_list(lp_ht.keys())
+                    # test if the key is in the LinearProbing
+                    con_key = [s for s in lp_ht_keys_lt if s == ikey][-1]
+                    # test if the key is in the LinearProbing
+                    assert con is True
+                    # test if the key is in the LinearProbing keys
+                    assert ikey == con_key
+                    # # test key type is consistent
+                    key_inst = isinstance(ikey, ktype)
+                    val_inst = isinstance(con_key, ktype)
+                    assert key_inst and val_inst
 
     def test_get(self):
         """*test_get()* prueba la función *get()* del ADT *LinearProbing*.
         """
-        pass
+        # create a new empty LinearProbing
+        lp_ht = LinearProbing()
+        # testing LinearProbing size is 0 with size method
+        assert lp_ht.size() == 0
+        # testing LinearProbing size is 0 with _size attribute
+        assert lp_ht._size == 0
 
-    def test_check_bucket(self):
-        """test_check_bucket _summary_
+        # test if empty LinearProbing raise the proper error
+        with pytest.raises(Exception) as excinfo:
+            # create a random entry
+            rkey = random.randint(0, 100)
+            lp_ht.get(rkey)
+        # test for the exception type
+        assert excinfo.type == IndexError
+        # test for the exception message
+        assert "Empty data structure" in str(excinfo.value)
+
+        # getting the global parameters data
+        # test data keys
+        param_lt = self.global_params.keys()
+        # key type list
+        data_ktype_lt = self.global_params.get("CHECK_KEY_TYPE_LT")
+        # value type list
+        data_vtype_lt = self.global_params.get("CHECK_VALUE_TYPE_LT")
+        # zip global params data
+        zip_lt = zip(param_lt,
+                     data_ktype_lt,
+                     data_vtype_lt)
+        # iterate over global param data to create a new LinearProbing
+        for key, ktype, vtype in zip_lt:
+            # ignore some keys from the global params
+            if key not in IGNORE_KEYS_LT:
+                # get input test data for current hash table
+                test_data = self.global_params.get(key)
+                tkey = "id"
+                # fix custom dict id key to keep test consistency
+                if key == "TEST_CUSTOM_DICT_LT":
+                    tkey = "uuid"
+                # create a new LinearProbing with the test data
+                lp_ht = LinearProbing(iodata=test_data,
+                                      key=tkey,
+                                      cmp_function=cmp_ht_test_function)
+                # iterate over the test data
+
+                for i in range(0, len(test_data) - 1):
+                    # get the new entry (key, value)
+                    ikey = test_data[i]
+                    ival = test_data[i]
+                    # if the entry is a dict, get the proper key
+                    if key in ("TEST_CUSTOM_DICT_LT", "TEST_DICT_LT"):
+                        ikey = test_data[i].get(tkey)
+                        ival = test_data[i]
+                    # get the entry in the LinearProbing
+                    entry = lp_ht.get(ikey)
+                    entry_key = entry.get_key()
+                    entry_val = entry.get_value()
+                    # test if the key and value is the same as the entry
+                    assert ikey == entry_key and ival == entry_val
+                    # test if the key and value has the same type as test_data
+                    dk_inst = isinstance(ikey, ktype)
+                    ek_inst = isinstance(entry_key, ktype)
+                    assert dk_inst and ek_inst
+                    dv_inst = isinstance(ival, vtype)
+                    ev_inst = isinstance(entry_val, vtype)
+                    assert dv_inst and ev_inst
+
+    def test_check_slots(self):
+        """*test_check_slots()* prueba la función *check_slots()* del ADT *LinearProbing*.
         """
-        pass
+        # create a new empty LinearProbing
+        lp_ht = LinearProbing()
+        # testing LinearProbing size is 0 with size method
+        assert lp_ht.size() == 0
+        # testing LinearProbing size is 0 with _size attribute
+        assert lp_ht._size == 0
+
+        # test if empty LinearProbing raise the proper error
+        with pytest.raises(Exception) as excinfo:
+            # create a random entry
+            rkey = random.randint(0, 100)
+            lp_ht.remove(rkey)
+        # test for the exception type
+        assert excinfo.type == IndexError
+        # test for the exception message
+        assert "Empty data structure" in str(excinfo.value)
+        # TODO complete test_check_slots
 
     def test_remove(self):
-        """test_remove _summary_
+        """*test_remove()* prueba la función *remove()* del ADT *LinearProbing*.
         """
-        pass
+        # create a new empty LinearProbing
+        lp_ht = LinearProbing()
+        # testing LinearProbing size is 0 with size method
+        assert lp_ht.size() == 0
+        # testing LinearProbing size is 0 with _size attribute
+        assert lp_ht._size == 0
+
+        # test if empty LinearProbing raise the proper error
+        with pytest.raises(Exception) as excinfo:
+            # create a random entry
+            rkey = random.randint(0, 100)
+            lp_ht.remove(rkey)
+        # test for the exception type
+        assert excinfo.type == IndexError
+        # test for the exception message
+        assert "Empty data structure" in str(excinfo.value)
+
+        # getting the global parameters data
+        # test data keys
+        param_lt = self.global_params.keys()
+        # key type list
+        data_ktype_lt = self.global_params.get("CHECK_KEY_TYPE_LT")
+        # value type list
+        data_vtype_lt = self.global_params.get("CHECK_VALUE_TYPE_LT")
+        # zip global params data
+        zip_lt = zip(param_lt,
+                     data_ktype_lt,
+                     data_vtype_lt)
+        # iterate over global param data to create a new LinearProbing
+        for key, ktype, vtype in zip_lt:
+            # ignore some keys from the global params
+            if key not in IGNORE_KEYS_LT:
+                # get input test data for current hash table
+                test_data = self.global_params.get(key)
+                tkey = "id"
+                # fix custom dict id key to keep test consistency
+                if key == "TEST_CUSTOM_DICT_LT":
+                    tkey = "uuid"
+                # create a new LinearProbing with the test data
+                lp_ht = LinearProbing(iodata=test_data,
+                                      key=tkey,
+                                      cmp_function=cmp_ht_test_function)
+                # iterate over the test data
+                for i in range(0, len(test_data) - 1):
+                    # get the new entry (key, value)
+                    ikey = test_data[i]
+                    ival = test_data[i]
+                    # if the entry is a dict, get the proper key
+                    if key in ("TEST_CUSTOM_DICT_LT", "TEST_DICT_LT"):
+                        ikey = test_data[i].get(tkey)
+                        ival = test_data[i]
+                    # getting OG hash table size
+                    ht_size = lp_ht.size()
+                    # if map not empty remove the entry in the LinearProbing
+                    if lp_ht.is_empty() is False:
+                        entry = lp_ht.remove(ikey)
+                        entry_key = entry.get_key()
+                        entry_val = entry.get_value()
+                        print(entry_key, entry_val)
+                        # test if the key-value has the same type as test_data
+                        dk_inst = isinstance(ikey, ktype)
+                        ek_inst = isinstance(entry_key, ktype)
+                        assert dk_inst and ek_inst
+                        dv_inst = isinstance(ival, vtype)
+                        ev_inst = isinstance(entry_val, vtype)
+                        assert dv_inst and ev_inst
+
+                        # check if tha hash table size is reduced by 1
+                        assert ht_size - 1 == lp_ht.size()
+                        # update hash table size
+                        ht_size -= 1
+                        # check the removed entry is not in the hash table
+                        if not lp_ht.is_empty():
+                            assert lp_ht.contains(entry_key) is False
 
     def test_keys(self):
-        """test_keys _summary_
+        """*test_keys()* prueba la función *keys()* del ADT *LinearProbing*.
         """
-        pass
+        # create a new empty LinearProbing
+        lp_ht = LinearProbing()
+        # testing LinearProbing is empty
+        assert lp_ht.is_empty() is True
+        # testing LinearProbing keys() is empty
+        lp_ht_kdata = self.sll_to_list(lp_ht.keys())
+        assert lp_ht_kdata == [] and lp_ht.size() == 0
+
+        # iterates over global params and create filled LinearProbing
+        for key in self.global_params.keys():
+            # ignore 3 keys from the global params
+            if key not in IGNORE_KEYS_LT:
+                # get the test data
+                test_data = self.global_params.get(key)
+                # configure the key for the test data
+                tkey = "id"
+                # fix custom dict id key to keep test consistency
+                if key == "TEST_CUSTOM_DICT_LT":
+                    tkey = "uuid"
+                # create a new custom LinearProbing with test data
+                lp_ht = LinearProbing(iodata=test_data,
+                                      cmp_function=cmp_ht_test_function,
+                                      key=tkey,)
+
+                sc_keys = self.sll_to_list(lp_ht.keys())
+                # test that the keys() method is consistent
+                # iterate over the test data
+                for i in range(0, len(test_data) - 1):
+                    # get the test key
+                    ikey = test_data[i]
+                    # if the entry is a dict, get the proper key
+                    if key in ("TEST_CUSTOM_DICT_LT", "TEST_DICT_LT"):
+                        ikey = test_data[i].get(tkey)
+                    # test each test key is in the recovered keys
+                    assert ikey in sc_keys
+                # test the length of the keys is the same as the hash table
+                assert len(sc_keys) == lp_ht.size()
 
     def test_values(self):
-        """test_values _summary_
+        """*test_values()* prueba la función *values()* del ADT *LinearProbing*.
         """
-        pass
+        # create a new empty LinearProbing
+        lp_ht = LinearProbing()
+        # testing LinearProbing is empty
+        assert lp_ht.is_empty() is True
+        # testing LinearProbing keys() is empty
+        lp_ht_vdata = self.sll_to_list(lp_ht.values())
+        assert lp_ht_vdata == [] and lp_ht.size() == 0
+
+        # iterates over global params and create filled LinearProbing
+        for key in self.global_params.keys():
+            # ignore 3 keys from the global params
+            if key not in IGNORE_KEYS_LT:
+                # get the test data
+                test_data = self.global_params.get(key)
+                # configure the key for the test data
+                tkey = "id"
+                # fix custom dict id key to keep test consistency
+                if key == "TEST_CUSTOM_DICT_LT":
+                    tkey = "uuid"
+                # create a new custom LinearProbing with test data
+                lp_ht = LinearProbing(iodata=test_data,
+                                      cmp_function=cmp_ht_test_function,
+                                      key=tkey,)
+                sc_values = self.sll_to_list(lp_ht.values())
+                # test that the values() method is consistent
+                # iterate over the test data
+                for i in range(0, len(test_data) - 1):
+                    # get the test key
+                    ival = test_data[i]
+                    # if the entry is a dict, get the proper key
+                    if key in ("TEST_CUSTOM_DICT_LT", "TEST_DICT_LT"):
+                        # get the proper id key
+                        ikey = test_data[i].get(tkey)
+                        # find the exact entry values when dict is used
+                        ival = [
+                            sc_val for sc_val in sc_values if sc_val[tkey] == ikey][0]
+                        # test each dict is exactly the same
+                        assert ival == test_data[i]
+                    # otherwise, test the value is in the recovered values
+                    else:
+                        assert ival in sc_values
+                # test the length of the values is the same as the hash table
+                assert len(sc_values) == lp_ht.size()
 
     def test_entries(self):
-        """test_entries _summary_
+        """*test_entries()* prueba la función *entries()* del ADT *LinearProbing*.
         """
-        pass
+        # create a new empty LinearProbing
+        lp_ht = LinearProbing()
+        # testing LinearProbing size is 0 with size method
+        assert lp_ht.size() == 0
+        # testing LinearProbing size is 0 with _size attribute
+        assert lp_ht._size == 0
+        # testing LinearProbing elements is empty
+        lp_ht_edata = self.sll_to_list(lp_ht.entries())
+        assert lp_ht_edata == []
+
+        # getting the global parameters data
+        # test data keys
+        param_lt = self.global_params.keys()
+
+        # iterate over global param data to create a new LinearProbing
+        for key in param_lt:
+            # ignore some keys from the global params
+            if key not in IGNORE_KEYS_LT:
+                # get input test data for current hash table
+                test_data = self.global_params.get(key)
+                tkey = "id"
+                # fix custom dict id key to keep test consistency
+                if key == "TEST_CUSTOM_DICT_LT":
+                    tkey = "uuid"
+                # create a new LinearProbing with the test data
+                lp_ht = LinearProbing(iodata=test_data,
+                                      key=tkey,
+                                      cmp_function=cmp_ht_test_function)
+                lp_ht_edata = self.sll_to_list(lp_ht.entries())
+                lp_ht_kdata = [k[0] for k in lp_ht_edata]
+                lp_ht_vdata = [v[1] for v in lp_ht_edata]
+
+                # iterate over the test data
+                for i in range(0, len(test_data) - 1):
+                    ikey = test_data[i]
+                    ival = test_data[i]
+                    # if the entry is a dict, get the proper key
+                    if key in ("TEST_CUSTOM_DICT_LT", "TEST_DICT_LT"):
+                        # get the proper id key
+                        ikey = test_data[i].get(tkey)
+                        # find the exact entry values when dict is used
+                        ival = [
+                            sc_val for sc_val in lp_ht_vdata if sc_val[tkey] == ikey][0]
+                        assert ival == test_data[i]
+                    # otherwise, test the value is in the recovered values
+                    else:
+                        assert ival in lp_ht_vdata
+                    # test each dict is exactly the same
+                    assert ikey in lp_ht_kdata
+                # test the length of the values is the same as the hash table
+                assert len(lp_ht_edata) == lp_ht.size()
 
     def test_rehash(self):
         """*test_rehash()* prueba la función *rehash()* del ADT *LinearProbing*.
         """
-        pass
+        # getting the global parameters data
+        # test data keys
+        param_lt = self.global_params.keys()
 
-    def test_is_available(self):
-        """*test_is_available()* prueba la función *is_available()* del ADT *LinearProbing*.
-        """
-        pass
+        # iterate over global param data to create a new SeparateChaining
+        for key in param_lt:
+            # ignore some keys from the global params
+            if key not in IGNORE_KEYS_LT:
+                # get input test data for current hash table
+                test_data = self.global_params.get(key)
+                tkey = "id"
+                # fix custom dict id key to keep test consistency
+                if key == "TEST_CUSTOM_DICT_LT":
+                    tkey = "uuid"
+                # create a new SeparateChaining with the test data
+                lp_ht = SeparateChaining(iodata=test_data,
+                                         key=tkey,
+                                         cmp_function=cmp_ht_test_function,
+                                         min_alpha=3.0,
+                                         max_alpha=4.0,
+                                         rehashable=False)
+                # test the hash table is not rehashable
+                assert lp_ht.rehashable is False
+
+                # setting to increase hash table with rehash()
+                # get current hash table properties
+                cur_size = lp_ht.size()
+                cur_mcapacity = lp_ht.mcapacity
+                cur_nentries = lp_ht.nentries
+                cur_collisions = lp_ht._collisions
+                cur_alpha = lp_ht._cur_alpha
+
+                # rehash the table
+                lp_ht.rehashable = True
+                lp_ht.rehash()
+
+                # get the new hash table properties
+                new_size = lp_ht.size()
+                new_mcapacity = lp_ht.mcapacity
+                new_nentries = lp_ht.nentries
+                new_collisions = lp_ht._collisions
+                new_alpha = lp_ht._cur_alpha
+
+                # compare the new and old hash table properties
+                assert new_size == cur_size
+                assert new_mcapacity >= cur_mcapacity
+                assert new_nentries == cur_nentries
+                assert new_collisions <= cur_collisions
+                assert new_alpha <= cur_alpha
+
+                # setting for decrease hash table with rehash()
+                # freezing the hash table
+                lp_ht.rehashable = False
+                # test the hash table is not rehashable
+                assert lp_ht.rehashable is False
+
+                # 50% of the entries will be deleted
+                n_remove = int(lp_ht.size() * 0.5)
+                # select random entries to delete
+                rmv_entry_lt = random.sample(test_data, n_remove)
+                # iterating and entries to delete
+                for rmv_entry in rmv_entry_lt:
+                    # selecting key
+                    ikey = rmv_entry
+                    # if the entry is a dict, get the proper key
+                    if key in ("TEST_CUSTOM_DICT_LT", "TEST_DICT_LT"):
+                        # get the proper id key
+                        ikey = rmv_entry.get(tkey)
+                    lp_ht.remove(ikey)
+
+                # get current hash table properties
+                cur_size = lp_ht.size()
+                cur_mcapacity = lp_ht.mcapacity
+                cur_nentries = lp_ht.nentries
+                cur_collisions = lp_ht._collisions
+                cur_alpha = lp_ht._cur_alpha
+
+                # rehash the table
+                lp_ht.rehashable = True
+                lp_ht.rehash()
+
+                # get the new hash table properties
+                new_size = lp_ht.size()
+                new_mcapacity = lp_ht.mcapacity
+                new_nentries = lp_ht.nentries
+                new_collisions = lp_ht._collisions
+                new_alpha = lp_ht._cur_alpha
+
+                # compare the new and old hash table properties
+                assert new_size == cur_size
+                assert new_mcapacity <= cur_mcapacity
+                assert new_nentries == cur_nentries
+                assert new_collisions <= cur_collisions
+                assert new_alpha >= cur_alpha
 
     def test_find_slot(self):
         """test_find_slot _summary_
         """
+        # TODO implementar test_is_available
         pass

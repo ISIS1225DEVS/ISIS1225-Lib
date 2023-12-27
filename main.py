@@ -209,10 +209,10 @@ if __name__ == "__main__":
 
     print("----------- Maps -----------")
     m = Map(dstruct="LinearProbing",   # "LinearProbing", "SeparateChaining"
-            # iodata=test_data,
+            iodata=TEST_STR_LT,
             # nentries=5,
-            min_alpha=0.0,
-            max_alpha=0.5,
+            # min_alpha=0.0,
+            # max_alpha=0.5,
             # rehashable=False,
             # key="testkey",
             cmp_function=cmp_test2)
@@ -271,7 +271,7 @@ if __name__ == "__main__":
     print("----------- Maps -----------")
     for a in TEST_STR_LT:
         print(a, type(a))
-        m.put(a, a)
+        m.remove(a)
         # print("size:", m.size())
     #     # m.put(k, v)
     # print(m)

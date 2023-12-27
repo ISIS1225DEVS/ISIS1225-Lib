@@ -71,6 +71,7 @@ Factor de carga (alpha) mínimo para el LinearProbing, por defecto es 2.0.
 """
 
 # :data: EMPTY
+# TODO check if this is the best way to handle empty entries
 EMPTY = "__EMPTY__"
 """
 Constante que representa una entrada vacío en el LinearProbing, por defecto es "__EMPTY__".
@@ -142,7 +143,7 @@ class LinearProbing(Generic[T]):
 
     # the key is used to compare entries, not defined by default
     # :attr: key
-    key: Optional[str] = None
+    key: Optional[str] = DEFAULT_DICT_KEY
     """
     Nombre de la llave opcional que se utiliza para comparar los elementos del SeparateChaining, Por defecto la llave es la cadena de caracteres *"id"* definida en *DEFAULT_DICT_KEY*.
     """
@@ -229,7 +230,7 @@ class LinearProbing(Generic[T]):
             self._shift = random.randint(0, self.prime - 1)
             # setting the default compare function
             if self.cmp_function is None:
-                self.cmp_function = ht_default_cmp_funcion
+                self.cmp_function = self.default_cmp_function
 
             # initializing the hash table
             self.hash_table = ArrayList(cmp_function=self.cmp_function,
@@ -248,11 +249,22 @@ class LinearProbing(Generic[T]):
 
             # TODO check if this is the best way to initialize the structure
             if isinstance(self.iodata, VALID_IO_TYPE):
-                for entry in self.iodata:
-                    key = entry.get(self.key)
-                    self.put(key, entry)
+                # get the type of the data in the list
+                # if is a dict, use the key type
+                if isinstance(self.iodata[0], dict):
+                    for entry in self.iodata:
+                        key = entry.get(self.key)
+                        self.put(key, entry)
+                # otherwise, manage as data list
+                else:
+                    for data in self.iodata:
+                        self.put(data, data)
+            # clean input data
             self.iodata = None
-            self.nentries = self._size
+            # TODO rethink this part
+            # # fix discrepancies between the size and the number of entries (n)
+            # if self._size != self.nentries:
+            #     self.nentries = self._size
         except Exception as err:
             self._handle_error(err)
 
@@ -267,7 +279,8 @@ class LinearProbing(Generic[T]):
         """
         try:
             # passing self as the first argument to simulate a method
-            return ht_default_cmp_funcion(key1, entry2)
+            # return ht_default_cmp_funcion(key1, entry2)
+            return ht_default_cmp_funcion(self.key, key1, entry2)
         except Exception as err:
             self._handle_error(err)
 
@@ -284,7 +297,7 @@ class LinearProbing(Generic[T]):
         cur_function = inspect.currentframe().f_code.co_name
         error_handler(cur_context, cur_function, err)
 
-    def _check_type(self, entry: T) -> bool:
+    def _check_type(self, entry: MapEntry) -> bool:
         """*_check_type()* función privada que verifica que el tipo de dato de la entrada que se quiere agregar al LinearProbing sea del mismo tipo contenido dentro de los elementos del LinearProbing.
 
         Raises:
@@ -362,7 +375,7 @@ class LinearProbing(Generic[T]):
             idx = self._find_slot(hkey, key)
             # if the index of the entry is inside the hash table
             entry = self.hash_table.get_element(idx)
-            if entry.get_key() == key:
+            if idx >= 0 and entry.get_key() == key:
                 found = True
             return found
         except Exception as err:
@@ -381,6 +394,7 @@ class LinearProbing(Generic[T]):
         try:
             # create a new entry for the entry
             new_entry = MapEntry(key, value)
+            # cheking the type of the entry
             if self._check_type(new_entry):
                 # get the hash key for the entry
                 hkey = hash_compress(key,
@@ -395,17 +409,35 @@ class LinearProbing(Generic[T]):
                     raise Exception(err_msg)
                 # check the entry slot availability in the hash table
                 idx = self._find_slot(hkey, key)
+                print("-------------`put`-------------")
+                print("capacity:", self.mcapacity)
+                print("key:", key, "size:", self._size, "idx:", idx)
                 # if the idx is inside the hash table, update hash table stats
-                if idx > -1:
+                if idx >= 0 and idx < self.mcapacity:
+                    # check slot availability for hash table stats
+                    entry = self.hash_table.get_element(idx)
+                    if self._is_available(entry):
+                        self._size += 1
+                    # update the entry index in the hash table
+                    self.hash_table.change_info(new_entry, idx)
+                    # self._size += 1
+                    # self._cur_alpha = self._size / self.mcapacity
+                    # update the hash table collisions stats
+                    if hkey != idx:
+                        self._collisions += 1
+                # there is no space, add and entry at the end of the hash table
+                # else:
+                elif idx >= self.mcapacity - 1:
+                    print("extending hash table!!!!!!!!!!!!!!")
                     self._size += 1
-                    self._cur_alpha = self._size / self.mcapacity
-                # update the hash table collisions stats
-                if hkey != idx:
-                    self._collisions += 1
-                # update the entry in the hash table
-                self.hash_table.change_info(new_entry, idx)
+                    self.mcapacity += 1
+                    self.hash_table.add_last(new_entry)
+
+                self._cur_alpha = self._size / self.mcapacity
+
                 # check if the structure needs to be rehashed
                 if self._cur_alpha >= self.max_alpha:
+                    print("rehashing!!!!!!!!!")
                     self.rehash()
         except Exception as err:
             self._handle_error(err)
@@ -437,7 +469,7 @@ class LinearProbing(Generic[T]):
                 # checking the entry index in the hash table
                 idx = self._find_slot(hkey, key)
                 # if the entry is in the hashmap, return it
-                if idx > -1:
+                if idx >= 0:
                     entry = self.hash_table.get_element(idx)
                 return entry
         except Exception as err:
@@ -578,9 +610,8 @@ class LinearProbing(Generic[T]):
             key (T): llave de la entrada (pareja llave-valor) que se quiere buscar.
 
         Returns:
-            int: indice de la entrada (pareja llave-valor) en el LinearProbing, si la entrada no existe, devuelve el indice de la primera entrada disponible. -1 si no existe la entrada y no hay entradas disponibles.
+            int: devuelve el indice negativo si encuentra espacio disponible (None | EMPTY) o si la entrada no existe, devuelve el indice positivo si la entrada existe.
         """
-        # TODO add docstring
         try:
             # define the max number of probes to avoid infinite loops
             max_probes = self.mcapacity
@@ -627,12 +658,15 @@ class LinearProbing(Generic[T]):
                     i = 0
                 pc += 1
 
-            # if i found the entry, return the existing entry index
+            # if the entry is found, return the existing entry index
             if found:
                 return j
-            # otherwise, return the available index for the new entry
-            else:
+            # if available space found, return the index*-1 for the new entry
+            elif available:
                 return idx
+            # otherwise, return the max number of probes plus one
+            else:
+                return max_probes + 1
         except Exception as err:
             self._handle_error(err)
 
@@ -663,6 +697,8 @@ class LinearProbing(Generic[T]):
         try:
             # check if the structure is rehashable
             if self.rehashable:
+                # gettting the current capacity to avoid null errors
+                new_capacity = self.mcapacity
                 # find the new capacity according to limits
                 # augmenting the capacity
                 if self._cur_alpha >= self.max_alpha:
@@ -699,8 +735,9 @@ class LinearProbing(Generic[T]):
 
                 # iterate over the old table
                 for entry in old_table:
-                    key = entry.get_key()
-                    value = entry.get_value()
-                    self.put(key, value)
+                    if entry.get_key() is not None:
+                        key = entry.get_key()
+                        value = entry.get_value()
+                        self.put(key, value)
         except Exception as err:
             self._handle_error(err)

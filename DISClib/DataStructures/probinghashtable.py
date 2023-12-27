@@ -311,19 +311,22 @@ class LinearProbing(Generic[T]):
         """
         # TODO check usability of this function
         # if datastruct is empty, set the entry type
+        key = entry.get_key()
+        value = entry.get_value()
         if self.is_empty():
-            self._key_type = type(entry.get_key())
-            self._value_type = type(entry.get_value())
+            self._key_type = type(key)
+            self._value_type = type(value)
             # self._data_type = type(entry)
         # check if the new entry is the same type as the other entries
-        elif self._key_type is not type(entry.get_key()):
-            err_msg = f"Invalid key type: {type(entry.get_key())} "
-            err_msg += f"for structure configured with type: {self._key_type}"
-            raise TypeError(err_msg)
-        elif self._value_type is not type(entry.get_value()):
-            err_msg = f"Invalid value type: {type(entry.get_value())} "
-            err_msg += f"for structure configured with type: {self._value_type}"
-            raise TypeError(err_msg)
+        if key != EMPTY and value != EMPTY:
+            if not isinstance(key, self._key_type):
+                err_msg = f"Invalid key type: {type(key)} "
+                err_msg += f"for structure configured with: {self._key_type}"
+                raise TypeError(err_msg)
+            elif not isinstance(value, self._value_type):
+                err_msg = f"Invalid value type: {type(value)} "
+                err_msg += f"for structure configured with: {self._value_type}"
+                raise TypeError(err_msg)
         # otherwise, the type is valid
         return True
 
@@ -363,21 +366,24 @@ class LinearProbing(Generic[T]):
             bool: operador que indica si el LinearProbing contiene o no una entrada con la llave key.
         """
         try:
-            # assume the entry is not in the structure
-            found = False
-            # use the MAD compression function to get the hash key
-            hkey = hash_compress(key,
-                                 self._scale,
-                                 self._shift,
-                                 self.prime,
-                                 self.mcapacity)
-            # look for the entry in the hash table
-            idx = self._find_slot(hkey, key)
-            # if the index of the entry is inside the hash table
-            entry = self.hash_table.get_element(idx)
-            if idx >= 0 and entry.get_key() == key:
-                found = True
-            return found
+            if self.is_empty():
+                raise IndexError("Empty data structure")
+            else:
+                # assume the entry is not in the structure
+                found = False
+                # use the MAD compression function to get the hash key
+                hkey = hash_compress(key,
+                                     self._scale,
+                                     self._shift,
+                                     self.prime,
+                                     self.mcapacity)
+                # look for the entry in the hash table
+                idx = self._find_slot(hkey, key)
+                # if the index of the entry is inside the hash table
+                entry = self.hash_table.get_element(idx)
+                if idx >= 0 and entry.get_key() == key:
+                    found = True
+                return found
         except Exception as err:
             self._handle_error(err)
 
@@ -452,7 +458,7 @@ class LinearProbing(Generic[T]):
         """
         try:
             if self.is_empty():
-                raise Exception("The structure is empty")
+                raise IndexError("Empty data structure")
             else:
                 # assume the entry is not in the structure
                 entry = None
@@ -471,35 +477,45 @@ class LinearProbing(Generic[T]):
         except Exception as err:
             self._handle_error(err)
 
-    def check_bucket(self, key: T) -> Optional[T]:
-        """*check_bucket()* devuelve el bucket asociado a la llave key dentro del LinearProbing, si no existe una entrada con la llave key, devuelve None.
+    def check_slots(self, key: T) -> Optional[SingleLinked[T]]:
+        """*check_slots()* devuelve una lista (SingleLinked) con todas las entradas (parejas llave-valor) asociadas a la llave dentro del *LinearProbing*. Si no existe una entrada asociada, devuelve None.
 
         Args:
-            key (T): llave asociada al bucket que se quiere buscar.
+            key (T): llave asociada al Slot que se quiere buscar.
 
         Raises:
             Exception: error si la estructura está vacía.
 
         Returns:
-            Optional[T]: bucket asociado a la llave key dentro del LinearProbing, None si no existe la entrada asociada a la llave key.
+            Optional[SingleLinked[T]]: lista sencillamente encadenada (SingleLinked) con todas las entradas (parejas llave-valor) asociadas a la llave key dentro del *LinearProbing*.
         """
         try:
             if self.is_empty():
-                raise Exception("The structure is empty")
+                raise IndexError("Empty data structure")
             else:
                 # assume the entry is not in the structure
-                bucket = None
+                slots = SingleLinked(key=self.key,
+                                     cmp_function=self.cmp_function)
                 # get the hash key for the entry
                 hkey = hash_compress(key,
                                      self._scale,
                                      self._shift,
                                      self.prime,
                                      self.mcapacity)
+                entry = self.hash_table.get_element(hkey)
+                # adding the entry to the list if it's not empty
+                if entry.get_key() is not None:
+                    slots.add_last(entry)
                 # checking the entry index in the hash table
                 idx = self._find_slot(hkey, key)
-                # get the bucket according to the index
-                bucket = self.hash_table.get_element(idx)
-            return bucket
+                # if the entry is in the hashmap, return it
+                if idx >= 0:
+                    # get the bucket according to the index
+                    entry = self.hash_table.get_element(idx)
+                    # adding the entry to the list if it's not empty
+                    if entry.get_key() is not None:
+                        slots.add_last(entry)
+            return slots
         except Exception as err:
             self._handle_error(err)
 
@@ -518,7 +534,7 @@ class LinearProbing(Generic[T]):
         """
         try:
             if self.is_empty():
-                raise Exception("The structure is empty")
+                raise IndexError("Empty data structure")
             else:
                 entry = None
                 # get the hash key for the entry
@@ -527,22 +543,27 @@ class LinearProbing(Generic[T]):
                                      self._shift,
                                      self.prime,
                                      self.mcapacity)
+                # TODO do i need this?
+                if hkey < 0 or hkey > self.mcapacity - 1:
+                    err_msg = f"The hash for the key: {key} "
+                    err_msg += f"is out of range fo capacity: {self.mcapacity}"
+                    raise IndexError(err_msg)
                 # finding the entry index in the hash table
                 idx = self._find_slot(hkey, key)
-                # if the entry is not in the hashmap, raise an error
-                if idx == -1:
-                    raise Exception(f"Entry for Key: {key} not found")
-                # otherwise, remove the entry with the index
-                else:
+                # if the entry is in the hashmap, remove it
+                if idx >= 0 and idx < self.mcapacity:
                     # gettting the entry from the hash table
                     entry = self.hash_table.get_element(idx)
                     # create a clean entry
-                    clean_entry = MapEntry(None, None)
+                    clean_entry = MapEntry(EMPTY, EMPTY)
                     # replace the entry with the clean entry
                     self.hash_table.change_info(clean_entry, idx)
                     # update the hash table stats
                     self._size -= 1
                     self._cur_alpha = self._size / self.mcapacity
+                # TODO maybe i don't need this
+                else:
+                    raise Exception(f"Entry for Key: {key} not found")
             # if the structure needs to be rehashed, rehash it
             if self._cur_alpha < self.min_alpha:
                 self.rehash()
@@ -653,7 +674,6 @@ class LinearProbing(Generic[T]):
                 if i >= self.mcapacity:
                     i = 0
                 pc += 1
-
             # if the entry is found, return the existing entry index
             if found:
                 return j
@@ -731,7 +751,7 @@ class LinearProbing(Generic[T]):
 
                 # iterate over the old table
                 for entry in old_table:
-                    if entry.get_key() is not None:
+                    if entry.get_key() is not None and entry.get_key() != EMPTY:
                         key = entry.get_key()
                         value = entry.get_value()
                         self.put(key, value)

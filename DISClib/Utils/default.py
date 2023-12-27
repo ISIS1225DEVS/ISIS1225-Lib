@@ -131,7 +131,7 @@ def lt_default_cmp_funcion(key: str, elm1, elm2) -> int:
                 return 0
 
 
-def ht_default_cmp_funcion2(key1: T, entry2) -> int:
+def ht_default_cmp_funcion_old(key1: T, entry2) -> int:
     """*ht_default_cmp_funcion()* función de comparación por defecto para los elementos del ADT Map (HashTable). pueden ser de tipo nativo o definido por el usuario.
 
     Args:

@@ -420,7 +420,7 @@ class SeparateChaining(Generic[T]):
                 bucket = self.hash_table.get_element(hkey)
                 idx = bucket.find(key)
                 # the entry is not in the bucket, add it and a collision
-                # the entry is in the bucket, update it
+                # the entry is already in the bucket, update it
                 if idx > -1:
                     bucket.change_info(new_entry, idx)
                 # otherwise, is a new entry

@@ -409,35 +409,31 @@ class LinearProbing(Generic[T]):
                     raise Exception(err_msg)
                 # check the entry slot availability in the hash table
                 idx = self._find_slot(hkey, key)
-                print("-------------`put`-------------")
-                print("capacity:", self.mcapacity)
-                print("key:", key, "size:", self._size, "idx:", idx)
                 # if the idx is inside the hash table, update hash table stats
                 if idx >= 0 and idx < self.mcapacity:
                     # check slot availability for hash table stats
                     entry = self.hash_table.get_element(idx)
+                    # if the slot is available, update the size
                     if self._is_available(entry):
                         self._size += 1
-                    # update the entry index in the hash table
-                    self.hash_table.change_info(new_entry, idx)
-                    # self._size += 1
-                    # self._cur_alpha = self._size / self.mcapacity
-                    # update the hash table collisions stats
+                    # if index and hash key are different, update collisions
                     if hkey != idx:
                         self._collisions += 1
-                # there is no space, add and entry at the end of the hash table
-                # else:
+                    # update the entry index of the hash table regardless
+                    self.hash_table.change_info(new_entry, idx)
+                # if capacity is full, add the entry to the end of the table
+                # useful when rehash is disabled
                 elif idx >= self.mcapacity - 1:
-                    print("extending hash table!!!!!!!!!!!!!!")
                     self._size += 1
                     self.mcapacity += 1
+                    self._collisions += 1
                     self.hash_table.add_last(new_entry)
 
+                # updtate the current load factor
                 self._cur_alpha = self._size / self.mcapacity
 
                 # check if the structure needs to be rehashed
                 if self._cur_alpha >= self.max_alpha:
-                    print("rehashing!!!!!!!!!")
                     self.rehash()
         except Exception as err:
             self._handle_error(err)

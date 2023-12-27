@@ -328,7 +328,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.probinghashtable.LinearProbing._check_type">
-<span class="sig-name descname"><span class="pre">_check_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing._check_type"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.LinearProbing._check_type" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">_check_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../mapentry/index.html#DISClib.DataStructures.mapentry.MapEntry" title="DISClib.DataStructures.mapentry.MapEntry"><span class="pre">DISClib.DataStructures.mapentry.MapEntry</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/probinghashtable.html#LinearProbing._check_type"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.probinghashtable.LinearProbing._check_type" title="Link to this definition"></a></dt>
 <dd><p><em>_check_type()</em> función privada que verifica que el tipo de dato de la entrada que se quiere agregar al LinearProbing sea del mismo tipo contenido dentro de los elementos del LinearProbing.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Muestra<span class="colon">:</span></dt>
@@ -525,7 +525,7 @@
 </ul>
 </dd>
 <dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>indice de la entrada (pareja llave-valor) en el LinearProbing, si la entrada no existe, devuelve el indice de la primera entrada disponible. -1 si no existe la entrada y no hay entradas disponibles.</p>
+<dd class="field-even"><p>devuelve el indice negativo si encuentra espacio disponible (None | EMPTY) o si la entrada no existe, devuelve el indice positivo si la entrada existe.</p>
 </dd>
 <dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-odd"><p>int</p>

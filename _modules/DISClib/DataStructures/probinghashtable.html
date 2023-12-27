@@ -161,6 +161,7 @@
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="c1"># :data: EMPTY</span>
+<span class="c1"># TODO check if this is the best way to handle empty entries</span>
 <div class="viewcode-block" id="EMPTY">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.EMPTY">[documentos]</a>
 <span class="n">EMPTY</span> <span class="o">=</span> <span class="s2">&quot;__EMPTY__&quot;</span></div>
@@ -260,7 +261,7 @@
     <span class="c1"># :attr: key</span>
 <div class="viewcode-block" id="LinearProbing.key">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing.key">[documentos]</a>
-    <span class="n">key</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></div>
+    <span class="n">key</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">DEFAULT_DICT_KEY</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Nombre de la llave opcional que se utiliza para comparar los elementos del SeparateChaining, Por defecto la llave es la cadena de caracteres *&quot;id&quot;* definida en *DEFAULT_DICT_KEY*.</span>
@@ -380,7 +381,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_shift</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">prime</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
             <span class="c1"># setting the default compare function</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cmp_function</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">cmp_function</span> <span class="o">=</span> <span class="n">ht_default_cmp_funcion</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">cmp_function</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_cmp_function</span>
 
             <span class="c1"># initializing the hash table</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span> <span class="o">=</span> <span class="n">ArrayList</span><span class="p">(</span><span class="n">cmp_function</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cmp_function</span><span class="p">,</span>
@@ -399,11 +400,22 @@
 
             <span class="c1"># TODO check if this is the best way to initialize the structure</span>
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">iodata</span><span class="p">,</span> <span class="n">VALID_IO_TYPE</span><span class="p">):</span>
-                <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">iodata</span><span class="p">:</span>
-                    <span class="n">key</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">entry</span><span class="p">)</span>
+                <span class="c1"># get the type of the data in the list</span>
+                <span class="c1"># if is a dict, use the key type</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">iodata</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">dict</span><span class="p">):</span>
+                    <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">iodata</span><span class="p">:</span>
+                        <span class="n">key</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">entry</span><span class="p">)</span>
+                <span class="c1"># otherwise, manage as data list</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">iodata</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+            <span class="c1"># clean input data</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">iodata</span> <span class="o">=</span> <span class="kc">None</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">nentries</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span>
+            <span class="c1"># TODO rethink this part</span>
+            <span class="c1"># # fix discrepancies between the size and the number of entries (n)</span>
+            <span class="c1"># if self._size != self.nentries:</span>
+            <span class="c1">#     self.nentries = self._size</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
 
@@ -421,7 +433,8 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="c1"># passing self as the first argument to simulate a method</span>
-            <span class="k">return</span> <span class="n">ht_default_cmp_funcion</span><span class="p">(</span><span class="n">key1</span><span class="p">,</span> <span class="n">entry2</span><span class="p">)</span>
+            <span class="c1"># return ht_default_cmp_funcion(key1, entry2)</span>
+            <span class="k">return</span> <span class="n">ht_default_cmp_funcion</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">,</span> <span class="n">key1</span><span class="p">,</span> <span class="n">entry2</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
 
@@ -444,7 +457,7 @@
 
 <div class="viewcode-block" id="LinearProbing._check_type">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing._check_type">[documentos]</a>
-    <span class="k">def</span> <span class="nf">_check_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entry</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">_check_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entry</span><span class="p">:</span> <span class="n">MapEntry</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*_check_type()* función privada que verifica que el tipo de dato de la entrada que se quiere agregar al LinearProbing sea del mismo tipo contenido dentro de los elementos del LinearProbing.</span>
 
 <span class="sd">        Raises:</span>
@@ -531,7 +544,7 @@
             <span class="n">idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find_slot</span><span class="p">(</span><span class="n">hkey</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
             <span class="c1"># if the index of the entry is inside the hash table</span>
             <span class="n">entry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">entry</span><span class="o">.</span><span class="n">get_key</span><span class="p">()</span> <span class="o">==</span> <span class="n">key</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">idx</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">entry</span><span class="o">.</span><span class="n">get_key</span><span class="p">()</span> <span class="o">==</span> <span class="n">key</span><span class="p">:</span>
                 <span class="n">found</span> <span class="o">=</span> <span class="kc">True</span>
             <span class="k">return</span> <span class="n">found</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
@@ -553,6 +566,7 @@
         <span class="k">try</span><span class="p">:</span>
             <span class="c1"># create a new entry for the entry</span>
             <span class="n">new_entry</span> <span class="o">=</span> <span class="n">MapEntry</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+            <span class="c1"># cheking the type of the entry</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_type</span><span class="p">(</span><span class="n">new_entry</span><span class="p">):</span>
                 <span class="c1"># get the hash key for the entry</span>
                 <span class="n">hkey</span> <span class="o">=</span> <span class="n">hash_compress</span><span class="p">(</span><span class="n">key</span><span class="p">,</span>
@@ -567,17 +581,35 @@
                     <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">err_msg</span><span class="p">)</span>
                 <span class="c1"># check the entry slot availability in the hash table</span>
                 <span class="n">idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find_slot</span><span class="p">(</span><span class="n">hkey</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-------------`put`-------------&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;capacity:&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;key:&quot;</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="s2">&quot;size:&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span><span class="p">,</span> <span class="s2">&quot;idx:&quot;</span><span class="p">,</span> <span class="n">idx</span><span class="p">)</span>
                 <span class="c1"># if the idx is inside the hash table, update hash table stats</span>
-                <span class="k">if</span> <span class="n">idx</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">idx</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">idx</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span><span class="p">:</span>
+                    <span class="c1"># check slot availability for hash table stats</span>
+                    <span class="n">entry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_available</span><span class="p">(</span><span class="n">entry</span><span class="p">):</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">+=</span> <span class="mi">1</span>
+                    <span class="c1"># update the entry index in the hash table</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="o">.</span><span class="n">change_info</span><span class="p">(</span><span class="n">new_entry</span><span class="p">,</span> <span class="n">idx</span><span class="p">)</span>
+                    <span class="c1"># self._size += 1</span>
+                    <span class="c1"># self._cur_alpha = self._size / self.mcapacity</span>
+                    <span class="c1"># update the hash table collisions stats</span>
+                    <span class="k">if</span> <span class="n">hkey</span> <span class="o">!=</span> <span class="n">idx</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_collisions</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="c1"># there is no space, add and entry at the end of the hash table</span>
+                <span class="c1"># else:</span>
+                <span class="k">elif</span> <span class="n">idx</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;extending hash table!!!!!!!!!!!!!!&quot;</span><span class="p">)</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">+=</span> <span class="mi">1</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">_cur_alpha</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span>
-                <span class="c1"># update the hash table collisions stats</span>
-                <span class="k">if</span> <span class="n">hkey</span> <span class="o">!=</span> <span class="n">idx</span><span class="p">:</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">_collisions</span> <span class="o">+=</span> <span class="mi">1</span>
-                <span class="c1"># update the entry in the hash table</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="o">.</span><span class="n">change_info</span><span class="p">(</span><span class="n">new_entry</span><span class="p">,</span> <span class="n">idx</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span> <span class="o">+=</span> <span class="mi">1</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">new_entry</span><span class="p">)</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">_cur_alpha</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span>
+
                 <span class="c1"># check if the structure needs to be rehashed</span>
                 <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cur_alpha</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_alpha</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;rehashing!!!!!!!!!&quot;</span><span class="p">)</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">rehash</span><span class="p">()</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
@@ -612,7 +644,7 @@
                 <span class="c1"># checking the entry index in the hash table</span>
                 <span class="n">idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find_slot</span><span class="p">(</span><span class="n">hkey</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
                 <span class="c1"># if the entry is in the hashmap, return it</span>
-                <span class="k">if</span> <span class="n">idx</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">idx</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
                     <span class="n">entry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
                 <span class="k">return</span> <span class="n">entry</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
@@ -771,9 +803,8 @@
 <span class="sd">            key (T): llave de la entrada (pareja llave-valor) que se quiere buscar.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            int: indice de la entrada (pareja llave-valor) en el LinearProbing, si la entrada no existe, devuelve el indice de la primera entrada disponible. -1 si no existe la entrada y no hay entradas disponibles.</span>
+<span class="sd">            int: devuelve el indice negativo si encuentra espacio disponible (None | EMPTY) o si la entrada no existe, devuelve el indice positivo si la entrada existe.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># TODO add docstring</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="c1"># define the max number of probes to avoid infinite loops</span>
             <span class="n">max_probes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span>
@@ -820,12 +851,15 @@
                     <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
                 <span class="n">pc</span> <span class="o">+=</span> <span class="mi">1</span>
 
-            <span class="c1"># if i found the entry, return the existing entry index</span>
+            <span class="c1"># if the entry is found, return the existing entry index</span>
             <span class="k">if</span> <span class="n">found</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">j</span>
-            <span class="c1"># otherwise, return the available index for the new entry</span>
-            <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># if available space found, return the index*-1 for the new entry</span>
+            <span class="k">elif</span> <span class="n">available</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">idx</span>
+            <span class="c1"># otherwise, return the max number of probes plus one</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">max_probes</span> <span class="o">+</span> <span class="mi">1</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
 
@@ -862,6 +896,8 @@
         <span class="k">try</span><span class="p">:</span>
             <span class="c1"># check if the structure is rehashable</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rehashable</span><span class="p">:</span>
+                <span class="c1"># gettting the current capacity to avoid null errors</span>
+                <span class="n">new_capacity</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span>
                 <span class="c1"># find the new capacity according to limits</span>
                 <span class="c1"># augmenting the capacity</span>
                 <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cur_alpha</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_alpha</span><span class="p">:</span>
@@ -898,9 +934,10 @@
 
                 <span class="c1"># iterate over the old table</span>
                 <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">old_table</span><span class="p">:</span>
-                    <span class="n">key</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get_key</span><span class="p">()</span>
-                    <span class="n">value</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get_value</span><span class="p">()</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">entry</span><span class="o">.</span><span class="n">get_key</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="n">key</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get_key</span><span class="p">()</span>
+                        <span class="n">value</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get_value</span><span class="p">()</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
 </div>

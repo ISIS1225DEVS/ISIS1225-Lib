@@ -408,11 +408,7 @@ class LinearProbing(Generic[T]):
                                      self._shift,
                                      self.prime,
                                      self.mcapacity)
-                # TODO do i need this?
-                if hkey < 0 or hkey >= self.mcapacity:
-                    err_msg = f"The hash for the key: {key} "
-                    err_msg += f"is out of range fo capacity: {self.mcapacity}"
-                    raise Exception(err_msg)
+
                 # check the entry slot availability in the hash table
                 idx = self._find_slot(hkey, key)
                 # if the idx is inside the hash table, update hash table stats
@@ -477,7 +473,7 @@ class LinearProbing(Generic[T]):
         except Exception as err:
             self._handle_error(err)
 
-    def check_slots(self, key: T) -> Optional[SingleLinked[T]]:
+    def check_slots(self, key: T) -> SingleLinked[T]:
         """*check_slots()* devuelve una lista (SingleLinked) con todas las entradas (parejas llave-valor) asociadas a la llave dentro del *LinearProbing*. Si no existe una entrada asociada, devuelve None.
 
         Args:
@@ -504,7 +500,7 @@ class LinearProbing(Generic[T]):
                                      self.mcapacity)
                 entry = self.hash_table.get_element(hkey)
                 # adding the entry to the list if it's not empty
-                if entry.get_key() is not None:
+                if entry.get_key() is not None or entry.set_key() != EMPTY:
                     slots.add_last(entry)
                 # checking the entry index in the hash table
                 idx = self._find_slot(hkey, key)
@@ -513,7 +509,7 @@ class LinearProbing(Generic[T]):
                     # get the bucket according to the index
                     entry = self.hash_table.get_element(idx)
                     # adding the entry to the list if it's not empty
-                    if entry.get_key() is not None:
+                    if entry.get_key() is not None or entry.set_key() != EMPTY:
                         slots.add_last(entry)
             return slots
         except Exception as err:
@@ -543,11 +539,7 @@ class LinearProbing(Generic[T]):
                                      self._shift,
                                      self.prime,
                                      self.mcapacity)
-                # TODO do i need this?
-                if hkey < 0 or hkey > self.mcapacity - 1:
-                    err_msg = f"The hash for the key: {key} "
-                    err_msg += f"is out of range fo capacity: {self.mcapacity}"
-                    raise IndexError(err_msg)
+
                 # finding the entry index in the hash table
                 idx = self._find_slot(hkey, key)
                 # if the entry is in the hashmap, remove it

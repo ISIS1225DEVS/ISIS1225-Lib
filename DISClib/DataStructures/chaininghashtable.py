@@ -411,11 +411,7 @@ class SeparateChaining(Generic[T]):
                                      self._shift,
                                      self.prime,
                                      self.mcapacity)
-                # TODO do i need this?
-                if hkey < 0 or hkey > self.mcapacity - 1:
-                    err_msg = f"The hash for the key: {key} "
-                    err_msg += f"is out of range fo capacity: {self.mcapacity}"
-                    raise IndexError(err_msg)
+
                 # checking the bucket
                 bucket = self.hash_table.get_element(hkey)
                 idx = bucket.find(key)
@@ -460,11 +456,7 @@ class SeparateChaining(Generic[T]):
                                      self._shift,
                                      self.prime,
                                      self.mcapacity)
-                # TODO do i need this?
-                if hkey < 0 or hkey > self.mcapacity - 1:
-                    err_msg = f"The hash for the key: {key} "
-                    err_msg += f"is out of range fo capacity: {self.mcapacity}"
-                    raise IndexError(err_msg)
+
                 # checking the bucket
                 bucket = self.hash_table.get_element(hkey)
                 idx = bucket.find(key)
@@ -499,11 +491,7 @@ class SeparateChaining(Generic[T]):
                                      self._shift,
                                      self.prime,
                                      self.mcapacity)
-                # TODO do i need this?
-                if hkey < 0 or hkey > self.mcapacity - 1:
-                    err_msg = f"The hash for the key: {key} "
-                    err_msg += f"is out of range fo capacity: {self.mcapacity}"
-                    raise IndexError(err_msg)
+
                 # checking the bucket
                 bucket = self.hash_table.get_element(hkey)
                 return bucket
@@ -534,11 +522,7 @@ class SeparateChaining(Generic[T]):
                                      self._shift,
                                      self.prime,
                                      self.mcapacity)
-                # TODO do i need this?
-                if hkey < 0 or hkey > self.mcapacity - 1:
-                    err_msg = f"The hash for the key: {key} "
-                    err_msg += f"is out of range fo capacity: {self.mcapacity}"
-                    raise IndexError(err_msg)
+
                 # checking the bucket
                 bucket = self.hash_table.get_element(hkey)
                 if not bucket.is_empty():

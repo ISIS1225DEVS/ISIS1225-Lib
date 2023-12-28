@@ -73,20 +73,4 @@ Classes
       :rtype: T
 
 
-   .. py:method:: is_empty() -> bool
-
-      *is_empty()* informa si la cola/fila Queue esta vacía o no.
-
-      :returns: operador que indica si la cola/fila Queue esta vacía.
-      :rtype: bool
-
-
-   .. py:method:: size() -> int
-
-      *size()* Función que informa el número de elementos en la fila/cola Queue.
-
-      :returns: número de elementos en el Queue.
-      :rtype: int
-
-
 

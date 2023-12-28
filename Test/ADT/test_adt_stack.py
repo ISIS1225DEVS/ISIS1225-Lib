@@ -30,7 +30,7 @@ Lista de llaves a ignorar en los parámetros globales en las pruebas.
 
 # @pytest.fixture(scope="module")
 def cmp_lt_test_function(elm1: dict, elm2: dict) -> int:
-    """*cmp_lt_test_function()* compara dos elementos en una lista (ArrayList, SingleLinked, Stack). Solo funciona con diccionarios con una llave "uuid".
+    """*cmp_lt_test_function()* compara dos elementos en una lista (DoubleLinked y Stack). Solo funciona con diccionarios con una llave "uuid".
 
     Args:
         elm1 (dict): primer elemento a comparar.

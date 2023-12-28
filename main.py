@@ -210,10 +210,10 @@ if __name__ == "__main__":
     print("----------- Maps -----------")
     m = Map(dstruct="LinearProbing",   # "LinearProbing", "SeparateChaining"
             iodata=TEST_STR_LT,
-            # nentries=5,
+            nentries=5,
             # min_alpha=0.0,
             # max_alpha=0.5,
-            # rehashable=False,
+            rehashable=False,
             # key="testkey",
             cmp_function=cmp_test2)
     print(m.mcapacity)
@@ -271,7 +271,7 @@ if __name__ == "__main__":
     print("----------- Maps -----------")
     for a in TEST_STR_LT:
         print(a, type(a))
-        m.remove(a)
+        m.put(a, a)
         # print("size:", m.size())
     #     # m.put(k, v)
     # print(m)
@@ -295,36 +295,51 @@ if __name__ == "__main__":
     # print(m.entries())
     print(m._value_type, m._key_type)
     print(m)
+    print(m.check_slots("b"))
 
-    TEST_SET_LT = [
-        {1, 2, 3},
-        {4, 5, 6},
-        {7, 8, 9},
-        {10, 11, 12},
-        {13, 14, 15},
-        {16, 17, 18},
-        {19, 20, 21},
-        {22, 23, 24},
-        {25, 26, 27},
-        {28, 29, 30},
-        {31, 32, 33},
-        {34, 35, 36},
-    ]
+    # TEST_SET_LT = [
+    #     {1, 2, 3},
+    #     {4, 5, 6},
+    #     {7, 8, 9},
+    #     {10, 11, 12},
+    #     {13, 14, 15},
+    #     {16, 17, 18},
+    #     {19, 20, 21},
+    #     {22, 23, 24},
+    #     {25, 26, 27},
+    #     {28, 29, 30},
+    #     {31, 32, 33},
+    #     {34, 35, 36},
+    # ]
 
-    t_data = {1, 2, 3}
-    print(t_data, type(t_data))
+    # t_data = {1, 2, 3}
+    # print(t_data, type(t_data))
 
-    test_lt = list(TEST_SET_LT)
-    idx = -1
-    i = 0
-    for elm in TEST_SET_LT:
-        print(elm)
-        if elm == t_data:
-            idx = i
-        i += 1
-    print(idx)
-    print(len(TEST_SET_LT))
-    # print(t_data in test_lt)
+    # test_lt = list(TEST_SET_LT)
+    # idx = -1
+    # i = 0
+    # for elm in TEST_SET_LT:
+    #     print(elm)
+    #     if elm == t_data:
+    #         idx = i
+    #     i += 1
+    # print(idx)
+    # print(len(TEST_SET_LT))
+    # # print(m.check_slots(1))
+    # # print(t_data in test_lt)
+
+    # # # Define a list of sets
+    # # list_of_sets = [
+    # #     {1, 2, 3},
+    # #     {4, 5, 6},
+    # #     {7, 8, 9},
+    # # ]
+
+    # # # Print the list of sets
+    # # for s in list_of_sets:
+    # #     print(s, type(s))
+    # #     if s == t_data:
+    # #         print("found")
 
     # # Define a list of sets
     # list_of_sets = [
@@ -333,53 +348,40 @@ if __name__ == "__main__":
     #     {7, 8, 9},
     # ]
 
-    # # Print the list of sets
-    # for s in list_of_sets:
-    #     print(s, type(s))
-    #     if s == t_data:
-    #         print("found")
+    # # Define the set you're looking for
+    # target_set = {4, 5, 6}
 
-    # Define a list of sets
-    list_of_sets = [
-        {1, 2, 3},
-        {4, 5, 6},
-        {7, 8, 9},
-    ]
+    # # Use list comprehension to find the set
+    # found_sets = [s for s in list_of_sets if s == target_set]
 
-    # Define the set you're looking for
-    target_set = {4, 5, 6}
+    # # Print the found sets
+    # print(found_sets[0], type(found_sets[0]))
 
-    # Use list comprehension to find the set
-    found_sets = [s for s in list_of_sets if s == target_set]
+    # test_list = [
+    #     {'Course': "C++", 'Author': "Jerry"},
+    #     {'Course': "Python", 'Author': "Mark"},
+    #     {'Course': "Java", 'Author': "Paul"}]
 
-    # Print the found sets
-    print(found_sets[0], type(found_sets[0]))
+    # def search(name, test_list):
+    #     return [element for element in test_list if element['Author'] == name]
 
-    test_list = [
-        {'Course': "C++", 'Author': "Jerry"},
-        {'Course': "Python", 'Author': "Mark"},
-        {'Course': "Java", 'Author': "Paul"}]
+    # res = search("Paul", test_list)
+    # print(res)
 
-    def search(name, test_list):
-        return [element for element in test_list if element['Author'] == name]
+    # for i in reversed(test_lt_2):
+    #     print(i)
+    # trans = translate(test_lt_2, "SingleLinked")
+    # bb = Stack(cmp_function=cmp_test)
+    # bbb = Stack(cmp_function=cmp_test)
+    # bbb.push(22)
+    # bbb.push(33)
+    # bb.push(1)
+    # print(bb)
+    # print(type(bb))
+    # print(bb.is_empty())
+    # print(bb.size())
+    # print(bb.top())
+    # a = bb.pop()
+    # # print(a, bb.top())
 
-    res = search("Paul", test_list)
-    print(res)
-
-    for i in reversed(test_lt_2):
-        print(i)
-    trans = translate(test_lt_2, "SingleLinked")
-    bb = Stack(cmp_function=cmp_test)
-    bbb = Stack(cmp_function=cmp_test)
-    bbb.push(22)
-    bbb.push(33)
-    bb.push(1)
-    print(bb)
-    print(type(bb))
-    print(bb.is_empty())
-    print(bb.size())
-    print(bb.top())
-    a = bb.pop()
-    # print(a, bb.top())
-
-    # bb.enqueue("value")
+    # # bb.enqueue("value")

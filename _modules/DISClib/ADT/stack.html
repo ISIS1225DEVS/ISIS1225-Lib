@@ -68,8 +68,6 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">Código de módulo</a></li>
-          <li class="breadcrumb-item"><a href="../../DISClib.html">DISClib</a></li>
-          <li class="breadcrumb-item"><a href="../ADT.html">DISClib.ADT</a></li>
       <li class="breadcrumb-item active">DISClib.ADT.stack</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -97,7 +95,7 @@
 <span class="c1"># import dataclass to define the array list</span>
 <span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
 <span class="c1"># import modules for defining the element&#39;s type in the array</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Generic</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
 
 <span class="c1"># custom modules</span>
 <span class="c1"># base datastructure for the queue</span>
@@ -110,8 +108,8 @@
 
 <span class="nd">@dataclass</span>
 <div class="viewcode-block" id="Stack">
-<a class="viewcode-back" href="../../../autoapi/DISClib/index.html#DISClib.ADT.stack.Stack">[documentos]</a>
-<span class="k">class</span> <span class="nc">Stack</span><span class="p">(</span><span class="n">DoubleLinked</span><span class="p">,</span> <span class="n">Generic</span><span class="p">[</span><span class="n">T</span><span class="p">]):</span>
+<a class="viewcode-back" href="../../../autoapi/DISClib/ADT/stack/index.html#DISClib.ADT.stack.Stack">[documentos]</a>
+<span class="k">class</span> <span class="nc">Stack</span><span class="p">(</span><span class="n">DoubleLinked</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;**Stack** representa una pila implementada sobre una lista doblemente encadenada (DoubleLinked), Generic[T] y @dataclass para que sea una estructura de datos genérica. Esta pila (Stack) es un Tipo Abstracto de Datos (TAD/ADT) que permite almacenar una colección de elementos y operarlos en el mismo orden en que fueron agregados (LIFO - Last In First Out).</span>
 
 <span class="sd">    **IMPORTANTE:** *Stack* extiende de la clase *DoubleLinked*, por lo que hereda todos sus parametros internos y funciones.</span>
@@ -125,7 +123,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="Stack.push">
-<a class="viewcode-back" href="../../../autoapi/DISClib/index.html#DISClib.ADT.stack.Stack.push">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/ADT/stack/index.html#DISClib.ADT.stack.Stack.push">[documentos]</a>
     <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*push()* agrega un elemento en el tope de la pila (Stack).</span>
 
@@ -140,7 +138,7 @@
 
 
 <div class="viewcode-block" id="Stack.pop">
-<a class="viewcode-back" href="../../../autoapi/DISClib/index.html#DISClib.ADT.stack.Stack.pop">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/ADT/stack/index.html#DISClib.ADT.stack.Stack.pop">[documentos]</a>
     <span class="k">def</span> <span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*pop()* elimina y retorna el elemento en tope de la pila (Stack).</span>
 
@@ -154,7 +152,7 @@
 
 
 <div class="viewcode-block" id="Stack.top">
-<a class="viewcode-back" href="../../../autoapi/DISClib/index.html#DISClib.ADT.stack.Stack.top">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/ADT/stack/index.html#DISClib.ADT.stack.Stack.top">[documentos]</a>
     <span class="k">def</span> <span class="nf">top</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*top()* retorna el elemento en el tope de la pila (Stack).</span>
 
@@ -168,7 +166,7 @@
 
 
 <div class="viewcode-block" id="Stack.is_empty">
-<a class="viewcode-back" href="../../../autoapi/DISClib/index.html#DISClib.ADT.stack.Stack.is_empty">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/ADT/stack/index.html#DISClib.ADT.stack.Stack.is_empty">[documentos]</a>
     <span class="k">def</span> <span class="nf">is_empty</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*is_empty()* informa si la pila Stack esta vacía o no.</span>
 
@@ -183,7 +181,7 @@
 
 
 <div class="viewcode-block" id="Stack.size">
-<a class="viewcode-back" href="../../../autoapi/DISClib/index.html#DISClib.ADT.stack.Stack.size">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/ADT/stack/index.html#DISClib.ADT.stack.Stack.size">[documentos]</a>
     <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*size()* Función que informa el número de elementos en la pila Stack.</span>
 

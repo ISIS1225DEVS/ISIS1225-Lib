@@ -68,7 +68,6 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">Código de módulo</a></li>
-          <li class="breadcrumb-item"><a href="../../DISClib.html">DISClib</a></li>
       <li class="breadcrumb-item active">DISClib.DataStructures.treenode</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -109,7 +108,7 @@
 
 <span class="nd">@dataclass</span>
 <div class="viewcode-block" id="BSTNode">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.BSTNode">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.BSTNode">[documentos]</a>
 <span class="k">class</span> <span class="nc">BSTNode</span><span class="p">(</span><span class="n">Node</span><span class="p">,</span> <span class="n">Generic</span><span class="p">[</span><span class="n">T</span><span class="p">]):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;BSTNode _summary_</span>
 
@@ -120,13 +119,13 @@
     <span class="c1"># optional reference to the next node of the same type</span>
     <span class="c1"># :attr: _next</span>
 <div class="viewcode-block" id="BSTNode._next">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.BSTNode._next">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.BSTNode._next">[documentos]</a>
     <span class="n">_next</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;BSTNode[T]&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Referencia al siguiente nodo de la lista.&quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="BSTNode.next">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.BSTNode.next">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.BSTNode.next">[documentos]</a>
     <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;BSTNode[T]&quot;</span><span class="p">]:</span>
         <span class="k">pass</span></div>
 </div>
@@ -135,7 +134,7 @@
 
 <span class="nd">@dataclass</span>
 <div class="viewcode-block" id="AVLNode">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.AVLNode">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.AVLNode">[documentos]</a>
 <span class="k">class</span> <span class="nc">AVLNode</span><span class="p">(</span><span class="n">BSTNode</span><span class="p">,</span> <span class="n">Generic</span><span class="p">[</span><span class="n">T</span><span class="p">]):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;AVLNode _summary_</span>
 
@@ -146,13 +145,13 @@
     <span class="c1"># optional reference to the next node of the same type</span>
     <span class="c1"># :attr: _next</span>
 <div class="viewcode-block" id="AVLNode._next">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.AVLNode._next">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.AVLNode._next">[documentos]</a>
     <span class="n">_next</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;AVLNode[T]&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Referencia al siguiente nodo de la lista.&quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="AVLNode.next">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.AVLNode.next">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.AVLNode.next">[documentos]</a>
     <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;AVLNode[T]&quot;</span><span class="p">]:</span>
         <span class="k">pass</span></div>
 </div>
@@ -161,7 +160,7 @@
     
 <span class="nd">@dataclass</span>
 <div class="viewcode-block" id="RBTNode">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.RBTNode">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.RBTNode">[documentos]</a>
 <span class="k">class</span> <span class="nc">RBTNode</span><span class="p">(</span><span class="n">BSTNode</span><span class="p">,</span> <span class="n">Generic</span><span class="p">[</span><span class="n">T</span><span class="p">]):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;RBTNode _summary_</span>
 
@@ -172,13 +171,13 @@
     <span class="c1"># optional reference to the next node of the same type</span>
     <span class="c1"># :attr: _next</span>
 <div class="viewcode-block" id="RBTNode._next">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.RBTNode._next">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.RBTNode._next">[documentos]</a>
     <span class="n">_next</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;RBTNode[T]&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Referencia al siguiente nodo de la lista.&quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="RBTNode.next">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.RBTNode.next">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.RBTNode.next">[documentos]</a>
     <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;RBTNode[T]&quot;</span><span class="p">]:</span>
         <span class="k">pass</span></div>
 </div>
@@ -187,7 +186,7 @@
 
 <span class="nd">@dataclass</span>
 <div class="viewcode-block" id="KDTNode">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.KDTNode">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.KDTNode">[documentos]</a>
 <span class="k">class</span> <span class="nc">KDTNode</span><span class="p">(</span><span class="n">BSTNode</span><span class="p">,</span> <span class="n">Generic</span><span class="p">[</span><span class="n">T</span><span class="p">]):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;KDTNode _summary_</span>
 
@@ -198,13 +197,13 @@
     <span class="c1"># optional reference to the next node of the same type</span>
     <span class="c1"># :attr: _next</span>
 <div class="viewcode-block" id="KDTNode._next">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.KDTNode._next">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.KDTNode._next">[documentos]</a>
     <span class="n">_next</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;KDTNode[T]&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Referencia al siguiente nodo de la lista.&quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="KDTNode.next">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.KDTNode.next">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.KDTNode.next">[documentos]</a>
     <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;KDTNode[T]&quot;</span><span class="p">]:</span>
         <span class="k">pass</span></div>
 </div>
@@ -325,17 +324,17 @@
 
 
 <div class="viewcode-block" id="RED">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.RED">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.RED">[documentos]</a>
 <span class="n">RED</span> <span class="o">=</span> <span class="mi">0</span></div>
 
 <div class="viewcode-block" id="BLACK">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.BLACK">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.BLACK">[documentos]</a>
 <span class="n">BLACK</span> <span class="o">=</span> <span class="mi">1</span></div>
 
 
 
 <div class="viewcode-block" id="newNode">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.newNode">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.newNode">[documentos]</a>
 <span class="k">def</span> <span class="nf">newNode</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Crea un nuevo nodo para un árbol rojo-negro  y lo retorna.</span>
@@ -366,7 +365,7 @@
 
 
 <div class="viewcode-block" id="isRed">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.isRed">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.isRed">[documentos]</a>
 <span class="k">def</span> <span class="nf">isRed</span><span class="p">(</span><span class="n">node</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Informa si un nodo es rojo</span>
@@ -383,7 +382,7 @@
 
 
 <div class="viewcode-block" id="getValue">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.getValue">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.getValue">[documentos]</a>
 <span class="k">def</span> <span class="nf">getValue</span><span class="p">(</span><span class="n">node</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Retorna el valor asociado a una pareja llave valor</span>
 <span class="sd">    Args:</span>
@@ -400,7 +399,7 @@
 
 
 <div class="viewcode-block" id="getKey">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.getKey">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.getKey">[documentos]</a>
 <span class="k">def</span> <span class="nf">getKey</span><span class="p">(</span><span class="n">node</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Retorna la llave asociado a una pareja llave valor</span>
 <span class="sd">    Args:</span>

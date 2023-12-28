@@ -68,8 +68,6 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">Código de módulo</a></li>
-          <li class="breadcrumb-item"><a href="../../DISClib.html">DISClib</a></li>
-          <li class="breadcrumb-item"><a href="../ADT.html">DISClib.ADT</a></li>
       <li class="breadcrumb-item active">DISClib.ADT.dynamic</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -105,7 +103,7 @@
 
 
 <div class="viewcode-block" id="DynamicImporter">
-<a class="viewcode-back" href="../../../autoapi/DISClib/index.html#DISClib.ADT.dynamic.DynamicImporter">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/ADT/dynamic/index.html#DISClib.ADT.dynamic.DynamicImporter">[documentos]</a>
 <span class="k">class</span> <span class="nc">DynamicImporter</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; **DynamicImporter** permite importar dinámicamente módulos y clases de módulos según la configuración de un archivo JSON y las especificaciones del usuario.</span>
 
@@ -188,7 +186,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_instance</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_class</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
 <div class="viewcode-block" id="DynamicImporter.__post_init__">
-<a class="viewcode-back" href="../../../autoapi/DISClib/index.html#DISClib.ADT.dynamic.DynamicImporter.__post_init__">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/ADT/dynamic/index.html#DISClib.ADT.dynamic.DynamicImporter.__post_init__">[documentos]</a>
     <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*__post_init__()* función post inicialización. Permite cambiar el nombre de la clase dinámica por el nombre de la clase concreta seleccionada por el usuario.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -196,7 +194,7 @@
 
 
 <div class="viewcode-block" id="DynamicImporter.__repr__">
-<a class="viewcode-back" href="../../../autoapi/DISClib/index.html#DISClib.ADT.dynamic.DynamicImporter.__repr__">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/ADT/dynamic/index.html#DISClib.ADT.dynamic.DynamicImporter.__repr__">[documentos]</a>
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*__repr__* función de representación. Permite representar la clase dinámica como la clase concreta seleccionada por el usuario.</span>
 
@@ -207,7 +205,7 @@
 
 
 <div class="viewcode-block" id="DynamicImporter.get_instance">
-<a class="viewcode-back" href="../../../autoapi/DISClib/index.html#DISClib.ADT.dynamic.DynamicImporter.get_instance">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/ADT/dynamic/index.html#DISClib.ADT.dynamic.DynamicImporter.get_instance">[documentos]</a>
     <span class="k">def</span> <span class="nf">get_instance</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*get_instance()* retorna la instancia de la clase concreta seleccionada por el usuario.</span>
 
@@ -220,7 +218,7 @@
 
     <span class="nd">@classmethod</span>
 <div class="viewcode-block" id="DynamicImporter.__class__">
-<a class="viewcode-back" href="../../../autoapi/DISClib/index.html#DISClib.ADT.dynamic.DynamicImporter.__class__">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/ADT/dynamic/index.html#DISClib.ADT.dynamic.DynamicImporter.__class__">[documentos]</a>
     <span class="k">def</span> <span class="nf">__class__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">type</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*__class__* retorna el tipo de la clase concreta seleccionada por el usuario.</span>
 
@@ -234,7 +232,7 @@
 
     <span class="nd">@classmethod</span>
 <div class="viewcode-block" id="DynamicImporter.__instancecheck__">
-<a class="viewcode-back" href="../../../autoapi/DISClib/index.html#DISClib.ADT.dynamic.DynamicImporter.__instancecheck__">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/ADT/dynamic/index.html#DISClib.ADT.dynamic.DynamicImporter.__instancecheck__">[documentos]</a>
     <span class="k">def</span> <span class="fm">__instancecheck__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*__instancecheck__* permite verificar si una instancia es de la clase concreta seleccionada por el usuario.</span>
 

@@ -68,7 +68,6 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">Código de módulo</a></li>
-          <li class="breadcrumb-item"><a href="../../DISClib.html">DISClib</a></li>
       <li class="breadcrumb-item active">DISClib.DataStructures.adjlist</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -114,7 +113,7 @@
 
 <span class="nd">@dataclass</span>
 <div class="viewcode-block" id="AdjacencyList">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.adjlist.AdjacencyList">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/adjlist/index.html#DISClib.DataStructures.adjlist.AdjacencyList">[documentos]</a>
 <span class="k">class</span> <span class="nc">AdjacencyList</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">T</span><span class="p">]):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;**AdjacencyList** representa la estructura de datos para arreglos dinamicos (Array List), Implementada con Generic[T] y @dataclass para que sea una estructura de datos genérica.</span>
 
@@ -177,7 +176,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="AdjacencyList.__post_init__">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.adjlist.AdjacencyList.__post_init__">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/adjlist/index.html#DISClib.DataStructures.adjlist.AdjacencyList.__post_init__">[documentos]</a>
     <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*__post_init__()* configura los valores por defecto para la llave (&#39;key&#39;) y la función de comparación (&#39;cmp_function&#39;). Si el usuario incluye una lista nativa de python como argumento, se agrega a la lista de elementos del AdjacencyList.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -199,7 +198,7 @@
 
 
 <div class="viewcode-block" id="AdjacencyList.default_cmp_function">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.adjlist.AdjacencyList.default_cmp_function">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/adjlist/index.html#DISClib.DataStructures.adjlist.AdjacencyList.default_cmp_function">[documentos]</a>
     <span class="k">def</span> <span class="nf">default_cmp_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elm1</span><span class="p">,</span> <span class="n">elm2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*default_cmp_function()* procesa con algoritmica por defecto la lista de elementos que procesa el AdjacencyList. Es una función crucial para que la estructura de datos funcione correctamente.</span>
 
@@ -218,7 +217,7 @@
 
 
 <div class="viewcode-block" id="AdjacencyList._handle_error">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.adjlist.AdjacencyList._handle_error">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/adjlist/index.html#DISClib.DataStructures.adjlist.AdjacencyList._handle_error">[documentos]</a>
     <span class="k">def</span> <span class="nf">_handle_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">err</span><span class="p">:</span> <span class="ne">Exception</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*_handle_error()* función privada que maneja los errores que se pueden presentar en el AdjacencyList.</span>
 
@@ -234,7 +233,7 @@
 
 
 <div class="viewcode-block" id="AdjacencyList._check_type">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.adjlist.AdjacencyList._check_type">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/adjlist/index.html#DISClib.DataStructures.adjlist.AdjacencyList._check_type">[documentos]</a>
     <span class="k">def</span> <span class="nf">_check_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*_check_type()* función privada que verifica que el tipo de dato del elemento que se quiere agregar al AdjacencyList sea del mismo tipo contenido dentro de los elementos del AdjacencyList.</span>
 

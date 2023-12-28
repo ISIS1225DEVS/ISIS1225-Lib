@@ -35,7 +35,7 @@ Classes
 .. py:class:: Queue
 
 
-   Bases: :py:obj:`DISClib.DataStructures.singlelinkedlist.SingleLinked`, :py:obj:`Generic`\ [\ :py:obj:`DISClib.Utils.default.T`\ ]
+   Bases: :py:obj:`DISClib.DataStructures.singlelinkedlist.SingleLinked`
 
    **Queue** representa una cola implementada sobre una lista sencillamente encadenada (SingleLinked), Generic[T] y @dataclass para que sea una estructura de datos genérica. Esta cola o fila (queue) es un Tipo Abstracto de Datos (TAD/ADT) que permite almacenar una colección de elementos y operarlos en el mismo orden en que fueron agregados (FIFO - Firts In First Out).
 

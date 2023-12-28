@@ -68,7 +68,6 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">Código de módulo</a></li>
-          <li class="breadcrumb-item"><a href="../../DISClib.html">DISClib</a></li>
       <li class="breadcrumb-item active">DISClib.DataStructures.chaininghashtable</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -178,7 +177,7 @@
 
 <span class="nd">@dataclass</span>
 <div class="viewcode-block" id="SeparateChaining">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashtable/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining">[documentos]</a>
 <span class="k">class</span> <span class="nc">SeparateChaining</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">T</span><span class="p">]):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;**SeparateChaining** Es una clase que representa una tabla de hash con el método de encadenamiento por de separación (Separate Chaining). Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.</span>
 
@@ -372,7 +371,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="SeparateChaining.__post_init__">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.__post_init__">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashtable/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.__post_init__">[documentos]</a>
     <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*__post_init__()* configura los valores por defecto de la estructura SeparateChaining después de la inicialización de la misma. Configura los factores de carga (alpha), el número primo (P) para la función de compresión MAD, la capacidad (M) de la tabla de hash, la función de comparación y la llave para comparar los elementos del SeparateChaining, y finalmente inicializa la tabla de hash con la capacidad (M) configurada.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -427,7 +426,7 @@
 
 
 <div class="viewcode-block" id="SeparateChaining.default_cmp_function">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.default_cmp_function">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashtable/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.default_cmp_function">[documentos]</a>
     <span class="k">def</span> <span class="nf">default_cmp_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key1</span><span class="p">,</span> <span class="n">entry2</span><span class="p">:</span> <span class="n">MapEntry</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*default_cmp_function()* procesa la llave existente en la entrada del SeparateChaining y la compara con la llave del a entrada que se quiere agregar al SeparateChaining.</span>
 <span class="sd">        Args:</span>
@@ -446,7 +445,7 @@
 
 
 <div class="viewcode-block" id="SeparateChaining._handle_error">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining._handle_error">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashtable/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining._handle_error">[documentos]</a>
     <span class="k">def</span> <span class="nf">_handle_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">err</span><span class="p">:</span> <span class="ne">Exception</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*_handle_error()* función privada que maneja los errores que se pueden presentar en el SeparateChaining.</span>
 
@@ -462,7 +461,7 @@
 
 
 <div class="viewcode-block" id="SeparateChaining._check_type">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining._check_type">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashtable/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining._check_type">[documentos]</a>
     <span class="k">def</span> <span class="nf">_check_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entry</span><span class="p">:</span> <span class="n">MapEntry</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*_check_type()* función privada que verifica que el tipo de dato de la entrada que se quiere agregar al SeparateChaining sea del mismo tipo contenido dentro de los elementos del SeparateChaining.</span>
 
@@ -496,7 +495,7 @@
 
     <span class="c1"># @property</span>
 <div class="viewcode-block" id="SeparateChaining.is_empty">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.is_empty">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashtable/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.is_empty">[documentos]</a>
     <span class="k">def</span> <span class="nf">is_empty</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*is_empty()* revisa si el SeparateChaining está vacío.</span>
 
@@ -512,7 +511,7 @@
 
     <span class="c1"># @property</span>
 <div class="viewcode-block" id="SeparateChaining.size">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.size">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashtable/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.size">[documentos]</a>
     <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*size()* devuelve el numero de elementos que actualmente contiene el SeparateChaining.</span>
 
@@ -527,7 +526,7 @@
 
 
 <div class="viewcode-block" id="SeparateChaining.contains">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.contains">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashtable/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.contains">[documentos]</a>
     <span class="k">def</span> <span class="nf">contains</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*contains()* responde si el SeparateChaining contiene una entrada con la llave key.</span>
 
@@ -561,7 +560,7 @@
 
 
 <div class="viewcode-block" id="SeparateChaining.put">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.put">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashtable/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.put">[documentos]</a>
     <span class="k">def</span> <span class="nf">put</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*put()* agrega una entrada (pareja llave-valor) al SeparateChaining, si la llave ya existe en el SeparateChaining, se reemplaza el valor.</span>
 
@@ -610,7 +609,7 @@
 
 
 <div class="viewcode-block" id="SeparateChaining.get">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.get">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashtable/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.get">[documentos]</a>
     <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*get()* devuelve la entrada (pareja llave-valor) cuya llave sea igual a key dentro del SeparateChaining, si no existe una entrada con la llave key, devuelve None.</span>
 
@@ -652,7 +651,7 @@
 
 
 <div class="viewcode-block" id="SeparateChaining.check_bucket">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.check_bucket">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashtable/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.check_bucket">[documentos]</a>
     <span class="k">def</span> <span class="nf">check_bucket</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*check_bucket()* devuelve el bucket asociado a la llave key dentro del SeparateChaining, si no existe una entrada con la llave key, devuelve None.</span>
 
@@ -690,7 +689,7 @@
 
 
 <div class="viewcode-block" id="SeparateChaining.remove">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.remove">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashtable/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.remove">[documentos]</a>
     <span class="k">def</span> <span class="nf">remove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*remove()* elimina la entrada (pareja llave-valor) cuya llave sea igual a key dentro del SeparateChaining, si no existe una entrada con la llave key, devuelve None.</span>
 
@@ -739,7 +738,7 @@
 
 
 <div class="viewcode-block" id="SeparateChaining.keys">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.keys">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashtable/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.keys">[documentos]</a>
     <span class="k">def</span> <span class="nf">keys</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SingleLinked</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*keys()* devuelve una lista (SingleLinked) con todas las llaves de las entradas (parejas llave-valor) del SeparateChaining.</span>
 
@@ -759,7 +758,7 @@
 
 
 <div class="viewcode-block" id="SeparateChaining.values">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.values">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashtable/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.values">[documentos]</a>
     <span class="k">def</span> <span class="nf">values</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SingleLinked</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*values()* devuelve una lista (SingleLinked) con todos los valores de las entradas (parejas llave-valor) del SeparateChaining.</span>
 
@@ -779,7 +778,7 @@
 
 
 <div class="viewcode-block" id="SeparateChaining.entries">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.entries">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashtable/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.entries">[documentos]</a>
     <span class="k">def</span> <span class="nf">entries</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SingleLinked</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*entries()* devuelve una lista (SingleLinked) con todas las entradas (parejas llave-valor) del SeparateChaining.</span>
 
@@ -800,7 +799,7 @@
 
 
 <div class="viewcode-block" id="SeparateChaining.rehash">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.rehash">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/chaininghashtable/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining.rehash">[documentos]</a>
     <span class="k">def</span> <span class="nf">rehash</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*rehash()* reconstruye la tabla de hash con una nueva capacidad (M) y un nuevo factor de carga (alpha) según los límites establecidos por el usuario en los atributos *max_alpha* y *min_alpha*.</span>
 

@@ -68,7 +68,6 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">Código de módulo</a></li>
-          <li class="breadcrumb-item"><a href="../../DISClib.html">DISClib</a></li>
       <li class="breadcrumb-item active">DISClib.DataStructures.leftleantree</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -114,7 +113,7 @@
 
 <span class="nd">@dataclass</span>
 <div class="viewcode-block" id="LeftLeanRedBlackTree">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/leftleantree/index.html#DISClib.DataStructures.LeftLeanRedBlackTree">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/leftleantree/index.html#DISClib.DataStructures.leftleantree.LeftLeanRedBlackTree">[documentos]</a>
 <span class="k">class</span> <span class="nc">LeftLeanRedBlackTree</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">T</span><span class="p">]):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;**LeftLeanRedBlackTree** representa la estructura de datos para arreglos dinamicos (Array List), Implementada con Generic[T] y @dataclass para que sea una estructura de datos genérica.</span>
 
@@ -128,7 +127,7 @@
     <span class="c1"># input elements from python list</span>
     <span class="c1"># :attr: iodata</span>
 <div class="viewcode-block" id="LeftLeanRedBlackTree.iodata">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/leftleantree/index.html#DISClib.DataStructures.LeftLeanRedBlackTree.iodata">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/leftleantree/index.html#DISClib.DataStructures.leftleantree.LeftLeanRedBlackTree.iodata">[documentos]</a>
     <span class="n">iodata</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">T</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -138,7 +137,7 @@
     <span class="c1"># the cmp_function is used to compare elements, not defined by default</span>
     <span class="c1"># :attr: cmp_function</span>
 <div class="viewcode-block" id="LeftLeanRedBlackTree.cmp_function">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/leftleantree/index.html#DISClib.DataStructures.LeftLeanRedBlackTree.cmp_function">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/leftleantree/index.html#DISClib.DataStructures.leftleantree.LeftLeanRedBlackTree.cmp_function">[documentos]</a>
     <span class="n">cmp_function</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">[[</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="p">],</span> <span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -148,7 +147,7 @@
     <span class="c1"># using default_factory to generate an empty list</span>
     <span class="c1"># :attr: elements</span>
 <div class="viewcode-block" id="LeftLeanRedBlackTree.elements">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/leftleantree/index.html#DISClib.DataStructures.LeftLeanRedBlackTree.elements">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/leftleantree/index.html#DISClib.DataStructures.leftleantree.LeftLeanRedBlackTree.elements">[documentos]</a>
     <span class="n">elements</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">T</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -158,7 +157,7 @@
     <span class="c1"># the key is used to compare elements, not defined by default</span>
     <span class="c1"># :attr: key</span>
 <div class="viewcode-block" id="LeftLeanRedBlackTree.key">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/leftleantree/index.html#DISClib.DataStructures.LeftLeanRedBlackTree.key">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/leftleantree/index.html#DISClib.DataStructures.leftleantree.LeftLeanRedBlackTree.key">[documentos]</a>
     <span class="n">key</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -169,7 +168,7 @@
     <span class="c1"># FIXME inconsistent use between _size and size()</span>
     <span class="c1"># :attr: _size</span>
 <div class="viewcode-block" id="LeftLeanRedBlackTree._size">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/leftleantree/index.html#DISClib.DataStructures.LeftLeanRedBlackTree._size">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/leftleantree/index.html#DISClib.DataStructures.leftleantree.LeftLeanRedBlackTree._size">[documentos]</a>
     <span class="n">_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -177,7 +176,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="LeftLeanRedBlackTree.__post_init__">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/leftleantree/index.html#DISClib.DataStructures.LeftLeanRedBlackTree.__post_init__">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/leftleantree/index.html#DISClib.DataStructures.leftleantree.LeftLeanRedBlackTree.__post_init__">[documentos]</a>
     <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*__post_init__()* configura los valores por defecto para la llave (&#39;key&#39;) y la función de comparación (&#39;cmp_function&#39;). Si el usuario incluye una lista nativa de python como argumento, se agrega a la lista de elementos del LeftLeanRedBlackTree.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -199,7 +198,7 @@
 
 
 <div class="viewcode-block" id="LeftLeanRedBlackTree.default_cmp_function">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/leftleantree/index.html#DISClib.DataStructures.LeftLeanRedBlackTree.default_cmp_function">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/leftleantree/index.html#DISClib.DataStructures.leftleantree.LeftLeanRedBlackTree.default_cmp_function">[documentos]</a>
     <span class="k">def</span> <span class="nf">default_cmp_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elm1</span><span class="p">,</span> <span class="n">elm2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*default_cmp_function()* procesa con algoritmica por defecto la lista de elementos que procesa el LeftLeanRedBlackTree. Es una función crucial para que la estructura de datos funcione correctamente.</span>
 
@@ -218,7 +217,7 @@
 
 
 <div class="viewcode-block" id="LeftLeanRedBlackTree._handle_error">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/leftleantree/index.html#DISClib.DataStructures.LeftLeanRedBlackTree._handle_error">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/leftleantree/index.html#DISClib.DataStructures.leftleantree.LeftLeanRedBlackTree._handle_error">[documentos]</a>
     <span class="k">def</span> <span class="nf">_handle_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">err</span><span class="p">:</span> <span class="ne">Exception</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*_handle_error()* función privada que maneja los errores que se pueden presentar en el LeftLeanRedBlackTree.</span>
 
@@ -234,7 +233,7 @@
 
 
 <div class="viewcode-block" id="LeftLeanRedBlackTree._check_type">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/leftleantree/index.html#DISClib.DataStructures.LeftLeanRedBlackTree._check_type">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/leftleantree/index.html#DISClib.DataStructures.leftleantree.LeftLeanRedBlackTree._check_type">[documentos]</a>
     <span class="k">def</span> <span class="nf">_check_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*_check_type()* función privada que verifica que el tipo de dato del elemento que se quiere agregar al LeftLeanRedBlackTree sea del mismo tipo contenido dentro de los elementos del LeftLeanRedBlackTree.</span>
 

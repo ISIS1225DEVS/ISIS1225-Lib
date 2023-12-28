@@ -68,7 +68,6 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">Código de módulo</a></li>
-          <li class="breadcrumb-item"><a href="../../DISClib.html">DISClib</a></li>
       <li class="breadcrumb-item active">DISClib.DataStructures.arraylist</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -114,7 +113,7 @@
 
 <span class="nd">@dataclass</span>
 <div class="viewcode-block" id="ArrayList">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.arraylist.ArrayList">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList">[documentos]</a>
 <span class="k">class</span> <span class="nc">ArrayList</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">T</span><span class="p">]):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;**ArrayList** representa la estructura de datos para arreglos dinamicos (Array List), Implementada con Generic[T] y @dataclass para que sea una estructura de datos genérica.</span>
 
@@ -177,7 +176,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="ArrayList.__post_init__">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.arraylist.ArrayList.__post_init__">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList.__post_init__">[documentos]</a>
     <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*__post_init__()* configura los valores por defecto para la llave (&#39;key&#39;) y la función de comparación (&#39;cmp_function&#39;). Si el usuario incluye una lista nativa de python como argumento, se agrega a la lista de elementos del ArrayList.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -199,7 +198,7 @@
 
 
 <div class="viewcode-block" id="ArrayList.default_cmp_function">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.arraylist.ArrayList.default_cmp_function">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList.default_cmp_function">[documentos]</a>
     <span class="k">def</span> <span class="nf">default_cmp_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elm1</span><span class="p">,</span> <span class="n">elm2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*default_cmp_function()* procesa con algoritmica por defecto la lista de elementos que procesa el ArrayList. Es una función crucial para que la estructura de datos funcione correctamente.</span>
 
@@ -218,7 +217,7 @@
 
 
 <div class="viewcode-block" id="ArrayList._handle_error">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.arraylist.ArrayList._handle_error">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList._handle_error">[documentos]</a>
     <span class="k">def</span> <span class="nf">_handle_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">err</span><span class="p">:</span> <span class="ne">Exception</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*_handle_error()* función privada que maneja los errores que se pueden presentar en el ArrayList.</span>
 
@@ -234,7 +233,7 @@
 
 
 <div class="viewcode-block" id="ArrayList._check_type">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.arraylist.ArrayList._check_type">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList._check_type">[documentos]</a>
     <span class="k">def</span> <span class="nf">_check_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*_check_type()* función privada que verifica que el tipo de dato del elemento que se quiere agregar al ArrayList sea del mismo tipo contenido dentro de los elementos del ArrayList.</span>
 
@@ -263,7 +262,7 @@
 
     <span class="c1"># @property</span>
 <div class="viewcode-block" id="ArrayList.is_empty">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.arraylist.ArrayList.is_empty">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList.is_empty">[documentos]</a>
     <span class="k">def</span> <span class="nf">is_empty</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*is_empty()* revisa si el ArrayList está vacía.</span>
 
@@ -279,7 +278,7 @@
 
     <span class="c1"># @property</span>
 <div class="viewcode-block" id="ArrayList.size">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.arraylist.ArrayList.size">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList.size">[documentos]</a>
     <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*size()* devuelve el número de elementos que actualmente contiene el ArrayList.</span>
 
@@ -294,7 +293,7 @@
 
 
 <div class="viewcode-block" id="ArrayList.add_first">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.arraylist.ArrayList.add_first">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList.add_first">[documentos]</a>
     <span class="k">def</span> <span class="nf">add_first</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*add_first()* adiciona un elemento al inicio del ArrayList.</span>
 
@@ -314,7 +313,7 @@
 
 
 <div class="viewcode-block" id="ArrayList.add_last">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.arraylist.ArrayList.add_last">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList.add_last">[documentos]</a>
     <span class="k">def</span> <span class="nf">add_last</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*add_last()* adiciona un elemento al final del ArrayList.</span>
 
@@ -334,7 +333,7 @@
 
 
 <div class="viewcode-block" id="ArrayList.add_element">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.arraylist.ArrayList.add_element">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList.add_element">[documentos]</a>
     <span class="k">def</span> <span class="nf">add_element</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*add_element()* adiciona un elemento en una posición dada del ArrayList.</span>
 
@@ -361,7 +360,7 @@
 
 
 <div class="viewcode-block" id="ArrayList.get_first">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.arraylist.ArrayList.get_first">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList.get_first">[documentos]</a>
     <span class="k">def</span> <span class="nf">get_first</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*get_first()* lee el primer elemento del ArrayList.</span>
 
@@ -380,7 +379,7 @@
 
 
 <div class="viewcode-block" id="ArrayList.get_last">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.arraylist.ArrayList.get_last">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList.get_last">[documentos]</a>
     <span class="k">def</span> <span class="nf">get_last</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*get_last()* lee el último elemento del ArrayList.</span>
 
@@ -399,7 +398,7 @@
 
 
 <div class="viewcode-block" id="ArrayList.get_element">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.arraylist.ArrayList.get_element">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList.get_element">[documentos]</a>
     <span class="k">def</span> <span class="nf">get_element</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*get_element()* lee un elemento en una posición dada del ArrayList.</span>
 
@@ -425,7 +424,7 @@
 
 
 <div class="viewcode-block" id="ArrayList.remove_first">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.arraylist.ArrayList.remove_first">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList.remove_first">[documentos]</a>
     <span class="k">def</span> <span class="nf">remove_first</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*remove_first()* elimina el primer elemento del ArrayList.</span>
 
@@ -446,7 +445,7 @@
 
 
 <div class="viewcode-block" id="ArrayList.remove_last">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.arraylist.ArrayList.remove_last">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList.remove_last">[documentos]</a>
     <span class="k">def</span> <span class="nf">remove_last</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*remove_last()* elimina el último elemento del ArrayList.</span>
 
@@ -467,7 +466,7 @@
 
 
 <div class="viewcode-block" id="ArrayList.remove_element">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.arraylist.ArrayList.remove_element">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList.remove_element">[documentos]</a>
     <span class="k">def</span> <span class="nf">remove_element</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*remove_element()* elimina un elemento en una posición dada del ArrayList.</span>
 
@@ -495,7 +494,7 @@
 
 
 <div class="viewcode-block" id="ArrayList.compare_elements">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.arraylist.ArrayList.compare_elements">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList.compare_elements">[documentos]</a>
     <span class="k">def</span> <span class="nf">compare_elements</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elem1</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="n">elem2</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*compare_elements()* compara dos elementos dentro del ArrayList según la función de comparación definida por el usuario o la función por defecto.</span>
 
@@ -524,7 +523,7 @@
 
 
 <div class="viewcode-block" id="ArrayList.find">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.arraylist.ArrayList.find">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList.find">[documentos]</a>
     <span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*find()* revisa si un elemento está en el ArrayList.</span>
 
@@ -552,7 +551,7 @@
 
 
 <div class="viewcode-block" id="ArrayList.change_info">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.arraylist.ArrayList.change_info">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList.change_info">[documentos]</a>
     <span class="k">def</span> <span class="nf">change_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_info</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*change_info()* cambia la información de un elemento en una posición dada.</span>
 
@@ -579,7 +578,7 @@
 
 
 <div class="viewcode-block" id="ArrayList.exchange">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.arraylist.ArrayList.exchange">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList.exchange">[documentos]</a>
     <span class="k">def</span> <span class="nf">exchange</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pos1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">pos2</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*exchange()* intercambia la información de dos elementos en dos posiciones dadas.</span>
 
@@ -608,7 +607,7 @@
 
 
 <div class="viewcode-block" id="ArrayList.sublist">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.arraylist.ArrayList.sublist">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList.sublist">[documentos]</a>
     <span class="k">def</span> <span class="nf">sublist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">end</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;ArrayList[T]&quot;</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*sublist()* crea una sublista de la estructura según unas posiciones dentro del ArrayList original.</span>
 
@@ -643,7 +642,7 @@
 
 
 <div class="viewcode-block" id="ArrayList.concat">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.arraylist.ArrayList.concat">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList.concat">[documentos]</a>
     <span class="k">def</span> <span class="nf">concat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="s2">&quot;ArrayList[T]&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;ArrayList[T]&quot;</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*concat()* concatena dos estructuras de datos ArrayList para crear una nueva estructura con los elementos de las dos estructuras.</span>
 
@@ -682,7 +681,7 @@
 
 
 <div class="viewcode-block" id="ArrayList.__iter__">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.arraylist.ArrayList.__iter__">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList.__iter__">[documentos]</a>
     <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*__iter__()* iterador nativo de Python intervenida por la estructura de datos para recorrer los elementos del ArrayList utilizando un ciclo &#39;for&#39; de python.</span>
 
@@ -696,7 +695,7 @@
 
 
 <div class="viewcode-block" id="ArrayList.__len__">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.arraylist.ArrayList.__len__">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList.__len__">[documentos]</a>
     <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*__len__()* función nativa de Python intervenida por la estructura de datosv para recuperar el tamaño del ArrayList.</span>
 

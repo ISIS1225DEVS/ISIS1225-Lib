@@ -177,7 +177,6 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># by default, the list is empty, -1 for the header and trailer nodes</span>
-    <span class="c1"># FIXME inconsistent use between _size and size()</span>
     <span class="c1"># :attr: _size</span>
 <div class="viewcode-block" id="DoubleLinked._size">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked._size">[documentos]</a>
@@ -286,7 +285,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># TODO change the method name to &quot;empty&quot; or @property &quot;empty&quot;?</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="k">return</span> <span class="kc">False</span>
             <span class="k">return</span> <span class="kc">True</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
@@ -386,11 +385,11 @@
         <span class="k">try</span><span class="p">:</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
                 <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_type</span><span class="p">(</span><span class="n">element</span><span class="p">):</span>
-                    <span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">pos</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">pos</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">():</span>
                         <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;Position is out of range&quot;</span><span class="p">)</span>
                 <span class="k">if</span> <span class="n">pos</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">add_first</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
-                <span class="k">elif</span> <span class="n">pos</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span><span class="p">:</span>
+                <span class="k">elif</span> <span class="n">pos</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">():</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
                 <span class="k">else</span><span class="p">:</span>
                     <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
@@ -480,10 +479,10 @@
             <span class="n">info</span> <span class="o">=</span> <span class="kc">None</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
                 <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;Empty data structure&quot;</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">pos</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">elif</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">pos</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;Index&quot;</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="s2">&quot;is out of range&quot;</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">//</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">//</span> <span class="mi">2</span><span class="p">:</span>
                     <span class="c1"># Start from the beginning</span>
                     <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
                     <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
@@ -518,13 +517,13 @@
             <span class="n">info</span> <span class="o">=</span> <span class="kc">None</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
                 <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;Empty data structure&quot;</span><span class="p">)</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="o">.</span><span class="n">next</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="o">.</span><span class="n">next</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="n">first</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="o">.</span><span class="n">_next</span> <span class="o">=</span> <span class="n">first</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
                 <span class="n">first</span><span class="o">.</span><span class="n">next</span><span class="p">()</span><span class="o">.</span><span class="n">_prev</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">-=</span> <span class="mi">1</span>
                 <span class="c1"># if the list is empty, reset the sentinel nodes</span>
-                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_trailer</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">_trailer</span><span class="o">.</span><span class="n">prev</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
@@ -549,13 +548,13 @@
             <span class="n">info</span> <span class="o">=</span> <span class="kc">None</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
                 <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;Empty data structure&quot;</span><span class="p">)</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_trailer</span><span class="o">.</span><span class="n">prev</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_trailer</span><span class="o">.</span><span class="n">prev</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="n">last</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_trailer</span><span class="o">.</span><span class="n">prev</span><span class="p">()</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_trailer</span><span class="o">.</span><span class="n">_prev</span> <span class="o">=</span> <span class="n">last</span><span class="o">.</span><span class="n">prev</span><span class="p">()</span>
                 <span class="n">last</span><span class="o">.</span><span class="n">prev</span><span class="p">()</span><span class="o">.</span><span class="n">_next</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_trailer</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">-=</span> <span class="mi">1</span>
                 <span class="c1"># if the list is empty, reset the sentinel nodes</span>
-                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_trailer</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">_trailer</span><span class="o">.</span><span class="n">prev</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
@@ -585,16 +584,16 @@
             <span class="n">info</span> <span class="o">=</span> <span class="kc">None</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
                 <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;Empty data structure&quot;</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">pos</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">pos</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Index </span><span class="si">{</span><span class="n">pos</span><span class="si">}</span><span class="s2"> is out of range&quot;</span><span class="p">)</span>
             <span class="c1"># Determine where to start based on the position</span>
             <span class="c1"># if there is only one element, link the sentinel nodes</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
                 <span class="n">info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="o">.</span><span class="n">next</span><span class="p">()</span><span class="o">.</span><span class="n">get_info</span><span class="p">()</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="o">.</span><span class="n">_next</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_trailer</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_trailer</span><span class="o">.</span><span class="n">_prev</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span>
-                <span class="c1"># self._size = -1</span>
-            <span class="k">elif</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">//</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="c1"># self.size() = -1</span>
+            <span class="k">elif</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">//</span> <span class="mi">2</span><span class="p">:</span>
                 <span class="c1"># Start from the beginning</span>
                 <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
                 <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
@@ -660,14 +659,13 @@
 <span class="sd">            int: la posición del elemento en el DoubleLinked, -1 si no está.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">lt_size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
             <span class="n">pos</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-            <span class="k">if</span> <span class="n">lt_size</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="c1"># setting the current node by the header</span>
                 <span class="n">node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
                 <span class="n">found</span> <span class="o">=</span> <span class="kc">False</span>
                 <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-                <span class="k">while</span> <span class="ow">not</span> <span class="n">found</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">lt_size</span><span class="p">:</span>
+                <span class="k">while</span> <span class="ow">not</span> <span class="n">found</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">():</span>
                     <span class="n">data</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">get_info</span><span class="p">()</span>
                     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">compare_elements</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
                         <span class="n">found</span> <span class="o">=</span> <span class="kc">True</span>
@@ -704,7 +702,7 @@
             <span class="c1"># if not self._check_type(new_info):</span>
             <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_type</span><span class="p">(</span><span class="n">new_info</span><span class="p">):</span>
                 <span class="c1"># raise TypeError(&quot;Invalid element type&quot;)</span>
-                <span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">//</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">//</span> <span class="mi">2</span><span class="p">:</span>
                     <span class="c1"># start from the beginning</span>
                     <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
                     <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
@@ -714,7 +712,7 @@
                 <span class="k">else</span><span class="p">:</span>
                     <span class="c1"># start from the end</span>
                     <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_trailer</span><span class="o">.</span><span class="n">prev</span><span class="p">()</span>
-                    <span class="n">i</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">-</span> <span class="mi">1</span>
+                    <span class="n">i</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span>
                     <span class="k">while</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">pos</span><span class="p">:</span>
                         <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">prev</span><span class="p">()</span>
                         <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span>
@@ -740,9 +738,9 @@
         <span class="k">try</span><span class="p">:</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
                 <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;Empty data structure&quot;</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="n">pos1</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">pos1</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">elif</span> <span class="n">pos1</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">pos1</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;Index&quot;</span><span class="p">,</span> <span class="n">pos1</span><span class="p">,</span> <span class="s2">&quot;is out of range&quot;</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="n">pos2</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">pos2</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">elif</span> <span class="n">pos2</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">pos2</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;Index&quot;</span><span class="p">,</span> <span class="n">pos2</span><span class="p">,</span> <span class="s2">&quot;is out of range&quot;</span><span class="p">)</span>
             <span class="n">info_pos1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">pos1</span><span class="p">)</span>
             <span class="n">info_pos2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">pos2</span><span class="p">)</span>
@@ -771,7 +769,7 @@
         <span class="k">try</span><span class="p">:</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
                 <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;Empty data structure&quot;</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="n">start</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">end</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">-</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">start</span> <span class="o">&gt;</span> <span class="n">end</span><span class="p">:</span>
+            <span class="k">elif</span> <span class="n">start</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">end</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">start</span> <span class="o">&gt;</span> <span class="n">end</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid range: between [</span><span class="si">{</span><span class="n">start</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">end</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
             <span class="n">sub_lt</span> <span class="o">=</span> <span class="n">DoubleLinked</span><span class="p">(</span><span class="n">cmp_function</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cmp_function</span><span class="p">,</span>
                                   <span class="n">key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>

@@ -1890,8 +1890,8 @@ class TestDoubleLinked(unittest.TestCase):
             ans.append(elm)
         return ans
 
-    def test_default_singlelinked(self):
-        """*test_default_singlelinked()* prueba la inicialización de una lista sencillamente encadenada o *DoubleLinked* vacía.
+    def test_default_doublelinked(self):
+        """*test_default_doublelinked()* prueba la inicialización de una lista sencillamente encadenada o *DoubleLinked* vacía.
         """
         # Test an empty DoubleLinked
         dl_lt = DoubleLinked()
@@ -1937,8 +1937,8 @@ class TestDoubleLinked(unittest.TestCase):
                         # test all 3 conditions are true
                         assert all([res1, res2, res3])
 
-    def test_custom_singlelinked(self):
-        """*test_custom_singlelinked()* prueba la inicialización de una *DoubleLinked* personalizada con elementos de diferentes tipos.
+    def test_custom_doublelinked(self):
+        """*test_custom_doublelinked()* prueba la inicialización de una *DoubleLinked* personalizada con elementos de diferentes tipos.
         """
         # getting the global variables
         data_type_lt = self.global_params.get("CHECK_TYPE_LT")

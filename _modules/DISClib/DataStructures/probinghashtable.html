@@ -579,11 +579,7 @@
                                      <span class="bp">self</span><span class="o">.</span><span class="n">_shift</span><span class="p">,</span>
                                      <span class="bp">self</span><span class="o">.</span><span class="n">prime</span><span class="p">,</span>
                                      <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span><span class="p">)</span>
-                <span class="c1"># TODO do i need this?</span>
-                <span class="k">if</span> <span class="n">hkey</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">hkey</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span><span class="p">:</span>
-                    <span class="n">err_msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;The hash for the key: </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> &quot;</span>
-                    <span class="n">err_msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;is out of range fo capacity: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span><span class="si">}</span><span class="s2">&quot;</span>
-                    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">err_msg</span><span class="p">)</span>
+
                 <span class="c1"># check the entry slot availability in the hash table</span>
                 <span class="n">idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find_slot</span><span class="p">(</span><span class="n">hkey</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
                 <span class="c1"># if the idx is inside the hash table, update hash table stats</span>
@@ -654,7 +650,7 @@
 
 <div class="viewcode-block" id="LinearProbing.check_slots">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.probinghashtable.LinearProbing.check_slots">[documentos]</a>
-    <span class="k">def</span> <span class="nf">check_slots</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">SingleLinked</span><span class="p">[</span><span class="n">T</span><span class="p">]]:</span>
+    <span class="k">def</span> <span class="nf">check_slots</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SingleLinked</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*check_slots()* devuelve una lista (SingleLinked) con todas las entradas (parejas llave-valor) asociadas a la llave dentro del *LinearProbing*. Si no existe una entrada asociada, devuelve None.</span>
 
 <span class="sd">        Args:</span>
@@ -681,7 +677,7 @@
                                      <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span><span class="p">)</span>
                 <span class="n">entry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">hkey</span><span class="p">)</span>
                 <span class="c1"># adding the entry to the list if it&#39;s not empty</span>
-                <span class="k">if</span> <span class="n">entry</span><span class="o">.</span><span class="n">get_key</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">entry</span><span class="o">.</span><span class="n">get_key</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">entry</span><span class="o">.</span><span class="n">set_key</span><span class="p">()</span> <span class="o">!=</span> <span class="n">EMPTY</span><span class="p">:</span>
                     <span class="n">slots</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
                 <span class="c1"># checking the entry index in the hash table</span>
                 <span class="n">idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find_slot</span><span class="p">(</span><span class="n">hkey</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
@@ -690,7 +686,7 @@
                     <span class="c1"># get the bucket according to the index</span>
                     <span class="n">entry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
                     <span class="c1"># adding the entry to the list if it&#39;s not empty</span>
-                    <span class="k">if</span> <span class="n">entry</span><span class="o">.</span><span class="n">get_key</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">entry</span><span class="o">.</span><span class="n">get_key</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">entry</span><span class="o">.</span><span class="n">set_key</span><span class="p">()</span> <span class="o">!=</span> <span class="n">EMPTY</span><span class="p">:</span>
                         <span class="n">slots</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">slots</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
@@ -723,11 +719,7 @@
                                      <span class="bp">self</span><span class="o">.</span><span class="n">_shift</span><span class="p">,</span>
                                      <span class="bp">self</span><span class="o">.</span><span class="n">prime</span><span class="p">,</span>
                                      <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span><span class="p">)</span>
-                <span class="c1"># TODO do i need this?</span>
-                <span class="k">if</span> <span class="n">hkey</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">hkey</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
-                    <span class="n">err_msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;The hash for the key: </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> &quot;</span>
-                    <span class="n">err_msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;is out of range fo capacity: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span><span class="si">}</span><span class="s2">&quot;</span>
-                    <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="n">err_msg</span><span class="p">)</span>
+
                 <span class="c1"># finding the entry index in the hash table</span>
                 <span class="n">idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find_slot</span><span class="p">(</span><span class="n">hkey</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
                 <span class="c1"># if the entry is in the hashmap, remove it</span>

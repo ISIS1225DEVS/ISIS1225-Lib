@@ -269,7 +269,7 @@ Attributes
       :rtype: Optional[T]
 
 
-   .. py:method:: check_slots(key: DISClib.Utils.default.T) -> Optional[DISClib.DataStructures.singlelinkedlist.SingleLinked[DISClib.Utils.default.T]]
+   .. py:method:: check_slots(key: DISClib.Utils.default.T) -> DISClib.DataStructures.singlelinkedlist.SingleLinked[DISClib.Utils.default.T]
 
       *check_slots()* devuelve una lista (SingleLinked) con todas las entradas (parejas llave-valor) asociadas a la llave dentro del *LinearProbing*. Si no existe una entrada asociada, devuelve None.
 

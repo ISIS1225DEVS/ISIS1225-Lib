@@ -582,11 +582,7 @@
                                      <span class="bp">self</span><span class="o">.</span><span class="n">_shift</span><span class="p">,</span>
                                      <span class="bp">self</span><span class="o">.</span><span class="n">prime</span><span class="p">,</span>
                                      <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span><span class="p">)</span>
-                <span class="c1"># TODO do i need this?</span>
-                <span class="k">if</span> <span class="n">hkey</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">hkey</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
-                    <span class="n">err_msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;The hash for the key: </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> &quot;</span>
-                    <span class="n">err_msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;is out of range fo capacity: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span><span class="si">}</span><span class="s2">&quot;</span>
-                    <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="n">err_msg</span><span class="p">)</span>
+
                 <span class="c1"># checking the bucket</span>
                 <span class="n">bucket</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">hkey</span><span class="p">)</span>
                 <span class="n">idx</span> <span class="o">=</span> <span class="n">bucket</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
@@ -634,11 +630,7 @@
                                      <span class="bp">self</span><span class="o">.</span><span class="n">_shift</span><span class="p">,</span>
                                      <span class="bp">self</span><span class="o">.</span><span class="n">prime</span><span class="p">,</span>
                                      <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span><span class="p">)</span>
-                <span class="c1"># TODO do i need this?</span>
-                <span class="k">if</span> <span class="n">hkey</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">hkey</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
-                    <span class="n">err_msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;The hash for the key: </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> &quot;</span>
-                    <span class="n">err_msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;is out of range fo capacity: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span><span class="si">}</span><span class="s2">&quot;</span>
-                    <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="n">err_msg</span><span class="p">)</span>
+
                 <span class="c1"># checking the bucket</span>
                 <span class="n">bucket</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">hkey</span><span class="p">)</span>
                 <span class="n">idx</span> <span class="o">=</span> <span class="n">bucket</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
@@ -676,11 +668,7 @@
                                      <span class="bp">self</span><span class="o">.</span><span class="n">_shift</span><span class="p">,</span>
                                      <span class="bp">self</span><span class="o">.</span><span class="n">prime</span><span class="p">,</span>
                                      <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span><span class="p">)</span>
-                <span class="c1"># TODO do i need this?</span>
-                <span class="k">if</span> <span class="n">hkey</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">hkey</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
-                    <span class="n">err_msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;The hash for the key: </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> &quot;</span>
-                    <span class="n">err_msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;is out of range fo capacity: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span><span class="si">}</span><span class="s2">&quot;</span>
-                    <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="n">err_msg</span><span class="p">)</span>
+
                 <span class="c1"># checking the bucket</span>
                 <span class="n">bucket</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">hkey</span><span class="p">)</span>
                 <span class="k">return</span> <span class="n">bucket</span>
@@ -714,11 +702,7 @@
                                      <span class="bp">self</span><span class="o">.</span><span class="n">_shift</span><span class="p">,</span>
                                      <span class="bp">self</span><span class="o">.</span><span class="n">prime</span><span class="p">,</span>
                                      <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span><span class="p">)</span>
-                <span class="c1"># TODO do i need this?</span>
-                <span class="k">if</span> <span class="n">hkey</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">hkey</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
-                    <span class="n">err_msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;The hash for the key: </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> &quot;</span>
-                    <span class="n">err_msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;is out of range fo capacity: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span><span class="si">}</span><span class="s2">&quot;</span>
-                    <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="n">err_msg</span><span class="p">)</span>
+
                 <span class="c1"># checking the bucket</span>
                 <span class="n">bucket</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">hkey</span><span class="p">)</span>
                 <span class="k">if</span> <span class="ow">not</span> <span class="n">bucket</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>

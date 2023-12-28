@@ -73,20 +73,4 @@ Classes
       :rtype: T
 
 
-   .. py:method:: is_empty() -> bool
-
-      *is_empty()* informa si la pila Stack esta vacía o no.
-
-      :returns: operador que indica si la pila Stack esta vacía.
-      :rtype: bool
-
-
-   .. py:method:: size() -> int
-
-      *size()* Función que informa el número de elementos en la pila Stack.
-
-      :returns: número de elementos en el Stack.
-      :rtype: int
-
-
 

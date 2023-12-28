@@ -54,19 +54,19 @@ class testMapEntry(unittest.TestCase):
                 tkey = test_data.get("key")
                 tvalue = test_data.get("value")
                 entry = MapEntry(tkey, tvalue)
-                # assert the entry is not None
+                # test the entry is not None
                 assert entry is not None
-                # assert the key is not None
+                # test the key is not None
                 assert entry._key is not None
-                # assert the key is the same as the test data
+                # test the key is the same as the test data
                 assert entry._key == tkey
-                # assert the value is not None
+                # test the value is not None
                 assert entry._value is not None
-                # assert the value is the same as the test data
+                # test the value is the same as the test data
                 assert entry._value == tvalue
-                # assert the key is the same type as the test data
+                # test the key is the same type as the test data
                 assert isinstance(entry._key, dtype)
-                # assert the value is the same type as the test data
+                # test the value is the same type as the test data
                 assert isinstance(entry._value, dtype)
 
     def test_set_key(self):
@@ -82,14 +82,15 @@ class testMapEntry(unittest.TestCase):
                 test_data = self.global_params.get(key)
                 # create a new entry with the test data
                 tkey = test_data.get("key")
-                entry = MapEntry()
+                entry = MapEntry(_key=tkey)
                 entry.set_key(tkey)
-                # assert the key is the same as the test data
+                # test the key is the same as the test data
                 assert entry._key == tkey
-                # assert the key is the same type as the test data
+                assert entry.get_key() == tkey
+                # test the key is the same type as the test data
                 assert isinstance(
                     entry._key, dtype) and isinstance(tkey, dtype)
-                # assert value is still None
+                # test value is still None
                 assert entry._value is None
 
     def test_set_value(self):
@@ -105,13 +106,14 @@ class testMapEntry(unittest.TestCase):
                 test_data = self.global_params.get(key)
                 # create a new entry with the test data
                 tval = test_data.get("value")
-                entry = MapEntry()
+                entry = MapEntry(_value=tval)
                 entry.set_value(tval)
-                # assert the key is the same as the test data
+                # test the key is the same as the test data
                 assert entry._value == tval
-                # assert the key is the same type as the test data
+                assert entry.get_value() == tval
+                # test the key is the same type as the test data
                 assert isinstance(entry._value, dtype) and isinstance(tval, dtype)
-                # assert value is still None
+                # test value is still None
                 assert entry._key is None
 
     def test_get_key(self):
@@ -129,12 +131,12 @@ class testMapEntry(unittest.TestCase):
                 tkey = test_data.get("key")
                 entry = MapEntry(_key=tkey)
                 ckey = entry.get_key()
-                # assert the key is the same as the test data
+                # test the key is the same as the test data
                 assert entry._key == tkey and tkey == ckey
-                # assert the key is the same type as the test data
+                # test the key is the same type as the test data
                 assert isinstance(
                     entry._key, dtype) and isinstance(ckey, dtype)
-                # assert value is still None
+                # test value is still None
                 assert entry._value is None
 
     def test_get_value(self):
@@ -152,12 +154,12 @@ class testMapEntry(unittest.TestCase):
                 tval = test_data.get("vaLue")
                 entry = MapEntry(_value=tval)
                 cval = entry.get_value()
-                # assert the key is the same as the test data
+                # test the key is the same as the test data
                 assert entry._value == cval and tval == cval
-                # assert the key is the same type as the test data
+                # test the key is the same type as the test data
                 assert isinstance(
                     entry._value, dtype) and isinstance(cval, dtype)
-                # assert value is still None
+                # test value is still None
                 assert entry._key is None
 
     def test_check_key_type(self):
@@ -182,13 +184,17 @@ class testMapEntry(unittest.TestCase):
                     entry = MapEntry(_key=tkey)
                     # induce the error by changing the entry key type
                     entry.set_key(err)
-                # assert the type error is raised
+                # test the type error is raised
                 assert "Invalid data type" in str(excinfo.value)
-                # assert "for key data" in str(excinfo.value)
-                # assert the entry key is the same type as tkey
-                # assert isinstance(tkey, dtype)
-                # assert the entry key is not the same type as err
-                # assert dtype != err
+                assert "for key data" in str(excinfo.value)
+                # test the entry key is the same type as tkey
+                assert isinstance(tkey, dtype)
+                # test the entry key is not the same type as err
+                assert dtype != err
+                # test the key entry type is valid
+                entry = MapEntry(_key=tkey)
+                assert entry._key is not None
+                assert isinstance(entry.get_key(), dtype)
 
     def test_check_value_type(self):
         """test_check_value_type _summary_
@@ -213,10 +219,14 @@ class testMapEntry(unittest.TestCase):
                     entry = MapEntry(_value=tvalue)
                     # induce the error by changing the entry value type
                     entry.set_value(err)
-                # assert the type error is raised
+                # test the type error is raised
                 assert "Invalid data type" in str(excinfo.value)
                 assert "for value data" in str(excinfo.value)
-                # assert the entry value is the same type as tvalue
+                # test the entry value is the same type as tvalue
                 assert isinstance(tvalue, dtype)
-                # assert the entry value is not the same type as err
+                # test the entry value is not the same type as err
                 assert dtype != err
+                # test the key entry type is valid
+                entry = MapEntry(_value=tvalue)
+                assert entry._value is not None
+                assert isinstance(entry.get_value(), dtype)

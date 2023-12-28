@@ -563,7 +563,7 @@ class TestSeparateChaining(unittest.TestCase):
         with pytest.raises(Exception) as excinfo:
             # create a random entry
             rkey = random.randint(0, 100)
-            sc_ht.get(rkey)
+            sc_ht.check_bucket(rkey)
         # test for the exception type
         assert excinfo.type == IndexError
         # test for the exception message
@@ -1448,12 +1448,62 @@ class TestLinearProbing(unittest.TestCase):
         with pytest.raises(Exception) as excinfo:
             # create a random entry
             rkey = random.randint(0, 100)
-            lp_ht.remove(rkey)
+            lp_ht.check_slots(rkey)
         # test for the exception type
         assert excinfo.type == IndexError
         # test for the exception message
         assert "Empty data structure" in str(excinfo.value)
-        # TODO complete test_check_slots
+
+        # getting the global parameters data
+        # test data keys
+        param_lt = self.global_params.keys()
+        # key type list
+        data_ktype_lt = self.global_params.get("CHECK_KEY_TYPE_LT")
+        # value type list
+        data_vtype_lt = self.global_params.get("CHECK_VALUE_TYPE_LT")
+        # zip global params data
+        zip_lt = zip(param_lt,
+                     data_ktype_lt,
+                     data_vtype_lt)
+        # iterate over global param data to create a new LinearProbing
+        for key, ktype, vtype in zip_lt:
+            # ignore some keys from the global params
+            if key not in IGNORE_KEYS_LT:
+                # get input test data for current hash table
+                test_data = self.global_params.get(key)
+                tkey = "id"
+                # fix custom dict id key to keep test consistency
+                if key == "TEST_CUSTOM_DICT_LT":
+                    tkey = "uuid"
+                # create a new LinearProbing with the test data
+                lp_ht = LinearProbing(iodata=test_data,
+                                      key=tkey,
+                                      rehashable=False,
+                                      cmp_function=cmp_ht_test_function)
+                # iterate over the test data
+                for i in range(0, len(test_data) - 1):
+                    # get the current entry (key, value)
+                    ikey = test_data[i]
+                    # check the slot for the key
+                    # if the entry is a dict, get the proper key
+                    if key in ("TEST_CUSTOM_DICT_LT", "TEST_DICT_LT"):
+                        ikey = test_data[i].get(tkey)
+
+                    # check the slot for the key
+                    lp_ht_slots = self.sll_to_list(lp_ht.check_slots(ikey))
+                    lp_ht_keys = self.sll_to_list(lp_ht.keys())
+                    lp_ht_values = self.sll_to_list(lp_ht.values())
+                    # test for a linked list non empty
+                    assert len(lp_ht_slots) > 0
+
+                    for slot in lp_ht_slots:
+                        # test if the key is in the LinearProbing
+                        slotk = slot.get_key()
+                        slotv = slot.get_value()
+                        assert slotk in lp_ht_keys
+                        assert slotv in lp_ht_values
+                        assert type(slotk) is ktype
+                        assert type(slotv) is vtype
 
     def test_remove(self):
         """*test_remove()* prueba la función *remove()* del ADT *LinearProbing*.
@@ -1773,9 +1823,3 @@ class TestLinearProbing(unittest.TestCase):
                 assert new_nentries == cur_nentries
                 assert new_collisions <= cur_collisions
                 assert new_alpha >= cur_alpha
-
-    def test_find_slot(self):
-        """test_find_slot _summary_
-        """
-        # TODO implementar test_is_available
-        pass

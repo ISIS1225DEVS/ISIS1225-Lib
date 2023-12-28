@@ -186,7 +186,7 @@ class TestStack(unittest.TestCase):
             if key not in IGNORE_KEYS_LT:
                 test_data = self.global_params.get(key)
                 st_adt = Stack(iodata=test_data,
-                              key="uuid")
+                               key="uuid")
                 # testing Stack is not None
                 assert st_adt is not None
                 # testing Stack size is equal to test_data
@@ -322,23 +322,55 @@ class TestStack(unittest.TestCase):
                     # get the first element of the test data
                     t_data = test_data[i]
                     # add the element to the Stack
-                    st_adt.add_last(t_data)
+                    st_adt.push(t_data)
                     # get the first element of the Stack
-                    t_elem = st_adt.get_last()
-                    # testing Stack get_last() is equal to test_data
-                    assert t_elem == t_data
+                    t_elem1 = st_adt.top()
+                    t_elem2 = st_adt._trailer.prev().get_info()
+                    # testing Stack top() is equal to test_data
+                    assert t_elem1 == t_data and t_elem2 == t_data
                     # test if the Stack size is equal to test_len
                     assert (st_adt.size() == i + 1)
 
     def test_pop(self):
-        """test_pop _summary_
-        """
-        # get the global parameters
-        # params = self.global_params
+        """*test_pop()* prueba el método *pop()* de *Stack* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError* para estructuras de datos vacías y fuera del rango de índice. También comprueba si el elemento eliminado es el mismo que originalmente se encontraba en el índice."""
+        # create a new empty Stack
+        st_adt = Stack()
+        # force an exception in the get_first method
+        with pytest.raises(Exception) as excinfo:
+            st_adt.pop()
+        # test for the exception type
+        assert excinfo.type == IndexError
+        # test for the exception message
+        assert "Empty data structure" in str(excinfo.value)
 
-        # create the stack
-        stack = Stack()
-        assert stack is not None
+        # iterates over global params and create filled Stack
+        for key in self.global_params.keys():
+            # ignore 3 keys from the global params
+            if key not in IGNORE_KEYS_LT:
+                # get the test data
+                test_data = self.global_params.get(key)
+                # get the length of the test data
+                test_len = len(test_data)
+                # create a new Stack with the test data
+                st_adt = Stack(iodata=test_data)
+                # iterate over the test data
+                for i in range(0, len(test_data) - 1):
+                    # get the last element of the test data
+
+                    t_data = test_data[test_len - 1 - i]
+                    # remove the last element of the Stack
+                    t_elem3 = st_adt.get_last()
+                    t_elem2 = st_adt._trailer.prev().get_info()
+                    t_elem1 = st_adt.pop()
+                    # test if the removed element is equal to the last
+                    data_elem_lt = (
+                        t_elem1 == t_elem2,
+                        t_elem2 == t_elem3,
+                        t_elem3 == t_data
+                    )
+                    assert all(data_elem_lt)
+                    # test if the Stack size is equal to test_len
+                    assert (st_adt.size() == (test_len - i - 1))
 
     def test_top(self):
         """test_top _summary_
@@ -346,10 +378,39 @@ class TestStack(unittest.TestCase):
         # get the global parameters
         # params = self.global_params
 
-        # create the stack
-        stack = Stack()
-        assert stack is not None
+        """*test_top()* prueba el método *top()* de *Stack* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError*. También comprueba si el elemento recuperado es igual al índice de *Stack*.
+        """
+        # create a new empty Stack
+        st_adt = Stack()
+        # force an exception in the top method
+        with pytest.raises(Exception) as excinfo:
+            st_adt.top()
+        # test for the exception type
+        assert excinfo.type == IndexError
+        # test for the exception message
+        assert "Empty data structure" in str(excinfo.value)
 
-        # create the stack
-        stack = Stack()
-        assert stack is not None
+        # iterates over global params and create filled Stack
+        for key in self.global_params.keys():
+            # ignore 3 keys from the global params
+            if key not in IGNORE_KEYS_LT:
+                # get the test data
+                test_data = self.global_params.get(key)
+                # get the length of the test data
+                test_len = len(test_data)
+                # create a new Stack with the test data
+                st_adt = Stack(iodata=test_data)
+                # get the last element of the Stack
+                t_elem3 = st_adt.get_last()
+                t_elem2 = st_adt._trailer.prev().get_info()
+                t_elem1 = st_adt.top()
+                # test if the removed element is equal to the last
+                data_elem_lt = (
+                    t_elem1 == t_elem2,
+                    t_elem2 == t_elem3,
+                    t_elem3 == test_data[-1]
+                )
+                # testing Stack top() is equal to test_data
+                assert all(data_elem_lt)
+                # test if Stack size() is equal to test_len
+                assert (st_adt.size() == test_len)

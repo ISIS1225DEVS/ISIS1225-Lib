@@ -74,27 +74,3 @@ class Queue(SingleLinked):
             return self.get_first()
         except Exception as exp:
             self._handle_error(exp)
-
-    def is_empty(self) -> bool:
-        """*is_empty()* informa si la cola/fila Queue esta vacía o no.
-
-        Returns:
-            bool: operador que indica si la cola/fila Queue esta vacía.
-        """
-        # TODO do I need this method?, SingleLinked already has it
-        try:
-            return self._size == 0
-        except Exception as exp:
-            self._handle_error(exp)
-
-    def size(self) -> int:
-        """*size()* Función que informa el número de elementos en la fila/cola Queue.
-
-        Returns:
-            int: número de elementos en el Queue.
-        """
-        # TODO do I need this method?, SingleLinked already has it
-        try:
-            return self._size
-        except Exception as exp:
-            self._handle_error(exp)

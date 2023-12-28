@@ -3,6 +3,7 @@ from DISClib.ADT.stack import Stack
 from DISClib.ADT.lists import clone
 from DISClib.ADT.lists import translate
 from DISClib.ADT.queue import Queue
+# from DISClib.ADT.stack import Stack
 from DISClib.ADT.maps import Map
 import random
 # from DISClib.ADT.lists import List2
@@ -297,20 +298,20 @@ if __name__ == "__main__":
     print(m)
     print(m.check_slots("b"))
 
-    # TEST_SET_LT = [
-    #     {1, 2, 3},
-    #     {4, 5, 6},
-    #     {7, 8, 9},
-    #     {10, 11, 12},
-    #     {13, 14, 15},
-    #     {16, 17, 18},
-    #     {19, 20, 21},
-    #     {22, 23, 24},
-    #     {25, 26, 27},
-    #     {28, 29, 30},
-    #     {31, 32, 33},
-    #     {34, 35, 36},
-    # ]
+    TEST_SET_LT = [
+        {1, 2, 3},
+        {4, 5, 6},
+        {7, 8, 9},
+        {10, 11, 12},
+        {13, 14, 15},
+        {16, 17, 18},
+        {19, 20, 21},
+        {22, 23, 24},
+        {25, 26, 27},
+        {28, 29, 30},
+        {31, 32, 33},
+        {34, 35, 36},
+    ]
 
     # t_data = {1, 2, 3}
     # print(t_data, type(t_data))
@@ -368,10 +369,9 @@ if __name__ == "__main__":
     # res = search("Paul", test_list)
     # print(res)
 
-    # for i in reversed(test_lt_2):
-    #     print(i)
-    # trans = translate(test_lt_2, "SingleLinked")
-    # bb = Stack(cmp_function=cmp_test)
+    bb = Stack(iodata=TEST_SET_LT)
+    print(bb)
+        # cmp_function=cmp_test)
     # bbb = Stack(cmp_function=cmp_test)
     # bbb.push(22)
     # bbb.push(33)
@@ -382,6 +382,11 @@ if __name__ == "__main__":
     # print(bb.size())
     # print(bb.top())
     # a = bb.pop()
-    # # print(a, bb.top())
+    # # print(a)
 
-    # # bb.enqueue("value")
+    for e in TEST_SET_LT:
+        bb.push(e)
+
+    while bb.size() > 0:
+        print(bb.pop())
+    # bb.enqueue("value")

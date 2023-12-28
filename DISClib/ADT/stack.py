@@ -15,7 +15,7 @@ innecesaria.
 # import dataclass to define the array list
 from dataclasses import dataclass
 # import modules for defining the element's type in the array
-from typing import Generic, Optional
+from typing import Optional
 
 # custom modules
 # base datastructure for the queue
@@ -27,7 +27,7 @@ assert T
 
 
 @dataclass
-class Stack(DoubleLinked, Generic[T]):
+class Stack(DoubleLinked):
     """**Stack** representa una pila implementada sobre una lista doblemente encadenada (DoubleLinked), Generic[T] y @dataclass para que sea una estructura de datos genérica. Esta pila (Stack) es un Tipo Abstracto de Datos (TAD/ADT) que permite almacenar una colección de elementos y operarlos en el mismo orden en que fueron agregados (LIFO - Last In First Out).
 
     **IMPORTANTE:** *Stack* extiende de la clase *DoubleLinked*, por lo que hereda todos sus parametros internos y funciones.

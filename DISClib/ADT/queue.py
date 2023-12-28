@@ -16,7 +16,7 @@ innecesaria.
 # import dataclass to define the array list
 from dataclasses import dataclass
 # import modules for defining the element's type in the array
-from typing import Generic, Optional
+from typing import Optional
 
 # custom modules
 # base datastructure for the queue
@@ -28,7 +28,7 @@ assert T
 
 
 @dataclass
-class Queue(SingleLinked, Generic[T]):
+class Queue(SingleLinked):
     """**Queue** representa una cola implementada sobre una lista sencillamente encadenada (SingleLinked), Generic[T] y @dataclass para que sea una estructura de datos genérica. Esta cola o fila (queue) es un Tipo Abstracto de Datos (TAD/ADT) que permite almacenar una colección de elementos y operarlos en el mismo orden en que fueron agregados (FIFO - Firts In First Out).
 
     *IMPORTANTE:* 'Queue' extiende de la clase 'SingleLinked', por lo que hereda todos sus parametros internos y funciones.

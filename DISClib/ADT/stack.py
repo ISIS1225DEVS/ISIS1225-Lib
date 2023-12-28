@@ -34,7 +34,6 @@ class Stack(DoubleLinked):
 
     Args:
         DoubleLinked (dataclass): ADT DISClib que implementa las funciones básicas de una lista doblemente encadenada.
-        Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.
 
     Returns:
         Stack: ADT de tipo Stack o Pila, implementado sobre una lista doblemente encadenada.

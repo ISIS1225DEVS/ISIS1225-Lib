@@ -35,7 +35,6 @@ class Queue(SingleLinked):
 
     Args:
         SingleLinked (dataclass): ADT DISClib que implementa las funciones básicas de una lista sencillamente encadenada.
-        Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.
 
     Returns:
         Queue: ADT de tipo Queue, Cola o Fila, implementado sobre una lista sencillamente encadenada.

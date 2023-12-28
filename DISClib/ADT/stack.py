@@ -73,27 +73,3 @@ class Stack(DoubleLinked):
             return self.get_last()
         except Exception as exp:
             self._handle_error(exp)
-
-    def is_empty(self) -> bool:
-        """*is_empty()* informa si la pila Stack esta vacía o no.
-
-        Returns:
-            bool: operador que indica si la pila Stack esta vacía.
-        """
-        # TODO do I need this method?, DoubleLinked already has it
-        try:
-            return self._size == 0
-        except Exception as exp:
-            self._handle_error(exp)
-
-    def size(self) -> int:
-        """*size()* Función que informa el número de elementos en la pila Stack.
-
-        Returns:
-            int: número de elementos en el Stack.
-        """
-        # TODO do I need this method?, DoubleLinked already has it
-        try:
-            return self._size
-        except Exception as exp:
-            self._handle_error(exp)

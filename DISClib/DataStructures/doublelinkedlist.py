@@ -80,7 +80,6 @@ class DoubleLinked(Generic[T]):
     """
 
     # by default, the list is empty, -1 for the header and trailer nodes
-    # FIXME inconsistent use between _size and size()
     # :attr: _size
     _size: int = -1
     """
@@ -172,7 +171,7 @@ class DoubleLinked(Generic[T]):
         """
         # TODO change the method name to "empty" or @property "empty"?
         try:
-            if self._size > 0:
+            if self.size() > 0:
                 return False
             return True
         except Exception as err:
@@ -260,11 +259,11 @@ class DoubleLinked(Generic[T]):
         try:
             if not self.is_empty():
                 if self._check_type(element):
-                    if pos < 0 or pos > self._size:
+                    if pos < 0 or pos > self.size():
                         raise IndexError("Position is out of range")
                 if pos == 0:
                     self.add_first(element)
-                elif pos == self._size:
+                elif pos == self.size():
                     self.add_last(element)
                 else:
                     i = 0
@@ -345,10 +344,10 @@ class DoubleLinked(Generic[T]):
             info = None
             if self.is_empty():
                 raise IndexError("Empty data structure")
-            elif pos < 0 or pos > self._size - 1:
+            elif pos < 0 or pos > self.size() - 1:
                 raise IndexError("Index", pos, "is out of range")
             else:
-                if pos < self._size // 2:
+                if pos < self.size() // 2:
                     # Start from the beginning
                     i = 0
                     current = self._header.next()
@@ -380,13 +379,13 @@ class DoubleLinked(Generic[T]):
             info = None
             if self.is_empty():
                 raise IndexError("Empty data structure")
-            if self._size > 0 and self._header.next() is not None:
+            if self.size() > 0 and self._header.next() is not None:
                 first = self._header.next()
                 self._header._next = first.next()
                 first.next()._prev = self._header
                 self._size -= 1
                 # if the list is empty, reset the sentinel nodes
-                if self._size == 0:
+                if self.size() == 0:
                     self._header.next = self._trailer
                     self._trailer.prev = self._header
                     self._size = -1
@@ -408,13 +407,13 @@ class DoubleLinked(Generic[T]):
             info = None
             if self.is_empty():
                 raise IndexError("Empty data structure")
-            if self._size > 0 and self._trailer.prev() is not None:
+            if self.size() > 0 and self._trailer.prev() is not None:
                 last = self._trailer.prev()
                 self._trailer._prev = last.prev()
                 last.prev()._next = self._trailer
                 self._size -= 1
                 # if the list is empty, reset the sentinel nodes
-                if self._size == 0:
+                if self.size() == 0:
                     self._header.next = self._trailer
                     self._trailer.prev = self._header
                     self._size = -1
@@ -441,16 +440,16 @@ class DoubleLinked(Generic[T]):
             info = None
             if self.is_empty():
                 raise IndexError("Empty data structure")
-            if pos < 0 or pos > self._size - 1:
+            if pos < 0 or pos > self.size() - 1:
                 raise IndexError(f"Index {pos} is out of range")
             # Determine where to start based on the position
             # if there is only one element, link the sentinel nodes
-            if self._size == 1:
+            if self.size() == 1:
                 info = self._header.next().get_info()
                 self._header._next = self._trailer
                 self._trailer._prev = self._header
-                # self._size = -1
-            elif pos < self._size // 2:
+                # self.size() = -1
+            elif pos < self.size() // 2:
                 # Start from the beginning
                 i = 0
                 current = self._header.next()
@@ -510,14 +509,13 @@ class DoubleLinked(Generic[T]):
             int: la posición del elemento en el DoubleLinked, -1 si no está.
         """
         try:
-            lt_size = self.size()
             pos = -1
-            if lt_size > 0:
+            if self.size() > 0:
                 # setting the current node by the header
                 node = self._header.next()
                 found = False
                 i = 0
-                while not found and i < lt_size:
+                while not found and i < self.size():
                     data = node.get_info()
                     if self.compare_elements(element, data) == 0:
                         found = True
@@ -551,7 +549,7 @@ class DoubleLinked(Generic[T]):
             # if not self._check_type(new_info):
             elif self._check_type(new_info):
                 # raise TypeError("Invalid element type")
-                if pos < self._size // 2:
+                if pos < self.size() // 2:
                     # start from the beginning
                     current = self._header.next()
                     i = 0
@@ -561,7 +559,7 @@ class DoubleLinked(Generic[T]):
                 else:
                     # start from the end
                     current = self._trailer.prev()
-                    i = self._size - 1
+                    i = self.size() - 1
                     while i != pos:
                         current = current.prev()
                         i -= 1
@@ -584,9 +582,9 @@ class DoubleLinked(Generic[T]):
         try:
             if self.is_empty():
                 raise IndexError("Empty data structure")
-            elif pos1 < 0 or pos1 > self._size - 1:
+            elif pos1 < 0 or pos1 > self.size() - 1:
                 raise IndexError("Index", pos1, "is out of range")
-            elif pos2 < 0 or pos2 > self._size - 1:
+            elif pos2 < 0 or pos2 > self.size() - 1:
                 raise IndexError("Index", pos2, "is out of range")
             info_pos1 = self.get_element(pos1)
             info_pos2 = self.get_element(pos2)
@@ -612,7 +610,7 @@ class DoubleLinked(Generic[T]):
         try:
             if self.is_empty():
                 raise IndexError("Empty data structure")
-            elif start < 0 or end > self._size - 1 or start > end:
+            elif start < 0 or end > self.size() - 1 or start > end:
                 raise IndexError(f"Invalid range: between [{start}, {end}]")
             sub_lt = DoubleLinked(cmp_function=self.cmp_function,
                                   key=self.key)

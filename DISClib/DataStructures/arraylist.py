@@ -71,7 +71,6 @@ class ArrayList(Generic[T]):
     """
 
     # by default, the list is empty
-    # FIXME inconsistent use between _size and size()
     # :attr: _size
     _size: int = 0
     """
@@ -160,7 +159,7 @@ class ArrayList(Generic[T]):
         """
         # TODO change the method name to "empty" or @property "empty"?
         try:
-            return self._size == 0
+            return self.size() == 0
         except Exception as err:
             self._handle_error(err)
 
@@ -226,7 +225,7 @@ class ArrayList(Generic[T]):
         try:
             if not self.is_empty():
                 if self._check_type(element):
-                    if pos < 0 or pos > self._size:
+                    if pos < 0 or pos > self.size():
                         raise IndexError(f"Index {pos} is out of range")
                     self.elements.insert(pos, element)
                     self._size += 1
@@ -263,7 +262,7 @@ class ArrayList(Generic[T]):
         try:
             if self.is_empty():
                 raise IndexError("Empty data structure")
-            return self.elements[self._size - 1]
+            return self.elements[self.size() - 1]
         except Exception as err:
             self._handle_error(err)
 
@@ -284,7 +283,7 @@ class ArrayList(Generic[T]):
         try:
             if self.is_empty():
                 raise IndexError("Empty data structure")
-            elif pos < 0 or pos > self._size - 1:
+            elif pos < 0 or pos > self.size() - 1:
                 raise IndexError(f"Index {pos} is out of range")
             return self.elements[pos]
         except Exception as err:
@@ -320,7 +319,7 @@ class ArrayList(Generic[T]):
         try:
             if self.is_empty():
                 raise IndexError("Empty data structure")
-            element = self.elements.pop(self._size - 1)
+            element = self.elements.pop(self.size() - 1)
             self._size -= 1
             return element
         except Exception as err:
@@ -343,7 +342,7 @@ class ArrayList(Generic[T]):
         try:
             if self.is_empty():
                 raise IndexError("Empty data structure")
-            elif pos < 0 or pos > self._size - 1:
+            elif pos < 0 or pos > self.size() - 1:
                 raise IndexError(f"Index {pos} is out of range")
             element = self.elements.pop(pos)
             self._size -= 1
@@ -388,11 +387,10 @@ class ArrayList(Generic[T]):
         """
         try:
             pos = -1
-            lt_size = self.size()
-            if lt_size > 0:
+            if self.size() > 0:
                 found = False
                 i = 0
-                while not found and i < lt_size - 1:
+                while not found and i < self.size() - 1:
                     data = self.get_element(i)
                     if self.compare_elements(element, data) == 0:
                         found = True
@@ -417,7 +415,7 @@ class ArrayList(Generic[T]):
         try:
             if self.is_empty():
                 raise IndexError("Empty data structure")
-            elif pos < 0 or pos > self._size - 1:
+            elif pos < 0 or pos > self.size() - 1:
                 raise IndexError(f"Index {pos} is out of range")
             # if not self._check_type(new_info):
             elif self._check_type(new_info):
@@ -441,9 +439,9 @@ class ArrayList(Generic[T]):
         try:
             if self.is_empty():
                 raise IndexError("Empty data structure")
-            elif pos1 < 0 or pos1 > self._size - 1:
+            elif pos1 < 0 or pos1 > self.size() - 1:
                 raise IndexError(f"Index {pos1} is out of range")
-            elif pos2 < 0 or pos2 > self._size - 1:
+            elif pos2 < 0 or pos2 > self.size() - 1:
                 raise IndexError(f"Index {pos2} is out of range")
             info_pos1 = self.get_element(pos1)
             info_pos2 = self.get_element(pos2)
@@ -469,7 +467,7 @@ class ArrayList(Generic[T]):
         try:
             if self.is_empty():
                 raise IndexError("Empty data structure")
-            elif start < 0 or end > self._size - 1 or start > end:
+            elif start < 0 or end > self.size() - 1 or start > end:
                 raise IndexError(f"Invalid range: between [{start}, {end}]")
             sub_lt = ArrayList(cmp_function=self.cmp_function,
                                key=self.key)
@@ -479,7 +477,6 @@ class ArrayList(Generic[T]):
                 if self._check_type(element):
                     sub_lt.add_last(element)
                 i += 1
-            # sub_lt._size = len(sub_lt.elements)
             return sub_lt
         except (IndexError, TypeError) as err:
             self._handle_error(err)
@@ -515,7 +512,7 @@ class ArrayList(Generic[T]):
             # concatenate the elements of the two lists
             self.elements = self.elements + other.elements
             # update the size of the new list
-            self._size = self._size + other._size
+            self._size = self.size() + other.size()
             return self
         except TypeError as err:
             self._handle_error(err)

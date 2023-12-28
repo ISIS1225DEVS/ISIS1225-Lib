@@ -79,7 +79,6 @@ class SingleLinked(Generic[T]):
     """
 
     # by default, the list is empty
-    # FIXME inconsistent use between _size and size()
     # :attr: _size
     _size: int = 0
     """
@@ -173,7 +172,7 @@ class SingleLinked(Generic[T]):
         """
         # TODO change the method name to "empty" or @property "empty"?
         try:
-            return self._size == 0
+            return self.size() == 0
         except Exception as err:
             self._handle_error(err)
 
@@ -206,7 +205,7 @@ class SingleLinked(Generic[T]):
                 new_node = SingleNode(element)
                 new_node._next = self.first
                 self.first = new_node
-                if self._size == 0:
+                if self.size() == 0:
                     self.last = self.first
                 self._size += 1
         except Exception as err:
@@ -226,7 +225,7 @@ class SingleLinked(Generic[T]):
             if self._check_type(element):
                 # create a new node
                 new_node = SingleNode(element)
-                if self._size == 0:
+                if self.size() == 0:
                     self.first = new_node
                 else:
                     self.last._next = new_node
@@ -250,7 +249,7 @@ class SingleLinked(Generic[T]):
         try:
             if not self.is_empty():
                 if self._check_type(element):
-                    if pos < 0 or pos > self._size:
+                    if pos < 0 or pos > self.size():
                         raise IndexError("Position is out of range")
                     # create a new node
                     new_node = SingleNode(element)
@@ -338,7 +337,7 @@ class SingleLinked(Generic[T]):
             info = None
             if self.is_empty():
                 raise IndexError("Empty data structure")
-            elif pos < 0 or pos > self._size - 1:
+            elif pos < 0 or pos > self.size() - 1:
                 raise IndexError("Index", pos, "is out of range")
             else:
                 current = self.first
@@ -365,12 +364,12 @@ class SingleLinked(Generic[T]):
             info = None
             if self.is_empty():
                 raise IndexError("Empty data structure")
-            if self._size > 0 and self.first is not None:
+            if self.size() > 0 and self.first is not None:
                 temp = self.first.next()
                 node = self.first
                 self.first = temp
                 self._size -= 1
-                if self._size == 0:
+                if self.size() == 0:
                     self.last = None
                     self.first = None
                 info = node.get_info()
@@ -391,7 +390,7 @@ class SingleLinked(Generic[T]):
             info = None
             if self.is_empty():
                 raise IndexError("Empty data structure")
-            if self._size > 0 and self.last is not None:
+            if self.size() > 0 and self.last is not None:
                 if self.first == self.last:
                     node = self.first
                     self.last = None
@@ -427,7 +426,7 @@ class SingleLinked(Generic[T]):
             info = None
             if self.is_empty():
                 raise IndexError("Empty data structure")
-            if pos < 0 or pos > self._size - 1:
+            if pos < 0 or pos > self.size() - 1:
                 raise IndexError(f"Index {pos} is out of range")
             current = self.first
             prev = self.first
@@ -484,13 +483,12 @@ class SingleLinked(Generic[T]):
             int: la posición del elemento en el SingleLinked, -1 si no está.
         """
         try:
-            lt_size = self.size()
             pos = -1
-            if lt_size > 0:
+            if self.size() > 0:
                 node = self.first
                 found = False
                 i = 0
-                while not found and i < lt_size:
+                while not found and i < self.size():
                     data = node.get_info()
                     if self.compare_elements(element, data) == 0:
                         found = True
@@ -546,9 +544,9 @@ class SingleLinked(Generic[T]):
         try:
             if self.is_empty():
                 raise IndexError("Empty data structure")
-            elif pos1 < 0 or pos1 > self._size - 1:
+            elif pos1 < 0 or pos1 > self.size() - 1:
                 raise IndexError("Index", pos1, "is out of range")
-            elif pos2 < 0 or pos2 > self._size - 1:
+            elif pos2 < 0 or pos2 > self.size() - 1:
                 raise IndexError("Index", pos2, "is out of range")
             info_pos1 = self.get_element(pos1)
             info_pos2 = self.get_element(pos2)
@@ -574,7 +572,7 @@ class SingleLinked(Generic[T]):
         try:
             if self.is_empty():
                 raise IndexError("Empty data structure")
-            elif start < 0 or end > self._size - 1 or start > end:
+            elif start < 0 or end > self.size() - 1 or start > end:
                 raise IndexError(f"Invalid range: between [{start}, {end}]")
             sub_lt = SingleLinked(cmp_function=self.cmp_function,
                                   key=self.key)

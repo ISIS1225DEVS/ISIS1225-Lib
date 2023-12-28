@@ -48,8 +48,14 @@ def books():
 
 @pytest.fixture
 def queue():
-    queue = q.newQueue('SINGLE_LINKED')
+    queue = q.newQueue('ARRAY_LIST')
     return queue
+
+
+# @pytest.fixture
+# def queue():
+#     queue = q.newQueue('SINGLE_LINKED')
+#     return queue
 
 
 def test_queueElements(queue, books):
@@ -206,3 +212,12 @@ def test_enqueue_dequeue(queue, books):
     assert books[9] == q.dequeue(queue)
 
     assert (q.size(queue) == 0)
+
+
+def test_error_dequeue(queue, books):
+    """
+    Este test busca comprobar que es imposible eliminar un objeto de
+    una cola vacia
+    """
+    with pytest.raises(Exception):
+        q.dequeue(queue)

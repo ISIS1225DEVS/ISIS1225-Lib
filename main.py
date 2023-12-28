@@ -5,6 +5,7 @@ from DISClib.ADT.lists import translate
 from DISClib.ADT.queue import Queue
 # from DISClib.ADT.stack import Stack
 from DISClib.ADT.maps import Map
+from DISClib.DataStructures.mapentry import MapEntry
 import random
 # from DISClib.ADT.lists import List2
 from dataclasses import dataclass
@@ -390,3 +391,10 @@ if __name__ == "__main__":
     while bb.size() > 0:
         print(bb.pop())
     # bb.enqueue("value")
+
+    en = MapEntry(_key=1, _value="one")
+    print(en)
+    print(type(en))
+    print(en.get_key())
+    print(en.get_value())
+    # en.set_value(2)

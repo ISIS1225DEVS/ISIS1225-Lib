@@ -113,9 +113,8 @@ class MapEntry(Generic[T]):
         Args:
             key (T): la nueva llave del registro del mapa.
         """
-        if self._key is not None:
-            self._check_key_type(key)
-        self._key = key
+        if self._key is not None and self._check_key_type(key):
+            self._key = key
 
     def set_value(self, value: T) -> None:
         """*set_value()* introduce un nuevo valor 'value' al registro del mapa.
@@ -123,9 +122,8 @@ class MapEntry(Generic[T]):
         Args:
             value (T): el nuevo valor del registro del mapa.
         """
-        if self._value is not None:
-            self._check_value_type(value)
-        self._value = value
+        if self._value is not None and self._check_value_type(value):
+            self._value = value
 
     def get_key(self) -> T:
         """*get_key()* recupera la llave 'key' contenida en el registro del mapa.

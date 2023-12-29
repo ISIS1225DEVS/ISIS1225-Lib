@@ -865,14 +865,14 @@ innecesaria.</p>
 <dt class="sig sig-object py" id="DISClib.ADT.queue.Queue">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DISClib.ADT.queue.</span></span><span class="sig-name descname"><span class="pre">Queue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iodata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmp_function</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="autoapi/DISClib/DataStructures/listnode/index.html#DISClib.DataStructures.listnode.SingleNode" title="DISClib.DataStructures.listnode.SingleNode"><span class="pre">SingleNode</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="autoapi/DISClib/DataStructures/listnode/index.html#DISClib.DataStructures.listnode.SingleNode" title="DISClib.DataStructures.listnode.SingleNode"><span class="pre">SingleNode</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/ADT/queue.html#Queue"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.queue.Queue" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="autoapi/DISClib/DataStructures/singlelinkedlist/index.html#DISClib.DataStructures.singlelinkedlist.SingleLinked" title="DISClib.DataStructures.singlelinkedlist.SingleLinked"><code class="xref py py-class docutils literal notranslate"><span class="pre">SingleLinked</span></code></a></p>
-<p><strong>Queue</strong> representa una cola implementada sobre una lista sencillamente encadenada (SingleLinked), Generic[T] y &#64;dataclass para que sea una estructura de datos genérica. Esta cola o fila (queue) es un Tipo Abstracto de Datos (TAD/ADT) que permite almacenar una colección de elementos y operarlos en el mismo orden en que fueron agregados (FIFO - Firts In First Out).</p>
-<p><em>IMPORTANTE:</em> “Queue” extiende de la clase “SingleLinked”, por lo que hereda todos sus parametros internos y funciones.</p>
+<p><strong>Queue</strong> representa una cola implementada sobre una lista sencillamente encadenada (<em>SingleLinked</em>) y &#64;dataclass para que sea una estructura de datos genérica. Esta cola o fila (<em>Queue</em>) es un Tipo Abstracto de Datos (TAD/ADT) que permite almacenar una colección de elementos y operarlos en el mismo orden en que fueron agregados (FIFO - Firts In First Out).</p>
+<p><em>IMPORTANTE:</em> <em>Queue</em> extiende de la clase <em>SingleLinked</em>, por lo que hereda todos sus parametros internos y funciones.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>SingleLinked</strong> (<em>dataclass</em>) – ADT DISClib que implementa las funciones básicas de una lista sencillamente encadenada.</p>
+<dd class="field-odd"><p><strong>SingleLinked</strong> (<em>dataclass</em>) – ADT <em>DISClib</em> que implementa las funciones básicas de una lista sencillamente encadenada.</p>
 </dd>
 <dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>ADT de tipo Queue, Cola o Fila, implementado sobre una lista sencillamente encadenada.</p>
+<dd class="field-even"><p>ADT de tipo <em>Queue</em>, Cola o Fila, implementado sobre una lista sencillamente encadenada.</p>
 </dd>
 <dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="autoapi/DISClib/ADT/queue/index.html#DISClib.ADT.queue.Queue" title="DISClib.ADT.queue.Queue">Queue</a></p>
@@ -881,10 +881,10 @@ innecesaria.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.ADT.queue.Queue.dequeue">
 <span class="sig-name descname"><span class="pre">dequeue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/DISClib/ADT/queue.html#Queue.dequeue"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.queue.Queue.dequeue" title="Link to this definition"></a></dt>
-<dd><p><em>dequeue()</em> elimina y retorna el elemento en la primer posición de la cola/fila Queue.</p>
+<dd><p><em>dequeue()</em> desencola o remueve el elemento en la primera posición del ADT <em>Queue</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>el elemento en la primera posición de la cola/fila Queue.</p>
+<dd class="field-odd"><p>el elemento de la primera posición del ADT <em>Queue</em>.</p>
 </dd>
 <dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-even"><p>T</p>
@@ -895,10 +895,10 @@ innecesaria.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.ADT.queue.Queue.enqueue">
 <span class="sig-name descname"><span class="pre">enqueue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/DISClib/ADT/queue.html#Queue.enqueue"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.queue.Queue.enqueue" title="Link to this definition"></a></dt>
-<dd><p><em>enqueue()</em> agrega un elemento en el final de la cola/fila (Queue).</p>
+<dd><p><em>enqueue()</em> encola o agrega un elemento en el final del ADT <em>Queue</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>element</strong> (<em>T</em>) – elemento que se quiere agregar al Queue.</p>
+<dd class="field-odd"><p><strong>element</strong> (<em>T</em>) – el elemento que se quiere agregar al ADT <em>Queue</em>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -906,10 +906,10 @@ innecesaria.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.ADT.queue.Queue.peek">
 <span class="sig-name descname"><span class="pre">peek</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/DISClib/ADT/queue.html#Queue.peek"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.queue.Queue.peek" title="Link to this definition"></a></dt>
-<dd><p><em>peek()</em> lee el primer elemento de la cola/fila Queue sin eliminarlo.</p>
+<dd><p><em>peek()</em> lee el primer elemento del ADT <em>Queue</em> sin eliminarlo.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>elemento en la primer posición de la cola/fila Queue.</p>
+<dd class="field-odd"><p>el elemento en la primera posición del ADT <em>Queue</em>.</p>
 </dd>
 <dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-even"><p>T</p>
@@ -938,14 +938,14 @@ innecesaria.</p>
 <dt class="sig sig-object py" id="DISClib.ADT.stack.Stack">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DISClib.ADT.stack.</span></span><span class="sig-name descname"><span class="pre">Stack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">iodata:</span> <span class="pre">~typing.List[~DISClib.Utils.default.T]</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">cmp_function:</span> <span class="pre">~typing.Callable[[~DISClib.Utils.default.T,</span> <span class="pre">~DISClib.Utils.default.T],</span> <span class="pre">int]</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">_header:</span> <span class="pre">~DISClib.DataStructures.listnode.DoubleNode[~DISClib.Utils.default.T]</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;,</span> <span class="pre">_trailer:</span> <span class="pre">~DISClib.DataStructures.listnode.DoubleNode[~DISClib.Utils.default.T]</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;,</span> <span class="pre">key:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">_size:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">-1</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/ADT/stack.html#Stack"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.stack.Stack" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked" title="DISClib.DataStructures.doublelinkedlist.DoubleLinked"><code class="xref py py-class docutils literal notranslate"><span class="pre">DoubleLinked</span></code></a></p>
-<p><strong>Stack</strong> representa una pila implementada sobre una lista doblemente encadenada (DoubleLinked), Generic[T] y &#64;dataclass para que sea una estructura de datos genérica. Esta pila (Stack) es un Tipo Abstracto de Datos (TAD/ADT) que permite almacenar una colección de elementos y operarlos en el mismo orden en que fueron agregados (LIFO - Last In First Out).</p>
+<p><strong>Stack</strong> representa una pila implementada sobre una lista doblemente encadenada (<em>DoubleLinked</em>) y &#64;dataclass para que sea una estructura de datos genérica. Esta pila (<em>Stack</em>) es un Tipo Abstracto de Datos (TAD/ADT) que permite almacenar una colección de elementos y operarlos en el mismo orden en que fueron agregados (LIFO - Last In First Out).</p>
 <p><strong>IMPORTANTE:</strong> <em>Stack</em> extiende de la clase <em>DoubleLinked</em>, por lo que hereda todos sus parametros internos y funciones.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>DoubleLinked</strong> (<em>dataclass</em>) – ADT DISClib que implementa las funciones básicas de una lista doblemente encadenada.</p>
+<dd class="field-odd"><p><strong>DoubleLinked</strong> (<em>dataclass</em>) – ADT <em>DISClib</em> que implementa las funciones básicas de una lista doblemente encadenada.</p>
 </dd>
 <dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>ADT de tipo Stack o Pila, implementado sobre una lista doblemente encadenada.</p>
+<dd class="field-even"><p>ADT de tipo <em>Stack</em> o Pila, implementado sobre una lista doblemente encadenada.</p>
 </dd>
 <dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="autoapi/DISClib/ADT/stack/index.html#DISClib.ADT.stack.Stack" title="DISClib.ADT.stack.Stack">Stack</a></p>
@@ -954,10 +954,10 @@ innecesaria.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.ADT.stack.Stack.pop">
 <span class="sig-name descname"><span class="pre">pop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/DISClib/ADT/stack.html#Stack.pop"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.stack.Stack.pop" title="Link to this definition"></a></dt>
-<dd><p><em>pop()</em> elimina y retorna el elemento en tope de la pila (Stack).</p>
+<dd><p><em>pop()</em> elimina o remueve el elemento en tope del ADT <em>Stack</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>el elemento en en el tope de la pila (Stack).</p>
+<dd class="field-odd"><p>el elemento de la posición más alta (tope) del ADT <em>Stack</em>.</p>
 </dd>
 <dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-even"><p>T</p>
@@ -968,10 +968,10 @@ innecesaria.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.ADT.stack.Stack.push">
 <span class="sig-name descname"><span class="pre">push</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/DISClib/ADT/stack.html#Stack.push"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.stack.Stack.push" title="Link to this definition"></a></dt>
-<dd><p><em>push()</em> agrega un elemento en el tope de la pila (Stack).</p>
+<dd><p><em>push()</em> inserta o agrega un elemento en el tope del <em>Stack</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>element</strong> (<em>T</em>) – elemento que se quiere agregar al Stack.</p>
+<dd class="field-odd"><p><strong>element</strong> (<em>T</em>) – el elemento que se quiere agregar al <em>Stack</em>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -979,10 +979,10 @@ innecesaria.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.ADT.stack.Stack.top">
 <span class="sig-name descname"><span class="pre">top</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/DISClib/ADT/stack.html#Stack.top"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.stack.Stack.top" title="Link to this definition"></a></dt>
-<dd><p><em>top()</em> retorna el elemento en el tope de la pila (Stack).</p>
+<dd><p><em>top()</em> lee el elemento ubicado en el tope del ADT <em>Stack</em> sin eliminarlo.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>el elemento en la primera posición de la pila (Stack).</p>
+<dd class="field-odd"><p>el elemento en la posición más alta (tope) del ADT <em>Stack</em>.</p>
 </dd>
 <dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-even"><p>T</p>

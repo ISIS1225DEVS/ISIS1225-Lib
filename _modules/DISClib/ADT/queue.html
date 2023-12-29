@@ -95,7 +95,7 @@
 <span class="c1"># native python modules</span>
 <span class="c1"># import dataclass to define the array list</span>
 <span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
-<span class="c1"># import modules for defining the element&#39;s type in the array</span>
+<span class="c1"># import modules for defining the elements type in the array</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
 
 <span class="c1"># custom modules</span>
@@ -111,24 +111,24 @@
 <div class="viewcode-block" id="Queue">
 <a class="viewcode-back" href="../../../autoapi/DISClib/ADT/queue/index.html#DISClib.ADT.queue.Queue">[documentos]</a>
 <span class="k">class</span> <span class="nc">Queue</span><span class="p">(</span><span class="n">SingleLinked</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;**Queue** representa una cola implementada sobre una lista sencillamente encadenada (SingleLinked), Generic[T] y @dataclass para que sea una estructura de datos genérica. Esta cola o fila (queue) es un Tipo Abstracto de Datos (TAD/ADT) que permite almacenar una colección de elementos y operarlos en el mismo orden en que fueron agregados (FIFO - Firts In First Out).</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;**Queue** representa una cola implementada sobre una lista sencillamente encadenada (*SingleLinked*) y @dataclass para que sea una estructura de datos genérica. Esta cola o fila (*Queue*) es un Tipo Abstracto de Datos (TAD/ADT) que permite almacenar una colección de elementos y operarlos en el mismo orden en que fueron agregados (FIFO - Firts In First Out).</span>
 
-<span class="sd">    *IMPORTANTE:* &#39;Queue&#39; extiende de la clase &#39;SingleLinked&#39;, por lo que hereda todos sus parametros internos y funciones.</span>
+<span class="sd">    *IMPORTANTE:* *Queue* extiende de la clase *SingleLinked*, por lo que hereda todos sus parametros internos y funciones.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        SingleLinked (dataclass): ADT DISClib que implementa las funciones básicas de una lista sencillamente encadenada.</span>
+<span class="sd">        SingleLinked (dataclass): ADT *DISClib* que implementa las funciones básicas de una lista sencillamente encadenada.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        Queue: ADT de tipo Queue, Cola o Fila, implementado sobre una lista sencillamente encadenada.</span>
+<span class="sd">        Queue: ADT de tipo *Queue*, Cola o Fila, implementado sobre una lista sencillamente encadenada.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="Queue.enqueue">
 <a class="viewcode-back" href="../../../autoapi/DISClib/ADT/queue/index.html#DISClib.ADT.queue.Queue.enqueue">[documentos]</a>
     <span class="k">def</span> <span class="nf">enqueue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*enqueue()* agrega un elemento en el final de la cola/fila (Queue).</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*enqueue()* encola o agrega un elemento en el final del ADT *Queue*.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            element (T): elemento que se quiere agregar al Queue.</span>
+<span class="sd">            element (T): el elemento que se quiere agregar al ADT *Queue*.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_type</span><span class="p">(</span><span class="n">element</span><span class="p">):</span>
@@ -140,10 +140,10 @@
 <div class="viewcode-block" id="Queue.dequeue">
 <a class="viewcode-back" href="../../../autoapi/DISClib/ADT/queue/index.html#DISClib.ADT.queue.Queue.dequeue">[documentos]</a>
     <span class="k">def</span> <span class="nf">dequeue</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*dequeue()* elimina y retorna el elemento en la primer posición de la cola/fila Queue.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*dequeue()* desencola o remueve el elemento en la primera posición del ADT *Queue*.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            T: el elemento en la primera posición de la cola/fila Queue.</span>
+<span class="sd">            T: el elemento de la primera posición del ADT *Queue*.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">remove_first</span><span class="p">()</span>
@@ -154,10 +154,10 @@
 <div class="viewcode-block" id="Queue.peek">
 <a class="viewcode-back" href="../../../autoapi/DISClib/ADT/queue/index.html#DISClib.ADT.queue.Queue.peek">[documentos]</a>
     <span class="k">def</span> <span class="nf">peek</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*peek()* lee el primer elemento de la cola/fila Queue sin eliminarlo.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*peek()* lee el primer elemento del ADT *Queue* sin eliminarlo.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            T: elemento en la primer posición de la cola/fila Queue.</span>
+<span class="sd">            T: el elemento en la primera posición del ADT *Queue*.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_first</span><span class="p">()</span>

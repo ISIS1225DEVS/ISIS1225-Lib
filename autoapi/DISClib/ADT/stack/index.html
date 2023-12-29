@@ -118,7 +118,7 @@ innecesaria.</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.ADT.stack.Stack" title="DISClib.ADT.stack.Stack"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Stack</span></code></a></p></td>
-<td><p><strong>Stack</strong> representa una pila implementada sobre una lista doblemente encadenada (DoubleLinked), Generic[T] y &#64;dataclass para que sea una estructura de datos genérica. Esta pila (Stack) es un Tipo Abstracto de Datos (TAD/ADT) que permite almacenar una colección de elementos y operarlos en el mismo orden en que fueron agregados (LIFO - Last In First Out).</p></td>
+<td><p><strong>Stack</strong> representa una pila implementada sobre una lista doblemente encadenada (<em>DoubleLinked</em>) y &#64;dataclass para que sea una estructura de datos genérica. Esta pila (<em>Stack</em>) es un Tipo Abstracto de Datos (TAD/ADT) que permite almacenar una colección de elementos y operarlos en el mismo orden en que fueron agregados (LIFO - Last In First Out).</p></td>
 </tr>
 </tbody>
 </table>
@@ -126,14 +126,14 @@ innecesaria.</p>
 <dt class="sig sig-object py" id="DISClib.ADT.stack.Stack">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DISClib.ADT.stack.</span></span><span class="sig-name descname"><span class="pre">Stack</span></span><a class="reference internal" href="../../../../_modules/DISClib/ADT/stack.html#Stack"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.stack.Stack" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="../../DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked" title="DISClib.DataStructures.doublelinkedlist.DoubleLinked"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DISClib.DataStructures.doublelinkedlist.DoubleLinked</span></code></a></p>
-<p><strong>Stack</strong> representa una pila implementada sobre una lista doblemente encadenada (DoubleLinked), Generic[T] y &#64;dataclass para que sea una estructura de datos genérica. Esta pila (Stack) es un Tipo Abstracto de Datos (TAD/ADT) que permite almacenar una colección de elementos y operarlos en el mismo orden en que fueron agregados (LIFO - Last In First Out).</p>
+<p><strong>Stack</strong> representa una pila implementada sobre una lista doblemente encadenada (<em>DoubleLinked</em>) y &#64;dataclass para que sea una estructura de datos genérica. Esta pila (<em>Stack</em>) es un Tipo Abstracto de Datos (TAD/ADT) que permite almacenar una colección de elementos y operarlos en el mismo orden en que fueron agregados (LIFO - Last In First Out).</p>
 <p><strong>IMPORTANTE:</strong> <em>Stack</em> extiende de la clase <em>DoubleLinked</em>, por lo que hereda todos sus parametros internos y funciones.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>DoubleLinked</strong> (<em>dataclass</em>) – ADT DISClib que implementa las funciones básicas de una lista doblemente encadenada.</p>
+<dd class="field-odd"><p><strong>DoubleLinked</strong> (<em>dataclass</em>) – ADT <em>DISClib</em> que implementa las funciones básicas de una lista doblemente encadenada.</p>
 </dd>
 <dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>ADT de tipo Stack o Pila, implementado sobre una lista doblemente encadenada.</p>
+<dd class="field-even"><p>ADT de tipo <em>Stack</em> o Pila, implementado sobre una lista doblemente encadenada.</p>
 </dd>
 <dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="#DISClib.ADT.stack.Stack" title="DISClib.ADT.stack.Stack">Stack</a></p>
@@ -142,10 +142,10 @@ innecesaria.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.ADT.stack.Stack.push">
 <span class="sig-name descname"><span class="pre">push</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/ADT/stack.html#Stack.push"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.stack.Stack.push" title="Link to this definition"></a></dt>
-<dd><p><em>push()</em> agrega un elemento en el tope de la pila (Stack).</p>
+<dd><p><em>push()</em> inserta o agrega un elemento en el tope del <em>Stack</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>element</strong> (<em>T</em>) – elemento que se quiere agregar al Stack.</p>
+<dd class="field-odd"><p><strong>element</strong> (<em>T</em>) – el elemento que se quiere agregar al <em>Stack</em>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -153,10 +153,10 @@ innecesaria.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.ADT.stack.Stack.pop">
 <span class="sig-name descname"><span class="pre">pop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DISClib.Utils.default.T</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/ADT/stack.html#Stack.pop"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.stack.Stack.pop" title="Link to this definition"></a></dt>
-<dd><p><em>pop()</em> elimina y retorna el elemento en tope de la pila (Stack).</p>
+<dd><p><em>pop()</em> elimina o remueve el elemento en tope del ADT <em>Stack</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>el elemento en en el tope de la pila (Stack).</p>
+<dd class="field-odd"><p>el elemento de la posición más alta (tope) del ADT <em>Stack</em>.</p>
 </dd>
 <dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-even"><p>T</p>
@@ -167,10 +167,10 @@ innecesaria.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.ADT.stack.Stack.top">
 <span class="sig-name descname"><span class="pre">top</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DISClib.Utils.default.T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/ADT/stack.html#Stack.top"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.stack.Stack.top" title="Link to this definition"></a></dt>
-<dd><p><em>top()</em> retorna el elemento en el tope de la pila (Stack).</p>
+<dd><p><em>top()</em> lee el elemento ubicado en el tope del ADT <em>Stack</em> sin eliminarlo.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>el elemento en la primera posición de la pila (Stack).</p>
+<dd class="field-odd"><p>el elemento en la posición más alta (tope) del ADT <em>Stack</em>.</p>
 </dd>
 <dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-even"><p>T</p>

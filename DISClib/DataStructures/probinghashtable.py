@@ -1,7 +1,7 @@
 """
-Este ADT representa una tabla de hash con el método de sondeo lineal (Linear Probing). Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.
+Este ADT representa una tabla de hash con el método de sondeo lineal (**LinearProbing**). Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.
 
-En particular tiene funciones para encontrar espacio y entradas (pareja llave-valor) disponibles en la tabla en caso de colisiones segun el metodo de sondeo lineal.
+En particular tiene funciones para encontrar espacio (*slots*) y registros (pareja llave-valor) disponibles en la tabla en caso de colisiones segun el metodo de sondeo lineal.
 
 *IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:
 
@@ -53,63 +53,62 @@ assert DEFAULT_PRIME
 
 # default load factor for separating chaining
 # :data: DEFAULT_PROBING_ALPHA
-DEFAULT_PROBING_ALPHA: float = 0.5
+DEFAULT_PROBING_ALPHA: float = 0.50
 """
-Factor de carga (alpha) por defecto e ideal para el LinearProbing, por defecto es 0.5.
+Factor de carga (*alpha*) por defecto e ideal para el *LinearProbing*, por defecto es 0.50.
 """
 
 # :data: MAX_PROBING_ALPHA
-MAX_PROBING_ALPHA: float = 0.8
+MAX_PROBING_ALPHA: float = 0.80
 """
-Factor de carga (alpha) máximo para el LinearProbing, por defecto es 8.0.
+Factor de carga (*alpha*) máximo para el *LinearProbing*, por defecto es 0.80.
 """
 
 # :data: MIN_PROBING_ALPHA
-MIN_PROBING_ALPHA: float = 0.2
+MIN_PROBING_ALPHA: float = 0.20
 """
-Factor de carga (alpha) mínimo para el LinearProbing, por defecto es 2.0.
+Factor de carga (*alpha*) mínimo para el *LinearProbing*, por defecto es 0.20
 """
 
 # :data: EMPTY
 # TODO check if this is the best way to handle empty entries
 EMPTY = "__EMPTY__"
 """
-Constante que representa una entrada vacío en el LinearProbing, por defecto es "__EMPTY__".
+Constante que representa un registro vacío en el *LinearProbing*, por defecto es "__EMPTY__".
 """
 
 
 @dataclass
 class LinearProbing(Generic[T]):
-    """**LinearProbing** Es una clase que representa una tabla de hash con el método de encadenamiento por de separación (Separate Chaining). Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.
+    """**LinearProbing** representa la estructura de datos de una tabla de hash con el método de encadenamiento por separación (*LinearProbing*). En la estructura la información se almacena en registros (parejas llave-valor) donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato. El indice es un *ArrayList* donde cada elemento es un espacio (*slot*) de la tabla de hash, y cada espacio (*slot*) contiene un registro *MapEntry* (pareja llave-valor) o está vacío (None | EMPTY
 
     Args:
-        Generic (T): Tipo de dato genérico dentro del registro del mapa.
-
-    Raises:
-        TypeError: error si la información del registro del mapa (llave o valor) no son del tipo adecuado.
+        Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.
 
     Returns:
-        LinearProbing: ADT de tipo LinearProbing o tabla de hash con separación por encadenamiento.
+        LinearProbing: ADT de tipo *LinearProbing* o tabla de hash con separación por encadenamiento.
     """
     # input tuples from python list
     # :attr: iodata
     iodata: Optional[List[T]] = None
     """
-    Lista nativa de Python que contiene los elementos de entrada a la estructura, por defecto es None y el usuario puede incluir una lista nativa de python como argumento.
+    Lista nativa de Python personalizable por el usuario para inicializar la estructura. Por defecto es *None* y el usuario puede incluirla como argumento al crear la estructura.
     """
 
     # boolean to indicate if the hash table can be rehashed
     # :attr: rehashable
     rehashable: bool = True
     """
-    Es un booleano que indica si la tabla de hash se puede reconstruir utilizando el método de rehash, por defecto es True.
+    Es el operador que indica si la tabla de hash se puede reconstruir utilizando el método de *rehash*, por defecto es 'True'.
     """
 
     # reserved space for the hash table
     # :attr: nentries
     nentries: int = 1
     """
-    Es el espacio reservado para la tabla de hash (n), por defecto es 1, pero debe configurarse según el número de entradas que se espera almacenar.
+    espacio inicial reservado para la tabla de hash (n), por defecto es 1, pero debe configurarse según el número de entradas que se espera almacenar.
+
+    *Nota*: el espacio reservado (n) no es la capacidad (M) de la tabla de hash.
     """
 
     # starting capacity (M|m) for the hash table
@@ -123,14 +122,16 @@ class LinearProbing(Generic[T]):
     # :attr: alpha
     alpha: Optional[float] = DEFAULT_PROBING_ALPHA
     """
-    Es el factor de carga (alpha) con el que se inicializa la tabla de hash, por defecto es 4.0.
+    Es el factor de carga (*alpha*) con el que se inicializa la tabla de hash, por defecto es 0.50.
+
+    *Nota*: alpha = n/M (n: número de entradas esperadas, M: capacidad de la tabla de hash).
     """
 
     # the cmp_function is used to compare emtries, not defined by default
     # :attr: cmp_function
     cmp_function: Optional[Callable[[T, T], int]] = None
     """
-    Función de comparación opcional que se utiliza para comparar los elementos del LinearProbing, por defecto es *None* y el *__post_init__()* configura la función por defecto *ht_default_cmp_funcion()*.
+    Función de comparación personalizable por el usuario para reconocer los registros (pareja llave-valor) dentro del *LinearProbing*. Por defecto es la función *lt_default_cmp_funcion()* propia de *DISClib*, puede ser un parametro al crear la estructura.
     """
 
     # actual place to store the entries in the hash table
@@ -138,21 +139,23 @@ class LinearProbing(Generic[T]):
     hash_table: ArrayList[MapEntry[T]] = field(default_factory=ArrayList)
 
     """
-    Es el indice de la tabla de hash donde se almacenan los *MapEntry*, implementado con un *ArrayList* de DISCLib. en el *__post_init__()* se inicializa con la capacidad inicial de la tabla de hash.
+    Es el indice de la tabla Hash donde se almacenan los *Buckets*. Por defecto es un *ArrayList* vacío que se inicializa con la capacidad (M) configurada.
     """
 
     # the key is used to compare entries, not defined by default
     # :attr: key
     key: Optional[str] = DEFAULT_DICT_KEY
     """
-    Nombre de la llave opcional que se utiliza para comparar los elementos del SeparateChaining, Por defecto la llave es la cadena de caracteres *"id"* definida en *DEFAULT_DICT_KEY*.
+    Nombre de la llave personalizable por el usuario utilizada para reconocer los registros (pareja llave-valor) dentro del *LinearProbing*. Por defecto es la llave de diccionario (*dict*) *DEFAULT_DICT_KEY = 'id'* propia de *DISClib*, puede ser un parametro al crear la estructura.
     """
 
     # prime number (P) for the MAD compression function
     # :attr: prime
     prime: Optional[int] = DEFAULT_PRIME
     """
-    Es el número primo (P) utilizado para calcular el código hash de la llave con la función de compresión MAD, por defecto es 109345121 definido en *DEFAULT_PRIME*.
+    Es el número entero primo (P) utilizado para calcular el hash para la llave de la tabla utilizando la función de compresión MAD. Por defecto es 109345121 definido en el parametro *DEFAULT_PRIME* propio de *DISClib*.
+
+    *Nota:* la función MAD es: *h(k) = ((a*k + b) mod P) mod M*, donde *a* y *b* son números enteros aleatorios, *P* es un número primo y *M* es la capacidad de la tabla de hash.
     """
 
     # TODO create a MAD class to handle the compression function?
@@ -160,34 +163,34 @@ class LinearProbing(Generic[T]):
     # :attr: _scale
     _scale: Optional[int] = 0
     """
-    Es el número utilizado para calcular el código hash de la llave.
+    Es el número entero propio de la estructura utilizado como pendiente (a) en la función MAD para calcular el código hash de la llave.
     """
     # private shift (b) factor for the mad compression function
     # :attr: _shift
     _shift: Optional[int] = 0
     """
-    Es el número utilizado para calcular el código hash de la llave.
+    Es el número entero propio de la estructura utilizado como desplazamiento (b) de la función MAD para calcular el código hash de la llave.
     """
 
     # current factor (alpha) for the working hash table
     # :attr: _cur_alpha
     _cur_alpha: Optional[float] = 0
     """
-    Es el factor de carga actual de la tabla de hash.
-    """
-
-    # maximum load factor (alpha) for the hash table
-    # :attr: max_alpha
-    max_alpha: Optional[float] = MAX_PROBING_ALPHA
-    """
-    Es el factor de carga máximo de la tabla de hash, por defecto es 8.0.
+    Es el factor de carga (*alpha*) actual de la tabla de hash.
     """
 
     # minimum load factor (alpha) for the hash table
     # :attr: min_alpha
     min_alpha: Optional[float] = MIN_PROBING_ALPHA
     """
-    Es el factor de carga mínimo de la tabla de hash, por defecto es 2.0.
+    Es el factor de carga (*alpha*) mínimo de la tabla de hash, por defecto es 0.20 definido en el parametro *MIN_PROBING_ALPHA* propio de *DISClib*.
+    """
+
+    # maximum load factor (alpha) for the hash table
+    # :attr: max_alpha
+    max_alpha: Optional[float] = MAX_PROBING_ALPHA
+    """
+    Es el factor de carga máximo de la tabla de hash, por defecto es 0.80 definido en el parametro *MAX_PROBING_ALPHA* propio de *DISClib*.
     """
 
     # actual number of used entries (n) in the hash table
@@ -195,31 +198,31 @@ class LinearProbing(Generic[T]):
     # :attr: _size
     _size: int = 0
     """
-    Es el número de elementos (n) dentro de la tabla de hash, por defecto es 0 y se actualiza con cada operación que modifica la estructura.
+    Es el número de entradas (n) que contiene la estructura, por defecto es 0 y se actualiza con cada operación que modifica la estructura.
     """
 
     # :attr: collisions
     _collisions: Optional[int] = 0
     """
-    Es el número de colisiones en la tabla de hash.
+    Es el número entero para contar las colisiones en la estructura, por defecto es 0 y se actualiza con cada operación que modifica la estructura.
     """
 
     # the type of the entry keys in the hash table
     # :attr: _key_type
     _key_type: Optional[type] = None
     """
-    Es el tipo de dato de las llaves en la entrada que contiene la tabla de hash, por defecto es *None* y se configura al cargar el primera entrada en el mapa.
+    Es el tipo de dato para las llaves de los registros (pareja llave-valor) que contiene la tabla de hash, por defecto es *None* y se configura al cargar la primer registro.
     """
 
     # the type of the entry values in the hash table
     # :attr: _value_type
     _value_type: Optional[type] = None
     """
-    Es el tipo de dato de los valores en la entrada que contiene la tabla de hash, por defecto es *None* y se configura al cargar el primera entrada en el mapa.
+    Es el tipo de dato para los valores de los registros (pareja llave-valor) que contiene la tabla de hash, por defecto es *None* y se configura al cargar la primer registro.
     """
 
     def __post_init__(self) -> None:
-        """*__post_init__()* configura los valores por defecto de la estructura LinearProbing después de la inicialización de la misma. Configura los factores de carga (alpha), el número primo (P) para la función de compresión MAD, la capacidad (M) de la tabla de hash, la función de comparación y la llave para comparar los elementos del LinearProbing, y finalmente inicializa la tabla de hash con la capacidad (M) configurada.
+        """*__post_init__()* configura los parametros personalizados por el usuario al crear el *LinearProbing*. En caso de no estar definidos, se asignan los valores por defecto, puede cargar listas nativas con el parametro *iodata* de python dentro de la estructura.
         """
         # TODO check if this is the best way make the initialization
         try:
@@ -262,35 +265,35 @@ class LinearProbing(Generic[T]):
             # clean input data
             self.iodata = None
             # TODO rethink this part
-            # # fix discrepancies between the size and the number of entries (n)
+            # # fix discrepancies between size and number of entries (n).
             # if self._size != self.nentries:
             #     self.nentries = self._size
         except Exception as err:
             self._handle_error(err)
 
     def default_cmp_function(self, key1, entry2: MapEntry) -> int:
-        """*default_cmp_function()* procesa la llave existente en la entrada del LinearProbing y la compara con la llave del a entrada que se quiere agregar al LinearProbing.
+        """*default_cmp_function()* es la función de comparación por defecto para comparar la llave de un elemento vs. el registro (pareja llave-valor) o *MapEntry* que se desea agregar al *LinearProbing*, es una función crucial para que la estructura funcione correctamente.
+
         Args:
-            key1 (Any): llave de la primera entrada a comparar.
-            entry2 (MapEntry): segunda entrada (pareja llave-valor) a comparar.
+            key1 (Any): llave (*key*) de la primer registro a comparar.
+            entry2 (MapEntry): segundo registro (pareja llave-valor) a comparar.
 
         Returns:
-            int: respuesta de la comparación entre los elementos, 0 si las llaves son iguales, 1 si key1 es mayor que la llave de entry2, -1 si key1 es menor.
+            int: respuesta de la comparación entre los elementos, 0 si las llaves (*key*) son iguales, 1 si key1 es mayor que la llave (*key*) de entry2, -1 si key1 es menor.
         """
         try:
             # passing self as the first argument to simulate a method
-            # return ht_default_cmp_funcion(key1, entry2)
             return ht_default_cmp_funcion(self.key, key1, entry2)
         except Exception as err:
             self._handle_error(err)
 
     def _handle_error(self, err: Exception) -> None:
-        """*_handle_error()* función privada que maneja los errores que se pueden presentar en el LinearProbing.
+        """*_handle_error()* función propia de la estructura que maneja los errores que se pueden presentar en el *LinearProbing*.
 
-        Si se presenta un error en el LinearProbing, se formatea el error según el contexto (paquete/clase) y la función que lo generó, y lo reenvia al componente superior en la jerarquía de llamados para manejarlo segun sea considere conveniente.
+        Si se presenta un error en *LinearProbing*, se formatea el error según el contexto (paquete/módulo/clase), la función (método) que lo generó y lo reenvia al componente superior en la jerarquía *DISCLib* para manejarlo segun se considere conveniente el usuario.
 
         Args:
-            err (Exception): Excepción que se generó en el LinearProbing.
+            err (Exception): Excepción que se generó en el *LinearProbing*.
         """
         # TODO check usability of this function
         cur_context = self.__class__.__name__
@@ -298,16 +301,16 @@ class LinearProbing(Generic[T]):
         error_handler(cur_context, cur_function, err)
 
     def _check_type(self, entry: MapEntry) -> bool:
-        """*_check_type()* función privada que verifica que el tipo de dato de la entrada que se quiere agregar al LinearProbing sea del mismo tipo contenido dentro de los elementos del LinearProbing.
-
-        Raises:
-            TypeError: error si el tipo de dato de la entrada que se quiere agregar no es el mismo que el tipo de dato de los elementos que ya contiene el LinearProbing.
+        """*_check_type()* función propia de la estructura que revisa si el tipo de dato del registro (pareja llave-valor) que se desea agregar al *LinearProbing* es del mismo tipo contenido dentro de los *MapEntry* del *LinearProbing*.
 
         Args:
-            entry (T): entrada que se quiere procesar en LinearProbing.
+            element (T): elemento que se desea procesar en *LinearProbing*.
+
+        Raises:
+            TypeError: error si el tipo de dato del elemento que se desea agregar no es el mismo que el tipo de dato de los elementos que ya contiene el *LinearProbing*.
 
         Returns:
-            bool: operador que indica si el ADT LinearProbing es del mismo tipo que la entrada que se quiere procesar.
+            bool: operador que indica si el ADT *LinearProbing* es del mismo tipo que el elemento que se desea procesar.
         """
         # TODO check usability of this function
         # if datastruct is empty, set the entry type
@@ -332,10 +335,10 @@ class LinearProbing(Generic[T]):
 
     # @property
     def is_empty(self) -> bool:
-        """*is_empty()* revisa si el LinearProbing está vacío.
+        """*is_empty()* revisa si el *LinearProbing* está vacío.
 
         Returns:
-            bool: operador que indica si la estructura LinearProbing está vacía.
+            bool: operador que indica si la estructura *LinearProbing* está vacía.
         """
         # TODO change the method name to "empty" or @property "empty"?
         try:
@@ -345,10 +348,10 @@ class LinearProbing(Generic[T]):
 
     # @property
     def size(self) -> int:
-        """*size()* devuelve el numero de elementos que actualmente contiene el LinearProbing.
+        """*size()* devuelve el numero de entradas *MapEntry* que actualmente contiene el *LinearProbing*.
 
         Returns:
-            int: tamaño de la estructura LinearProbing.
+            int: tamaño de la estructura *LinearProbing*.
         """
         # TODO change the method to @property "size"?
         try:
@@ -357,13 +360,16 @@ class LinearProbing(Generic[T]):
             self._handle_error(err)
 
     def contains(self, key: T) -> bool:
-        """*contains()* responde si el LinearProbing contiene una entrada con la llave key.
+        """*contains()* responde si el *LinearProbing* contiene un registro *MapEntry* con la llave *key*.
 
         Args:
-            key (T): llave de la entrada (pareja llave-valor) que se quiere buscar en el LinearProbing.
+            key (T): llave del registro (pareja llave-valor) que se desea buscar en el *LinearProbing*.
+
+        Raises:
+            IndexError: error si la estructura está vacía.
 
         Returns:
-            bool: operador que indica si el LinearProbing contiene o no una entrada con la llave key.
+            bool: operador que indica si el *LinearProbing* contiene o no un registro con la llave *key*.
         """
         try:
             if self.is_empty():
@@ -388,14 +394,14 @@ class LinearProbing(Generic[T]):
             self._handle_error(err)
 
     def put(self, key: T, value: T) -> None:
-        """*put()* agrega una entrada (pareja llave-valor) al LinearProbing, si la llave ya existe en el LinearProbing, se reemplaza el valor.
+        """*put()* agrega una nuevo registro *MapEntry* al *LinearProbing*, si la llave *key* ya existe en el *LinearProbing* se reemplaza su valor *value*.
 
         Args:
-            key (T): llave asociada a la nueva entrada.
-            value (T): el valor asociado a la nueva entrada.
+            key (T): llave asociada la nuevo *MapEntry*.
+            value (T): el valor asociado al nuevo *MapEntry*.
 
         Raises:
-            Exception: si el indice de la entrada en el mapa está fuera de los limites establecidos, se genera un error.
+            Exception: si la operación no se puede realizar, se invoca la función *_handle_error()* para manejar el error.
         """
         try:
             # create a new entry for the entry
@@ -440,17 +446,17 @@ class LinearProbing(Generic[T]):
         except Exception as err:
             self._handle_error(err)
 
-    def get(self, key: T) -> Optional[T]:
-        """*get()* devuelve la entrada (pareja llave-valor) cuya llave sea igual a key dentro del LinearProbing, si no existe una entrada con la llave key, devuelve None.
+    def get(self, key: T) -> Optional[MapEntry]:
+        """*get()* recupera el registro *MapEntry* cuya llave *key* sea ogial a la que se encuentre dentro del *LinearProbing*, si no existe un registro con la llave, devuelve *None*.
 
         Args:
-            key (T): llave asociada a la entrada que se quiere buscar.
+            key (T): llave asociada al *MapEntry* que se desea buscar.
 
         Raises:
-            Exception: error si la estructura está vacía.
+            IndexError: error si la estructura está vacía.
 
         Returns:
-            Optional[T]: entrada (pareja llave-valor) con la llave igual a key dentro del LinearProbing, None si no existe la entrada asociada a la llave key.
+            Optional[MapEntry]: *MapEntry* asociado a la llave *key* que se desea. *None* si no se encuentra.
         """
         try:
             if self.is_empty():
@@ -473,17 +479,17 @@ class LinearProbing(Generic[T]):
         except Exception as err:
             self._handle_error(err)
 
-    def check_slots(self, key: T) -> SingleLinked[T]:
-        """*check_slots()* devuelve una lista (SingleLinked) con todas las entradas (parejas llave-valor) asociadas a la llave dentro del *LinearProbing*. Si no existe una entrada asociada, devuelve None.
+    def check_slots(self, key: T) -> Optional[SingleLinked[MapEntry]]:
+        """*check_slots()* recupera la lista (*SingleLinked*) de registros (parejas llave-valor) asociadas a la llave *key* dentro del *LinearProbing*. Recupera los *MapEntry* con el mismo hash y si no existe, devuelve *None*.
 
         Args:
-            key (T): llave asociada al Slot que se quiere buscar.
+            key (T): llave asociada a los *MapEntry* y *Slots* que se desean buscar.
 
         Raises:
             Exception: error si la estructura está vacía.
 
         Returns:
-            Optional[SingleLinked[T]]: lista sencillamente encadenada (SingleLinked) con todas las entradas (parejas llave-valor) asociadas a la llave key dentro del *LinearProbing*.
+            Optional[SingleLinked[MapEntry]]: lista sencillamente encadenada (*SingleLinked*) con todas los *MapEntry* asociados a la llave *key* dentro del *LinearProbing*.
         """
         try:
             if self.is_empty():
@@ -516,17 +522,17 @@ class LinearProbing(Generic[T]):
             self._handle_error(err)
 
     def remove(self, key: T) -> Optional[T]:
-        """*remove()* elimina la entrada (pareja llave-valor) cuya llave sea igual a key dentro del LinearProbing, si no existe una entrada con la llave key, devuelve None.
+        """*remove()* elimina el registro *MapEntry* cuya llave *key* sea igual a la que se encuentre dentro del *LinearProbing*, si no existe un registro con la llave, genera un error.
 
         Args:
-            key (T): llave asociada a la entrada que se quiere eliminar.
+            key (T): llave asociada al *MapEntry* que se desea eliminar.
 
         Raises:
-            Exception: error si la estructura está vacía.
-            Exception: error si la entrada que se quiere eliminar no existe dentro del bucket
+            IndexError: error si la estructura está vacía.
+            IndexError: error si el registro que se desea eliminar no existe dentro del *LinearProbing*.
 
         Returns:
-            Optional[T]: entrada (pareja llave-valor) que se eliminó del LinearProbing, None si no existe la entrada asociada a la llave key.
+            Optional[MapEntry]: registro *MapEntry* que se eliminó del *LinearProbing*. *None* si no existe el registro asociada a la llave *key*.
         """
         try:
             if self.is_empty():
@@ -564,10 +570,10 @@ class LinearProbing(Generic[T]):
             self._handle_error(err)
 
     def keys(self) -> SingleLinked[T]:
-        """*keys()* devuelve una lista (SingleLinked) con todas las llaves de las entradas (parejas llave-valor) del LinearProbing.
+        """*keys()* devuelve una lista (*SingleLinked*) con todas las llaves (*key*) de los registros (*MapEntry*) del *LinearProbing*.
 
         Returns:
-            SingleLinked[T]: lista (SingleLinked) con todas las llaves del LinearProbing.
+            SingleLinked[T]: lista (*SingleLinked*) con todas las llaves (*key*) del *LinearProbing*.
         """
         try:
             keys_lt = SingleLinked(key=self.key)
@@ -579,10 +585,10 @@ class LinearProbing(Generic[T]):
             self._handle_error(err)
 
     def values(self) -> SingleLinked[T]:
-        """*values()* devuelve una lista (SingleLinked) con todos los valores de las entradas (parejas llave-valor) del LinearProbing.
+        """*values()* devuelve una lista (*SingleLinked*) con todos los valores de los registros (*MapEntry*) del *LinearProbing*.
 
         Returns:
-            SingleLinked[T]: lista (SingleLinked) con todos los valores del LinearProbing.
+            SingleLinked[T]: lista (*SingleLinked*) con todos los valores (*value*) del *LinearProbing*.
         """
         try:
             values_lt = SingleLinked(key=self.key)
@@ -594,10 +600,10 @@ class LinearProbing(Generic[T]):
             self._handle_error(err)
 
     def entries(self) -> SingleLinked[T]:
-        """*entries()* devuelve una lista (SingleLinked) con todas las entradas (parejas llave-valor) del LinearProbing.
+        """*entries()* devuelve una lista (*SingleLinked*) con tuplas de todas los registros (*MapEntry*) del *LinearProbing*. Cada tupla contiene en la primera posición la llave (*key*) y en la segunda posición el valor (*value*) del registro.
 
         Returns:
-            SingleLinked[T]: lista (SingleLinked) con todas las entradas del LinearProbing.
+            SingleLinked[T]: lista (*SingleLinked*) de tuplas con todas los registros del *LinearProbing*.
         """
         try:
             entries_lt = SingleLinked(key=self.key)
@@ -612,14 +618,14 @@ class LinearProbing(Generic[T]):
             self._handle_error(err)
 
     def _find_slot(self, hkey: int, key: T) -> int:
-        """*_find_slot()* encuentra el indice de la entrada (pareja llave-valor) en el LinearProbing, si la entrada no existe, devuelve el indice de la primera entrada disponible.
+        """*_find_slot()* encuentra el indice del registro *MapEtry* en el *LinearProbing*, si el registro no existe, devuelve el indice del primer registro disponible.
 
         Args:
-            hkey (int): indice de la entrada (pareja llave-valor) en el LinearProbing.
-            key (T): llave de la entrada (pareja llave-valor) que se quiere buscar.
+            hkey (int): indice del registro (pareja llave-valor) en el *LinearProbing*.
+            key (T): llave del registro (pareja llave-valor) que se desea buscar.
 
         Returns:
-            int: devuelve el indice negativo si encuentra espacio disponible (None | EMPTY) o si la entrada no existe, devuelve el indice positivo si la entrada existe.
+            int: devuelve el indice negativo si encuentra espacio disponible (None | EMPTY) o si el registro no existe, devuelve el indice positivo si el registro existe.
         """
         try:
             # define the max number of probes to avoid infinite loops
@@ -679,13 +685,13 @@ class LinearProbing(Generic[T]):
             self._handle_error(err)
 
     def _is_available(self, entry: MapEntry) -> bool:
-        """*_is_available()* permite verificar si una entrada (pareja llave-valor) está disponible en el LinearProbing. Es decir si la llave es nula (None) o vacía (EMPTY).
+        """*_is_available()* permite verificar si un registro *MapEntry* está disponible en el *LinearProbing*. Es decir si la llave es nula (None) o vacía (EMPTY).
 
         Args:
-            entry (MapEntry): entrada (pareja llave-valor) que se quiere verificar.
+            entry (MapEntry): registro (pareja llave-valor) que se desea verificar.
 
         Returns:
-            bool: operador que indica si la entrada está disponible o no en el LinearProbing.
+            bool: operador que indica si el registro está disponible o no en el *LinearProbing*.
         """
         # assume the slot is unavailable
         available = False
@@ -696,11 +702,11 @@ class LinearProbing(Generic[T]):
         return available
 
     def rehash(self) -> None:
-        """*rehash()* reconstruye la tabla de hash con una nueva capacidad (M) y un nuevo factor de carga (alpha) según los límites establecidos por el usuario en los atributos *max_alpha* y *min_alpha*.
+        """*rehash()* reconstruye la tabla de hash con una nueva capacidad (*M*) y un nuevo factor de carga (*alpha*) según los límites configurados por los parametros *max_alpha* y *min_alpha*.
 
-        Si el factor de carga (alpha) es mayor que el límite superior (max_alpha), se duplica la capacidad (M) buscando el siguiente número primo y se reconstruye la tabla de hash.
+        Si el factor de carga (*alpha*) es mayor que el límite superior (*max_alpha*), se duplica la capacidad (*M*) buscando el siguiente número primo (*P*) reconstruyendo la tabla.
 
-        Si el factor de carga (alpha) es menor que el límite inferior (min_alpha), se reduce a la mitad la capacidad (M) de la tabla de hash buscando el siguiente número primo y se reconstruye la tabla de hash.
+        Si el factor de carga (*alpha) es menor que el límite inferior (*min_alpha*), se reduce a la mitad la capacidad (*M*) de la tabla buscando el siguiente número primo (*P*) reconstruyendo la tabla.
         """
         try:
             # check if the structure is rehashable

@@ -140,11 +140,11 @@ class DoubleLinked(Generic[T]):
     def _check_type(self, element: T) -> bool:
         """*_check_type()* función propia de la estructura que revisa si el tipo de dato del elemento que se desea agregar al *DoubleLinked* es del mismo tipo contenido dentro de los elementos del *DoubleLinked*.
 
-        Raises:
-            TypeError: error si el tipo de dato del elemento que se desea agregar no es el mismo que el tipo de dato de los elementos que ya contiene el *DoubleLinked*.
-
         Args:
             element (T): elemento que se desea procesar en *DoubleLinked*.
+
+        Raises:
+            TypeError: error si el tipo de dato del elemento que se desea agregar no es el mismo que el tipo de dato de los elementos que ya contiene el *DoubleLinked*.
 
         Returns:
             bool: operador que indica si el ADT *DoubleLinked* es del mismo tipo que el elemento que se desea procesar.

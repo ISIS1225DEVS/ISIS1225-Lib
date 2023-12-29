@@ -46,14 +46,14 @@ class LeftLeanRedBlackTree(Generic[T]):
     # :attr: iodata
     iodata: Optional[List[T]] = None
     """
-    Lista nativa de Python que contiene los elementos de entrada a la estructura, por defecto es None y el usuario puede incluir una lista nativa de python como argumento.
+    Lista nativa de Python personalizable por el usuario para inicializar la estructura. Por defecto es *None* y el usuario puede incluirla como argumento al crear la estructura.uctura.uctura.uctura.
     """
 
     # the cmp_function is used to compare elements, not defined by default
     # :attr: cmp_function
     cmp_function: Optional[Callable[[T, T], int]] = None
     """
-    Función de comparación opcional que se utiliza para comparar los elementos del LeftLeanRedBlackTree, por defecto es None y el *__post_init__()* configura la función por defecto *lt_default_cmp_funcion()*.
+    Función de comparación personalizable por el usuario para reconocer los elementos dentro de la estructura. Es un argumento configurable al crear la estructura. Por defecto es la función *lt_default_cmp_funcion()* propia de *DISClib*.
     """
 
     # using default_factory to generate an empty list
@@ -67,7 +67,7 @@ class LeftLeanRedBlackTree(Generic[T]):
     # :attr: key
     key: Optional[str] = None
     """
-    Nombre de la llave opcional que se utiliza para comparar los elementos del LeftLeanRedBlackTree, Por defecto es 'None' y el *__post_init__()* configura la llave por defecto la llave 'id' en *DEFAULT_DICT_KEY*.
+    Nombre de la llave opcional que se utiliza para comparar los elementos del LeftLeanRedBlackTree, Por defecto es *None* y el *__post_init__()* configura la llave por defecto la llave 'id' en *DEFAULT_DICT_KEY*.
     """
 
     # by default, the list is empty

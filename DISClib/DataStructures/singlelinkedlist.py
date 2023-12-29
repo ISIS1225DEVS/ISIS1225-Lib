@@ -140,11 +140,11 @@ class SingleLinked(Generic[T]):
     def _check_type(self, element: T) -> bool:
         """*_check_type()* función propia de la estructura que revisa si el tipo de dato del elemento que se desea agregar al *SingleLinked* es del mismo tipo contenido dentro de los elementos del *SingleLinked*.
 
-        Raises:
-            TypeError: error si el tipo de dato del elemento que se desea agregar no es el mismo que el tipo de dato de los elementos que ya contiene el *SingleLinked*.
-
         Args:
             element (T): elemento que se desea procesar en *SingleLinked*.
+
+        Raises:
+            TypeError: error si el tipo de dato del elemento que se desea agregar no es el mismo que el tipo de dato de los elementos que ya contiene el *SingleLinked*.
 
         Returns:
             bool: operador que indica si el ADT *SingleLinked* es del mismo tipo que el elemento que se desea procesar.

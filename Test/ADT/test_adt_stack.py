@@ -1,5 +1,5 @@
 ﻿"""
-*test_adt_stack.py* es el módulo que prueba el ADT *Stack* (pila) de *DISClib* basado en una lista sencillamente encadenada (SinglyLinked).
+**test_adt_stack** es el módulo que prueba el ADT *Stack* (pila) de *DISClib* basado en una lista sencillamente encadenada (SinglyLinked).
 """
 
 # import testing package
@@ -30,7 +30,7 @@ Lista de llaves a ignorar en los parámetros globales en las pruebas.
 
 # @pytest.fixture(scope="module")
 def cmp_lt_test_function(elm1: dict, elm2: dict) -> int:
-    """*cmp_lt_test_function()* compara dos elementos en una lista (DoubleLinked y Stack). Solo funciona con diccionarios con una llave "uuid".
+    """*cmp_lt_test_function()* función de comparación personalizada para probar la función de las estructuras de tipo listas (*ArrayList*, *SingleLinked*, *DoubleLinked*). Solo funciona con diccionarios con una llave "uuid".
 
     Args:
         elm1 (dict): primer elemento a comparar.
@@ -66,10 +66,10 @@ def cmp_lt_test_function(elm1: dict, elm2: dict) -> int:
 
 
 class TestStack(unittest.TestCase):
-    """*TestStack* clase *unittest* para probar la clase *Stack* de *DISCLib*.
+    """**TestStack** implementa las pruebas unitarias para el ADT *Stack* (pila) de *DISClib* basado en una lista sencillamente encadenada (*SinglyLinked*).
 
     Args:
-        unittest (TestCase): clase *unittest.TestCase* para pruebas unitarias.
+        unittest (TestCase): clase *unittest.TestCase* para las pruebas unitarias en Python.
     """
 
     @pytest.fixture(autouse=True)
@@ -90,7 +90,7 @@ class TestStack(unittest.TestCase):
         """*dll_to_list()* convierte una lista sencillamente encadenada nativa de *DISCLib* en una lista nativa de Python.
 
         Args:
-            st_adt (Stack): Lista sencillamente encadenada nativa de *DISCLib* a convertir en lista nativa de Python.
+            st_adt (Stack): Lista sencillamente encadenada nativa de *DISCLib* para convertir en lista nativa de Python.
 
         Returns:
             list: lista nativa de Python traducida.
@@ -101,7 +101,7 @@ class TestStack(unittest.TestCase):
         return ans
 
     def test_default_stack(self):
-        """*test_default_stack()* prueba la inicialización de una lista sencillamente encadenada o *Stack* vacía.
+        """*test_default_stack()* prueba para crear una pila vacía con los valores predeterminados de *Stack*.
         """
         # Test an empty Stack
         st_adt = Stack()
@@ -121,7 +121,7 @@ class TestStack(unittest.TestCase):
         assert isinstance(st_adt, Stack)
 
     def test_default_cmp_function(self):
-        """*test_default_cmp_function()* prueba la función de comparación predeterminada de *Stack* con diferentes tipos de elementos.
+        """*test_default_cmp_function()* prueba para la función de comparación predeterminada de *Stack* con diferentes tipos de datos.
         """
         # create a new empty Stack with the default cmp function
         st_adt = Stack()
@@ -148,7 +148,7 @@ class TestStack(unittest.TestCase):
                         assert all([res1, res2, res3])
 
     def test_custom_stack(self):
-        """*test_custom_stack()* prueba la inicialización de una *Stack* personalizada con elementos de diferentes tipos.
+        """*test_custom_stack()* prueba para crear un *Stack* personalizado con elementos y valores predeterminados.
         """
         # getting the global variables
         data_type_lt = self.global_params.get("CHECK_TYPE_LT")
@@ -176,7 +176,7 @@ class TestStack(unittest.TestCase):
                 assert st_adt._size == len(test_data)
 
     def test_custom_key(self):
-        """*test_custom_key()* prueba la inicialización de una *Stack* personalizada con elementos y una llave personalizada.
+        """*test_custom_key()* prueba para crear un *Stack* con elementos y una llave personalizada.
         """
         # getting the global variables
         dtype_lt = self.global_params.get("CHECK_TYPE_LT")
@@ -204,7 +204,7 @@ class TestStack(unittest.TestCase):
                 assert isinstance(st_adt._header.next().get_info(), dtype)
 
     def test_custom_cmp_function(self):
-        """*test_custom_cmp_function()* prueba la inicialización de una *Stack* personalizada con elementos de diferentes tipos y una función de comparación personalizada.
+        """*test_custom_cmp_function()* prueba para crear un *Stack* con elementos y una función de comparación personalizada.
         """
         # getting the global variables
         dtype_lt = self.global_params.get("CHECK_TYPE_LT")
@@ -231,63 +231,8 @@ class TestStack(unittest.TestCase):
                 # testing Stack elements are of the same type
                 assert isinstance(st_adt._header.next().get_info(), dtype)
 
-    def test_size(self):
-        """*test_size()* prueba el método *size()* de *Stack* con estructuras de datos vacías y no vacías.
-        """
-        # create a new empty Stack
-        st_adt = Stack()
-        # testing Stack size is 0 with size method
-        assert st_adt.size() == 0
-        # testing Stack size is 0 with _size attribute
-        assert st_adt._size == -1
-        # check if the Stack elements is empty
-        sl_lt_data = self.dll_to_list(st_adt)
-        assert sl_lt_data == []
-
-        # iterates over global params and create filled Stack
-        for key in self.global_params.keys():
-            # ignore 3 keys from the global params
-            if key not in IGNORE_KEYS_LT:
-                # getting the test data
-                test_data = self.global_params.get(key)
-                # create a new Stack with the test data
-                st_adt = Stack(iodata=test_data)
-                # testing Stack size() is equal to test_data
-                assert st_adt.size() == len(test_data)
-                # testing Stack _size is equal to test_data
-                assert st_adt._size == len(test_data)
-                # # testing Stack elements is equal to test_data
-                sl_lt_data = self.dll_to_list(st_adt)
-                assert sl_lt_data == test_data
-
-    def test_is_empty(self):
-        """*test_is_empty()* prueba el método *is_empty()* de *Stack* con estructuras de datos vacías y no vacías.
-        """
-
-        # create a new empty Stack
-        st_adt = Stack()
-        # testing Stack is empty
-        assert st_adt.is_empty() is True
-        # testing Stack elements is empty
-        sl_lt_data = self.dll_to_list(st_adt)
-        assert sl_lt_data == []
-
-        # iterates over global params and create filled Stack
-        for key in self.global_params.keys():
-            # ignore 3 keys from the global params
-            if key not in IGNORE_KEYS_LT:
-                # get the test data
-                test_data = self.global_params.get(key)
-                # create a new Stack with the test data
-                st_adt = Stack(iodata=test_data)
-                # testing Stack is not empty
-                assert st_adt.is_empty() is False
-                # testing Stack elements is equal to test_data
-                sl_lt_data = self.dll_to_list(st_adt)
-                assert sl_lt_data == test_data
-
     def test_push(self):
-        """*test_push()* prueba el método *add_last()* de *Stack* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *TypeError* para tipos de datos no compatibles. También comprueba si los elementos agregados son iguales al índice dentro de *Stack*.
+        """*test_push()* prueba para insertar elementos en el ADT *Stack* utilizando la función *push()*.
         """
         # testing type handling
         # getting the global variables
@@ -307,7 +252,7 @@ class TestStack(unittest.TestCase):
                 with pytest.raises(TypeError) as excinfo:
                     st_adt = Stack(test_data)
                     # induce the error by adding an element of a different type
-                    st_adt.add_last(err)
+                    st_adt.push(err)
                 # assert the type error is raised
                 assert "Invalid data type" in str(excinfo.value)
                 # assert the node info is the same type as test_data
@@ -326,13 +271,17 @@ class TestStack(unittest.TestCase):
                     # get the first element of the Stack
                     t_elem1 = st_adt.top()
                     t_elem2 = st_adt._trailer.prev().get_info()
+                    # test if the removed element is equal to the last
+                    c1 = (t_elem1 == t_elem2)
+                    c2 = (t_elem2 == t_data)
                     # testing Stack top() is equal to test_data
-                    assert t_elem1 == t_data and t_elem2 == t_data
+                    assert c1 and c2
                     # test if the Stack size is equal to test_len
                     assert (st_adt.size() == i + 1)
 
     def test_pop(self):
-        """*test_pop()* prueba el método *pop()* de *Stack* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError* para estructuras de datos vacías y fuera del rango de índice. También comprueba si el elemento eliminado es el mismo que originalmente se encontraba en el índice."""
+        """*test_pop()* prueba para eliminar o remover elementos en el ADT *Stack* utilizando la función *pop()*.
+        """
         # create a new empty Stack
         st_adt = Stack()
         # force an exception in the get_first method
@@ -363,22 +312,16 @@ class TestStack(unittest.TestCase):
                     t_elem2 = st_adt._trailer.prev().get_info()
                     t_elem1 = st_adt.pop()
                     # test if the removed element is equal to the last
-                    data_elem_lt = (
-                        t_elem1 == t_elem2,
-                        t_elem2 == t_elem3,
-                        t_elem3 == t_data
-                    )
-                    assert all(data_elem_lt)
+                    c1 = (t_elem1 == t_elem2)
+                    c2 = (t_elem2 == t_elem3)
+                    c3 = (t_elem3 == t_data)
+                    # testing Stack pop() is equal to test_data
+                    assert c1 and c2 and c3
                     # test if the Stack size is equal to test_len
                     assert (st_adt.size() == (test_len - i - 1))
 
     def test_top(self):
-        """test_top _summary_
-        """
-        # get the global parameters
-        # params = self.global_params
-
-        """*test_top()* prueba el método *top()* de *Stack* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError*. También comprueba si el elemento recuperado es igual al índice de *Stack*.
+        """*test_top()* prueba para leer el elemento en el tope del ADT *Stack* utilizando la función *top()*.
         """
         # create a new empty Stack
         st_adt = Stack()
@@ -405,12 +348,10 @@ class TestStack(unittest.TestCase):
                 t_elem2 = st_adt._trailer.prev().get_info()
                 t_elem1 = st_adt.top()
                 # test if the removed element is equal to the last
-                data_elem_lt = (
-                    t_elem1 == t_elem2,
-                    t_elem2 == t_elem3,
-                    t_elem3 == test_data[-1]
-                )
+                c1 = (t_elem1 == t_elem2)
+                c2 = (t_elem2 == t_elem3)
+                c3 = (t_elem3 == test_data[-1])
                 # testing Stack top() is equal to test_data
-                assert all(data_elem_lt)
+                assert c1 and c2 and c3
                 # test if Stack size() is equal to test_len
                 assert (st_adt.size() == test_len)

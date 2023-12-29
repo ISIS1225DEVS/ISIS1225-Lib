@@ -79,7 +79,7 @@
              
   <h1>Código fuente para DISClib.DataStructures.doublelinkedlist</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Este ADT representa una estructura de datos lineal, específicamente una lista doblemente enlazada/encadenada (DoubleLinked). Esta estructura de datos es una secuencia de nodos enlazados, donde cada nodo contiene un elemento de información, una referencia al siguiente, y al anterior nodo en la secuencia. Esto le permite a la lista un crecimiento y reducción dinámico en la memoria disponible.</span>
+<span class="sd">Este ADT representa una estructura de datos lineal, específicamente una lista doblemente enlazada/encadenada (**DoubleLinked**). Esta estructura de datos es una secuencia de nodos enlazados, donde cada nodo contiene un elemento de información, una referencia al siguiente, y al anterior nodo en la secuencia. Esto le permite a la lista un crecimiento y reducción dinámico en la memoria disponible.</span>
 
 <span class="sd">*IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:</span>
 
@@ -117,13 +117,13 @@
 <div class="viewcode-block" id="DoubleLinked">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked">[documentos]</a>
 <span class="k">class</span> <span class="nc">DoubleLinked</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">T</span><span class="p">]):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;**DoubleLinked** representa una estructura de datos de tipo DoubleLinked con la anotación &#39;@dataclass&#39; de python y el decorador &#39;Generic[T]&#39; para indicar que es una estructura de datos genérica.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;**DoubleLinked** representa una estructura de datos para una lista doblemente enlazada/encadenada (*DoubleLinked*). Implementada con Generic[T] y @dataclass para que sea una estructura de datos genérica.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        DoubleLinked: ADT de tipo DoubleLinked o Lista Doblemente Encadenada.</span>
+<span class="sd">        DoubleLinked: ADT de tipo *DoubleLinked* o Lista Doblemente Encadenada.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># input elements from python list</span>
     <span class="c1"># :param iodata</span>
@@ -132,7 +132,7 @@
     <span class="n">iodata</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">T</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Lista nativa de Python que contiene los elementos de entrada a la estructura, por defecto es None y el usuario puede incluir una lista nativa de python como argumento.</span>
+<span class="sd">    Lista nativa de Python personalizable por el usuario para inicializar la estructura. Por defecto es *None* y el usuario puede incluirla como argumento al crear la estructura.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># the cmp_function is used to compare elements, not defined by default</span>
@@ -142,7 +142,7 @@
     <span class="n">cmp_function</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">[[</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="p">],</span> <span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es &#39;None&#39; y el *__post_init__()* configura la función por defecto *lt_default_cmp_funcion()*.</span>
+<span class="sd">    Función de comparación personalizable por el usuario para reconocer los elementos dentro del *DoubleLinked*. Por defecto es la función *lt_default_cmp_funcion()* propia de *DISClib*, puede ser un parametro al crear la estructura.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># reference to the header node of the list, DoubleNode by default</span>
@@ -153,7 +153,7 @@
         <span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">DoubleNode</span><span class="p">())</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Representa el nodo sentinela de la cabecera de la estructura, por defecto es un DoubleNode vacío.</span>
+<span class="sd">    Representa el nodo sentinela de la cabecera de la estructura (header), por defecto es un *DoubleNode* vacío.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># reference to the trailer node of the list, DoubleNode by default</span>
     <span class="c1"># :attr: _trailer</span>
@@ -163,7 +163,7 @@
         <span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">DoubleNode</span><span class="p">())</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Representa el nodo sentinela del final de la estructura, por defecto es un DoubleNode vacío.</span>
+<span class="sd">    Representa el nodo sentinela del colero de la estructura (trailer), por defecto es un *DoubleNode* vacío.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># the key is used to compare elements, not defined by default</span>
@@ -173,7 +173,7 @@
     <span class="n">key</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Nombre de la llave opcional que se utiliza para comparar los elementos del ArrayList, Por defecto es &#39;None&#39; y el *__post_init__()* configura la llave por defecto la llave &#39;id&#39; en *DEFAULT_DICT_KEY*.</span>
+<span class="sd">    Nombre de la llave personalizable por el usuario utilizada para reconocer los elementos dentro del *DoubleLinked*. Por defecto es la llave de diccionario (*dict*) *DEFAULT_DICT_KEY = &#39;id&#39;* propia de *DISClib*, puede ser un parametro al crear la estructura.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># by default, the list is empty, -1 for the header and trailer nodes</span>
@@ -183,13 +183,13 @@
     <span class="n">_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Es el número de elementos que contiene la estructura, por defecto es 0, por defecto es -1 para ajustar por los nodos sentinelas de la estructura.</span>
+<span class="sd">    Es el número de elementos que contiene la estructura, por defecto es 0, en algunos casos es -1 para ajustar por los nodos sentinelas de la estructura.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="DoubleLinked.__post_init__">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.__post_init__">[documentos]</a>
     <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*__post_init__()* configura los valores por defecto para la llave (&#39;key&#39;) y la función de comparación (&#39;cmp_function&#39;). Si el usuario incluye una lista nativa de python como argumento, se agrega a la lista de elementos del DoubleLinked.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*__post_init__()* configura los parametros personalizados por el usuario al crear el *DoubleLinked*. En caso de no estar definidos, se asignan los valores por defecto, puede cargar listas nativas con el parametro *iodata* de python dentro de la estructura.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="c1"># Link sentinel nodes</span>
@@ -201,7 +201,7 @@
             <span class="c1"># if the compare function is not defined, use the default</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cmp_function</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">cmp_function</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_cmp_function</span>
-            <span class="c1"># if input data is iterable add them to the DoubleLinkedList</span>
+            <span class="c1"># if input data is iterable add them to the DoubleLinked</span>
             <span class="c1"># TODO sometime strange weird in tests</span>
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">iodata</span><span class="p">,</span> <span class="n">VALID_IO_TYPE</span><span class="p">):</span>
                 <span class="k">for</span> <span class="n">elm</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">iodata</span><span class="p">:</span>
@@ -214,7 +214,7 @@
 <div class="viewcode-block" id="DoubleLinked.default_cmp_function">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.default_cmp_function">[documentos]</a>
     <span class="k">def</span> <span class="nf">default_cmp_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elm1</span><span class="p">,</span> <span class="n">elm2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*default_cmp_function()* procesa con algoritmica por defecto la lista de elementos que procesa el DoubleLinked. Es una función crucial para que la estructura de datos funcione correctamente.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*default_cmp_function()* es la función de comparación por defecto para comparar elementos dentro del *DoubleLinked*, es una función crucial para que la estructura funcione correctamente.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            elm1 (Any): primer elemento a comparar.</span>
@@ -233,12 +233,12 @@
 <div class="viewcode-block" id="DoubleLinked._handle_error">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked._handle_error">[documentos]</a>
     <span class="k">def</span> <span class="nf">_handle_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">err</span><span class="p">:</span> <span class="ne">Exception</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*_handle_error()* función privada que maneja los errores que se pueden presentar en el DoubleLinked.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*_handle_error()* función propia de la estructura que maneja los errores que se pueden presentar en el *DoubleLinked*.</span>
 
-<span class="sd">        Si se presenta un error en el DoubleLinked, se formatea el error según el contexto (paquete/clase) y la función que lo generó, y lo reenvia al componente superior en la jerarquía de llamados para manejarlo segun se considere conveniente.</span>
+<span class="sd">        Si se presenta un error en *DoubleLinked*, se formatea el error según el contexto (paquete/módulo/clase), la función (método) que lo generó y lo reenvia al componente superior en la jerarquía *DISCLib* para manejarlo segun se considere conveniente el usuario.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            err (Exception): Excepción que se generó en el DoubleLinked.</span>
+<span class="sd">            err (Exception): Excepción que se generó en el *DoubleLinked*.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># TODO check usability of this function</span>
         <span class="n">cur_context</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
@@ -249,16 +249,16 @@
 <div class="viewcode-block" id="DoubleLinked._check_type">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked._check_type">[documentos]</a>
     <span class="k">def</span> <span class="nf">_check_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*_check_type()* función privada que verifica que el tipo de dato del elemento que se quiere agregar al DoubleLinked sea del mismo tipo contenido dentro de los elementos del DoubleLinked.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*_check_type()* función propia de la estructura que revisa si el tipo de dato del elemento que se desea agregar al *DoubleLinked* es del mismo tipo contenido dentro de los elementos del *DoubleLinked*.</span>
 
 <span class="sd">        Raises:</span>
-<span class="sd">            TypeError: error si el tipo de dato del elemento que se quiere agregar no es el mismo que el tipo de dato de los elementos que ya contiene el DoubleLinked.</span>
+<span class="sd">            TypeError: error si el tipo de dato del elemento que se desea agregar no es el mismo que el tipo de dato de los elementos que ya contiene el *DoubleLinked*.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            element (T): elemento que se quiere procesar en DoubleLinked.</span>
+<span class="sd">            element (T): elemento que se desea procesar en *DoubleLinked*.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            bool: operador que indica si el ADT DoubleLinked es del mismo tipo que el elemento que se quiere procesar.</span>
+<span class="sd">            bool: operador que indica si el ADT *DoubleLinked* es del mismo tipo que el elemento que se desea procesar.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># TODO check usability of this function</span>
         <span class="c1"># if the structure is not empty, check the header element type</span>
@@ -278,10 +278,10 @@
 <div class="viewcode-block" id="DoubleLinked.is_empty">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.is_empty">[documentos]</a>
     <span class="k">def</span> <span class="nf">is_empty</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*is_empty()* revisa si el DoubleLinked está vacía.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*is_empty()* revisa si el *DoubleLinked* está vacío.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            bool: operador que indica si la estructura DoubleLinked está vacía.</span>
+<span class="sd">            bool: operador que indica si la estructura *DoubleLinked* está vacía.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># TODO change the method name to &quot;empty&quot; or @property &quot;empty&quot;?</span>
         <span class="k">try</span><span class="p">:</span>
@@ -296,10 +296,10 @@
 <div class="viewcode-block" id="DoubleLinked.size">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.size">[documentos]</a>
     <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*size()* devuelve el número de elementos que actualmente contiene el DoubleLinked.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*size()* devuelve el número de elementos que actualmente contiene el *DoubleLinked*.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            int: tamaño de la estructura DoubleLinked.</span>
+<span class="sd">            int: tamaño de la estructura *DoubleLinked*.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># TODO change the method to @property &quot;size&quot;?</span>
         <span class="k">try</span><span class="p">:</span>
@@ -313,10 +313,10 @@
 <div class="viewcode-block" id="DoubleLinked.add_first">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.add_first">[documentos]</a>
     <span class="k">def</span> <span class="nf">add_first</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*add_first()* adiciona un elemento al inicio del DoubleLinked.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*add_first()* adiciona un elemento al inicio del *DoubleLinked*.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            element (T): elemento que se quiere agregar a la estructura.</span>
+<span class="sd">            element (T): elemento que se desea agregar a la estructura.</span>
 
 <span class="sd">        Raises:</span>
 <span class="sd">            Exception: si la operación no se puede realizar, se invoca la función *_handle_error()* para manejar el error.</span>
@@ -324,7 +324,6 @@
         <span class="k">try</span><span class="p">:</span>
             <span class="c1"># if the element type is valid, add it to the list</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_type</span><span class="p">(</span><span class="n">element</span><span class="p">):</span>
-                <span class="c1"># create a new node</span>
                 <span class="c1"># new double node with the element and sentinel references</span>
                 <span class="n">new_node</span> <span class="o">=</span> <span class="n">DoubleNode</span><span class="p">(</span><span class="n">element</span><span class="p">,</span>
                                       <span class="n">_prev</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="p">,</span>
@@ -343,10 +342,10 @@
 <div class="viewcode-block" id="DoubleLinked.add_last">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.add_last">[documentos]</a>
     <span class="k">def</span> <span class="nf">add_last</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*add_last()* adiciona un elemento al final del DoubleLinked.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*add_last()* adiciona un elemento al final del *DoubleLinked*.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            element (T): elemento que se quiere agregar a la estructura.</span>
+<span class="sd">            element (T): elemento que se desea agregar a la estructura.</span>
 
 <span class="sd">        Raises:</span>
 <span class="sd">            Exception: si la operación no se puede realizar, se invoca la función *_handle_error()* para manejar el error.</span>
@@ -371,11 +370,11 @@
 <div class="viewcode-block" id="DoubleLinked.add_element">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.add_element">[documentos]</a>
     <span class="k">def</span> <span class="nf">add_element</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*add_element()* adiciona un elemento en una posición dada del DoubleLinked.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*add_element()* adiciona un elemento en una posición especifica del *DoubleLinked*.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            element (T): elemento que se quiere agregar a la estructura.</span>
-<span class="sd">            pos (int): índice en la que se quiere agregar el elemento.</span>
+<span class="sd">            element (T): elemento que se desea agregar a la estructura.</span>
+<span class="sd">            pos (int): posición en la que se desea agregar el elemento.</span>
 
 <span class="sd">        Raises:</span>
 <span class="sd">            IndexError: error si la posición es inválida.</span>
@@ -416,13 +415,13 @@
 <div class="viewcode-block" id="DoubleLinked.get_first">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.get_first">[documentos]</a>
     <span class="k">def</span> <span class="nf">get_first</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*get_first()* lee el primer elemento del DoubleLinked.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*get_first()* lee el primer elemento del *DoubleLinked*.</span>
 
 <span class="sd">        Raises:</span>
 <span class="sd">            Exception: error si la estructura está vacía.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            Optional[T]: el primer elemento del DoubleLinked.</span>
+<span class="sd">            Optional[T]: el primer elemento del *DoubleLinked*.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">info</span> <span class="o">=</span> <span class="kc">None</span>
@@ -439,13 +438,13 @@
 <div class="viewcode-block" id="DoubleLinked.get_last">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.get_last">[documentos]</a>
     <span class="k">def</span> <span class="nf">get_last</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*get_last()* lee el último elemento del DoubleLinked.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*get_last()* lee el último elemento del *DoubleLinked*.</span>
 
 <span class="sd">        Raises:</span>
 <span class="sd">            Exception: error si la estructura está vacía.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">             Optional[T]: el ultimo elemento del DoubleLinked.</span>
+<span class="sd">             Optional[T]: el ultimo elemento del *DoubleLinked*.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">info</span> <span class="o">=</span> <span class="kc">None</span>
@@ -462,17 +461,17 @@
 <div class="viewcode-block" id="DoubleLinked.get_element">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.get_element">[documentos]</a>
     <span class="k">def</span> <span class="nf">get_element</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*get_element()* lee un elemento en una posición dada del DoubleLinked.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*get_element()* lee un elemento en una posición especifica del *DoubleLinked*.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            pos (int): índice en la que se quiere agregar el elemento.</span>
+<span class="sd">            pos (int): posición del elemento que se desea leer.</span>
 
 <span class="sd">        Raises:</span>
 <span class="sd">            Exception: error si la estructura está vacía.</span>
 <span class="sd">            Exception: error si la posición es inválida.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">             Optional[T]: el elemento en la posición dada del DoubleLinked.</span>
+<span class="sd">             Optional[T]: el elemento en la posición especifica del *DoubleLinked*.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># TODO change the method name to &quot;get_elm()&quot;?</span>
         <span class="k">try</span><span class="p">:</span>
@@ -505,13 +504,13 @@
 <div class="viewcode-block" id="DoubleLinked.remove_first">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.remove_first">[documentos]</a>
     <span class="k">def</span> <span class="nf">remove_first</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*remove_first()* elimina el primer elemento del DoubleLinked.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*remove_first()* elimina el primer elemento del *DoubleLinked*.</span>
 
 <span class="sd">        Raises:</span>
 <span class="sd">            Exception: error si la estructura está vacía.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">             Optional[T]: el primer elemento eliminado del DoubleLinked.</span>
+<span class="sd">             Optional[T]: el primer elemento eliminado del *DoubleLinked*.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">info</span> <span class="o">=</span> <span class="kc">None</span>
@@ -536,13 +535,13 @@
 <div class="viewcode-block" id="DoubleLinked.remove_last">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.remove_last">[documentos]</a>
     <span class="k">def</span> <span class="nf">remove_last</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*remove_last()* elimina el último elemento del DoubleLinked.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*remove_last()* elimina el último elemento del *DoubleLinked*.</span>
 
 <span class="sd">        Raises:</span>
 <span class="sd">            Exception: error si la estructura está vacía.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            Optional[T]: el ultimo elemento eliminado del DoubleLinked.</span>
+<span class="sd">            Optional[T]: el ultimo elemento eliminado del *DoubleLinked*.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">info</span> <span class="o">=</span> <span class="kc">None</span>
@@ -567,17 +566,17 @@
 <div class="viewcode-block" id="DoubleLinked.remove_element">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.remove_element">[documentos]</a>
     <span class="k">def</span> <span class="nf">remove_element</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*remove_element()* elimina un elemento en una posición dada del DoubleLinked.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*remove_element()* elimina un elemento en una posición especifica del *DoubleLinked*.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            pos (int): índice del que se quiere eliminar el elemento.</span>
+<span class="sd">            pos (int): posición del elemento que se desea eliminar.</span>
 
 <span class="sd">        Raises:</span>
 <span class="sd">            IndexError: error si la estructura está vacía.</span>
 <span class="sd">            IndexError: error si la posición es inválida.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            Optional[T]: el elemento eliminado del DoubleLinked.</span>
+<span class="sd">            Optional[T]: el elemento eliminado del *DoubleLinked*.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># TODO change the method name to &quot;remove_elm()&quot;?</span>
         <span class="k">try</span><span class="p">:</span>
@@ -621,7 +620,7 @@
 <div class="viewcode-block" id="DoubleLinked.compare_elements">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.compare_elements">[documentos]</a>
     <span class="k">def</span> <span class="nf">compare_elements</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elem1</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="n">elem2</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*compare_elements()* compara dos elementos dentro del DoubleLinked según la función de comparación definida por el usuario o la función por defecto.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*compare_elements()* compara dos elementos dentro del *DoubleLinked* según la función de comparación de la estructura.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            elem1 (T): Primer elemento a comparar.</span>
@@ -633,12 +632,8 @@
 <span class="sd">        Returns:</span>
 <span class="sd">            int: -1 si elem1 es menor que elem2, 0 si son iguales, 1 si elem1 es mayor que elem2.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># FIXME with __post_init__ the cmp_function is never None</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="c1"># if the key is defined but the cmp is not, use the default</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">key</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">cmp_function</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_cmp_function</span><span class="p">(</span><span class="n">elem1</span><span class="p">,</span> <span class="n">elem2</span><span class="p">)</span>
-            <span class="c1"># otherwise, use the custom cmp function</span>
+            <span class="c1"># use the structure cmp function</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cmp_function</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cmp_function</span><span class="p">(</span><span class="n">elem1</span><span class="p">,</span> <span class="n">elem2</span><span class="p">)</span>
             <span class="c1"># raise an exception if the cmp function is not defined</span>
@@ -650,13 +645,13 @@
 <div class="viewcode-block" id="DoubleLinked.find">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.find">[documentos]</a>
     <span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*find()* revisa si un elemento está en el DoubleLinked.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*find()* busca el elemento dentro del *DoubleLinked* y devuelve su posición o -1 si no lo encuentra.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            element (T): elemento que se quiere revisar en el DoubleLinked.</span>
+<span class="sd">            element (T): elemento que se desea revisar en el *DoubleLinked*.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            int: la posición del elemento en el DoubleLinked, -1 si no está.</span>
+<span class="sd">            int: la posición del elemento en el *DoubleLinked*, -1 si no está.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">pos</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
@@ -683,11 +678,11 @@
 <div class="viewcode-block" id="DoubleLinked.change_info">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.change_info">[documentos]</a>
     <span class="k">def</span> <span class="nf">change_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_info</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*change_info()* cambia la información de un elemento en una posición dada.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*change_info()* cambia la información de un elemento en la posición especificada del *DoubleLinked*.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            new_info (T): nueva información que se quiere agregar en el elemento.</span>
-<span class="sd">            pos (int): posición del elemento que se quiere cambiar.</span>
+<span class="sd">            new_info (T): nueva información que se desea para el elemento.</span>
+<span class="sd">            pos (int): posición del elemento que se desea cambiar.</span>
 
 <span class="sd">        Raises:</span>
 <span class="sd">            IndexError: error si la estructura está vacía.</span>
@@ -724,7 +719,7 @@
 <div class="viewcode-block" id="DoubleLinked.exchange">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.exchange">[documentos]</a>
     <span class="k">def</span> <span class="nf">exchange</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pos1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">pos2</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*exchange()* intercambia la información de dos elementos en dos posiciones dadas.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*exchange()* intercambia la información de dos elementos en dos posiciones especificadas del *DoubleLinked*.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            pos1 (int): posición del primer elemento.</span>
@@ -753,11 +748,11 @@
 <div class="viewcode-block" id="DoubleLinked.sublist">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.sublist">[documentos]</a>
     <span class="k">def</span> <span class="nf">sublist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">end</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;DoubleLinked[T]&quot;</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*sublist()* crea una sublista de la estructura según unas posiciones dentro del DoubleLinked original.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*sublist()* crea una sublista de la estructura según dos posiciones dentro del *DoubleLinked* original.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            start (int): índice inicial de la sublista.</span>
-<span class="sd">            end (int): índice final de la sublista.</span>
+<span class="sd">            start (int): posición inicial de la sublista.</span>
+<span class="sd">            end (int): posición final de la sublista.</span>
 
 <span class="sd">        Raises:</span>
 <span class="sd">            IndexError: error si la estructura está vacía.</span>
@@ -788,19 +783,18 @@
 <div class="viewcode-block" id="DoubleLinked.concat">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.concat">[documentos]</a>
     <span class="k">def</span> <span class="nf">concat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="s2">&quot;DoubleLinked[T]&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;DoubleLinked[T]&quot;</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*concat()* concatena dos estructuras de datos DoubleLinked para crear una nueva estructura con los nodos de las dos estructuras.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*concat()* concatena dos estructuras de datos *DoubleLinked* para crear una estructura con los elementos de las dos estructuras.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            other (DoubleLinked[T]): estructura de datos DoubleLinked que se</span>
-<span class="sd">            quiere concatenar con la estructura original.</span>
+<span class="sd">            other (DoubleLinked[T]): estructura de datos *DoubleLinked* que se desea concatenar con la estructura original.</span>
 
 <span class="sd">        Raises:</span>
-<span class="sd">            TypeError: error si la estructura que se quiere concatenar no es un DoubleLinked.</span>
-<span class="sd">            TypeError: error si la llave de la estructura que se quiere unir no es la misma que la llave de la estructura original.</span>
-<span class="sd">            TypeError: error si la función de comparación de la estructura que se quiere unir no es la misma que la función de comparación de lA estructura original.</span>
+<span class="sd">            TypeError: error si la estructura que se desea concatenar no es un *DoubleLinked*.</span>
+<span class="sd">            TypeError: error si la llave de la estructura que se desea unir no es la misma que la llave de la estructura original.</span>
+<span class="sd">            TypeError: error si la función de comparación de la estructura que se desea unir no es la misma que la función de comparación de la estructura original.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            DoubleLinked[T]: Estructura de datos DoubleLinked original que contiene los elementos de las dos estructuras originales.</span>
+<span class="sd">            DoubleLinked[T]: Estructura de datos original *DoubleLinked* que contiene los elementos de las dos estructuras originales.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">DoubleLinked</span><span class="p">):</span>
@@ -834,10 +828,10 @@
 <div class="viewcode-block" id="DoubleLinked.__iter__">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.__iter__">[documentos]</a>
     <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*__iter__* iterador que interviene la función nativa __iter__ para recorrer ascendentemente un DoubleLinked dentro de un ciclo &#39;for&#39; de python.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*__iter__()* iterador nativo de Python personalizado para el *DoubleLinked*. Permite utilizar los ciclos *for* de Python para recorrer los elementos de la estructura en orden ascendente.</span>
 
-<span class="sd">        Yields:</span>
-<span class="sd">            iterator: iterador sobre los elementos del DoubleLinked.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            __iter__: iterador Python sobre los elementos del *DoubleLinked*.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="c1"># FIXME do I need the try/except block?</span>
@@ -852,10 +846,10 @@
 <div class="viewcode-block" id="DoubleLinked.__reversed__">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.__reversed__">[documentos]</a>
     <span class="k">def</span> <span class="fm">__reversed__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*__reversed__* iterador que interviene la función nativa __reversed__ para recorrer descendentemente un DoubleLinked dentro de un ciclo &#39;for&#39; de python.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*__reversed__* iterador nativo de Python personalizado para el *DoubleLinked*. Permite utilizar los ciclos *for* de Python para recorrer los elementos de la estructura en orden descendente.</span>
 
 <span class="sd">        Yields:</span>
-<span class="sd">            iterator: iterador sobre los elementos del DoubleLinked.</span>
+<span class="sd">            iterator: iterador Python sobre los elementos del *DoubleLinked*.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="c1"># FIXME do I need the try/except block?</span>
@@ -870,10 +864,10 @@
 <div class="viewcode-block" id="DoubleLinked.__len__">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.__len__">[documentos]</a>
     <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*__len__()* función nativa intervenida que devuelve el tamaño del DoubleLinked.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*__len__()* función nativa de Python personalizada para el *DoubleLinked*. Permite utilizar la función *len()* de Python para recuperar el tamaño del *DoubleLinked*.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            int: tamaño del DoubleLinked.</span>
+<span class="sd">            int: tamaño del *DoubleLinked*.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span></div>
 </div>

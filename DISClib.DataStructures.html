@@ -544,7 +544,7 @@ adyacentes de vertex</p>
 </section>
 <section id="module-DISClib.DataStructures.arraylist">
 <span id="disclib-datastructures-arraylist-module"></span><h2>DISClib.DataStructures.arraylist module<a class="headerlink" href="#module-DISClib.DataStructures.arraylist" title="Link to this heading"></a></h2>
-<p>Este ADT representa una estructura de datos lineal, específicamente un arreglo dinámico (ArrayList). El arreglo dinámico es una estructura de datos que permite almacenar un conjunto de elementos del mismo tipo, en la cual se puede acceder y procesar sus elementos utilizando las funciones/métodos propios de la estructura.</p>
+<p>Este ADT representa una estructura de datos lineal, específicamente un arreglo dinámico (<strong>ArrayList</strong>). El arreglo dinámico es una estructura de datos que permite almacenar un conjunto de elementos del mismo tipo, en la cual se puede acceder y procesar sus elementos utilizando las funciones propias de la estructura.</p>
 <p><em>IMPORTANTE:</em> Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:</p>
 <blockquote>
 <div><ol class="arabic simple">
@@ -556,13 +556,13 @@ adyacentes de vertex</p>
 <dt class="sig sig-object py" id="DISClib.DataStructures.arraylist.ArrayList">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.arraylist.</span></span><span class="sig-name descname"><span class="pre">ArrayList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">iodata:</span> <span class="pre">~typing.List[~DISClib.Utils.default.T]</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">cmp_function:</span> <span class="pre">~typing.Callable[[~DISClib.Utils.default.T,</span> <span class="pre">~DISClib.Utils.default.T],</span> <span class="pre">int]</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">elements:</span> <span class="pre">~typing.List[~DISClib.Utils.default.T]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;,</span> <span class="pre">key:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">_size:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/DataStructures/arraylist.html#ArrayList"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.arraylist.ArrayList" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<a class="reference internal" href="autoapi/DISClib/Utils/default/index.html#DISClib.Utils.default.T" title="DISClib.Utils.default.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code></a>]</p>
-<p><strong>ArrayList</strong> representa la estructura de datos para arreglos dinamicos (Array List), Implementada con Generic[T] y &#64;dataclass para que sea una estructura de datos genérica.</p>
+<p><strong>ArrayList</strong> representa la estructura de datos para arreglos dinamicos (<em>ArrayList</em>), Implementada con Generic[T] y &#64;dataclass para que sea una estructura de datos genérica.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>Generic</strong> (<em>T</em>) – TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.</p>
 </dd>
 <dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>ADT de tipo ArrayList o Arreglo Dinámico.</p>
+<dd class="field-even"><p>ADT de tipo <em>ArrayList</em> o Arreglo Dinámico.</p>
 </dd>
 <dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="autoapi/DISClib/DataStructures/arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList" title="DISClib.DataStructures.arraylist.ArrayList">ArrayList</a></p>
@@ -571,12 +571,12 @@ adyacentes de vertex</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.arraylist.ArrayList.add_element">
 <span class="sig-name descname"><span class="pre">add_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/arraylist.html#ArrayList.add_element"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.arraylist.ArrayList.add_element" title="Link to this definition"></a></dt>
-<dd><p><em>add_element()</em> adiciona un elemento en una posición dada del ArrayList.</p>
+<dd><p><em>add_element()</em> adiciona un elemento en una posición especifica del <em>ArrayList</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>element</strong> (<em>T</em>) – elemento que se quiere agregar a la estructura.</p></li>
-<li><p><strong>pos</strong> (<em>int</em>) – índice en la que se quiere agregar el elemento.</p></li>
+<li><p><strong>element</strong> (<em>T</em>) – elemento que se desea agregar a la estructura.</p></li>
+<li><p><strong>pos</strong> (<em>int</em>) – posición en la que se desea agregar el elemento.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Muestra<span class="colon">:</span></dt>
@@ -591,10 +591,10 @@ adyacentes de vertex</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.arraylist.ArrayList.add_first">
 <span class="sig-name descname"><span class="pre">add_first</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/arraylist.html#ArrayList.add_first"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.arraylist.ArrayList.add_first" title="Link to this definition"></a></dt>
-<dd><p><em>add_first()</em> adiciona un elemento al inicio del ArrayList.</p>
+<dd><p><em>add_first()</em> adiciona un elemento al inicio del <em>ArrayList</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>element</strong> (<em>T</em>) – elemento que se quiere agregar a la estructura.</p>
+<dd class="field-odd"><p><strong>element</strong> (<em>T</em>) – elemento que se desea agregar a la estructura.</p>
 </dd>
 <dt class="field-even">Muestra<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>Exception</strong> – si la operación no se puede realizar, se invoca la función <em>_handle_error()</em> para manejar el error.</p>
@@ -605,10 +605,10 @@ adyacentes de vertex</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.arraylist.ArrayList.add_last">
 <span class="sig-name descname"><span class="pre">add_last</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/arraylist.html#ArrayList.add_last"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.arraylist.ArrayList.add_last" title="Link to this definition"></a></dt>
-<dd><p><em>add_last()</em> adiciona un elemento al final del ArrayList.</p>
+<dd><p><em>add_last()</em> adiciona un elemento al final del <em>ArrayList</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>element</strong> (<em>T</em>) – elemento que se quiere agregar a la estructura.</p>
+<dd class="field-odd"><p><strong>element</strong> (<em>T</em>) – elemento que se desea agregar a la estructura.</p>
 </dd>
 <dt class="field-even">Muestra<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>Exception</strong> – si la operación no se puede realizar, se invoca la función <em>_handle_error()</em> para manejar el error.</p>
@@ -619,12 +619,12 @@ adyacentes de vertex</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.arraylist.ArrayList.change_info">
 <span class="sig-name descname"><span class="pre">change_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_info</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/arraylist.html#ArrayList.change_info"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.arraylist.ArrayList.change_info" title="Link to this definition"></a></dt>
-<dd><p><em>change_info()</em> cambia la información de un elemento en una posición dada.</p>
+<dd><p><em>change_info()</em> cambia la información de un elemento en la posición especificada del <em>ArrayList</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>new_info</strong> (<em>T</em>) – nueva información que se quiere agregar en el elemento.</p></li>
-<li><p><strong>pos</strong> (<em>int</em>) – posición del elemento que se quiere cambiar.</p></li>
+<li><p><strong>new_info</strong> (<em>T</em>) – nueva información que se desea para el elemento.</p></li>
+<li><p><strong>pos</strong> (<em>int</em>) – posición del elemento que se desea cambiar.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Muestra<span class="colon">:</span></dt>
@@ -639,13 +639,13 @@ adyacentes de vertex</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.arraylist.ArrayList.cmp_function">
 <span class="sig-name descname"><span class="pre">cmp_function</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="_modules/DISClib/DataStructures/arraylist.html#ArrayList.cmp_function"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.arraylist.ArrayList.cmp_function" title="Link to this definition"></a></dt>
-<dd><p>Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es None y el <em>__post_init__()</em> configura la función por defecto <em>lt_default_cmp_funcion()</em>.</p>
+<dd><p>Función de comparación personalizable por el usuario para reconocer los elementos dentro del <em>ArrayList</em>. Por defecto es la función <em>lt_default_cmp_funcion()</em> propia de <em>DISClib</em>, puede ser un parametro al crear la estructura.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.arraylist.ArrayList.compare_elements">
 <span class="sig-name descname"><span class="pre">compare_elements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elem1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elem2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/arraylist.html#ArrayList.compare_elements"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.arraylist.ArrayList.compare_elements" title="Link to this definition"></a></dt>
-<dd><p><em>compare_elements()</em> compara dos elementos dentro del ArrayList según la función de comparación definida por el usuario o la función por defecto.</p>
+<dd><p><em>compare_elements()</em> compara dos elementos dentro del <em>ArrayList</em> según la función de comparación de la estructura.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -668,20 +668,20 @@ adyacentes de vertex</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.arraylist.ArrayList.concat">
 <span class="sig-name descname"><span class="pre">concat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="autoapi/DISClib/DataStructures/arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList" title="DISClib.DataStructures.arraylist.ArrayList"><span class="pre">ArrayList</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="autoapi/DISClib/DataStructures/arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList" title="DISClib.DataStructures.arraylist.ArrayList"><span class="pre">ArrayList</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/arraylist.html#ArrayList.concat"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.arraylist.ArrayList.concat" title="Link to this definition"></a></dt>
-<dd><p><em>concat()</em> concatena dos estructuras de datos ArrayList para crear una nueva estructura con los elementos de las dos estructuras.</p>
+<dd><p><em>concat()</em> concatena dos estructuras de datos <em>ArrayList</em> para crear una estructura con los elementos de las dos estructuras.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="autoapi/DISClib/DataStructures/arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList" title="DISClib.DataStructures.arraylist.ArrayList"><em>ArrayList</em></a><em>[</em><em>T</em><em>]</em>) – estructura de datos ArrayList que se quiere concatenar con la estructura original.</p>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="autoapi/DISClib/DataStructures/arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList" title="DISClib.DataStructures.arraylist.ArrayList"><em>ArrayList</em></a><em>[</em><em>T</em><em>]</em>) – estructura de datos <em>ArrayList</em> que se desea concatenar con la estructura original.</p>
 </dd>
 <dt class="field-even">Muestra<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>TypeError</strong> – error si la estructura que se quiere concatenar no es un ArrayList.</p></li>
-<li><p><strong>TypeError</strong> – error si la llave de la estructura que se quiere unir no es la misma que la llave de la estructura original.</p></li>
-<li><p><strong>TypeError</strong> – error si la función de comparación de la estructura que se quiere unir no es la misma que la función de comparación de la estructura original.</p></li>
+<li><p><strong>TypeError</strong> – error si la estructura que se desea concatenar no es un <em>ArrayList</em>.</p></li>
+<li><p><strong>TypeError</strong> – error si la llave de la estructura que se desea unir no es la misma que la llave de la estructura original.</p></li>
+<li><p><strong>TypeError</strong> – error si la función de comparación de la estructura que se desea unir no es la misma que la función de comparación de la estructura original.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Estructura de datos original ArrayList que contiene los elementos de las dos estructuras originales.</p>
+<dd class="field-odd"><p>Estructura de datos original <em>ArrayList</em> que contiene los elementos de las dos estructuras originales.</p>
 </dd>
 <dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="autoapi/DISClib/DataStructures/arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList" title="DISClib.DataStructures.arraylist.ArrayList">ArrayList</a>[T]</p>
@@ -692,7 +692,7 @@ adyacentes de vertex</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.arraylist.ArrayList.default_cmp_function">
 <span class="sig-name descname"><span class="pre">default_cmp_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elm1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elm2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/arraylist.html#ArrayList.default_cmp_function"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.arraylist.ArrayList.default_cmp_function" title="Link to this definition"></a></dt>
-<dd><p><em>default_cmp_function()</em> procesa con algoritmica por defecto la lista de elementos que procesa el ArrayList. Es una función crucial para que la estructura de datos funcione correctamente.</p>
+<dd><p><em>default_cmp_function()</em> es la función de comparación por defecto para comparar elementos dentro del <em>ArrayList</em>, es una función crucial para que la estructura funcione correctamente.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -718,7 +718,7 @@ adyacentes de vertex</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.arraylist.ArrayList.exchange">
 <span class="sig-name descname"><span class="pre">exchange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/arraylist.html#ArrayList.exchange"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.arraylist.ArrayList.exchange" title="Link to this definition"></a></dt>
-<dd><p><em>exchange()</em> intercambia la información de dos elementos en dos posiciones dadas.</p>
+<dd><p><em>exchange()</em> intercambia la información de dos elementos en dos posiciones especificadas del <em>ArrayList</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -739,13 +739,13 @@ adyacentes de vertex</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.arraylist.ArrayList.find">
 <span class="sig-name descname"><span class="pre">find</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/arraylist.html#ArrayList.find"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.arraylist.ArrayList.find" title="Link to this definition"></a></dt>
-<dd><p><em>find()</em> revisa si un elemento está en el ArrayList.</p>
+<dd><p><em>find()</em> busca el elemento dentro del <em>ArrayList</em> y devuelve su posición o -1 si no lo encuentra.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>element</strong> (<em>T</em>) – elemento que se quiere revisar en el ArrayList.</p>
+<dd class="field-odd"><p><strong>element</strong> (<em>T</em>) – elemento que se desea revisar en el <em>ArrayList</em>.</p>
 </dd>
 <dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>la posición del elemento en el ArrayList, -1 si no está.</p>
+<dd class="field-even"><p>la posición del elemento en el <em>ArrayList</em>, -1 si no está.</p>
 </dd>
 <dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-odd"><p>int</p>
@@ -756,10 +756,10 @@ adyacentes de vertex</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.arraylist.ArrayList.get_element">
 <span class="sig-name descname"><span class="pre">get_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/arraylist.html#ArrayList.get_element"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.arraylist.ArrayList.get_element" title="Link to this definition"></a></dt>
-<dd><p><em>get_element()</em> lee un elemento en una posición dada del ArrayList.</p>
+<dd><p><em>get_element()</em> lee un elemento en una posición especifica del <em>ArrayList</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>pos</strong> (<em>int</em>) – índice en la que se quiere agregar el elemento.</p>
+<dd class="field-odd"><p><strong>pos</strong> (<em>int</em>) – posición del elemento que se desea leer.</p>
 </dd>
 <dt class="field-even">Muestra<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
@@ -768,7 +768,7 @@ adyacentes de vertex</p>
 </ul>
 </dd>
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>el elemento en la posición dada del ArrayList.</p>
+<dd class="field-odd"><p>el elemento en la posición especifica del <em>ArrayList</em>.</p>
 </dd>
 <dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-even"><p>T</p>
@@ -779,13 +779,13 @@ adyacentes de vertex</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.arraylist.ArrayList.get_first">
 <span class="sig-name descname"><span class="pre">get_first</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/arraylist.html#ArrayList.get_first"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.arraylist.ArrayList.get_first" title="Link to this definition"></a></dt>
-<dd><p><em>get_first()</em> lee el primer elemento del ArrayList.</p>
+<dd><p><em>get_first()</em> lee el primer elemento del <em>ArrayList</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Muestra<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>Exception</strong> – error si la estructura está vacía.</p>
 </dd>
 <dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>el primer elemento del ArrayList.</p>
+<dd class="field-even"><p>el primer elemento del <em>ArrayList</em>.</p>
 </dd>
 <dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-odd"><p>T</p>
@@ -796,13 +796,13 @@ adyacentes de vertex</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.arraylist.ArrayList.get_last">
 <span class="sig-name descname"><span class="pre">get_last</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/arraylist.html#ArrayList.get_last"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.arraylist.ArrayList.get_last" title="Link to this definition"></a></dt>
-<dd><p><em>get_last()</em> lee el último elemento del ArrayList.</p>
+<dd><p><em>get_last()</em> lee el último elemento del <em>ArrayList</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Muestra<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>Exception</strong> – error si la estructura está vacía.</p>
 </dd>
 <dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>el ultimo elemento del ArrayList.</p>
+<dd class="field-even"><p>el ultimo elemento del <em>ArrayList</em>.</p>
 </dd>
 <dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-odd"><p>T</p>
@@ -813,16 +813,16 @@ adyacentes de vertex</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.arraylist.ArrayList.iodata">
 <span class="sig-name descname"><span class="pre">iodata</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="_modules/DISClib/DataStructures/arraylist.html#ArrayList.iodata"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.arraylist.ArrayList.iodata" title="Link to this definition"></a></dt>
-<dd><p>Lista nativa de Python que contiene los elementos de entrada a la estructura, por defecto es None y el usuario puede incluir una lista nativa de python como argumento.</p>
+<dd><p>Lista nativa de Python personalizable por el usuario para inicializar la estructura. Por defecto es <em>None</em> y el usuario puede incluirla como argumento al crear la estructura.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.arraylist.ArrayList.is_empty">
 <span class="sig-name descname"><span class="pre">is_empty</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/arraylist.html#ArrayList.is_empty"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.arraylist.ArrayList.is_empty" title="Link to this definition"></a></dt>
-<dd><p><em>is_empty()</em> revisa si el ArrayList está vacía.</p>
+<dd><p><em>is_empty()</em> revisa si el <em>ArrayList</em> está vacío.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>operador que indica si la estructura ArrayList está vacía.</p>
+<dd class="field-odd"><p>operador que indica si la estructura <em>ArrayList</em> está vacía.</p>
 </dd>
 <dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-even"><p>bool</p>
@@ -833,16 +833,16 @@ adyacentes de vertex</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.arraylist.ArrayList.key">
 <span class="sig-name descname"><span class="pre">key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="_modules/DISClib/DataStructures/arraylist.html#ArrayList.key"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.arraylist.ArrayList.key" title="Link to this definition"></a></dt>
-<dd><p>Nombre de la llave opcional que se utiliza para comparar los elementos del ArrayList, Por defecto es “None” y el <em>__post_init__()</em> configura la llave por defecto la llave “id” en <em>DEFAULT_DICT_KEY</em>.</p>
+<dd><p>Nombre de la llave personalizable por el usuario utilizada para reconocer los elementos dentro del <em>ArrayList</em>. Por defecto es la llave de diccionario (<em>dict</em>) <em>DEFAULT_DICT_KEY = “id”</em> propia de <em>DISClib</em>, puede ser un parametro al crear la estructura.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.arraylist.ArrayList.remove_element">
 <span class="sig-name descname"><span class="pre">remove_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/arraylist.html#ArrayList.remove_element"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.arraylist.ArrayList.remove_element" title="Link to this definition"></a></dt>
-<dd><p><em>remove_element()</em> elimina un elemento en una posición dada del ArrayList.</p>
+<dd><p><em>remove_element()</em> elimina un elemento en una posición especifica del <em>ArrayList</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>pos</strong> (<em>int</em>) – índice del que se quiere eliminar el elemento.</p>
+<dd class="field-odd"><p><strong>pos</strong> (<em>int</em>) – posición del elemento que se desea eliminar.</p>
 </dd>
 <dt class="field-even">Muestra<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
@@ -851,7 +851,7 @@ adyacentes de vertex</p>
 </ul>
 </dd>
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>el elemento eliminado del ArrayList.</p>
+<dd class="field-odd"><p>el elemento eliminado del <em>ArrayList</em>.</p>
 </dd>
 <dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-even"><p>T</p>
@@ -862,13 +862,13 @@ adyacentes de vertex</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.arraylist.ArrayList.remove_first">
 <span class="sig-name descname"><span class="pre">remove_first</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/arraylist.html#ArrayList.remove_first"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.arraylist.ArrayList.remove_first" title="Link to this definition"></a></dt>
-<dd><p><em>remove_first()</em> elimina el primer elemento del ArrayList.</p>
+<dd><p><em>remove_first()</em> elimina el primer elemento del <em>ArrayList</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Muestra<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>Exception</strong> – error si la estructura está vacía.</p>
 </dd>
 <dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>el primer elemento eliminado del ArrayList.</p>
+<dd class="field-even"><p>el primer elemento eliminado del <em>ArrayList</em>.</p>
 </dd>
 <dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-odd"><p>T</p>
@@ -879,13 +879,13 @@ adyacentes de vertex</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.arraylist.ArrayList.remove_last">
 <span class="sig-name descname"><span class="pre">remove_last</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/arraylist.html#ArrayList.remove_last"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.arraylist.ArrayList.remove_last" title="Link to this definition"></a></dt>
-<dd><p><em>remove_last()</em> elimina el último elemento del ArrayList.</p>
+<dd><p><em>remove_last()</em> elimina el último elemento del <em>ArrayList</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Muestra<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>Exception</strong> – error si la estructura está vacía.</p>
 </dd>
 <dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>el ultimo elemento eliminado del ArrayList.</p>
+<dd class="field-even"><p>el ultimo elemento eliminado del <em>ArrayList</em>.</p>
 </dd>
 <dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-odd"><p>T</p>
@@ -896,10 +896,10 @@ adyacentes de vertex</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.arraylist.ArrayList.size">
 <span class="sig-name descname"><span class="pre">size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/arraylist.html#ArrayList.size"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.arraylist.ArrayList.size" title="Link to this definition"></a></dt>
-<dd><p><em>size()</em> devuelve el número de elementos que actualmente contiene el ArrayList.</p>
+<dd><p><em>size()</em> devuelve el número de elementos que actualmente contiene el <em>ArrayList</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>tamaño de la estructura ArrayList.</p>
+<dd class="field-odd"><p>tamaño de la estructura <em>ArrayList</em>.</p>
 </dd>
 <dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-even"><p>int</p>
@@ -910,12 +910,12 @@ adyacentes de vertex</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.arraylist.ArrayList.sublist">
 <span class="sig-name descname"><span class="pre">sublist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="autoapi/DISClib/DataStructures/arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList" title="DISClib.DataStructures.arraylist.ArrayList"><span class="pre">ArrayList</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/arraylist.html#ArrayList.sublist"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.arraylist.ArrayList.sublist" title="Link to this definition"></a></dt>
-<dd><p><em>sublist()</em> crea una sublista de la estructura según unas posiciones dentro del ArrayList original.</p>
+<dd><p><em>sublist()</em> crea una sublista de la estructura según dos posiciones dentro del <em>ArrayList</em> original.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>start</strong> (<em>int</em>) – índice inicial de la sublista.</p></li>
-<li><p><strong>end</strong> (<em>int</em>) – índice final de la sublista.</p></li>
+<li><p><strong>start</strong> (<em>int</em>) – posición inicial de la sublista.</p></li>
+<li><p><strong>end</strong> (<em>int</em>) – posición final de la sublista.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Muestra<span class="colon">:</span></dt>
@@ -1020,7 +1020,7 @@ adyacentes de vertex</p>
 </section>
 <section id="module-DISClib.DataStructures.doublelinkedlist">
 <span id="disclib-datastructures-doublelinkedlist-module"></span><h2>DISClib.DataStructures.doublelinkedlist module<a class="headerlink" href="#module-DISClib.DataStructures.doublelinkedlist" title="Link to this heading"></a></h2>
-<p>Este ADT representa una estructura de datos lineal, específicamente una lista doblemente enlazada/encadenada (DoubleLinked). Esta estructura de datos es una secuencia de nodos enlazados, donde cada nodo contiene un elemento de información, una referencia al siguiente, y al anterior nodo en la secuencia. Esto le permite a la lista un crecimiento y reducción dinámico en la memoria disponible.</p>
+<p>Este ADT representa una estructura de datos lineal, específicamente una lista doblemente enlazada/encadenada (<strong>DoubleLinked</strong>). Esta estructura de datos es una secuencia de nodos enlazados, donde cada nodo contiene un elemento de información, una referencia al siguiente, y al anterior nodo en la secuencia. Esto le permite a la lista un crecimiento y reducción dinámico en la memoria disponible.</p>
 <p><em>IMPORTANTE:</em> Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:</p>
 <blockquote>
 <div><ol class="arabic simple">
@@ -1032,13 +1032,13 @@ adyacentes de vertex</p>
 <dt class="sig sig-object py" id="DISClib.DataStructures.doublelinkedlist.DoubleLinked">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.doublelinkedlist.</span></span><span class="sig-name descname"><span class="pre">DoubleLinked</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">iodata:</span> <span class="pre">~typing.List[~DISClib.Utils.default.T]</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">cmp_function:</span> <span class="pre">~typing.Callable[[~DISClib.Utils.default.T,</span> <span class="pre">~DISClib.Utils.default.T],</span> <span class="pre">int]</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">_header:</span> <span class="pre">~DISClib.DataStructures.listnode.DoubleNode[~DISClib.Utils.default.T]</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;,</span> <span class="pre">_trailer:</span> <span class="pre">~DISClib.DataStructures.listnode.DoubleNode[~DISClib.Utils.default.T]</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;,</span> <span class="pre">key:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">_size:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">-1</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/DataStructures/doublelinkedlist.html#DoubleLinked"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.doublelinkedlist.DoubleLinked" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<a class="reference internal" href="autoapi/DISClib/Utils/default/index.html#DISClib.Utils.default.T" title="DISClib.Utils.default.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code></a>]</p>
-<p><strong>DoubleLinked</strong> representa una estructura de datos de tipo DoubleLinked con la anotación <a class="reference external" href="mailto:'&#37;&#52;&#48;dataclass">“<span>&#64;</span>dataclass</a>” de python y el decorador “Generic[T]” para indicar que es una estructura de datos genérica.</p>
+<p><strong>DoubleLinked</strong> representa una estructura de datos para una lista doblemente enlazada/encadenada (<em>DoubleLinked</em>). Implementada con Generic[T] y &#64;dataclass para que sea una estructura de datos genérica.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>Generic</strong> (<em>T</em>) – TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.</p>
 </dd>
 <dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>ADT de tipo DoubleLinked o Lista Doblemente Encadenada.</p>
+<dd class="field-even"><p>ADT de tipo <em>DoubleLinked</em> o Lista Doblemente Encadenada.</p>
 </dd>
 <dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked" title="DISClib.DataStructures.doublelinkedlist.DoubleLinked">DoubleLinked</a></p>
@@ -1047,12 +1047,12 @@ adyacentes de vertex</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.doublelinkedlist.DoubleLinked.add_element">
 <span class="sig-name descname"><span class="pre">add_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/doublelinkedlist.html#DoubleLinked.add_element"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.doublelinkedlist.DoubleLinked.add_element" title="Link to this definition"></a></dt>
-<dd><p><em>add_element()</em> adiciona un elemento en una posición dada del DoubleLinked.</p>
+<dd><p><em>add_element()</em> adiciona un elemento en una posición especifica del <em>DoubleLinked</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>element</strong> (<em>T</em>) – elemento que se quiere agregar a la estructura.</p></li>
-<li><p><strong>pos</strong> (<em>int</em>) – índice en la que se quiere agregar el elemento.</p></li>
+<li><p><strong>element</strong> (<em>T</em>) – elemento que se desea agregar a la estructura.</p></li>
+<li><p><strong>pos</strong> (<em>int</em>) – posición en la que se desea agregar el elemento.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Muestra<span class="colon">:</span></dt>
@@ -1067,10 +1067,10 @@ adyacentes de vertex</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.doublelinkedlist.DoubleLinked.add_first">
 <span class="sig-name descname"><span class="pre">add_first</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/doublelinkedlist.html#DoubleLinked.add_first"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.doublelinkedlist.DoubleLinked.add_first" title="Link to this definition"></a></dt>
-<dd><p><em>add_first()</em> adiciona un elemento al inicio del DoubleLinked.</p>
+<dd><p><em>add_first()</em> adiciona un elemento al inicio del <em>DoubleLinked</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>element</strong> (<em>T</em>) – elemento que se quiere agregar a la estructura.</p>
+<dd class="field-odd"><p><strong>element</strong> (<em>T</em>) – elemento que se desea agregar a la estructura.</p>
 </dd>
 <dt class="field-even">Muestra<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>Exception</strong> – si la operación no se puede realizar, se invoca la función <em>_handle_error()</em> para manejar el error.</p>
@@ -1081,10 +1081,10 @@ adyacentes de vertex</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.doublelinkedlist.DoubleLinked.add_last">
 <span class="sig-name descname"><span class="pre">add_last</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/doublelinkedlist.html#DoubleLinked.add_last"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.doublelinkedlist.DoubleLinked.add_last" title="Link to this definition"></a></dt>
-<dd><p><em>add_last()</em> adiciona un elemento al final del DoubleLinked.</p>
+<dd><p><em>add_last()</em> adiciona un elemento al final del <em>DoubleLinked</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>element</strong> (<em>T</em>) – elemento que se quiere agregar a la estructura.</p>
+<dd class="field-odd"><p><strong>element</strong> (<em>T</em>) – elemento que se desea agregar a la estructura.</p>
 </dd>
 <dt class="field-even">Muestra<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>Exception</strong> – si la operación no se puede realizar, se invoca la función <em>_handle_error()</em> para manejar el error.</p>
@@ -1095,12 +1095,12 @@ adyacentes de vertex</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.doublelinkedlist.DoubleLinked.change_info">
 <span class="sig-name descname"><span class="pre">change_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_info</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/doublelinkedlist.html#DoubleLinked.change_info"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.doublelinkedlist.DoubleLinked.change_info" title="Link to this definition"></a></dt>
-<dd><p><em>change_info()</em> cambia la información de un elemento en una posición dada.</p>
+<dd><p><em>change_info()</em> cambia la información de un elemento en la posición especificada del <em>DoubleLinked</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>new_info</strong> (<em>T</em>) – nueva información que se quiere agregar en el elemento.</p></li>
-<li><p><strong>pos</strong> (<em>int</em>) – posición del elemento que se quiere cambiar.</p></li>
+<li><p><strong>new_info</strong> (<em>T</em>) – nueva información que se desea para el elemento.</p></li>
+<li><p><strong>pos</strong> (<em>int</em>) – posición del elemento que se desea cambiar.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Muestra<span class="colon">:</span></dt>
@@ -1115,13 +1115,13 @@ adyacentes de vertex</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.doublelinkedlist.DoubleLinked.cmp_function">
 <span class="sig-name descname"><span class="pre">cmp_function</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="_modules/DISClib/DataStructures/doublelinkedlist.html#DoubleLinked.cmp_function"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.doublelinkedlist.DoubleLinked.cmp_function" title="Link to this definition"></a></dt>
-<dd><p>Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es “None” y el <em>__post_init__()</em> configura la función por defecto <em>lt_default_cmp_funcion()</em>.</p>
+<dd><p>Función de comparación personalizable por el usuario para reconocer los elementos dentro del <em>DoubleLinked</em>. Por defecto es la función <em>lt_default_cmp_funcion()</em> propia de <em>DISClib</em>, puede ser un parametro al crear la estructura.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.doublelinkedlist.DoubleLinked.compare_elements">
 <span class="sig-name descname"><span class="pre">compare_elements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elem1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elem2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/doublelinkedlist.html#DoubleLinked.compare_elements"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.doublelinkedlist.DoubleLinked.compare_elements" title="Link to this definition"></a></dt>
-<dd><p><em>compare_elements()</em> compara dos elementos dentro del DoubleLinked según la función de comparación definida por el usuario o la función por defecto.</p>
+<dd><p><em>compare_elements()</em> compara dos elementos dentro del <em>DoubleLinked</em> según la función de comparación de la estructura.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -1144,23 +1144,20 @@ adyacentes de vertex</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.doublelinkedlist.DoubleLinked.concat">
 <span class="sig-name descname"><span class="pre">concat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked" title="DISClib.DataStructures.doublelinkedlist.DoubleLinked"><span class="pre">DoubleLinked</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked" title="DISClib.DataStructures.doublelinkedlist.DoubleLinked"><span class="pre">DoubleLinked</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/doublelinkedlist.html#DoubleLinked.concat"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.doublelinkedlist.DoubleLinked.concat" title="Link to this definition"></a></dt>
-<dd><p><em>concat()</em> concatena dos estructuras de datos DoubleLinked para crear una nueva estructura con los nodos de las dos estructuras.</p>
+<dd><p><em>concat()</em> concatena dos estructuras de datos <em>DoubleLinked</em> para crear una estructura con los elementos de las dos estructuras.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>other</strong> (<a class="reference internal" href="autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked" title="DISClib.DataStructures.doublelinkedlist.DoubleLinked"><em>DoubleLinked</em></a><em>[</em><em>T</em><em>]</em>) – estructura de datos DoubleLinked que se</p></li>
-<li><p><strong>original.</strong> (<em>quiere concatenar con la estructura</em>) – </p></li>
-</ul>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked" title="DISClib.DataStructures.doublelinkedlist.DoubleLinked"><em>DoubleLinked</em></a><em>[</em><em>T</em><em>]</em>) – estructura de datos <em>DoubleLinked</em> que se desea concatenar con la estructura original.</p>
 </dd>
 <dt class="field-even">Muestra<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>TypeError</strong> – error si la estructura que se quiere concatenar no es un DoubleLinked.</p></li>
-<li><p><strong>TypeError</strong> – error si la llave de la estructura que se quiere unir no es la misma que la llave de la estructura original.</p></li>
-<li><p><strong>TypeError</strong> – error si la función de comparación de la estructura que se quiere unir no es la misma que la función de comparación de lA estructura original.</p></li>
+<li><p><strong>TypeError</strong> – error si la estructura que se desea concatenar no es un <em>DoubleLinked</em>.</p></li>
+<li><p><strong>TypeError</strong> – error si la llave de la estructura que se desea unir no es la misma que la llave de la estructura original.</p></li>
+<li><p><strong>TypeError</strong> – error si la función de comparación de la estructura que se desea unir no es la misma que la función de comparación de la estructura original.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Estructura de datos DoubleLinked original que contiene los elementos de las dos estructuras originales.</p>
+<dd class="field-odd"><p>Estructura de datos original <em>DoubleLinked</em> que contiene los elementos de las dos estructuras originales.</p>
 </dd>
 <dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked" title="DISClib.DataStructures.doublelinkedlist.DoubleLinked">DoubleLinked</a>[T]</p>
@@ -1171,7 +1168,7 @@ adyacentes de vertex</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.doublelinkedlist.DoubleLinked.default_cmp_function">
 <span class="sig-name descname"><span class="pre">default_cmp_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elm1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elm2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/doublelinkedlist.html#DoubleLinked.default_cmp_function"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.doublelinkedlist.DoubleLinked.default_cmp_function" title="Link to this definition"></a></dt>
-<dd><p><em>default_cmp_function()</em> procesa con algoritmica por defecto la lista de elementos que procesa el DoubleLinked. Es una función crucial para que la estructura de datos funcione correctamente.</p>
+<dd><p><em>default_cmp_function()</em> es la función de comparación por defecto para comparar elementos dentro del <em>DoubleLinked</em>, es una función crucial para que la estructura funcione correctamente.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -1191,7 +1188,7 @@ adyacentes de vertex</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.doublelinkedlist.DoubleLinked.exchange">
 <span class="sig-name descname"><span class="pre">exchange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/doublelinkedlist.html#DoubleLinked.exchange"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.doublelinkedlist.DoubleLinked.exchange" title="Link to this definition"></a></dt>
-<dd><p><em>exchange()</em> intercambia la información de dos elementos en dos posiciones dadas.</p>
+<dd><p><em>exchange()</em> intercambia la información de dos elementos en dos posiciones especificadas del <em>DoubleLinked</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -1212,13 +1209,13 @@ adyacentes de vertex</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.doublelinkedlist.DoubleLinked.find">
 <span class="sig-name descname"><span class="pre">find</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/doublelinkedlist.html#DoubleLinked.find"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.doublelinkedlist.DoubleLinked.find" title="Link to this definition"></a></dt>
-<dd><p><em>find()</em> revisa si un elemento está en el DoubleLinked.</p>
+<dd><p><em>find()</em> busca el elemento dentro del <em>DoubleLinked</em> y devuelve su posición o -1 si no lo encuentra.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>element</strong> (<em>T</em>) – elemento que se quiere revisar en el DoubleLinked.</p>
+<dd class="field-odd"><p><strong>element</strong> (<em>T</em>) – elemento que se desea revisar en el <em>DoubleLinked</em>.</p>
 </dd>
 <dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>la posición del elemento en el DoubleLinked, -1 si no está.</p>
+<dd class="field-even"><p>la posición del elemento en el <em>DoubleLinked</em>, -1 si no está.</p>
 </dd>
 <dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-odd"><p>int</p>
@@ -1229,10 +1226,10 @@ adyacentes de vertex</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.doublelinkedlist.DoubleLinked.get_element">
 <span class="sig-name descname"><span class="pre">get_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/doublelinkedlist.html#DoubleLinked.get_element"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.doublelinkedlist.DoubleLinked.get_element" title="Link to this definition"></a></dt>
-<dd><p><em>get_element()</em> lee un elemento en una posición dada del DoubleLinked.</p>
+<dd><p><em>get_element()</em> lee un elemento en una posición especifica del <em>DoubleLinked</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>pos</strong> (<em>int</em>) – índice en la que se quiere agregar el elemento.</p>
+<dd class="field-odd"><p><strong>pos</strong> (<em>int</em>) – posición del elemento que se desea leer.</p>
 </dd>
 <dt class="field-even">Muestra<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
@@ -1241,7 +1238,7 @@ adyacentes de vertex</p>
 </ul>
 </dd>
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>el elemento en la posición dada del DoubleLinked.</p>
+<dd class="field-odd"><p>el elemento en la posición especifica del <em>DoubleLinked</em>.</p>
 </dd>
 <dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-even"><p>Optional[T]</p>
@@ -1252,13 +1249,13 @@ adyacentes de vertex</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.doublelinkedlist.DoubleLinked.get_first">
 <span class="sig-name descname"><span class="pre">get_first</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/doublelinkedlist.html#DoubleLinked.get_first"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.doublelinkedlist.DoubleLinked.get_first" title="Link to this definition"></a></dt>
-<dd><p><em>get_first()</em> lee el primer elemento del DoubleLinked.</p>
+<dd><p><em>get_first()</em> lee el primer elemento del <em>DoubleLinked</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Muestra<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>Exception</strong> – error si la estructura está vacía.</p>
 </dd>
 <dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>el primer elemento del DoubleLinked.</p>
+<dd class="field-even"><p>el primer elemento del <em>DoubleLinked</em>.</p>
 </dd>
 <dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Optional[T]</p>
@@ -1269,13 +1266,13 @@ adyacentes de vertex</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.doublelinkedlist.DoubleLinked.get_last">
 <span class="sig-name descname"><span class="pre">get_last</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/doublelinkedlist.html#DoubleLinked.get_last"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.doublelinkedlist.DoubleLinked.get_last" title="Link to this definition"></a></dt>
-<dd><p><em>get_last()</em> lee el último elemento del DoubleLinked.</p>
+<dd><p><em>get_last()</em> lee el último elemento del <em>DoubleLinked</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Muestra<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>Exception</strong> – error si la estructura está vacía.</p>
 </dd>
 <dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>el ultimo elemento del DoubleLinked.</p>
+<dd class="field-even"><p>el ultimo elemento del <em>DoubleLinked</em>.</p>
 </dd>
 <dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Optional[T]</p>
@@ -1286,16 +1283,16 @@ adyacentes de vertex</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.doublelinkedlist.DoubleLinked.iodata">
 <span class="sig-name descname"><span class="pre">iodata</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="_modules/DISClib/DataStructures/doublelinkedlist.html#DoubleLinked.iodata"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.doublelinkedlist.DoubleLinked.iodata" title="Link to this definition"></a></dt>
-<dd><p>Lista nativa de Python que contiene los elementos de entrada a la estructura, por defecto es None y el usuario puede incluir una lista nativa de python como argumento.</p>
+<dd><p>Lista nativa de Python personalizable por el usuario para inicializar la estructura. Por defecto es <em>None</em> y el usuario puede incluirla como argumento al crear la estructura.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.doublelinkedlist.DoubleLinked.is_empty">
 <span class="sig-name descname"><span class="pre">is_empty</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/doublelinkedlist.html#DoubleLinked.is_empty"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.doublelinkedlist.DoubleLinked.is_empty" title="Link to this definition"></a></dt>
-<dd><p><em>is_empty()</em> revisa si el DoubleLinked está vacía.</p>
+<dd><p><em>is_empty()</em> revisa si el <em>DoubleLinked</em> está vacío.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>operador que indica si la estructura DoubleLinked está vacía.</p>
+<dd class="field-odd"><p>operador que indica si la estructura <em>DoubleLinked</em> está vacía.</p>
 </dd>
 <dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-even"><p>bool</p>
@@ -1306,16 +1303,16 @@ adyacentes de vertex</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.doublelinkedlist.DoubleLinked.key">
 <span class="sig-name descname"><span class="pre">key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="_modules/DISClib/DataStructures/doublelinkedlist.html#DoubleLinked.key"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.doublelinkedlist.DoubleLinked.key" title="Link to this definition"></a></dt>
-<dd><p>Nombre de la llave opcional que se utiliza para comparar los elementos del ArrayList, Por defecto es “None” y el <em>__post_init__()</em> configura la llave por defecto la llave “id” en <em>DEFAULT_DICT_KEY</em>.</p>
+<dd><p>Nombre de la llave personalizable por el usuario utilizada para reconocer los elementos dentro del <em>DoubleLinked</em>. Por defecto es la llave de diccionario (<em>dict</em>) <em>DEFAULT_DICT_KEY = “id”</em> propia de <em>DISClib</em>, puede ser un parametro al crear la estructura.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.doublelinkedlist.DoubleLinked.remove_element">
 <span class="sig-name descname"><span class="pre">remove_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/doublelinkedlist.html#DoubleLinked.remove_element"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.doublelinkedlist.DoubleLinked.remove_element" title="Link to this definition"></a></dt>
-<dd><p><em>remove_element()</em> elimina un elemento en una posición dada del DoubleLinked.</p>
+<dd><p><em>remove_element()</em> elimina un elemento en una posición especifica del <em>DoubleLinked</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>pos</strong> (<em>int</em>) – índice del que se quiere eliminar el elemento.</p>
+<dd class="field-odd"><p><strong>pos</strong> (<em>int</em>) – posición del elemento que se desea eliminar.</p>
 </dd>
 <dt class="field-even">Muestra<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
@@ -1324,7 +1321,7 @@ adyacentes de vertex</p>
 </ul>
 </dd>
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>el elemento eliminado del DoubleLinked.</p>
+<dd class="field-odd"><p>el elemento eliminado del <em>DoubleLinked</em>.</p>
 </dd>
 <dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-even"><p>Optional[T]</p>
@@ -1335,13 +1332,13 @@ adyacentes de vertex</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.doublelinkedlist.DoubleLinked.remove_first">
 <span class="sig-name descname"><span class="pre">remove_first</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/doublelinkedlist.html#DoubleLinked.remove_first"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.doublelinkedlist.DoubleLinked.remove_first" title="Link to this definition"></a></dt>
-<dd><p><em>remove_first()</em> elimina el primer elemento del DoubleLinked.</p>
+<dd><p><em>remove_first()</em> elimina el primer elemento del <em>DoubleLinked</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Muestra<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>Exception</strong> – error si la estructura está vacía.</p>
 </dd>
 <dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>el primer elemento eliminado del DoubleLinked.</p>
+<dd class="field-even"><p>el primer elemento eliminado del <em>DoubleLinked</em>.</p>
 </dd>
 <dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Optional[T]</p>
@@ -1352,13 +1349,13 @@ adyacentes de vertex</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.doublelinkedlist.DoubleLinked.remove_last">
 <span class="sig-name descname"><span class="pre">remove_last</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/doublelinkedlist.html#DoubleLinked.remove_last"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.doublelinkedlist.DoubleLinked.remove_last" title="Link to this definition"></a></dt>
-<dd><p><em>remove_last()</em> elimina el último elemento del DoubleLinked.</p>
+<dd><p><em>remove_last()</em> elimina el último elemento del <em>DoubleLinked</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Muestra<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>Exception</strong> – error si la estructura está vacía.</p>
 </dd>
 <dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>el ultimo elemento eliminado del DoubleLinked.</p>
+<dd class="field-even"><p>el ultimo elemento eliminado del <em>DoubleLinked</em>.</p>
 </dd>
 <dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Optional[T]</p>
@@ -1369,10 +1366,10 @@ adyacentes de vertex</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.doublelinkedlist.DoubleLinked.size">
 <span class="sig-name descname"><span class="pre">size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/doublelinkedlist.html#DoubleLinked.size"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.doublelinkedlist.DoubleLinked.size" title="Link to this definition"></a></dt>
-<dd><p><em>size()</em> devuelve el número de elementos que actualmente contiene el DoubleLinked.</p>
+<dd><p><em>size()</em> devuelve el número de elementos que actualmente contiene el <em>DoubleLinked</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>tamaño de la estructura DoubleLinked.</p>
+<dd class="field-odd"><p>tamaño de la estructura <em>DoubleLinked</em>.</p>
 </dd>
 <dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-even"><p>int</p>
@@ -1383,12 +1380,12 @@ adyacentes de vertex</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.doublelinkedlist.DoubleLinked.sublist">
 <span class="sig-name descname"><span class="pre">sublist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked" title="DISClib.DataStructures.doublelinkedlist.DoubleLinked"><span class="pre">DoubleLinked</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/doublelinkedlist.html#DoubleLinked.sublist"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.doublelinkedlist.DoubleLinked.sublist" title="Link to this definition"></a></dt>
-<dd><p><em>sublist()</em> crea una sublista de la estructura según unas posiciones dentro del DoubleLinked original.</p>
+<dd><p><em>sublist()</em> crea una sublista de la estructura según dos posiciones dentro del <em>DoubleLinked</em> original.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>start</strong> (<em>int</em>) – índice inicial de la sublista.</p></li>
-<li><p><strong>end</strong> (<em>int</em>) – índice final de la sublista.</p></li>
+<li><p><strong>start</strong> (<em>int</em>) – posición inicial de la sublista.</p></li>
+<li><p><strong>end</strong> (<em>int</em>) – posición final de la sublista.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Muestra<span class="colon">:</span></dt>
@@ -2129,7 +2126,7 @@ en la última posición</p>
 </section>
 <section id="module-DISClib.DataStructures.singlelinkedlist">
 <span id="disclib-datastructures-singlelinkedlist-module"></span><h2>DISClib.DataStructures.singlelinkedlist module<a class="headerlink" href="#module-DISClib.DataStructures.singlelinkedlist" title="Link to this heading"></a></h2>
-<p>Este ADT representa una estructura de datos lineal, específicamente una lista sensillamente enlazada/encadenada (SingleLinked). Esta estructura de datos es una secuencia de nodos enlazados, donde cada nodo contiene un elemento de información y una referencia al siguiente nodo en la secuencia. Esto le permite a la lista un crecimiento y reducción dinámico en la memoria disponible.</p>
+<p>Este ADT representa una estructura de datos lineal, específicamente una lista sensillamente enlazada/encadenada (<strong>SingleLinked</strong>). Esta estructura de datos es una secuencia de nodos enlazados, donde cada nodo contiene un elemento de información y una referencia al siguiente nodo en la secuencia. Esto le permite a la lista un crecimiento y reducción dinámico en la memoria disponible.</p>
 <p><em>IMPORTANTE:</em> Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:</p>
 <blockquote>
 <div><ol class="arabic simple">
@@ -2141,13 +2138,13 @@ en la última posición</p>
 <dt class="sig sig-object py" id="DISClib.DataStructures.singlelinkedlist.SingleLinked">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.singlelinkedlist.</span></span><span class="sig-name descname"><span class="pre">SingleLinked</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iodata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmp_function</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="autoapi/DISClib/DataStructures/listnode/index.html#DISClib.DataStructures.listnode.SingleNode" title="DISClib.DataStructures.listnode.SingleNode"><span class="pre">SingleNode</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="autoapi/DISClib/DataStructures/listnode/index.html#DISClib.DataStructures.listnode.SingleNode" title="DISClib.DataStructures.listnode.SingleNode"><span class="pre">SingleNode</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/DataStructures/singlelinkedlist.html#SingleLinked"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.singlelinkedlist.SingleLinked" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<a class="reference internal" href="autoapi/DISClib/Utils/default/index.html#DISClib.Utils.default.T" title="DISClib.Utils.default.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code></a>]</p>
-<p><strong>SingleLinked</strong> representa una estructura de datos dinámica de tipo lista sensillamente encadenada (Single Linked List), Implementada con Generic[T] y &#64;dataclass para que sea una estructura de datos genérica.</p>
+<p><strong>SingleLinked</strong> representa una estructura de datos dinámica de tipo lista sensillamente encadenada (<em>SingleLinked</em>), Implementada con Generic[T] y &#64;dataclass para que sea una estructura de datos genérica.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>Generic</strong> (<em>T</em>) – TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.</p>
 </dd>
 <dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>ADT de tipo SingleLinked o Lista Sensillamente Encadenada.</p>
+<dd class="field-even"><p>ADT de tipo <em>SingleLinked</em> o Lista Sensillamente Encadenada.</p>
 </dd>
 <dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="autoapi/DISClib/DataStructures/singlelinkedlist/index.html#DISClib.DataStructures.singlelinkedlist.SingleLinked" title="DISClib.DataStructures.singlelinkedlist.SingleLinked">SingleLinked</a></p>
@@ -2156,12 +2153,12 @@ en la última posición</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.singlelinkedlist.SingleLinked.add_element">
 <span class="sig-name descname"><span class="pre">add_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/singlelinkedlist.html#SingleLinked.add_element"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.singlelinkedlist.SingleLinked.add_element" title="Link to this definition"></a></dt>
-<dd><p><em>add_element()</em> adiciona un elemento en una posición dada del SingleLinked.</p>
+<dd><p><em>add_element()</em> adiciona un elemento en una posición especifica del <em>SingleLinked</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>element</strong> (<em>T</em>) – elemento que se quiere agregar a la estructura.</p></li>
-<li><p><strong>pos</strong> (<em>int</em>) – índice en la que se quiere agregar el elemento.</p></li>
+<li><p><strong>element</strong> (<em>T</em>) – elemento que se desea agregar a la estructura.</p></li>
+<li><p><strong>pos</strong> (<em>int</em>) – posición en la que se desea agregar el elemento.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Muestra<span class="colon">:</span></dt>
@@ -2176,10 +2173,10 @@ en la última posición</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.singlelinkedlist.SingleLinked.add_first">
 <span class="sig-name descname"><span class="pre">add_first</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/singlelinkedlist.html#SingleLinked.add_first"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.singlelinkedlist.SingleLinked.add_first" title="Link to this definition"></a></dt>
-<dd><p><em>add_first()</em> adiciona un elemento al inicio del SingleLinked.</p>
+<dd><p><em>add_first()</em> adiciona un elemento al inicio del <em>SingleLinked</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>element</strong> (<em>T</em>) – elemento que se quiere agregar a la estructura.</p>
+<dd class="field-odd"><p><strong>element</strong> (<em>T</em>) – elemento que se desea agregar a la estructura.</p>
 </dd>
 <dt class="field-even">Muestra<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>Exception</strong> – si la operación no se puede realizar, se invoca la función <em>_handle_error()</em> para manejar el error.</p>
@@ -2190,10 +2187,10 @@ en la última posición</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.singlelinkedlist.SingleLinked.add_last">
 <span class="sig-name descname"><span class="pre">add_last</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/singlelinkedlist.html#SingleLinked.add_last"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.singlelinkedlist.SingleLinked.add_last" title="Link to this definition"></a></dt>
-<dd><p><em>add_last()</em> adiciona un elemento al final del SingleLinked.</p>
+<dd><p><em>add_last()</em> adiciona un elemento al final del <em>SingleLinked</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>element</strong> (<em>T</em>) – elemento que se quiere agregar a la estructura.</p>
+<dd class="field-odd"><p><strong>element</strong> (<em>T</em>) – elemento que se desea agregar a la estructura.</p>
 </dd>
 <dt class="field-even">Muestra<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>Exception</strong> – si la operación no se puede realizar, se invoca la función <em>_handle_error()</em> para manejar el error.</p>
@@ -2204,12 +2201,12 @@ en la última posición</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.singlelinkedlist.SingleLinked.change_info">
 <span class="sig-name descname"><span class="pre">change_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_info</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/singlelinkedlist.html#SingleLinked.change_info"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.singlelinkedlist.SingleLinked.change_info" title="Link to this definition"></a></dt>
-<dd><p><em>change_info()</em> cambia la información de un elemento en una posición dada.</p>
+<dd><p><em>change_info()</em> cambia la información de un elemento en la posición especificada del <em>SingleLinked</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>new_info</strong> (<em>T</em>) – nueva información que se quiere agregar en el elemento.</p></li>
-<li><p><strong>pos</strong> (<em>int</em>) – posición del elemento que se quiere cambiar.</p></li>
+<li><p><strong>new_info</strong> (<em>T</em>) – nueva información que se desea para el elemento.</p></li>
+<li><p><strong>pos</strong> (<em>int</em>) – posición del elemento que se desea cambiar.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Muestra<span class="colon">:</span></dt>
@@ -2224,13 +2221,13 @@ en la última posición</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.singlelinkedlist.SingleLinked.cmp_function">
 <span class="sig-name descname"><span class="pre">cmp_function</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="_modules/DISClib/DataStructures/singlelinkedlist.html#SingleLinked.cmp_function"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.singlelinkedlist.SingleLinked.cmp_function" title="Link to this definition"></a></dt>
-<dd><p>Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es None y el <em>__post_init__()</em> configura la función por defecto <em>lt_default_cmp_funcion()</em>.</p>
+<dd><p>Función de comparación personalizable por el usuario para reconocer los elementos dentro del <em>SingleLinked</em>. Por defecto es la función <em>lt_default_cmp_funcion()</em> propia de <em>DISClib</em>, puede ser un parametro al crear la estructura.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.singlelinkedlist.SingleLinked.compare_elements">
 <span class="sig-name descname"><span class="pre">compare_elements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elem1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elem2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/singlelinkedlist.html#SingleLinked.compare_elements"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.singlelinkedlist.SingleLinked.compare_elements" title="Link to this definition"></a></dt>
-<dd><p><em>compare_elements()</em> compara dos elementos dentro del SingleLinked según la función de comparación definida por el usuario o la función por defecto.</p>
+<dd><p><em>compare_elements()</em> compara dos elementos dentro del <em>SingleLinked</em> según la función de comparación de la estructura.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -2253,20 +2250,20 @@ en la última posición</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.singlelinkedlist.SingleLinked.concat">
 <span class="sig-name descname"><span class="pre">concat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="autoapi/DISClib/DataStructures/singlelinkedlist/index.html#DISClib.DataStructures.singlelinkedlist.SingleLinked" title="DISClib.DataStructures.singlelinkedlist.SingleLinked"><span class="pre">SingleLinked</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="autoapi/DISClib/DataStructures/singlelinkedlist/index.html#DISClib.DataStructures.singlelinkedlist.SingleLinked" title="DISClib.DataStructures.singlelinkedlist.SingleLinked"><span class="pre">SingleLinked</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/singlelinkedlist.html#SingleLinked.concat"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.singlelinkedlist.SingleLinked.concat" title="Link to this definition"></a></dt>
-<dd><p><em>concat()</em> concatena dos estructuras de datos SingleLinked para crear una nueva estructura con los nodos de las dos estructuras.</p>
+<dd><p><em>concat()</em> concatena dos estructuras de datos <em>SingleLinked</em> para crear una estructura con los elementos de las dos estructuras.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="autoapi/DISClib/DataStructures/singlelinkedlist/index.html#DISClib.DataStructures.singlelinkedlist.SingleLinked" title="DISClib.DataStructures.singlelinkedlist.SingleLinked"><em>SingleLinked</em></a><em>[</em><em>T</em><em>]</em>) – estructura de datos SingleLinked que se quiere concatenar con la estructura original.</p>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="autoapi/DISClib/DataStructures/singlelinkedlist/index.html#DISClib.DataStructures.singlelinkedlist.SingleLinked" title="DISClib.DataStructures.singlelinkedlist.SingleLinked"><em>SingleLinked</em></a><em>[</em><em>T</em><em>]</em>) – estructura de datos <em>SingleLinked</em> que se desea concatenar con la estructura original.</p>
 </dd>
 <dt class="field-even">Muestra<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>TypeError</strong> – error si la estructura que se quiere concatenar no es un SingleLinked.</p></li>
-<li><p><strong>TypeError</strong> – error si la llave de la estructura que se quiere unir no es la misma que la llave de la estructura original.</p></li>
-<li><p><strong>TypeError</strong> – error si la función de comparación de la estructura que se quiere unir no es la misma que la función de comparación de la estructura original.</p></li>
+<li><p><strong>TypeError</strong> – error si la estructura que se desea concatenar no es un <em>SingleLinked</em>.</p></li>
+<li><p><strong>TypeError</strong> – error si la llave de la estructura que se desea unir no es la misma que la llave de la estructura original.</p></li>
+<li><p><strong>TypeError</strong> – error si la función de comparación de la estructura que se desea unir no es la misma que la función de comparación de la estructura original.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Estructura de datos SingleLinked original que contiene los elementos de las dos estructuras originales.</p>
+<dd class="field-odd"><p>Estructura de datos original <em>SingleLinked</em> que contiene los elementos de las dos estructuras originales.</p>
 </dd>
 <dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="autoapi/DISClib/DataStructures/singlelinkedlist/index.html#DISClib.DataStructures.singlelinkedlist.SingleLinked" title="DISClib.DataStructures.singlelinkedlist.SingleLinked">SingleLinked</a>[T]</p>
@@ -2277,7 +2274,7 @@ en la última posición</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.singlelinkedlist.SingleLinked.default_cmp_function">
 <span class="sig-name descname"><span class="pre">default_cmp_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elm1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elm2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/singlelinkedlist.html#SingleLinked.default_cmp_function"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.singlelinkedlist.SingleLinked.default_cmp_function" title="Link to this definition"></a></dt>
-<dd><p><em>default_cmp_function()</em> procesa con algoritmica por defecto la lista de elementos que procesa el SingleLinked. Es una función crucial para que la estructura de datos funcione correctamente.</p>
+<dd><p><em>default_cmp_function()</em> es la función de comparación por defecto para comparar elementos dentro del <em>SingleLinked</em>, es una función crucial para que la estructura funcione correctamente.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -2297,7 +2294,7 @@ en la última posición</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.singlelinkedlist.SingleLinked.exchange">
 <span class="sig-name descname"><span class="pre">exchange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/singlelinkedlist.html#SingleLinked.exchange"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.singlelinkedlist.SingleLinked.exchange" title="Link to this definition"></a></dt>
-<dd><p><em>exchange()</em> intercambia la información de dos elementos en dos posiciones dadas.</p>
+<dd><p><em>exchange()</em> intercambia la información de dos elementos en dos posiciones especificadas del <em>SingleLinked</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -2318,13 +2315,13 @@ en la última posición</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.singlelinkedlist.SingleLinked.find">
 <span class="sig-name descname"><span class="pre">find</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/singlelinkedlist.html#SingleLinked.find"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.singlelinkedlist.SingleLinked.find" title="Link to this definition"></a></dt>
-<dd><p><em>find()</em> revisa si un elemento está en el SingleLinked.</p>
+<dd><p><em>find()</em> busca el elemento dentro del <em>SingleLinked</em> y devuelve su posición o -1 si no lo encuentra.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>element</strong> (<em>T</em>) – elemento que se quiere revisar en el SingleLinked.</p>
+<dd class="field-odd"><p><strong>element</strong> (<em>T</em>) – elemento que se desea revisar en el <em>SingleLinked</em>.</p>
 </dd>
 <dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>la posición del elemento en el SingleLinked, -1 si no está.</p>
+<dd class="field-even"><p>la posición del elemento en el <em>SingleLinked</em>, -1 si no está.</p>
 </dd>
 <dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-odd"><p>int</p>
@@ -2335,16 +2332,16 @@ en la última posición</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.singlelinkedlist.SingleLinked.first">
 <span class="sig-name descname"><span class="pre">first</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="autoapi/DISClib/DataStructures/listnode/index.html#DISClib.DataStructures.listnode.SingleNode" title="DISClib.DataStructures.listnode.SingleNode"><span class="pre">SingleNode</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="_modules/DISClib/DataStructures/singlelinkedlist.html#SingleLinked.first"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.singlelinkedlist.SingleLinked.first" title="Link to this definition"></a></dt>
-<dd><p>Representa el la referencia en memoria al primer nodo del SingleLinked.</p>
+<dd><p>Representa la referencia en memoria al primer nodo del <em>SingleLinked</em>.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.singlelinkedlist.SingleLinked.get_element">
 <span class="sig-name descname"><span class="pre">get_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/singlelinkedlist.html#SingleLinked.get_element"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.singlelinkedlist.SingleLinked.get_element" title="Link to this definition"></a></dt>
-<dd><p><em>get_element()</em> lee un elemento en una posición dada del SingleLinked.</p>
+<dd><p><em>get_element()</em> lee un elemento en una posición especifica del <em>SingleLinked</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>pos</strong> (<em>int</em>) – índice en la que se quiere agregar el elemento.</p>
+<dd class="field-odd"><p><strong>pos</strong> (<em>int</em>) – posición del elemento que se desea leer.</p>
 </dd>
 <dt class="field-even">Muestra<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
@@ -2353,7 +2350,7 @@ en la última posición</p>
 </ul>
 </dd>
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>el elemento en la posición dada del SingleLinked.</p>
+<dd class="field-odd"><p>el elemento en la posición especifica del <em>SingleLinked</em>.</p>
 </dd>
 <dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-even"><p>Optional[T]</p>
@@ -2364,13 +2361,13 @@ en la última posición</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.singlelinkedlist.SingleLinked.get_first">
 <span class="sig-name descname"><span class="pre">get_first</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/singlelinkedlist.html#SingleLinked.get_first"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.singlelinkedlist.SingleLinked.get_first" title="Link to this definition"></a></dt>
-<dd><p><em>get_first()</em> lee el primer elemento del SingleLinked.</p>
+<dd><p><em>get_first()</em> lee el primer elemento del <em>SingleLinked</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Muestra<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>Exception</strong> – error si la estructura está vacía.</p>
 </dd>
 <dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>el primer elemento del SingleLinked.</p>
+<dd class="field-even"><p>el primer elemento del <em>SingleLinked</em>.</p>
 </dd>
 <dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Optional[T]</p>
@@ -2381,13 +2378,13 @@ en la última posición</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.singlelinkedlist.SingleLinked.get_last">
 <span class="sig-name descname"><span class="pre">get_last</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/singlelinkedlist.html#SingleLinked.get_last"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.singlelinkedlist.SingleLinked.get_last" title="Link to this definition"></a></dt>
-<dd><p><em>get_last()</em> lee el último elemento del SingleLinked.</p>
+<dd><p><em>get_last()</em> lee el último elemento del <em>SingleLinked</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Muestra<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>Exception</strong> – error si la estructura está vacía.</p>
 </dd>
 <dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>el ultimo elemento del SingleLinked.</p>
+<dd class="field-even"><p>el ultimo elemento del <em>SingleLinked</em>.</p>
 </dd>
 <dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Optional[T]</p>
@@ -2398,16 +2395,16 @@ en la última posición</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.singlelinkedlist.SingleLinked.iodata">
 <span class="sig-name descname"><span class="pre">iodata</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="_modules/DISClib/DataStructures/singlelinkedlist.html#SingleLinked.iodata"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.singlelinkedlist.SingleLinked.iodata" title="Link to this definition"></a></dt>
-<dd><p>Lista nativa de Python que contiene los elementos de entrada a la estructura, por defecto es None y el usuario puede incluir una lista nativa de python como argumento.</p>
+<dd><p>Lista nativa de Python personalizable por el usuario para inicializar la estructura. Por defecto es <em>None</em> y el usuario puede incluirla como argumento al crear la estructura.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.singlelinkedlist.SingleLinked.is_empty">
 <span class="sig-name descname"><span class="pre">is_empty</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/singlelinkedlist.html#SingleLinked.is_empty"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.singlelinkedlist.SingleLinked.is_empty" title="Link to this definition"></a></dt>
-<dd><p><em>is_empty()</em> revisa si el SingleLinked está vacía.</p>
+<dd><p><em>is_empty()</em> revisa si el <em>SingleLinked</em> está vacío.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>operador que indica si la estructura SingleLinked está vacía.</p>
+<dd class="field-odd"><p>operador que indica si la estructura <em>SingleLinked</em> está vacía.</p>
 </dd>
 <dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-even"><p>bool</p>
@@ -2418,22 +2415,22 @@ en la última posición</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.singlelinkedlist.SingleLinked.key">
 <span class="sig-name descname"><span class="pre">key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="_modules/DISClib/DataStructures/singlelinkedlist.html#SingleLinked.key"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.singlelinkedlist.SingleLinked.key" title="Link to this definition"></a></dt>
-<dd><p>Nombre de la llave opcional que se utiliza para comparar los elementos del ArrayList, Por defecto es None y el <em>__post_init__()</em> configura la llave por defecto la llave “id” en <em>DEFAULT_DICT_KEY</em>.</p>
+<dd><p>Nombre de la llave personalizable por el usuario utilizada para reconocer los elementos dentro del <em>SingleLinked</em>. Por defecto es la llave de diccionario (<em>dict</em>)*DEFAULT_DICT_KEY = “id”* propia de <em>DISClib</em>, puede ser un parametro al crear la estructura.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.singlelinkedlist.SingleLinked.last">
 <span class="sig-name descname"><span class="pre">last</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="autoapi/DISClib/DataStructures/listnode/index.html#DISClib.DataStructures.listnode.SingleNode" title="DISClib.DataStructures.listnode.SingleNode"><span class="pre">SingleNode</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="_modules/DISClib/DataStructures/singlelinkedlist.html#SingleLinked.last"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.singlelinkedlist.SingleLinked.last" title="Link to this definition"></a></dt>
-<dd><p>Representa la referencia en memoria al último nodo del SingleLinked.</p>
+<dd><p>Representa la referencia en memoria al último nodo del <em>SingleLinked</em>.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_element">
 <span class="sig-name descname"><span class="pre">remove_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/singlelinkedlist.html#SingleLinked.remove_element"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_element" title="Link to this definition"></a></dt>
-<dd><p><em>remove_element()</em> elimina un elemento en una posición dada del SingleLinked.</p>
+<dd><p><em>remove_element()</em> elimina un elemento en una posición especifica del <em>SingleLinked</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>pos</strong> (<em>int</em>) – índice del que se quiere eliminar el elemento.</p>
+<dd class="field-odd"><p><strong>pos</strong> (<em>int</em>) – posición del elemento que se desea eliminar.</p>
 </dd>
 <dt class="field-even">Muestra<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
@@ -2442,7 +2439,7 @@ en la última posición</p>
 </ul>
 </dd>
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>el elemento eliminado del SingleLinked.</p>
+<dd class="field-odd"><p>el elemento eliminado del <em>SingleLinked</em>.</p>
 </dd>
 <dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-even"><p>Optional[T]</p>
@@ -2453,13 +2450,13 @@ en la última posición</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_first">
 <span class="sig-name descname"><span class="pre">remove_first</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/singlelinkedlist.html#SingleLinked.remove_first"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_first" title="Link to this definition"></a></dt>
-<dd><p><em>remove_first()</em> elimina el primer elemento del SingleLinked.</p>
+<dd><p><em>remove_first()</em> elimina el primer elemento del <em>SingleLinked</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Muestra<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>Exception</strong> – error si la estructura está vacía.</p>
 </dd>
 <dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>el primer elemento eliminado del SingleLinked.</p>
+<dd class="field-even"><p>el primer elemento eliminado del <em>SingleLinked</em>.</p>
 </dd>
 <dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Optional[T]</p>
@@ -2470,13 +2467,13 @@ en la última posición</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_last">
 <span class="sig-name descname"><span class="pre">remove_last</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/singlelinkedlist.html#SingleLinked.remove_last"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_last" title="Link to this definition"></a></dt>
-<dd><p><em>remove_last()</em> elimina el último elemento del SingleLinked.</p>
+<dd><p><em>remove_last()</em> elimina el último elemento del <em>SingleLinked</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Muestra<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>Exception</strong> – error si la estructura está vacía.</p>
 </dd>
 <dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>el ultimo elemento eliminado del SingleLinked.</p>
+<dd class="field-even"><p>el ultimo elemento eliminado del <em>SingleLinked</em>.</p>
 </dd>
 <dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Optional[T]</p>
@@ -2487,10 +2484,10 @@ en la última posición</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.singlelinkedlist.SingleLinked.size">
 <span class="sig-name descname"><span class="pre">size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/singlelinkedlist.html#SingleLinked.size"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.singlelinkedlist.SingleLinked.size" title="Link to this definition"></a></dt>
-<dd><p><em>size()</em> devuelve el número de elementos que actualmente contiene el SingleLinked.</p>
+<dd><p><em>size()</em> devuelve el número de elementos que actualmente contiene el <em>SingleLinked</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>tamaño de la estructura SingleLinked.</p>
+<dd class="field-odd"><p>tamaño de la estructura <em>SingleLinked</em>.</p>
 </dd>
 <dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-even"><p>int</p>
@@ -2501,12 +2498,12 @@ en la última posición</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.singlelinkedlist.SingleLinked.sublist">
 <span class="sig-name descname"><span class="pre">sublist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="autoapi/DISClib/DataStructures/singlelinkedlist/index.html#DISClib.DataStructures.singlelinkedlist.SingleLinked" title="DISClib.DataStructures.singlelinkedlist.SingleLinked"><span class="pre">SingleLinked</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/singlelinkedlist.html#SingleLinked.sublist"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.singlelinkedlist.SingleLinked.sublist" title="Link to this definition"></a></dt>
-<dd><p><em>sublist()</em> crea una sublista de la estructura según unas posiciones dentro del SingleLinked original.</p>
+<dd><p><em>sublist()</em> crea una sublista de la estructura según dos posiciones dentro del <em>SingleLinked</em> original.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>start</strong> (<em>int</em>) – índice inicial de la sublista.</p></li>
-<li><p><strong>end</strong> (<em>int</em>) – índice final de la sublista.</p></li>
+<li><p><strong>start</strong> (<em>int</em>) – posición inicial de la sublista.</p></li>
+<li><p><strong>end</strong> (<em>int</em>) – posición final de la sublista.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Muestra<span class="colon">:</span></dt>

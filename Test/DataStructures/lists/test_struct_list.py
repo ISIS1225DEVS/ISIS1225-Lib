@@ -1,5 +1,5 @@
 ﻿"""
-*test_struct_list.py* es el módulo que prueba los ADTs *ArrayList*, *SingleLinked* y *DoubleLinked* con sus respectivas funciones para el ADT dinámico y configurable *List* de *DISCLib*.
+**test_struct_list** es el módulo que prueba los ADTs *ArrayList*, *SingleLinked* y *DoubleLinked* con sus respectivas funciones para su uso por el ADT dinámico y configurable *List* de *DISCLib*.
 """
 
 # impoting testing framework
@@ -35,7 +35,7 @@ Lista de llaves a ignorar en los parámetros globales en las pruebas.
 
 # @pytest.fixture(scope="module")
 def cmp_lt_test_function(elm1: dict, elm2: dict) -> int:
-    """*cmp_lt_test_function()* compara dos elementos en una lista (ArrayList, SingleLinked, DoubleLinked). Solo funciona con diccionarios con una llave "uuid".
+    """*cmp_lt_test_function()* función de comparación personalizada para probar la función de las estructuras de tipo listas (*ArrayList*, *SingleLinked*, *DoubleLinked*). Solo funciona con diccionarios con una llave "uuid".
 
     Args:
         elm1 (dict): primer elemento a comparar.
@@ -71,19 +71,18 @@ def cmp_lt_test_function(elm1: dict, elm2: dict) -> int:
 
 
 class TestArrayList(unittest.TestCase):
-    """*TestArrayList* clase *unittest* para probar la clase *ArrayList* de *DISCLib*.
+    """**TestArrayList** clase *unittest* para probar la estructura *ArrayList* de *DISCLib*.
 
     Args:
-        unittest (TestCase): clase *unittest.TestCase* para pruebas unitarias.
+        unittest (TestCase): clase *unittest.TestCase* para las pruebas unitarias en Python.
     """
 
     @pytest.fixture(autouse=True)
     def inject_fixtures(self):
-        """*inject_fixtures()* inyecta los parámetros globales de prueba para *ArrayList* como un *fixture*.
+        """*inject_fixtures()* inyecta los parámetros globales de prueba para *ArrayList* como un *fixture* para tpdas las pruebas con *pytest*.
         """
         self.global_params = get_list_test_data()
-
-        # configure the test data to include ArrayList
+        # FIXME do we need this? is this okey?
         TEST_ARRAY_LIST_LT = list()
         for i in self.global_params.get("TEST_INT_LT"):
             temp_lt = self.global_params.get("TEST_DICT_LT")
@@ -92,7 +91,7 @@ class TestArrayList(unittest.TestCase):
         self.global_params["TEST_AL_LT"] = TEST_ARRAY_LIST_LT
 
     def test_default_arraylist(self):
-        """*test_default_arraylist()* prueba la inicialización de un *ArrayList* vacío.
+        """*test_default_arraylist()* prueba en inicializar un arreglo dinámico *ArrayList* vacío con sus valores por predeterminados.
         """
         # Test an empty ArrayList
         ar_lt = ArrayList()
@@ -110,7 +109,7 @@ class TestArrayList(unittest.TestCase):
         assert isinstance(ar_lt, ArrayList)
 
     def test_default_cmp_function(self):
-        """*test_default_cmp_function()* prueba la función de comparación predeterminada de *ArrayList* con diferentes tipos de elementos.
+        """*test_default_cmp_function()* prueba para la función de comparación predeterminada de *ArrayList* con diferentes tipos de elementos.
         """
         # create a new empty ArrayList with the default cmp function
         ar_lt = ArrayList()
@@ -137,7 +136,7 @@ class TestArrayList(unittest.TestCase):
                         assert all([res1, res2, res3])
 
     def test_custom_arraylist(self):
-        """*test_custom_arraylist()* prueba la inicialización de un *ArrayList* personalizado con elementos de diferentes tipos.
+        """*test_custom_arraylist()* prueba para inicializar un arreglo dinámico *ArrayList* con elementos de diferentes tipos.
         """
         # getting the global variables
         data_type_lt = self.global_params.get("CHECK_TYPE_LT")
@@ -164,7 +163,7 @@ class TestArrayList(unittest.TestCase):
                 assert ar_lt._size == len(test_data)
 
     def test_custom_key(self):
-        """*test_custom_key()* prueba la inicialización de un *ArrayList* personalizado con elementos de diferentes tipos y una llave personalizada.
+        """*test_custom_key()* prueba para inicializar un arreglo dinámico o *ArrayList* con elementos de diferentes tipos y una llave personalizada.
         """
         # getting the global variables
         dtype_lt = self.global_params.get("CHECK_TYPE_LT")
@@ -191,7 +190,7 @@ class TestArrayList(unittest.TestCase):
                 assert isinstance(ar_lt.elements[0], dtype)
 
     def test_custom_cmp_function(self):
-        """*test_custom_cmp_function()* prueba la inicialización de un *ArrayList* personalizado con elementos de diferentes tipos y una función de comparación personalizada.
+        """*test_custom_cmp_function()* prueba inicializar un arreglo dinámico o *ArrayList* con elementos de diferentes tipos y una función de comparación personalizada.
         """
         # getting the global variables
         dtype_lt = self.global_params.get("CHECK_TYPE_LT")
@@ -218,7 +217,7 @@ class TestArrayList(unittest.TestCase):
                 assert isinstance(ar_lt.elements[0], dtype)
 
     def test_size(self):
-        """*test_size()* prueba el método *size()* de *ArrayList* con estructuras de datos vacías y no vacías.
+        """*test_size()* prueba la función *size()* de *ArrayList* con estructuras de datos vacías y no vacías.
         """
 
         # create a new empty ArrayList
@@ -246,7 +245,7 @@ class TestArrayList(unittest.TestCase):
                 assert ar_lt.elements == test_data
 
     def test_is_empty(self):
-        """*test_is_empty()* prueba el método *is_empty()* de *ArrayList* con estructuras de datos vacías y no vacías."""
+        """*test_is_empty()* prueba la función *is_empty()* de *ArrayList* con estructuras de datos vacías y no vacías."""
         # create a new empty ArrayList
         ar_lt = ArrayList()
         # test for the ArrayList is empty
@@ -268,7 +267,7 @@ class TestArrayList(unittest.TestCase):
                 assert ar_lt.elements == test_data
 
     def test_add_first(self):
-        """*test_add_first()* prueba el método *add_first()* de *ArrayList* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *TypeError* para tipos de datos no compatibles. También comprueba si el elemento añadido es igual al índice de *ArrayList*.
+        """*test_add_first()* prueba la función *add_first()* de *ArrayList* en diferentes casos y tipos de datos. Comprueba las excepciones de *TypeError* para tipos de datos no compatibles. También comprueba si el elemento añadido esta en el índice 0 de *ArrayList*.
         """
         # testing type handling
         # getting the global variables
@@ -312,7 +311,7 @@ class TestArrayList(unittest.TestCase):
                     assert (ar_lt.size() == i + 1)
 
     def test_add_last(self):
-        """*test_add_last()* prueba el método *add_last()* de *ArrayList* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *TypeError* para tipos de datos no compatibles. También comprueba si el elemento añadido es igual al índice de *ArrayList*.
+        """*test_add_last()* prueba la función *add_last()* de *ArrayList* en diferentes casos y tipos de datos. Comprueba las excepciones de *TypeError* para tipos de datos no compatibles. También comprueba si el elemento añadido esta en el índice final de *ArrayList*.
         """
         # testing type handling
         # getting the global variables
@@ -356,8 +355,8 @@ class TestArrayList(unittest.TestCase):
                     assert (ar_lt.size() == i + 1)
 
     def test_add_element(self):
-        """*test_add_element()* prueba el método *add_element()* de *ArrayList* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError* para estructuras de datos vacías y fuera del rango de índice. También comprueba si el elemento añadido es igual al índice de *ArrayList*.
-        """
+        """*test_add_element()* prueba la función *add_element()* de *ArrayList* en diferentes casos y tipos de datos. Comprueba las excepciones de *TypeError* y *IndexError* para tipos de datos no compatibles y fuera del rango de índice. También comprueba si el elemento añadido esta en el índice adecuado del *ArrayList*.
+                """
         # create a new empty ArrayList
         ar_lt = ArrayList()
         # force an exception in the get_element method
@@ -406,7 +405,7 @@ class TestArrayList(unittest.TestCase):
                 assert (ar_lt.size() == (test_len + 1))
 
     def test_get_first(self):
-        """*test_get_first()* prueba el método *get_first()* de *ArrayList* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError*. También comprueba si el elemento recuperado es igual al índice de *ArrayList*.
+        """*test_get_first()* prueba la función *get_first()* de *ArrayList* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError*. También comprueba si el elemento recuperado es igual al índice de *ArrayList*.
         """
         # create a new empty ArrayList
         ar_lt = ArrayList()
@@ -434,7 +433,7 @@ class TestArrayList(unittest.TestCase):
                 assert (ar_lt.size() == test_len)
 
     def test_get_last(self):
-        """*test_get_last()* prueba el método *get_last()* de *ArrayList* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError*. También comprueba si el elemento recuperado es igual al índice de *ArrayList*.
+        """*test_get_last()* prueba la función *get_last()* de *ArrayList* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError*. También comprueba si el elemento recuperado es igual al índice de *ArrayList*.
         """
         # create a new empty ArrayList
         ar_lt = ArrayList()
@@ -462,7 +461,7 @@ class TestArrayList(unittest.TestCase):
                 assert (ar_lt.size() == test_len)
 
     def test_get_element(self):
-        """*test_get_element()* prueba el método *get_element()* de *ArrayList* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError*. También comprueba si el elemento recuperado es igual al índice de *ArrayList*.
+        """*test_get_element()* prueba la función *get_element()* de *ArrayList* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError*. También comprueba si el elemento recuperado es igual al índice de *ArrayList*.
         """
         # create a new empty ArrayList
         ar_lt = ArrayList()
@@ -503,7 +502,7 @@ class TestArrayList(unittest.TestCase):
                     assert (ar_lt.size() == test_len)
 
     def test_remove_first(self):
-        """*test_remove_first()* prueba el método *remove_first()* de *ArrayList* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError* para estructuras de datos vacías y fuera del rango de índice. También comprueba si el elemento eliminado es el mismo que originalmente se encontraba en el índice.
+        """*test_remove_first()* prueba la función *remove_first()* de *ArrayList* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError* para estructuras de datos vacías y fuera del rango de índice. También comprueba si el elemento eliminado es el mismo que originalmente se encontraba en el índice.
         """
         # create a new empty ArrayList
         ar_lt = ArrayList()
@@ -534,7 +533,7 @@ class TestArrayList(unittest.TestCase):
                     assert (ar_lt.size() == (test_len - i - 1))
 
     def test_remove_last(self):
-        """*test_remove_last()* prueba el método *remove_last()* de *ArrayList* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError* para estructuras de datos vacías y fuera del rango de índice. También comprueba si el elemento eliminado es el mismo que originalmente se encontraba en el índice."""
+        """*test_remove_last()* prueba la función *remove_last()* de *ArrayList* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError* para estructuras de datos vacías y fuera del rango de índice. También comprueba si el elemento eliminado es el mismo que originalmente se encontraba en el índice."""
         # create a new empty ArrayList
         ar_lt = ArrayList()
         # force an exception in the get_first method
@@ -568,7 +567,7 @@ class TestArrayList(unittest.TestCase):
                     assert (ar_lt.size() == (test_len - i - 1))
 
     def test_remove_element(self):
-        """*test_remove_element()* prueba el método *remove_element()* de *ArrayList* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError* para estructuras de datos vacías y fuera del rango de índice. También comprueba si el elemento eliminado es el mismo que originalmente se encontraba en el índice."""
+        """*test_remove_element()* prueba la función *remove_element()* de *ArrayList* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError* para estructuras de datos vacías y fuera del rango de índice. También comprueba si el elemento eliminado es el mismo que originalmente se encontraba en el índice."""
         # create a new empty ArrayList
         ar_lt = ArrayList()
         # force an exception in the get_element method
@@ -612,7 +611,7 @@ class TestArrayList(unittest.TestCase):
                 assert (ar_lt.size() == (test_len - 1))
 
     def test_compare_elements(self):
-        """*test_compare_elements()* prueba el método *compare_elements()* de *ArrayList* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *TypeError* para tipos de datos no compatibles. También comprueba si los elementos comparados son iguales al índice dentro del *ArrayList*.
+        """*test_compare_elements()* prueba la función *compare_elements()* de *ArrayList* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *TypeError* para tipos de datos no compatibles. También comprueba si los elementos comparados son iguales al índice dentro del *ArrayList*.
         """
         ar_lt = ArrayList()
         # delete the default cmp function
@@ -658,7 +657,7 @@ class TestArrayList(unittest.TestCase):
                         assert all([res1, res2, res3])
 
     def test_find(self):
-        """*test_find()* prueba el método *find()* de *ArrayList* con estructuras de datos no vacías y no vacías. Comprueba que el número entero del indice devuelto sea válido, es decir que esté entre -1 y el tamaño de la estructura de datos menos 1. -1 significa que el elemento no está presente en la estructura de datos y los indices van desde 0 a n-1.
+        """*test_find()* prueba la función *find()* de *ArrayList* con estructuras de datos no vacías y no vacías. Comprueba que el número entero del indice devuelto sea válido, es decir que esté entre -1 y el tamaño de la estructura de datos menos 1. -1 significa que el elemento no está presente en la estructura de datos y los indices van desde 0 a n-1.
         """
         # iterates over global params and create filled ArrayList
         for key in self.global_params.keys():
@@ -683,7 +682,7 @@ class TestArrayList(unittest.TestCase):
                 assert -1 <= idx <= test_len - 1
 
     def test_change_info(self):
-        """*test_change_info()* prueba el método *change_info()* de *ArrayList* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError* para estructuras de datos vacías. También comprueba si el elemento cambiado es igual al índice de *ArrayList* y la estructura de datos no se ha modificado mas allá de la longitud original.
+        """*test_change_info()* prueba la función *change_info()* de *ArrayList* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError* para estructuras de datos vacías. También comprueba si el elemento cambiado es igual al índice de *ArrayList* y la estructura de datos no se ha modificado mas allá de la longitud original.
         """
         # create a new empty ArrayList
         ar_lt = ArrayList()
@@ -737,7 +736,7 @@ class TestArrayList(unittest.TestCase):
                 assert (ar_lt.size() == test_len)
 
     def test_exchange(self):
-        """*test_exchange()* prueba el método *exchange()* de *ArrayList* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError* para estructuras de datos vacías. También comprueba si los elementos intercambiados son iguales al índice de *ArrayList* y que la estructura de datos no se ha modificado más allá de la longitud original."""
+        """*test_exchange()* prueba la función *exchange()* de *ArrayList* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError* para estructuras de datos vacías. También comprueba si los elementos intercambiados son iguales al índice de *ArrayList* y que la estructura de datos no se ha modificado más allá de la longitud original."""
         # create a new empty ArrayList
         ar_lt = ArrayList()
         # force an exception in the exchange method
@@ -793,7 +792,7 @@ class TestArrayList(unittest.TestCase):
                 assert (ar_lt.size() == test_len)
 
     def test_sublist(self):
-        """*test_sublist()* prueba el método *sublist()* de *ArrayList* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError* para estructuras de datos vacías y fuera del rango de índice. También comprueba si los elementos de la sublista son iguales a los de la lista original.
+        """*test_sublist()* prueba la función *sublist()* de *ArrayList* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError* para estructuras de datos vacías y fuera del rango de índice. También comprueba si los elementos de la sublista son iguales a los de la lista original.
         """
         # create a new empty ArrayList
         ar_lt = ArrayList()
@@ -855,7 +854,7 @@ class TestArrayList(unittest.TestCase):
                 assert sub_lt == sub_ar_lt.elements
 
     def test_concat(self):
-        """*test_concat()* prueba el método *concat()* de *ArrayList* con estructuras de datos no vacías. Comprueba las excepciones de *TypeError* para estructuras de datos no compatibles. También comprueba si los elementos de la sublista son iguales a los de la lista original.
+        """*test_concat()* prueba la función *concat()* de *ArrayList* con estructuras de datos no vacías. Comprueba las excepciones de *TypeError* para estructuras de datos no compatibles. También comprueba si los elementos de la sublista son iguales a los de la lista original.
         """
         # iterates over global params and create filled ArrayList
         for key in self.global_params.keys():
@@ -951,15 +950,15 @@ class TestArrayList(unittest.TestCase):
 
 
 class TestSingleLinked(unittest.TestCase):
-    """*TestSingleLinked* clase *unittest* para probar la clase *SingleLinked* de *DISCLib*.
+    """*TestSingleLinked* clase *unittest* para probar la estructura *SingleLinked* de *DISCLib*.
 
     Args:
-        unittest (TestCase): clase *unittest.TestCase* para pruebas unitarias.
+        unittest (TestCase): clase *unittest.TestCase* para las pruebas unitarias en Python.
     """
 
     @pytest.fixture(autouse=True)
     def inject_fixtures(self):
-        """*inject_fixtures()* inyecta los parámetros globales de prueba para *SingleLinked* como un *fixture*.
+        """*inject_fixtures()* inyecta los parámetros globales de prueba para *SingleLinked* como un *fixture* para tpdas las pruebas con *pytest*.
         """
         self.global_params = get_list_test_data()
         # FIXME do we need this? is this okey?
@@ -974,7 +973,7 @@ class TestSingleLinked(unittest.TestCase):
         """*sll_to_list()* convierte una lista sencillamente encadenada nativa de *DISCLib* en una lista nativa de Python.
 
         Args:
-            sl_lt (SingleLinked): Lista sencillamente encadenada nativa de *DISCLib* a convertir en lista nativa de Python.
+            sl_lt (SingleLinked): Lista sencillamente encadenada nativa de *DISCLib* para convertir en lista nativa de Python.
 
         Returns:
             list: lista nativa de Python traducida.
@@ -985,7 +984,7 @@ class TestSingleLinked(unittest.TestCase):
         return ans
 
     def test_default_singlelinked(self):
-        """*test_default_singlelinked()* prueba la inicialización de una lista sencillamente encadenada o *SingleLinked* vacía.
+        """*test_default_singlelinked()* prueba para inicializar una lista sencillamente encadenada o *SingleLinked* vacía con sus valores por predeterminados.
         """
         # Test an empty SingleLinked
         sl_lt = SingleLinked()
@@ -1005,7 +1004,7 @@ class TestSingleLinked(unittest.TestCase):
         assert isinstance(sl_lt, SingleLinked)
 
     def test_default_cmp_function(self):
-        """*test_default_cmp_function()* prueba la función de comparación predeterminada de *SingleLinked* con diferentes tipos de elementos.
+        """*test_default_cmp_function()* prueba para la función de comparación predeterminada de *SingleLinked* con diferentes tipos de elementos.
         """
         # create a new empty SingleLinked with the default cmp function
         sl_lt = SingleLinked()
@@ -1032,9 +1031,8 @@ class TestSingleLinked(unittest.TestCase):
                         assert all([res1, res2, res3])
 
     def test_custom_singlelinked(self):
-        """*test_custom_singlelinked()* prueba la inicialización de una *SingleLinked* personalizada con elementos de diferentes tipos.
+        """*test_custom_singlelinked()* prueba para inicializar un arreglo dinámico *SingleLinked* con elementos de diferentes tipos.
         """
-
         # getting the global variables
         data_type_lt = self.global_params.get("CHECK_TYPE_LT")
         # iterate over tglobal params and create single linked list node
@@ -1061,7 +1059,7 @@ class TestSingleLinked(unittest.TestCase):
                 assert sl_lt._size == len(test_data)
 
     def test_custom_key(self):
-        """*test_custom_key()* prueba la inicialización de una *SingleLinked* personalizada con elementos y una llave personalizada.
+        """*test_custom_key()* prueba para inicializar un lista sencillamente encadenada o *SingleLinked* con elementos de diferentes tipos y una llave personalizada.
         """
         # getting the global variables
         dtype_lt = self.global_params.get("CHECK_TYPE_LT")
@@ -1089,7 +1087,7 @@ class TestSingleLinked(unittest.TestCase):
                 assert isinstance(sl_lt.first.get_info(), dtype)
 
     def test_custom_cmp_function(self):
-        """*test_custom_cmp_function()* prueba la inicialización de una *SingleLinked* personalizada con elementos de diferentes tipos y una función de comparación personalizada.
+        """*test_custom_cmp_function()* prueba para inicializar un lista sencillamente encadenada o *SingleLinked* con elementos de diferentes tipos y una función de comparación personalizada.
         """
         # getting the global variables
         dtype_lt = self.global_params.get("CHECK_TYPE_LT")
@@ -1117,7 +1115,7 @@ class TestSingleLinked(unittest.TestCase):
                 assert isinstance(sl_lt.first.get_info(), dtype)
 
     def test_size(self):
-        """*test_size()* prueba el método *size()* de *SingleLinked* con estructuras de datos vacías y no vacías.
+        """*test_size()* prueba la función *size()* de *SingleLinked* con estructuras de datos vacías y no vacías.
         """
         # create a new empty SingleLinked
         sl_lt = SingleLinked()
@@ -1146,7 +1144,7 @@ class TestSingleLinked(unittest.TestCase):
                 assert sl_lt_data == test_data
 
     def test_is_empty(self):
-        """*test_is_empty()* prueba el método *is_empty()* de *SingleLinked* con estructuras de datos vacías y no vacías.
+        """*test_is_empty()* prueba la función *is_empty()* de *SingleLinked* con estructuras de datos vacías y no vacías.
         """
 
         # create a new empty SingleLinked
@@ -1172,7 +1170,7 @@ class TestSingleLinked(unittest.TestCase):
                 assert sl_lt_data == test_data
 
     def test_add_first(self):
-        """*test_add_first()* prueba el método *add_first()* de *SingleLinked* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *TypeError* para tipos de datos no compatibles. También comprueba si los elementos agregados son iguales al índice dentro de *SingleLinked*.
+        """*test_add_first()* prueba la función *add_first()* de *SingleLinked* en diferentes casos y tipos de datos. Comprueba las excepciones de *TypeError* para tipos de datos no compatibles. También comprueba si el elemento añadido esta en el índice 0 de *SingleLinked*.
         """
         # testing type handling
         # getting the global variables
@@ -1216,7 +1214,7 @@ class TestSingleLinked(unittest.TestCase):
                     assert (sl_lt.size() == i + 1)
 
     def test_add_last(self):
-        """*test_add_last()* prueba el método *add_last()* de *SingleLinked* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *TypeError* para tipos de datos no compatibles. También comprueba si los elementos agregados son iguales al índice dentro de *SingleLinked*.
+        """*test_add_last()* prueba la función *add_last()* prueba la función *add_last()* de *SingleLinked* en diferentes casos y tipos de datos. Comprueba las excepciones de *TypeError* para tipos de datos no compatibles. También comprueba si el elemento añadido esta en el índice final de *SingleLinked*.
         """
         # testing type handling
         # getting the global variables
@@ -1260,7 +1258,7 @@ class TestSingleLinked(unittest.TestCase):
                     assert (sl_lt.size() == i + 1)
 
     def test_add_element(self):
-        """*test_add_element()* prueba el método *add_element()* de *SingleLinked* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError* para estructuras de datos vacías y fuera del rango de índice. También comprueba si el elemento añadido es igual al índice de *SingleLinked*.
+        """*test_add_element()* prueba la función *add_element()* de *SingleLinked* en diferentes casos y tipos de datos. Comprueba las excepciones de *TypeError* y *IndexError* para tipos de datos no compatibles y fuera del rango de índice. También comprueba si el elemento añadido esta en el índice adecuado del *SingleLinked*.
         """
         # create a new empty SingleLinked
         sl_lt = SingleLinked()
@@ -1310,7 +1308,7 @@ class TestSingleLinked(unittest.TestCase):
                 assert (sl_lt.size() == (test_len + 1))
 
     def test_get_first(self):
-        """*test_get_first()* prueba el método *get_first()* de *SingleLinked* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError*. También comprueba si el elemento recuperado es igual al índice de *SingleLinked*.
+        """*test_get_first()* prueba la función *get_first()* de *SingleLinked* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError*. También comprueba si el elemento recuperado es igual al índice de *SingleLinked*.
         """
         # create a new empty SingleLinked
         sl_lt = SingleLinked()
@@ -1338,7 +1336,7 @@ class TestSingleLinked(unittest.TestCase):
                 assert (sl_lt.size() == test_len)
 
     def test_get_last(self):
-        """*test_get_last()* prueba el método *get_last()* de *SingleLinked* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError*. También comprueba si el elemento recuperado es igual al índice de *SingleLinked*.
+        """*test_get_last()* prueba la función *get_last()* de *SingleLinked* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError*. También comprueba si el elemento recuperado es igual al índice de *SingleLinked*.
         """
         # create a new empty SingleLinked
         sl_lt = SingleLinked()
@@ -1366,7 +1364,7 @@ class TestSingleLinked(unittest.TestCase):
                 assert (sl_lt.size() == test_len)
 
     def test_get_element(self):
-        """*test_get_element()* prueba el método *get_element()* de *SingleLinked* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError*. También comprueba si el elemento recuperado es igual al índice de *SingleLinked*.
+        """*test_get_element()* prueba la función *get_element()* de *SingleLinked* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError*. También comprueba si el elemento recuperado es igual al índice de *SingleLinked*.
         """
         # create a new empty SingleLinked
         sl_lt = SingleLinked()
@@ -1407,7 +1405,7 @@ class TestSingleLinked(unittest.TestCase):
                     assert (sl_lt.size() == test_len)
 
     def test_remove_first(self):
-        """*test_remove_first()* prueba el método *remove_first()* de *SingleLinked* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError* para estructuras de datos vacías y fuera del rango de índice. También comprueba si el elemento eliminado es el mismo que originalmente se encontraba en el índice.
+        """*test_remove_first()* prueba la función *remove_first()* de *SingleLinked* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError* para estructuras de datos vacías y fuera del rango de índice. También comprueba si el elemento eliminado es el mismo que originalmente se encontraba en el índice.
         """
         # create a new empty SingleLinked
         sl_lt = SingleLinked()
@@ -1438,7 +1436,7 @@ class TestSingleLinked(unittest.TestCase):
                     assert (sl_lt.size() == (test_len - i - 1))
 
     def test_remove_last(self):
-        """*test_remove_last()* prueba el método *remove_last()* de *SingleLinked* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError* para estructuras de datos vacías y fuera del rango de índice. También comprueba si el elemento eliminado es el mismo que originalmente se encontraba en el índice."""
+        """*test_remove_last()* prueba la función *remove_last()* de *SingleLinked* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError* para estructuras de datos vacías y fuera del rango de índice. También comprueba si el elemento eliminado es el mismo que originalmente se encontraba en el índice."""
         # create a new empty SingleLinked
         sl_lt = SingleLinked()
         # force an exception in the get_first method
@@ -1472,7 +1470,7 @@ class TestSingleLinked(unittest.TestCase):
                     assert (sl_lt.size() == (test_len - i - 1))
 
     def test_remove_element(self):
-        """*test_remove_element()* prueba el método *remove_element()* de *SingleLinked* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError* para estructuras de datos vacías y fuera del rango de índice. También comprueba si el elemento eliminado es el mismo que originalmente se encontraba en el índice."""
+        """*test_remove_element()* prueba la función *remove_element()* de *SingleLinked* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError* para estructuras de datos vacías y fuera del rango de índice. También comprueba si el elemento eliminado es el mismo que originalmente se encontraba en el índice."""
         # create a new empty SingleLinked
         sl_lt = SingleLinked()
         # force an exception in the get_element method
@@ -1516,7 +1514,7 @@ class TestSingleLinked(unittest.TestCase):
                 assert (sl_lt.size() == (test_len - 1))
 
     def test_compare_elements(self):
-        """*test_compare_elements()* prueba el método *compare_elements()* de *SingleLinked* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *TypeError* para tipos de datos no compatibles. También comprueba si los elementos comparados son iguales al índice dentro del *SingleLinked*.
+        """*test_compare_elements()* prueba la función *compare_elements()* de *SingleLinked* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *TypeError* para tipos de datos no compatibles. También comprueba si los elementos comparados son iguales al índice dentro del *SingleLinked*.
         """
         sl_lt = SingleLinked()
         # delete the default cmp function
@@ -1562,7 +1560,7 @@ class TestSingleLinked(unittest.TestCase):
                         assert all([res1, res2, res3])
 
     def test_find(self):
-        """*test_find()* prueba el método *find()* de *SingleLinked* con estructuras de datos no vacías y no vacías. Comprueba que el número entero del indice devuelto sea válido, es decir que esté entre -1 y el tamaño de la estructura de datos menos 1. -1 significa que el elemento no está presente en la estructura de datos y los indices van desde 0 a n-1.
+        """*test_find()* prueba la función *find()* de *SingleLinked* con estructuras de datos no vacías y no vacías. Comprueba que el número entero del indice devuelto sea válido, es decir que esté entre -1 y el tamaño de la estructura de datos menos 1. -1 significa que el elemento no está presente en la estructura de datos y los indices van desde 0 a n-1.
         """
         # iterates over global params and create filled SingleLinked
         for key in self.global_params.keys():
@@ -1586,7 +1584,7 @@ class TestSingleLinked(unittest.TestCase):
                 assert -1 <= idx <= test_len - 1
 
     def test_change_info(self):
-        """*test_change_info()* prueba el método *change_info()* de *SingleLinked* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError* para estructuras de datos vacías. También comprueba si el elemento cambiado es igual al índice de *SingleLinked* y la estructura de datos no se ha modificado mas allá de la longitud original.
+        """*test_change_info()* prueba la función *change_info()* de *SingleLinked* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError* para estructuras de datos vacías. También comprueba si el elemento cambiado es igual al índice de *SingleLinked* y la estructura de datos no se ha modificado mas allá de la longitud original.
         """
         # create a new empty SingleLinked
         sl_lt = SingleLinked()
@@ -1640,7 +1638,7 @@ class TestSingleLinked(unittest.TestCase):
                 assert (sl_lt.size() == test_len)
 
     def test_exchange(self):
-        """*test_exchange()* prueba el método *exchange()* de *SingleLinked* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError* para estructuras de datos vacías. También comprueba si los elementos intercambiados son iguales al índice de *SingleLinked* y que la estructura de datos no se ha modificado más allá de la longitud original."""
+        """*test_exchange()* prueba la función *exchange()* de *SingleLinked* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError* para estructuras de datos vacías. También comprueba si los elementos intercambiados son iguales al índice de *SingleLinked* y que la estructura de datos no se ha modificado más allá de la longitud original."""
         # create a new empty SingleLinked
         sl_lt = SingleLinked()
         # force an exception in the exchange method
@@ -1696,7 +1694,7 @@ class TestSingleLinked(unittest.TestCase):
                 assert (sl_lt.size() == test_len)
 
     def test_sublist(self):
-        """*test_sublist()* prueba el método *sublist()* de *SingleLinked* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError* para estructuras de datos vacías y fuera del rango de índice. También comprueba si los elementos de la sublista son iguales a los de la lista original.
+        """*test_sublist()* prueba la función *sublist()* de *SingleLinked* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError* para estructuras de datos vacías y fuera del rango de índice. También comprueba si los elementos de la sublista son iguales a los de la lista original.
         """
         # create a new empty SingleLinked
         sl_lt = SingleLinked()
@@ -1760,7 +1758,7 @@ class TestSingleLinked(unittest.TestCase):
                 assert sub_lt == sub_sl_lt_data
 
     def test_concat(self):
-        """*test_concat()* prueba el método *concat()* de *SingleLinked* con estructuras de datos no vacías. Comprueba las excepciones de *TypeError* para estructuras de datos no compatibles. También comprueba si los elementos de la sublista son iguales a los de la lista original.
+        """*test_concat()* prueba la función *concat()* de *SingleLinked* con estructuras de datos no vacías. Comprueba las excepciones de *TypeError* para estructuras de datos no compatibles. También comprueba si los elementos de la sublista son iguales a los de la lista original.
         """
 
         # iterates over global params and create filled SingleLinked
@@ -1856,17 +1854,16 @@ class TestSingleLinked(unittest.TestCase):
 
 
 class TestDoubleLinked(unittest.TestCase):
-    """*TestDoubleLinked* clase *unittest* para probar la clase *DoubleLinked* de *DISCLib*.
+    """*TestDoubleLinked* clase *unittest* para probar la estructura *DoubleLinked* de *DISCLib*.
 
     Args:
-        unittest (TestCase): clase *unittest.TestCase* para pruebas unitarias.
+        unittest (TestCase): clase *unittest.TestCase* para las pruebas unitarias en Python.
     """
 
     @pytest.fixture(autouse=True)
     def inject_fixtures(self):
-        """*inject_fixtures()* inyecta los parámetros globales de prueba para *DoubleLinked* como un *fixture*.
+        """*inject_fixtures()* inyecta los parámetros globales de prueba para *DoubleLinked* como un *fixture* para tpdas las pruebas con *pytest*.
         """
-
         self.global_params = get_list_test_data()
         # FIXME do we need this? is this okey?
         TEST_ARRAY_LIST_LT = list()
@@ -1880,7 +1877,7 @@ class TestDoubleLinked(unittest.TestCase):
         """*dll_to_list()* convierte una lista sencillamente encadenada nativa de *DISCLib* en una lista nativa de Python.
 
         Args:
-            dl_lt (DoubleLinked): Lista sencillamente encadenada nativa de *DISCLib* a convertir en lista nativa de Python.
+            dl_lt (DoubleLinked): Lista sencillamente encadenada nativa de *DISCLib* para convertir en lista nativa de Python.
 
         Returns:
             list: lista nativa de Python traducida.
@@ -1891,7 +1888,7 @@ class TestDoubleLinked(unittest.TestCase):
         return ans
 
     def test_default_doublelinked(self):
-        """*test_default_doublelinked()* prueba la inicialización de una lista sencillamente encadenada o *DoubleLinked* vacía.
+        """*test_default_doublelinked()* prueba para inicializar una lista doblemente encadenada o *DoubleLinked* vacía con sus valores predeterminados.
         """
         # Test an empty DoubleLinked
         dl_lt = DoubleLinked()
@@ -1911,7 +1908,7 @@ class TestDoubleLinked(unittest.TestCase):
         assert isinstance(dl_lt, DoubleLinked)
 
     def test_default_cmp_function(self):
-        """*test_default_cmp_function()* prueba la función de comparación predeterminada de *DoubleLinked* con diferentes tipos de elementos.
+        """*test_default_cmp_function()* prueba para la función de comparación predeterminada de *DoubleLinked* con diferentes tipos de datos.
         """
         # create a new empty DoubleLinked with the default cmp function
         dl_lt = DoubleLinked()
@@ -1938,7 +1935,7 @@ class TestDoubleLinked(unittest.TestCase):
                         assert all([res1, res2, res3])
 
     def test_custom_doublelinked(self):
-        """*test_custom_doublelinked()* prueba la inicialización de una *DoubleLinked* personalizada con elementos de diferentes tipos.
+        """*test_custom_doublelinked()* prueba para inicializar un arreglo dinámico *DoubleLinked* con elementos de diferentes tipos.
         """
         # getting the global variables
         data_type_lt = self.global_params.get("CHECK_TYPE_LT")
@@ -1966,7 +1963,7 @@ class TestDoubleLinked(unittest.TestCase):
                 assert dl_lt._size == len(test_data)
 
     def test_custom_key(self):
-        """*test_custom_key()* prueba la inicialización de una *DoubleLinked* personalizada con elementos y una llave personalizada.
+        """*test_custom_key()* prueba inicializar una lista doblemente encadenada o *DoubleLinked* con elementos de diferentes tipos y una llave personalizada.
         """
         # getting the global variables
         dtype_lt = self.global_params.get("CHECK_TYPE_LT")
@@ -1994,7 +1991,7 @@ class TestDoubleLinked(unittest.TestCase):
                 assert isinstance(dl_lt._header.next().get_info(), dtype)
 
     def test_custom_cmp_function(self):
-        """*test_custom_cmp_function()* prueba la inicialización de una *DoubleLinked* personalizada con elementos de diferentes tipos y una función de comparación personalizada.
+        """*test_custom_cmp_function()* prueba para inicializar una lista doblemente encadenada o *DoubleLinked* con elementos de diferentes tipos y una función de comparación personalizada.
         """
         # getting the global variables
         dtype_lt = self.global_params.get("CHECK_TYPE_LT")
@@ -2022,7 +2019,7 @@ class TestDoubleLinked(unittest.TestCase):
                 assert isinstance(dl_lt._header.next().get_info(), dtype)
 
     def test_size(self):
-        """*test_size()* prueba el método *size()* de *DoubleLinked* con estructuras de datos vacías y no vacías.
+        """*test_size()* prueba la función *size()* de *DoubleLinked* con estructuras de datos vacías y no vacías.
         """
         # create a new empty DoubleLinked
         dl_lt = DoubleLinked()
@@ -2051,7 +2048,7 @@ class TestDoubleLinked(unittest.TestCase):
                 assert sl_lt_data == test_data
 
     def test_is_empty(self):
-        """*test_is_empty()* prueba el método *is_empty()* de *DoubleLinked* con estructuras de datos vacías y no vacías.
+        """*test_is_empty()* prueba la función *is_empty()* de *DoubleLinked* con estructuras de datos vacías y no vacías.
         """
 
         # create a new empty DoubleLinked
@@ -2077,7 +2074,7 @@ class TestDoubleLinked(unittest.TestCase):
                 assert sl_lt_data == test_data
 
     def test_add_first(self):
-        """*test_add_first()* prueba el método *add_first()* de *DoubleLinked* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *TypeError* para tipos de datos no compatibles. También comprueba si los elementos agregados son iguales al índice dentro de *DoubleLinked*.
+        """*test_add_first()* prueba la función *add_first()* de *DoubleLinked* en diferentes casos y tipos de datos. Comprueba las excepciones de *TypeError* para tipos de datos no compatibles. También comprueba si el elemento añadido esta en el índice 0 de *DoubleLinked*.
         """
         # testing type handling
         # getting the global variables
@@ -2121,7 +2118,7 @@ class TestDoubleLinked(unittest.TestCase):
                     assert (dl_lt.size() == i + 1)
 
     def test_add_last(self):
-        """*test_add_last()* prueba el método *add_last()* de *DoubleLinked* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *TypeError* para tipos de datos no compatibles. También comprueba si los elementos agregados son iguales al índice dentro de *DoubleLinked*.
+        """*test_add_last()* prueba la función *add_last()* prueba la función *add_last()* de *DoubleLinked* en diferentes casos y tipos de datos. Comprueba las excepciones de *TypeError* para tipos de datos no compatibles. También comprueba si el elemento añadido esta en el índice final de *DoubleLinked*.
         """
         # testing type handling
         # getting the global variables
@@ -2165,7 +2162,7 @@ class TestDoubleLinked(unittest.TestCase):
                     assert (dl_lt.size() == i + 1)
 
     def test_add_element(self):
-        """*test_add_element()* prueba el método *add_element()* de *DoubleLinked* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError* para estructuras de datos vacías y fuera del rango de índice. También comprueba si el elemento añadido es igual al índice de *DoubleLinked*.
+        """*test_add_element()* prueba la función *add_element()* de *DoubleLinked* en diferentes casos y tipos de datos. Comprueba las excepciones de *TypeError* y *IndexError* para tipos de datos no compatibles y fuera del rango de índice. También comprueba si el elemento añadido esta en el índice adecuado del *DoubleLinked*.
         """
         # create a new empty DoubleLinked
         dl_lt = DoubleLinked()
@@ -2215,7 +2212,7 @@ class TestDoubleLinked(unittest.TestCase):
                 assert (dl_lt.size() == (test_len + 1))
 
     def test_get_first(self):
-        """*test_get_first()* prueba el método *get_first()* de *DoubleLinked* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError*. También comprueba si el elemento recuperado es igual al índice de *DoubleLinked*.
+        """*test_get_first()* prueba la función *get_first()* de *DoubleLinked* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError*. También comprueba si el elemento recuperado es igual al índice de *DoubleLinked*.
         """
         # create a new empty DoubleLinked
         dl_lt = DoubleLinked()
@@ -2243,7 +2240,7 @@ class TestDoubleLinked(unittest.TestCase):
                 assert (dl_lt.size() == test_len)
 
     def test_get_last(self):
-        """*test_get_last()* prueba el método *get_last()* de *DoubleLinked* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError*. También comprueba si el elemento recuperado es igual al índice de *DoubleLinked*.
+        """*test_get_last()* prueba la función *get_last()* de *DoubleLinked* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError*. También comprueba si el elemento recuperado es igual al índice de *DoubleLinked*.
         """
         # create a new empty DoubleLinked
         dl_lt = DoubleLinked()
@@ -2271,7 +2268,7 @@ class TestDoubleLinked(unittest.TestCase):
                 assert (dl_lt.size() == test_len)
 
     def test_get_element(self):
-        """*test_get_element()* prueba el método *get_element()* de *DoubleLinked* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError*. También comprueba si el elemento recuperado es igual al índice de *DoubleLinked*.
+        """*test_get_element()* prueba la función *get_element()* de *DoubleLinked* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError*. También comprueba si el elemento recuperado es igual al índice de *DoubleLinked*.
         """
         # create a new empty DoubleLinked
         dl_lt = DoubleLinked()
@@ -2312,7 +2309,7 @@ class TestDoubleLinked(unittest.TestCase):
                     assert (dl_lt.size() == test_len)
 
     def test_remove_first(self):
-        """*test_remove_first()* prueba el método *remove_first()* de *DoubleLinked* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError* para estructuras de datos vacías y fuera del rango de índice. También comprueba si el elemento eliminado es el mismo que originalmente se encontraba en el índice.
+        """*test_remove_first()* prueba la función *remove_first()* de *DoubleLinked* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError* para estructuras de datos vacías y fuera del rango de índice. También comprueba si el elemento eliminado es el mismo que originalmente se encontraba en el índice.
         """
         # create a new empty DoubleLinked
         dl_lt = DoubleLinked()
@@ -2343,7 +2340,7 @@ class TestDoubleLinked(unittest.TestCase):
                     assert (dl_lt.size() == (test_len - i - 1))
 
     def test_remove_last(self):
-        """*test_remove_last()* prueba el método *remove_last()* de *DoubleLinked* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError* para estructuras de datos vacías y fuera del rango de índice. También comprueba si el elemento eliminado es el mismo que originalmente se encontraba en el índice."""
+        """*test_remove_last()* prueba la función *remove_last()* de *DoubleLinked* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError* para estructuras de datos vacías y fuera del rango de índice. También comprueba si el elemento eliminado es el mismo que originalmente se encontraba en el índice."""
         # create a new empty DoubleLinked
         dl_lt = DoubleLinked()
         # force an exception in the get_first method
@@ -2377,7 +2374,7 @@ class TestDoubleLinked(unittest.TestCase):
                     assert (dl_lt.size() == (test_len - i - 1))
 
     def test_remove_element(self):
-        """*test_remove_element()* prueba el método *remove_element()* de *DoubleLinked* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError* para estructuras de datos vacías y fuera del rango de índice. También comprueba si el elemento eliminado es el mismo que originalmente se encontraba en el índice."""
+        """*test_remove_element()* prueba la función *remove_element()* de *DoubleLinked* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError* para estructuras de datos vacías y fuera del rango de índice. También comprueba si el elemento eliminado es el mismo que originalmente se encontraba en el índice."""
         # create a new empty DoubleLinked
         dl_lt = DoubleLinked()
         # force an exception in the get_element method
@@ -2421,7 +2418,7 @@ class TestDoubleLinked(unittest.TestCase):
                 assert (dl_lt.size() == (test_len - 1))
 
     def test_compare_elements(self):
-        """*test_compare_elements()* prueba el método *compare_elements()* de *DoubleLinked* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *TypeError* para tipos de datos no compatibles. También comprueba si los elementos comparados son iguales al índice dentro del *DoubleLinked*.
+        """*test_compare_elements()* prueba la función *compare_elements()* de *DoubleLinked* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *TypeError* para tipos de datos no compatibles. También comprueba si los elementos comparados son iguales al índice dentro del *DoubleLinked*.
         """
         dl_lt = DoubleLinked()
         # delete the default cmp function
@@ -2467,7 +2464,7 @@ class TestDoubleLinked(unittest.TestCase):
                         assert all([res1, res2, res3])
 
     def test_find(self):
-        """*test_find()* prueba el método *find()* de *DoubleLinked* con estructuras de datos no vacías y no vacías. Comprueba que el número entero del indice devuelto sea válido, es decir que esté entre -1 y el tamaño de la estructura de datos menos 1. -1 significa que el elemento no está presente en la estructura de datos y los indices van desde 0 a n-1.
+        """*test_find()* prueba la función *find()* de *DoubleLinked* con estructuras de datos no vacías y no vacías. Comprueba que el número entero del indice devuelto sea válido, es decir que esté entre -1 y el tamaño de la estructura de datos menos 1. -1 significa que el elemento no está presente en la estructura de datos y los indices van desde 0 a n-1.
         """
         # iterates over global params and create filled DoubleLinked
         for key in self.global_params.keys():
@@ -2491,7 +2488,7 @@ class TestDoubleLinked(unittest.TestCase):
                 assert -1 <= idx <= test_len - 1
 
     def test_change_info(self):
-        """*test_change_info()* prueba el método *change_info()* de *DoubleLinked* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError* para estructuras de datos vacías. También comprueba si el elemento cambiado es igual al índice de *DoubleLinked* y la estructura de datos no se ha modificado mas allá de la longitud original.
+        """*test_change_info()* prueba la función *change_info()* de *DoubleLinked* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError* para estructuras de datos vacías. También comprueba si el elemento cambiado es igual al índice de *DoubleLinked* y la estructura de datos no se ha modificado mas allá de la longitud original.
         """
         # create a new empty DoubleLinked
         dl_lt = DoubleLinked()
@@ -2545,7 +2542,7 @@ class TestDoubleLinked(unittest.TestCase):
                 assert (dl_lt.size() == test_len)
 
     def test_exchange(self):
-        """*test_exchange()* prueba el método *exchange()* de *DoubleLinked* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError* para estructuras de datos vacías. También comprueba si los elementos intercambiados son iguales al índice de *DoubleLinked* y que la estructura de datos no se ha modificado más allá de la longitud original."""
+        """*test_exchange()* prueba la función *exchange()* de *DoubleLinked* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError* para estructuras de datos vacías. También comprueba si los elementos intercambiados son iguales al índice de *DoubleLinked* y que la estructura de datos no se ha modificado más allá de la longitud original."""
         # create a new empty DoubleLinked
         dl_lt = DoubleLinked()
         # force an exception in the exchange method
@@ -2601,7 +2598,7 @@ class TestDoubleLinked(unittest.TestCase):
                 assert (dl_lt.size() == test_len)
 
     def test_sublist(self):
-        """*test_sublist()* prueba el método *sublist()* de *DoubleLinked* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError* para estructuras de datos vacías y fuera del rango de índice. También comprueba si los elementos de la sublista son iguales a los de la lista original.
+        """*test_sublist()* prueba la función *sublist()* de *DoubleLinked* con estructuras de datos vacías y no vacías. Comprueba las excepciones de *IndexError* para estructuras de datos vacías y fuera del rango de índice. También comprueba si los elementos de la sublista son iguales a los de la lista original.
         """
         # create a new empty DoubleLinked
         dl_lt = DoubleLinked()
@@ -2665,7 +2662,7 @@ class TestDoubleLinked(unittest.TestCase):
                 assert sub_lt == sub_sl_lt_data
 
     def test_concat(self):
-        """*test_concat()* prueba el método *concat()* de *DoubleLinked* con estructuras de datos no vacías. Comprueba las excepciones de *TypeError* para estructuras de datos no compatibles. También comprueba si los elementos de la sublista son iguales a los de la lista original.
+        """*test_concat()* prueba la función *concat()* de *DoubleLinked* con estructuras de datos no vacías. Comprueba las excepciones de *TypeError* para estructuras de datos no compatibles. También comprueba si los elementos de la sublista son iguales a los de la lista original.
         """
 
         # iterates over global params and create filled DoubleLinked

@@ -5,11 +5,11 @@
 
 .. autoapi-nested-parse::
 
-   Este ADT representa la registro de un Mapa no Ordenado (Entry), el cual es una estructura de datos para almacenar la información en parejas de llave-valor (key-value). La llave (key) es un identificador único para cada valor (value) almacenado en el Mapa no Ordenado (Map). Por su parte, el valor (value) puede ser cualquier tipo de dato.
+   Este ADT representa la registro de un Mapa no Ordenado (**MapEntry**), el cual es una estructura de datos para almacenar la información en parejas de llave-valor (key-value). La llave (*key*) es un identificador único para cada valor (*value*) almacenado en el Mapa no Ordenado (*Map*). Por su parte, el valor (*value*) puede ser cualquier tipo de dato.
 
-   En el caso de las tablas de Hash, la llave (key) es el resultado de aplicar una función hash al valor (value) almacenado en el Mapa no Ordenado (Map). Esta estructura de datos es fundamental para implementar otros mapas no ordenados como: tablas de símbolos, diccionarios, entre otros.
+   En el caso de las tablas de Hash, la llave (*key*) es el resultado de aplicar una función hash al valor (*value*) almacenado en el Mapa no Ordenado (*Map*). Esta estructura de datos es fundamental para implementar otros mapas no ordenados como: tablas de símbolos, diccionarios, entre otros.
 
-   DISCLib utiliza el **MapEntry** para guardar la información de las tablas de Hash por Encadenamiento Separado (Separate Chaining) y las tablas por Sondeo Lineal (Linear Probing).
+   *DISCLib* utiliza el *MapEntry* para guardar la información de las tablas de Hash por Encadenamiento Separado (*SeparateChaining*) y las tablas por Sondeo Lineal (*LinearProbing).
 
    *IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:
 
@@ -36,14 +36,12 @@ Classes
 
    Bases: :py:obj:`Generic`\ [\ :py:obj:`DISClib.Utils.default.T`\ ]
 
-   **MapEntry** representa un registro de un mapa no ordenado. Contiene la llave y el valor del registro del mapa. Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.
+   **MapEntry** representa un registro de un mapa no ordenado, contiene la llave (*key*) y el valor (*value*). Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.
 
-   :param Generic: Tipo de dato genérico dentro del registro del mapa.
+   :param Generic: TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.
    :type Generic: T
 
-   :raises TypeError: error si la información del registro del mapa (llave o valor) no son del tipo adecuado.
-
-   :returns: ADT de tipo MapEntry o registro de un mapa.
+   :returns: ADT de tipo *MapEntry* o registro de un mapa no ordenado.
    :rtype: MapEntry
 
    .. py:attribute:: _key

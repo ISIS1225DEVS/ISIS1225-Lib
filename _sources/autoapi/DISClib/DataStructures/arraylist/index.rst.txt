@@ -97,14 +97,14 @@ Classes
 
    .. py:method:: _check_type(element: DISClib.Utils.default.T) -> bool
 
-      *_check_type()* función propia de la estructura que revisa si el tipo de dato del elemento que se desea agregar al *ArrayList* es del mismo tipo contenido dentro de los elementos del *ArrayList*.
+      _check_type _summary_
 
-      :raises TypeError: error si el tipo de dato del elemento que se desea agregar no es el mismo que el tipo de dato de los elementos que ya contiene el *ArrayList*.
-
-      :param element: elemento que se desea procesar en *ArrayList*.
+      :param element: _description_
       :type element: T
 
-      :returns: operador que indica si el ADT *ArrayList* es del mismo tipo que el elemento que se desea procesar.
+      :raises TypeError: _description_
+
+      :returns: _description_
       :rtype: bool
 
 

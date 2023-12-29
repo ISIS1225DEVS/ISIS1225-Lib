@@ -43,12 +43,12 @@ Classes
    .. py:attribute:: iodata
       :type: Optional[List[DISClib.Utils.default.T]]
 
-      Lista nativa de Python que contiene los elementos de entrada a la estructura, por defecto es None y el usuario puede incluir una lista nativa de python como argumento.
+      Lista nativa de Python personalizable por el usuario para inicializar la estructura. Por defecto es *None* y el usuario puede incluirla como argumento al crear la estructura.
 
    .. py:attribute:: cmp_function
       :type: Optional[Callable[[DISClib.Utils.default.T, DISClib.Utils.default.T], int]]
 
-      Función de comparación opcional que se utiliza para comparar los elementos del RedBlackTree, por defecto es None y el *__post_init__()* configura la función por defecto *lt_default_cmp_funcion()*.
+      Función de comparación personalizable por el usuario para reconocer los elementos dentro de la estructura. Es un argumento configurable al crear la estructura. Por defecto es la función *lt_default_cmp_funcion()* propia de *DISClib*.
 
    .. py:attribute:: elements
       :type: List[DISClib.Utils.default.T]
@@ -58,7 +58,7 @@ Classes
    .. py:attribute:: key
       :type: Optional[str]
 
-      Nombre de la llave opcional que se utiliza para comparar los elementos del RedBlackTree, Por defecto es 'None' y el *__post_init__()* configura la llave por defecto la llave 'id' en *DEFAULT_DICT_KEY*.
+      Nombre de la llave opcional que se utiliza para comparar los elementos del RedBlackTree, Por defecto es *None* y el *__post_init__()* configura la llave por defecto la llave 'id' en *DEFAULT_DICT_KEY*.
 
    .. py:attribute:: _size
       :type: int

@@ -79,9 +79,9 @@
              
   <h1>Código fuente para DISClib.DataStructures.listnode</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Estos ADTs representan los nodos para una lista sencillamente encadenada (SingleNode) y una lista doblemente encadenada (DoubleNode).</span>
+<span class="sd">Estos ADTs representan los nodos para una lista sencillamente encadenada (**SingleNode**) y una lista doblemente encadenada (**DoubleNode**).</span>
 
-<span class="sd">Estos nodos se utilizan respectivamente en las estructuras dinámicas de lista sencillamente encadenada (LinkedList) y lista doblemente encadenadA(DoubleLinkedList). Las cuales NO tienen un tamaño fijo y pueden crecer indefinidamente en la memoria disponible.</span>
+<span class="sd">Estos nodos se utilizan respectivamente en las estructuras dinámicas de lista sencillamente encadenada (**LinkedList**) y lista doblemente encadenada (**DoubleLinkedList**). Las cuales NO tienen un tamaño fijo y pueden crecer indefinidamente en la memoria disponible.</span>
 
 <span class="sd">*IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:</span>
 
@@ -93,7 +93,7 @@
 <span class="c1"># import dataclass for defining the node class</span>
 <span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
 <span class="c1"># import modules for defining the Node type</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Generic</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Generic</span>
 
 <span class="c1"># custom modules</span>
 <span class="c1"># generic error handling and type checking</span>
@@ -110,14 +110,15 @@
 <div class="viewcode-block" id="SingleNode">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/listnode/index.html#DISClib.DataStructures.listnode.SingleNode">[documentos]</a>
 <span class="k">class</span> <span class="nc">SingleNode</span><span class="p">(</span><span class="n">Node</span><span class="p">,</span> <span class="n">Generic</span><span class="p">[</span><span class="n">T</span><span class="p">]):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;**SingleNode** ADT que representa un nodo de una lista sencillamente encadenada. Basada en el ADT Node que contiene la información del nodo.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;**SingleNode** representa un nodo de una lista sencillamente encadenada. Basada en el ADT *Node* que contiene la información del nodo.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        Node (dataclass): ADT base para implementar un nodo con información genérica.</span>
 <span class="sd">        Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.</span>
 
+
 <span class="sd">    Returns:</span>
-<span class="sd">        SingleNode: ADT para un nodo de una lista sencillamente encadenada.</span>
+<span class="sd">        SingleNode: ADT para un *SingleNode* o nodo para una lista sencillamente encadenada.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># optional reference to the next node of the same type</span>
     <span class="c1"># :attr: _next</span>
@@ -125,15 +126,17 @@
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/listnode/index.html#DISClib.DataStructures.listnode.SingleNode._next">[documentos]</a>
     <span class="n">_next</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;SingleNode[T]&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></div>
 
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Referencia al siguiente nodo de la lista.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Referencia al siguiente nodo de la lista.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="SingleNode.next">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/listnode/index.html#DISClib.DataStructures.listnode.SingleNode.next">[documentos]</a>
     <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;SingleNode[T]&quot;</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*next()* recupera el siguiente nodo de la lista si existe.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*next()* recupera la referencia el siguiente nodo de la lista. Si no existe retorna *None*.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            SingleNode: referencia al siguiente nodo de la lista.</span>
+<span class="sd">            Optional[SingleNode[T]]: referencia al siguiente *Node* de la lista si existe.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_next</span></div>
 </div>
@@ -144,14 +147,14 @@
 <div class="viewcode-block" id="DoubleNode">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/listnode/index.html#DISClib.DataStructures.listnode.DoubleNode">[documentos]</a>
 <span class="k">class</span> <span class="nc">DoubleNode</span><span class="p">(</span><span class="n">SingleNode</span><span class="p">,</span> <span class="n">Generic</span><span class="p">[</span><span class="n">T</span><span class="p">]):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;**DoubleNode** ADT que representa un nodo de una lista doblemente encadenada. Basada en el ADT Node y SingleNode.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;**DoubleNode** representa un nodo de una lista doblemente encadenada. Basada en el ADT *SingleNode* que contiene la información del nodo.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        SingleNode (Dataclass): ADT base para implementar un nodo de una lista sencillamente encadenada.</span>
+<span class="sd">        SingleNode (Dataclass): ADT base para implementar un nodo con información genérica.</span>
 <span class="sd">        Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        DoubleNode: ADT para un nodo de una lista doblemente encadenada.</span>
+<span class="sd">        DoubleNode: ADT para un *DoubleNode* o nodo para una lista doblemente encadenada.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># optional reference to the previous node of the same type</span>
     <span class="c1"># :attr: _prev</span>
@@ -159,15 +162,17 @@
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/listnode/index.html#DISClib.DataStructures.listnode.DoubleNode._prev">[documentos]</a>
     <span class="n">_prev</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;DoubleNode[T]&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></div>
 
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Referencia al nodo anterior de la lista.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Referencia al anterior nodo anterior de la lista.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="DoubleNode.prev">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/listnode/index.html#DISClib.DataStructures.listnode.DoubleNode.prev">[documentos]</a>
     <span class="k">def</span> <span class="nf">prev</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;DoubleNode[T]&quot;</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*prev()* recupera el nodo anterior de la lista si existe.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*prev()* recupera la referencia al anterior *DoubleNode* de la lista. Si no existe retorna *None*.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            _type_: referencia al nodo anterior de la lista.</span>
+<span class="sd">            Optional[DoubleNode[T]]: referencia al anterior *DoubleNode* si existe.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prev</span></div>
 </div>

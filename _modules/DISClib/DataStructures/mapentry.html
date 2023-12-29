@@ -79,11 +79,11 @@
              
   <h1>Código fuente para DISClib.DataStructures.mapentry</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Este ADT representa la registro de un Mapa no Ordenado (Entry), el cual es una estructura de datos para almacenar la información en parejas de llave-valor (key-value). La llave (key) es un identificador único para cada valor (value) almacenado en el Mapa no Ordenado (Map). Por su parte, el valor (value) puede ser cualquier tipo de dato.</span>
+<span class="sd">Este ADT representa la registro de un Mapa no Ordenado (**MapEntry**), el cual es una estructura de datos para almacenar la información en parejas de llave-valor (key-value). La llave (*key*) es un identificador único para cada valor (*value*) almacenado en el Mapa no Ordenado (*Map*). Por su parte, el valor (*value*) puede ser cualquier tipo de dato.</span>
 
-<span class="sd">En el caso de las tablas de Hash, la llave (key) es el resultado de aplicar una función hash al valor (value) almacenado en el Mapa no Ordenado (Map). Esta estructura de datos es fundamental para implementar otros mapas no ordenados como: tablas de símbolos, diccionarios, entre otros.</span>
+<span class="sd">En el caso de las tablas de Hash, la llave (*key*) es el resultado de aplicar una función hash al valor (*value*) almacenado en el Mapa no Ordenado (*Map*). Esta estructura de datos es fundamental para implementar otros mapas no ordenados como: tablas de símbolos, diccionarios, entre otros.</span>
 
-<span class="sd">DISCLib utiliza el **MapEntry** para guardar la información de las tablas de Hash por Encadenamiento Separado (Separate Chaining) y las tablas por Sondeo Lineal (Linear Probing).</span>
+<span class="sd">*DISCLib* utiliza el *MapEntry* para guardar la información de las tablas de Hash por Encadenamiento Separado (*SeparateChaining*) y las tablas por Sondeo Lineal (*LinearProbing).</span>
 
 <span class="sd">*IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:</span>
 
@@ -114,16 +114,13 @@
 <div class="viewcode-block" id="MapEntry">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/mapentry/index.html#DISClib.DataStructures.mapentry.MapEntry">[documentos]</a>
 <span class="k">class</span> <span class="nc">MapEntry</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">T</span><span class="p">]):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;**MapEntry** representa un registro de un mapa no ordenado. Contiene la llave y el valor del registro del mapa. Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;**MapEntry** representa un registro de un mapa no ordenado, contiene la llave (*key*) y el valor (*value*). Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        Generic (T): Tipo de dato genérico dentro del registro del mapa.</span>
-
-<span class="sd">    Raises:</span>
-<span class="sd">        TypeError: error si la información del registro del mapa (llave o valor) no son del tipo adecuado.</span>
+<span class="sd">        Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        MapEntry: ADT de tipo MapEntry o registro de un mapa.</span>
+<span class="sd">        MapEntry: ADT de tipo *MapEntry* o registro de un mapa no ordenado.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># optional key of any type</span>

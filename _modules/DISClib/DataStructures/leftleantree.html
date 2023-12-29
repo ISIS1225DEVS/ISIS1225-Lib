@@ -131,7 +131,7 @@
     <span class="n">iodata</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">T</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Lista nativa de Python que contiene los elementos de entrada a la estructura, por defecto es None y el usuario puede incluir una lista nativa de python como argumento.</span>
+<span class="sd">    Lista nativa de Python personalizable por el usuario para inicializar la estructura. Por defecto es *None* y el usuario puede incluirla como argumento al crear la estructura.uctura.uctura.uctura.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># the cmp_function is used to compare elements, not defined by default</span>
@@ -141,7 +141,7 @@
     <span class="n">cmp_function</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">[[</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="p">],</span> <span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Función de comparación opcional que se utiliza para comparar los elementos del LeftLeanRedBlackTree, por defecto es None y el *__post_init__()* configura la función por defecto *lt_default_cmp_funcion()*.</span>
+<span class="sd">    Función de comparación personalizable por el usuario para reconocer los elementos dentro de la estructura. Es un argumento configurable al crear la estructura. Por defecto es la función *lt_default_cmp_funcion()* propia de *DISClib*.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># using default_factory to generate an empty list</span>
@@ -161,7 +161,7 @@
     <span class="n">key</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Nombre de la llave opcional que se utiliza para comparar los elementos del LeftLeanRedBlackTree, Por defecto es &#39;None&#39; y el *__post_init__()* configura la llave por defecto la llave &#39;id&#39; en *DEFAULT_DICT_KEY*.</span>
+<span class="sd">    Nombre de la llave opcional que se utiliza para comparar los elementos del LeftLeanRedBlackTree, Por defecto es *None* y el *__post_init__()* configura la llave por defecto la llave &#39;id&#39; en *DEFAULT_DICT_KEY*.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># by default, the list is empty</span>

@@ -5,9 +5,9 @@
 
 .. autoapi-nested-parse::
 
-   Estos ADTs representan los nodos para una lista sencillamente encadenada (SingleNode) y una lista doblemente encadenada (DoubleNode).
+   Estos ADTs representan los nodos para una lista sencillamente encadenada (**SingleNode**) y una lista doblemente encadenada (**DoubleNode**).
 
-   Estos nodos se utilizan respectivamente en las estructuras dinámicas de lista sencillamente encadenada (LinkedList) y lista doblemente encadenadA(DoubleLinkedList). Las cuales NO tienen un tamaño fijo y pueden crecer indefinidamente en la memoria disponible.
+   Estos nodos se utilizan respectivamente en las estructuras dinámicas de lista sencillamente encadenada (**LinkedList**) y lista doblemente encadenada (**DoubleLinkedList**). Las cuales NO tienen un tamaño fijo y pueden crecer indefinidamente en la memoria disponible.
 
    *IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:
 
@@ -35,14 +35,14 @@ Classes
 
    Bases: :py:obj:`DISClib.DataStructures.node.Node`, :py:obj:`Generic`\ [\ :py:obj:`DISClib.Utils.default.T`\ ]
 
-   **SingleNode** ADT que representa un nodo de una lista sencillamente encadenada. Basada en el ADT Node que contiene la información del nodo.
+   **SingleNode** representa un nodo de una lista sencillamente encadenada. Basada en el ADT *Node* que contiene la información del nodo.
 
    :param Node: ADT base para implementar un nodo con información genérica.
    :type Node: dataclass
    :param Generic: TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.
    :type Generic: T
 
-   :returns: ADT para un nodo de una lista sencillamente encadenada.
+   :returns: ADT para un *SingleNode* o nodo para una lista sencillamente encadenada.
    :rtype: SingleNode
 
    .. py:attribute:: _next
@@ -52,10 +52,10 @@ Classes
 
    .. py:method:: next() -> Optional[SingleNode[T]]
 
-      *next()* recupera el siguiente nodo de la lista si existe.
+      *next()* recupera la referencia el siguiente nodo de la lista. Si no existe retorna *None*.
 
-      :returns: referencia al siguiente nodo de la lista.
-      :rtype: SingleNode
+      :returns: referencia al siguiente *Node* de la lista si existe.
+      :rtype: Optional[SingleNode[T]]
 
 
 
@@ -64,27 +64,27 @@ Classes
 
    Bases: :py:obj:`SingleNode`, :py:obj:`Generic`\ [\ :py:obj:`DISClib.Utils.default.T`\ ]
 
-   **DoubleNode** ADT que representa un nodo de una lista doblemente encadenada. Basada en el ADT Node y SingleNode.
+   **DoubleNode** representa un nodo de una lista doblemente encadenada. Basada en el ADT *SingleNode* que contiene la información del nodo.
 
-   :param SingleNode: ADT base para implementar un nodo de una lista sencillamente encadenada.
+   :param SingleNode: ADT base para implementar un nodo con información genérica.
    :type SingleNode: Dataclass
    :param Generic: TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.
    :type Generic: T
 
-   :returns: ADT para un nodo de una lista doblemente encadenada.
+   :returns: ADT para un *DoubleNode* o nodo para una lista doblemente encadenada.
    :rtype: DoubleNode
 
    .. py:attribute:: _prev
       :type: Optional[DoubleNode[T]]
 
-      Referencia al nodo anterior de la lista.
+      Referencia al anterior nodo anterior de la lista.
 
    .. py:method:: prev() -> Optional[DoubleNode[T]]
 
-      *prev()* recupera el nodo anterior de la lista si existe.
+      *prev()* recupera la referencia al anterior *DoubleNode* de la lista. Si no existe retorna *None*.
 
-      :returns: referencia al nodo anterior de la lista.
-      :rtype: _type_
+      :returns: referencia al anterior *DoubleNode* si existe.
+      :rtype: Optional[DoubleNode[T]]
 
 
 

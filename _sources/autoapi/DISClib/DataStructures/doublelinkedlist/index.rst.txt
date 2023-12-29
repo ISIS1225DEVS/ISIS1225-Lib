@@ -103,10 +103,10 @@ Classes
 
       *_check_type()* función propia de la estructura que revisa si el tipo de dato del elemento que se desea agregar al *DoubleLinked* es del mismo tipo contenido dentro de los elementos del *DoubleLinked*.
 
-      :raises TypeError: error si el tipo de dato del elemento que se desea agregar no es el mismo que el tipo de dato de los elementos que ya contiene el *DoubleLinked*.
-
       :param element: elemento que se desea procesar en *DoubleLinked*.
       :type element: T
+
+      :raises TypeError: error si el tipo de dato del elemento que se desea agregar no es el mismo que el tipo de dato de los elementos que ya contiene el *DoubleLinked*.
 
       :returns: operador que indica si el ADT *DoubleLinked* es del mismo tipo que el elemento que se desea procesar.
       :rtype: bool

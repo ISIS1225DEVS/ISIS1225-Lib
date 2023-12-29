@@ -79,7 +79,7 @@
              
   <h1>Código fuente para DISClib.DataStructures.node</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Este ADT representa un nodo de información de una estructura de datos dinámica, las cuales pueden ser: listas sencillas, listas doblemente encadenadas, pilas, colas, BST, RBT, entre otras.</span>
+<span class="sd">Este ADT representa un nodo **Node** de información de una estructura de datos dinámica, las cuales pueden ser: listas sencillas, listas doblemente encadenadas, pilas, colas, BST, RBT, entre otras.</span>
 
 <span class="sd">*IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:</span>
 
@@ -115,11 +115,8 @@
 <span class="sd">    Args:</span>
 <span class="sd">        Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.</span>
 
-<span class="sd">    Raises:</span>
-<span class="sd">        TypeError: error si la información del nodo no es del tipo adecuado.</span>
-
 <span class="sd">    Returns:</span>
-<span class="sd">        Node: ADT de tipo Node o nodo de información.</span>
+<span class="sd">        Node: ADT de tipo *Node* o nodo de información.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># optional information of any type</span>
     <span class="c1"># :attr: info</span>
@@ -134,12 +131,12 @@
 <div class="viewcode-block" id="Node._handle_error">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/node/index.html#DISClib.DataStructures.node.Node._handle_error">[documentos]</a>
     <span class="k">def</span> <span class="nf">_handle_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">err</span><span class="p">:</span> <span class="ne">Exception</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*_handle_error()* función privada para manejar los errores que se presentan en la clase Node.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*_handle_error()* función propia de la estructura que maneja los errores que se pueden presentar en el *Node*.</span>
 
-<span class="sd">        Si se presenta un error en Node, se formatea el error según el contexto (paquete/clase), la función que lo generó y lo reenvia al componente superior en la jerarquía de llamados para manejarlo segun se considere conveniente.</span>
+<span class="sd">        Si se presenta un error en *SingleLinked*, se formatea el error según el contexto (paquete/módulo/clase), la función (método) que lo generó y lo reenvia al componente superior en la jerarquía *DISCLib* para manejarlo segun se considere conveniente el usuario.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            err (Exception): Excepción que se generó en el Node.</span>
+<span class="sd">            err (Exception): Excepción que se generó en el *Node*.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">cur_function</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">currentframe</span><span class="p">()</span><span class="o">.</span><span class="n">f_code</span><span class="o">.</span><span class="n">co_name</span>
         <span class="n">cur_context</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
@@ -149,16 +146,16 @@
 <div class="viewcode-block" id="Node._check_type">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/node/index.html#DISClib.DataStructures.node.Node._check_type">[documentos]</a>
     <span class="k">def</span> <span class="nf">_check_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*_check_type()* función privada que verifica que la información del nodo sea del tipo especificado.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*_check_type()* función propia de la estructura que verifica que la información de *Node* sea del tipo adecuado.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            element (T): elemento que se quiere verificar en el nodo.</span>
+<span class="sd">            element (T): elemento que se desea procesar en *Node*.</span>
 
 <span class="sd">        Raises:</span>
-<span class="sd">            TypeError: error si la información del nodo no es del tipo adecuado.</span>
+<span class="sd">            TypeError: error si el tipo de dato del elemento que se desea agregar no es el mismo que el tipo de dato de los elementos que ya contiene el *Node*.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            bool: operador que indica si el tipo de dato del elemento es el mismo que el tipo de dato de los elementos que ya contiene la estructura de datos.</span>
+<span class="sd">            bool: operador que indica si el ADT *Node* es del mismo tipo que el elemento que se desea procesar.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">)):</span>
             <span class="n">err_msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Invalid data type: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">)</span><span class="si">}</span><span class="s2"> &quot;</span>
@@ -170,10 +167,10 @@
 <div class="viewcode-block" id="Node.set_info">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/node/index.html#DISClib.DataStructures.node.Node.set_info">[documentos]</a>
     <span class="k">def</span> <span class="nf">set_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">info</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*set_info()* introduce la información al nodo.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*set_info()* establece la información de *Node*.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            info (T): información que se quiere introducir al nodo.</span>
+<span class="sd">            info (T): información que se desea actualizar en *Node*.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">info</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_check_type</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
@@ -183,10 +180,10 @@
 <div class="viewcode-block" id="Node.get_info">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/node/index.html#DISClib.DataStructures.node.Node.get_info">[documentos]</a>
     <span class="k">def</span> <span class="nf">get_info</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;*get_info()* recupera la información del nodo.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*get_info()* recupera la información de *Node*.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            T: información del nodo.</span>
+<span class="sd">            T: información de *Node*.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">info</span></div>
 </div>

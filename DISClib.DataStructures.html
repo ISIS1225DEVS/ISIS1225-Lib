@@ -131,7 +131,7 @@
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.adjlist.AdjacencyList.cmp_function">
 <span class="sig-name descname"><span class="pre">cmp_function</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="_modules/DISClib/DataStructures/adjlist.html#AdjacencyList.cmp_function"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.adjlist.AdjacencyList.cmp_function" title="Link to this definition"></a></dt>
-<dd><p>Función de comparación opcional que se utiliza para comparar los elementos del AdjacencyList, por defecto es None y el <em>__post_init__()</em> configura la función por defecto <em>lt_default_cmp_funcion()</em>.</p>
+<dd><p>Función de comparación personalizable por el usuario para reconocer los elementos dentro de la estructura. Es un argumento configurable al crear la estructura. Por defecto es la función <em>lt_default_cmp_funcion()</em> propia de <em>DISClib</em>.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -163,13 +163,13 @@
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.adjlist.AdjacencyList.iodata">
 <span class="sig-name descname"><span class="pre">iodata</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="_modules/DISClib/DataStructures/adjlist.html#AdjacencyList.iodata"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.adjlist.AdjacencyList.iodata" title="Link to this definition"></a></dt>
-<dd><p>Lista nativa de Python que contiene los elementos de entrada a la estructura, por defecto es None y el usuario puede incluir una lista nativa de python como argumento.</p>
+<dd><p>Lista nativa de Python personalizable por el usuario para inicializar la estructura. Por defecto es <em>None</em> y el usuario puede incluirla como argumento al crear la estructura.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.adjlist.AdjacencyList.key">
 <span class="sig-name descname"><span class="pre">key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="_modules/DISClib/DataStructures/adjlist.html#AdjacencyList.key"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.adjlist.AdjacencyList.key" title="Link to this definition"></a></dt>
-<dd><p>Nombre de la llave opcional que se utiliza para comparar los elementos del AdjacencyList, Por defecto es “None” y el <em>__post_init__()</em> configura la llave por defecto la llave “id” en <em>DEFAULT_DICT_KEY</em>.</p>
+<dd><p>Nombre de la llave opcional que se utiliza para comparar los elementos del AdjacencyList, Por defecto es <em>None</em> y el <em>__post_init__()</em> configura la llave por defecto la llave “id” en <em>DEFAULT_DICT_KEY</em>.</p>
 </dd></dl>
 
 </dd></dl>
@@ -498,7 +498,7 @@ adyacentes de vertex</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.adjmatrix.AdjacencyMatrix.cmp_function">
 <span class="sig-name descname"><span class="pre">cmp_function</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="_modules/DISClib/DataStructures/adjmatrix.html#AdjacencyMatrix.cmp_function"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.adjmatrix.AdjacencyMatrix.cmp_function" title="Link to this definition"></a></dt>
-<dd><p>Función de comparación opcional que se utiliza para comparar los elementos del AdjacencyMatrix, por defecto es None y el <em>__post_init__()</em> configura la función por defecto <em>lt_default_cmp_funcion()</em>.</p>
+<dd><p>Función de comparación personalizable por el usuario para reconocer los elementos dentro de la estructura. Es un argumento configurable al crear la estructura. Por defecto es la función <em>lt_default_cmp_funcion()</em> propia de <em>DISClib</em>.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -530,13 +530,13 @@ adyacentes de vertex</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.adjmatrix.AdjacencyMatrix.iodata">
 <span class="sig-name descname"><span class="pre">iodata</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="_modules/DISClib/DataStructures/adjmatrix.html#AdjacencyMatrix.iodata"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.adjmatrix.AdjacencyMatrix.iodata" title="Link to this definition"></a></dt>
-<dd><p>Lista nativa de Python que contiene los elementos de entrada a la estructura, por defecto es None y el usuario puede incluir una lista nativa de python como argumento.</p>
+<dd><p>Lista nativa de Python personalizable por el usuario para inicializar la estructura. Por defecto es <em>None</em> y el usuario puede incluirla como argumento al crear la estructura.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.adjmatrix.AdjacencyMatrix.key">
 <span class="sig-name descname"><span class="pre">key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="_modules/DISClib/DataStructures/adjmatrix.html#AdjacencyMatrix.key"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.adjmatrix.AdjacencyMatrix.key" title="Link to this definition"></a></dt>
-<dd><p>Nombre de la llave opcional que se utiliza para comparar los elementos del AdjacencyMatrix, Por defecto es “None” y el <em>__post_init__()</em> configura la llave por defecto la llave “id” en <em>DEFAULT_DICT_KEY</em>.</p>
+<dd><p>Nombre de la llave opcional que se utiliza para comparar los elementos del AdjacencyList, Por defecto es <em>None</em> y el <em>__post_init__()</em> configura la llave por defecto la llave “id” en <em>DEFAULT_DICT_KEY</em>.</p>
 </dd></dl>
 
 </dd></dl>
@@ -965,7 +965,7 @@ adyacentes de vertex</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.binarysearchtree.BinarySearchTree.cmp_function">
 <span class="sig-name descname"><span class="pre">cmp_function</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="_modules/DISClib/DataStructures/binarysearchtree.html#BinarySearchTree.cmp_function"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.binarysearchtree.BinarySearchTree.cmp_function" title="Link to this definition"></a></dt>
-<dd><p>Función de comparación opcional que se utiliza para comparar los elementos del BinarySearchTree, por defecto es None y el <em>__post_init__()</em> configura la función por defecto <em>lt_default_cmp_funcion()</em>.</p>
+<dd><p>Función de comparación personalizable por el usuario para reconocer los elementos dentro de la estructura. Es un argumento configurable al crear la estructura. Por defecto es la función <em>lt_default_cmp_funcion()</em> propia de <em>DISClib</em>.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -997,13 +997,13 @@ adyacentes de vertex</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.binarysearchtree.BinarySearchTree.iodata">
 <span class="sig-name descname"><span class="pre">iodata</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="_modules/DISClib/DataStructures/binarysearchtree.html#BinarySearchTree.iodata"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.binarysearchtree.BinarySearchTree.iodata" title="Link to this definition"></a></dt>
-<dd><p>Lista nativa de Python que contiene los elementos de entrada a la estructura, por defecto es None y el usuario puede incluir una lista nativa de python como argumento.</p>
+<dd><p>Lista nativa de Python personalizable por el usuario para inicializar la estructura. Por defecto es <em>None</em> y el usuario puede incluirla como argumento al crear la estructura.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.binarysearchtree.BinarySearchTree.key">
 <span class="sig-name descname"><span class="pre">key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="_modules/DISClib/DataStructures/binarysearchtree.html#BinarySearchTree.key"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.binarysearchtree.BinarySearchTree.key" title="Link to this definition"></a></dt>
-<dd><p>Nombre de la llave opcional que se utiliza para comparar los elementos del BinarySearchTree, Por defecto es “None” y el <em>__post_init__()</em> configura la llave por defecto la llave “id” en <em>DEFAULT_DICT_KEY</em>.</p>
+<dd><p>Nombre de la llave opcional que se utiliza para comparar los elementos del BinarySearchTree, Por defecto es <em>None</em> y el <em>__post_init__()</em> configura la llave por defecto la llave “id” en <em>DEFAULT_DICT_KEY</em>.</p>
 </dd></dl>
 
 </dd></dl>
@@ -1872,8 +1872,8 @@ en la última posición</p>
 </section>
 <section id="module-DISClib.DataStructures.listnode">
 <span id="disclib-datastructures-listnode-module"></span><h2>DISClib.DataStructures.listnode module<a class="headerlink" href="#module-DISClib.DataStructures.listnode" title="Link to this heading"></a></h2>
-<p>Estos ADTs representan los nodos para una lista sencillamente encadenada (SingleNode) y una lista doblemente encadenada (DoubleNode).</p>
-<p>Estos nodos se utilizan respectivamente en las estructuras dinámicas de lista sencillamente encadenada (LinkedList) y lista doblemente encadenadA(DoubleLinkedList). Las cuales NO tienen un tamaño fijo y pueden crecer indefinidamente en la memoria disponible.</p>
+<p>Estos ADTs representan los nodos para una lista sencillamente encadenada (<strong>SingleNode</strong>) y una lista doblemente encadenada (<strong>DoubleNode</strong>).</p>
+<p>Estos nodos se utilizan respectivamente en las estructuras dinámicas de lista sencillamente encadenada (<strong>LinkedList</strong>) y lista doblemente encadenada (<strong>DoubleLinkedList</strong>). Las cuales NO tienen un tamaño fijo y pueden crecer indefinidamente en la memoria disponible.</p>
 <p><em>IMPORTANTE:</em> Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:</p>
 <blockquote>
 <div><ol class="arabic simple">
@@ -1885,16 +1885,16 @@ en la última posición</p>
 <dt class="sig sig-object py" id="DISClib.DataStructures.listnode.DoubleNode">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.listnode.</span></span><span class="sig-name descname"><span class="pre">DoubleNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">info</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_next</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="autoapi/DISClib/DataStructures/listnode/index.html#DISClib.DataStructures.listnode.SingleNode" title="DISClib.DataStructures.listnode.SingleNode"><span class="pre">SingleNode</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_prev</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="autoapi/DISClib/DataStructures/listnode/index.html#DISClib.DataStructures.listnode.DoubleNode" title="DISClib.DataStructures.listnode.DoubleNode"><span class="pre">DoubleNode</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/DataStructures/listnode.html#DoubleNode"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.listnode.DoubleNode" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="autoapi/DISClib/DataStructures/listnode/index.html#DISClib.DataStructures.listnode.SingleNode" title="DISClib.DataStructures.listnode.SingleNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SingleNode</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<a class="reference internal" href="autoapi/DISClib/Utils/default/index.html#DISClib.Utils.default.T" title="DISClib.Utils.default.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code></a>]</p>
-<p><strong>DoubleNode</strong> ADT que representa un nodo de una lista doblemente encadenada. Basada en el ADT Node y SingleNode.</p>
+<p><strong>DoubleNode</strong> representa un nodo de una lista doblemente encadenada. Basada en el ADT <em>SingleNode</em> que contiene la información del nodo.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>SingleNode</strong> (<em>Dataclass</em>) – ADT base para implementar un nodo de una lista sencillamente encadenada.</p></li>
+<li><p><strong>SingleNode</strong> (<em>Dataclass</em>) – ADT base para implementar un nodo con información genérica.</p></li>
 <li><p><strong>Generic</strong> (<em>T</em>) – TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>ADT para un nodo de una lista doblemente encadenada.</p>
+<dd class="field-even"><p>ADT para un <em>DoubleNode</em> o nodo para una lista doblemente encadenada.</p>
 </dd>
 <dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="autoapi/DISClib/DataStructures/listnode/index.html#DISClib.DataStructures.listnode.DoubleNode" title="DISClib.DataStructures.listnode.DoubleNode">DoubleNode</a></p>
@@ -1903,13 +1903,13 @@ en la última posición</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.listnode.DoubleNode.prev">
 <span class="sig-name descname"><span class="pre">prev</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="autoapi/DISClib/DataStructures/listnode/index.html#DISClib.DataStructures.listnode.DoubleNode" title="DISClib.DataStructures.listnode.DoubleNode"><span class="pre">DoubleNode</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/listnode.html#DoubleNode.prev"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.listnode.DoubleNode.prev" title="Link to this definition"></a></dt>
-<dd><p><em>prev()</em> recupera el nodo anterior de la lista si existe.</p>
+<dd><p><em>prev()</em> recupera la referencia al anterior <em>DoubleNode</em> de la lista. Si no existe retorna <em>None</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>referencia al nodo anterior de la lista.</p>
+<dd class="field-odd"><p>referencia al anterior <em>DoubleNode</em> si existe.</p>
 </dd>
 <dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
-<dd class="field-even"><p>_type_</p>
+<dd class="field-even"><p>Optional[<a class="reference internal" href="autoapi/DISClib/DataStructures/listnode/index.html#DISClib.DataStructures.listnode.DoubleNode" title="DISClib.DataStructures.listnode.DoubleNode">DoubleNode</a>[T]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1920,7 +1920,7 @@ en la última posición</p>
 <dt class="sig sig-object py" id="DISClib.DataStructures.listnode.SingleNode">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.listnode.</span></span><span class="sig-name descname"><span class="pre">SingleNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">info</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_next</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="autoapi/DISClib/DataStructures/listnode/index.html#DISClib.DataStructures.listnode.SingleNode" title="DISClib.DataStructures.listnode.SingleNode"><span class="pre">SingleNode</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/DataStructures/listnode.html#SingleNode"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.listnode.SingleNode" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="autoapi/DISClib/DataStructures/node/index.html#DISClib.DataStructures.node.Node" title="DISClib.DataStructures.node.Node"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<a class="reference internal" href="autoapi/DISClib/Utils/default/index.html#DISClib.Utils.default.T" title="DISClib.Utils.default.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code></a>]</p>
-<p><strong>SingleNode</strong> ADT que representa un nodo de una lista sencillamente encadenada. Basada en el ADT Node que contiene la información del nodo.</p>
+<p><strong>SingleNode</strong> representa un nodo de una lista sencillamente encadenada. Basada en el ADT <em>Node</em> que contiene la información del nodo.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -1929,7 +1929,7 @@ en la última posición</p>
 </ul>
 </dd>
 <dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>ADT para un nodo de una lista sencillamente encadenada.</p>
+<dd class="field-even"><p>ADT para un <em>SingleNode</em> o nodo para una lista sencillamente encadenada.</p>
 </dd>
 <dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="autoapi/DISClib/DataStructures/listnode/index.html#DISClib.DataStructures.listnode.SingleNode" title="DISClib.DataStructures.listnode.SingleNode">SingleNode</a></p>
@@ -1938,13 +1938,13 @@ en la última posición</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="DISClib.DataStructures.listnode.SingleNode.next">
 <span class="sig-name descname"><span class="pre">next</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="autoapi/DISClib/DataStructures/listnode/index.html#DISClib.DataStructures.listnode.SingleNode" title="DISClib.DataStructures.listnode.SingleNode"><span class="pre">SingleNode</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/listnode.html#SingleNode.next"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.listnode.SingleNode.next" title="Link to this definition"></a></dt>
-<dd><p><em>next()</em> recupera el siguiente nodo de la lista si existe.</p>
+<dd><p><em>next()</em> recupera la referencia el siguiente nodo de la lista. Si no existe retorna <em>None</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>referencia al siguiente nodo de la lista.</p>
+<dd class="field-odd"><p>referencia al siguiente <em>Node</em> de la lista si existe.</p>
 </dd>
 <dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="autoapi/DISClib/DataStructures/listnode/index.html#DISClib.DataStructures.listnode.SingleNode" title="DISClib.DataStructures.listnode.SingleNode">SingleNode</a></p>
+<dd class="field-even"><p>Optional[<a class="reference internal" href="autoapi/DISClib/DataStructures/listnode/index.html#DISClib.DataStructures.listnode.SingleNode" title="DISClib.DataStructures.listnode.SingleNode">SingleNode</a>[T]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1954,9 +1954,9 @@ en la última posición</p>
 </section>
 <section id="module-DISClib.DataStructures.mapentry">
 <span id="disclib-datastructures-mapentry-module"></span><h2>DISClib.DataStructures.mapentry module<a class="headerlink" href="#module-DISClib.DataStructures.mapentry" title="Link to this heading"></a></h2>
-<p>Este ADT representa la registro de un Mapa no Ordenado (Entry), el cual es una estructura de datos para almacenar la información en parejas de llave-valor (key-value). La llave (key) es un identificador único para cada valor (value) almacenado en el Mapa no Ordenado (Map). Por su parte, el valor (value) puede ser cualquier tipo de dato.</p>
-<p>En el caso de las tablas de Hash, la llave (key) es el resultado de aplicar una función hash al valor (value) almacenado en el Mapa no Ordenado (Map). Esta estructura de datos es fundamental para implementar otros mapas no ordenados como: tablas de símbolos, diccionarios, entre otros.</p>
-<p>DISCLib utiliza el <strong>MapEntry</strong> para guardar la información de las tablas de Hash por Encadenamiento Separado (Separate Chaining) y las tablas por Sondeo Lineal (Linear Probing).</p>
+<p>Este ADT representa la registro de un Mapa no Ordenado (<strong>MapEntry</strong>), el cual es una estructura de datos para almacenar la información en parejas de llave-valor (key-value). La llave (<em>key</em>) es un identificador único para cada valor (<em>value</em>) almacenado en el Mapa no Ordenado (<em>Map</em>). Por su parte, el valor (<em>value</em>) puede ser cualquier tipo de dato.</p>
+<p>En el caso de las tablas de Hash, la llave (<em>key</em>) es el resultado de aplicar una función hash al valor (<em>value</em>) almacenado en el Mapa no Ordenado (<em>Map</em>). Esta estructura de datos es fundamental para implementar otros mapas no ordenados como: tablas de símbolos, diccionarios, entre otros.</p>
+<p><em>DISCLib</em> utiliza el <em>MapEntry</em> para guardar la información de las tablas de Hash por Encadenamiento Separado (<em>SeparateChaining</em>) y las tablas por Sondeo Lineal (<a href="#id1"><span class="problematic" id="id2">*</span></a>LinearProbing).</p>
 <p><em>IMPORTANTE:</em> Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:</p>
 <blockquote>
 <div><ol class="arabic simple">
@@ -1968,19 +1968,16 @@ en la última posición</p>
 <dt class="sig sig-object py" id="DISClib.DataStructures.mapentry.MapEntry">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.mapentry.</span></span><span class="sig-name descname"><span class="pre">MapEntry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/DataStructures/mapentry.html#MapEntry"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.mapentry.MapEntry" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<a class="reference internal" href="autoapi/DISClib/Utils/default/index.html#DISClib.Utils.default.T" title="DISClib.Utils.default.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code></a>]</p>
-<p><strong>MapEntry</strong> representa un registro de un mapa no ordenado. Contiene la llave y el valor del registro del mapa. Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.</p>
+<p><strong>MapEntry</strong> representa un registro de un mapa no ordenado, contiene la llave (<em>key</em>) y el valor (<em>value</em>). Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>Generic</strong> (<em>T</em>) – Tipo de dato genérico dentro del registro del mapa.</p>
+<dd class="field-odd"><p><strong>Generic</strong> (<em>T</em>) – TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.</p>
 </dd>
-<dt class="field-even">Muestra<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>TypeError</strong> – error si la información del registro del mapa (llave o valor) no son del tipo adecuado.</p>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>ADT de tipo <em>MapEntry</em> o registro de un mapa no ordenado.</p>
 </dd>
-<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>ADT de tipo MapEntry o registro de un mapa.</p>
-</dd>
-<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="autoapi/DISClib/DataStructures/mapentry/index.html#DISClib.DataStructures.mapentry.MapEntry" title="DISClib.DataStructures.mapentry.MapEntry">MapEntry</a></p>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="autoapi/DISClib/DataStructures/mapentry/index.html#DISClib.DataStructures.mapentry.MapEntry" title="DISClib.DataStructures.mapentry.MapEntry">MapEntry</a></p>
 </dd>
 </dl>
 <dl class="py method">
@@ -2080,7 +2077,7 @@ en la última posición</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.redblacktree.RedBlackTree.cmp_function">
 <span class="sig-name descname"><span class="pre">cmp_function</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="_modules/DISClib/DataStructures/redblacktree.html#RedBlackTree.cmp_function"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.redblacktree.RedBlackTree.cmp_function" title="Link to this definition"></a></dt>
-<dd><p>Función de comparación opcional que se utiliza para comparar los elementos del RedBlackTree, por defecto es None y el <em>__post_init__()</em> configura la función por defecto <em>lt_default_cmp_funcion()</em>.</p>
+<dd><p>Función de comparación personalizable por el usuario para reconocer los elementos dentro de la estructura. Es un argumento configurable al crear la estructura. Por defecto es la función <em>lt_default_cmp_funcion()</em> propia de <em>DISClib</em>.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -2112,13 +2109,13 @@ en la última posición</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.redblacktree.RedBlackTree.iodata">
 <span class="sig-name descname"><span class="pre">iodata</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="_modules/DISClib/DataStructures/redblacktree.html#RedBlackTree.iodata"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.redblacktree.RedBlackTree.iodata" title="Link to this definition"></a></dt>
-<dd><p>Lista nativa de Python que contiene los elementos de entrada a la estructura, por defecto es None y el usuario puede incluir una lista nativa de python como argumento.</p>
+<dd><p>Lista nativa de Python personalizable por el usuario para inicializar la estructura. Por defecto es <em>None</em> y el usuario puede incluirla como argumento al crear la estructura.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DISClib.DataStructures.redblacktree.RedBlackTree.key">
 <span class="sig-name descname"><span class="pre">key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="_modules/DISClib/DataStructures/redblacktree.html#RedBlackTree.key"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.redblacktree.RedBlackTree.key" title="Link to this definition"></a></dt>
-<dd><p>Nombre de la llave opcional que se utiliza para comparar los elementos del RedBlackTree, Por defecto es “None” y el <em>__post_init__()</em> configura la llave por defecto la llave “id” en <em>DEFAULT_DICT_KEY</em>.</p>
+<dd><p>Nombre de la llave opcional que se utiliza para comparar los elementos del RedBlackTree, Por defecto es <em>None</em> y el <em>__post_init__()</em> configura la llave por defecto la llave “id” en <em>DEFAULT_DICT_KEY</em>.</p>
 </dd></dl>
 
 </dd></dl>

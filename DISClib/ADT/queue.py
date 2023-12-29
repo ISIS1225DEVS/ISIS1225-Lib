@@ -15,7 +15,7 @@ innecesaria.
 # native python modules
 # import dataclass to define the array list
 from dataclasses import dataclass
-# import modules for defining the element's type in the array
+# import modules for defining the elements type in the array
 from typing import Optional
 
 # custom modules
@@ -29,22 +29,22 @@ assert T
 
 @dataclass
 class Queue(SingleLinked):
-    """**Queue** representa una cola implementada sobre una lista sencillamente encadenada (SingleLinked), Generic[T] y @dataclass para que sea una estructura de datos genérica. Esta cola o fila (queue) es un Tipo Abstracto de Datos (TAD/ADT) que permite almacenar una colección de elementos y operarlos en el mismo orden en que fueron agregados (FIFO - Firts In First Out).
+    """**Queue** representa una cola implementada sobre una lista sencillamente encadenada (*SingleLinked*) y @dataclass para que sea una estructura de datos genérica. Esta cola o fila (*Queue*) es un Tipo Abstracto de Datos (TAD/ADT) que permite almacenar una colección de elementos y operarlos en el mismo orden en que fueron agregados (FIFO - Firts In First Out).
 
-    *IMPORTANTE:* 'Queue' extiende de la clase 'SingleLinked', por lo que hereda todos sus parametros internos y funciones.
+    *IMPORTANTE:* *Queue* extiende de la clase *SingleLinked*, por lo que hereda todos sus parametros internos y funciones.
 
     Args:
-        SingleLinked (dataclass): ADT DISClib que implementa las funciones básicas de una lista sencillamente encadenada.
+        SingleLinked (dataclass): ADT *DISClib* que implementa las funciones básicas de una lista sencillamente encadenada.
 
     Returns:
-        Queue: ADT de tipo Queue, Cola o Fila, implementado sobre una lista sencillamente encadenada.
+        Queue: ADT de tipo *Queue*, Cola o Fila, implementado sobre una lista sencillamente encadenada.
     """
 
     def enqueue(self, element: T) -> None:
-        """*enqueue()* agrega un elemento en el final de la cola/fila (Queue).
+        """*enqueue()* encola o agrega un elemento en el final del ADT *Queue*.
 
         Args:
-            element (T): elemento que se quiere agregar al Queue.
+            element (T): el elemento que se quiere agregar al ADT *Queue*.
         """
         try:
             if self._check_type(element):
@@ -53,10 +53,10 @@ class Queue(SingleLinked):
             self._handle_error(exp)
 
     def dequeue(self) -> T:
-        """*dequeue()* elimina y retorna el elemento en la primer posición de la cola/fila Queue.
+        """*dequeue()* desencola o remueve el elemento en la primera posición del ADT *Queue*.
 
         Returns:
-            T: el elemento en la primera posición de la cola/fila Queue.
+            T: el elemento de la primera posición del ADT *Queue*.
         """
         try:
             return self.remove_first()
@@ -64,10 +64,10 @@ class Queue(SingleLinked):
             self._handle_error(exp)
 
     def peek(self) -> Optional[T]:
-        """*peek()* lee el primer elemento de la cola/fila Queue sin eliminarlo.
+        """*peek()* lee el primer elemento del ADT *Queue* sin eliminarlo.
 
         Returns:
-            T: elemento en la primer posición de la cola/fila Queue.
+            T: el elemento en la primera posición del ADT *Queue*.
         """
         try:
             return self.get_first()

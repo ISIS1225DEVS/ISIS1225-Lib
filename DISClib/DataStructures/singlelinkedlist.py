@@ -1,5 +1,5 @@
 ﻿"""
-Este ADT representa una estructura de datos lineal, específicamente una lista sensillamente enlazada/encadenada (SingleLinked). Esta estructura de datos es una secuencia de nodos enlazados, donde cada nodo contiene un elemento de información y una referencia al siguiente nodo en la secuencia. Esto le permite a la lista un crecimiento y reducción dinámico en la memoria disponible.
+Este ADT representa una estructura de datos lineal, específicamente una lista sensillamente enlazada/encadenada (**SingleLinked**). Esta estructura de datos es una secuencia de nodos enlazados, donde cada nodo contiene un elemento de información y una referencia al siguiente nodo en la secuencia. Esto le permite a la lista un crecimiento y reducción dinámico en la memoria disponible.
 
 *IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:
 
@@ -35,47 +35,47 @@ assert VALID_IO_TYPE
 
 @dataclass
 class SingleLinked(Generic[T]):
-    """**SingleLinked** representa una estructura de datos dinámica de tipo lista sensillamente encadenada (Single Linked List), Implementada con Generic[T] y @dataclass para que sea una estructura de datos genérica.
+    """**SingleLinked** representa una estructura de datos dinámica de tipo lista sensillamente encadenada (*SingleLinked*), Implementada con Generic[T] y @dataclass para que sea una estructura de datos genérica.
 
     Args:
         Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.
 
     Returns:
-        SingleLinked: ADT de tipo SingleLinked o Lista Sensillamente Encadenada.
+        SingleLinked: ADT de tipo *SingleLinked* o Lista Sensillamente Encadenada.
     """
     # input elements from python list
     # :attr: iodata
     iodata: Optional[List[T]] = None
     """
-    Lista nativa de Python que contiene los elementos de entrada a la estructura, por defecto es None y el usuario puede incluir una lista nativa de python como argumento.
+    Lista nativa de Python personalizable por el usuario para inicializar la estructura. Por defecto es *None* y el usuario puede incluirla como argumento al crear la estructura.
     """
 
     # the cmp_function is used to compare elements, not defined by default
     # :attr: cmp_function
     cmp_function: Optional[Callable[[T, T], int]] = None
     """
-    Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es None y el *__post_init__()* configura la función por defecto *lt_default_cmp_funcion()*.
+    Función de comparación personalizable por el usuario para reconocer los elementos dentro del *SingleLinked*. Por defecto es la función *lt_default_cmp_funcion()* propia de *DISClib*, puede ser un parametro al crear la estructura.
     """
 
     # reference to the first node of the list
     # :attr: first
     first: Optional[SingleNode[T]] = None
     """
-    Representa el la referencia en memoria al primer nodo del SingleLinked.
+    Representa la referencia en memoria al primer nodo del *SingleLinked*.
     """
 
     # reference to the last node of the list
     # :attr: last
     last: Optional[SingleNode[T]] = None
     """
-    Representa la referencia en memoria al último nodo del SingleLinked.
+    Representa la referencia en memoria al último nodo del *SingleLinked*.
     """
 
     # the key is used to compare elements, not defined by default
     # :attr: key
     key: Optional[str] = None
     """
-    Nombre de la llave opcional que se utiliza para comparar los elementos del ArrayList, Por defecto es None y el *__post_init__()* configura la llave por defecto la llave 'id' en *DEFAULT_DICT_KEY*.
+    Nombre de la llave personalizable por el usuario utilizada para reconocer los elementos dentro del *SingleLinked*. Por defecto es la llave de diccionario (*dict*)*DEFAULT_DICT_KEY = 'id'* propia de *DISClib*, puede ser un parametro al crear la estructura.
     """
 
     # by default, the list is empty
@@ -86,7 +86,7 @@ class SingleLinked(Generic[T]):
     """
 
     def __post_init__(self) -> None:
-        """*__post_init__()* configura los valores por defecto para la llave ('key') y la función de comparación ('cmp_function'). Si el usuario incluye una lista nativa de python como argumento, se agrega a la lista de elementos del SingleLinked.
+        """*__post_init__()* configura los parametros personalizados por el usuario al crear el *SingleLinked*. En caso de no estar definidos, se asignan los valores por defecto, puede cargar listas nativas con el parametro *iodata* de python dentro de la estructura.
         """
         try:
             # counter for elements in the input list
@@ -109,7 +109,7 @@ class SingleLinked(Generic[T]):
             self._handle_error(err)
 
     def default_cmp_function(self, elm1, elm2) -> int:
-        """*default_cmp_function()* procesa con algoritmica por defecto la lista de elementos que procesa el SingleLinked. Es una función crucial para que la estructura de datos funcione correctamente.
+        """*default_cmp_function()* es la función de comparación por defecto para comparar elementos dentro del *SingleLinked*, es una función crucial para que la estructura funcione correctamente.
 
         Args:
             elm1 (Any): primer elemento a comparar.
@@ -125,12 +125,12 @@ class SingleLinked(Generic[T]):
             self._handle_error(err)
 
     def _handle_error(self, err: Exception) -> None:
-        """*_handle_error()* función privada que maneja los errores que se pueden presentar en el SingleLinked.
+        """*_handle_error()* función propia de la estructura que maneja los errores que se pueden presentar en el *SingleLinked*.
 
-        Si se presenta un error en el SingleLinked, se formatea el error según el contexto (paquete/clase) y la función que lo generó, y lo reenvia al componente superior en la jerarquía de llamados para manejarlo segun se considere conveniente.
+        Si se presenta un error en *SingleLinked*, se formatea el error según el contexto (paquete/módulo/clase), la función (método) que lo generó y lo reenvia al componente superior en la jerarquía *DISCLib* para manejarlo segun se considere conveniente el usuario.
 
         Args:
-            err (Exception): Excepción que se generó en el SingleLinked.
+            err (Exception): Excepción que se generó en el *SingleLinked*.
         """
         # TODO check usability of this function
         cur_context = self.__class__.__name__
@@ -138,17 +138,16 @@ class SingleLinked(Generic[T]):
         error_handler(cur_context, cur_function, err)
 
     def _check_type(self, element: T) -> bool:
-        """*_check_type()* función privada que verifica que el tipo de dato del elemento que se quiere agregar al SingleLinked sea del mismo tipo contenido dentro de los elementos del SingleLinked.
+        """*_check_type()* función propia de la estructura que revisa si el tipo de dato del elemento que se desea agregar al *SingleLinked* es del mismo tipo contenido dentro de los elementos del *SingleLinked*.
 
         Raises:
-            TypeError: error si el tipo de dato del elemento que se quiere
-            agregar no es el mismo que el tipo de dato de los elementos que ya contiene el SingleLinked.
+            TypeError: error si el tipo de dato del elemento que se desea agregar no es el mismo que el tipo de dato de los elementos que ya contiene el *SingleLinked*.
 
         Args:
-            element (T): elemento que se quiere procesar en SingleLinked.
+            element (T): elemento que se desea procesar en *SingleLinked*.
 
         Returns:
-            bool: operador que indica si el ADT SingleLinked es del mismo tipo que el elemento que se quiere procesar.
+            bool: operador que indica si el ADT *SingleLinked* es del mismo tipo que el elemento que se desea procesar.
         """
         # TODO check usability of this function
         # if the structure is not empty, check the first element type
@@ -165,10 +164,10 @@ class SingleLinked(Generic[T]):
 
     # @property
     def is_empty(self) -> bool:
-        """*is_empty()* revisa si el SingleLinked está vacía.
+        """*is_empty()* revisa si el *SingleLinked* está vacío.
 
         Returns:
-            bool: operador que indica si la estructura SingleLinked está vacía.
+            bool: operador que indica si la estructura *SingleLinked* está vacía.
         """
         # TODO change the method name to "empty" or @property "empty"?
         try:
@@ -178,10 +177,10 @@ class SingleLinked(Generic[T]):
 
     # @property
     def size(self) -> int:
-        """*size()* devuelve el número de elementos que actualmente contiene el SingleLinked.
+        """*size()* devuelve el número de elementos que actualmente contiene el *SingleLinked*.
 
         Returns:
-            int: tamaño de la estructura SingleLinked.
+            int: tamaño de la estructura *SingleLinked*.
         """
         # TODO change the method to @property "size"?
         try:
@@ -190,10 +189,10 @@ class SingleLinked(Generic[T]):
             self._handle_error(err)
 
     def add_first(self, element: T) -> None:
-        """*add_first()* adiciona un elemento al inicio del SingleLinked.
+        """*add_first()* adiciona un elemento al inicio del *SingleLinked*.
 
         Args:
-            element (T): elemento que se quiere agregar a la estructura.
+            element (T): elemento que se desea agregar a la estructura.
 
         Raises:
             Exception: si la operación no se puede realizar, se invoca la función *_handle_error()* para manejar el error.
@@ -212,10 +211,10 @@ class SingleLinked(Generic[T]):
             self._handle_error(err)
 
     def add_last(self, element: T) -> None:
-        """*add_last()* adiciona un elemento al final del SingleLinked.
+        """*add_last()* adiciona un elemento al final del *SingleLinked*.
 
         Args:
-            element (T): elemento que se quiere agregar a la estructura.
+            element (T): elemento que se desea agregar a la estructura.
 
         Raises:
             Exception: si la operación no se puede realizar, se invoca la función *_handle_error()* para manejar el error.
@@ -235,11 +234,11 @@ class SingleLinked(Generic[T]):
             self._handle_error(err)
 
     def add_element(self, element: T, pos: int) -> None:
-        """*add_element()* adiciona un elemento en una posición dada del SingleLinked.
+        """*add_element()* adiciona un elemento en una posición especifica del *SingleLinked*.
 
         Args:
-            element (T): elemento que se quiere agregar a la estructura.
-            pos (int): índice en la que se quiere agregar el elemento.
+            element (T): elemento que se desea agregar a la estructura.
+            pos (int): posición en la que se desea agregar el elemento.
 
         Raises:
             IndexError: error si la posición es inválida.
@@ -282,13 +281,13 @@ class SingleLinked(Generic[T]):
             self._handle_error(err)
 
     def get_first(self) -> Optional[T]:
-        """*get_first()* lee el primer elemento del SingleLinked.
+        """*get_first()* lee el primer elemento del *SingleLinked*.
 
         Raises:
             Exception: error si la estructura está vacía.
 
         Returns:
-            Optional[T]: el primer elemento del SingleLinked.
+            Optional[T]: el primer elemento del *SingleLinked*.
         """
         try:
             info = None
@@ -301,13 +300,13 @@ class SingleLinked(Generic[T]):
             self._handle_error(err)
 
     def get_last(self) -> Optional[T]:
-        """*get_last()* lee el último elemento del SingleLinked.
+        """*get_last()* lee el último elemento del *SingleLinked*.
 
         Raises:
             Exception: error si la estructura está vacía.
 
         Returns:
-             Optional[T]: el ultimo elemento del SingleLinked.
+             Optional[T]: el ultimo elemento del *SingleLinked*.
         """
         try:
             info = None
@@ -320,17 +319,17 @@ class SingleLinked(Generic[T]):
             self._handle_error(err)
 
     def get_element(self, pos: int) -> Optional[T]:
-        """*get_element()* lee un elemento en una posición dada del SingleLinked.
+        """*get_element()* lee un elemento en una posición especifica del *SingleLinked*.
 
         Args:
-            pos (int): índice en la que se quiere agregar el elemento.
+            pos (int): posición del elemento que se desea leer.
 
         Raises:
             Exception: error si la estructura está vacía.
             Exception: error si la posición es inválida.
 
         Returns:
-             Optional[T]: el elemento en la posición dada del SingleLinked.
+             Optional[T]: el elemento en la posición especifica del *SingleLinked*.
         """
         # TODO change the method name to "get_elm()"?
         try:
@@ -352,13 +351,13 @@ class SingleLinked(Generic[T]):
             self._handle_error(err)
 
     def remove_first(self) -> Optional[T]:
-        """*remove_first()* elimina el primer elemento del SingleLinked.
+        """*remove_first()* elimina el primer elemento del *SingleLinked*.
 
         Raises:
             Exception: error si la estructura está vacía.
 
         Returns:
-             Optional[T]: el primer elemento eliminado del SingleLinked.
+             Optional[T]: el primer elemento eliminado del *SingleLinked*.
         """
         try:
             info = None
@@ -378,13 +377,13 @@ class SingleLinked(Generic[T]):
             self._handle_error(err)
 
     def remove_last(self) -> Optional[T]:
-        """*remove_last()* elimina el último elemento del SingleLinked.
+        """*remove_last()* elimina el último elemento del *SingleLinked*.
 
         Raises:
             Exception: error si la estructura está vacía.
 
         Returns:
-            Optional[T]: el ultimo elemento eliminado del SingleLinked.
+            Optional[T]: el ultimo elemento eliminado del *SingleLinked*.
         """
         try:
             info = None
@@ -409,17 +408,17 @@ class SingleLinked(Generic[T]):
             self._handle_error(err)
 
     def remove_element(self, pos: int) -> Optional[T]:
-        """*remove_element()* elimina un elemento en una posición dada del SingleLinked.
+        """*remove_element()* elimina un elemento en una posición especifica del *SingleLinked*.
 
         Args:
-            pos (int): índice del que se quiere eliminar el elemento.
+            pos (int): posición del elemento que se desea eliminar.
 
         Raises:
             IndexError: error si la estructura está vacía.
             IndexError: error si la posición es inválida.
 
         Returns:
-            Optional[T]: el elemento eliminado del SingleLinked.
+            Optional[T]: el elemento eliminado del *SingleLinked*.
         """
         # TODO change the method name to "remove_elm()"?
         try:
@@ -448,7 +447,7 @@ class SingleLinked(Generic[T]):
             self._handle_error(err)
 
     def compare_elements(self, elem1: T, elem2: T) -> int:
-        """*compare_elements()* compara dos elementos dentro del SingleLinked según la función de comparación definida por el usuario o la función por defecto.
+        """*compare_elements()* compara dos elementos dentro del *SingleLinked* según la función de comparación de la estructura.
 
         Args:
             elem1 (T): Primer elemento a comparar.
@@ -460,12 +459,8 @@ class SingleLinked(Generic[T]):
         Returns:
             int: -1 si elem1 es menor que elem2, 0 si son iguales, 1 si elem1 es mayor que elem2.
         """
-        # FIXME with __post_init__ the cmp_function is never None
         try:
-            # if the key is defined but the cmp is not, use the default
-            if self.key is not None and self.cmp_function is None:
-                return self.default_cmp_function(elem1, elem2)
-            # otherwise, use the custom cmp function
+            # use the structure cmp function
             if self.cmp_function is not None:
                 return self.cmp_function(elem1, elem2)
             # raise an exception if the cmp function is not defined
@@ -474,13 +469,13 @@ class SingleLinked(Generic[T]):
             self._handle_error(err)
 
     def find(self, element: T) -> int:
-        """*find()* revisa si un elemento está en el SingleLinked.
+        """*find()* busca el elemento dentro del *SingleLinked* y devuelve su posición o -1 si no lo encuentra.
 
         Args:
-            element (T): elemento que se quiere revisar en el SingleLinked.
+            element (T): elemento que se desea revisar en el *SingleLinked*.
 
         Returns:
-            int: la posición del elemento en el SingleLinked, -1 si no está.
+            int: la posición del elemento en el *SingleLinked*, -1 si no está.
         """
         try:
             pos = -1
@@ -501,11 +496,11 @@ class SingleLinked(Generic[T]):
             self._handle_error(err)
 
     def change_info(self, new_info: T, pos: int) -> None:
-        """*change_info()* cambia la información de un elemento en una posición dada.
+        """*change_info()* cambia la información de un elemento en la posición especificada del *SingleLinked*.
 
         Args:
-            new_info (T): nueva información que se quiere agregar en el elemento.
-            pos (int): posición del elemento que se quiere cambiar.
+            new_info (T): nueva información que se desea para el elemento.
+            pos (int): posición del elemento que se desea cambiar.
 
         Raises:
             IndexError: error si la estructura está vacía.
@@ -530,7 +525,7 @@ class SingleLinked(Generic[T]):
             self._handle_error(err)
 
     def exchange(self, pos1: int, pos2: int) -> None:
-        """*exchange()* intercambia la información de dos elementos en dos posiciones dadas.
+        """*exchange()* intercambia la información de dos elementos en dos posiciones especificadas del *SingleLinked*.
 
         Args:
             pos1 (int): posición del primer elemento.
@@ -556,11 +551,11 @@ class SingleLinked(Generic[T]):
             self._handle_error(err)
 
     def sublist(self, start: int, end: int) -> "SingleLinked[T]":
-        """*sublist()* crea una sublista de la estructura según unas posiciones dentro del SingleLinked original.
+        """*sublist()* crea una sublista de la estructura según dos posiciones dentro del *SingleLinked* original.
 
         Args:
-            start (int): índice inicial de la sublista.
-            end (int): índice final de la sublista.
+            start (int): posición inicial de la sublista.
+            end (int): posición final de la sublista.
 
         Raises:
             IndexError: error si la estructura está vacía.
@@ -588,18 +583,18 @@ class SingleLinked(Generic[T]):
             self._handle_error(err)
 
     def concat(self, other: "SingleLinked[T]") -> "SingleLinked[T]":
-        """*concat()* concatena dos estructuras de datos SingleLinked para crear una nueva estructura con los nodos de las dos estructuras.
+        """*concat()* concatena dos estructuras de datos *SingleLinked* para crear una estructura con los elementos de las dos estructuras.
 
         Args:
-            other (SingleLinked[T]): estructura de datos SingleLinked que se quiere concatenar con la estructura original.
+            other (SingleLinked[T]): estructura de datos *SingleLinked* que se desea concatenar con la estructura original.
 
         Raises:
-            TypeError: error si la estructura que se quiere concatenar no es un SingleLinked.
-            TypeError: error si la llave de la estructura que se quiere unir no es la misma que la llave de la estructura original.
-            TypeError: error si la función de comparación de la estructura que se quiere unir no es la misma que la función de comparación de la estructura original.
+            TypeError: error si la estructura que se desea concatenar no es un *SingleLinked*.
+            TypeError: error si la llave de la estructura que se desea unir no es la misma que la llave de la estructura original.
+            TypeError: error si la función de comparación de la estructura que se desea unir no es la misma que la función de comparación de la estructura original.
 
         Returns:
-            SingleLinked[T]: Estructura de datos SingleLinked original que contiene los elementos de las dos estructuras originales.
+            SingleLinked[T]: Estructura de datos original *SingleLinked* que contiene los elementos de las dos estructuras originales.
         """
         try:
             if not isinstance(other, SingleLinked):
@@ -625,10 +620,10 @@ class SingleLinked(Generic[T]):
             self._handle_error(err)
 
     def __iter__(self):
-        """*__iter__()* iterador nativo de Python intervenida por la estructura de datos para recorrer los elementos del SingleLinked utilizando un ciclo 'for' de python.
+        """*__iter__()* iterador nativo de Python personalizado para el *SingleLinked*. Permite utilizar los ciclos *for* de Python para recorrer los elementos de la estructura.
 
         Returns:
-            __iter__: iterador sobre los elementos del SingleLinked.
+            __iter__: iterador Python sobre los elementos del *SingleLinked*.
         """
         try:
             # FIXME do I need the try/except block?
@@ -640,9 +635,9 @@ class SingleLinked(Generic[T]):
             self._handle_error(err)
 
     def __len__(self) -> int:
-        """*__len__()* función nativa de Python intervenida por la estructura de datosv para recuperar el tamaño del SingleLinked.
+        """*__len__()* función nativa de Python personalizada para el *SingleLinked*. Permite utilizar la función *len()* de Python para recuperar el tamaño del *SingleLinked*.
 
         Returns:
-            int: tamaño del SingleLinked.
+            int: tamaño del *SingleLinked*.
         """
         return self.size()

@@ -1,5 +1,5 @@
 """
-Este ADT representa una estructura de datos lineal, específicamente un arreglo dinámico (ArrayList). El arreglo dinámico es una estructura de datos que permite almacenar un conjunto de elementos del mismo tipo, en la cual se puede acceder y procesar sus elementos utilizando las funciones/métodos propios de la estructura.
+Este ADT representa una estructura de datos lineal, específicamente un arreglo dinámico (**ArrayList**). El arreglo dinámico es una estructura de datos que permite almacenar un conjunto de elementos del mismo tipo, en la cual se puede acceder y procesar sus elementos utilizando las funciones propias de la estructura.
 
 *IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:
 
@@ -33,27 +33,27 @@ assert VALID_IO_TYPE
 
 @dataclass
 class ArrayList(Generic[T]):
-    """**ArrayList** representa la estructura de datos para arreglos dinamicos (Array List), Implementada con Generic[T] y @dataclass para que sea una estructura de datos genérica.
+    """**ArrayList** representa la estructura de datos para arreglos dinamicos (*ArrayList*), Implementada con Generic[T] y @dataclass para que sea una estructura de datos genérica.
 
     Args:
         Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.
 
     Returns:
-        ArrayList: ADT de tipo ArrayList o Arreglo Dinámico.
+        ArrayList: ADT de tipo *ArrayList* o Arreglo Dinámico.
 
     """
     # input elements from python list
     # :attr: iodata
     iodata: Optional[List[T]] = None
     """
-    Lista nativa de Python que contiene los elementos de entrada a la estructura, por defecto es None y el usuario puede incluir una lista nativa de python como argumento.
+    Lista nativa de Python personalizable por el usuario para inicializar la estructura. Por defecto es *None* y el usuario puede incluirla como argumento al crear la estructura.
     """
 
     # the cmp_function is used to compare elements, not defined by default
     # :attr: cmp_function
     cmp_function: Optional[Callable[[T, T], int]] = None
     """
-    Función de comparación opcional que se utiliza para comparar los elementos del ArrayList, por defecto es None y el *__post_init__()* configura la función por defecto *lt_default_cmp_funcion()*.
+    Función de comparación personalizable por el usuario para reconocer los elementos dentro del *ArrayList*. Por defecto es la función *lt_default_cmp_funcion()* propia de *DISClib*, puede ser un parametro al crear la estructura.
     """
 
     # using default_factory to generate an empty list
@@ -67,7 +67,7 @@ class ArrayList(Generic[T]):
     # :attr: key
     key: Optional[str] = None
     """
-    Nombre de la llave opcional que se utiliza para comparar los elementos del ArrayList, Por defecto es 'None' y el *__post_init__()* configura la llave por defecto la llave 'id' en *DEFAULT_DICT_KEY*.
+    Nombre de la llave personalizable por el usuario utilizada para reconocer los elementos dentro del *ArrayList*. Por defecto es la llave de diccionario (*dict*) *DEFAULT_DICT_KEY = 'id'* propia de *DISClib*, puede ser un parametro al crear la estructura.
     """
 
     # by default, the list is empty
@@ -78,7 +78,7 @@ class ArrayList(Generic[T]):
     """
 
     def __post_init__(self) -> None:
-        """*__post_init__()* configura los valores por defecto para la llave ('key') y la función de comparación ('cmp_function'). Si el usuario incluye una lista nativa de python como argumento, se agrega a la lista de elementos del ArrayList.
+        """*__post_init__()* configura los parametros personalizados por el usuario al crear el *ArrayList*. En caso de no estar definidos, se asignan los valores por defecto, puede cargar listas nativas con el parametro *iodata* de python dentro de la estructura.
         """
         try:
             # if the key is not defined, use the default
@@ -88,7 +88,6 @@ class ArrayList(Generic[T]):
             if self.cmp_function is None:
                 self.cmp_function = self.default_cmp_function
             # if elements are in a list, add them to the ArrayList
-            # TODO sometime strange weird in tests
             if isinstance(self.iodata, VALID_IO_TYPE):
                 for elm in self.iodata:
                     self.add_last(elm)
@@ -97,7 +96,7 @@ class ArrayList(Generic[T]):
             self._handle_error(err)
 
     def default_cmp_function(self, elm1, elm2) -> int:
-        """*default_cmp_function()* procesa con algoritmica por defecto la lista de elementos que procesa el ArrayList. Es una función crucial para que la estructura de datos funcione correctamente.
+        """*default_cmp_function()* es la función de comparación por defecto para comparar elementos dentro del *ArrayList*, es una función crucial para que la estructura funcione correctamente.
 
         Args:
             elm1 (Any): primer elemento a comparar.
@@ -113,12 +112,12 @@ class ArrayList(Generic[T]):
             self._handle_error(err)
 
     def _handle_error(self, err: Exception) -> None:
-        """*_handle_error()* función privada que maneja los errores que se pueden presentar en el ArrayList.
+        """*_handle_error()* función propia de la estructura que maneja los errores que se pueden presentar en el *ArrayList*.
 
-        Si se presenta un error en ArrayList, se formatea el error según el contexto (paquete/clase), la función que lo generó y lo reenvia al componente superior en la jerarquía de llamados para manejarlo segun se considere conveniente.
+        Si se presenta un error en *ArrayList*, se formatea el error según el contexto (paquete/módulo/clase), la función (método) que lo generó y lo reenvia al componente superior en la jerarquía *DISCLib* para manejarlo segun se considere conveniente el usuario.
 
         Args:
-            err (Exception): Excepción que se generó en el ArrayList.
+            err (Exception): Excepción que se generó en el *ArrayList*.
         """
         # TODO check usability of this function
         cur_context = self.__class__.__name__
@@ -126,16 +125,16 @@ class ArrayList(Generic[T]):
         error_handler(cur_context, cur_function, err)
 
     def _check_type(self, element: T) -> bool:
-        """*_check_type()* función privada que verifica que el tipo de dato del elemento que se quiere agregar al ArrayList sea del mismo tipo contenido dentro de los elementos del ArrayList.
+        """*_check_type()* función propia de la estructura que revisa si el tipo de dato del elemento que se desea agregar al *ArrayList* es del mismo tipo contenido dentro de los elementos del *ArrayList*.
 
         Raises:
-            TypeError: error si el tipo de dato del elemento que se quiere agregar no es el mismo que el tipo de dato de los elementos que ya contiene el ArrayList.
+            TypeError: error si el tipo de dato del elemento que se desea agregar no es el mismo que el tipo de dato de los elementos que ya contiene el *ArrayList*.
 
         Args:
-            element (T): elemento que se quiere procesar en ArrayList.
+            element (T): elemento que se desea procesar en *ArrayList*.
 
         Returns:
-            bool: operador que indica si el ADT ArrayList es del mismo tipo que el elemento que se quiere procesar.
+            bool: operador que indica si el ADT *ArrayList* es del mismo tipo que el elemento que se desea procesar.
         """
         # TODO check usability of this function
         # if the structure is not empty, check the first element type
@@ -152,10 +151,10 @@ class ArrayList(Generic[T]):
 
     # @property
     def is_empty(self) -> bool:
-        """*is_empty()* revisa si el ArrayList está vacía.
+        """*is_empty()* revisa si el *ArrayList* está vacío.
 
         Returns:
-            bool: operador que indica si la estructura ArrayList está vacía.
+            bool: operador que indica si la estructura *ArrayList* está vacía.
         """
         # TODO change the method name to "empty" or @property "empty"?
         try:
@@ -165,10 +164,10 @@ class ArrayList(Generic[T]):
 
     # @property
     def size(self) -> int:
-        """*size()* devuelve el número de elementos que actualmente contiene el ArrayList.
+        """*size()* devuelve el número de elementos que actualmente contiene el *ArrayList*.
 
         Returns:
-            int: tamaño de la estructura ArrayList.
+            int: tamaño de la estructura *ArrayList*.
         """
         # TODO change the method to @property "size"?
         try:
@@ -177,10 +176,10 @@ class ArrayList(Generic[T]):
             self._handle_error(err)
 
     def add_first(self, element: T) -> None:
-        """*add_first()* adiciona un elemento al inicio del ArrayList.
+        """*add_first()* adiciona un elemento al inicio del *ArrayList*.
 
         Args:
-            element (T): elemento que se quiere agregar a la estructura.
+            element (T): elemento que se desea agregar a la estructura.
 
         Raises:
             Exception: si la operación no se puede realizar, se invoca la función *_handle_error()* para manejar el error.
@@ -194,10 +193,10 @@ class ArrayList(Generic[T]):
             self._handle_error(err)
 
     def add_last(self, element: T) -> None:
-        """*add_last()* adiciona un elemento al final del ArrayList.
+        """*add_last()* adiciona un elemento al final del *ArrayList*.
 
         Args:
-            element (T): elemento que se quiere agregar a la estructura.
+            element (T): elemento que se desea agregar a la estructura.
 
         Raises:
             Exception: si la operación no se puede realizar, se invoca la función *_handle_error()* para manejar el error.
@@ -211,11 +210,11 @@ class ArrayList(Generic[T]):
             self._handle_error(err)
 
     def add_element(self, element: T, pos: int) -> None:
-        """*add_element()* adiciona un elemento en una posición dada del ArrayList.
+        """*add_element()* adiciona un elemento en una posición especifica del *ArrayList*.
 
         Args:
-            element (T): elemento que se quiere agregar a la estructura.
-            pos (int): índice en la que se quiere agregar el elemento.
+            element (T): elemento que se desea agregar a la estructura.
+            pos (int): posición en la que se desea agregar el elemento.
 
         Raises:
             IndexError: error si la posición es inválida.
@@ -235,13 +234,13 @@ class ArrayList(Generic[T]):
             self._handle_error(err)
 
     def get_first(self) -> T:
-        """*get_first()* lee el primer elemento del ArrayList.
+        """*get_first()* lee el primer elemento del *ArrayList*.
 
         Raises:
             Exception: error si la estructura está vacía.
 
         Returns:
-            T: el primer elemento del ArrayList.
+            T: el primer elemento del *ArrayList*.
         """
         try:
             if self.is_empty():
@@ -251,13 +250,13 @@ class ArrayList(Generic[T]):
             self._handle_error(err)
 
     def get_last(self) -> T:
-        """*get_last()* lee el último elemento del ArrayList.
+        """*get_last()* lee el último elemento del *ArrayList*.
 
         Raises:
             Exception: error si la estructura está vacía.
 
         Returns:
-            T: el ultimo elemento del ArrayList.
+            T: el ultimo elemento del *ArrayList*.
         """
         try:
             if self.is_empty():
@@ -267,17 +266,17 @@ class ArrayList(Generic[T]):
             self._handle_error(err)
 
     def get_element(self, pos: int) -> T:
-        """*get_element()* lee un elemento en una posición dada del ArrayList.
+        """*get_element()* lee un elemento en una posición especifica del *ArrayList*.
 
         Args:
-            pos (int): índice en la que se quiere agregar el elemento.
+            pos (int): posición del elemento que se desea leer.
 
         Raises:
             Exception: error si la estructura está vacía.
             Exception: error si la posición es inválida.
 
         Returns:
-            T: el elemento en la posición dada del ArrayList.
+            T: el elemento en la posición especifica del *ArrayList*.
         """
         # TODO change the method name to "get_elm()"?
         try:
@@ -290,13 +289,13 @@ class ArrayList(Generic[T]):
             self._handle_error(err)
 
     def remove_first(self) -> T:
-        """*remove_first()* elimina el primer elemento del ArrayList.
+        """*remove_first()* elimina el primer elemento del *ArrayList*.
 
         Raises:
             Exception: error si la estructura está vacía.
 
         Returns:
-            T: el primer elemento eliminado del ArrayList.
+            T: el primer elemento eliminado del *ArrayList*.
         """
         try:
             if self.is_empty():
@@ -308,13 +307,13 @@ class ArrayList(Generic[T]):
             self._handle_error(err)
 
     def remove_last(self) -> T:
-        """*remove_last()* elimina el último elemento del ArrayList.
+        """*remove_last()* elimina el último elemento del *ArrayList*.
 
         Raises:
             Exception: error si la estructura está vacía.
 
         Returns:
-            T: el ultimo elemento eliminado del ArrayList.
+            T: el ultimo elemento eliminado del *ArrayList*.
         """
         try:
             if self.is_empty():
@@ -326,17 +325,17 @@ class ArrayList(Generic[T]):
             self._handle_error(err)
 
     def remove_element(self, pos: int) -> T:
-        """*remove_element()* elimina un elemento en una posición dada del ArrayList.
+        """*remove_element()* elimina un elemento en una posición especifica del *ArrayList*.
 
         Args:
-            pos (int): índice del que se quiere eliminar el elemento.
+            pos (int): posición del elemento que se desea eliminar.
 
         Raises:
             IndexError: error si la estructura está vacía.
             IndexError: error si la posición es inválida.
 
         Returns:
-            T: el elemento eliminado del ArrayList.
+            T: el elemento eliminado del *ArrayList*.
         """
         # TODO change the method name to "remove_elm()"?
         try:
@@ -351,7 +350,7 @@ class ArrayList(Generic[T]):
             self._handle_error(err)
 
     def compare_elements(self, elem1: T, elem2: T) -> int:
-        """*compare_elements()* compara dos elementos dentro del ArrayList según la función de comparación definida por el usuario o la función por defecto.
+        """*compare_elements()* compara dos elementos dentro del *ArrayList* según la función de comparación de la estructura.
 
         Args:
             elem1 (T): Primer elemento a comparar.
@@ -363,12 +362,8 @@ class ArrayList(Generic[T]):
         Returns:
             int: -1 si elem1 es menor que elem2, 0 si son iguales, 1 si elem1 es mayor que elem2.
         """
-        # FIXME with __post_init__ the cmp_function is never None
         try:
-            # if the key is defined but the cmp is not, use the default
-            if self.key is not None and self.cmp_function is None:
-                return self.default_cmp_function(elem1, elem2)
-            # otherwise, use the custom cmp function
+            # use the structure cmp function
             if self.cmp_function is not None:
                 return self.cmp_function(elem1, elem2)
             # raise an exception if the cmp function is not defined
@@ -377,13 +372,13 @@ class ArrayList(Generic[T]):
             self._handle_error(err)
 
     def find(self, element: T) -> int:
-        """*find()* revisa si un elemento está en el ArrayList.
+        """*find()* busca el elemento dentro del *ArrayList* y devuelve su posición o -1 si no lo encuentra.
 
         Args:
-            element (T): elemento que se quiere revisar en el ArrayList.
+            element (T): elemento que se desea revisar en el *ArrayList*.
 
         Returns:
-            int: la posición del elemento en el ArrayList, -1 si no está.
+            int: la posición del elemento en el *ArrayList*, -1 si no está.
         """
         try:
             pos = -1
@@ -401,11 +396,11 @@ class ArrayList(Generic[T]):
             self._handle_error(err)
 
     def change_info(self, new_info: T, pos: int) -> None:
-        """*change_info()* cambia la información de un elemento en una posición dada.
+        """*change_info()* cambia la información de un elemento en la posición especificada del *ArrayList*.
 
         Args:
-            new_info (T): nueva información que se quiere agregar en el elemento.
-            pos (int): posición del elemento que se quiere cambiar.
+            new_info (T): nueva información que se desea para el elemento.
+            pos (int): posición del elemento que se desea cambiar.
 
         Raises:
             IndexError: error si la estructura está vacía.
@@ -425,7 +420,7 @@ class ArrayList(Generic[T]):
             self._handle_error(err)
 
     def exchange(self, pos1: int, pos2: int) -> None:
-        """*exchange()* intercambia la información de dos elementos en dos posiciones dadas.
+        """*exchange()* intercambia la información de dos elementos en dos posiciones especificadas del *ArrayList*.
 
         Args:
             pos1 (int): posición del primer elemento.
@@ -451,11 +446,11 @@ class ArrayList(Generic[T]):
             self._handle_error(err)
 
     def sublist(self, start: int, end: int) -> "ArrayList[T]":
-        """*sublist()* crea una sublista de la estructura según unas posiciones dentro del ArrayList original.
+        """*sublist()* crea una sublista de la estructura según dos posiciones dentro del *ArrayList* original.
 
         Args:
-            start (int): índice inicial de la sublista.
-            end (int): índice final de la sublista.
+            start (int): posición inicial de la sublista.
+            end (int): posición final de la sublista.
 
         Raises:
             IndexError: error si la estructura está vacía.
@@ -482,18 +477,18 @@ class ArrayList(Generic[T]):
             self._handle_error(err)
 
     def concat(self, other: "ArrayList[T]") -> "ArrayList[T]":
-        """*concat()* concatena dos estructuras de datos ArrayList para crear una nueva estructura con los elementos de las dos estructuras.
+        """*concat()* concatena dos estructuras de datos *ArrayList* para crear una estructura con los elementos de las dos estructuras.
 
         Args:
-            other (ArrayList[T]): estructura de datos ArrayList que se quiere concatenar con la estructura original.
+            other (ArrayList[T]): estructura de datos *ArrayList* que se desea concatenar con la estructura original.
 
         Raises:
-            TypeError: error si la estructura que se quiere concatenar no es un ArrayList.
-            TypeError: error si la llave de la estructura que se quiere unir no es la misma que la llave de la estructura original.
-            TypeError: error si la función de comparación de la estructura que se quiere unir no es la misma que la función de comparación de la estructura original.
+            TypeError: error si la estructura que se desea concatenar no es un *ArrayList*.
+            TypeError: error si la llave de la estructura que se desea unir no es la misma que la llave de la estructura original.
+            TypeError: error si la función de comparación de la estructura que se desea unir no es la misma que la función de comparación de la estructura original.
 
         Returns:
-            ArrayList[T]: Estructura de datos original ArrayList que contiene los elementos de las dos estructuras originales.
+            ArrayList[T]: Estructura de datos original *ArrayList* que contiene los elementos de las dos estructuras originales.
         """
         try:
             if not isinstance(other, ArrayList):
@@ -518,10 +513,10 @@ class ArrayList(Generic[T]):
             self._handle_error(err)
 
     def __iter__(self):
-        """*__iter__()* iterador nativo de Python intervenida por la estructura de datos para recorrer los elementos del ArrayList utilizando un ciclo 'for' de python.
+        """*__iter__()* iterador nativo de Python personalizado para el *ArrayList*. Permite utilizar los ciclos *for* de Python para recorrer los elementos de la estructura.
 
         Returns:
-            __iter__: iterador Python sobre los elementos del ArrayList.
+            __iter__: iterador Python sobre los elementos del *ArrayList*.
         """
         try:
             return iter(self.elements)
@@ -529,9 +524,9 @@ class ArrayList(Generic[T]):
             self._handle_error(err)
 
     def __len__(self) -> int:
-        """*__len__()* función nativa de Python intervenida por la estructura de datosv para recuperar el tamaño del ArrayList.
+        """*__len__()* función nativa de Python personalizada para el *ArrayList*. Permite utilizar la función *len()* de Python para recuperar el tamaño del *ArrayList*.
 
         Returns:
-            int: tamaño del ArrayList.
+            int: tamaño del *ArrayList*.
         """
         return self._size

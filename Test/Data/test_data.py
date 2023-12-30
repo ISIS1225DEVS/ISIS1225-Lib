@@ -505,7 +505,28 @@ def get_graph_test_data():
 
 
 def get_dynamic_test_data():
-    """get_dynamic_test_data _summary_
+    """**get_dynamic_test_data()** recupera un diccionario con los datos de prueba para el módulo *Dynamic*.
+
+    Returns:
+        dict: diccionario con los datos de prueba para la módulo *Dynamic*.
+    """
+    # Test\ADT\Mocks\mstructs.py
+    parameters = dict(
+        TEST_ROOT_PGK_PATH="Test.ADT.Mocks",
+        TEST_STRUCT_DICT={
+            "DataStructA": "mstructa",
+            "DataStructB": "mstructb",
+        },
+        ERR_ROOT_PGK_PATH="Test.ADT.errMocks",
+        ERR_STRUCT_DICT={
+            "DataStructAB": "mstructab",
+        },
+    )
+    return parameters
+
+
+def get_lists_test_data():
+    """get_lists_test_data _summary_
 
     Returns:
         _type_: _description_
@@ -514,8 +535,8 @@ def get_dynamic_test_data():
     return parameters
 
 
-def get_dynamap_test_data():
-    """get_dynamap_test_data _summary_
+def get_maps_test_data():
+    """get_maps_test_data _summary_
 
     Returns:
         _type_: _description_
@@ -524,8 +545,8 @@ def get_dynamap_test_data():
     return parameters
 
 
-def get_dynalist_test_data():
-    """get_dynalist_test_data _summary_
+def get_pqs_test_data():
+    """get_graphs_test_data _summary_
 
     Returns:
         _type_: _description_
@@ -534,8 +555,8 @@ def get_dynalist_test_data():
     return parameters
 
 
-def get_dynapq_test_data():
-    """get_dynalist_test_data _summary_
+def get_sortmaps_test_data():
+    """get_sortmaps_test_data _summary_
 
     Returns:
         _type_: _description_
@@ -544,18 +565,8 @@ def get_dynapq_test_data():
     return parameters
 
 
-def get_dynomap_test_data():
-    """get_dynamap_test_data _summary_
-
-    Returns:
-        _type_: _description_
-    """
-    parameters = dict()
-    return parameters
-
-
-def get_dynagraph_test_data():
-    """get_dynalist_test_data _summary_
+def get_graphs_test_data():
+    """get_graphs_test_data _summary_
 
     Returns:
         _type_: _description_

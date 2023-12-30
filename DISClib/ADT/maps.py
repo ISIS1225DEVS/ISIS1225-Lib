@@ -59,8 +59,8 @@ def Map(dstruct: str = "SeparateChaining", **kwargs) -> T:
         raise ValueError(err_msg)
 
 
-def translate(src_ht: T, tgt_dstruct: str = "LinearProbing") -> T:
-    """*translate()* Transforma una instancia del ADT Map con una estructura de datos seleccionada en otra instancia del ADT Map con otra estructura de datos seleccionada.
+def translate_mp(src_ht: T, tgt_dstruct: str = "LinearProbing") -> T:
+    """*translate_mp()* Transforma una instancia del ADT Map con una estructura de datos seleccionada en otra instancia del ADT Map con otra estructura de datos seleccionada.
 
     Args:
         src_ht (T): instancia del ADT Map a transformar.
@@ -91,8 +91,8 @@ def translate(src_ht: T, tgt_dstruct: str = "LinearProbing") -> T:
         raise ValueError(err_msg)
 
 
-def clone(dstruct: T) -> T:
-    """*clone()* copia una instancia del ADT Map con una estructura de datos seleccionada.
+def clone_mp(dstruct: T) -> T:
+    """*clone_mp()* copia una instancia del ADT Map con una estructura de datos seleccionada.
 
     Args:
         dstruct (T): instancia del ADT Map a copiar.

@@ -60,7 +60,7 @@ def List(dstruct: str = "ArrayList", **kwargs) -> T:
         raise ValueError(err_msg)
 
 
-def translate(src_lt: T, tgt_dstruct: str = "SingleLinked") -> T:
+def translate_lt(src_lt: T, tgt_dstruct: str = "SingleLinked") -> T:
     """*translate()* Transforma una instancia del ADT List con una estructura de datos seleccionada en otra instancia del ADT List con otra estructura de datos seleccionada.
 
     Args:
@@ -88,7 +88,7 @@ def translate(src_lt: T, tgt_dstruct: str = "SingleLinked") -> T:
         raise ValueError(err_msg)
 
 
-def clone(dstruct: T) -> T:
+def clone_lt(dstruct: T) -> T:
     """*clone()* copia una instancia del ADT List con una estructura de datos seleccionada.
 
     Args:

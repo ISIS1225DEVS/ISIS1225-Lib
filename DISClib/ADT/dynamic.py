@@ -1,5 +1,5 @@
 ﻿"""
-Este módulo permite importar dinámicamente módulos, funciones y estructuras de datos (ADTs) de módulos dentro de DISClib según las especificaciones del usuario.
+Este módulo permite importar dinámicamente otros módulos, funciones y estructuras de datos (ADTs) dentro de *DISClib*. En ves de importar los ADTs de manera estática, se puede importar dinámicamente según la configuración de un diccionario (o archivo JSON) y las especificaciones del usuario.
 
 *IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:
 
@@ -15,7 +15,7 @@ import importlib
 # :param STRUCT_PGK_PATH
 STRUCT_PGK_PATH: str = "DISClib.DataStructures"
 """
-Ruta relativa del paquete principal para instanciar el ADT List.
+Ruta relativa del paquete principal para crear los ADTs.
 """
 
 
@@ -62,16 +62,15 @@ class DynamicImporter:
     """
 
     def __init__(self, implementation: str, package: str, **kwargs):
-        """*__init__()* Constructor de la clase dinámica. Permite importar dinámicamente módulos y clases de módulos según la configuración de un archivo JSON y las especificaciones del usuario.
+        """*__init__()* crea la clase dinámica. Permite importar dinámicamente módulos, estructuras (ADTs) y sus funciones según la configuración de un diccionario (o archivo JSON) y las especificaciones del usuario.
 
         Args:
-            implementation (str): implementación de la clase dinámicA seleccionada.
+            implementation (str): implementación de la clase dinámica seleccionada.
             package (str): referencia al paquete de la clase dinámica.
 
         Raises:
             ValueError: no se puede importar el módulo especificado.
         """
-        # TODO add docstring
         try:
             self.package = package
             self.implementation = implementation
@@ -79,24 +78,12 @@ class DynamicImporter:
             self._class = None
             self._instance = None
         except ModuleNotFoundError:
-            err_msg = f"Invalid implementation: {self.implementation}"
+            err_msg = f"Invalid implementation of: {self.implementation}"
             raise ValueError(err_msg)
+        # get the class from the module
         self._class = getattr(self._module,
                               self.implementation)
         self._instance = self._class(**kwargs)
-
-    def __post_init__(self):
-        """*__post_init__()* función post inicialización. Permite cambiar el nombre de la clase dinámica por el nombre de la clase concreta seleccionada por el usuario.
-        """
-        self.__class__.__name__ = self.implementation
-
-    def __repr__(self) -> str:
-        """*__repr__* función de representación. Permite representar la clase dinámica como la clase concreta seleccionada por el usuario.
-
-        Returns:
-            str: representación de la clase concreta seleccionada.
-        """
-        return self._instance.__repr__()
 
     def get_instance(self):
         """*get_instance()* retorna la instancia de la clase concreta seleccionada por el usuario.
@@ -106,28 +93,3 @@ class DynamicImporter:
         """
         # FIXME this is a hack!!!
         return self._instance
-
-    @classmethod
-    def __class__(self) -> type:
-        """*__class__* retorna el tipo de la clase concreta seleccionada por el usuario.
-
-        Returns:
-            type: tipo de la clase concreta seleccionada.
-        """
-        # FIXME this is not working
-        # delegate type() to the implementation instance
-        return self._instance.__class__
-
-    @classmethod
-    def __instancecheck__(self, instance) -> bool:
-        """*__instancecheck__* permite verificar si una instancia es de la clase concreta seleccionada por el usuario.
-
-        Args:
-            instance (T): instancia a verificar.
-
-        Returns:
-            bool: True si la instancia es de la clase concreta seleccionada.
-        """
-        # FIXME this is not working
-        # check if the instance is an instance of the implementation class
-        return isinstance(instance, self._instance.__class__)

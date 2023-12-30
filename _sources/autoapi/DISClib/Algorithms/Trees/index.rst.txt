@@ -13,14 +13,3 @@ Submodules
    traversal/index.rst
 
 
-Package Contents
-----------------
-
-.. py:data:: file_path
-
-   
-
-.. py:data:: file_dir
-
-   
-

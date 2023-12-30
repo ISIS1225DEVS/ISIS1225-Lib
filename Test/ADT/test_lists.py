@@ -8,18 +8,18 @@ import pytest
 
 # import the module to test
 from DISClib.ADT.lists import List
-from DISClib.ADT.lists import clone
-from DISClib.ADT.lists import translate
+from DISClib.ADT.lists import clone_lt
+from DISClib.ADT.lists import translate_lt
 
 
 # import the data to test
-from Test.Data.test_data import get_dynalist_test_data
+from Test.Data.test_data import get_lists_test_data
 
 # asserting module imports
 assert List
-assert clone
-assert translate
-assert get_dynalist_test_data
+assert clone_lt
+assert translate_lt
+assert get_lists_test_data
 
 
 class TestDynamicList(unittest.TestCase):
@@ -33,7 +33,7 @@ class TestDynamicList(unittest.TestCase):
     def inject_fixtures(self):
         """*inject_fixtures()* inyecta los parámetros globales de prueba para *List* como un *fixture*.
         """
-        self.global_params = get_dynalist_test_data()
+        self.global_params = get_lists_test_data()
 
     def test_List(self):
         """*test_List()* prueba la creación de una lista dinámica.
@@ -44,7 +44,7 @@ class TestDynamicList(unittest.TestCase):
         # create the list
         pass
 
-    def test_clone(self):
+    def test_clone_lt(self):
         """*test_clone()* prueba la clonación de una lista dinámica.
         """
         # get the global parameters
@@ -53,7 +53,7 @@ class TestDynamicList(unittest.TestCase):
         # create the list
         pass
 
-    def test_translate(self):
+    def test_translate_lt(self):
         """*test_translate()* prueba la traducción de una lista dinámica.
         """
         # get the global parameters

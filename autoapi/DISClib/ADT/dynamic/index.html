@@ -99,7 +99,7 @@
              
   <section id="module-DISClib.ADT.dynamic">
 <span id="disclib-adt-dynamic"></span><h1><a class="reference internal" href="#module-DISClib.ADT.dynamic" title="DISClib.ADT.dynamic"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.ADT.dynamic</span></code></a><a class="headerlink" href="#module-DISClib.ADT.dynamic" title="Link to this heading"></a></h1>
-<p>Este módulo permite importar dinámicamente módulos, funciones y estructuras de datos (ADTs) de módulos dentro de DISClib según las especificaciones del usuario.</p>
+<p>Este módulo permite importar dinámicamente otros módulos, funciones y estructuras de datos (ADTs) dentro de <em>DISClib</em>. En ves de importar los ADTs de manera estática, se puede importar dinámicamente según la configuración de un diccionario (o archivo JSON) y las especificaciones del usuario.</p>
 <p><em>IMPORTANTE:</em> Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:</p>
 <blockquote>
 <div><ol class="arabic simple">
@@ -124,14 +124,14 @@
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.ADT.dynamic.STRUCT_PGK_PATH" title="DISClib.ADT.dynamic.STRUCT_PGK_PATH"><code class="xref py py-obj docutils literal notranslate"><span class="pre">STRUCT_PGK_PATH</span></code></a></p></td>
-<td><p>Ruta relativa del paquete principal para instanciar el ADT List.</p></td>
+<td><p>Ruta relativa del paquete principal para crear los ADTs.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py data">
 <dt class="sig sig-object py" id="DISClib.ADT.dynamic.STRUCT_PGK_PATH">
 <span class="sig-prename descclassname"><span class="pre">DISClib.ADT.dynamic.</span></span><span class="sig-name descname"><span class="pre">STRUCT_PGK_PATH</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'DISClib.DataStructures'</span></em><a class="reference internal" href="../../../../_modules/DISClib/ADT/dynamic.html#STRUCT_PGK_PATH"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.dynamic.STRUCT_PGK_PATH" title="Link to this definition"></a></dt>
-<dd><p>Ruta relativa del paquete principal para instanciar el ADT List.</p>
+<dd><p>Ruta relativa del paquete principal para crear los ADTs.</p>
 </dd></dl>
 
 <dl class="py class">
@@ -180,26 +180,6 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="DISClib.ADT.dynamic.DynamicImporter.__post_init__">
-<span class="sig-name descname"><span class="pre">__post_init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/ADT/dynamic.html#DynamicImporter.__post_init__"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.dynamic.DynamicImporter.__post_init__" title="Link to this definition"></a></dt>
-<dd><p><em>__post_init__()</em> función post inicialización. Permite cambiar el nombre de la clase dinámica por el nombre de la clase concreta seleccionada por el usuario.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="DISClib.ADT.dynamic.DynamicImporter.__repr__">
-<span class="sig-name descname"><span class="pre">__repr__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/ADT/dynamic.html#DynamicImporter.__repr__"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.dynamic.DynamicImporter.__repr__" title="Link to this definition"></a></dt>
-<dd><p><em>__repr__</em> función de representación. Permite representar la clase dinámica como la clase concreta seleccionada por el usuario.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>representación de la clase concreta seleccionada.</p>
-</dd>
-<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
-<dd class="field-even"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="DISClib.ADT.dynamic.DynamicImporter.get_instance">
 <span class="sig-name descname"><span class="pre">get_instance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/ADT/dynamic.html#DynamicImporter.get_instance"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.dynamic.DynamicImporter.get_instance" title="Link to this definition"></a></dt>
 <dd><p><em>get_instance()</em> retorna la instancia de la clase concreta seleccionada por el usuario.</p>
@@ -209,37 +189,6 @@
 </dd>
 <dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-even"><p>dataclass</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="DISClib.ADT.dynamic.DynamicImporter.__class__">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">__class__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">type</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/ADT/dynamic.html#DynamicImporter.__class__"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.dynamic.DynamicImporter.__class__" title="Link to this definition"></a></dt>
-<dd><p><em>__class__</em> retorna el tipo de la clase concreta seleccionada por el usuario.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>tipo de la clase concreta seleccionada.</p>
-</dd>
-<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
-<dd class="field-even"><p>type</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="DISClib.ADT.dynamic.DynamicImporter.__instancecheck__">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">__instancecheck__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/ADT/dynamic.html#DynamicImporter.__instancecheck__"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.dynamic.DynamicImporter.__instancecheck__" title="Link to this definition"></a></dt>
-<dd><p><em>__instancecheck__</em> permite verificar si una instancia es de la clase concreta seleccionada por el usuario.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>instance</strong> (<em>T</em>) – instancia a verificar.</p>
-</dd>
-<dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>True si la instancia es de la clase concreta seleccionada.</p>
-</dd>
-<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
-<dd class="field-odd"><p>bool</p>
 </dd>
 </dl>
 </dd></dl>

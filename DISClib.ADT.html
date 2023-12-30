@@ -104,7 +104,7 @@
 </section>
 <section id="configurador-dinamico-para-adts">
 <h2>Configurador Dinamico para ADTs<a class="headerlink" href="#configurador-dinamico-para-adts" title="Link to this heading"></a></h2>
-<p id="module-DISClib.ADT.dynamic">Este módulo permite importar dinámicamente módulos, funciones y estructuras de datos (ADTs) de módulos dentro de DISClib según las especificaciones del usuario.</p>
+<p id="module-DISClib.ADT.dynamic">Este módulo permite importar dinámicamente otros módulos, funciones y estructuras de datos (ADTs) dentro de <em>DISClib</em>. En ves de importar los ADTs de manera estática, se puede importar dinámicamente según la configuración de un diccionario (o archivo JSON) y las especificaciones del usuario.</p>
 <p><em>IMPORTANTE:</em> Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:</p>
 <blockquote>
 <div><ol class="arabic simple">
@@ -159,7 +159,7 @@
 <dl class="py data">
 <dt class="sig sig-object py" id="DISClib.ADT.dynamic.STRUCT_PGK_PATH">
 <span class="sig-prename descclassname"><span class="pre">DISClib.ADT.dynamic.</span></span><span class="sig-name descname"><span class="pre">STRUCT_PGK_PATH</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'DISClib.DataStructures'</span></em><a class="reference internal" href="_modules/DISClib/ADT/dynamic.html#STRUCT_PGK_PATH"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.dynamic.STRUCT_PGK_PATH" title="Link to this definition"></a></dt>
-<dd><p>Ruta relativa del paquete principal para instanciar el ADT List.</p>
+<dd><p>Ruta relativa del paquete principal para crear los ADTs.</p>
 </dd></dl>
 
 </section>
@@ -724,8 +724,8 @@ seleccionada</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="DISClib.ADT.lists.clone">
-<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.lists.</span></span><span class="sig-name descname"><span class="pre">clone</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dstruct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/DISClib/ADT/lists.html#clone"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.lists.clone" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="DISClib.ADT.lists.clone_lt">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.lists.</span></span><span class="sig-name descname"><span class="pre">clone_lt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dstruct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/DISClib/ADT/lists.html#clone_lt"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.lists.clone_lt" title="Link to this definition"></a></dt>
 <dd><p><em>clone()</em> copia una instancia del ADT List con una estructura de datos seleccionada.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
@@ -741,8 +741,8 @@ seleccionada</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="DISClib.ADT.lists.translate">
-<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.lists.</span></span><span class="sig-name descname"><span class="pre">translate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src_lt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tgt_dstruct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'SingleLinked'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/DISClib/ADT/lists.html#translate"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.lists.translate" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="DISClib.ADT.lists.translate_lt">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.lists.</span></span><span class="sig-name descname"><span class="pre">translate_lt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src_lt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tgt_dstruct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'SingleLinked'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/DISClib/ADT/lists.html#translate_lt"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.lists.translate_lt" title="Link to this definition"></a></dt>
 <dd><p><em>translate()</em> Transforma una instancia del ADT List con una estructura de datos seleccionada en otra instancia del ADT List con otra estructura de datos seleccionada.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
@@ -801,9 +801,9 @@ seleccionada</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="DISClib.ADT.maps.clone">
-<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.maps.</span></span><span class="sig-name descname"><span class="pre">clone</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dstruct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/DISClib/ADT/maps.html#clone"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.maps.clone" title="Link to this definition"></a></dt>
-<dd><p><em>clone()</em> copia una instancia del ADT Map con una estructura de datos seleccionada.</p>
+<dt class="sig sig-object py" id="DISClib.ADT.maps.clone_mp">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.maps.</span></span><span class="sig-name descname"><span class="pre">clone_mp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dstruct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/DISClib/ADT/maps.html#clone_mp"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.maps.clone_mp" title="Link to this definition"></a></dt>
+<dd><p><em>clone_mp()</em> copia una instancia del ADT Map con una estructura de datos seleccionada.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>dstruct</strong> (<em>T</em>) – instancia del ADT Map a copiar.</p>
@@ -818,9 +818,9 @@ seleccionada</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="DISClib.ADT.maps.translate">
-<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.maps.</span></span><span class="sig-name descname"><span class="pre">translate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src_ht</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tgt_dstruct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'LinearProbing'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/DISClib/ADT/maps.html#translate"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.maps.translate" title="Link to this definition"></a></dt>
-<dd><p><em>translate()</em> Transforma una instancia del ADT Map con una estructura de datos seleccionada en otra instancia del ADT Map con otra estructura de datos seleccionada.</p>
+<dt class="sig sig-object py" id="DISClib.ADT.maps.translate_mp">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.maps.</span></span><span class="sig-name descname"><span class="pre">translate_mp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src_ht</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tgt_dstruct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'LinearProbing'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/DISClib/ADT/maps.html#translate_mp"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.maps.translate_mp" title="Link to this definition"></a></dt>
+<dd><p><em>translate_mp()</em> Transforma una instancia del ADT Map con una estructura de datos seleccionada en otra instancia del ADT Map con otra estructura de datos seleccionada.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">

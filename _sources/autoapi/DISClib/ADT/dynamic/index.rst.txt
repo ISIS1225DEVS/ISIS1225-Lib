@@ -5,7 +5,7 @@
 
 .. autoapi-nested-parse::
 
-   Este módulo permite importar dinámicamente módulos, funciones y estructuras de datos (ADTs) de módulos dentro de DISClib según las especificaciones del usuario.
+   Este módulo permite importar dinámicamente otros módulos, funciones y estructuras de datos (ADTs) dentro de *DISClib*. En ves de importar los ADTs de manera estática, se puede importar dinámicamente según la configuración de un diccionario (o archivo JSON) y las especificaciones del usuario.
 
    *IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:
 
@@ -39,7 +39,7 @@ Attributes
    :type: str
    :value: 'DISClib.DataStructures'
 
-   Ruta relativa del paquete principal para instanciar el ADT List.
+   Ruta relativa del paquete principal para crear los ADTs.
 
 .. py:class:: DynamicImporter(implementation: str, package: str, **kwargs)
 
@@ -75,47 +75,12 @@ Attributes
 
       Referencia privada a la instancia de la clase dinámica seleccionada.
 
-   .. py:method:: __post_init__()
-
-      *__post_init__()* función post inicialización. Permite cambiar el nombre de la clase dinámica por el nombre de la clase concreta seleccionada por el usuario.
-
-
-
-   .. py:method:: __repr__() -> str
-
-      *__repr__* función de representación. Permite representar la clase dinámica como la clase concreta seleccionada por el usuario.
-
-      :returns: representación de la clase concreta seleccionada.
-      :rtype: str
-
-
    .. py:method:: get_instance()
 
       *get_instance()* retorna la instancia de la clase concreta seleccionada por el usuario.
 
       :returns: instancia de la clase concreta seleccionada.
       :rtype: dataclass
-
-
-   .. py:method:: __class__() -> type
-      :classmethod:
-
-      *__class__* retorna el tipo de la clase concreta seleccionada por el usuario.
-
-      :returns: tipo de la clase concreta seleccionada.
-      :rtype: type
-
-
-   .. py:method:: __instancecheck__(instance) -> bool
-      :classmethod:
-
-      *__instancecheck__* permite verificar si una instancia es de la clase concreta seleccionada por el usuario.
-
-      :param instance: instancia a verificar.
-      :type instance: T
-
-      :returns: True si la instancia es de la clase concreta seleccionada.
-      :rtype: bool
 
 
 

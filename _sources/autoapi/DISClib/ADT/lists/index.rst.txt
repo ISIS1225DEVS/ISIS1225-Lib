@@ -24,8 +24,8 @@ Functions
 .. autoapisummary::
 
    DISClib.ADT.lists.List
-   DISClib.ADT.lists.translate
-   DISClib.ADT.lists.clone
+   DISClib.ADT.lists.translate_lt
+   DISClib.ADT.lists.clone_lt
 
 
 
@@ -55,7 +55,7 @@ Attributes
    :rtype: T
 
 
-.. py:function:: translate(src_lt: DISClib.Utils.default.T, tgt_dstruct: str = 'SingleLinked') -> DISClib.Utils.default.T
+.. py:function:: translate_lt(src_lt: DISClib.Utils.default.T, tgt_dstruct: str = 'SingleLinked') -> DISClib.Utils.default.T
 
    *translate()* Transforma una instancia del ADT List con una estructura de datos seleccionada en otra instancia del ADT List con otra estructura de datos seleccionada.
 
@@ -70,7 +70,7 @@ Attributes
    :rtype: T
 
 
-.. py:function:: clone(dstruct: DISClib.Utils.default.T) -> DISClib.Utils.default.T
+.. py:function:: clone_lt(dstruct: DISClib.Utils.default.T) -> DISClib.Utils.default.T
 
    *clone()* copia una instancia del ADT List con una estructura de datos seleccionada.
 

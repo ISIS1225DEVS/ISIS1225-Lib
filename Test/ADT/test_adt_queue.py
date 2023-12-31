@@ -1,5 +1,5 @@
 ﻿"""
-**test_adt_queue** es el módulo que prueba el ADT *Queue* (cola) de *DISClib* basado en una lista doblemente encadenada (DoubleLinked).
+**test_adt_queue** es el módulo que prueba el ADT *Queue* (cola) de *DISClib* basado en una lista doblemente encadenada (*DoubleLinked*).
 """
 
 # import testing package

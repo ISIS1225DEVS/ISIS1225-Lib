@@ -1,5 +1,7 @@
 ﻿"""
-*test_dynamic_maps.py* es el módulo que prueba el ADT dinámico y configurable *Map* de *DISClib* y sus funciones complementarias *clone_mp()* y *translate_mp()*
+**test_dynamic_maps** es el módulo que prueba el funcionamiento del ADT dinámico y configurable *Map* de *DISClib* y sus funciones complementarias *clone_mp()* y *translate_mp()*.
+
+*NOTA:* *List* es auto-configurable gracias a la librería *Dynamic* de *DISClib*.
 """
 # import testing package
 import unittest
@@ -9,6 +11,10 @@ import pytest
 from DISClib.ADT.maps import Map
 from DISClib.ADT.maps import clone_mp
 from DISClib.ADT.maps import translate_mp
+
+# import de data structures modules
+from DISClib.DataStructures.chaininghashtable import SeparateChaining
+from DISClib.DataStructures.probinghashtable import LinearProbing
 
 # import the data to test
 from Test.Data.test_data import get_graphs_test_data
@@ -20,8 +26,8 @@ assert translate_mp
 assert get_graphs_test_data
 
 
-class TestDynamicMap(unittest.TestCase):
-    """TestDynamicMap _summary_
+class TestDynamicMaps(unittest.TestCase):
+    """TestDynamicMaps _summary_
 
     Args:
         unittest (_type_): _description_

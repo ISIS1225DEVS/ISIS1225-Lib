@@ -50,7 +50,7 @@ class TestDynamicImporter(unittest.TestCase):
         err_root_package = params.get("ERR_ROOT_PGK_PATH")
         err_struct_dict = params.get("ERR_STRUCT_DICT")
 
-        # force an exception in the get_element method
+        # force an exception in dynamic importer
         with pytest.raises(Exception) as excinfo:
             for err_imp in err_struct_dict.keys():
                 err_struct = err_struct_dict.get(err_imp)

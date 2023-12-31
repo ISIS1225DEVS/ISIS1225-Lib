@@ -531,7 +531,25 @@ def get_lists_test_data():
     Returns:
         _type_: _description_
     """
-    parameters = dict()
+    parameters = dict(
+        TEST_ROOT_PGK_PATH="DISClib.DataStructures",
+        TEST_STRUCT_DICT={
+            "ArrayList": "arraylist",
+            "SingleLinked": "singlelinkedlist",
+            "DoubleLinked": "doublelinkedlist",
+        },
+        ERR_ROOT_PGK_PATH="DISClib.ErrDataStructures",
+        ERR_STRUCT_DICT={
+            "FakeListA": "fakelista",
+            "FakeListB": "fakelistb",
+            "FakeListC": "fakelistc",
+        },
+        TEST_TGT_STRUCT_DICT={
+            "DoubleLinked": "doublelinkedlist",
+            "ArrayList": "arraylist",
+            "SingleLinked": "singlelinkedlist",
+        },
+    )
     return parameters
 
 
@@ -541,7 +559,22 @@ def get_maps_test_data():
     Returns:
         _type_: _description_
     """
-    parameters = dict()
+    parameters = dict(
+        TEST_ROOT_PGK_PATH="DISClib.DataStructures",
+        TEST_STRUCT_DICT={
+            "SeparateChaining": "chaininghashtable",
+            "LinearProbing": "probinghashtable",
+        },
+        ERR_ROOT_PGK_PATH="DISClib.ErrDataStructures",
+        ERR_STRUCT_DICT={
+            "FakeHashTableA": "faketableA",
+            "FakeHashTableB": "faketableB",
+        },
+        TEST_TGT_STRUCT_DICT={
+            "LinearProbing": "probinghashtable",
+            "SeparateChaining": "chaininghashtable",
+        },
+    )
     return parameters
 
 

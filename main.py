@@ -1,7 +1,7 @@
 ﻿from DISClib.ADT.lists import List
 from DISClib.ADT.stack import Stack
-from DISClib.ADT.lists import clone
-from DISClib.ADT.lists import translate
+from DISClib.ADT.lists import clone_lt
+from DISClib.ADT.lists import translate_lt
 from DISClib.ADT.queue import Queue
 # from DISClib.ADT.stack import Stack
 from DISClib.ADT.maps import Map
@@ -145,7 +145,7 @@ if __name__ == "__main__":
 
     for i in reversed(test_lt_2):
         print(i)
-    trans = translate(test_lt_2, "SingleLinked")
+    trans = translate_lt(test_lt_2, "SingleLinked")
     bb = Queue(cmp_function=cmp_test)
     bbb = Queue(cmp_function=cmp_test)
     bbb.enqueue(22)
@@ -167,7 +167,7 @@ if __name__ == "__main__":
     bb = bb.concat(bbb)
     print(bb)
 
-    aaaa = clone(bb)
+    aaaa = clone_lt(bb)
     print(aaaa)
     print(trans)
 

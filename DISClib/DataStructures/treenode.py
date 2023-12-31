@@ -1,7 +1,9 @@
 ﻿"""
-Estos ADTs representan los nodos para una lista sencillamente encadenada (SingleNode) y una lista doblemente encadenada (DoubleNode).
+Los ADTs en este módulo representan los nodos para diferentes tipos de árboles binarios o mapas ordenados. Estos incluyen los nodos para árboles de búsqueda (**BSTNode**), nodos para árboles rojo-negro (**RBTNode**), nodos para árboles AVL (**AVLNode**) y nodos árboles K-d (**KDTNode**).
 
-Estos nodos se utilizan respectivamente en las estructuras dinámicas de lista sencillamente encadenada (LinkedList) y lista doblemente encadenadA(DoubleLinkedList). Las cuales NO tienen un tamaño fijo y pueden crecer indefinidamente en la memoria disponible.
+Estos nodos se utilizan respectivamente en los ADT de árboles binarios de búsqueda o BST (Binary Search Tree), árboles rojo-negro o RBT (Red-Black Tree), árboles rojo-negro orientados a la izquierda p LLRBT (Left-Leaning Red-Black Tree), árboles AVL (Adelson-Velsky & Landis Tree) y árboles k-dimensionales (K-d Tree)
+
+En **DISCLib** las estructuras están asociadas a las implementaciones en **BSTree**, **RBTree**, **LLRBTree**, **AVLTree** y **KDTree**.
 
 *IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:
 
@@ -19,263 +21,202 @@ from typing import Generic, Optional
 # generic error handling and type checking
 from DISClib.Utils.error import error_handler
 from DISClib.Utils.default import T
-from DISClib.DataStructures.node import Node
+from DISClib.DataStructures.mapentry import MapEntry
 
 # checking custom modules
 assert error_handler
 assert T
 
 
-@dataclass
-class BSTNode(Node, Generic[T]):
-    """BSTNode _summary_
+# colors for the red-black tree
+# :param RED
+RED = 0
+"""
+Variable para representar el color negro en un nodo RBT.
+"""
 
-    Args:
-        Node (_type_): _description_
-        Generic (_type_): _description_
-    """
-    # optional reference to the next node of the same type
-    # :attr: _next
-    _next: Optional["BSTNode[T]"] = None
-    """Referencia al siguiente nodo de la lista."""
-
-    def next(self) -> Optional["BSTNode[T]"]:
-        pass
+# :param BLACK
+BLACK = 1
+"""
+Variable para representar el color negro en un nodo RBT.
+"""
 
 
 @dataclass
-class AVLNode(BSTNode, Generic[T]):
-    """AVLNode _summary_
+class BSTNode(MapEntry, Generic[T]):
+    """**BSTNode** representa un nodo de un árbol binario de búsqueda o BST (Binary Search Tree). Basada en el ADT *MapEntry* que contiene la información del nodo (pareja llave-valor).
 
     Args:
-        BSTNode (_type_): _description_
-        Generic (_type_): _description_
-    """
-    # optional reference to the next node of the same type
-    # :attr: _next
-    _next: Optional["AVLNode[T]"] = None
-    """Referencia al siguiente nodo de la lista."""
+        MapEntry (dataclass): ADT base para implementar una pareja llave-valor.
+        Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.
 
-    def next(self) -> Optional["AVLNode[T]"]:
-        pass
-    
-    
+    Returns:
+        BSTNode: ADT para un *BSTNode* o nodo para un árbol binario de búsqueda.
+    """
+
+    # optional reference to the left node of the same type
+    # :attr: _left
+    _left: Optional["BSTNode[T]"] = None
+    """Referencia al nodo izquierdo del árbol.
+    """
+
+    # optional reference to the right node of the same type
+    # :attr: _right
+    _right: Optional["BSTNode[T]"] = None
+    """Referencia al nodo derecho del árbol.
+    """
+
+    # subtree size (number of nodes in subtree) below this node
+    # :attr: _size
+    _size: int = 0
+    """Tamaño del subárbol que cuelga de este nodo (número de nodos en el subárbol).
+    """
+
+    def left(self) -> Optional["BSTNode[T]"]:
+        """*left()* recupera la referencia al nodo izquierdo del árbol. Si no existe retorna *None*.
+
+        Returns:
+            Optional[BSTNode[T]]: referencia al nodo izquierdo del árbol si existe.
+        """
+        return self._left
+
+    def right(self) -> Optional["BSTNode[T]"]:
+        """*right()* recupera la referencia al nodo derecho del árbol. Si no existe retorna *None*.
+
+        Returns:
+            Optional[BSTNode[T]]: referencia al nodo derecho del árbol si existe.
+        """
+        return self._right
+
+    def size(self) -> int:
+        """*size()* recupera el tamaño del subárbol que cuelga de este nodo.
+
+        Returns:
+            int: tamaño del subárbol que cuelga de este nodo.
+        """
+        return self._size
+
+
 @dataclass
 class RBTNode(BSTNode, Generic[T]):
-    """RBTNode _summary_
+    """**RBTNode** representa un nodo de un árbol rojo-negro (RBT: Red-Black Tree), o un árbol rojo-negro orientados a la izquierda (LLRBT: Left-Leaning Red-Black Tree) que contiene la información del nodo (pareja llave-valor).
 
     Args:
-        BSTNode (_type_): _description_
-        Generic (_type_): _description_
+        BSTNode (dataclass): ADT base para implementar un nodo para un árbol binario de búsqueda.
+        Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.
     """
-    # optional reference to the next node of the same type
-    # :attr: _next
-    _next: Optional["RBTNode[T]"] = None
-    """Referencia al siguiente nodo de la lista."""
+    # optional reference to the parent node of the same type
+    # :attr: _parent
+    _parent: Optional["RBTNode[T]"] = None
+    """
+    Referencia al nodo padre del árbol.
+    """
 
-    def next(self) -> Optional["RBTNode[T]"]:
-        pass
+    # color of the node
+    # :attr: _color
+    _color: int = RED
+    """
+    Color del nodo, por defecto es rojo.
+    """
+
+    def parent(self) -> Optional["RBTNode[T]"]:
+        """*parent()* recupera la referencia al nodo padre del árbol. Si no existe retorna *None*.
+
+        Returns:
+            Optional[RBTNode[T]]: referencia al nodo padre del árbol si existe.
+        """
+        return self._parent
+
+    def color(self) -> int:
+        """*color()* recupera el color del nodo.
+
+        Returns:
+            int: color del nodo.
+        """
+        return self._color
+
+    def set_color(self, color: int) -> None:
+        """*set_color()* establece el color del nodo.
+
+        Args:
+            color (int): color del nodo.
+        """
+        self._color = color
+
+    def is_red(self) -> bool:
+        """*is_red()* informa si el nodo es rojo.
+
+        Returns:
+            bool: True si el nodo es rojo, False de lo contrario.
+        """
+        return self._color == RED
 
 
 @dataclass
 class KDTNode(BSTNode, Generic[T]):
-    """KDTNode _summary_
+    """**KDTreeNode** representa un nodo de un árbol k-dimensionales o K-d Tree. Basada en el ADT *BSTNode* que contiene la información del nodo (pareja llave-valor).
 
     Args:
-        BSTNode (_type_): _description_
-        Generic (_type_): _description_
+        BSTNode (dataclass): ADT base para implementar un nodo para un árbol binario de búsqueda.
+        Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.
     """
-    # optional reference to the next node of the same type
-    # :attr: _next
-    _next: Optional["KDTNode[T]"] = None
-    """Referencia al siguiente nodo de la lista."""
 
-    def next(self) -> Optional["KDTNode[T]"]:
-        pass
+    # optional dimension to split on (if None, split on largest dimension)
+    # :attr: _split_dim
+    split_dim: Optional[int] = None
+    """
+    Dimensión para dividir el nodo (si es *None*, dividir en la dimensión más grande).
+    """
+
+    def get_dimension(self) -> Optional[int]:
+        """*get_dimension()* recupera la dimensión para dividir el nodo. Si no existe retorna *None*.
+
+        Returns:
+            Optional[int]: dimensión para dividir el nodo si existe.
+        """
+        return self.split_dim
 
 
-"""
-BST NODE!!!!!!!!
-* Copyright 2020, Departamento de sistemas y Computación
-* Universidad de Los Andes
-*
-*
-* Desarrolado para el curso ISIS1225 - Estructuras de Datos y Algoritmos
-*
-*
-* This program is free software: you can redistribute it and/or modify
-* it under the terms of the GNU General Public License as published by
-* the Free Software Foundation, either version 3 of the License, or
-* (at your option) any later version.
-*
-* This program is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU General Public License for more details.
-*
-* You should have received a copy of the GNU General Public License
-* along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*
-* Contribución de:
-*
-* Dario Correal
-*
-"""
-# GENERAL
-#FIXME Cambiar todas las funciones y variables al formato snake_case
-#TODO Explicar más a profundidad que tipo de excepciones y errores puede generar cada función
+@dataclass
+class AVLNode(BSTNode, Generic[T]):
+    """**AVLNode** representa un nodo de un árbol AVL (Adelson-Velsky & Landis Tree). Basada en el ADT *BSTNode* que contiene la información del nodo (pareja llave-valor).
 
-def newNode(key, value, size):
-    """ Crea un nuevo nodo para un árbol binario y lo retorna
     Args:
-        value: El valor asociado a la llave
-        key: la llave asociada a la pareja
-        size: El tamaño del subarbol que cuelga de este nodo
-
-    Returns:
-        Un nodo con la pareja <llave, valor>
-    Raises:
-        Exception
+        BSTNode (dataclass): ADT base para implementar un nodo para un árbol binario de búsqueda.
+        Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.
     """
-    #FIXME Modelar como dataclass
-    node = {'key': key,
-            'value': value,
-            'size': size,
-            'left': None,
-            'right': None,
-            'type': 'BST'}
-    return node
 
-
-def getValue(node):
-    """ Retorna el valor asociado a una pareja llave valor
-    Args:
-        node: El nodo con la pareja llave-valor
-    Returns:
-        El valor almacenado en el nodo
-    Raises:
-        Exception
+    # height-balance factor
+    # :attr: _height
+    _height: int = 0
     """
-    if (node is not None):
-        return(node['value'])
-    return node
-
-
-def getKey(node):
-    """ Retorna la llave asociado a una pareja llave valor
-    Args:
-        node: El nodo con la pareja llave-valor
-    Returns:
-        La llave almacenada en el nodo
-    Raises:
-        Exception
+    Factor de balance de altura del nodo.
     """
-    if (node is not None):
-        return(node['key'])
-    return node
 
+    def height(self) -> int:
+        """*height()* recupera el factor de balance del nodo.
 
+        Returns:
+            int: factor de balance del nodo.
+        """
+        return self._height
 
-"""
-RBT NODE!!!!!!!!
- * Copyright 2020, Departamento de sistemas y Computación
- * Universidad de Los Andes
- *
- *
- * Desarrolado para el curso ISIS1225 - Estructuras de Datos y Algoritmos
- *
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- * Dario Correal
- *
- """
+    def left_height(self) -> int:
+        """*left_height()* recupera la altura del subárbol izquierdo del nodo.
 
-# GENERAL
-# FIXME Cambiar todas las funciones y variables al formato snake_case
-# TODO Explicar tipo de excepciones y errores puede generar cada función
+        Returns:
+            int: altura del subárbol izquierdo del nodo.
+        """
+        if self._left is None:
+            return 0
+        return self._left.height()
 
+    def right_height(self) -> int:
+        """*right_height()* recupera la altura del subárbol derecho del nodo.
 
-RED = 0
-BLACK = 1
-
-
-def newNode(key, value, size, color):
-    """
-    Crea un nuevo nodo para un árbol rojo-negro  y lo retorna.
-    color:0 - rojo  color:1 - negro
-    Args:
-        value: El valor asociado a la llave
-        key: la llave asociada a la pareja
-        size: El tamaño del subarbol que cuelga de este nodo
-        color: El color inicial del nodo
-
-    Returns:
-        Un nodo con la pareja <llave, valor>
-    Raises:
-        Exception
-    """
-    # FIXME Modelar como dataclass
-    node = {'key': key,
-            'value': value,
-            'size': size,
-            'parent': None,
-            'left': None,
-            'right': None,
-            'color': color,
-            'type': 'RBT'}
-
-    return node
-
-
-def isRed(node):
-    """
-    Informa si un nodo es rojo
-    Args:
-        node: El nodo a revisar
-
-    Returns:
-        True si el nodo es rojo, False de lo contrario
-    Raises:
-        Exception
-    """
-    return (node['color'] == RED)
-
-
-def getValue(node):
-    """ Retorna el valor asociado a una pareja llave valor
-    Args:
-        node: El nodo con la pareja llave-valor
-    Returns:
-        El valor almacenado en el nodo
-    Raises:
-        Exception
-    """
-    if (node is not None):
-        return (node['value'])
-    return node
-
-
-def getKey(node):
-    """ Retorna la llave asociado a una pareja llave valor
-    Args:
-        node: El nodo con la pareja llave-valor
-    Returns:
-        La llave almacenada en el nodo
-    Raises:
-        Exception
-    """
-    if (node is not None):
-        return (node['key'])
-    return node
+        Returns:
+            int: altura del subárbol derecho del nodo.
+        """
+        if self._right is None:
+            return 0
+        return self._right.height()

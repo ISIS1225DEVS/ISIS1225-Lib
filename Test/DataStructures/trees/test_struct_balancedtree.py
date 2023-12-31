@@ -11,7 +11,7 @@ from typing import TypeVar
 
 # importing the classes to test
 from DISClib.DataStructures.llrbtree import LeftLeanRedBlackTree as LLRBT
-# from DISClib.DataStructures.redblacktree import RedBlackTree as RBT
+# from DISClib.DataStructures.rbtree import RedBlackTree as RBT
 from DISClib.DataStructures.treenode import RBTNode
 # from DISClib.DataStructures.avltree import AVLTree as AVL
 # from DISClib.DataStructures.avltree import AVLNode

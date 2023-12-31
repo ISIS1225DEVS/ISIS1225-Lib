@@ -14,20 +14,20 @@ Submodules
    adjlist/index.rst
    adjmatrix/index.rst
    arraylist/index.rst
-   binarysearchtree/index.rst
    bst/index.rst
+   bstree/index.rst
    chaininghashtable/index.rst
    doublelinkedlist/index.rst
    heap/index.rst
    iminpqnode/index.rst
    indexheap/index.rst
-   leftleantree/index.rst
    listnode/index.rst
+   llrbtree/index.rst
    mapentry/index.rst
    node/index.rst
    probinghashtable/index.rst
    rbt/index.rst
-   redblacktree/index.rst
+   rbtree/index.rst
    singlelinkedlist/index.rst
    treenode/index.rst
 

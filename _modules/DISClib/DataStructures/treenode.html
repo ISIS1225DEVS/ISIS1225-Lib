@@ -79,9 +79,11 @@
              
   <h1>Código fuente para DISClib.DataStructures.treenode</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Estos ADTs representan los nodos para una lista sencillamente encadenada (SingleNode) y una lista doblemente encadenada (DoubleNode).</span>
+<span class="sd">Los ADTs en este módulo representan los nodos para diferentes tipos de árboles binarios o mapas ordenados. Estos incluyen los nodos para árboles de búsqueda (**BSTNode**), nodos para árboles rojo-negro (**RBTNode**), nodos para árboles AVL (**AVLNode**) y nodos árboles K-d (**KDTNode**).</span>
 
-<span class="sd">Estos nodos se utilizan respectivamente en las estructuras dinámicas de lista sencillamente encadenada (LinkedList) y lista doblemente encadenadA(DoubleLinkedList). Las cuales NO tienen un tamaño fijo y pueden crecer indefinidamente en la memoria disponible.</span>
+<span class="sd">Estos nodos se utilizan respectivamente en los ADT de árboles binarios de búsqueda o BST (Binary Search Tree), árboles rojo-negro o RBT (Red-Black Tree), árboles rojo-negro orientados a la izquierda p LLRBT (Left-Leaning Red-Black Tree), árboles AVL (Adelson-Velsky &amp; Landis Tree) y árboles k-dimensionales (K-d Tree)</span>
+
+<span class="sd">En **DISCLib** las estructuras están asociadas a las implementaciones en **BSTree**, **RBTree**, **LLRBTree**, **AVLTree** y **KDTree**.</span>
 
 <span class="sd">*IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:</span>
 
@@ -99,87 +101,181 @@
 <span class="c1"># generic error handling and type checking</span>
 <span class="kn">from</span> <span class="nn">DISClib.Utils.error</span> <span class="kn">import</span> <span class="n">error_handler</span>
 <span class="kn">from</span> <span class="nn">DISClib.Utils.default</span> <span class="kn">import</span> <span class="n">T</span>
-<span class="kn">from</span> <span class="nn">DISClib.DataStructures.node</span> <span class="kn">import</span> <span class="n">Node</span>
+<span class="kn">from</span> <span class="nn">DISClib.DataStructures.mapentry</span> <span class="kn">import</span> <span class="n">MapEntry</span>
 
 <span class="c1"># checking custom modules</span>
 <span class="k">assert</span> <span class="n">error_handler</span>
 <span class="k">assert</span> <span class="n">T</span>
 
 
+<span class="c1"># colors for the red-black tree</span>
+<span class="c1"># :param RED</span>
+<div class="viewcode-block" id="RED">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.RED">[documentos]</a>
+<span class="n">RED</span> <span class="o">=</span> <span class="mi">0</span></div>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Variable para representar el color negro en un nodo RBT.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># :param BLACK</span>
+<div class="viewcode-block" id="BLACK">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.BLACK">[documentos]</a>
+<span class="n">BLACK</span> <span class="o">=</span> <span class="mi">1</span></div>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Variable para representar el color negro en un nodo RBT.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
 <span class="nd">@dataclass</span>
 <div class="viewcode-block" id="BSTNode">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.BSTNode">[documentos]</a>
-<span class="k">class</span> <span class="nc">BSTNode</span><span class="p">(</span><span class="n">Node</span><span class="p">,</span> <span class="n">Generic</span><span class="p">[</span><span class="n">T</span><span class="p">]):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;BSTNode _summary_</span>
+<span class="k">class</span> <span class="nc">BSTNode</span><span class="p">(</span><span class="n">MapEntry</span><span class="p">,</span> <span class="n">Generic</span><span class="p">[</span><span class="n">T</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;**BSTNode** representa un nodo de un árbol binario de búsqueda o BST (Binary Search Tree). Basada en el ADT *MapEntry* que contiene la información del nodo (pareja llave-valor).</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        Node (_type_): _description_</span>
-<span class="sd">        Generic (_type_): _description_</span>
+<span class="sd">        MapEntry (dataclass): ADT base para implementar una pareja llave-valor.</span>
+<span class="sd">        Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        BSTNode: ADT para un *BSTNode* o nodo para un árbol binario de búsqueda.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># optional reference to the next node of the same type</span>
-    <span class="c1"># :attr: _next</span>
-<div class="viewcode-block" id="BSTNode._next">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.BSTNode._next">[documentos]</a>
-    <span class="n">_next</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;BSTNode[T]&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></div>
 
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Referencia al siguiente nodo de la lista.&quot;&quot;&quot;</span>
+    <span class="c1"># optional reference to the left node of the same type</span>
+    <span class="c1"># :attr: _left</span>
+<div class="viewcode-block" id="BSTNode._left">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.BSTNode._left">[documentos]</a>
+    <span class="n">_left</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;BSTNode[T]&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></div>
 
-<div class="viewcode-block" id="BSTNode.next">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.BSTNode.next">[documentos]</a>
-    <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;BSTNode[T]&quot;</span><span class="p">]:</span>
-        <span class="k">pass</span></div>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Referencia al nodo izquierdo del árbol.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># optional reference to the right node of the same type</span>
+    <span class="c1"># :attr: _right</span>
+<div class="viewcode-block" id="BSTNode._right">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.BSTNode._right">[documentos]</a>
+    <span class="n">_right</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;BSTNode[T]&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Referencia al nodo derecho del árbol.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># subtree size (number of nodes in subtree) below this node</span>
+    <span class="c1"># :attr: _size</span>
+<div class="viewcode-block" id="BSTNode._size">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.BSTNode._size">[documentos]</a>
+    <span class="n">_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span></div>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Tamaño del subárbol que cuelga de este nodo (número de nodos en el subárbol).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="BSTNode.left">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.BSTNode.left">[documentos]</a>
+    <span class="k">def</span> <span class="nf">left</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;BSTNode[T]&quot;</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*left()* recupera la referencia al nodo izquierdo del árbol. Si no existe retorna *None*.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Optional[BSTNode[T]]: referencia al nodo izquierdo del árbol si existe.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_left</span></div>
+
+
+<div class="viewcode-block" id="BSTNode.right">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.BSTNode.right">[documentos]</a>
+    <span class="k">def</span> <span class="nf">right</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;BSTNode[T]&quot;</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*right()* recupera la referencia al nodo derecho del árbol. Si no existe retorna *None*.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Optional[BSTNode[T]]: referencia al nodo derecho del árbol si existe.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_right</span></div>
+
+
+<div class="viewcode-block" id="BSTNode.size">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.BSTNode.size">[documentos]</a>
+    <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*size()* recupera el tamaño del subárbol que cuelga de este nodo.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            int: tamaño del subárbol que cuelga de este nodo.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span></div>
 </div>
 
 
 
-<span class="nd">@dataclass</span>
-<div class="viewcode-block" id="AVLNode">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.AVLNode">[documentos]</a>
-<span class="k">class</span> <span class="nc">AVLNode</span><span class="p">(</span><span class="n">BSTNode</span><span class="p">,</span> <span class="n">Generic</span><span class="p">[</span><span class="n">T</span><span class="p">]):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;AVLNode _summary_</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        BSTNode (_type_): _description_</span>
-<span class="sd">        Generic (_type_): _description_</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># optional reference to the next node of the same type</span>
-    <span class="c1"># :attr: _next</span>
-<div class="viewcode-block" id="AVLNode._next">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.AVLNode._next">[documentos]</a>
-    <span class="n">_next</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;AVLNode[T]&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></div>
-
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Referencia al siguiente nodo de la lista.&quot;&quot;&quot;</span>
-
-<div class="viewcode-block" id="AVLNode.next">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.AVLNode.next">[documentos]</a>
-    <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;AVLNode[T]&quot;</span><span class="p">]:</span>
-        <span class="k">pass</span></div>
-</div>
-
-    
-    
 <span class="nd">@dataclass</span>
 <div class="viewcode-block" id="RBTNode">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.RBTNode">[documentos]</a>
 <span class="k">class</span> <span class="nc">RBTNode</span><span class="p">(</span><span class="n">BSTNode</span><span class="p">,</span> <span class="n">Generic</span><span class="p">[</span><span class="n">T</span><span class="p">]):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;RBTNode _summary_</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;**RBTNode** representa un nodo de un árbol rojo-negro (RBT: Red-Black Tree), o un árbol rojo-negro orientados a la izquierda (LLRBT: Left-Leaning Red-Black Tree) que contiene la información del nodo (pareja llave-valor).</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        BSTNode (_type_): _description_</span>
-<span class="sd">        Generic (_type_): _description_</span>
+<span class="sd">        BSTNode (dataclass): ADT base para implementar un nodo para un árbol binario de búsqueda.</span>
+<span class="sd">        Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># optional reference to the next node of the same type</span>
-    <span class="c1"># :attr: _next</span>
-<div class="viewcode-block" id="RBTNode._next">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.RBTNode._next">[documentos]</a>
-    <span class="n">_next</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;RBTNode[T]&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></div>
+    <span class="c1"># optional reference to the parent node of the same type</span>
+    <span class="c1"># :attr: _parent</span>
+<div class="viewcode-block" id="RBTNode._parent">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.RBTNode._parent">[documentos]</a>
+    <span class="n">_parent</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;RBTNode[T]&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></div>
 
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Referencia al siguiente nodo de la lista.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Referencia al nodo padre del árbol.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="RBTNode.next">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.RBTNode.next">[documentos]</a>
-    <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;RBTNode[T]&quot;</span><span class="p">]:</span>
-        <span class="k">pass</span></div>
+    <span class="c1"># color of the node</span>
+    <span class="c1"># :attr: _color</span>
+<div class="viewcode-block" id="RBTNode._color">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.RBTNode._color">[documentos]</a>
+    <span class="n">_color</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">RED</span></div>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Color del nodo, por defecto es rojo.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="RBTNode.parent">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.RBTNode.parent">[documentos]</a>
+    <span class="k">def</span> <span class="nf">parent</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;RBTNode[T]&quot;</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*parent()* recupera la referencia al nodo padre del árbol. Si no existe retorna *None*.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Optional[RBTNode[T]]: referencia al nodo padre del árbol si existe.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span></div>
+
+
+<div class="viewcode-block" id="RBTNode.color">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.RBTNode.color">[documentos]</a>
+    <span class="k">def</span> <span class="nf">color</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*color()* recupera el color del nodo.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            int: color del nodo.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_color</span></div>
+
+
+<div class="viewcode-block" id="RBTNode.set_color">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.RBTNode.set_color">[documentos]</a>
+    <span class="k">def</span> <span class="nf">set_color</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">color</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*set_color()* establece el color del nodo.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            color (int): color del nodo.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_color</span> <span class="o">=</span> <span class="n">color</span></div>
+
+
+<div class="viewcode-block" id="RBTNode.is_red">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.RBTNode.is_red">[documentos]</a>
+    <span class="k">def</span> <span class="nf">is_red</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*is_red()* informa si el nodo es rojo.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            bool: True si el nodo es rojo, False de lo contrario.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_color</span> <span class="o">==</span> <span class="n">RED</span></div>
 </div>
 
 
@@ -188,230 +284,93 @@
 <div class="viewcode-block" id="KDTNode">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.KDTNode">[documentos]</a>
 <span class="k">class</span> <span class="nc">KDTNode</span><span class="p">(</span><span class="n">BSTNode</span><span class="p">,</span> <span class="n">Generic</span><span class="p">[</span><span class="n">T</span><span class="p">]):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;KDTNode _summary_</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;**KDTreeNode** representa un nodo de un árbol k-dimensionales o K-d Tree. Basada en el ADT *BSTNode* que contiene la información del nodo (pareja llave-valor).</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        BSTNode (_type_): _description_</span>
-<span class="sd">        Generic (_type_): _description_</span>
+<span class="sd">        BSTNode (dataclass): ADT base para implementar un nodo para un árbol binario de búsqueda.</span>
+<span class="sd">        Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># optional reference to the next node of the same type</span>
-    <span class="c1"># :attr: _next</span>
-<div class="viewcode-block" id="KDTNode._next">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.KDTNode._next">[documentos]</a>
-    <span class="n">_next</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;KDTNode[T]&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></div>
 
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Referencia al siguiente nodo de la lista.&quot;&quot;&quot;</span>
+    <span class="c1"># optional dimension to split on (if None, split on largest dimension)</span>
+    <span class="c1"># :attr: _split_dim</span>
+<div class="viewcode-block" id="KDTNode.split_dim">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.KDTNode.split_dim">[documentos]</a>
+    <span class="n">split_dim</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></div>
 
-<div class="viewcode-block" id="KDTNode.next">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.KDTNode.next">[documentos]</a>
-    <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;KDTNode[T]&quot;</span><span class="p">]:</span>
-        <span class="k">pass</span></div>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Dimensión para dividir el nodo (si es *None*, dividir en la dimensión más grande).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="KDTNode.get_dimension">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.KDTNode.get_dimension">[documentos]</a>
+    <span class="k">def</span> <span class="nf">get_dimension</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*get_dimension()* recupera la dimensión para dividir el nodo. Si no existe retorna *None*.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Optional[int]: dimensión para dividir el nodo si existe.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">split_dim</span></div>
 </div>
 
 
 
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">BST NODE!!!!!!!!</span>
-<span class="sd">* Copyright 2020, Departamento de sistemas y Computación</span>
-<span class="sd">* Universidad de Los Andes</span>
-<span class="sd">*</span>
-<span class="sd">*</span>
-<span class="sd">* Desarrolado para el curso ISIS1225 - Estructuras de Datos y Algoritmos</span>
-<span class="sd">*</span>
-<span class="sd">*</span>
-<span class="sd">* This program is free software: you can redistribute it and/or modify</span>
-<span class="sd">* it under the terms of the GNU General Public License as published by</span>
-<span class="sd">* the Free Software Foundation, either version 3 of the License, or</span>
-<span class="sd">* (at your option) any later version.</span>
-<span class="sd">*</span>
-<span class="sd">* This program is distributed in the hope that it will be useful,</span>
-<span class="sd">* but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
-<span class="sd">* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
-<span class="sd">* GNU General Public License for more details.</span>
-<span class="sd">*</span>
-<span class="sd">* You should have received a copy of the GNU General Public License</span>
-<span class="sd">* along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
-<span class="sd">*</span>
-<span class="sd">* Contribución de:</span>
-<span class="sd">*</span>
-<span class="sd">* Dario Correal</span>
-<span class="sd">*</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="c1"># GENERAL</span>
-<span class="c1">#FIXME Cambiar todas las funciones y variables al formato snake_case</span>
-<span class="c1">#TODO Explicar más a profundidad que tipo de excepciones y errores puede generar cada función</span>
+<span class="nd">@dataclass</span>
+<div class="viewcode-block" id="AVLNode">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.AVLNode">[documentos]</a>
+<span class="k">class</span> <span class="nc">AVLNode</span><span class="p">(</span><span class="n">BSTNode</span><span class="p">,</span> <span class="n">Generic</span><span class="p">[</span><span class="n">T</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;**AVLNode** representa un nodo de un árbol AVL (Adelson-Velsky &amp; Landis Tree). Basada en el ADT *BSTNode* que contiene la información del nodo (pareja llave-valor).</span>
 
-<span class="k">def</span> <span class="nf">newNode</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot; Crea un nuevo nodo para un árbol binario y lo retorna</span>
 <span class="sd">    Args:</span>
-<span class="sd">        value: El valor asociado a la llave</span>
-<span class="sd">        key: la llave asociada a la pareja</span>
-<span class="sd">        size: El tamaño del subarbol que cuelga de este nodo</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">        Un nodo con la pareja &lt;llave, valor&gt;</span>
-<span class="sd">    Raises:</span>
-<span class="sd">        Exception</span>
+<span class="sd">        BSTNode (dataclass): ADT base para implementar un nodo para un árbol binario de búsqueda.</span>
+<span class="sd">        Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1">#FIXME Modelar como dataclass</span>
-    <span class="n">node</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="n">key</span><span class="p">,</span>
-            <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="n">value</span><span class="p">,</span>
-            <span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="n">size</span><span class="p">,</span>
-            <span class="s1">&#39;left&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
-            <span class="s1">&#39;right&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
-            <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;BST&#39;</span><span class="p">}</span>
-    <span class="k">return</span> <span class="n">node</span>
 
+    <span class="c1"># height-balance factor</span>
+    <span class="c1"># :attr: _height</span>
+<div class="viewcode-block" id="AVLNode._height">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.AVLNode._height">[documentos]</a>
+    <span class="n">_height</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span></div>
 
-<span class="k">def</span> <span class="nf">getValue</span><span class="p">(</span><span class="n">node</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot; Retorna el valor asociado a una pareja llave valor</span>
-<span class="sd">    Args:</span>
-<span class="sd">        node: El nodo con la pareja llave-valor</span>
-<span class="sd">    Returns:</span>
-<span class="sd">        El valor almacenado en el nodo</span>
-<span class="sd">    Raises:</span>
-<span class="sd">        Exception</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">node</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
-        <span class="k">return</span><span class="p">(</span><span class="n">node</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">])</span>
-    <span class="k">return</span> <span class="n">node</span>
-
-
-<span class="k">def</span> <span class="nf">getKey</span><span class="p">(</span><span class="n">node</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot; Retorna la llave asociado a una pareja llave valor</span>
-<span class="sd">    Args:</span>
-<span class="sd">        node: El nodo con la pareja llave-valor</span>
-<span class="sd">    Returns:</span>
-<span class="sd">        La llave almacenada en el nodo</span>
-<span class="sd">    Raises:</span>
-<span class="sd">        Exception</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">node</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
-        <span class="k">return</span><span class="p">(</span><span class="n">node</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">])</span>
-    <span class="k">return</span> <span class="n">node</span>
-
-
-
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">RBT NODE!!!!!!!!</span>
-<span class="sd"> * Copyright 2020, Departamento de sistemas y Computación</span>
-<span class="sd"> * Universidad de Los Andes</span>
-<span class="sd"> *</span>
-<span class="sd"> *</span>
-<span class="sd"> * Desarrolado para el curso ISIS1225 - Estructuras de Datos y Algoritmos</span>
-<span class="sd"> *</span>
-<span class="sd"> *</span>
-<span class="sd"> * This program is free software: you can redistribute it and/or modify</span>
-<span class="sd"> * it under the terms of the GNU General Public License as published by</span>
-<span class="sd"> * the Free Software Foundation, either version 3 of the License, or</span>
-<span class="sd"> * (at your option) any later version.</span>
-<span class="sd"> *</span>
-<span class="sd"> * This program is distributed in the hope that it will be useful,</span>
-<span class="sd"> * but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
-<span class="sd"> * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
-<span class="sd"> * GNU General Public License for more details.</span>
-<span class="sd"> *</span>
-<span class="sd"> * You should have received a copy of the GNU General Public License</span>
-<span class="sd"> * along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
-<span class="sd"> *</span>
-<span class="sd"> * Dario Correal</span>
-<span class="sd"> *</span>
-<span class="sd"> &quot;&quot;&quot;</span>
-
-<span class="c1"># GENERAL</span>
-<span class="c1"># FIXME Cambiar todas las funciones y variables al formato snake_case</span>
-<span class="c1"># TODO Explicar tipo de excepciones y errores puede generar cada función</span>
-
-
-<div class="viewcode-block" id="RED">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.RED">[documentos]</a>
-<span class="n">RED</span> <span class="o">=</span> <span class="mi">0</span></div>
-
-<div class="viewcode-block" id="BLACK">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.BLACK">[documentos]</a>
-<span class="n">BLACK</span> <span class="o">=</span> <span class="mi">1</span></div>
-
-
-
-<div class="viewcode-block" id="newNode">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.newNode">[documentos]</a>
-<span class="k">def</span> <span class="nf">newNode</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Crea un nuevo nodo para un árbol rojo-negro  y lo retorna.</span>
-<span class="sd">    color:0 - rojo  color:1 - negro</span>
-<span class="sd">    Args:</span>
-<span class="sd">        value: El valor asociado a la llave</span>
-<span class="sd">        key: la llave asociada a la pareja</span>
-<span class="sd">        size: El tamaño del subarbol que cuelga de este nodo</span>
-<span class="sd">        color: El color inicial del nodo</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">        Un nodo con la pareja &lt;llave, valor&gt;</span>
-<span class="sd">    Raises:</span>
-<span class="sd">        Exception</span>
+<span class="sd">    Factor de balance de altura del nodo.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># FIXME Modelar como dataclass</span>
-    <span class="n">node</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="n">key</span><span class="p">,</span>
-            <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="n">value</span><span class="p">,</span>
-            <span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="n">size</span><span class="p">,</span>
-            <span class="s1">&#39;parent&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
-            <span class="s1">&#39;left&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
-            <span class="s1">&#39;right&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
-            <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="n">color</span><span class="p">,</span>
-            <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;RBT&#39;</span><span class="p">}</span>
 
-    <span class="k">return</span> <span class="n">node</span></div>
+<div class="viewcode-block" id="AVLNode.height">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.AVLNode.height">[documentos]</a>
+    <span class="k">def</span> <span class="nf">height</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*height()* recupera el factor de balance del nodo.</span>
 
+<span class="sd">        Returns:</span>
+<span class="sd">            int: factor de balance del nodo.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_height</span></div>
 
 
-<div class="viewcode-block" id="isRed">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.isRed">[documentos]</a>
-<span class="k">def</span> <span class="nf">isRed</span><span class="p">(</span><span class="n">node</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Informa si un nodo es rojo</span>
-<span class="sd">    Args:</span>
-<span class="sd">        node: El nodo a revisar</span>
+<div class="viewcode-block" id="AVLNode.left_height">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.AVLNode.left_height">[documentos]</a>
+    <span class="k">def</span> <span class="nf">left_height</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*left_height()* recupera la altura del subárbol izquierdo del nodo.</span>
 
-<span class="sd">    Returns:</span>
-<span class="sd">        True si el nodo es rojo, False de lo contrario</span>
-<span class="sd">    Raises:</span>
-<span class="sd">        Exception</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">node</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">RED</span><span class="p">)</span></div>
+<span class="sd">        Returns:</span>
+<span class="sd">            int: altura del subárbol izquierdo del nodo.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_left</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_left</span><span class="o">.</span><span class="n">height</span><span class="p">()</span></div>
 
 
+<div class="viewcode-block" id="AVLNode.right_height">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.AVLNode.right_height">[documentos]</a>
+    <span class="k">def</span> <span class="nf">right_height</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*right_height()* recupera la altura del subárbol derecho del nodo.</span>
 
-<div class="viewcode-block" id="getValue">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.getValue">[documentos]</a>
-<span class="k">def</span> <span class="nf">getValue</span><span class="p">(</span><span class="n">node</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot; Retorna el valor asociado a una pareja llave valor</span>
-<span class="sd">    Args:</span>
-<span class="sd">        node: El nodo con la pareja llave-valor</span>
-<span class="sd">    Returns:</span>
-<span class="sd">        El valor almacenado en el nodo</span>
-<span class="sd">    Raises:</span>
-<span class="sd">        Exception</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">node</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
-        <span class="k">return</span> <span class="p">(</span><span class="n">node</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">])</span>
-    <span class="k">return</span> <span class="n">node</span></div>
-
-
-
-<div class="viewcode-block" id="getKey">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/treenode/index.html#DISClib.DataStructures.treenode.getKey">[documentos]</a>
-<span class="k">def</span> <span class="nf">getKey</span><span class="p">(</span><span class="n">node</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot; Retorna la llave asociado a una pareja llave valor</span>
-<span class="sd">    Args:</span>
-<span class="sd">        node: El nodo con la pareja llave-valor</span>
-<span class="sd">    Returns:</span>
-<span class="sd">        La llave almacenada en el nodo</span>
-<span class="sd">    Raises:</span>
-<span class="sd">        Exception</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">node</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
-        <span class="k">return</span> <span class="p">(</span><span class="n">node</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">])</span>
-    <span class="k">return</span> <span class="n">node</span></div>
+<span class="sd">        Returns:</span>
+<span class="sd">            int: altura del subárbol derecho del nodo.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_right</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_right</span><span class="o">.</span><span class="n">height</span><span class="p">()</span></div>
+</div>
 
 </pre></div>
 

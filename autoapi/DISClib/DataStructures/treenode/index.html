@@ -99,8 +99,9 @@
              
   <section id="module-DISClib.DataStructures.treenode">
 <span id="disclib-datastructures-treenode"></span><h1><a class="reference internal" href="#module-DISClib.DataStructures.treenode" title="DISClib.DataStructures.treenode"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.DataStructures.treenode</span></code></a><a class="headerlink" href="#module-DISClib.DataStructures.treenode" title="Link to this heading"></a></h1>
-<p>Estos ADTs representan los nodos para una lista sencillamente encadenada (SingleNode) y una lista doblemente encadenada (DoubleNode).</p>
-<p>Estos nodos se utilizan respectivamente en las estructuras dinámicas de lista sencillamente encadenada (LinkedList) y lista doblemente encadenadA(DoubleLinkedList). Las cuales NO tienen un tamaño fijo y pueden crecer indefinidamente en la memoria disponible.</p>
+<p>Los ADTs en este módulo representan los nodos para diferentes tipos de árboles binarios o mapas ordenados. Estos incluyen los nodos para árboles de búsqueda (<strong>BSTNode</strong>), nodos para árboles rojo-negro (<strong>RBTNode</strong>), nodos para árboles AVL (<strong>AVLNode</strong>) y nodos árboles K-d (<strong>KDTNode</strong>).</p>
+<p>Estos nodos se utilizan respectivamente en los ADT de árboles binarios de búsqueda o BST (Binary Search Tree), árboles rojo-negro o RBT (Red-Black Tree), árboles rojo-negro orientados a la izquierda p LLRBT (Left-Leaning Red-Black Tree), árboles AVL (Adelson-Velsky &amp; Landis Tree) y árboles k-dimensionales (K-d Tree)</p>
+<p>En <strong>DISCLib</strong> las estructuras están asociadas a las implementaciones en <strong>BSTree</strong>, <strong>RBTree</strong>, <strong>LLRBTree</strong>, <strong>AVLTree</strong> y <strong>KDTree</strong>.</p>
 <p><em>IMPORTANTE:</em> Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:</p>
 <blockquote>
 <div><ol class="arabic simple">
@@ -115,44 +116,16 @@
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.DataStructures.treenode.BSTNode" title="DISClib.DataStructures.treenode.BSTNode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BSTNode</span></code></a></p></td>
-<td><p>BSTNode _summary_</p></td>
+<td><p><strong>BSTNode</strong> representa un nodo de un árbol binario de búsqueda o BST (Binary Search Tree). Basada en el ADT <em>MapEntry</em> que contiene la información del nodo (pareja llave-valor).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#DISClib.DataStructures.treenode.RBTNode" title="DISClib.DataStructures.treenode.RBTNode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RBTNode</span></code></a></p></td>
+<td><p><strong>RBTNode</strong> representa un nodo de un árbol rojo-negro (RBT: Red-Black Tree), o un árbol rojo-negro orientados a la izquierda (LLRBT: Left-Leaning Red-Black Tree) que contiene la información del nodo (pareja llave-valor).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.DataStructures.treenode.KDTNode" title="DISClib.DataStructures.treenode.KDTNode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">KDTNode</span></code></a></p></td>
+<td><p><strong>KDTreeNode</strong> representa un nodo de un árbol k-dimensionales o K-d Tree. Basada en el ADT <em>BSTNode</em> que contiene la información del nodo (pareja llave-valor).</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#DISClib.DataStructures.treenode.AVLNode" title="DISClib.DataStructures.treenode.AVLNode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AVLNode</span></code></a></p></td>
-<td><p>AVLNode _summary_</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.DataStructures.treenode.RBTNode" title="DISClib.DataStructures.treenode.RBTNode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RBTNode</span></code></a></p></td>
-<td><p>RBTNode _summary_</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#DISClib.DataStructures.treenode.KDTNode" title="DISClib.DataStructures.treenode.KDTNode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">KDTNode</span></code></a></p></td>
-<td><p>KDTNode _summary_</p></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="functions">
-<h3>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h3>
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#id0" title="DISClib.DataStructures.treenode.newNode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">newNode</span></code></a>(key, value, size)</p></td>
-<td><p>Crea un nuevo nodo para un árbol binario y lo retorna</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#id1" title="DISClib.DataStructures.treenode.getValue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getValue</span></code></a>(node)</p></td>
-<td><p>Retorna el valor asociado a una pareja llave valor</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#id2" title="DISClib.DataStructures.treenode.getKey"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getKey</span></code></a>(node)</p></td>
-<td><p>Retorna la llave asociado a una pareja llave valor</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#id0" title="DISClib.DataStructures.treenode.newNode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">newNode</span></code></a>(key, value, size)</p></td>
-<td><p>Crea un nuevo nodo para un árbol binario y lo retorna</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.DataStructures.treenode.isRed" title="DISClib.DataStructures.treenode.isRed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isRed</span></code></a>(node)</p></td>
-<td><p>Informa si un nodo es rojo</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#id1" title="DISClib.DataStructures.treenode.getValue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getValue</span></code></a>(node)</p></td>
-<td><p>Retorna el valor asociado a una pareja llave valor</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#id2" title="DISClib.DataStructures.treenode.getKey"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getKey</span></code></a>(node)</p></td>
-<td><p>Retorna la llave asociado a una pareja llave valor</p></td>
+<td><p><strong>AVLNode</strong> representa un nodo de un árbol AVL (Adelson-Velsky &amp; Landis Tree). Basada en el ADT <em>BSTNode</em> que contiene la información del nodo (pareja llave-valor).</p></td>
 </tr>
 </tbody>
 </table>
@@ -162,62 +135,103 @@
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.DataStructures.treenode.RED" title="DISClib.DataStructures.treenode.RED"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RED</span></code></a></p></td>
-<td><p></p></td>
+<td><p>Variable para representar el color negro en un nodo RBT.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#DISClib.DataStructures.treenode.BLACK" title="DISClib.DataStructures.treenode.BLACK"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BLACK</span></code></a></p></td>
-<td><p></p></td>
+<td><p>Variable para representar el color negro en un nodo RBT.</p></td>
 </tr>
 </tbody>
 </table>
+<dl class="py data">
+<dt class="sig sig-object py" id="DISClib.DataStructures.treenode.RED">
+<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.treenode.</span></span><span class="sig-name descname"><span class="pre">RED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/treenode.html#RED"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.treenode.RED" title="Link to this definition"></a></dt>
+<dd><p>Variable para representar el color negro en un nodo RBT.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="DISClib.DataStructures.treenode.BLACK">
+<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.treenode.</span></span><span class="sig-name descname"><span class="pre">BLACK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/treenode.html#BLACK"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.treenode.BLACK" title="Link to this definition"></a></dt>
+<dd><p>Variable para representar el color negro en un nodo RBT.</p>
+</dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="DISClib.DataStructures.treenode.BSTNode">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.treenode.</span></span><span class="sig-name descname"><span class="pre">BSTNode</span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/treenode.html#BSTNode"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.treenode.BSTNode" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="../node/index.html#DISClib.DataStructures.node.Node" title="DISClib.DataStructures.node.Node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DISClib.DataStructures.node.Node</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">Generic</span></code>[<a class="reference internal" href="../../Utils/default/index.html#DISClib.Utils.default.T" title="DISClib.Utils.default.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DISClib.Utils.default.T</span></code></a>]</p>
-<p>BSTNode _summary_</p>
+<dd><p>Bases: <a class="reference internal" href="../mapentry/index.html#DISClib.DataStructures.mapentry.MapEntry" title="DISClib.DataStructures.mapentry.MapEntry"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DISClib.DataStructures.mapentry.MapEntry</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">Generic</span></code>[<a class="reference internal" href="../../Utils/default/index.html#DISClib.Utils.default.T" title="DISClib.Utils.default.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DISClib.Utils.default.T</span></code></a>]</p>
+<p><strong>BSTNode</strong> representa un nodo de un árbol binario de búsqueda o BST (Binary Search Tree). Basada en el ADT <em>MapEntry</em> que contiene la información del nodo (pareja llave-valor).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>Node</strong> (<em>_type_</em>) – _description_</p></li>
-<li><p><strong>Generic</strong> (<em>_type_</em>) – _description_</p></li>
+<li><p><strong>MapEntry</strong> (<em>dataclass</em>) – ADT base para implementar una pareja llave-valor.</p></li>
+<li><p><strong>Generic</strong> (<em>T</em>) – TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.</p></li>
 </ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>ADT para un <em>BSTNode</em> o nodo para un árbol binario de búsqueda.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#DISClib.DataStructures.treenode.BSTNode" title="DISClib.DataStructures.treenode.BSTNode">BSTNode</a></p>
 </dd>
 </dl>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="DISClib.DataStructures.treenode.BSTNode._next">
-<span class="sig-name descname"><span class="pre">_next</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#DISClib.DataStructures.treenode.BSTNode" title="DISClib.DataStructures.treenode.BSTNode"><span class="pre">BSTNode</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/treenode.html#BSTNode._next"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.treenode.BSTNode._next" title="Link to this definition"></a></dt>
-<dd><p>Referencia al siguiente nodo de la lista.</p>
+<dt class="sig sig-object py" id="DISClib.DataStructures.treenode.BSTNode._left">
+<span class="sig-name descname"><span class="pre">_left</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#DISClib.DataStructures.treenode.BSTNode" title="DISClib.DataStructures.treenode.BSTNode"><span class="pre">BSTNode</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/treenode.html#BSTNode._left"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.treenode.BSTNode._left" title="Link to this definition"></a></dt>
+<dd><p>Referencia al nodo izquierdo del árbol.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.treenode.BSTNode._right">
+<span class="sig-name descname"><span class="pre">_right</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#DISClib.DataStructures.treenode.BSTNode" title="DISClib.DataStructures.treenode.BSTNode"><span class="pre">BSTNode</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/treenode.html#BSTNode._right"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.treenode.BSTNode._right" title="Link to this definition"></a></dt>
+<dd><p>Referencia al nodo derecho del árbol.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.treenode.BSTNode._size">
+<span class="sig-name descname"><span class="pre">_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/treenode.html#BSTNode._size"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.treenode.BSTNode._size" title="Link to this definition"></a></dt>
+<dd><p>Tamaño del subárbol que cuelga de este nodo (número de nodos en el subárbol).</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="DISClib.DataStructures.treenode.BSTNode.next">
-<span class="sig-name descname"><span class="pre">next</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#DISClib.DataStructures.treenode.BSTNode" title="DISClib.DataStructures.treenode.BSTNode"><span class="pre">BSTNode</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/treenode.html#BSTNode.next"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.treenode.BSTNode.next" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="DISClib.DataStructures.treenode.AVLNode">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.treenode.</span></span><span class="sig-name descname"><span class="pre">AVLNode</span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/treenode.html#AVLNode"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.treenode.AVLNode" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#DISClib.DataStructures.treenode.BSTNode" title="DISClib.DataStructures.treenode.BSTNode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BSTNode</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">Generic</span></code>[<a class="reference internal" href="../../Utils/default/index.html#DISClib.Utils.default.T" title="DISClib.Utils.default.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DISClib.Utils.default.T</span></code></a>]</p>
-<p>AVLNode _summary_</p>
+<dt class="sig sig-object py" id="DISClib.DataStructures.treenode.BSTNode.left">
+<span class="sig-name descname"><span class="pre">left</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#DISClib.DataStructures.treenode.BSTNode" title="DISClib.DataStructures.treenode.BSTNode"><span class="pre">BSTNode</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/treenode.html#BSTNode.left"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.treenode.BSTNode.left" title="Link to this definition"></a></dt>
+<dd><p><em>left()</em> recupera la referencia al nodo izquierdo del árbol. Si no existe retorna <em>None</em>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>BSTNode</strong> (<em>_type_</em>) – _description_</p></li>
-<li><p><strong>Generic</strong> (<em>_type_</em>) – _description_</p></li>
-</ul>
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>referencia al nodo izquierdo del árbol si existe.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>Optional[<a class="reference internal" href="#DISClib.DataStructures.treenode.BSTNode" title="DISClib.DataStructures.treenode.BSTNode">BSTNode</a>[T]]</p>
 </dd>
 </dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="DISClib.DataStructures.treenode.AVLNode._next">
-<span class="sig-name descname"><span class="pre">_next</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#DISClib.DataStructures.treenode.AVLNode" title="DISClib.DataStructures.treenode.AVLNode"><span class="pre">AVLNode</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/treenode.html#AVLNode._next"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.treenode.AVLNode._next" title="Link to this definition"></a></dt>
-<dd><p>Referencia al siguiente nodo de la lista.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="DISClib.DataStructures.treenode.AVLNode.next">
-<span class="sig-name descname"><span class="pre">next</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#DISClib.DataStructures.treenode.AVLNode" title="DISClib.DataStructures.treenode.AVLNode"><span class="pre">AVLNode</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/treenode.html#AVLNode.next"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.treenode.AVLNode.next" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dt class="sig sig-object py" id="DISClib.DataStructures.treenode.BSTNode.right">
+<span class="sig-name descname"><span class="pre">right</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#DISClib.DataStructures.treenode.BSTNode" title="DISClib.DataStructures.treenode.BSTNode"><span class="pre">BSTNode</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/treenode.html#BSTNode.right"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.treenode.BSTNode.right" title="Link to this definition"></a></dt>
+<dd><p><em>right()</em> recupera la referencia al nodo derecho del árbol. Si no existe retorna <em>None</em>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>referencia al nodo derecho del árbol si existe.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>Optional[<a class="reference internal" href="#DISClib.DataStructures.treenode.BSTNode" title="DISClib.DataStructures.treenode.BSTNode">BSTNode</a>[T]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.treenode.BSTNode.size">
+<span class="sig-name descname"><span class="pre">size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/treenode.html#BSTNode.size"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.treenode.BSTNode.size" title="Link to this definition"></a></dt>
+<dd><p><em>size()</em> recupera el tamaño del subárbol que cuelga de este nodo.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tamaño del subárbol que cuelga de este nodo.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -225,25 +239,79 @@
 <dt class="sig sig-object py" id="DISClib.DataStructures.treenode.RBTNode">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.treenode.</span></span><span class="sig-name descname"><span class="pre">RBTNode</span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/treenode.html#RBTNode"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.treenode.RBTNode" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#DISClib.DataStructures.treenode.BSTNode" title="DISClib.DataStructures.treenode.BSTNode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BSTNode</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">Generic</span></code>[<a class="reference internal" href="../../Utils/default/index.html#DISClib.Utils.default.T" title="DISClib.Utils.default.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DISClib.Utils.default.T</span></code></a>]</p>
-<p>RBTNode _summary_</p>
+<p><strong>RBTNode</strong> representa un nodo de un árbol rojo-negro (RBT: Red-Black Tree), o un árbol rojo-negro orientados a la izquierda (LLRBT: Left-Leaning Red-Black Tree) que contiene la información del nodo (pareja llave-valor).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>BSTNode</strong> (<em>_type_</em>) – _description_</p></li>
-<li><p><strong>Generic</strong> (<em>_type_</em>) – _description_</p></li>
+<li><p><strong>BSTNode</strong> (<em>dataclass</em>) – ADT base para implementar un nodo para un árbol binario de búsqueda.</p></li>
+<li><p><strong>Generic</strong> (<em>T</em>) – TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="DISClib.DataStructures.treenode.RBTNode._next">
-<span class="sig-name descname"><span class="pre">_next</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#DISClib.DataStructures.treenode.RBTNode" title="DISClib.DataStructures.treenode.RBTNode"><span class="pre">RBTNode</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/treenode.html#RBTNode._next"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.treenode.RBTNode._next" title="Link to this definition"></a></dt>
-<dd><p>Referencia al siguiente nodo de la lista.</p>
+<dt class="sig sig-object py" id="DISClib.DataStructures.treenode.RBTNode._parent">
+<span class="sig-name descname"><span class="pre">_parent</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#DISClib.DataStructures.treenode.RBTNode" title="DISClib.DataStructures.treenode.RBTNode"><span class="pre">RBTNode</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/treenode.html#RBTNode._parent"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.treenode.RBTNode._parent" title="Link to this definition"></a></dt>
+<dd><p>Referencia al nodo padre del árbol.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.treenode.RBTNode._color">
+<span class="sig-name descname"><span class="pre">_color</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/treenode.html#RBTNode._color"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.treenode.RBTNode._color" title="Link to this definition"></a></dt>
+<dd><p>Color del nodo, por defecto es rojo.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="DISClib.DataStructures.treenode.RBTNode.next">
-<span class="sig-name descname"><span class="pre">next</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#DISClib.DataStructures.treenode.RBTNode" title="DISClib.DataStructures.treenode.RBTNode"><span class="pre">RBTNode</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/treenode.html#RBTNode.next"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.treenode.RBTNode.next" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dt class="sig sig-object py" id="DISClib.DataStructures.treenode.RBTNode.parent">
+<span class="sig-name descname"><span class="pre">parent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#DISClib.DataStructures.treenode.RBTNode" title="DISClib.DataStructures.treenode.RBTNode"><span class="pre">RBTNode</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/treenode.html#RBTNode.parent"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.treenode.RBTNode.parent" title="Link to this definition"></a></dt>
+<dd><p><em>parent()</em> recupera la referencia al nodo padre del árbol. Si no existe retorna <em>None</em>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>referencia al nodo padre del árbol si existe.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>Optional[<a class="reference internal" href="#DISClib.DataStructures.treenode.RBTNode" title="DISClib.DataStructures.treenode.RBTNode">RBTNode</a>[T]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.treenode.RBTNode.color">
+<span class="sig-name descname"><span class="pre">color</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/treenode.html#RBTNode.color"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.treenode.RBTNode.color" title="Link to this definition"></a></dt>
+<dd><p><em>color()</em> recupera el color del nodo.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>color del nodo.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.treenode.RBTNode.set_color">
+<span class="sig-name descname"><span class="pre">set_color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/treenode.html#RBTNode.set_color"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.treenode.RBTNode.set_color" title="Link to this definition"></a></dt>
+<dd><p><em>set_color()</em> establece el color del nodo.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>color</strong> (<em>int</em>) – color del nodo.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.treenode.RBTNode.is_red">
+<span class="sig-name descname"><span class="pre">is_red</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/treenode.html#RBTNode.is_red"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.treenode.RBTNode.is_red" title="Link to this definition"></a></dt>
+<dd><p><em>is_red()</em> informa si el nodo es rojo.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True si el nodo es rojo, False de lo contrario.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -251,147 +319,98 @@
 <dt class="sig sig-object py" id="DISClib.DataStructures.treenode.KDTNode">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.treenode.</span></span><span class="sig-name descname"><span class="pre">KDTNode</span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/treenode.html#KDTNode"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.treenode.KDTNode" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#DISClib.DataStructures.treenode.BSTNode" title="DISClib.DataStructures.treenode.BSTNode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BSTNode</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">Generic</span></code>[<a class="reference internal" href="../../Utils/default/index.html#DISClib.Utils.default.T" title="DISClib.Utils.default.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DISClib.Utils.default.T</span></code></a>]</p>
-<p>KDTNode _summary_</p>
+<p><strong>KDTreeNode</strong> representa un nodo de un árbol k-dimensionales o K-d Tree. Basada en el ADT <em>BSTNode</em> que contiene la información del nodo (pareja llave-valor).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>BSTNode</strong> (<em>_type_</em>) – _description_</p></li>
-<li><p><strong>Generic</strong> (<em>_type_</em>) – _description_</p></li>
+<li><p><strong>BSTNode</strong> (<em>dataclass</em>) – ADT base para implementar un nodo para un árbol binario de búsqueda.</p></li>
+<li><p><strong>Generic</strong> (<em>T</em>) – TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="DISClib.DataStructures.treenode.KDTNode._next">
-<span class="sig-name descname"><span class="pre">_next</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#DISClib.DataStructures.treenode.KDTNode" title="DISClib.DataStructures.treenode.KDTNode"><span class="pre">KDTNode</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/treenode.html#KDTNode._next"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.treenode.KDTNode._next" title="Link to this definition"></a></dt>
-<dd><p>Referencia al siguiente nodo de la lista.</p>
+<dt class="sig sig-object py" id="DISClib.DataStructures.treenode.KDTNode.split_dim">
+<span class="sig-name descname"><span class="pre">split_dim</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/treenode.html#KDTNode.split_dim"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.treenode.KDTNode.split_dim" title="Link to this definition"></a></dt>
+<dd><p>Dimensión para dividir el nodo (si es <em>None</em>, dividir en la dimensión más grande).</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="DISClib.DataStructures.treenode.KDTNode.next">
-<span class="sig-name descname"><span class="pre">next</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#DISClib.DataStructures.treenode.KDTNode" title="DISClib.DataStructures.treenode.KDTNode"><span class="pre">KDTNode</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/treenode.html#KDTNode.next"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.treenode.KDTNode.next" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.DataStructures.treenode.newNode">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.treenode.</span></span><span class="sig-name descname"><span class="pre">newNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/treenode.html#newNode"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.treenode.newNode" title="Link to this definition"></a></dt>
-<dd><p>Crea un nuevo nodo para un árbol binario y lo retorna
-:param value: El valor asociado a la llave
-:param key: la llave asociada a la pareja
-:param size: El tamaño del subarbol que cuelga de este nodo</p>
+<dt class="sig sig-object py" id="DISClib.DataStructures.treenode.KDTNode.get_dimension">
+<span class="sig-name descname"><span class="pre">get_dimension</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/treenode.html#KDTNode.get_dimension"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.treenode.KDTNode.get_dimension" title="Link to this definition"></a></dt>
+<dd><p><em>get_dimension()</em> recupera la dimensión para dividir el nodo. Si no existe retorna <em>None</em>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Un nodo con la pareja &lt;llave, valor&gt;</p>
+<dd class="field-odd"><p>dimensión para dividir el nodo si existe.</p>
 </dd>
-<dt class="field-even">Muestra<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>Exception</strong> – </p>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>Optional[int]</p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.DataStructures.treenode.getValue">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.treenode.</span></span><span class="sig-name descname"><span class="pre">getValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/treenode.html#getValue"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.treenode.getValue" title="Link to this definition"></a></dt>
-<dd><p>Retorna el valor asociado a una pareja llave valor
-:param node: El nodo con la pareja llave-valor</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="DISClib.DataStructures.treenode.AVLNode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.treenode.</span></span><span class="sig-name descname"><span class="pre">AVLNode</span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/treenode.html#AVLNode"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.treenode.AVLNode" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#DISClib.DataStructures.treenode.BSTNode" title="DISClib.DataStructures.treenode.BSTNode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BSTNode</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">Generic</span></code>[<a class="reference internal" href="../../Utils/default/index.html#DISClib.Utils.default.T" title="DISClib.Utils.default.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DISClib.Utils.default.T</span></code></a>]</p>
+<p><strong>AVLNode</strong> representa un nodo de un árbol AVL (Adelson-Velsky &amp; Landis Tree). Basada en el ADT <em>BSTNode</em> que contiene la información del nodo (pareja llave-valor).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>BSTNode</strong> (<em>dataclass</em>) – ADT base para implementar un nodo para un árbol binario de búsqueda.</p></li>
+<li><p><strong>Generic</strong> (<em>T</em>) – TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.treenode.AVLNode._height">
+<span class="sig-name descname"><span class="pre">_height</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/treenode.html#AVLNode._height"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.treenode.AVLNode._height" title="Link to this definition"></a></dt>
+<dd><p>Factor de balance de altura del nodo.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.treenode.AVLNode.height">
+<span class="sig-name descname"><span class="pre">height</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/treenode.html#AVLNode.height"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.treenode.AVLNode.height" title="Link to this definition"></a></dt>
+<dd><p><em>height()</em> recupera el factor de balance del nodo.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>El valor almacenado en el nodo</p>
+<dd class="field-odd"><p>factor de balance del nodo.</p>
 </dd>
-<dt class="field-even">Muestra<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>Exception</strong> – </p>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.DataStructures.treenode.getKey">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.treenode.</span></span><span class="sig-name descname"><span class="pre">getKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/treenode.html#getKey"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.treenode.getKey" title="Link to this definition"></a></dt>
-<dd><p>Retorna la llave asociado a una pareja llave valor
-:param node: El nodo con la pareja llave-valor</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.treenode.AVLNode.left_height">
+<span class="sig-name descname"><span class="pre">left_height</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/treenode.html#AVLNode.left_height"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.treenode.AVLNode.left_height" title="Link to this definition"></a></dt>
+<dd><p><em>left_height()</em> recupera la altura del subárbol izquierdo del nodo.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>La llave almacenada en el nodo</p>
+<dd class="field-odd"><p>altura del subárbol izquierdo del nodo.</p>
 </dd>
-<dt class="field-even">Muestra<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>Exception</strong> – </p>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="py data">
-<dt class="sig sig-object py" id="DISClib.DataStructures.treenode.RED">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.treenode.</span></span><span class="sig-name descname"><span class="pre">RED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/treenode.html#RED"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.treenode.RED" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py data">
-<dt class="sig sig-object py" id="DISClib.DataStructures.treenode.BLACK">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.treenode.</span></span><span class="sig-name descname"><span class="pre">BLACK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/treenode.html#BLACK"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.treenode.BLACK" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="id0">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.treenode.</span></span><span class="sig-name descname"><span class="pre">newNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/treenode.html#newNode"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
-<dd><p>Crea un nuevo nodo para un árbol rojo-negro  y lo retorna.
-color:0 - rojo  color:1 - negro
-:param value: El valor asociado a la llave
-:param key: la llave asociada a la pareja
-:param size: El tamaño del subarbol que cuelga de este nodo
-:param color: El color inicial del nodo</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.treenode.AVLNode.right_height">
+<span class="sig-name descname"><span class="pre">right_height</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/treenode.html#AVLNode.right_height"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.treenode.AVLNode.right_height" title="Link to this definition"></a></dt>
+<dd><p><em>right_height()</em> recupera la altura del subárbol derecho del nodo.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Un nodo con la pareja &lt;llave, valor&gt;</p>
+<dd class="field-odd"><p>altura del subárbol derecho del nodo.</p>
 </dd>
-<dt class="field-even">Muestra<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>Exception</strong> – </p>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.DataStructures.treenode.isRed">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.treenode.</span></span><span class="sig-name descname"><span class="pre">isRed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/treenode.html#isRed"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.treenode.isRed" title="Link to this definition"></a></dt>
-<dd><p>Informa si un nodo es rojo
-:param node: El nodo a revisar</p>
-<dl class="field-list simple">
-<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>True si el nodo es rojo, False de lo contrario</p>
-</dd>
-<dt class="field-even">Muestra<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>Exception</strong> – </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="id1">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.treenode.</span></span><span class="sig-name descname"><span class="pre">getValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/treenode.html#getValue"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#id1" title="Link to this definition"></a></dt>
-<dd><p>Retorna el valor asociado a una pareja llave valor
-:param node: El nodo con la pareja llave-valor</p>
-<dl class="field-list simple">
-<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>El valor almacenado en el nodo</p>
-</dd>
-<dt class="field-even">Muestra<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>Exception</strong> – </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="id2">
-<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.treenode.</span></span><span class="sig-name descname"><span class="pre">getKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/treenode.html#getKey"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#id2" title="Link to this definition"></a></dt>
-<dd><p>Retorna la llave asociado a una pareja llave valor
-:param node: El nodo con la pareja llave-valor</p>
-<dl class="field-list simple">
-<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
-<dd class="field-odd"><p>La llave almacenada en el nodo</p>
-</dd>
-<dt class="field-even">Muestra<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>Exception</strong> – </p>
-</dd>
-</dl>
 </dd></dl>
 
 </section>

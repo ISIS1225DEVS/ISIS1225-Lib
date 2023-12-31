@@ -5,9 +5,11 @@
 
 .. autoapi-nested-parse::
 
-   Estos ADTs representan los nodos para una lista sencillamente encadenada (SingleNode) y una lista doblemente encadenada (DoubleNode).
+   Los ADTs en este módulo representan los nodos para diferentes tipos de árboles binarios o mapas ordenados. Estos incluyen los nodos para árboles de búsqueda (**BSTNode**), nodos para árboles rojo-negro (**RBTNode**), nodos para árboles AVL (**AVLNode**) y nodos árboles K-d (**KDTNode**).
 
-   Estos nodos se utilizan respectivamente en las estructuras dinámicas de lista sencillamente encadenada (LinkedList) y lista doblemente encadenadA(DoubleLinkedList). Las cuales NO tienen un tamaño fijo y pueden crecer indefinidamente en la memoria disponible.
+   Estos nodos se utilizan respectivamente en los ADT de árboles binarios de búsqueda o BST (Binary Search Tree), árboles rojo-negro o RBT (Red-Black Tree), árboles rojo-negro orientados a la izquierda p LLRBT (Left-Leaning Red-Black Tree), árboles AVL (Adelson-Velsky & Landis Tree) y árboles k-dimensionales (K-d Tree)
+
+   En **DISCLib** las estructuras están asociadas a las implementaciones en **BSTree**, **RBTree**, **LLRBTree**, **AVLTree** y **KDTree**.
 
    *IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:
 
@@ -25,24 +27,10 @@ Classes
 .. autoapisummary::
 
    DISClib.DataStructures.treenode.BSTNode
-   DISClib.DataStructures.treenode.AVLNode
    DISClib.DataStructures.treenode.RBTNode
    DISClib.DataStructures.treenode.KDTNode
+   DISClib.DataStructures.treenode.AVLNode
 
-
-
-Functions
-~~~~~~~~~
-
-.. autoapisummary::
-
-   DISClib.DataStructures.treenode.newNode
-   DISClib.DataStructures.treenode.getValue
-   DISClib.DataStructures.treenode.getKey
-   DISClib.DataStructures.treenode.newNode
-   DISClib.DataStructures.treenode.isRed
-   DISClib.DataStructures.treenode.getValue
-   DISClib.DataStructures.treenode.getKey
 
 
 
@@ -55,45 +43,69 @@ Attributes
    DISClib.DataStructures.treenode.BLACK
 
 
+.. py:data:: RED
+   :value: 0
+
+   Variable para representar el color negro en un nodo RBT.
+
+.. py:data:: BLACK
+   :value: 1
+
+   Variable para representar el color negro en un nodo RBT.
+
 .. py:class:: BSTNode
 
 
-   Bases: :py:obj:`DISClib.DataStructures.node.Node`, :py:obj:`Generic`\ [\ :py:obj:`DISClib.Utils.default.T`\ ]
+   Bases: :py:obj:`DISClib.DataStructures.mapentry.MapEntry`, :py:obj:`Generic`\ [\ :py:obj:`DISClib.Utils.default.T`\ ]
 
-   BSTNode _summary_
+   **BSTNode** representa un nodo de un árbol binario de búsqueda o BST (Binary Search Tree). Basada en el ADT *MapEntry* que contiene la información del nodo (pareja llave-valor).
 
-   :param Node: _description_
-   :type Node: _type_
-   :param Generic: _description_
-   :type Generic: _type_
+   :param MapEntry: ADT base para implementar una pareja llave-valor.
+   :type MapEntry: dataclass
+   :param Generic: TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.
+   :type Generic: T
 
-   .. py:attribute:: _next
+   :returns: ADT para un *BSTNode* o nodo para un árbol binario de búsqueda.
+   :rtype: BSTNode
+
+   .. py:attribute:: _left
       :type: Optional[BSTNode[T]]
 
-      Referencia al siguiente nodo de la lista.
+      Referencia al nodo izquierdo del árbol.
 
-   .. py:method:: next() -> Optional[BSTNode[T]]
+   .. py:attribute:: _right
+      :type: Optional[BSTNode[T]]
+
+      Referencia al nodo derecho del árbol.
+
+   .. py:attribute:: _size
+      :type: int
+      :value: 0
+
+      Tamaño del subárbol que cuelga de este nodo (número de nodos en el subárbol).
+
+   .. py:method:: left() -> Optional[BSTNode[T]]
+
+      *left()* recupera la referencia al nodo izquierdo del árbol. Si no existe retorna *None*.
+
+      :returns: referencia al nodo izquierdo del árbol si existe.
+      :rtype: Optional[BSTNode[T]]
 
 
+   .. py:method:: right() -> Optional[BSTNode[T]]
 
-.. py:class:: AVLNode
+      *right()* recupera la referencia al nodo derecho del árbol. Si no existe retorna *None*.
+
+      :returns: referencia al nodo derecho del árbol si existe.
+      :rtype: Optional[BSTNode[T]]
 
 
-   Bases: :py:obj:`BSTNode`, :py:obj:`Generic`\ [\ :py:obj:`DISClib.Utils.default.T`\ ]
+   .. py:method:: size() -> int
 
-   AVLNode _summary_
+      *size()* recupera el tamaño del subárbol que cuelga de este nodo.
 
-   :param BSTNode: _description_
-   :type BSTNode: _type_
-   :param Generic: _description_
-   :type Generic: _type_
-
-   .. py:attribute:: _next
-      :type: Optional[AVLNode[T]]
-
-      Referencia al siguiente nodo de la lista.
-
-   .. py:method:: next() -> Optional[AVLNode[T]]
+      :returns: tamaño del subárbol que cuelga de este nodo.
+      :rtype: int
 
 
 
@@ -102,19 +114,53 @@ Attributes
 
    Bases: :py:obj:`BSTNode`, :py:obj:`Generic`\ [\ :py:obj:`DISClib.Utils.default.T`\ ]
 
-   RBTNode _summary_
+   **RBTNode** representa un nodo de un árbol rojo-negro (RBT: Red-Black Tree), o un árbol rojo-negro orientados a la izquierda (LLRBT: Left-Leaning Red-Black Tree) que contiene la información del nodo (pareja llave-valor).
 
-   :param BSTNode: _description_
-   :type BSTNode: _type_
-   :param Generic: _description_
-   :type Generic: _type_
+   :param BSTNode: ADT base para implementar un nodo para un árbol binario de búsqueda.
+   :type BSTNode: dataclass
+   :param Generic: TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.
+   :type Generic: T
 
-   .. py:attribute:: _next
+   .. py:attribute:: _parent
       :type: Optional[RBTNode[T]]
 
-      Referencia al siguiente nodo de la lista.
+      Referencia al nodo padre del árbol.
 
-   .. py:method:: next() -> Optional[RBTNode[T]]
+   .. py:attribute:: _color
+      :type: int
+
+      Color del nodo, por defecto es rojo.
+
+   .. py:method:: parent() -> Optional[RBTNode[T]]
+
+      *parent()* recupera la referencia al nodo padre del árbol. Si no existe retorna *None*.
+
+      :returns: referencia al nodo padre del árbol si existe.
+      :rtype: Optional[RBTNode[T]]
+
+
+   .. py:method:: color() -> int
+
+      *color()* recupera el color del nodo.
+
+      :returns: color del nodo.
+      :rtype: int
+
+
+   .. py:method:: set_color(color: int) -> None
+
+      *set_color()* establece el color del nodo.
+
+      :param color: color del nodo.
+      :type color: int
+
+
+   .. py:method:: is_red() -> bool
+
+      *is_red()* informa si el nodo es rojo.
+
+      :returns: True si el nodo es rojo, False de lo contrario.
+      :rtype: bool
 
 
 
@@ -123,105 +169,67 @@ Attributes
 
    Bases: :py:obj:`BSTNode`, :py:obj:`Generic`\ [\ :py:obj:`DISClib.Utils.default.T`\ ]
 
-   KDTNode _summary_
+   **KDTreeNode** representa un nodo de un árbol k-dimensionales o K-d Tree. Basada en el ADT *BSTNode* que contiene la información del nodo (pareja llave-valor).
 
-   :param BSTNode: _description_
-   :type BSTNode: _type_
-   :param Generic: _description_
-   :type Generic: _type_
+   :param BSTNode: ADT base para implementar un nodo para un árbol binario de búsqueda.
+   :type BSTNode: dataclass
+   :param Generic: TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.
+   :type Generic: T
 
-   .. py:attribute:: _next
-      :type: Optional[KDTNode[T]]
+   .. py:attribute:: split_dim
+      :type: Optional[int]
 
-      Referencia al siguiente nodo de la lista.
+      Dimensión para dividir el nodo (si es *None*, dividir en la dimensión más grande).
 
-   .. py:method:: next() -> Optional[KDTNode[T]]
+   .. py:method:: get_dimension() -> Optional[int]
 
+      *get_dimension()* recupera la dimensión para dividir el nodo. Si no existe retorna *None*.
 
-
-.. py:function:: newNode(key, value, size)
-
-   Crea un nuevo nodo para un árbol binario y lo retorna
-   :param value: El valor asociado a la llave
-   :param key: la llave asociada a la pareja
-   :param size: El tamaño del subarbol que cuelga de este nodo
-
-   :returns: Un nodo con la pareja <llave, valor>
-
-   :raises Exception:
+      :returns: dimensión para dividir el nodo si existe.
+      :rtype: Optional[int]
 
 
-.. py:function:: getValue(node)
 
-   Retorna el valor asociado a una pareja llave valor
-   :param node: El nodo con la pareja llave-valor
-
-   :returns: El valor almacenado en el nodo
-
-   :raises Exception:
+.. py:class:: AVLNode
 
 
-.. py:function:: getKey(node)
+   Bases: :py:obj:`BSTNode`, :py:obj:`Generic`\ [\ :py:obj:`DISClib.Utils.default.T`\ ]
 
-   Retorna la llave asociado a una pareja llave valor
-   :param node: El nodo con la pareja llave-valor
+   **AVLNode** representa un nodo de un árbol AVL (Adelson-Velsky & Landis Tree). Basada en el ADT *BSTNode* que contiene la información del nodo (pareja llave-valor).
 
-   :returns: La llave almacenada en el nodo
+   :param BSTNode: ADT base para implementar un nodo para un árbol binario de búsqueda.
+   :type BSTNode: dataclass
+   :param Generic: TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.
+   :type Generic: T
 
-   :raises Exception:
+   .. py:attribute:: _height
+      :type: int
+      :value: 0
 
+      Factor de balance de altura del nodo.
 
-.. py:data:: RED
-   :value: 0
+   .. py:method:: height() -> int
 
-   
+      *height()* recupera el factor de balance del nodo.
 
-.. py:data:: BLACK
-   :value: 1
-
-   
-
-.. py:function:: newNode(key, value, size, color)
-
-   Crea un nuevo nodo para un árbol rojo-negro  y lo retorna.
-   color:0 - rojo  color:1 - negro
-   :param value: El valor asociado a la llave
-   :param key: la llave asociada a la pareja
-   :param size: El tamaño del subarbol que cuelga de este nodo
-   :param color: El color inicial del nodo
-
-   :returns: Un nodo con la pareja <llave, valor>
-
-   :raises Exception:
+      :returns: factor de balance del nodo.
+      :rtype: int
 
 
-.. py:function:: isRed(node)
+   .. py:method:: left_height() -> int
 
-   Informa si un nodo es rojo
-   :param node: El nodo a revisar
+      *left_height()* recupera la altura del subárbol izquierdo del nodo.
 
-   :returns: True si el nodo es rojo, False de lo contrario
-
-   :raises Exception:
+      :returns: altura del subárbol izquierdo del nodo.
+      :rtype: int
 
 
-.. py:function:: getValue(node)
+   .. py:method:: right_height() -> int
 
-   Retorna el valor asociado a una pareja llave valor
-   :param node: El nodo con la pareja llave-valor
+      *right_height()* recupera la altura del subárbol derecho del nodo.
 
-   :returns: El valor almacenado en el nodo
+      :returns: altura del subárbol derecho del nodo.
+      :rtype: int
 
-   :raises Exception:
-
-
-.. py:function:: getKey(node)
-
-   Retorna la llave asociado a una pareja llave valor
-   :param node: El nodo con la pareja llave-valor
-
-   :returns: La llave almacenada en el nodo
-
-   :raises Exception:
 
 

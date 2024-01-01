@@ -167,7 +167,8 @@ if __name__ == "__main__":
     bb = bb.concat(bbb)
     print(bb)
 
-    aaaa = clone_lt(bb)
+    aaaa = clone_lt(sub)
+    print("-------------------")
     print(aaaa)
     print(trans)
 

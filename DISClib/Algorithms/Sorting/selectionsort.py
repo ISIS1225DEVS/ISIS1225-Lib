@@ -1,56 +1,70 @@
 """
- * Copyright 2020, Departamento de sistemas y Computación,
- *  Universidad de Los Andes
- *
- *
- * Desarrolado para el curso ISIS1225 - Estructuras de Datos y Algoritmos
- *
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- * Contribución de:
- *
- * Dario Correal
- *
- """
+Este módulo contiene la implementación del algoritmo de ordenamiento por selección (selection sort). El algoritmo puede aplicarse a cualquier secuencia de elementos que puedan ser comparados entre sí como los ADT *List* y sus estructuras especificas *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* y *Stack*
 
-from DISClib.ADT import lists as lt
+*IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:
 
-"""
-  Los algoritmos de este libro están basados en la implementación
-  propuesta por R.Sedgewick y Kevin Wayne en su libro
-  Algorithms, 4th Edition
+    #. Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.
+    #. Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H. Goldwasser.
 """
 
-# FIXME: pasar a snake_case de python
-# FIXME: cambiar pruebas unitarias de acuerdo a los cambios realizados
-# TODO: tipar datos de entrada y salida de cada funcion
-# TODO: agregar manejo de excepciones a la funcion
-# TODO agregar descricion del algoritmo en cada funcion
+# native python modules
+# import modules for defining the list types
+from typing import Union, Callable
+# import inspect for getting the name of the current function
+import inspect
+
+# custom modules
+from DISClib.DataStructures.arraylist import ArrayList
+from DISClib.DataStructures.singlelinkedlist import SingleLinked
+from DISClib.DataStructures.doublelinkedlist import DoubleLinked
+# generic error handling and type checking
+from DISClib.Utils.error import error_handler
+from DISClib.Utils.default import T
+
+# checking custom modules
+assert error_handler
+assert T
+
+# sort available list types
+# :arg: LT: list type
+LT = Union[ArrayList, SingleLinked, DoubleLinked]
+"""
+Lista de tipos de estructuras que se pueden ordenar por el algoritmo de ordenamiento (ADT *List* y sus estructuras especificas *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* y *Stack*)
+"""
 
 
-def sort(lst, sort_crit):
-    size = lt.size(lst)
-    pos1 = 1
-    while pos1 < size:
-        minimum = pos1    # minimun tiene el menor elemento
-        pos2 = pos1 + 1
-        while (pos2 <= size):
-            if (sort_crit(lt.getElement(lst, pos2),
-               (lt.getElement(lst, minimum)))):
-                minimum = pos2  # minimum = posición elemento más pequeño
-            pos2 += 1
-        lt.exchange(lst, pos1, minimum)  # elemento más pequeño -> elem pos1
-        pos1 += 1
-    return lst
+# TODO alternative function name: selection_sort
+def sort(lst: LT, sort_crit: Callable[[T, T], bool]) -> LT:
+    """
+    Ordena una lista de elementos utilizando el algoritmo de ordenamiento por selección (selection sort).
+
+    Args:
+        lst (LT): La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*.
+        sort_crit (Callable[[T, T], bool]): Es una función definida por el usuario que representa el criterio de ordenamiento. Recibe dos elementos pertenecientes al ADT **List** y retorna *True* si el primer elemento es menor que el segundo elemento, y *False* en caso contrario.
+
+    Returns:
+        LT: La lista ordenada.
+    """
+    try:
+        lt_size = lst.size()    # tamaño de la lista
+        i = 0                # indice del elemento actual
+        while i < lt_size:
+            # posicion del elemento mas pequeño
+            min_idx = i
+            j = i + 1
+            while j < lt_size:
+                # si encuentra un elemento mas pequeño
+                if sort_crit(lst.get_element(j), lst.get_element(min_idx)):
+                    # actualiza la posicion del elemento mas pequeño
+                    min_idx = j
+                j += 1
+            # actualiza la posicion del elemento mas pequeño
+            lst.exchange(i, min_idx)
+            i += 1
+        return lst
+    except Exception as err:
+        # get current module and function name
+        cur_context = __name__.split(".")[-1]
+        cur_function = inspect.currentframe().f_code.co_name
+        # handle the error
+        error_handler(cur_context, cur_function, err)

@@ -1,63 +1,74 @@
 """
- * Copyright 2020, Departamento de sistemas y Computación,
- * Universidad de Los Andes
- *
- *
- * Desarrolado para el curso ISIS1225 - Estructuras de Datos y Algoritmos
- *
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- * Contribución de:
- *
- * Dario Correal
- *
- """
+Este módulo contiene la implementación del algoritmo de ordenamiento por Shell (shell sort). El algoritmo puede aplicarse a cualquier secuencia de elementos que puedan ser comparados entre sí como los ADT *List* y sus estructuras especificas *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* y *Stack*
 
+*IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:
 
-from DISClib.ADT import lists as lt
-
-"""
-Implementación del algoritmo shellsort, basado en
-la propuesta de Robert Sedgewick
-
-Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne
-
-Se utiliza la secuencia de incrementos 3x+1: 1, 4, 13, 40, 121, 364, 1093,
-(D. Knuth)
-Sedgewick: 1,5,19,41,109,209,929,2161,...
+    #. Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.
+    #. Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H. Goldwasser.
+    # Se utiliza la secuencia de incrementos 3x+1: 1, 4, 13, 40, 121, 364, 109, (D. Knuth); Sedgewick: 1,5,19,41,109,209,929,2161,...
 """
 
-# FIXME: pasar a snake_case de python
-# FIXME: cambiar pruebas unitarias de acuerdo a los cambios realizados
-# TODO: tipar datos de entrada y salida de cada funcion
-# TODO: agregar manejo de excepciones a la funcion
-# TODO agregar descricion del algoritmo en cada funcion
+# native python modules
+# import modules for defining the list types
+from typing import Union, Callable
+# import inspect for getting the name of the current function
+import inspect
+
+# custom modules
+from DISClib.DataStructures.arraylist import ArrayList
+from DISClib.DataStructures.singlelinkedlist import SingleLinked
+from DISClib.DataStructures.doublelinkedlist import DoubleLinked
+# generic error handling and type checking
+from DISClib.Utils.error import error_handler
+from DISClib.Utils.default import T
+
+# checking custom modules
+assert error_handler
+assert T
+
+# sort available list types
+# :arg: LT: list type
+LT = Union[ArrayList, SingleLinked, DoubleLinked]
+"""
+Lista de tipos de estructuras que se pueden ordenar por el algoritmo de ordenamiento (ADT *List* y sus estructuras especificas *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* y *Stack*)
+"""
 
 
-def sort(lst, sort_crit):
-    n = lt.size(lst)
-    h = 1
-    while h < n/3:   # primer gap. La lista se h-ordena con este tamaño
-        h = 3*h + 1
-    while (h >= 1):
-        for i in range(h, n):
-            j = i
-            while (j >= h) and sort_crit(
-                                lt.getElement(lst, j+1),
-                                lt.getElement(lst, j-h+1)):
-                lt.exchange(lst, j+1, j-h+1)
-                j -= h
-        h //= 3    # h se decrementa en un tercio
-    return lst
+# TODO alternative function name: shell_sort
+def sort(lst: LT, sort_crit: Callable[[T, T], bool]) -> LT:
+    """
+    Ordena una lista de elementos utilizando el algoritmo de ordenamiento Shell (shell sort).
+
+    Args:
+        lst (LT): La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*.
+        sort_crit (Callable[[T, T], bool]): Es una función definida por el usuario que representa el criterio de ordenamiento. Recibe dos elementos pertenecientes al ADT **List** y retorna *True* si el primer elemento es menor que el segundo elemento, y *False* en caso contrario.
+
+    Returns:
+        LT: La lista ordenada.
+    """
+    try:
+        n = lst.size()  # tamaño de la lista
+        h = 1   # gap inicial en 1
+        while h < (n / 3):
+            h = (3 * h) + 1    # secuencia de incrementos 3x+1
+
+        # mientras el gap sea mayor o igual a 1
+        while h >= 1:
+            # itera sobre el rango entre la posicion del gap y el tamaño de la lista
+            for i in range(h, n):
+                j = i   # indice del elemento actual
+                # mientras el indice sea mayor o igual al gap y el elemento actual sea menor que el elemento en la posicion j-gap
+                while j >= h and sort_crit(lst.get_element(j),
+                                           lst.get_element(j - h)):
+                    # intercambiar los elementos
+                    lst.exchange(j, j - h)
+                    j -= h
+            # reducir el gap en un tercio
+            h //= 3
+        return lst
+    except Exception as err:
+        # get current module and function name
+        cur_context = __name__.split(".")[-1]
+        cur_function = inspect.currentframe().f_code.co_name
+        # handle the error
+        error_handler(cur_context, cur_function, err)

@@ -15,6 +15,13 @@ import importlib
 # :param STRUCT_PGK_PATH
 STRUCT_PGK_PATH: str = "DISClib.DataStructures"
 """
+Ruta relativa del paquete principal para las estructuras de datos.
+"""
+
+# main package ADT path
+# :param ADT_PGK_PATH
+ADT_PGK_PATH: str = "DISClib.ADT"
+"""
 Ruta relativa del paquete principal para crear los ADTs.
 """
 

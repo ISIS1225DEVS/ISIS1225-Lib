@@ -125,28 +125,16 @@ class ArrayList(Generic[T]):
         error_handler(cur_context, cur_function, err)
 
     def _check_type(self, element: T) -> bool:
-        """_check_type _summary_
-
-        Args:
-            element (T): _description_
-
-        Raises:
-            TypeError: _description_
-
-        Returns:
-            bool: _description_
-        """
-        
         """*_check_type()* función propia de la estructura que revisa si el tipo de dato del elemento que se desea agregar al *ArrayList* es del mismo tipo contenido dentro de los elementos del *ArrayList*.
 
         Args:
             element (T): elemento que se desea procesar en *ArrayList*.
 
-        Raises:
-            TypeError: error si el tipo de dato del elemento que se desea agregar no es el mismo que el tipo de dato de los elementos que ya contiene el *ArrayList*.
-
         Returns:
             bool: operador que indica si el ADT *ArrayList* es del mismo tipo que el elemento que se desea procesar.
+
+        Raises:
+            TypeError: error si el tipo de dato del elemento que se desea agregar no es el mismo que el tipo de dato de los elementos que ya contiene el *ArrayList*.
         """
         # TODO check usability of this function
         # if the structure is not empty, check the first element type

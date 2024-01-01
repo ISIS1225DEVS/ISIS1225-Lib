@@ -285,7 +285,6 @@
 <span class="sd">    *Nota:* la función MAD es: *h(k) = ((a*k + b) mod P) mod M*, donde *a* y *b* son números enteros aleatorios, *P* es un número primo y *M* es la capacidad de la tabla de hash.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="c1"># TODO create a MAD class to handle the compression function?</span>
     <span class="c1"># private scale (a) factor for the mad compression function</span>
     <span class="c1"># :attr: _scale</span>
 <div class="viewcode-block" id="SeparateChaining._scale">
@@ -738,7 +737,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">keys_lt</span> <span class="o">=</span> <span class="n">SingleLinked</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
-            <span class="c1"># FIXME improve with SingleLinked concat() method?</span>
+            <span class="c1"># TODO improve with SingleLinked concat() method?</span>
             <span class="k">for</span> <span class="n">bucket</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="p">:</span>
                 <span class="k">if</span> <span class="ow">not</span> <span class="n">bucket</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
                     <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">bucket</span><span class="p">:</span>
@@ -758,7 +757,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">values_lt</span> <span class="o">=</span> <span class="n">SingleLinked</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
-            <span class="c1"># FIXME improve with SingleLinked concat() method?</span>
+            <span class="c1"># TODO improve with SingleLinked concat() method?</span>
             <span class="k">for</span> <span class="n">bucket</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="p">:</span>
                 <span class="k">if</span> <span class="ow">not</span> <span class="n">bucket</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
                     <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">bucket</span><span class="p">:</span>
@@ -778,7 +777,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">entries_lt</span> <span class="o">=</span> <span class="n">SingleLinked</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
-            <span class="c1"># FIXME improve with SingleLinked concat() method?</span>
+            <span class="c1"># TODO improve with SingleLinked concat() method?</span>
             <span class="k">for</span> <span class="n">bucket</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">hash_table</span><span class="p">:</span>
                 <span class="k">if</span> <span class="ow">not</span> <span class="n">bucket</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
                     <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">bucket</span><span class="p">:</span>
@@ -808,7 +807,6 @@
                 <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cur_alpha</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_alpha</span><span class="p">:</span>
                     <span class="n">new_capacity</span> <span class="o">=</span> <span class="n">next_prime</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
                 <span class="c1"># reducing the capacity</span>
-                <span class="c1"># TODO check if the reduced capacity is a good fit</span>
                 <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cur_alpha</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">min_alpha</span><span class="p">:</span>
                     <span class="n">new_capacity</span> <span class="o">=</span> <span class="n">next_prime</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
 

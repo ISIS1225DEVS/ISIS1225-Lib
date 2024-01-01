@@ -202,7 +202,6 @@
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cmp_function</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">cmp_function</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_cmp_function</span>
             <span class="c1"># if input data is iterable add them to the DoubleLinked</span>
-            <span class="c1"># TODO sometime strange weird in tests</span>
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">iodata</span><span class="p">,</span> <span class="n">VALID_IO_TYPE</span><span class="p">):</span>
                 <span class="k">for</span> <span class="n">elm</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">iodata</span><span class="p">:</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">elm</span><span class="p">)</span>
@@ -380,7 +379,6 @@
 <span class="sd">            IndexError: error si la posición es inválida.</span>
 <span class="sd">            IndexError: error si la estructura está vacía.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># TODO change the method name to &quot;add_elm()&quot;?</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
                 <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_type</span><span class="p">(</span><span class="n">element</span><span class="p">):</span>
@@ -473,7 +471,6 @@
 <span class="sd">        Returns:</span>
 <span class="sd">             Optional[T]: el elemento en la posición especifica del *DoubleLinked*.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># TODO change the method name to &quot;get_elm()&quot;?</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">info</span> <span class="o">=</span> <span class="kc">None</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
@@ -578,7 +575,6 @@
 <span class="sd">        Returns:</span>
 <span class="sd">            Optional[T]: el elemento eliminado del *DoubleLinked*.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># TODO change the method name to &quot;remove_elm()&quot;?</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">info</span> <span class="o">=</span> <span class="kc">None</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>

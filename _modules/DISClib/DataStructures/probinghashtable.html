@@ -160,7 +160,6 @@
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="c1"># :data: EMPTY</span>
-<span class="c1"># TODO check if this is the best way to handle empty entries</span>
 <div class="viewcode-block" id="EMPTY">
 <a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.probinghashtable.EMPTY">[documentos]</a>
 <span class="n">EMPTY</span> <span class="o">=</span> <span class="s2">&quot;__EMPTY__&quot;</span></div>
@@ -279,7 +278,6 @@
 <span class="sd">    *Nota:* la función MAD es: *h(k) = ((a*k + b) mod P) mod M*, donde *a* y *b* son números enteros aleatorios, *P* es un número primo y *M* es la capacidad de la tabla de hash.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="c1"># TODO create a MAD class to handle the compression function?</span>
     <span class="c1"># private scale (a) factor for the mad compression function</span>
     <span class="c1"># :attr: _scale</span>
 <div class="viewcode-block" id="LinearProbing._scale">
@@ -374,7 +372,6 @@
     <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*__post_init__()* configura los parametros personalizados por el usuario al crear el *LinearProbing*. En caso de no estar definidos, se asignan los valores por defecto, puede cargar listas nativas con el parametro *iodata* de python dentro de la estructura.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># TODO check if this is the best way make the initialization</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="c1"># setting capacity</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span> <span class="o">=</span> <span class="n">next_prime</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nentries</span> <span class="o">//</span> <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span><span class="p">)</span>
@@ -400,7 +397,7 @@
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cur_alpha</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_cur_alpha</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span>
 
-            <span class="c1"># TODO check if this is the best way to initialize the structure</span>
+            <span class="c1"># TODO is the best way to create the structure???</span>
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">iodata</span><span class="p">,</span> <span class="n">VALID_IO_TYPE</span><span class="p">):</span>
                 <span class="c1"># get the type of the data in the list</span>
                 <span class="c1"># if is a dict, use the key type</span>
@@ -916,7 +913,6 @@
                 <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cur_alpha</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_alpha</span><span class="p">:</span>
                     <span class="n">new_capacity</span> <span class="o">=</span> <span class="n">next_prime</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
                 <span class="c1"># reducing the capacity</span>
-                <span class="c1"># TODO check if the reduced capacity is a good fit</span>
                 <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cur_alpha</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">min_alpha</span><span class="p">:</span>
                     <span class="n">new_capacity</span> <span class="o">=</span> <span class="n">next_prime</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mcapacity</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
 

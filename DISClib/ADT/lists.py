@@ -6,9 +6,6 @@ Este módulo implementa el tipo abstracto de datos (TAD) lista. Dinámicamente s
     #. Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.
     #. Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H. Goldwasser.
 """
-# native python modules
-import copy
-
 # custom modules
 # node class for the linked list
 from .dynamic import DynamicImporter
@@ -34,7 +31,6 @@ Referencia a los posibles módulos de implementación del ADT List. Pueden ser "
 """
 
 
-# TODO is this really factory pattern?
 def List(dstruct: str = "ArrayList", **kwargs) -> T:
     """*List()* Función dinámica que que retorna una instancia del ADT List según el tipo de estructura de datos seleccionada por el usuario.
 
@@ -54,7 +50,32 @@ def List(dstruct: str = "ArrayList", **kwargs) -> T:
         adt_instance = adt_list.get_instance()
         return adt_instance
     except Exception as exp:
-        err_msg = f"List type '{dstruct}' not found"
+        err_msg = f"'{dstruct}' List type not found"
+        err_msg += f" in {STRUCT_PGK_PATH}, "
+        err_msg += str(exp)
+        raise ValueError(err_msg)
+
+
+def clone_lt(og_lt: T) -> T:
+    """*clone()* copia una instancia del ADT List con una estructura de datos seleccionada.
+
+    Args:
+        og_lt (T): instancia del ADT *List* a copiar.
+
+    Returns:
+        T: copia independiente de la instancia del ADT *List*.
+    """
+    try:
+        og_dstruct = type(og_lt).__name__
+        cl_lt = List(dstruct=og_dstruct,
+                     cmp_function=og_lt.cmp_function,
+                     key=og_lt.key)
+        for data in og_lt:
+            cl_lt.add_last(data)
+        return cl_lt
+    except Exception as exp:
+        og_dstruct = type(og_lt).__name__
+        err_msg = f"Unable to clone List, '{og_dstruct}' type not found"
         err_msg += f" in {STRUCT_PGK_PATH}, "
         err_msg += str(exp)
         raise ValueError(err_msg)
@@ -75,6 +96,7 @@ def translate_lt(src_lt: T, tgt_dstruct: str = "SingleLinked") -> T:
     """
     # TODO add Queue and Stack to the ADT explicit allowed types
     try:
+        src_dstruct = type(src_lt).__name__
         tgt_lt = List(dstruct=tgt_dstruct,
                       cmp_function=src_lt.cmp_function,
                       key=src_lt.key)
@@ -82,20 +104,8 @@ def translate_lt(src_lt: T, tgt_dstruct: str = "SingleLinked") -> T:
             tgt_lt.add_last(elm)
         return tgt_lt
     except Exception as exp:
-        err_msg = f"List type '{tgt_dstruct}' not found"
+        err_msg = f"Unable to translate List '{src_dstruct}', "
+        err_msg += f"'{tgt_dstruct}' List type not found"
         err_msg += f" in {STRUCT_PGK_PATH}, "
         err_msg += str(exp)
         raise ValueError(err_msg)
-
-
-def clone_lt(dstruct: T) -> T:
-    """*clone()* copia una instancia del ADT List con una estructura de datos seleccionada.
-
-    Args:
-        dstruct (T): instancia del ADT List a copiar.
-
-    Returns:
-        T: copia independiente de la instancia del ADT List.
-    """
-    # TODO check if this works with deep copy
-    return copy.deepcopy(dstruct)

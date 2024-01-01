@@ -10,6 +10,8 @@ Submodules
    :titlesonly:
    :maxdepth: 1
 
+   bogosort/index.rst
+   heapsort/index.rst
    insertionsort/index.rst
    mergesort/index.rst
    quicksort/index.rst

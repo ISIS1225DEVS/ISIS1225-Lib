@@ -105,36 +105,40 @@
 </section>
 <section id="module-DISClib.Algorithms.Sorting.insertionsort">
 <span id="disclib-algorithms-sorting-insertionsort-module"></span><h2>DISClib.Algorithms.Sorting.insertionsort module<a class="headerlink" href="#module-DISClib.Algorithms.Sorting.insertionsort" title="Link to this heading"></a></h2>
-<ul class="simple">
-<li><p>Copyright 2020, Departamento de sistemas y Computación,</p></li>
-<li><p>Universidad de Los Andes</p></li>
-<li></li>
-<li></li>
-<li><p>Desarrolado para el curso ISIS1225 - Estructuras de Datos y Algoritmos</p></li>
-<li></li>
-<li></li>
-<li><p>This program is free software: you can redistribute it and/or modify</p></li>
-<li><p>it under the terms of the GNU General Public License as published by</p></li>
-<li><p>the Free Software Foundation, either version 3 of the License, or</p></li>
-<li><p>(at your option) any later version.</p></li>
-<li></li>
-<li><p>This program is distributed in the hope that it will be useful,</p></li>
-<li><p>but WITHOUT ANY WARRANTY; without even the implied warranty of</p></li>
-<li><p>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</p></li>
-<li><p>GNU General Public License for more details.</p></li>
-<li></li>
-<li><p>You should have received a copy of the GNU General Public License</p></li>
-<li><p>along with this program.  If not, see &lt;<a class="reference external" href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</p></li>
-<li></li>
-<li><p>Contribución de:</p></li>
-<li></li>
-<li><p>Dario Correal</p></li>
-<li></li>
-</ul>
+<p>Este módulo contiene la implementación del algoritmo de ordenamiento por inserción (insertion sort). El algoritmo puede aplicarse a cualquier secuencia de elementos que puedan ser comparados entre sí como los ADT <em>List</em> y sus estructuras especificas <em>ArrayList</em>, <em>LinkedList</em>, <em>DoubleLinkedList</em>, <em>Queue</em> y <em>Stack</em></p>
+<p><em>IMPORTANTE:</em> Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.</p></li>
+<li><p>Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H. Goldwasser.</p></li>
+</ol>
+</div></blockquote>
+<dl class="py data">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Sorting.insertionsort.LT">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Sorting.insertionsort.</span></span><span class="sig-name descname"><span class="pre">LT</span></span><a class="reference internal" href="_modules/DISClib/Algorithms/Sorting/insertionsort.html#LT"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Sorting.insertionsort.LT" title="Link to this definition"></a></dt>
+<dd><p>Lista de tipos de estructuras que se pueden ordenar por el algoritmo de ordenamiento (ADT <em>List</em> y sus estructuras especificas <em>ArrayList</em>, <em>LinkedList</em>, <em>DoubleLinkedList</em>, <em>Queue</em> y <em>Stack</em>)</p>
+<p>alias de <code class="xref py py-obj docutils literal notranslate"><span class="pre">Union</span></code>[<a class="reference internal" href="autoapi/DISClib/DataStructures/arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList" title="DISClib.DataStructures.arraylist.ArrayList"><code class="xref py py-class docutils literal notranslate"><span class="pre">ArrayList</span></code></a>, <a class="reference internal" href="autoapi/DISClib/DataStructures/singlelinkedlist/index.html#DISClib.DataStructures.singlelinkedlist.SingleLinked" title="DISClib.DataStructures.singlelinkedlist.SingleLinked"><code class="xref py py-class docutils literal notranslate"><span class="pre">SingleLinked</span></code></a>, <a class="reference internal" href="autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked" title="DISClib.DataStructures.doublelinkedlist.DoubleLinked"><code class="xref py py-class docutils literal notranslate"><span class="pre">DoubleLinked</span></code></a>]</p>
+</dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="DISClib.Algorithms.Sorting.insertionsort.sort">
-<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Sorting.insertionsort.</span></span><span class="sig-name descname"><span class="pre">sort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_crit</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/Algorithms/Sorting/insertionsort.html#sort"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Sorting.insertionsort.sort" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Sorting.insertionsort.</span></span><span class="sig-name descname"><span class="pre">sort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="autoapi/DISClib/DataStructures/arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList" title="DISClib.DataStructures.arraylist.ArrayList"><span class="pre">ArrayList</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="autoapi/DISClib/DataStructures/singlelinkedlist/index.html#DISClib.DataStructures.singlelinkedlist.SingleLinked" title="DISClib.DataStructures.singlelinkedlist.SingleLinked"><span class="pre">SingleLinked</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked" title="DISClib.DataStructures.doublelinkedlist.DoubleLinked"><span class="pre">DoubleLinked</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_crit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="autoapi/DISClib/DataStructures/arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList" title="DISClib.DataStructures.arraylist.ArrayList"><span class="pre">ArrayList</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="autoapi/DISClib/DataStructures/singlelinkedlist/index.html#DISClib.DataStructures.singlelinkedlist.SingleLinked" title="DISClib.DataStructures.singlelinkedlist.SingleLinked"><span class="pre">SingleLinked</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked" title="DISClib.DataStructures.doublelinkedlist.DoubleLinked"><span class="pre">DoubleLinked</span></a></span></span><a class="reference internal" href="_modules/DISClib/Algorithms/Sorting/insertionsort.html#sort"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Sorting.insertionsort.sort" title="Link to this definition"></a></dt>
+<dd><p>Ordena una lista de elementos utilizando el algoritmo de ordenamiento por inserción (insertion sort).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lst</strong> (<em>LT</em>) – La lista a ordenar. Puede ser <em>ArrayList</em>, <em>LinkedList</em>, <em>DoubleLinkedList</em>, <em>Queue</em> o <em>Stack</em>.</p></li>
+<li><p><strong>sort_crit</strong> (<em>Callable</em><em>[</em><em>[</em><em>T</em><em>, </em><em>T</em><em>]</em><em>, </em><em>bool</em><em>]</em>) – Es una función definida por el usuario que representa el criterio de ordenamiento. Recibe dos elementos pertenecientes al ADT <strong>List</strong> y retorna <em>True</em> si el primer elemento es menor que el segundo elemento, y <em>False</em> en caso contrario.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>La lista ordenada.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>LT</p>
+</dd>
+</dl>
+</dd></dl>
 
 </section>
 <section id="module-DISClib.Algorithms.Sorting.mergesort">
@@ -223,70 +227,79 @@ y los elementos a la derecha del pivot</p>
 </section>
 <section id="module-DISClib.Algorithms.Sorting.selectionsort">
 <span id="disclib-algorithms-sorting-selectionsort-module"></span><h2>DISClib.Algorithms.Sorting.selectionsort module<a class="headerlink" href="#module-DISClib.Algorithms.Sorting.selectionsort" title="Link to this heading"></a></h2>
-<ul class="simple">
-<li><p>Copyright 2020, Departamento de sistemas y Computación,</p></li>
-<li><p>Universidad de Los Andes</p></li>
-<li></li>
-<li></li>
-<li><p>Desarrolado para el curso ISIS1225 - Estructuras de Datos y Algoritmos</p></li>
-<li></li>
-<li></li>
-<li><p>This program is free software: you can redistribute it and/or modify</p></li>
-<li><p>it under the terms of the GNU General Public License as published by</p></li>
-<li><p>the Free Software Foundation, either version 3 of the License, or</p></li>
-<li><p>(at your option) any later version.</p></li>
-<li></li>
-<li><p>This program is distributed in the hope that it will be useful,</p></li>
-<li><p>but WITHOUT ANY WARRANTY; without even the implied warranty of</p></li>
-<li><p>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</p></li>
-<li><p>GNU General Public License for more details.</p></li>
-<li></li>
-<li><p>You should have received a copy of the GNU General Public License</p></li>
-<li><p>along with this program.  If not, see &lt;<a class="reference external" href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</p></li>
-<li></li>
-<li><p>Contribución de:</p></li>
-<li></li>
-<li><p>Dario Correal</p></li>
-<li></li>
-</ul>
+<p>Este módulo contiene la implementación del algoritmo de ordenamiento por selección (selection sort). El algoritmo puede aplicarse a cualquier secuencia de elementos que puedan ser comparados entre sí como los ADT <em>List</em> y sus estructuras especificas <em>ArrayList</em>, <em>LinkedList</em>, <em>DoubleLinkedList</em>, <em>Queue</em> y <em>Stack</em></p>
+<p><em>IMPORTANTE:</em> Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.</p></li>
+<li><p>Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H. Goldwasser.</p></li>
+</ol>
+</div></blockquote>
+<dl class="py data">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Sorting.selectionsort.LT">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Sorting.selectionsort.</span></span><span class="sig-name descname"><span class="pre">LT</span></span><a class="reference internal" href="_modules/DISClib/Algorithms/Sorting/selectionsort.html#LT"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Sorting.selectionsort.LT" title="Link to this definition"></a></dt>
+<dd><p>Lista de tipos de estructuras que se pueden ordenar por el algoritmo de ordenamiento (ADT <em>List</em> y sus estructuras especificas <em>ArrayList</em>, <em>LinkedList</em>, <em>DoubleLinkedList</em>, <em>Queue</em> y <em>Stack</em>)</p>
+<p>alias de <code class="xref py py-obj docutils literal notranslate"><span class="pre">Union</span></code>[<a class="reference internal" href="autoapi/DISClib/DataStructures/arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList" title="DISClib.DataStructures.arraylist.ArrayList"><code class="xref py py-class docutils literal notranslate"><span class="pre">ArrayList</span></code></a>, <a class="reference internal" href="autoapi/DISClib/DataStructures/singlelinkedlist/index.html#DISClib.DataStructures.singlelinkedlist.SingleLinked" title="DISClib.DataStructures.singlelinkedlist.SingleLinked"><code class="xref py py-class docutils literal notranslate"><span class="pre">SingleLinked</span></code></a>, <a class="reference internal" href="autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked" title="DISClib.DataStructures.doublelinkedlist.DoubleLinked"><code class="xref py py-class docutils literal notranslate"><span class="pre">DoubleLinked</span></code></a>]</p>
+</dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="DISClib.Algorithms.Sorting.selectionsort.sort">
-<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Sorting.selectionsort.</span></span><span class="sig-name descname"><span class="pre">sort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_crit</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/Algorithms/Sorting/selectionsort.html#sort"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Sorting.selectionsort.sort" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Sorting.selectionsort.</span></span><span class="sig-name descname"><span class="pre">sort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="autoapi/DISClib/DataStructures/arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList" title="DISClib.DataStructures.arraylist.ArrayList"><span class="pre">ArrayList</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="autoapi/DISClib/DataStructures/singlelinkedlist/index.html#DISClib.DataStructures.singlelinkedlist.SingleLinked" title="DISClib.DataStructures.singlelinkedlist.SingleLinked"><span class="pre">SingleLinked</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked" title="DISClib.DataStructures.doublelinkedlist.DoubleLinked"><span class="pre">DoubleLinked</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_crit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="autoapi/DISClib/DataStructures/arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList" title="DISClib.DataStructures.arraylist.ArrayList"><span class="pre">ArrayList</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="autoapi/DISClib/DataStructures/singlelinkedlist/index.html#DISClib.DataStructures.singlelinkedlist.SingleLinked" title="DISClib.DataStructures.singlelinkedlist.SingleLinked"><span class="pre">SingleLinked</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked" title="DISClib.DataStructures.doublelinkedlist.DoubleLinked"><span class="pre">DoubleLinked</span></a></span></span><a class="reference internal" href="_modules/DISClib/Algorithms/Sorting/selectionsort.html#sort"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Sorting.selectionsort.sort" title="Link to this definition"></a></dt>
+<dd><p>Ordena una lista de elementos utilizando el algoritmo de ordenamiento por selección (selection sort).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lst</strong> (<em>LT</em>) – La lista a ordenar. Puede ser <em>ArrayList</em>, <em>LinkedList</em>, <em>DoubleLinkedList</em>, <em>Queue</em> o <em>Stack</em>.</p></li>
+<li><p><strong>sort_crit</strong> (<em>Callable</em><em>[</em><em>[</em><em>T</em><em>, </em><em>T</em><em>]</em><em>, </em><em>bool</em><em>]</em>) – Es una función definida por el usuario que representa el criterio de ordenamiento. Recibe dos elementos pertenecientes al ADT <strong>List</strong> y retorna <em>True</em> si el primer elemento es menor que el segundo elemento, y <em>False</em> en caso contrario.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>La lista ordenada.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>LT</p>
+</dd>
+</dl>
+</dd></dl>
 
 </section>
 <section id="module-DISClib.Algorithms.Sorting.shellsort">
 <span id="disclib-algorithms-sorting-shellsort-module"></span><h2>DISClib.Algorithms.Sorting.shellsort module<a class="headerlink" href="#module-DISClib.Algorithms.Sorting.shellsort" title="Link to this heading"></a></h2>
-<ul class="simple">
-<li><p>Copyright 2020, Departamento de sistemas y Computación,</p></li>
-<li><p>Universidad de Los Andes</p></li>
-<li></li>
-<li></li>
-<li><p>Desarrolado para el curso ISIS1225 - Estructuras de Datos y Algoritmos</p></li>
-<li></li>
-<li></li>
-<li><p>This program is free software: you can redistribute it and/or modify</p></li>
-<li><p>it under the terms of the GNU General Public License as published by</p></li>
-<li><p>the Free Software Foundation, either version 3 of the License, or</p></li>
-<li><p>(at your option) any later version.</p></li>
-<li></li>
-<li><p>This program is distributed in the hope that it will be useful,</p></li>
-<li><p>but WITHOUT ANY WARRANTY; without even the implied warranty of</p></li>
-<li><p>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</p></li>
-<li><p>GNU General Public License for more details.</p></li>
-<li></li>
-<li><p>You should have received a copy of the GNU General Public License</p></li>
-<li><p>along with this program.  If not, see &lt;<a class="reference external" href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</p></li>
-<li></li>
-<li><p>Contribución de:</p></li>
-<li></li>
-<li><p>Dario Correal</p></li>
-<li></li>
-</ul>
+<p>Este módulo contiene la implementación del algoritmo de ordenamiento por Shell (shell sort). El algoritmo puede aplicarse a cualquier secuencia de elementos que puedan ser comparados entre sí como los ADT <em>List</em> y sus estructuras especificas <em>ArrayList</em>, <em>LinkedList</em>, <em>DoubleLinkedList</em>, <em>Queue</em> y <em>Stack</em></p>
+<p><em>IMPORTANTE:</em> Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.</p></li>
+</ol>
+<p>#. Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H. Goldwasser.
+# Se utiliza la secuencia de incrementos 3x+1: 1, 4, 13, 40, 121, 364, 109, (D. Knuth); Sedgewick: 1,5,19,41,109,209,929,2161,…</p>
+</div></blockquote>
+<dl class="py data">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Sorting.shellsort.LT">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Sorting.shellsort.</span></span><span class="sig-name descname"><span class="pre">LT</span></span><a class="reference internal" href="_modules/DISClib/Algorithms/Sorting/shellsort.html#LT"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Sorting.shellsort.LT" title="Link to this definition"></a></dt>
+<dd><p>Lista de tipos de estructuras que se pueden ordenar por el algoritmo de ordenamiento (ADT <em>List</em> y sus estructuras especificas <em>ArrayList</em>, <em>LinkedList</em>, <em>DoubleLinkedList</em>, <em>Queue</em> y <em>Stack</em>)</p>
+<p>alias de <code class="xref py py-obj docutils literal notranslate"><span class="pre">Union</span></code>[<a class="reference internal" href="autoapi/DISClib/DataStructures/arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList" title="DISClib.DataStructures.arraylist.ArrayList"><code class="xref py py-class docutils literal notranslate"><span class="pre">ArrayList</span></code></a>, <a class="reference internal" href="autoapi/DISClib/DataStructures/singlelinkedlist/index.html#DISClib.DataStructures.singlelinkedlist.SingleLinked" title="DISClib.DataStructures.singlelinkedlist.SingleLinked"><code class="xref py py-class docutils literal notranslate"><span class="pre">SingleLinked</span></code></a>, <a class="reference internal" href="autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked" title="DISClib.DataStructures.doublelinkedlist.DoubleLinked"><code class="xref py py-class docutils literal notranslate"><span class="pre">DoubleLinked</span></code></a>]</p>
+</dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="DISClib.Algorithms.Sorting.shellsort.sort">
-<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Sorting.shellsort.</span></span><span class="sig-name descname"><span class="pre">sort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_crit</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/Algorithms/Sorting/shellsort.html#sort"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Sorting.shellsort.sort" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Sorting.shellsort.</span></span><span class="sig-name descname"><span class="pre">sort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="autoapi/DISClib/DataStructures/arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList" title="DISClib.DataStructures.arraylist.ArrayList"><span class="pre">ArrayList</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="autoapi/DISClib/DataStructures/singlelinkedlist/index.html#DISClib.DataStructures.singlelinkedlist.SingleLinked" title="DISClib.DataStructures.singlelinkedlist.SingleLinked"><span class="pre">SingleLinked</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked" title="DISClib.DataStructures.doublelinkedlist.DoubleLinked"><span class="pre">DoubleLinked</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_crit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="autoapi/DISClib/DataStructures/arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList" title="DISClib.DataStructures.arraylist.ArrayList"><span class="pre">ArrayList</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="autoapi/DISClib/DataStructures/singlelinkedlist/index.html#DISClib.DataStructures.singlelinkedlist.SingleLinked" title="DISClib.DataStructures.singlelinkedlist.SingleLinked"><span class="pre">SingleLinked</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked" title="DISClib.DataStructures.doublelinkedlist.DoubleLinked"><span class="pre">DoubleLinked</span></a></span></span><a class="reference internal" href="_modules/DISClib/Algorithms/Sorting/shellsort.html#sort"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Sorting.shellsort.sort" title="Link to this definition"></a></dt>
+<dd><p>Ordena una lista de elementos utilizando el algoritmo de ordenamiento Shell (shell sort).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lst</strong> (<em>LT</em>) – La lista a ordenar. Puede ser <em>ArrayList</em>, <em>LinkedList</em>, <em>DoubleLinkedList</em>, <em>Queue</em> o <em>Stack</em>.</p></li>
+<li><p><strong>sort_crit</strong> (<em>Callable</em><em>[</em><em>[</em><em>T</em><em>, </em><em>T</em><em>]</em><em>, </em><em>bool</em><em>]</em>) – Es una función definida por el usuario que representa el criterio de ordenamiento. Recibe dos elementos pertenecientes al ADT <strong>List</strong> y retorna <em>True</em> si el primer elemento es menor que el segundo elemento, y <em>False</em> en caso contrario.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>La lista ordenada.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>LT</p>
+</dd>
+</dl>
+</dd></dl>
 
 </section>
 <section id="module-DISClib.Algorithms.Sorting">

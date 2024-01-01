@@ -1,0 +1,97 @@
+:py:mod:`DISClib.Algorithms.Sorting.heapsort`
+=============================================
+
+.. py:module:: DISClib.Algorithms.Sorting.heapsort
+
+.. autoapi-nested-parse::
+
+   * Copyright 2022, Departamento de sistemas y Computación,
+   * Universidad de Los Andes
+   *
+   *
+   * Desarrolado para el curso ISIS1225 - Estructuras de Datos y Algoritmos
+   *
+   *
+   * This program is free software: you can redistribute it and/or modify
+   * it under the terms of the GNU General Public License as published by
+   * the Free Software Foundation, either version 3 of the License, or
+   * (at your option) any later version.
+   *
+   * This program is distributed in the hope that it will be useful,
+   * but WITHOUT ANY WARRANTY; without even the implied warranty of
+   * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   * GNU General Public License for more details.
+   *
+   * You should have received a copy of the GNU General Public License
+   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+   *
+   * Contribución de:
+   *
+   * Jhostin Sánchez
+   *
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   DISClib.Algorithms.Sorting.heapsort.upHeap
+   DISClib.Algorithms.Sorting.heapsort.maxPQ
+   DISClib.Algorithms.Sorting.heapsort.minPQ
+   DISClib.Algorithms.Sorting.heapsort.heapSort
+
+
+
+.. py:function:: upHeap(heap, pos, end)
+
+   Mete el elemento en la posición correcta, compara los hijos y si hay uno mayor que el padre
+   los intercambia
+
+   :param heap: Arbol en array
+   :type heap: ADT.HeapTree
+   :param pos: Posición del padre
+   :type pos: Int
+   :param end: Hasta donde se evalúa del arbol
+   :type end: Int
+
+   :raises Exception:
+
+
+.. py:function:: maxPQ(heap, n)
+
+   Se asegura de que la raíz es el elemento más grande en el Heap
+
+   :param heap: Arbol en array
+   :type heap: ADT.HeapTree
+   :param n: Elemento a colocar en la posición correcta
+   :type n: Int
+
+   :raises Exception:
+
+
+.. py:function:: minPQ(heap, n)
+
+   Intercambiamos la raíz con la última posición del árbol y colocamos la nueva raíz en la posición correcta
+
+   :param heap: Arbol en array
+   :type heap: ADT.HeapTree
+   :param n: Elemento a colocar en la posición correcta
+   :type n: Int
+
+   :raises Exception:
+
+
+.. py:function:: heapSort(heap: DISClib.DataStructures.heap.newHeap) -> None
+
+   Algoritmo de ordenamiento de Heapsort
+
+   :param heap: Arbol(ARRAY) a ordenar
+   :type heap: ADT.HeapTree
+
+

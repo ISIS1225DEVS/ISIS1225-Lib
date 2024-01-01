@@ -79,60 +79,78 @@
              
   <h1>Código fuente para DISClib.Algorithms.Sorting.insertionsort</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd"> * Copyright 2020, Departamento de sistemas y Computación,</span>
-<span class="sd"> * Universidad de Los Andes</span>
-<span class="sd"> *</span>
-<span class="sd"> *</span>
-<span class="sd"> * Desarrolado para el curso ISIS1225 - Estructuras de Datos y Algoritmos</span>
-<span class="sd"> *</span>
-<span class="sd"> *</span>
-<span class="sd"> * This program is free software: you can redistribute it and/or modify</span>
-<span class="sd"> * it under the terms of the GNU General Public License as published by</span>
-<span class="sd"> * the Free Software Foundation, either version 3 of the License, or</span>
-<span class="sd"> * (at your option) any later version.</span>
-<span class="sd"> *</span>
-<span class="sd"> * This program is distributed in the hope that it will be useful,</span>
-<span class="sd"> * but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
-<span class="sd"> * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
-<span class="sd"> * GNU General Public License for more details.</span>
-<span class="sd"> *</span>
-<span class="sd"> * You should have received a copy of the GNU General Public License</span>
-<span class="sd"> * along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
-<span class="sd"> *</span>
-<span class="sd"> * Contribución de:</span>
-<span class="sd"> *</span>
-<span class="sd"> * Dario Correal</span>
-<span class="sd"> *</span>
-<span class="sd"> &quot;&quot;&quot;</span>
+<span class="sd">Este módulo contiene la implementación del algoritmo de ordenamiento por inserción (insertion sort). El algoritmo puede aplicarse a cualquier secuencia de elementos que puedan ser comparados entre sí como los ADT *List* y sus estructuras especificas *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* y *Stack*</span>
 
-<span class="kn">from</span> <span class="nn">DISClib.ADT</span> <span class="kn">import</span> <span class="n">lists</span> <span class="k">as</span> <span class="n">lt</span>
+<span class="sd">*IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:</span>
 
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">  Los algoritmos de este libro están basados en la implementación</span>
-<span class="sd">  propuesta por R.Sedgewick y Kevin Wayne en su libro</span>
-<span class="sd">  Algorithms, 4th Edition</span>
+<span class="sd">    #. Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.</span>
+<span class="sd">    #. Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H. Goldwasser.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="c1"># FIXME: pasar a snake_case de python</span>
-<span class="c1"># FIXME: cambiar pruebas unitarias de acuerdo a los cambios realizados</span>
-<span class="c1"># TODO: tipar datos de entrada y salida de cada funcion</span>
-<span class="c1"># TODO: agregar manejo de excepciones a la funcion</span>
-<span class="c1"># TODO agregar descricion del algoritmo en cada funcion</span>
+<span class="c1"># native python modules</span>
+<span class="c1"># import modules for defining the list types</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Callable</span>
+<span class="c1"># import inspect for getting the name of the current function</span>
+<span class="kn">import</span> <span class="nn">inspect</span>
+
+<span class="c1"># custom modules</span>
+<span class="kn">from</span> <span class="nn">DISClib.DataStructures.arraylist</span> <span class="kn">import</span> <span class="n">ArrayList</span>
+<span class="kn">from</span> <span class="nn">DISClib.DataStructures.singlelinkedlist</span> <span class="kn">import</span> <span class="n">SingleLinked</span>
+<span class="kn">from</span> <span class="nn">DISClib.DataStructures.doublelinkedlist</span> <span class="kn">import</span> <span class="n">DoubleLinked</span>
+<span class="c1"># generic error handling and type checking</span>
+<span class="kn">from</span> <span class="nn">DISClib.Utils.error</span> <span class="kn">import</span> <span class="n">error_handler</span>
+<span class="kn">from</span> <span class="nn">DISClib.Utils.default</span> <span class="kn">import</span> <span class="n">T</span>
+
+<span class="c1"># checking custom modules</span>
+<span class="k">assert</span> <span class="n">error_handler</span>
+<span class="k">assert</span> <span class="n">T</span>
+
+<span class="c1"># sort available list types</span>
+<span class="c1"># :arg: LT: list type</span>
+<div class="viewcode-block" id="LT">
+<a class="viewcode-back" href="../../../../autoapi/DISClib/Algorithms/Sorting/insertionsort/index.html#DISClib.Algorithms.Sorting.insertionsort.LT">[documentos]</a>
+<span class="n">LT</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span><span class="n">ArrayList</span><span class="p">,</span> <span class="n">SingleLinked</span><span class="p">,</span> <span class="n">DoubleLinked</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Lista de tipos de estructuras que se pueden ordenar por el algoritmo de ordenamiento (ADT *List* y sus estructuras especificas *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* y *Stack*)</span>
+<span class="sd">&quot;&quot;&quot;</span>
 
 
+<span class="c1"># TODO alternative function name: insertion_sort</span>
 <div class="viewcode-block" id="sort">
 <a class="viewcode-back" href="../../../../autoapi/DISClib/Algorithms/Sorting/insertionsort/index.html#DISClib.Algorithms.Sorting.insertionsort.sort">[documentos]</a>
-<span class="k">def</span> <span class="nf">sort</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">sort_crit</span><span class="p">):</span>
-    <span class="n">size</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span>
-    <span class="n">pos1</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">while</span> <span class="n">pos1</span> <span class="o">&lt;=</span> <span class="n">size</span><span class="p">:</span>
-        <span class="n">pos2</span> <span class="o">=</span> <span class="n">pos1</span>
-        <span class="k">while</span> <span class="p">(</span><span class="n">pos2</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">sort_crit</span><span class="p">(</span>
-               <span class="n">lt</span><span class="o">.</span><span class="n">getElement</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">pos2</span><span class="p">),</span> <span class="n">lt</span><span class="o">.</span><span class="n">getElement</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">pos2</span><span class="o">-</span><span class="mi">1</span><span class="p">))):</span>
-            <span class="n">lt</span><span class="o">.</span><span class="n">exchange</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">pos2</span><span class="p">,</span> <span class="n">pos2</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-            <span class="n">pos2</span> <span class="o">-=</span> <span class="mi">1</span>
-        <span class="n">pos1</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">lst</span></div>
+<span class="k">def</span> <span class="nf">sort</span><span class="p">(</span><span class="n">lst</span><span class="p">:</span> <span class="n">LT</span><span class="p">,</span> <span class="n">sort_crit</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="p">],</span> <span class="nb">bool</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">LT</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Ordena una lista de elementos utilizando el algoritmo de ordenamiento por inserción (insertion sort).</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        lst (LT): La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*.</span>
+<span class="sd">        sort_crit (Callable[[T, T], bool]): Es una función definida por el usuario que representa el criterio de ordenamiento. Recibe dos elementos pertenecientes al ADT **List** y retorna *True* si el primer elemento es menor que el segundo elemento, y *False* en caso contrario.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        LT: La lista ordenada.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">lt_size</span> <span class="o">=</span> <span class="n">lst</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>    <span class="c1"># tamaño de la lista</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>                   <span class="c1"># indice del elemento actual</span>
+        <span class="c1"># mientras este en el rango de la lista</span>
+        <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">lt_size</span><span class="p">:</span>
+            <span class="c1"># asumo que la posicion actual es la del elemento mas pequeño</span>
+            <span class="n">j</span> <span class="o">=</span> <span class="n">i</span>
+            <span class="c1"># mientras el elemento y su vecino sean mayores</span>
+            <span class="k">while</span> <span class="n">j</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">sort_crit</span><span class="p">(</span><span class="n">lst</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">j</span><span class="p">),</span>
+                                      <span class="n">lst</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)):</span>
+                <span class="c1"># intercambiar los elementos</span>
+                <span class="n">lst</span><span class="o">.</span><span class="n">exchange</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+                <span class="n">j</span> <span class="o">-=</span> <span class="mi">1</span>
+            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">lst</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+        <span class="c1"># get current module and function name</span>
+        <span class="n">cur_context</span> <span class="o">=</span> <span class="vm">__name__</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">cur_function</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">currentframe</span><span class="p">()</span><span class="o">.</span><span class="n">f_code</span><span class="o">.</span><span class="n">co_name</span>
+        <span class="c1"># handle the error</span>
+        <span class="n">error_handler</span><span class="p">(</span><span class="n">cur_context</span><span class="p">,</span> <span class="n">cur_function</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span></div>
 
 </pre></div>
 

@@ -7,9 +7,6 @@ Este módulo implementa el tipo abstracto de datos (TAD) Map sin orden. Se puede
     #. Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H. Goldwasser.
 """
 
-# native python modules
-import copy
-
 # custom modules
 # node class for the linked list
 from .dynamic import DynamicImporter
@@ -59,11 +56,40 @@ def Map(dstruct: str = "SeparateChaining", **kwargs) -> T:
         raise ValueError(err_msg)
 
 
-def translate_mp(src_ht: T, tgt_dstruct: str = "LinearProbing") -> T:
+def clone_mp(og_mp: T) -> T:
+    """*clone_mp()* copia una instancia del ADT Map con una estructura de datos seleccionada.
+
+    Args:
+        og_mp (T): instancia del ADT *Map* a copiar.
+
+    Returns:
+        T: copia independiente de la instancia del ADT *Map*.
+    """
+    try:
+        og_dstruct = type(og_mp).__name__
+        cl_mp = Map(dstruct=og_dstruct,
+                    cmp_function=og_mp.cmp_function,
+                    key=og_mp.key)
+        # get keys and values from source map
+        keys_lt = og_mp.keys()
+        values_lt = og_mp.values()
+        # put keys and values in target map
+        for k, v in zip(keys_lt, values_lt):
+            cl_mp.put(k, v)
+        return cl_mp
+    except Exception as exp:
+        og_dstruct = type(og_mp).__name__
+        err_msg = f"Unable to clone Map, '{og_dstruct}' type not found"
+        err_msg += f" in {STRUCT_PGK_PATH}, "
+        err_msg += str(exp)
+        raise ValueError(err_msg)
+
+
+def translate_mp(src_mp: T, tgt_dstruct: str = "LinearProbing") -> T:
     """*translate_mp()* Transforma una instancia del ADT Map con una estructura de datos seleccionada en otra instancia del ADT Map con otra estructura de datos seleccionada.
 
     Args:
-        src_ht (T): instancia del ADT Map a transformar.
+        src_mp (T): instancia del ADT Map a transformar.
         tgt_dstruct (str, optional): Tipo de estructura de datos objetivo a instanciar. Por defecto es "LinearProbing". Puenden ser "SeparateChaining" o "LinearProbing".
 
     Raises:
@@ -72,33 +98,21 @@ def translate_mp(src_ht: T, tgt_dstruct: str = "LinearProbing") -> T:
     Returns:
         T: instancia del ADT Map que puede ser "SeparateChaining" o "LinearProbing".
     """
-    # TODO update for separate chaining to linear probing
     try:
-        tgt_ht = Map(dstruct=tgt_dstruct,
-                     cmp_function=src_ht.cmp_function,
-                     key=src_ht.key)
+        src_dstruct = type(src_mp).__name__
+        tgt_mp = Map(dstruct=tgt_dstruct,
+                     cmp_function=src_mp.cmp_function,
+                     key=src_mp.key)
         # get keys and values from source map
-        keys_lt = src_ht.keys()
-        values_lt = src_ht.values()
+        keys_lt = src_mp.keys()
+        values_lt = src_mp.values()
         # put keys and values in target map
         for k, v in zip(keys_lt, values_lt):
-            tgt_ht.put(k, v)
-        return tgt_ht
+            tgt_mp.put(k, v)
+        return tgt_mp
     except Exception as exp:
-        err_msg = f"Map type '{tgt_dstruct}' not found"
+        err_msg = f"Unable to translate Map '{src_dstruct}', "
+        err_msg += f"'{tgt_dstruct}' Map type not found"
         err_msg += f" in {STRUCT_PGK_PATH}, "
         err_msg += str(exp)
         raise ValueError(err_msg)
-
-
-def clone_mp(dstruct: T) -> T:
-    """*clone_mp()* copia una instancia del ADT Map con una estructura de datos seleccionada.
-
-    Args:
-        dstruct (T): instancia del ADT Map a copiar.
-
-    Returns:
-        T: copia independiente de la instancia del ADT Map.
-    """
-    # TODO check if this works with deep copy
-    return copy.deepcopy(dstruct)

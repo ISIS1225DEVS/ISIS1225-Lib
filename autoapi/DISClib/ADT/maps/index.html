@@ -116,11 +116,11 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.ADT.maps.Map" title="DISClib.ADT.maps.Map"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Map</span></code></a>(→ DISClib.Utils.default.T)</p></td>
 <td><p><em>Map()</em> Función dinámica que retorna una instancia del ADT Map según el tipo de estructura de datos seleccionada por el usuario.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#DISClib.ADT.maps.translate_mp" title="DISClib.ADT.maps.translate_mp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">translate_mp</span></code></a>(→ DISClib.Utils.default.T)</p></td>
-<td><p><em>translate_mp()</em> Transforma una instancia del ADT Map con una estructura de datos seleccionada en otra instancia del ADT Map con otra estructura de datos seleccionada.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.ADT.maps.clone_mp" title="DISClib.ADT.maps.clone_mp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clone_mp</span></code></a>(→ DISClib.Utils.default.T)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#DISClib.ADT.maps.clone_mp" title="DISClib.ADT.maps.clone_mp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clone_mp</span></code></a>(→ DISClib.Utils.default.T)</p></td>
 <td><p><em>clone_mp()</em> copia una instancia del ADT Map con una estructura de datos seleccionada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.ADT.maps.translate_mp" title="DISClib.ADT.maps.translate_mp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">translate_mp</span></code></a>(→ DISClib.Utils.default.T)</p></td>
+<td><p><em>translate_mp()</em> Transforma una instancia del ADT Map con una estructura de datos seleccionada en otra instancia del ADT Map con otra estructura de datos seleccionada.</p></td>
 </tr>
 </tbody>
 </table>
@@ -161,13 +161,30 @@
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="DISClib.ADT.maps.clone_mp">
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.maps.</span></span><span class="sig-name descname"><span class="pre">clone_mp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">og_mp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DISClib.Utils.default.T</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/ADT/maps.html#clone_mp"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.maps.clone_mp" title="Link to this definition"></a></dt>
+<dd><p><em>clone_mp()</em> copia una instancia del ADT Map con una estructura de datos seleccionada.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>og_mp</strong> (<em>T</em>) – instancia del ADT <em>Map</em> a copiar.</p>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>copia independiente de la instancia del ADT <em>Map</em>.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>T</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="DISClib.ADT.maps.translate_mp">
-<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.maps.</span></span><span class="sig-name descname"><span class="pre">translate_mp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src_ht</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tgt_dstruct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'LinearProbing'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DISClib.Utils.default.T</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/ADT/maps.html#translate_mp"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.maps.translate_mp" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.maps.</span></span><span class="sig-name descname"><span class="pre">translate_mp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src_mp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tgt_dstruct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'LinearProbing'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DISClib.Utils.default.T</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/ADT/maps.html#translate_mp"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.maps.translate_mp" title="Link to this definition"></a></dt>
 <dd><p><em>translate_mp()</em> Transforma una instancia del ADT Map con una estructura de datos seleccionada en otra instancia del ADT Map con otra estructura de datos seleccionada.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>src_ht</strong> (<em>T</em>) – instancia del ADT Map a transformar.</p></li>
+<li><p><strong>src_mp</strong> (<em>T</em>) – instancia del ADT Map a transformar.</p></li>
 <li><p><strong>tgt_dstruct</strong> (<em>str</em><em>, </em><em>optional</em>) – Tipo de estructura de datos objetivo a instanciar. Por defecto es «LinearProbing». Puenden ser «SeparateChaining» o «LinearProbing».</p></li>
 </ul>
 </dd>
@@ -179,23 +196,6 @@
 </dd>
 <dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
 <dd class="field-even"><p>T</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.ADT.maps.clone_mp">
-<span class="sig-prename descclassname"><span class="pre">DISClib.ADT.maps.</span></span><span class="sig-name descname"><span class="pre">clone_mp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dstruct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DISClib.Utils.default.T</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/ADT/maps.html#clone_mp"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.ADT.maps.clone_mp" title="Link to this definition"></a></dt>
-<dd><p><em>clone_mp()</em> copia una instancia del ADT Map con una estructura de datos seleccionada.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>dstruct</strong> (<em>T</em>) – instancia del ADT Map a copiar.</p>
-</dd>
-<dt class="field-even">Devuelve<span class="colon">:</span></dt>
-<dd class="field-even"><p>copia independiente de la instancia del ADT Map.</p>
-</dd>
-<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
-<dd class="field-odd"><p>T</p>
 </dd>
 </dl>
 </dd></dl>

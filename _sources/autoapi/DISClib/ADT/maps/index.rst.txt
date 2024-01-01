@@ -24,8 +24,8 @@ Functions
 .. autoapisummary::
 
    DISClib.ADT.maps.Map
-   DISClib.ADT.maps.translate_mp
    DISClib.ADT.maps.clone_mp
+   DISClib.ADT.maps.translate_mp
 
 
 
@@ -55,29 +55,29 @@ Attributes
    :rtype: T
 
 
-.. py:function:: translate_mp(src_ht: DISClib.Utils.default.T, tgt_dstruct: str = 'LinearProbing') -> DISClib.Utils.default.T
+.. py:function:: clone_mp(og_mp: DISClib.Utils.default.T) -> DISClib.Utils.default.T
+
+   *clone_mp()* copia una instancia del ADT Map con una estructura de datos seleccionada.
+
+   :param og_mp: instancia del ADT *Map* a copiar.
+   :type og_mp: T
+
+   :returns: copia independiente de la instancia del ADT *Map*.
+   :rtype: T
+
+
+.. py:function:: translate_mp(src_mp: DISClib.Utils.default.T, tgt_dstruct: str = 'LinearProbing') -> DISClib.Utils.default.T
 
    *translate_mp()* Transforma una instancia del ADT Map con una estructura de datos seleccionada en otra instancia del ADT Map con otra estructura de datos seleccionada.
 
-   :param src_ht: instancia del ADT Map a transformar.
-   :type src_ht: T
+   :param src_mp: instancia del ADT Map a transformar.
+   :type src_mp: T
    :param tgt_dstruct: Tipo de estructura de datos objetivo a instanciar. Por defecto es "LinearProbing". Puenden ser "SeparateChaining" o "LinearProbing".
    :type tgt_dstruct: str, optional
 
    :raises ValueError: error si el tipo de estructura de datos no es válido.
 
    :returns: instancia del ADT Map que puede ser "SeparateChaining" o "LinearProbing".
-   :rtype: T
-
-
-.. py:function:: clone_mp(dstruct: DISClib.Utils.default.T) -> DISClib.Utils.default.T
-
-   *clone_mp()* copia una instancia del ADT Map con una estructura de datos seleccionada.
-
-   :param dstruct: instancia del ADT Map a copiar.
-   :type dstruct: T
-
-   :returns: copia independiente de la instancia del ADT Map.
    :rtype: T
 
 

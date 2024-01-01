@@ -24,8 +24,8 @@ Functions
 .. autoapisummary::
 
    DISClib.ADT.lists.List
-   DISClib.ADT.lists.translate_lt
    DISClib.ADT.lists.clone_lt
+   DISClib.ADT.lists.translate_lt
 
 
 
@@ -55,6 +55,17 @@ Attributes
    :rtype: T
 
 
+.. py:function:: clone_lt(og_lt: DISClib.Utils.default.T) -> DISClib.Utils.default.T
+
+   *clone()* copia una instancia del ADT List con una estructura de datos seleccionada.
+
+   :param og_lt: instancia del ADT *List* a copiar.
+   :type og_lt: T
+
+   :returns: copia independiente de la instancia del ADT *List*.
+   :rtype: T
+
+
 .. py:function:: translate_lt(src_lt: DISClib.Utils.default.T, tgt_dstruct: str = 'SingleLinked') -> DISClib.Utils.default.T
 
    *translate()* Transforma una instancia del ADT List con una estructura de datos seleccionada en otra instancia del ADT List con otra estructura de datos seleccionada.
@@ -67,17 +78,6 @@ Attributes
    :raises ValueError: error si el tipo de estructura de datos no es válido.
 
    :returns: instancia del ADT List que puede ser "ArrayList", "SingleLinked" o "DoubleLinked".
-   :rtype: T
-
-
-.. py:function:: clone_lt(dstruct: DISClib.Utils.default.T) -> DISClib.Utils.default.T
-
-   *clone()* copia una instancia del ADT List con una estructura de datos seleccionada.
-
-   :param dstruct: instancia del ADT List a copiar.
-   :type dstruct: T
-
-   :returns: copia independiente de la instancia del ADT List.
    :rtype: T
 
 

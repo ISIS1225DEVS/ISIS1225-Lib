@@ -33,11 +33,18 @@ Attributes
 .. autoapisummary::
 
    DISClib.ADT.dynamic.STRUCT_PGK_PATH
+   DISClib.ADT.dynamic.ADT_PGK_PATH
 
 
 .. py:data:: STRUCT_PGK_PATH
    :type: str
    :value: 'DISClib.DataStructures'
+
+   Ruta relativa del paquete principal para las estructuras de datos.
+
+.. py:data:: ADT_PGK_PATH
+   :type: str
+   :value: 'DISClib.ADT'
 
    Ruta relativa del paquete principal para crear los ADTs.
 

@@ -538,17 +538,18 @@ def get_lists_test_data():
             "SingleLinked": "singlelinkedlist",
             "DoubleLinked": "doublelinkedlist",
         },
+        TEST_TGT_STRUCT_DICT={
+            "DoubleLinked": "doublelinkedlist",
+            "ArrayList": "arraylist",
+            "SingleLinked": "singlelinkedlist",
+        },
         ERR_ROOT_PGK_PATH="DISClib.ErrDataStructures",
         ERR_STRUCT_DICT={
             "FakeListA": "fakelista",
             "FakeListB": "fakelistb",
             "FakeListC": "fakelistc",
         },
-        TEST_TGT_STRUCT_DICT={
-            "DoubleLinked": "doublelinkedlist",
-            "ArrayList": "arraylist",
-            "SingleLinked": "singlelinkedlist",
-        },
+
     )
     return parameters
 
@@ -565,14 +566,14 @@ def get_maps_test_data():
             "SeparateChaining": "chaininghashtable",
             "LinearProbing": "probinghashtable",
         },
+        TEST_TGT_STRUCT_DICT={
+            "LinearProbing": "probinghashtable",
+            "SeparateChaining": "chaininghashtable",
+        },
         ERR_ROOT_PGK_PATH="DISClib.ErrDataStructures",
         ERR_STRUCT_DICT={
             "FakeHashTableA": "faketableA",
             "FakeHashTableB": "faketableB",
-        },
-        TEST_TGT_STRUCT_DICT={
-            "LinearProbing": "probinghashtable",
-            "SeparateChaining": "chaininghashtable",
         },
     )
     return parameters

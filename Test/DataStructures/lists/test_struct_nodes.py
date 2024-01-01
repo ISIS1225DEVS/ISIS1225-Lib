@@ -34,8 +34,8 @@ class TestNode(unittest.TestCase):
         """
         self.global_params = get_nodelist_test_data()
 
-    def test_new_default_node(self):
-        """*test_new_default_node* prueba para crear un nodo vacío de una lista enlazada.
+    def test_default_node(self):
+        """*test_default_node* prueba para crear un nodo vacío de una lista enlazada.
         """
         # create an empty single linked list node
         node = Node()
@@ -149,8 +149,8 @@ class TestSingleNode(unittest.TestCase):
         """
         self.global_params = get_nodelist_test_data()
 
-    def test_new_default_single_node(self):
-        """*test_new_default_node()* prueba para crear un nodo vacío de una lista sencillamente encadenada *SingleNode*.
+    def test_default_singlenode(self):
+        """*test_default_singlenode()* prueba para crear un nodo vacío de una lista sencillamente encadenada *SingleNode*.
         """
         # create an empty single linked list node
         node = SingleNode()
@@ -159,7 +159,7 @@ class TestSingleNode(unittest.TestCase):
         # assert for node _next and next() are None
         assert (node.next() is None) and (node._next is None)
 
-    def test_new_custom_single_node(self):
+    def test_new_custom_singlenode(self):
         """*test_new_custom_node()* prueba para crear un nodo *SingleNode* de una lista sencillamente encadenada con datos personalizados.
         """
         # getting the global variables
@@ -179,7 +179,7 @@ class TestSingleNode(unittest.TestCase):
                 # assert the node _next and next() are None
                 assert (node.next() is None) and (node._next is None)
 
-    def test_single_node_next(self):
+    def test_singlenode_next(self):
         """*test_node_next()* prueba el manejo de referencias del siguiente nodo *SingleNode* de la lista sencillamente encadenada.
         """
         # iterate over the global params list and create a node for each type
@@ -216,8 +216,8 @@ class TestDoubleNode(unittest.TestCase):
         """
         self.global_params = get_nodelist_test_data()
 
-    def test_new_default_double_node(self):
-        """*test_new_default_node()* prueba para crear un nodo vacío de una lista doblemente encadenada *DoubleNode*.
+    def test_default_doublenode(self):
+        """*test_new_default_doublenode()* prueba para crear un nodo vacío de una lista doblemente encadenada *DoubleNode*.
         """
         # create an empty single linked list node
         node = DoubleNode()
@@ -228,8 +228,8 @@ class TestDoubleNode(unittest.TestCase):
         # assert for node _prev and prev() are None
         assert (node.prev() is None) and (node._prev is None)
 
-    def test_new_custom_double_node(self):
-        """*test_new_custom_node()* prueba para crear un nodo *DoubleNode* de una lista doblemente encadenada con datos personalizados.
+    def test_custom_doublenode(self):
+        """*test_custom_doublenode()* prueba para crear un nodo *DoubleNode* de una lista doblemente encadenada con datos personalizados.
         """
         # getting the global variables
         dtype_lt = self.global_params.get("CHECK_TYPE_LT")
@@ -250,8 +250,8 @@ class TestDoubleNode(unittest.TestCase):
                 # assert for node _prev and prev() are None
                 assert (node.prev() is None) and (node._prev is None)
 
-    def test_double_node_refs(self):
-        """*test_double_node_refs()* prueba el manejo de referencias al siguiente y anterior nodo *DoubleNode* de la lista doblemente encadenada.
+    def test_doublenode_refs(self):
+        """*test_doublenode_refs()* prueba el manejo de referencias al siguiente y anterior nodo *DoubleNode* de la lista doblemente encadenada.
         """
         # getting the global variables
         # iterate over the global params and create a node for each type

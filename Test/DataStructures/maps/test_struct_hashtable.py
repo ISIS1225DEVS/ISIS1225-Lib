@@ -526,7 +526,6 @@ class TestSeparateChaining(unittest.TestCase):
                                          key=tkey,
                                          cmp_function=cmp_ht_test_function)
                 # iterate over the test data
-
                 for i in range(0, len(test_data) - 1):
                     # get the new entry (key, value)
                     ikey = test_data[i]

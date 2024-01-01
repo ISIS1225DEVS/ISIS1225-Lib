@@ -164,7 +164,6 @@ class SeparateChaining(Generic[T]):
     *Nota:* la función MAD es: *h(k) = ((a*k + b) mod P) mod M*, donde *a* y *b* son números enteros aleatorios, *P* es un número primo y *M* es la capacidad de la tabla de hash.
     """
 
-    # TODO create a MAD class to handle the compression function?
     # private scale (a) factor for the mad compression function
     # :attr: _scale
     _scale: Optional[int] = 0
@@ -555,7 +554,7 @@ class SeparateChaining(Generic[T]):
         """
         try:
             keys_lt = SingleLinked(key=self.key)
-            # FIXME improve with SingleLinked concat() method?
+            # TODO improve with SingleLinked concat() method?
             for bucket in self.hash_table:
                 if not bucket.is_empty():
                     for entry in bucket:
@@ -572,7 +571,7 @@ class SeparateChaining(Generic[T]):
         """
         try:
             values_lt = SingleLinked(key=self.key)
-            # FIXME improve with SingleLinked concat() method?
+            # TODO improve with SingleLinked concat() method?
             for bucket in self.hash_table:
                 if not bucket.is_empty():
                     for entry in bucket:
@@ -589,7 +588,7 @@ class SeparateChaining(Generic[T]):
         """
         try:
             entries_lt = SingleLinked(key=self.key)
-            # FIXME improve with SingleLinked concat() method?
+            # TODO improve with SingleLinked concat() method?
             for bucket in self.hash_table:
                 if not bucket.is_empty():
                     for entry in bucket:
@@ -616,7 +615,6 @@ class SeparateChaining(Generic[T]):
                 if self._cur_alpha >= self.max_alpha:
                     new_capacity = next_prime(self.mcapacity * 2)
                 # reducing the capacity
-                # TODO check if the reduced capacity is a good fit
                 elif self._cur_alpha < self.min_alpha:
                     new_capacity = next_prime(self.mcapacity // 2)
 

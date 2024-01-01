@@ -244,7 +244,6 @@ class SingleLinked(Generic[T]):
             IndexError: error si la posición es inválida.
             IndexError: error si la estructura está vacía.
         """
-        # TODO change the method name to "add_elm()"?
         try:
             if not self.is_empty():
                 if self._check_type(element):
@@ -331,7 +330,6 @@ class SingleLinked(Generic[T]):
         Returns:
              Optional[T]: el elemento en la posición especifica del *SingleLinked*.
         """
-        # TODO change the method name to "get_elm()"?
         try:
             info = None
             if self.is_empty():
@@ -420,7 +418,6 @@ class SingleLinked(Generic[T]):
         Returns:
             Optional[T]: el elemento eliminado del *SingleLinked*.
         """
-        # TODO change the method name to "remove_elm()"?
         try:
             info = None
             if self.is_empty():

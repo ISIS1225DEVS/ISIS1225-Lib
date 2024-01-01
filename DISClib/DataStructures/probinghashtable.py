@@ -71,7 +71,6 @@ Factor de carga (*alpha*) mínimo para el *LinearProbing*, por defecto es 0.20
 """
 
 # :data: EMPTY
-# TODO check if this is the best way to handle empty entries
 EMPTY = "__EMPTY__"
 """
 Constante que representa un registro vacío en el *LinearProbing*, por defecto es "__EMPTY__".
@@ -158,7 +157,6 @@ class LinearProbing(Generic[T]):
     *Nota:* la función MAD es: *h(k) = ((a*k + b) mod P) mod M*, donde *a* y *b* son números enteros aleatorios, *P* es un número primo y *M* es la capacidad de la tabla de hash.
     """
 
-    # TODO create a MAD class to handle the compression function?
     # private scale (a) factor for the mad compression function
     # :attr: _scale
     _scale: Optional[int] = 0
@@ -224,7 +222,6 @@ class LinearProbing(Generic[T]):
     def __post_init__(self) -> None:
         """*__post_init__()* configura los parametros personalizados por el usuario al crear el *LinearProbing*. En caso de no estar definidos, se asignan los valores por defecto, puede cargar listas nativas con el parametro *iodata* de python dentro de la estructura.
         """
-        # TODO check if this is the best way make the initialization
         try:
             # setting capacity
             self.mcapacity = next_prime(self.nentries // self.alpha)
@@ -250,7 +247,7 @@ class LinearProbing(Generic[T]):
             if self._cur_alpha == 0:
                 self._cur_alpha = self._size / self.mcapacity
 
-            # TODO check if this is the best way to initialize the structure
+            # TODO is the best way to create the structure???
             if isinstance(self.iodata, VALID_IO_TYPE):
                 # get the type of the data in the list
                 # if is a dict, use the key type
@@ -718,7 +715,6 @@ class LinearProbing(Generic[T]):
                 if self._cur_alpha >= self.max_alpha:
                     new_capacity = next_prime(self.mcapacity * 2)
                 # reducing the capacity
-                # TODO check if the reduced capacity is a good fit
                 elif self._cur_alpha < self.min_alpha:
                     new_capacity = next_prime(self.mcapacity // 2)
 

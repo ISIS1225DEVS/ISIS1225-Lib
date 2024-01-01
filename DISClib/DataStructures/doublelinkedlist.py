@@ -100,7 +100,6 @@ class DoubleLinked(Generic[T]):
             if self.cmp_function is None:
                 self.cmp_function = self.default_cmp_function
             # if input data is iterable add them to the DoubleLinked
-            # TODO sometime strange weird in tests
             if isinstance(self.iodata, VALID_IO_TYPE):
                 for elm in self.iodata:
                     self.add_last(elm)
@@ -254,7 +253,6 @@ class DoubleLinked(Generic[T]):
             IndexError: error si la posición es inválida.
             IndexError: error si la estructura está vacía.
         """
-        # TODO change the method name to "add_elm()"?
         try:
             if not self.is_empty():
                 if self._check_type(element):
@@ -338,7 +336,6 @@ class DoubleLinked(Generic[T]):
         Returns:
              Optional[T]: el elemento en la posición especifica del *DoubleLinked*.
         """
-        # TODO change the method name to "get_elm()"?
         try:
             info = None
             if self.is_empty():
@@ -434,7 +431,6 @@ class DoubleLinked(Generic[T]):
         Returns:
             Optional[T]: el elemento eliminado del *DoubleLinked*.
         """
-        # TODO change the method name to "remove_elm()"?
         try:
             info = None
             if self.is_empty():

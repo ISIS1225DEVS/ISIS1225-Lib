@@ -232,7 +232,6 @@ class ArrayList(Generic[T]):
             IndexError: error si la posición es inválida.
             IndexError: error si la estructura está vacía.
         """
-        # TODO change the method name to "add_elm()"?
         try:
             if not self.is_empty():
                 if self._check_type(element):
@@ -290,7 +289,6 @@ class ArrayList(Generic[T]):
         Returns:
             T: el elemento en la posición especifica del *ArrayList*.
         """
-        # TODO change the method name to "get_elm()"?
         try:
             if self.is_empty():
                 raise IndexError("Empty data structure")
@@ -349,7 +347,6 @@ class ArrayList(Generic[T]):
         Returns:
             T: el elemento eliminado del *ArrayList*.
         """
-        # TODO change the method name to "remove_elm()"?
         try:
             if self.is_empty():
                 raise IndexError("Empty data structure")

@@ -55,7 +55,7 @@ def newMap(omaptype, cmpfunction, datastructure):
     """
     Crea una tabla de simbolos ordenada.
     Args:
-        compfunction: La funcion de comparacion
+        compfunction: La función de comparacion
     Returns:
         La tabla de símbolos ordenada sin elementos
     Raises:
@@ -446,8 +446,8 @@ def keys(rbt, keylo, keyhi):
     [keylo, keyhi]
     Args:
         bst: La tabla de simbolos
-        keylo: limite inferior
-        keylohi: limite superiorr
+        keylo: límite inferior
+        keylohi: límite superiorr
     Returns:
         Las llaves en el rago especificado
     Raises:
@@ -472,8 +472,8 @@ def values(rbt, keylo, keyhi):
 
     Args:
         bst: La tabla de simbolos
-        keylo: limite inferior
-        keylohi: limite superiorr
+        keylo: límite inferior
+        keylohi: límite superiorr
     Returns:
         Las llaves en el rago especificado
     Raises:
@@ -740,7 +740,7 @@ def getNode(root, key, cmpfunction):
     Args:
         root: El arbol rojo-negro
         key: La llave de busqueda
-        cmpfunction: funcion de comparación
+        cmpfunction: función de comparación
     Returns:
         La pareja llave-valor
     Raises:
@@ -916,8 +916,8 @@ def keysRange(root, keylo, keyhi, lstkeys, cmpfunction):
     Retorna todas las llaves del arbol en un rango dado
     Args:
         bst: La tabla de simbolos
-        keylo: limite inferior
-        keylohi: limite superiorr
+        keylo: límite inferior
+        keylohi: límite superiorr
     Returns:
         Las llaves en el rago especificado
     Raises:
@@ -949,8 +949,8 @@ def valuesRange(root, keylo, keyhi, lstvalues, cmpfunction):
     [keylo, keyhi]
     Args:
         bst: La tabla de simbolos
-        keylo: limite inferior
-        keylohi: limite superior
+        keylo: límite inferior
+        keylohi: límite superior
     Returns:
         Las llaves en el rango especificado
     Raises:
@@ -1143,7 +1143,7 @@ def removeKey(root, key, cmpfunction):
     Args:
         root: El arbol de búsqueda
         key: La llave asociada a la pareja
-        cmpfunction : La funcion de comparacion
+        cmpfunction : La función de comparacion
     Returns:
         El arbol sin la pareja key-value
     Raises:

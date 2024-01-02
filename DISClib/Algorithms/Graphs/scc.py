@@ -35,7 +35,7 @@ from DISClib.ADT import maps
 """ Cambios generales """
 # FIXME Pasar los mombres de las funciones a snake_case
 # FIXME Actualizar a las pruebas unitarias en base a los cambios realizados
-# TODO Documentar el tipo de datos de las variables de entrada de cada funcion
+# TODO Documentar el tipo de datos de las variables de entrada de cada función
 # TODO Mejorar las excepciones de las funciones para que sean mas especificas
 
 
@@ -98,7 +98,7 @@ def KosarajuSCC(graph):
         error.reraise(exp, "scc:Kosaraju")
 
 
-# FIXME Documentar entradas y salidas de la funcion asi como las excepciones
+# FIXME Documentar entradas y salidas de la función asi como las excepciones
 def sccCount(graph, scc, vert):
     """
     Este algoritmo cuenta el número de componentes conectados.
@@ -131,7 +131,7 @@ def stronglyConnected(scc, verta, vertb):
         error.reraise(exp, "dfo:Sconnected")
 
 
-# FIXME Documentar entradas y salidas de la funcion asi como las excepciones
+# FIXME Documentar entradas y salidas de la función asi como las excepciones
 def connectedComponents(scc):
     """
     Retorna el numero de componentes conectados
@@ -147,7 +147,7 @@ def connectedComponents(scc):
 # --------------------------------------------------
 
 
-# FIXME Documentar entradas y salidas de la funcion asi como las excepciones
+# FIXME Documentar entradas y salidas de la función asi como las excepciones
 def reverseGraph(graph):
     """
     Retornar el reverso del grafo graph
@@ -172,6 +172,6 @@ def reverseGraph(graph):
         error.reraise(exp, "scc:reverse")
 
 
-# FIXME Documentar entradas y salidas de la funcion
+# FIXME Documentar entradas y salidas de la función
 def comparenames(searchname, element):
     return searchname == element["key"]

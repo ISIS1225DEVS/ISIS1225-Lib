@@ -42,7 +42,7 @@ Este archivo contiene la implementación del TAD grafo no dirigido
 def newGraph(datastructure="ADJ_LIST",
              directed=False,
              size=10,
-             # FIXME cambiar el nombre de la funcion de comparacion
+             # FIXME cambiar el nombre de la función de comparacion
              cmpfunction=None
              ):
     """

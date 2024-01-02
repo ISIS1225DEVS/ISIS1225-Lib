@@ -300,8 +300,8 @@ def keys(map, keylo, keyhi):
 
     Args:
         map: La tabla de simbolos
-        keylo: limite inferior
-        keylohi: limite superiorr
+        keylo: límite inferior
+        keylohi: límite superiorr
     Returns:
         Las llaves en el rago especificado
     Raises:
@@ -319,8 +319,8 @@ def values(map, keylo, keyhi):
 
     Args:
         map: La tabla de simbolos
-        keylo: limite inferior
-        keylohi: limite superiorr
+        keylo: límite inferior
+        keylohi: límite superiorr
     Returns:
         Las llaves en el rago especificado
     Raises:

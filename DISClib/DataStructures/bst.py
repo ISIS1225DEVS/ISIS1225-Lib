@@ -50,7 +50,7 @@ def newMap(omaptype, cmpfunction, datastructure):
     """
     Crea una tabla de simbolos ordenada.
     Args:
-        compfunction: La funcion de comparacion
+        compfunction: La función de comparacion
     Returns:
         La tabla de símbolos ordenada sin elementos
     Raises:
@@ -406,8 +406,8 @@ def keys(bst, keylo, keyhi):
 
     Args:
         bst: La tabla de simbolos
-        keylo: limite inferior
-        keylohi: limite superiorr
+        keylo: límite inferior
+        keylohi: límite superiorr
     Returns:
         Las llaves en el rago especificado
     Raises:
@@ -431,8 +431,8 @@ def values(bst, keylo, keyhi):
 
     Args:
         bst: La tabla de simbolos
-        keylo: limite inferior
-        keylohi: limite superiorr
+        keylo: límite inferior
+        keylohi: límite superiorr
     Returns:
         Las llaves en el rago especificado
     Raises:
@@ -856,8 +856,8 @@ def keysRange(root, keylo, keyhi, lstkeys, cmpfunction):
     Retorna todas las llaves del arbol en un rango dado
     Args:
         bst: La tabla de simbolos
-        keylo: limite inferior
-        keylohi: limite superiorr
+        keylo: límite inferior
+        keylohi: límite superiorr
     Returns:
         Las llaves en el rago especificado
     Raises:
@@ -888,8 +888,8 @@ def valuesRange(root, keylo, keyhi, lstvalues, cmpfunction):
     [keylo, keyhi]
     Args:
         bst: La tabla de simbolos
-        keylo: limite inferior
-        keylohi: limite superior
+        keylo: límite inferior
+        keylohi: límite superior
     Returns:
         Las llaves en el rago especificado
     Raises:

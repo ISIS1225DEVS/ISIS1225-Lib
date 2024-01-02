@@ -48,7 +48,7 @@ def newIndexMinPQ(cmpfunction):
     Crea un cola de prioridad indexada orientada a menor
 
     Args:
-        cmpfunction: La funcion de comparacion
+        cmpfunction: La función de comparacion
     Returns:
        Una nueva cola de prioridad indexada
     Raises:

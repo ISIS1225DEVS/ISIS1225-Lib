@@ -284,7 +284,7 @@ def removeVertex(graph, vertex):
     Raises:
         Exception
     """
-    # TODO implementar funcion
+    # TODO implementar función
     pass
 
 

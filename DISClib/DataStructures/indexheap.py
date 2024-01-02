@@ -45,7 +45,7 @@ def newIndexHeap(cmpfunction):
     Crea un cola de prioridad indexada orientada a menor
 
     Args:
-        cmpfunction: La funcion de comparacion
+        cmpfunction: La función de comparacion
         size: El numero de elementos
     Returns:
        Una nueva cola de prioridad indexada

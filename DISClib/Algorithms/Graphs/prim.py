@@ -40,7 +40,7 @@ import math
 """ Cambios generales """
 # FIXME Pasar los mombres de las funciones a snake_case
 # FIXME Actualizar a las pruebas unitarias en base a los cambios realizados
-# TODO Documentar el tipo de datos de las variables de entrada de cada funcion
+# TODO Documentar el tipo de datos de las variables de entrada de cada función
 # TODO Mejorar las excepciones de las funciones para que sean mas especificas
 
 

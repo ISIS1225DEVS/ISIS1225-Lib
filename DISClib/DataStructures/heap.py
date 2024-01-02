@@ -44,7 +44,7 @@ def newHeap(cmpfunction):
     es inicializado en None y no será utilizado
 
     Args:
-        cmpfunction: La funcion de comparacion
+        cmpfunction: La función de comparacion
         size: El numero de elementos
     Returns:
        El heap

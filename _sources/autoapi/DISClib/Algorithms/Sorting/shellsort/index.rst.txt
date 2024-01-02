@@ -24,7 +24,7 @@ Functions
 
 .. autoapisummary::
 
-   DISClib.Algorithms.Sorting.shellsort.sort
+   DISClib.Algorithms.Sorting.shellsort.shell_sort
 
 
 
@@ -40,9 +40,9 @@ Attributes
 
    Lista de tipos de estructuras que se pueden ordenar por el algoritmo de ordenamiento (ADT *List* y sus estructuras especificas *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* y *Stack*)
 
-.. py:function:: sort(lst: LT, sort_crit: Callable[[DISClib.Utils.default.T, DISClib.Utils.default.T], bool]) -> LT
+.. py:function:: shell_sort(lst: LT, sort_crit: Callable[[DISClib.Utils.default.T, DISClib.Utils.default.T], bool]) -> LT
 
-   Ordena una lista de elementos utilizando el algoritmo de ordenamiento Shell (shell sort).
+   *shell_sort()* ordena una lista de elementos utilizando el algoritmo de ordenamiento Shell (shell sort).
 
    :param lst: La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*.
    :type lst: LT

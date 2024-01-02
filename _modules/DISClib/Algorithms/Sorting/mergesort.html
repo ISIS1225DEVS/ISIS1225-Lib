@@ -79,90 +79,137 @@
              
   <h1>Código fuente para DISClib.Algorithms.Sorting.mergesort</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd"> * Copyright 2020, Departamento de sistemas y Computación,</span>
-<span class="sd"> * Universidad de Los Andes</span>
-<span class="sd"> *</span>
-<span class="sd"> *</span>
-<span class="sd"> * Desarrolado para el curso ISIS1225 - Estructuras de Datos y Algoritmos</span>
-<span class="sd"> *</span>
-<span class="sd"> *</span>
-<span class="sd"> * This program is free software: you can redistribute it and/or modify</span>
-<span class="sd"> * it under the terms of the GNU General Public License as published by</span>
-<span class="sd"> * the Free Software Foundation, either version 3 of the License, or</span>
-<span class="sd"> * (at your option) any later version.</span>
-<span class="sd"> *</span>
-<span class="sd"> * This program is distributed in the hope that it will be useful,</span>
-<span class="sd"> * but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
-<span class="sd"> * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
-<span class="sd"> * GNU General Public License for more details.</span>
-<span class="sd"> *</span>
-<span class="sd"> * You should have received a copy of the GNU General Public License</span>
-<span class="sd"> * along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
-<span class="sd"> *</span>
-<span class="sd"> * Contribución de:</span>
-<span class="sd"> *</span>
-<span class="sd"> * Dario Correal</span>
-<span class="sd"> *</span>
-<span class="sd"> &quot;&quot;&quot;</span>
+<span class="sd">Este módulo contiene la implementación del algoritmo de ordenamiento por selección por mezcla (merge sort) un algoritmo creado por John Von Neumann que utiliza el principio de dividir y conquistar para ordenar una secuencia de elementos. El algoritmo puede aplicarse a cualquier secuencia de elementos que puedan ser comparados entre sí como los ADT *List* y sus estructuras especificas *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* y *Stack*</span>
 
-<span class="kn">from</span> <span class="nn">DISClib.ADT</span> <span class="kn">import</span> <span class="n">lists</span> <span class="k">as</span> <span class="n">lt</span>
+<span class="sd">*IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:</span>
 
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">  Los algoritmos de este libro están basados en la implementación</span>
-<span class="sd">  propuesta por R.Sedgewick y Kevin Wayne en su libro</span>
-<span class="sd">  Algorithms, 4th Edition</span>
+<span class="sd">    #. Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.</span>
+<span class="sd">    #. Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H. Goldwasser.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="c1"># FIXME: pasar a snake_case de python</span>
-<span class="c1"># FIXME: cambiar pruebas unitarias de acuerdo a los cambios realizados</span>
-<span class="c1"># TODO: tipar datos de entrada y salida de cada funcion</span>
-<span class="c1"># TODO: agregar excepciones mas especificas que no sean Exception</span>
-<span class="c1"># TODO mejorar la descricion del algoritmo de la funcion</span>
+<span class="c1"># native python modules</span>
+<span class="c1"># import modules for defining the list types</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Callable</span>
+<span class="c1"># import inspect for getting the name of the current function</span>
+<span class="kn">import</span> <span class="nn">inspect</span>
+
+<span class="c1"># custom modules</span>
+<span class="kn">from</span> <span class="nn">DISClib.DataStructures.arraylist</span> <span class="kn">import</span> <span class="n">ArrayList</span>
+<span class="kn">from</span> <span class="nn">DISClib.DataStructures.singlelinkedlist</span> <span class="kn">import</span> <span class="n">SingleLinked</span>
+<span class="kn">from</span> <span class="nn">DISClib.DataStructures.doublelinkedlist</span> <span class="kn">import</span> <span class="n">DoubleLinked</span>
+<span class="c1"># generic error handling and type checking</span>
+<span class="kn">from</span> <span class="nn">DISClib.Utils.error</span> <span class="kn">import</span> <span class="n">error_handler</span>
+<span class="kn">from</span> <span class="nn">DISClib.Utils.default</span> <span class="kn">import</span> <span class="n">T</span>
+
+<span class="c1"># checking custom modules</span>
+<span class="k">assert</span> <span class="n">error_handler</span>
+<span class="k">assert</span> <span class="n">T</span>
+
+<span class="c1"># sort available list types</span>
+<span class="c1"># :arg: LT: list type</span>
+<div class="viewcode-block" id="LT">
+<a class="viewcode-back" href="../../../../autoapi/DISClib/Algorithms/Sorting/mergesort/index.html#DISClib.Algorithms.Sorting.mergesort.LT">[documentos]</a>
+<span class="n">LT</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span><span class="n">ArrayList</span><span class="p">,</span> <span class="n">SingleLinked</span><span class="p">,</span> <span class="n">DoubleLinked</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Lista de tipos de estructuras que se pueden ordenar por el algoritmo de ordenamiento (ADT *List* y sus estructuras especificas *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* y *Stack*)</span>
+<span class="sd">&quot;&quot;&quot;</span>
 
 
-<div class="viewcode-block" id="sort">
-<a class="viewcode-back" href="../../../../autoapi/DISClib/Algorithms/Sorting/mergesort/index.html#DISClib.Algorithms.Sorting.mergesort.sort">[documentos]</a>
-<span class="k">def</span> <span class="nf">sort</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">sort_crit</span><span class="p">):</span>
-    <span class="n">size</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">size</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">size</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;se divide la lista original, en dos partes, izquierda y derecha,</span>
-<span class="sd">        desde el punto mid.&quot;&quot;&quot;</span>
-        <span class="n">leftlist</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">subList</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">mid</span><span class="p">)</span>
-        <span class="n">rightlist</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">subList</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">mid</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span> <span class="o">-</span> <span class="n">mid</span><span class="p">)</span>
+<span class="c1"># TODO alternative function name: merge_sort</span>
+<div class="viewcode-block" id="merge_sort">
+<a class="viewcode-back" href="../../../../autoapi/DISClib/Algorithms/Sorting/mergesort/index.html#DISClib.Algorithms.Sorting.mergesort.merge_sort">[documentos]</a>
+<span class="k">def</span> <span class="nf">merge_sort</span><span class="p">(</span><span class="n">lst</span><span class="p">:</span> <span class="n">LT</span><span class="p">,</span> <span class="n">sort_crit</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="p">],</span> <span class="nb">bool</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">LT</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;*merge_sort()* ordena una lista de elementos utilizando el algoritmo de ordenamiento por mezcla (merge sort).</span>
 
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;se hace el llamado recursivo con la lista izquierda y derecha&quot;&quot;&quot;</span>
-        <span class="n">sort</span><span class="p">(</span><span class="n">leftlist</span><span class="p">,</span> <span class="n">sort_crit</span><span class="p">)</span>
-        <span class="n">sort</span><span class="p">(</span><span class="n">rightlist</span><span class="p">,</span> <span class="n">sort_crit</span><span class="p">)</span>
+<span class="sd">    Args:</span>
+<span class="sd">        lst (LT): La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*.</span>
+<span class="sd">        sort_crit (Callable[[T, T], bool]): Es una función definida por el usuario que representa el criterio de ordenamiento. Recibe dos elementos pertenecientes al ADT **List** y retorna *True* si el primer elemento es menor que el segundo elemento, y *False* en caso contrario.</span>
 
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;i recorre la lista izquierda, j la derecha y k la lista original&quot;&quot;&quot;</span>
-        <span class="n">i</span> <span class="o">=</span> <span class="n">j</span> <span class="o">=</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        LT: La lista ordenada.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># recuperar el tamaño de la lista</span>
+        <span class="n">lt_size</span> <span class="o">=</span> <span class="n">lst</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+        <span class="c1"># si la lista es mayor a 1, es decir no es trivial</span>
+        <span class="k">if</span> <span class="n">lt_size</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="c1"># DIVIDIR</span>
+            <span class="c1"># encontrar el punto medio de la lista, redondeando hacia abajo</span>
+            <span class="n">mid</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">lt_size</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="c1"># dividir la lista en dos sublistas izquierda y derecha</span>
+            <span class="n">left_lt</span> <span class="o">=</span> <span class="n">lst</span><span class="o">.</span><span class="n">sublist</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">right_lt</span> <span class="o">=</span> <span class="n">lst</span><span class="o">.</span><span class="n">sublist</span><span class="p">(</span><span class="n">mid</span><span class="p">,</span> <span class="n">lt_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="c1"># ordenar recursivamente las sublistas izquierda y derecha</span>
+            <span class="c1"># CONQUISTAR</span>
+            <span class="n">merge_sort</span><span class="p">(</span><span class="n">left_lt</span><span class="p">,</span> <span class="n">sort_crit</span><span class="p">)</span>
+            <span class="n">merge_sort</span><span class="p">(</span><span class="n">right_lt</span><span class="p">,</span> <span class="n">sort_crit</span><span class="p">)</span>
+            <span class="c1"># RECOMBINAR</span>
+            <span class="c1"># recomponer las sublistas izquierda y derecha en la original</span>
+            <span class="n">lst</span> <span class="o">=</span> <span class="n">_merge</span><span class="p">(</span><span class="n">left_lt</span><span class="p">,</span> <span class="n">right_lt</span><span class="p">,</span> <span class="n">lst</span><span class="p">,</span> <span class="n">sort_crit</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">lst</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+        <span class="c1"># get current module and function name</span>
+        <span class="n">cur_context</span> <span class="o">=</span> <span class="vm">__name__</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">cur_function</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">currentframe</span><span class="p">()</span><span class="o">.</span><span class="n">f_code</span><span class="o">.</span><span class="n">co_name</span>
+        <span class="c1"># handle the error</span>
+        <span class="n">error_handler</span><span class="p">(</span><span class="n">cur_context</span><span class="p">,</span> <span class="n">cur_function</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span></div>
 
-        <span class="n">leftelements</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">leftlist</span><span class="p">)</span>
-        <span class="n">rightelements</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">rightlist</span><span class="p">)</span>
 
-        <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;=</span> <span class="n">leftelements</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">j</span> <span class="o">&lt;=</span> <span class="n">rightelements</span><span class="p">):</span>
-            <span class="n">elemi</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">getElement</span><span class="p">(</span><span class="n">leftlist</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
-            <span class="n">elemj</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">getElement</span><span class="p">(</span><span class="n">rightlist</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
-<span class="w">            </span><span class="sd">&quot;&quot;&quot;compara y ordena los elementos&quot;&quot;&quot;</span>
-            <span class="k">if</span> <span class="n">sort_crit</span><span class="p">(</span><span class="n">elemj</span><span class="p">,</span> <span class="n">elemi</span><span class="p">):</span>   <span class="c1"># caso estricto elemj &lt; elemi</span>
-                <span class="n">lt</span><span class="o">.</span><span class="n">changeInfo</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">elemj</span><span class="p">)</span>
-                <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="k">else</span><span class="p">:</span>                            <span class="c1"># caso elemi &lt;= elemj</span>
-                <span class="n">lt</span><span class="o">.</span><span class="n">changeInfo</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">elemi</span><span class="p">)</span>
+
+<div class="viewcode-block" id="_merge">
+<a class="viewcode-back" href="../../../../autoapi/DISClib/Algorithms/Sorting/mergesort/index.html#DISClib.Algorithms.Sorting.mergesort._merge">[documentos]</a>
+<span class="k">def</span> <span class="nf">_merge</span><span class="p">(</span><span class="n">left_lt</span><span class="p">:</span> <span class="n">LT</span><span class="p">,</span>
+           <span class="n">right_lt</span><span class="p">:</span> <span class="n">LT</span><span class="p">,</span>
+           <span class="n">lst</span><span class="p">:</span> <span class="n">LT</span><span class="p">,</span>
+           <span class="n">sort_crit</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="p">],</span> <span class="nb">bool</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">LT</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;*_merge()* recombina las sublistas izquierda y derecha en una sola lista ordenada dentro del algoritmo de ordenamiento por mezcla (merge sort).</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        left_lt (LT): sublista izquierda creada recursivamente.</span>
+<span class="sd">        right_lt (LT): sublista derecha creada recursivamente.</span>
+<span class="sd">        lst (LT): La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*. Es la lista original que se va a ordenar.</span>
+<span class="sd">        sort_crit (Callable[[T, T], bool]): Es una función definida por el usuario que representa el criterio de ordenamiento. Recibe dos elementos pertenecientes al ADT **List** y retorna *True* si el primer elemento es menor que el segundo elemento, y *False* en caso contrario.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        LT: la lista ordenada</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># iteradores para la lista izquierda, derecha y original</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="c1"># __len__ y size() son funciones de python y DISClib equivalentes</span>
+    <span class="c1"># mientras se este en el rango de la lista original</span>
+    <span class="k">while</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">lst</span><span class="o">.</span><span class="n">size</span><span class="p">():</span>
+        <span class="c1"># si se esta dentro del rango de la lista izquierda y derecha</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">left_lt</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="ow">and</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">right_lt</span><span class="o">.</span><span class="n">size</span><span class="p">():</span>
+            <span class="c1"># recuperar los elementos de ambas listas</span>
+            <span class="n">e_left</span> <span class="o">=</span> <span class="n">left_lt</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="n">e_right</span> <span class="o">=</span> <span class="n">right_lt</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+            <span class="c1"># comparar los elementos de ambas listas</span>
+            <span class="k">if</span> <span class="n">sort_crit</span><span class="p">(</span><span class="n">e_left</span><span class="p">,</span> <span class="n">e_right</span><span class="p">):</span>
+                <span class="c1"># actualizar la lista original con el elemento de la lista izquierda</span>
+                <span class="n">lst</span><span class="o">.</span><span class="n">change_info</span><span class="p">(</span><span class="n">e_left</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
                 <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="n">k</span> <span class="o">+=</span> <span class="mi">1</span>
-
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Agrega los elementos que no se comprararon y estan ordenados&quot;&quot;&quot;</span>
-        <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">leftelements</span><span class="p">:</span>
-            <span class="n">lt</span><span class="o">.</span><span class="n">changeInfo</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">lt</span><span class="o">.</span><span class="n">getElement</span><span class="p">(</span><span class="n">leftlist</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span>
+            <span class="c1"># si no se cumple la condicion anterior</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># actualizar la lista original con el elemento de la lista derecha</span>
+                <span class="n">lst</span><span class="o">.</span><span class="n">change_info</span><span class="p">(</span><span class="n">e_right</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+                <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="c1"># COMPARAR LOS ELEMENTOS QUE NO ESTAN EN AMBAS LISTAS</span>
+        <span class="c1"># si se esta dentro del rango de la lista izquierda</span>
+        <span class="k">elif</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">left_lt</span><span class="p">):</span>
+            <span class="c1"># actualizar la lista original con el elemento de la lista izquierda</span>
+            <span class="n">e_left</span> <span class="o">=</span> <span class="n">left_lt</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="n">lst</span><span class="o">.</span><span class="n">change_info</span><span class="p">(</span><span class="n">e_left</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
             <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="n">k</span> <span class="o">+=</span> <span class="mi">1</span>
-
-        <span class="k">while</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">rightelements</span><span class="p">:</span>
-            <span class="n">lt</span><span class="o">.</span><span class="n">changeInfo</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">lt</span><span class="o">.</span><span class="n">getElement</span><span class="p">(</span><span class="n">rightlist</span><span class="p">,</span> <span class="n">j</span><span class="p">))</span>
+        <span class="c1"># si se esta dentro del rango de la lista derecha</span>
+        <span class="k">elif</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">right_lt</span><span class="p">):</span>
+            <span class="c1"># actualizar la lista original con el elemento de la lista derecha</span>
+            <span class="n">e_right</span> <span class="o">=</span> <span class="n">right_lt</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+            <span class="n">lst</span><span class="o">.</span><span class="n">change_info</span><span class="p">(</span><span class="n">e_right</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
             <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="n">k</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">k</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="k">return</span> <span class="n">lst</span></div>
 
 </pre></div>

@@ -23,7 +23,7 @@ Functions
 
 .. autoapisummary::
 
-   DISClib.Algorithms.Sorting.insertionsort.sort
+   DISClib.Algorithms.Sorting.insertionsort.insertion_sort
 
 
 
@@ -39,9 +39,9 @@ Attributes
 
    Lista de tipos de estructuras que se pueden ordenar por el algoritmo de ordenamiento (ADT *List* y sus estructuras especificas *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* y *Stack*)
 
-.. py:function:: sort(lst: LT, sort_crit: Callable[[DISClib.Utils.default.T, DISClib.Utils.default.T], bool]) -> LT
+.. py:function:: insertion_sort(lst: LT, sort_crit: Callable[[DISClib.Utils.default.T, DISClib.Utils.default.T], bool]) -> LT
 
-   Ordena una lista de elementos utilizando el algoritmo de ordenamiento por inserción (insertion sort).
+   *insertion_sort()* ordena una lista de elementos utilizando el algoritmo de ordenamiento por inserción (insertion sort).
 
    :param lst: La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*.
    :type lst: LT

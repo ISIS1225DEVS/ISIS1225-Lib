@@ -71,7 +71,7 @@ def _heapify(lst: List,
              low: int,
              high: int,
              sort_crit: Callable[[T, T], bool]) -> List:
-    """_heapify _summary_
+    """*_heapify()* construye un montículo inicial del algoritmo de ordenamiento. Utiliza el criterio de ordenamiento para ajustar la lista al montículo y poder garantizar que los elementos tienen hijos izquierdos y derechos según el índice de árbol binario lleno reconstruido en el indice i*2+1 y i*2+2 respectivamente.
 
     Args:
         lst (List): La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*.
@@ -97,12 +97,12 @@ def _sift(lst: List,
           low: int,
           high: int,
           sort_crit: Callable[[T, T], bool]):
-    """*_sift()* reconstruye el montículo de elementos en la lista de acuerdo al criterio de ordenamiento y a los limites definidos para la lista.
+    """*_sift()* ajusta la lista al montículo según el criterio de ordenamiento. Utiliza el criterio de ordenamiento para encontrar el elemento de mayor importancia en el montículo y ajusta la posición del elemento de acuerdo con él.
 
     Args:
         lst (List): La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*.
-        low (int): límite inferior de la sublista a ordenar según el índice de árbol binario lleno reconstruido.
-        high (int): límite superior de la sublista a ordenar según el índice de árbol binario lleno reconstruido.
+        low (int): límite inferior de la sublista a ordenar según el índice del árbol binario lleno reconstruido.
+        high (int): límite superior de la sublista a ordenar según el índice del árbol binario lleno reconstruido.
         sort_crit (Callable[[T, T], bool]): Es una función definida por el usuario que representa el criterio de ordenamiento. Recibe dos elementos pertenecientes al ADT **List** y retorna *True* si el primer elemento es menor que el segundo elemento, y *False* en caso contrario.
     """
     # indice temporal del elemento padre

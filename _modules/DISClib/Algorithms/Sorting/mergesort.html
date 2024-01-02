@@ -106,10 +106,10 @@
 <span class="k">assert</span> <span class="n">T</span>
 
 <span class="c1"># sort available list types</span>
-<span class="c1"># :arg: LT: list type</span>
-<div class="viewcode-block" id="LT">
-<a class="viewcode-back" href="../../../../autoapi/DISClib/Algorithms/Sorting/mergesort/index.html#DISClib.Algorithms.Sorting.mergesort.LT">[documentos]</a>
-<span class="n">LT</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span><span class="n">ArrayList</span><span class="p">,</span> <span class="n">SingleLinked</span><span class="p">,</span> <span class="n">DoubleLinked</span><span class="p">]</span></div>
+<span class="c1"># :arg: List: list type</span>
+<div class="viewcode-block" id="List">
+<a class="viewcode-back" href="../../../../autoapi/DISClib/Algorithms/Sorting/mergesort/index.html#DISClib.Algorithms.Sorting.mergesort.List">[documentos]</a>
+<span class="n">List</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span><span class="n">ArrayList</span><span class="p">,</span> <span class="n">SingleLinked</span><span class="p">,</span> <span class="n">DoubleLinked</span><span class="p">]</span></div>
 
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Lista de tipos de estructuras que se pueden ordenar por el algoritmo de ordenamiento (ADT *List* y sus estructuras especificas *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* y *Stack*)</span>
@@ -119,15 +119,15 @@
 <span class="c1"># TODO alternative function name: merge_sort</span>
 <div class="viewcode-block" id="merge_sort">
 <a class="viewcode-back" href="../../../../autoapi/DISClib/Algorithms/Sorting/mergesort/index.html#DISClib.Algorithms.Sorting.mergesort.merge_sort">[documentos]</a>
-<span class="k">def</span> <span class="nf">merge_sort</span><span class="p">(</span><span class="n">lst</span><span class="p">:</span> <span class="n">LT</span><span class="p">,</span> <span class="n">sort_crit</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="p">],</span> <span class="nb">bool</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">LT</span><span class="p">:</span>
+<span class="k">def</span> <span class="nf">merge_sort</span><span class="p">(</span><span class="n">lst</span><span class="p">:</span> <span class="n">List</span><span class="p">,</span> <span class="n">sort_crit</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="p">],</span> <span class="nb">bool</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;*merge_sort()* ordena una lista de elementos utilizando el algoritmo de ordenamiento por mezcla (merge sort).</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        lst (LT): La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*.</span>
+<span class="sd">        lst (List): La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*.</span>
 <span class="sd">        sort_crit (Callable[[T, T], bool]): Es una función definida por el usuario que representa el criterio de ordenamiento. Recibe dos elementos pertenecientes al ADT **List** y retorna *True* si el primer elemento es menor que el segundo elemento, y *False* en caso contrario.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        LT: La lista ordenada.</span>
+<span class="sd">        List: La lista ordenada.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="c1"># recuperar el tamaño de la lista</span>
@@ -159,20 +159,20 @@
 
 <div class="viewcode-block" id="_merge">
 <a class="viewcode-back" href="../../../../autoapi/DISClib/Algorithms/Sorting/mergesort/index.html#DISClib.Algorithms.Sorting.mergesort._merge">[documentos]</a>
-<span class="k">def</span> <span class="nf">_merge</span><span class="p">(</span><span class="n">left_lt</span><span class="p">:</span> <span class="n">LT</span><span class="p">,</span>
-           <span class="n">right_lt</span><span class="p">:</span> <span class="n">LT</span><span class="p">,</span>
-           <span class="n">lst</span><span class="p">:</span> <span class="n">LT</span><span class="p">,</span>
-           <span class="n">sort_crit</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="p">],</span> <span class="nb">bool</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">LT</span><span class="p">:</span>
+<span class="k">def</span> <span class="nf">_merge</span><span class="p">(</span><span class="n">left_lt</span><span class="p">:</span> <span class="n">List</span><span class="p">,</span>
+           <span class="n">right_lt</span><span class="p">:</span> <span class="n">List</span><span class="p">,</span>
+           <span class="n">lst</span><span class="p">:</span> <span class="n">List</span><span class="p">,</span>
+           <span class="n">sort_crit</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="p">],</span> <span class="nb">bool</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;*_merge()* recombina las sublistas izquierda y derecha en una sola lista ordenada dentro del algoritmo de ordenamiento por mezcla (merge sort).</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        left_lt (LT): sublista izquierda creada recursivamente.</span>
-<span class="sd">        right_lt (LT): sublista derecha creada recursivamente.</span>
-<span class="sd">        lst (LT): La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*. Es la lista original que se va a ordenar.</span>
+<span class="sd">        left_lt (List): sublista izquierda creada recursivamente.</span>
+<span class="sd">        right_lt (List): sublista derecha creada recursivamente.</span>
+<span class="sd">        lst (List): La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*. Es la lista original que se va a ordenar.</span>
 <span class="sd">        sort_crit (Callable[[T, T], bool]): Es una función definida por el usuario que representa el criterio de ordenamiento. Recibe dos elementos pertenecientes al ADT **List** y retorna *True* si el primer elemento es menor que el segundo elemento, y *False* en caso contrario.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        LT: la lista ordenada</span>
+<span class="sd">        List: la lista ordenada</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># iteradores para la lista izquierda, derecha y original</span>
     <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>

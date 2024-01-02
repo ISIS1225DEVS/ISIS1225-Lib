@@ -1,84 +1,125 @@
 """
- * Copyright 2020, Departamento de sistemas y Computación,
- * Universidad de Los Andes
- *
- *
- * Desarrolado para el curso ISIS1225 - Estructuras de Datos y Algoritmos
- *
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- * Contribución de:
- *
- * Dario Correal
- *
- """
+Este módulo contiene la implementación del algoritmo de ordenamiento por selección por mezcla (merge sort) un algoritmo creado por John Von Neumann que utiliza el principio de dividir y conquistar para ordenar una secuencia de elementos. El algoritmo puede aplicarse a cualquier secuencia de elementos que puedan ser comparados entre sí como los ADT *List* y sus estructuras especificas *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* y *Stack*
 
-from DISClib.ADT import lists as lt
+*IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:
 
-"""
-  Los algoritmos de este libro están basados en la implementación
-  propuesta por R.Sedgewick y Kevin Wayne en su libro
-  Algorithms, 4th Edition
+    #. Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.
+    #. Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H. Goldwasser.
 """
 
-# FIXME: pasar a snake_case de python
-# FIXME: cambiar pruebas unitarias de acuerdo a los cambios realizados
-# TODO: tipar datos de entrada y salida de cada funcion
-# TODO: agregar excepciones mas especificas que no sean Exception
-# TODO mejorar la descricion del algoritmo de la funcion
+# native python modules
+# import modules for defining the list types
+from typing import Union, Callable
+# import inspect for getting the name of the current function
+import inspect
+
+# custom modules
+from DISClib.DataStructures.arraylist import ArrayList
+from DISClib.DataStructures.singlelinkedlist import SingleLinked
+from DISClib.DataStructures.doublelinkedlist import DoubleLinked
+# generic error handling and type checking
+from DISClib.Utils.error import error_handler
+from DISClib.Utils.default import T
+
+# checking custom modules
+assert error_handler
+assert T
+
+# sort available list types
+# :arg: LT: list type
+LT = Union[ArrayList, SingleLinked, DoubleLinked]
+"""
+Lista de tipos de estructuras que se pueden ordenar por el algoritmo de ordenamiento (ADT *List* y sus estructuras especificas *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* y *Stack*)
+"""
 
 
-def sort(lst, sort_crit):
-    size = lt.size(lst)
-    if size > 1:
-        mid = (size // 2)
-        """se divide la lista original, en dos partes, izquierda y derecha,
-        desde el punto mid."""
-        leftlist = lt.subList(lst, 1, mid)
-        rightlist = lt.subList(lst, mid+1, size - mid)
+# TODO alternative function name: merge_sort
+def merge_sort(lst: LT, sort_crit: Callable[[T, T], bool]) -> LT:
+    """*merge_sort()* ordena una lista de elementos utilizando el algoritmo de ordenamiento por mezcla (merge sort).
 
-        """se hace el llamado recursivo con la lista izquierda y derecha"""
-        sort(leftlist, sort_crit)
-        sort(rightlist, sort_crit)
+    Args:
+        lst (LT): La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*.
+        sort_crit (Callable[[T, T], bool]): Es una función definida por el usuario que representa el criterio de ordenamiento. Recibe dos elementos pertenecientes al ADT **List** y retorna *True* si el primer elemento es menor que el segundo elemento, y *False* en caso contrario.
 
-        """i recorre la lista izquierda, j la derecha y k la lista original"""
-        i = j = k = 1
+    Returns:
+        LT: La lista ordenada.
+    """
+    try:
+        # recuperar el tamaño de la lista
+        lt_size = lst.size()
+        # si la lista es mayor a 1, es decir no es trivial
+        if lt_size > 1:
+            # DIVIDIR
+            # encontrar el punto medio de la lista, redondeando hacia abajo
+            mid = int(lt_size / 2)
+            # dividir la lista en dos sublistas izquierda y derecha
+            left_lt = lst.sublist(0, mid - 1)
+            right_lt = lst.sublist(mid, lt_size - 1)
+            # ordenar recursivamente las sublistas izquierda y derecha
+            # CONQUISTAR
+            merge_sort(left_lt, sort_crit)
+            merge_sort(right_lt, sort_crit)
+            # RECOMBINAR
+            # recomponer las sublistas izquierda y derecha en la original
+            lst = _merge(left_lt, right_lt, lst, sort_crit)
+        return lst
+    except Exception as err:
+        # get current module and function name
+        cur_context = __name__.split(".")[-1]
+        cur_function = inspect.currentframe().f_code.co_name
+        # handle the error
+        error_handler(cur_context, cur_function, err)
 
-        leftelements = lt.size(leftlist)
-        rightelements = lt.size(rightlist)
 
-        while (i <= leftelements) and (j <= rightelements):
-            elemi = lt.getElement(leftlist, i)
-            elemj = lt.getElement(rightlist, j)
-            """compara y ordena los elementos"""
-            if sort_crit(elemj, elemi):   # caso estricto elemj < elemi
-                lt.changeInfo(lst, k, elemj)
-                j += 1
-            else:                            # caso elemi <= elemj
-                lt.changeInfo(lst, k, elemi)
+def _merge(left_lt: LT,
+           right_lt: LT,
+           lst: LT,
+           sort_crit: Callable[[T, T], bool]) -> LT:
+    """*_merge()* recombina las sublistas izquierda y derecha en una sola lista ordenada dentro del algoritmo de ordenamiento por mezcla (merge sort).
+
+    Args:
+        left_lt (LT): sublista izquierda creada recursivamente.
+        right_lt (LT): sublista derecha creada recursivamente.
+        lst (LT): La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*. Es la lista original que se va a ordenar.
+        sort_crit (Callable[[T, T], bool]): Es una función definida por el usuario que representa el criterio de ordenamiento. Recibe dos elementos pertenecientes al ADT **List** y retorna *True* si el primer elemento es menor que el segundo elemento, y *False* en caso contrario.
+
+    Returns:
+        LT: la lista ordenada
+    """
+    # iteradores para la lista izquierda, derecha y original
+    i = 0
+    j = 0
+    k = 0
+    # __len__ y size() son funciones de python y DISClib equivalentes
+    # mientras se este en el rango de la lista original
+    while k < lst.size():
+        # si se esta dentro del rango de la lista izquierda y derecha
+        if i < left_lt.size() and j < right_lt.size():
+            # recuperar los elementos de ambas listas
+            e_left = left_lt.get_element(i)
+            e_right = right_lt.get_element(j)
+            # comparar los elementos de ambas listas
+            if sort_crit(e_left, e_right):
+                # actualizar la lista original con el elemento de la lista izquierda
+                lst.change_info(e_left, k)
                 i += 1
-            k += 1
-
-        """Agrega los elementos que no se comprararon y estan ordenados"""
-        while i <= leftelements:
-            lt.changeInfo(lst, k, lt.getElement(leftlist, i))
+            # si no se cumple la condicion anterior
+            else:
+                # actualizar la lista original con el elemento de la lista derecha
+                lst.change_info(e_right, k)
+                j += 1
+        # COMPARAR LOS ELEMENTOS QUE NO ESTAN EN AMBAS LISTAS
+        # si se esta dentro del rango de la lista izquierda
+        elif i < len(left_lt):
+            # actualizar la lista original con el elemento de la lista izquierda
+            e_left = left_lt.get_element(i)
+            lst.change_info(e_left, k)
             i += 1
-            k += 1
-
-        while j <= rightelements:
-            lt.changeInfo(lst, k, lt.getElement(rightlist, j))
+        # si se esta dentro del rango de la lista derecha
+        elif j < len(right_lt):
+            # actualizar la lista original con el elemento de la lista derecha
+            e_right = right_lt.get_element(j)
+            lst.change_info(e_right, k)
             j += 1
-            k += 1
+        k += 1
     return lst

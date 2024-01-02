@@ -34,9 +34,8 @@ Lista de tipos de estructuras que se pueden ordenar por el algoritmo de ordenami
 
 
 # TODO alternative function name: insertion_sort
-def sort(lst: LT, sort_crit: Callable[[T, T], bool]) -> LT:
-    """
-    Ordena una lista de elementos utilizando el algoritmo de ordenamiento por inserción (insertion sort).
+def insertion_sort(lst: LT, sort_crit: Callable[[T, T], bool]) -> LT:
+    """*insertion_sort()* ordena una lista de elementos utilizando el algoritmo de ordenamiento por inserción (insertion sort).
 
     Args:
         lst (LT): La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*.

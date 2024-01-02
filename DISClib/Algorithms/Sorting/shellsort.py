@@ -35,9 +35,8 @@ Lista de tipos de estructuras que se pueden ordenar por el algoritmo de ordenami
 
 
 # TODO alternative function name: shell_sort
-def sort(lst: LT, sort_crit: Callable[[T, T], bool]) -> LT:
-    """
-    Ordena una lista de elementos utilizando el algoritmo de ordenamiento Shell (shell sort).
+def shell_sort(lst: LT, sort_crit: Callable[[T, T], bool]) -> LT:
+    """*shell_sort()* ordena una lista de elementos utilizando el algoritmo de ordenamiento Shell (shell sort).
 
     Args:
         lst (LT): La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*.

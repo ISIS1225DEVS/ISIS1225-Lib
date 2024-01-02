@@ -34,9 +34,8 @@ Lista de tipos de estructuras que se pueden ordenar por el algoritmo de ordenami
 
 
 # TODO alternative function name: selection_sort
-def sort(lst: LT, sort_crit: Callable[[T, T], bool]) -> LT:
-    """
-    Ordena una lista de elementos utilizando el algoritmo de ordenamiento por selección (selection sort).
+def selection_sort(lst: LT, sort_crit: Callable[[T, T], bool]) -> LT:
+    """*selection_sort()* ordena una lista de elementos utilizando el algoritmo de ordenamiento por selección (selection sort).
 
     Args:
         lst (LT): La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*.

@@ -93,7 +93,7 @@ Functions
 .. py:function:: newMap(omaptype, cmpfunction, datastructure)
 
    Crea una tabla de simbolos ordenada.
-   :param compfunction: La funcion de comparacion
+   :param compfunction: La función de comparacion
 
    :returns: La tabla de símbolos ordenada sin elementos
 
@@ -299,8 +299,8 @@ Functions
    Retorna todas las llaves del arbol que se encuentren entre
    [keylo, keyhi]
    :param bst: La tabla de simbolos
-   :param keylo: limite inferior
-   :param keylohi: limite superiorr
+   :param keylo: límite inferior
+   :param keylohi: límite superiorr
 
    :returns: Las llaves en el rago especificado
 
@@ -313,8 +313,8 @@ Functions
    [keylo, keyhi]
 
    :param bst: La tabla de simbolos
-   :param keylo: limite inferior
-   :param keylohi: limite superiorr
+   :param keylo: límite inferior
+   :param keylohi: límite superiorr
 
    :returns: Las llaves en el rago especificado
 
@@ -431,7 +431,7 @@ Functions
 
    :param root: El arbol rojo-negro
    :param key: La llave de busqueda
-   :param cmpfunction: funcion de comparación
+   :param cmpfunction: función de comparación
 
    :returns: La pareja llave-valor
 
@@ -501,8 +501,8 @@ Functions
 
    Retorna todas las llaves del arbol en un rango dado
    :param bst: La tabla de simbolos
-   :param keylo: limite inferior
-   :param keylohi: limite superiorr
+   :param keylo: límite inferior
+   :param keylohi: límite superiorr
 
    :returns: Las llaves en el rago especificado
 
@@ -514,8 +514,8 @@ Functions
    Retorna todas los valores del arbol en un rango dado por
    [keylo, keyhi]
    :param bst: La tabla de simbolos
-   :param keylo: limite inferior
-   :param keylohi: limite superior
+   :param keylo: límite inferior
+   :param keylohi: límite superior
 
    :returns: Las llaves en el rango especificado
 
@@ -587,7 +587,7 @@ Functions
    Elimina la pareja llave,valor, donde llave == key.
    :param root: El arbol de búsqueda
    :param key: La llave asociada a la pareja
-   :param cmpfunction: La funcion de comparacion
+   :param cmpfunction: La función de comparacion
 
    :returns: El arbol sin la pareja key-value
 

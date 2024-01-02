@@ -58,7 +58,7 @@ Functions
    Crea un nuevo heap basado en un arreglo, cuyo primer elemento
    es inicializado en None y no será utilizado
 
-   :param cmpfunction: La funcion de comparacion
+   :param cmpfunction: La función de comparacion
    :param size: El numero de elementos
 
    :returns: El heap

@@ -85,7 +85,7 @@ Functions
 .. py:function:: newMap(omaptype, cmpfunction, datastructure)
 
    Crea una tabla de simbolos ordenada.
-   :param compfunction: La funcion de comparacion
+   :param compfunction: La función de comparacion
 
    :returns: La tabla de símbolos ordenada sin elementos
 
@@ -282,8 +282,8 @@ Functions
    [keylo, keyhi]
 
    :param bst: La tabla de simbolos
-   :param keylo: limite inferior
-   :param keylohi: limite superiorr
+   :param keylo: límite inferior
+   :param keylohi: límite superiorr
 
    :returns: Las llaves en el rago especificado
 
@@ -296,8 +296,8 @@ Functions
    [keylo, keyhi]
 
    :param bst: La tabla de simbolos
-   :param keylo: limite inferior
-   :param keylohi: limite superiorr
+   :param keylo: límite inferior
+   :param keylohi: límite superiorr
 
    :returns: Las llaves en el rago especificado
 
@@ -474,8 +474,8 @@ Functions
 
    Retorna todas las llaves del arbol en un rango dado
    :param bst: La tabla de simbolos
-   :param keylo: limite inferior
-   :param keylohi: limite superiorr
+   :param keylo: límite inferior
+   :param keylohi: límite superiorr
 
    :returns: Las llaves en el rago especificado
 
@@ -487,8 +487,8 @@ Functions
    Retorna todas los valores del arbol en un rango dado por
    [keylo, keyhi]
    :param bst: La tabla de simbolos
-   :param keylo: limite inferior
-   :param keylohi: limite superior
+   :param keylo: límite inferior
+   :param keylohi: límite superior
 
    :returns: Las llaves en el rago especificado
 

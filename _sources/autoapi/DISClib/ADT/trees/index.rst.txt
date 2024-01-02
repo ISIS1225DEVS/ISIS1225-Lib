@@ -274,8 +274,8 @@ Attributes
    [keylo, keyhi]
 
    :param map: La tabla de simbolos
-   :param keylo: limite inferior
-   :param keylohi: limite superiorr
+   :param keylo: límite inferior
+   :param keylohi: límite superiorr
 
    :returns: Las llaves en el rago especificado
 
@@ -288,8 +288,8 @@ Attributes
    [keylo, keyhi]
 
    :param map: La tabla de simbolos
-   :param keylo: limite inferior
-   :param keylohi: limite superiorr
+   :param keylo: límite inferior
+   :param keylohi: límite superiorr
 
    :returns: Las llaves en el rago especificado
 

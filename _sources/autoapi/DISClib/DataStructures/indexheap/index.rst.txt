@@ -57,7 +57,7 @@ Functions
 
    Crea un cola de prioridad indexada orientada a menor
 
-   :param cmpfunction: La funcion de comparacion
+   :param cmpfunction: La función de comparacion
    :param size: El numero de elementos
 
    :returns: Una nueva cola de prioridad indexada

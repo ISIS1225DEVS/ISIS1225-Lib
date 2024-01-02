@@ -53,7 +53,7 @@ Functions
 
    Crea un cola de prioridad orientada a menor
 
-   :param cmpfunction: La funcion de comparacion
+   :param cmpfunction: La función de comparacion
    :param size: El numero de elementos
 
    :returns: El heap

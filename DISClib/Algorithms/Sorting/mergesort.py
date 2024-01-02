@@ -26,23 +26,23 @@ assert error_handler
 assert T
 
 # sort available list types
-# :arg: LT: list type
-LT = Union[ArrayList, SingleLinked, DoubleLinked]
+# :arg: List: list type
+List = Union[ArrayList, SingleLinked, DoubleLinked]
 """
 Lista de tipos de estructuras que se pueden ordenar por el algoritmo de ordenamiento (ADT *List* y sus estructuras especificas *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* y *Stack*)
 """
 
 
 # TODO alternative function name: merge_sort
-def merge_sort(lst: LT, sort_crit: Callable[[T, T], bool]) -> LT:
+def merge_sort(lst: List, sort_crit: Callable[[T, T], bool]) -> List:
     """*merge_sort()* ordena una lista de elementos utilizando el algoritmo de ordenamiento por mezcla (merge sort).
 
     Args:
-        lst (LT): La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*.
+        lst (List): La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*.
         sort_crit (Callable[[T, T], bool]): Es una función definida por el usuario que representa el criterio de ordenamiento. Recibe dos elementos pertenecientes al ADT **List** y retorna *True* si el primer elemento es menor que el segundo elemento, y *False* en caso contrario.
 
     Returns:
-        LT: La lista ordenada.
+        List: La lista ordenada.
     """
     try:
         # recuperar el tamaño de la lista
@@ -71,20 +71,20 @@ def merge_sort(lst: LT, sort_crit: Callable[[T, T], bool]) -> LT:
         error_handler(cur_context, cur_function, err)
 
 
-def _merge(left_lt: LT,
-           right_lt: LT,
-           lst: LT,
-           sort_crit: Callable[[T, T], bool]) -> LT:
+def _merge(left_lt: List,
+           right_lt: List,
+           lst: List,
+           sort_crit: Callable[[T, T], bool]) -> List:
     """*_merge()* recombina las sublistas izquierda y derecha en una sola lista ordenada dentro del algoritmo de ordenamiento por mezcla (merge sort).
 
     Args:
-        left_lt (LT): sublista izquierda creada recursivamente.
-        right_lt (LT): sublista derecha creada recursivamente.
-        lst (LT): La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*. Es la lista original que se va a ordenar.
+        left_lt (List): sublista izquierda creada recursivamente.
+        right_lt (List): sublista derecha creada recursivamente.
+        lst (List): La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*. Es la lista original que se va a ordenar.
         sort_crit (Callable[[T, T], bool]): Es una función definida por el usuario que representa el criterio de ordenamiento. Recibe dos elementos pertenecientes al ADT **List** y retorna *True* si el primer elemento es menor que el segundo elemento, y *False* en caso contrario.
 
     Returns:
-        LT: la lista ordenada
+        List: la lista ordenada
     """
     # iteradores para la lista izquierda, derecha y original
     i = 0

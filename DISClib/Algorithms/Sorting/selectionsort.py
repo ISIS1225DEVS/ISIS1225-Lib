@@ -26,23 +26,23 @@ assert error_handler
 assert T
 
 # sort available list types
-# :arg: LT: list type
-LT = Union[ArrayList, SingleLinked, DoubleLinked]
+# :arg: List: list type
+List = Union[ArrayList, SingleLinked, DoubleLinked]
 """
 Lista de tipos de estructuras que se pueden ordenar por el algoritmo de ordenamiento (ADT *List* y sus estructuras especificas *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* y *Stack*)
 """
 
 
 # TODO alternative function name: selection_sort
-def selection_sort(lst: LT, sort_crit: Callable[[T, T], bool]) -> LT:
+def selection_sort(lst: List, sort_crit: Callable[[T, T], bool]) -> List:
     """*selection_sort()* ordena una lista de elementos utilizando el algoritmo de ordenamiento por selección (selection sort).
 
     Args:
-        lst (LT): La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*.
+        lst (List): La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*.
         sort_crit (Callable[[T, T], bool]): Es una función definida por el usuario que representa el criterio de ordenamiento. Recibe dos elementos pertenecientes al ADT **List** y retorna *True* si el primer elemento es menor que el segundo elemento, y *False* en caso contrario.
 
     Returns:
-        LT: La lista ordenada.
+        List: La lista ordenada.
     """
     try:
         lt_size = lst.size()    # tamaño de la lista

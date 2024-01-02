@@ -26,23 +26,23 @@ assert error_handler
 assert T
 
 # sort available list types
-# :arg: LT: list type
-LT = Union[ArrayList, SingleLinked, DoubleLinked]
+# :arg: List: list type
+List = Union[ArrayList, SingleLinked, DoubleLinked]
 """
 Lista de tipos de estructuras que se pueden ordenar por el algoritmo de ordenamiento (ADT *List* y sus estructuras especificas *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* y *Stack*)
 """
 
 
 # TODO alternative function name: quick_sort
-def quick_sort(lst: LT, sort_crit: Callable[[T, T], bool]) -> LT:
+def quick_sort(lst: List, sort_crit: Callable[[T, T], bool]) -> List:
     """*merge_sort()* ordena una lista de elementos utilizando el algoritmo de ordenamiento rápido (quick sort).
 
     Args:
-        lst (LT): La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*.
+        lst (List): La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*.
         sort_crit (Callable[[T, T], bool]): Es una función definida por el usuario que representa el criterio de ordenamiento. Recibe dos elementos pertenecientes al ADT **List** y retorna *True* si el primer elemento es menor que el segundo elemento, y *False* en caso contrario.
 
     Returns:
-        LT: La lista ordenada.
+        List: La lista ordenada.
     """
     try:
         # recuperar el tamaño de la lista original
@@ -58,14 +58,14 @@ def quick_sort(lst: LT, sort_crit: Callable[[T, T], bool]) -> LT:
         error_handler(cur_context, cur_function, err)
 
 
-def _quick_sort(lst: LT,
+def _quick_sort(lst: List,
                 low: int,
                 high: int,
                 sort_crit: Callable[[T, T], bool]):
     """*_quick_sort()* ordena recursivamente una lista de elementos. Primero se selecciona el pivote utilizando la funcion de particion. Luego se ejecuta la recursión con los elementos a la izquierda del pivote y a la derecha del pivote.
 
     Args:
-        lst (LT): La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*.
+        lst (List): La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*.
         low (int): limite inferior de la sublista a ordenar segun el indice del pivote.
         high (int): limite superior de la sublista a ordenar segun el indice del pivote.
         sort_crit (Callable[[T, T], bool]): Es una función definida por el usuario que representa el criterio de ordenamiento. Recibe dos elementos pertenecientes al ADT **List** y retorna *True* si el primer elemento es menor que el segundo elemento, y *False* en caso contrario.
@@ -82,14 +82,14 @@ def _quick_sort(lst: LT,
     _quick_sort(lst, pivot + 1, high - 1, sort_crit)
 
 
-def _partition(lst: LT,
+def _partition(lst: List,
                low: int,
                high: int,
                sort_crit: Callable[[T, T], bool]) -> int:
     """*_partition()* selecciona el pivote de la lista y lo deja en su lugar, mientras mueve los elementos menores a la izquierda del pivote y los elementos mayores a la derecha del pivote.
 
     Args:
-        lst (LT): La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*.
+        lst (List): La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*.
         low (int): limite inferior de la sublista a ordenar segun el indice del pivote.
         high (int): limite superior de la sublista a ordenar segun el indice del pivote.
         sort_crit (Callable[[T, T], bool]): Es una función definida por el usuario que representa el criterio de ordenamiento. Recibe dos elementos pertenecientes al ADT **List** y retorna *True* si el primer elemento es menor que el segundo elemento, y *False* en caso contrario.

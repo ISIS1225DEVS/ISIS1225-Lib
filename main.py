@@ -6,6 +6,14 @@ from DISClib.ADT.queue import Queue
 # from DISClib.ADT.stack import Stack
 from DISClib.ADT.maps import Map
 from DISClib.DataStructures.mapentry import MapEntry
+from DISClib.Algorithms.Sorting.selectionsort import selection_sort as ses
+from DISClib.Algorithms.Sorting.insertionsort import insertion_sort as ins
+from DISClib.Algorithms.Sorting.shellsort import shell_sort as shs
+from DISClib.Algorithms.Sorting.quicksort import quick_sort as qks
+from DISClib.Algorithms.Sorting.mergesort import merge_sort as mgs
+# from DISClib.Algorithms.Sorting.heapsort import sort as hps
+from DISClib.Algorithms.Sorting.bogosort import sort as bgs
+
 import random
 # from DISClib.ADT.lists import List2
 from dataclasses import dataclass
@@ -399,3 +407,32 @@ if __name__ == "__main__":
     print(en.get_key())
     print(en.get_value())
     # en.set_value(2)
+
+    t = List("ArrayList",  # "SingleLinked", "DoubleLinked", "ArrayList"
+             iodata=(6, 3, 5, 1, 2, 4))
+    # t.elements.append("a")
+
+    def stcrit(a, b):
+        return a < b
+
+    """
+    selectionsort - ses
+    insertionsort - ins
+    shellsort - shs
+    quicksort - qks
+    mergesort - mgs
+    bogosort - bgs
+    """
+
+    print("sorting!")
+    print(t)
+    qks(t, stcrit)
+    print(t)
+    for i in t:
+        print(i)
+
+    a = Queue(iodata=(6, 3, 5, 1, 2, 4))
+    qks(a, stcrit)
+    print(a)
+    for i in a:
+        print(i)

@@ -1,115 +1,130 @@
 """
- * Copyright 2022, Departamento de sistemas y Computación,
- * Universidad de Los Andes
- *
- *
- * Desarrolado para el curso ISIS1225 - Estructuras de Datos y Algoritmos
- *
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- * Contribución de:
- *
- * Jhostin Sánchez
- *
- """
+Este módulo contiene la implementación del algoritmo de ordenamiento por montículos (heap sort) un algoritmo creado por J.W.J. Williams que utiliza el principio de dividir y conquistar para ordenar una secuencia de elementos. El algoritmo puede aplicarse a cualquier secuencia de elementos que puedan ser comparados entre sí como los ADT *List* y sus estructuras especificas *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* y *Stack*
 
-# import config
-# from DISClib.ADT import list as lt
-# from DISClib.Utils import error as error
-import sys
-from DISClib.DataStructures import heap as he
-# assert config
+*IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:
 
+    #. Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.
+    #. Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H. Goldwasser.
 """
-  Los algoritmos de este libro están basados en la implementación
-  propuesta por R.Sedgewick y Kevin Wayne en su libro
-  Algorithms, 4th Edition
+
+# FIXME: incluir de la contribución de: Jhostin Sánchez
+
+# native python modules
+# import modules for defining the list types
+from typing import Union, Callable
+# import inspect for getting the name of the current function
+import inspect
+
+# custom modules
+from DISClib.DataStructures.arraylist import ArrayList
+from DISClib.DataStructures.singlelinkedlist import SingleLinked
+from DISClib.DataStructures.doublelinkedlist import DoubleLinked
+# generic error handling and type checking
+from DISClib.Utils.error import error_handler
+from DISClib.Utils.default import T
+
+# checking custom modules
+assert error_handler
+assert T
+
+# sort available list types
+# :arg: List: list type
+List = Union[ArrayList, SingleLinked, DoubleLinked]
 """
-sys.setrecursionlimit(1000000)
-
-def upHeap(heap, pos, end):
-    """Mete el elemento en la posición correcta, compara los hijos y si hay uno mayor que el padre
-    los intercambia
-
-    Args:
-        heap (ADT.HeapTree): Arbol en array
-        pos (Int): Posición del padre
-        end (Int): Hasta donde se evalúa del arbol
-    Raises:
-        Exception
-    """
-    try:
-        while ((2*pos <= end)):
-            j = 2*pos
-            if (j < end):
-                if not he.greater(heap, lt.getElement(heap['elements'], j),
-                           lt.getElement(heap['elements'], (j+1))):
-                    j += 1
-            if (he.greater(heap, lt.getElement(heap['elements'], pos),
-                            lt.getElement(heap['elements'], j))):
-                break
-            he.exchange(heap, pos, j)
-            pos = j
-    except Exception as exp:
-        error.reraise(exp, 'heap:upHead')
+Lista de tipos de estructuras que se pueden ordenar por el algoritmo de ordenamiento (ADT *List* y sus estructuras especificas *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* y *Stack*)
+"""
 
 
-def maxPQ(heap, n):
-    """Se asegura de que la raíz es el elemento más grande en el Heap
+# TODO alternative function name: heap_sort
+def heap_sort(lst: List, sort_crit: Callable[[T, T], bool]) -> List:
+    """*heap_sort()* ordena una lista de elementos utilizando el algoritmo de ordenamiento por montículos (heap sort).
 
     Args:
-        heap (ADT.HeapTree):  Arbol en array
-        n (Int): Elemento a colocar en la posición correcta
-    Raises:
-        Exception
+        lst (List): La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*.
+        sort_crit (Callable[[T, T], bool]): Es una función definida por el usuario que representa el criterio de ordenamiento. Recibe dos elementos pertenecientes al ADT **List** y retorna *True* si el primer elemento es menor que el segundo elemento, y *False* en caso contrario.
+
+    Returns:
+        List: La lista ordenada.
     """
     try:
-        if n>0:
-            upHeap(heap, n, he.size(heap))
-            maxPQ(heap, n-1)          
-    except Exception as exp:
-        error.reraise(exp, "heap:maxPQ")
+        # recuperar el tamaño de la lista
+        lt_size = lst.size()
+        # construir el montículo inicial
+        lst = _heapify(lst, 0, lt_size - 1, sort_crit)
+        i = lt_size - 1
+        while i >= 0:
+            # intercambiar el primer elemento con el ultimo
+            lst.exchange(0, i)
+            # reconstruir el montículo
+            _sift(lst, 0, i - 1, sort_crit)
+            i -= 1
+        return lst
+    except Exception as err:
+        # get current module and function name
+        cur_context = __name__.split(".")[-1]
+        cur_function = inspect.currentframe().f_code.co_name
+        # handle the error
+        error_handler(cur_context, cur_function, err)
 
 
-def minPQ(heap, n):
-    """Intercambiamos la raíz con la última posición del árbol y colocamos la nueva raíz en la posición correcta
+def _heapify(lst: List,
+             low: int,
+             high: int,
+             sort_crit: Callable[[T, T], bool]) -> List:
+    """_heapify _summary_
 
     Args:
-        heap (ADT.HeapTree):  Arbol en array
-        n (Int): Elemento a colocar en la posición correcta
-    Raises:
-        Exception
-    """
-    try:
-        if n>0:
-            he.exchange(heap, 1 , n)
-            upHeap(heap, 1, n-1)
-            minPQ(heap, n-1)          
-    except Exception as exp:
-        error.reraise(exp, "heap:minPQ")
+        lst (List): La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*.
+        low (int): límite inferior de la sublista a ordenar según el índice de árbol binario lleno reconstruido.
+        high (int): límite superior de la sublista a ordenar según el índice de árbol binario lleno reconstruido.
+        sort_crit (Callable[[T, T], bool]): Es una función definida por el usuario que representa el criterio de ordenamiento. Recibe dos elementos pertenecientes al ADT **List** y retorna *True* si el primer elemento es menor que el segundo elemento, y *False* en caso contrario.
 
-def heapSort(heap:he.newHeap)->None:
-    """Algoritmo de ordenamiento de Heapsort
+    Returns:
+        List: lista ajustada al montículo según el criterio de ordenamiento.
+    """
+    # indice del elemento medio
+    i = int(high / 2)
+    # buscando el elemento mas grande
+    while i >= low:
+        # reconstruir el montículo
+        _sift(lst, i, high, sort_crit)
+        i -= 1
+    return lst
+
+
+# TODO: nombre alternativo: _sift_heap
+def _sift(lst: List,
+          low: int,
+          high: int,
+          sort_crit: Callable[[T, T], bool]):
+    """*_sift()* reconstruye el montículo de elementos en la lista de acuerdo al criterio de ordenamiento y a los limites definidos para la lista.
 
     Args:
-        heap (ADT.HeapTree): Arbol(ARRAY) a ordenar
+        lst (List): La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*.
+        low (int): límite inferior de la sublista a ordenar según el índice de árbol binario lleno reconstruido.
+        high (int): límite superior de la sublista a ordenar según el índice de árbol binario lleno reconstruido.
+        sort_crit (Callable[[T, T], bool]): Es una función definida por el usuario que representa el criterio de ordenamiento. Recibe dos elementos pertenecientes al ADT **List** y retorna *True* si el primer elemento es menor que el segundo elemento, y *False* en caso contrario.
     """
-    try:
-        middle=he.size(heap)//2
-        maxPQ(heap, middle)
-        minPQ(heap, he.size(heap))
-    except Exception as exp:
-        error.reraise(exp, "heap:heapSort")
+    # indice temporal del elemento padre
+    parent = low
+    # indice del hijo izquierdo en el montículo
+    i_left = 2 * low + 1
+    # indice del hijo derecho en el montículo
+    i_right = 2 * low + 2
 
+    # si el hijo izquierdo es mayor que el padre en el montículo
+    if i_left < high and sort_crit(lst.get_element(i_left),
+                                   lst.get_element(parent)):
+        parent = i_left
+
+    # si el hijo derecho es mayor que el padre en el montículo
+    if i_right < high and sort_crit(lst.get_element(i_right),
+                                    lst.get_element(parent)):
+        parent = i_right
+
+    # si el padre no es el elemento mas grande
+    if parent != low:
+        # intercambiar el padre con el elemento mas grande
+        lst.exchange(low, parent)
+        # invocar recursivamente la función
+        _sift(lst, parent, high, sort_crit)

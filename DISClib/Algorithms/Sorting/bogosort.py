@@ -80,6 +80,7 @@ def is_sorted(lst: List, sort_crit: Callable[[T, T],bool] , size: int) -> bool:
             #si dos elementos consecutivos no estan ordenados
             return False
         
+        
     return True
 
 

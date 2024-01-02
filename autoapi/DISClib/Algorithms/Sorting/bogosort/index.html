@@ -100,63 +100,85 @@
              
   <section id="module-DISClib.Algorithms.Sorting.bogosort">
 <span id="disclib-algorithms-sorting-bogosort"></span><h1><a class="reference internal" href="#module-DISClib.Algorithms.Sorting.bogosort" title="DISClib.Algorithms.Sorting.bogosort"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.Algorithms.Sorting.bogosort</span></code></a><a class="headerlink" href="#module-DISClib.Algorithms.Sorting.bogosort" title="Link to this heading"></a></h1>
-<ul class="simple">
-<li><p>Copyright 2020, Departamento de sistemas y Computación,</p></li>
-<li><p>Universidad de Los Andes</p></li>
-<li></li>
-<li></li>
-<li><p>Desarrolado para el curso ISIS1225 - Estructuras de Datos y Algoritmos</p></li>
-<li></li>
-<li></li>
-<li><p>This program is free software: you can redistribute it and/or modify</p></li>
-<li><p>it under the terms of the GNU General Public License as published by</p></li>
-<li><p>the Free Software Foundation, either version 3 of the License, or</p></li>
-<li><p>(at your option) any later version.</p></li>
-<li></li>
-<li><p>This program is distributed in the hope that it will be useful,</p></li>
-<li><p>but WITHOUT ANY WARRANTY; without even the implied warranty of</p></li>
-<li><p>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</p></li>
-<li><p>GNU General Public License for more details.</p></li>
-<li></li>
-<li><p>You should have received a copy of the GNU General Public License</p></li>
-<li><p>along with this program.  If not, see &lt;<a class="reference external" href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</p></li>
-<li></li>
-<li><p>Contribución de:</p></li>
-<li></li>
-<li><p>Eric Alarcon Dolynko</p></li>
-<li></li>
-</ul>
+<p>Este módulo contiene la implementación del algoritmo de ordenamiento por azar (bogo sort). El algoritmo puede aplicarse a cualquier secuencia de elementos que puedan ser comparados entre sí como los ADT <em>List</em> y sus estructuras especificas <em>ArrayList</em>, <em>LinkedList</em>, <em>DoubleLinkedList</em>, <em>Queue</em> y <em>Stack</em></p>
+<p><em>IMPORTANTE:</em> Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.</p></li>
+<li><p>Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H. Goldwasser.</p></li>
+</ol>
+</div></blockquote>
 <section id="module-contents">
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
 <section id="functions">
 <h3>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h3>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.Algorithms.Sorting.bogosort.sort" title="DISClib.Algorithms.Sorting.bogosort.sort"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sort</span></code></a>(lst, size)</p></td>
-<td><p></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.Algorithms.Sorting.bogosort.bogo_sort" title="DISClib.Algorithms.Sorting.bogosort.bogo_sort"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bogo_sort</span></code></a>(→ List)</p></td>
+<td><p><em>bogo_sort()</em> ordena una lista de elementos utilizando el algoritmo de ordenamiento por azar (bogo sort).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#DISClib.Algorithms.Sorting.bogosort.is_sorted" title="DISClib.Algorithms.Sorting.bogosort.is_sorted"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_sorted</span></code></a>(lst, sort_crit, size)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.Algorithms.Sorting.bogosort.bogosort" title="DISClib.Algorithms.Sorting.bogosort.bogosort"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bogosort</span></code></a>(lst, sort_crit)</p></td>
-<td><p></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#DISClib.Algorithms.Sorting.bogosort.is_sorted" title="DISClib.Algorithms.Sorting.bogosort.is_sorted"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_sorted</span></code></a>(→ bool)</p></td>
+<td><p><em>is_sorted()</em> revisa si una lista está organizada de acuerdo al criterio de comparación.</p></td>
 </tr>
 </tbody>
 </table>
+</section>
+<section id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Link to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.Algorithms.Sorting.bogosort.List" title="DISClib.Algorithms.Sorting.bogosort.List"><code class="xref py py-obj docutils literal notranslate"><span class="pre">List</span></code></a></p></td>
+<td><p>Lista de tipos de estructuras que se pueden ordenar por el algoritmo de ordenamiento (ADT <em>List</em> y sus estructuras especificas <em>ArrayList</em>, <em>LinkedList</em>, <em>DoubleLinkedList</em>, <em>Queue</em> y <em>Stack</em>)</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py data">
+<dt class="sig sig-object py" id="DISClib.Algorithms.Sorting.bogosort.List">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Sorting.bogosort.</span></span><span class="sig-name descname"><span class="pre">List</span></span><a class="reference internal" href="../../../../../_modules/DISClib/Algorithms/Sorting/bogosort.html#List"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Sorting.bogosort.List" title="Link to this definition"></a></dt>
+<dd><p>Lista de tipos de estructuras que se pueden ordenar por el algoritmo de ordenamiento (ADT <em>List</em> y sus estructuras especificas <em>ArrayList</em>, <em>LinkedList</em>, <em>DoubleLinkedList</em>, <em>Queue</em> y <em>Stack</em>)</p>
+</dd></dl>
+
 <dl class="py function">
-<dt class="sig sig-object py" id="DISClib.Algorithms.Sorting.bogosort.sort">
-<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Sorting.bogosort.</span></span><span class="sig-name descname"><span class="pre">sort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/DISClib/Algorithms/Sorting/bogosort.html#sort"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Sorting.bogosort.sort" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dt class="sig sig-object py" id="DISClib.Algorithms.Sorting.bogosort.bogo_sort">
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Sorting.bogosort.</span></span><span class="sig-name descname"><span class="pre">bogo_sort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_crit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span></span></span><a class="reference internal" href="../../../../../_modules/DISClib/Algorithms/Sorting/bogosort.html#bogo_sort"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Sorting.bogosort.bogo_sort" title="Link to this definition"></a></dt>
+<dd><p><em>bogo_sort()</em> ordena una lista de elementos utilizando el algoritmo de ordenamiento por azar (bogo sort).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lst</strong> (<em>List</em>) – La lista a ordenar. Puede ser <em>ArrayList</em>, <em>LinkedList</em>, <em>DoubleLinkedList</em>, <em>Queue</em> o <em>Stack</em>.</p></li>
+<li><p><strong>sort_crit</strong> (<em>Callable</em><em>[</em><em>[</em><em>T</em><em>, </em><em>T</em><em>]</em><em>, </em><em>bool</em><em>]</em>) – Es una función definida por el usuario que representa el criterio de ordenamiento. Recibe dos elementos pertenecientes al ADT <strong>List</strong> y retorna <em>True</em> si el primer elemento es menor que el segundo elemento, y <em>False</em> en caso contrario.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>La lista ordenada.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="DISClib.Algorithms.Sorting.bogosort.is_sorted">
-<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Sorting.bogosort.</span></span><span class="sig-name descname"><span class="pre">is_sorted</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_crit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/DISClib/Algorithms/Sorting/bogosort.html#is_sorted"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Sorting.bogosort.is_sorted" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DISClib.Algorithms.Sorting.bogosort.bogosort">
-<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Sorting.bogosort.</span></span><span class="sig-name descname"><span class="pre">bogosort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_crit</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/DISClib/Algorithms/Sorting/bogosort.html#bogosort"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Sorting.bogosort.bogosort" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<span class="sig-prename descclassname"><span class="pre">DISClib.Algorithms.Sorting.bogosort.</span></span><span class="sig-name descname"><span class="pre">is_sorted</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_crit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../../../../_modules/DISClib/Algorithms/Sorting/bogosort.html#is_sorted"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.Algorithms.Sorting.bogosort.is_sorted" title="Link to this definition"></a></dt>
+<dd><p><em>is_sorted()</em> revisa si una lista está organizada de acuerdo al criterio de comparación.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lst</strong> (<em>List</em>) – La lista a ordenar. Puede ser <em>ArrayList</em>, <em>LinkedList</em>, <em>DoubleLinkedList</em>, <em>Queue</em> o <em>Stack</em>.</p></li>
+<li><p><strong>sort_crit</strong> (<em>Callable</em><em>[</em><em>[</em><em>T</em><em>, </em><em>T</em><em>]</em><em>, </em><em>bool</em><em>]</em>) – Es una función definida por el usuario que representa el criterio de ordenamiento. Recibe dos elementos pertenecientes al ADT <strong>List</strong> y retorna <em>True</em> si el primer elemento es menor que el segundo elemento, y <em>False</em> en caso contrario.</p></li>
+<li><p><strong>size</strong> (<em>int</em>) – El tamaño de la lista.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Si la lista está ordenada.
+False: Si la lista no está ordenada.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True</p>
+</dd>
+</dl>
+</dd></dl>
 
 </section>
 </section>

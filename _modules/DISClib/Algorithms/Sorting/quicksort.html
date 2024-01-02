@@ -120,7 +120,7 @@
 <div class="viewcode-block" id="quick_sort">
 <a class="viewcode-back" href="../../../../autoapi/DISClib/Algorithms/Sorting/quicksort/index.html#DISClib.Algorithms.Sorting.quicksort.quick_sort">[documentos]</a>
 <span class="k">def</span> <span class="nf">quick_sort</span><span class="p">(</span><span class="n">lst</span><span class="p">:</span> <span class="n">List</span><span class="p">,</span> <span class="n">sort_crit</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="p">],</span> <span class="nb">bool</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;*merge_sort()* ordena una lista de elementos utilizando el algoritmo de ordenamiento rápido (quick sort).</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;*quick_sort()* ordena una lista de elementos utilizando el algoritmo de ordenamiento rápido (quick sort).</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        lst (List): La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*.</span>
@@ -132,7 +132,7 @@
     <span class="k">try</span><span class="p">:</span>
         <span class="c1"># recuperar el tamaño de la lista original</span>
         <span class="n">lt_size</span> <span class="o">=</span> <span class="n">lst</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
-        <span class="c1"># invocar la funcion recursiva</span>
+        <span class="c1"># invocar la función recursiva</span>
         <span class="n">lst</span> <span class="o">=</span> <span class="n">_quick_sort</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">lt_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sort_crit</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">lst</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
@@ -150,12 +150,12 @@
                 <span class="n">low</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
                 <span class="n">high</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
                 <span class="n">sort_crit</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="p">],</span> <span class="nb">bool</span><span class="p">]):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;*_quick_sort()* ordena recursivamente una lista de elementos. Primero se selecciona el pivote utilizando la funcion de particion. Luego se ejecuta la recursión con los elementos a la izquierda del pivote y a la derecha del pivote.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;*_quick_sort()* ordena recursivamente una lista de elementos. Primero se selecciona el pivote utilizando la función de particion. Luego se ejecuta la recursión con los elementos a la izquierda del pivote y a la derecha del pivote.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        lst (List): La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*.</span>
-<span class="sd">        low (int): limite inferior de la sublista a ordenar segun el indice del pivote.</span>
-<span class="sd">        high (int): limite superior de la sublista a ordenar segun el indice del pivote.</span>
+<span class="sd">        low (int): límite inferior de la sublista a ordenar segun el indice del pivote.</span>
+<span class="sd">        high (int): límite superior de la sublista a ordenar segun el indice del pivote.</span>
 <span class="sd">        sort_crit (Callable[[T, T], bool]): Es una función definida por el usuario que representa el criterio de ordenamiento. Recibe dos elementos pertenecientes al ADT **List** y retorna *True* si el primer elemento es menor que el segundo elemento, y *False* en caso contrario.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># caso base de la recursión</span>
@@ -165,7 +165,7 @@
     <span class="c1"># caso recursivo, seleccionar el pivote</span>
     <span class="n">pivot</span> <span class="o">=</span> <span class="n">_partition</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">,</span> <span class="n">sort_crit</span><span class="p">)</span>
     <span class="c1"># CONQUISTAR</span>
-    <span class="c1"># invcocar recursivamente la funcion a la izquierda y derecha del pivote</span>
+    <span class="c1"># invcocar recursivamente la función a la izquierda y derecha del pivote</span>
     <span class="n">_quick_sort</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">low</span><span class="p">,</span> <span class="n">pivot</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sort_crit</span><span class="p">)</span>
     <span class="n">_quick_sort</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">pivot</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">high</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sort_crit</span><span class="p">)</span></div>
 
@@ -181,8 +181,8 @@
 
 <span class="sd">    Args:</span>
 <span class="sd">        lst (List): La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*.</span>
-<span class="sd">        low (int): limite inferior de la sublista a ordenar segun el indice del pivote.</span>
-<span class="sd">        high (int): limite superior de la sublista a ordenar segun el indice del pivote.</span>
+<span class="sd">        low (int): límite inferior de la sublista a ordenar segun el indice del pivote.</span>
+<span class="sd">        high (int): límite superior de la sublista a ordenar segun el indice del pivote.</span>
 <span class="sd">        sort_crit (Callable[[T, T], bool]): Es una función definida por el usuario que representa el criterio de ordenamiento. Recibe dos elementos pertenecientes al ADT **List** y retorna *True* si el primer elemento es menor que el segundo elemento, y *False* en caso contrario.</span>
 
 <span class="sd">    Returns:</span>

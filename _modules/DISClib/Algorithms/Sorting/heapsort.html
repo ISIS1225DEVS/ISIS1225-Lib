@@ -79,131 +79,146 @@
              
   <h1>Código fuente para DISClib.Algorithms.Sorting.heapsort</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd"> * Copyright 2022, Departamento de sistemas y Computación,</span>
-<span class="sd"> * Universidad de Los Andes</span>
-<span class="sd"> *</span>
-<span class="sd"> *</span>
-<span class="sd"> * Desarrolado para el curso ISIS1225 - Estructuras de Datos y Algoritmos</span>
-<span class="sd"> *</span>
-<span class="sd"> *</span>
-<span class="sd"> * This program is free software: you can redistribute it and/or modify</span>
-<span class="sd"> * it under the terms of the GNU General Public License as published by</span>
-<span class="sd"> * the Free Software Foundation, either version 3 of the License, or</span>
-<span class="sd"> * (at your option) any later version.</span>
-<span class="sd"> *</span>
-<span class="sd"> * This program is distributed in the hope that it will be useful,</span>
-<span class="sd"> * but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
-<span class="sd"> * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
-<span class="sd"> * GNU General Public License for more details.</span>
-<span class="sd"> *</span>
-<span class="sd"> * You should have received a copy of the GNU General Public License</span>
-<span class="sd"> * along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
-<span class="sd"> *</span>
-<span class="sd"> * Contribución de:</span>
-<span class="sd"> *</span>
-<span class="sd"> * Jhostin Sánchez</span>
-<span class="sd"> *</span>
-<span class="sd"> &quot;&quot;&quot;</span>
+<span class="sd">Este módulo contiene la implementación del algoritmo de ordenamiento por montículos (heap sort) un algoritmo creado por J.W.J. Williams que utiliza el principio de dividir y conquistar para ordenar una secuencia de elementos. El algoritmo puede aplicarse a cualquier secuencia de elementos que puedan ser comparados entre sí como los ADT *List* y sus estructuras especificas *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* y *Stack*</span>
 
-<span class="c1"># import config</span>
-<span class="c1"># from DISClib.ADT import list as lt</span>
-<span class="c1"># from DISClib.Utils import error as error</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">from</span> <span class="nn">DISClib.DataStructures</span> <span class="kn">import</span> <span class="n">heap</span> <span class="k">as</span> <span class="n">he</span>
-<span class="c1"># assert config</span>
+<span class="sd">*IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:</span>
+
+<span class="sd">    #. Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.</span>
+<span class="sd">    #. Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H. Goldwasser.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># FIXME: incluir de la contribución de: Jhostin Sánchez</span>
+
+<span class="c1"># native python modules</span>
+<span class="c1"># import modules for defining the list types</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Callable</span>
+<span class="c1"># import inspect for getting the name of the current function</span>
+<span class="kn">import</span> <span class="nn">inspect</span>
+
+<span class="c1"># custom modules</span>
+<span class="kn">from</span> <span class="nn">DISClib.DataStructures.arraylist</span> <span class="kn">import</span> <span class="n">ArrayList</span>
+<span class="kn">from</span> <span class="nn">DISClib.DataStructures.singlelinkedlist</span> <span class="kn">import</span> <span class="n">SingleLinked</span>
+<span class="kn">from</span> <span class="nn">DISClib.DataStructures.doublelinkedlist</span> <span class="kn">import</span> <span class="n">DoubleLinked</span>
+<span class="c1"># generic error handling and type checking</span>
+<span class="kn">from</span> <span class="nn">DISClib.Utils.error</span> <span class="kn">import</span> <span class="n">error_handler</span>
+<span class="kn">from</span> <span class="nn">DISClib.Utils.default</span> <span class="kn">import</span> <span class="n">T</span>
+
+<span class="c1"># checking custom modules</span>
+<span class="k">assert</span> <span class="n">error_handler</span>
+<span class="k">assert</span> <span class="n">T</span>
+
+<span class="c1"># sort available list types</span>
+<span class="c1"># :arg: List: list type</span>
+<div class="viewcode-block" id="List">
+<a class="viewcode-back" href="../../../../autoapi/DISClib/Algorithms/Sorting/heapsort/index.html#DISClib.Algorithms.Sorting.heapsort.List">[documentos]</a>
+<span class="n">List</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span><span class="n">ArrayList</span><span class="p">,</span> <span class="n">SingleLinked</span><span class="p">,</span> <span class="n">DoubleLinked</span><span class="p">]</span></div>
 
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">  Los algoritmos de este libro están basados en la implementación</span>
-<span class="sd">  propuesta por R.Sedgewick y Kevin Wayne en su libro</span>
-<span class="sd">  Algorithms, 4th Edition</span>
+<span class="sd">Lista de tipos de estructuras que se pueden ordenar por el algoritmo de ordenamiento (ADT *List* y sus estructuras especificas *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* y *Stack*)</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">setrecursionlimit</span><span class="p">(</span><span class="mi">1000000</span><span class="p">)</span>
-
-<div class="viewcode-block" id="upHeap">
-<a class="viewcode-back" href="../../../../autoapi/DISClib/Algorithms/Sorting/heapsort/index.html#DISClib.Algorithms.Sorting.heapsort.upHeap">[documentos]</a>
-<span class="k">def</span> <span class="nf">upHeap</span><span class="p">(</span><span class="n">heap</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Mete el elemento en la posición correcta, compara los hijos y si hay uno mayor que el padre</span>
-<span class="sd">    los intercambia</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        heap (ADT.HeapTree): Arbol en array</span>
-<span class="sd">        pos (Int): Posición del padre</span>
-<span class="sd">        end (Int): Hasta donde se evalúa del arbol</span>
-<span class="sd">    Raises:</span>
-<span class="sd">        Exception</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="k">while</span> <span class="p">((</span><span class="mi">2</span><span class="o">*</span><span class="n">pos</span> <span class="o">&lt;=</span> <span class="n">end</span><span class="p">)):</span>
-            <span class="n">j</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">pos</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">&lt;</span> <span class="n">end</span><span class="p">):</span>
-                <span class="k">if</span> <span class="ow">not</span> <span class="n">he</span><span class="o">.</span><span class="n">greater</span><span class="p">(</span><span class="n">heap</span><span class="p">,</span> <span class="n">lt</span><span class="o">.</span><span class="n">getElement</span><span class="p">(</span><span class="n">heap</span><span class="p">[</span><span class="s1">&#39;elements&#39;</span><span class="p">],</span> <span class="n">j</span><span class="p">),</span>
-                           <span class="n">lt</span><span class="o">.</span><span class="n">getElement</span><span class="p">(</span><span class="n">heap</span><span class="p">[</span><span class="s1">&#39;elements&#39;</span><span class="p">],</span> <span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">))):</span>
-                    <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">he</span><span class="o">.</span><span class="n">greater</span><span class="p">(</span><span class="n">heap</span><span class="p">,</span> <span class="n">lt</span><span class="o">.</span><span class="n">getElement</span><span class="p">(</span><span class="n">heap</span><span class="p">[</span><span class="s1">&#39;elements&#39;</span><span class="p">],</span> <span class="n">pos</span><span class="p">),</span>
-                            <span class="n">lt</span><span class="o">.</span><span class="n">getElement</span><span class="p">(</span><span class="n">heap</span><span class="p">[</span><span class="s1">&#39;elements&#39;</span><span class="p">],</span> <span class="n">j</span><span class="p">))):</span>
-                <span class="k">break</span>
-            <span class="n">he</span><span class="o">.</span><span class="n">exchange</span><span class="p">(</span><span class="n">heap</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
-            <span class="n">pos</span> <span class="o">=</span> <span class="n">j</span>
-    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
-        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;heap:upHead&#39;</span><span class="p">)</span></div>
 
 
-
-<div class="viewcode-block" id="maxPQ">
-<a class="viewcode-back" href="../../../../autoapi/DISClib/Algorithms/Sorting/heapsort/index.html#DISClib.Algorithms.Sorting.heapsort.maxPQ">[documentos]</a>
-<span class="k">def</span> <span class="nf">maxPQ</span><span class="p">(</span><span class="n">heap</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Se asegura de que la raíz es el elemento más grande en el Heap</span>
+<span class="c1"># TODO alternative function name: heap_sort</span>
+<div class="viewcode-block" id="heap_sort">
+<a class="viewcode-back" href="../../../../autoapi/DISClib/Algorithms/Sorting/heapsort/index.html#DISClib.Algorithms.Sorting.heapsort.heap_sort">[documentos]</a>
+<span class="k">def</span> <span class="nf">heap_sort</span><span class="p">(</span><span class="n">lst</span><span class="p">:</span> <span class="n">List</span><span class="p">,</span> <span class="n">sort_crit</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="p">],</span> <span class="nb">bool</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;*heap_sort()* ordena una lista de elementos utilizando el algoritmo de ordenamiento por montículos (heap sort).</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        heap (ADT.HeapTree):  Arbol en array</span>
-<span class="sd">        n (Int): Elemento a colocar en la posición correcta</span>
-<span class="sd">    Raises:</span>
-<span class="sd">        Exception</span>
+<span class="sd">        lst (List): La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*.</span>
+<span class="sd">        sort_crit (Callable[[T, T], bool]): Es una función definida por el usuario que representa el criterio de ordenamiento. Recibe dos elementos pertenecientes al ADT **List** y retorna *True* si el primer elemento es menor que el segundo elemento, y *False* en caso contrario.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        List: La lista ordenada.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">n</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
-            <span class="n">upHeap</span><span class="p">(</span><span class="n">heap</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">he</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">heap</span><span class="p">))</span>
-            <span class="n">maxPQ</span><span class="p">(</span><span class="n">heap</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>          
-    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
-        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s2">&quot;heap:maxPQ&quot;</span><span class="p">)</span></div>
+        <span class="c1"># recuperar el tamaño de la lista</span>
+        <span class="n">lt_size</span> <span class="o">=</span> <span class="n">lst</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+        <span class="c1"># construir el montículo inicial</span>
+        <span class="n">lst</span> <span class="o">=</span> <span class="n">_heapify</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">lt_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sort_crit</span><span class="p">)</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">lt_size</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">while</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># intercambiar el primer elemento con el ultimo</span>
+            <span class="n">lst</span><span class="o">.</span><span class="n">exchange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+            <span class="c1"># reconstruir el montículo</span>
+            <span class="n">_sift</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sort_crit</span><span class="p">)</span>
+            <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">lst</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+        <span class="c1"># get current module and function name</span>
+        <span class="n">cur_context</span> <span class="o">=</span> <span class="vm">__name__</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">cur_function</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">currentframe</span><span class="p">()</span><span class="o">.</span><span class="n">f_code</span><span class="o">.</span><span class="n">co_name</span>
+        <span class="c1"># handle the error</span>
+        <span class="n">error_handler</span><span class="p">(</span><span class="n">cur_context</span><span class="p">,</span> <span class="n">cur_function</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span></div>
 
 
 
-<div class="viewcode-block" id="minPQ">
-<a class="viewcode-back" href="../../../../autoapi/DISClib/Algorithms/Sorting/heapsort/index.html#DISClib.Algorithms.Sorting.heapsort.minPQ">[documentos]</a>
-<span class="k">def</span> <span class="nf">minPQ</span><span class="p">(</span><span class="n">heap</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Intercambiamos la raíz con la última posición del árbol y colocamos la nueva raíz en la posición correcta</span>
+<div class="viewcode-block" id="_heapify">
+<a class="viewcode-back" href="../../../../autoapi/DISClib/Algorithms/Sorting/heapsort/index.html#DISClib.Algorithms.Sorting.heapsort._heapify">[documentos]</a>
+<span class="k">def</span> <span class="nf">_heapify</span><span class="p">(</span><span class="n">lst</span><span class="p">:</span> <span class="n">List</span><span class="p">,</span>
+             <span class="n">low</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+             <span class="n">high</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+             <span class="n">sort_crit</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="p">],</span> <span class="nb">bool</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;_heapify _summary_</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        heap (ADT.HeapTree):  Arbol en array</span>
-<span class="sd">        n (Int): Elemento a colocar en la posición correcta</span>
-<span class="sd">    Raises:</span>
-<span class="sd">        Exception</span>
+<span class="sd">        lst (List): La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*.</span>
+<span class="sd">        low (int): límite inferior de la sublista a ordenar según el índice de árbol binario lleno reconstruido.</span>
+<span class="sd">        high (int): límite superior de la sublista a ordenar según el índice de árbol binario lleno reconstruido.</span>
+<span class="sd">        sort_crit (Callable[[T, T], bool]): Es una función definida por el usuario que representa el criterio de ordenamiento. Recibe dos elementos pertenecientes al ADT **List** y retorna *True* si el primer elemento es menor que el segundo elemento, y *False* en caso contrario.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        List: lista ajustada al montículo según el criterio de ordenamiento.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">n</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
-            <span class="n">he</span><span class="o">.</span><span class="n">exchange</span><span class="p">(</span><span class="n">heap</span><span class="p">,</span> <span class="mi">1</span> <span class="p">,</span> <span class="n">n</span><span class="p">)</span>
-            <span class="n">upHeap</span><span class="p">(</span><span class="n">heap</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-            <span class="n">minPQ</span><span class="p">(</span><span class="n">heap</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>          
-    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
-        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s2">&quot;heap:minPQ&quot;</span><span class="p">)</span></div>
+    <span class="c1"># indice del elemento medio</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">high</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="c1"># buscando el elemento mas grande</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="n">low</span><span class="p">:</span>
+        <span class="c1"># reconstruir el montículo</span>
+        <span class="n">_sift</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">high</span><span class="p">,</span> <span class="n">sort_crit</span><span class="p">)</span>
+        <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">lst</span></div>
 
 
-<div class="viewcode-block" id="heapSort">
-<a class="viewcode-back" href="../../../../autoapi/DISClib/Algorithms/Sorting/heapsort/index.html#DISClib.Algorithms.Sorting.heapsort.heapSort">[documentos]</a>
-<span class="k">def</span> <span class="nf">heapSort</span><span class="p">(</span><span class="n">heap</span><span class="p">:</span><span class="n">he</span><span class="o">.</span><span class="n">newHeap</span><span class="p">)</span><span class="o">-&gt;</span><span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Algoritmo de ordenamiento de Heapsort</span>
+
+<span class="c1"># TODO: nombre alternativo: _sift_heap</span>
+<div class="viewcode-block" id="_sift">
+<a class="viewcode-back" href="../../../../autoapi/DISClib/Algorithms/Sorting/heapsort/index.html#DISClib.Algorithms.Sorting.heapsort._sift">[documentos]</a>
+<span class="k">def</span> <span class="nf">_sift</span><span class="p">(</span><span class="n">lst</span><span class="p">:</span> <span class="n">List</span><span class="p">,</span>
+          <span class="n">low</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+          <span class="n">high</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+          <span class="n">sort_crit</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="p">],</span> <span class="nb">bool</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;*_sift()* reconstruye el montículo de elementos en la lista de acuerdo al criterio de ordenamiento y a los limites definidos para la lista.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        heap (ADT.HeapTree): Arbol(ARRAY) a ordenar</span>
+<span class="sd">        lst (List): La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*.</span>
+<span class="sd">        low (int): límite inferior de la sublista a ordenar según el índice de árbol binario lleno reconstruido.</span>
+<span class="sd">        high (int): límite superior de la sublista a ordenar según el índice de árbol binario lleno reconstruido.</span>
+<span class="sd">        sort_crit (Callable[[T, T], bool]): Es una función definida por el usuario que representa el criterio de ordenamiento. Recibe dos elementos pertenecientes al ADT **List** y retorna *True* si el primer elemento es menor que el segundo elemento, y *False* en caso contrario.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">middle</span><span class="o">=</span><span class="n">he</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">heap</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span>
-        <span class="n">maxPQ</span><span class="p">(</span><span class="n">heap</span><span class="p">,</span> <span class="n">middle</span><span class="p">)</span>
-        <span class="n">minPQ</span><span class="p">(</span><span class="n">heap</span><span class="p">,</span> <span class="n">he</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">heap</span><span class="p">))</span>
-    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
-        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s2">&quot;heap:heapSort&quot;</span><span class="p">)</span></div>
+    <span class="c1"># indice temporal del elemento padre</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">low</span>
+    <span class="c1"># indice del hijo izquierdo en el montículo</span>
+    <span class="n">i_left</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">low</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="c1"># indice del hijo derecho en el montículo</span>
+    <span class="n">i_right</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">low</span> <span class="o">+</span> <span class="mi">2</span>
 
+    <span class="c1"># si el hijo izquierdo es mayor que el padre en el montículo</span>
+    <span class="k">if</span> <span class="n">i_left</span> <span class="o">&lt;</span> <span class="n">high</span> <span class="ow">and</span> <span class="n">sort_crit</span><span class="p">(</span><span class="n">lst</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">i_left</span><span class="p">),</span>
+                                   <span class="n">lst</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">parent</span><span class="p">)):</span>
+        <span class="n">parent</span> <span class="o">=</span> <span class="n">i_left</span>
+
+    <span class="c1"># si el hijo derecho es mayor que el padre en el montículo</span>
+    <span class="k">if</span> <span class="n">i_right</span> <span class="o">&lt;</span> <span class="n">high</span> <span class="ow">and</span> <span class="n">sort_crit</span><span class="p">(</span><span class="n">lst</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">i_right</span><span class="p">),</span>
+                                    <span class="n">lst</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">parent</span><span class="p">)):</span>
+        <span class="n">parent</span> <span class="o">=</span> <span class="n">i_right</span>
+
+    <span class="c1"># si el padre no es el elemento mas grande</span>
+    <span class="k">if</span> <span class="n">parent</span> <span class="o">!=</span> <span class="n">low</span><span class="p">:</span>
+        <span class="c1"># intercambiar el padre con el elemento mas grande</span>
+        <span class="n">lst</span><span class="o">.</span><span class="n">exchange</span><span class="p">(</span><span class="n">low</span><span class="p">,</span> <span class="n">parent</span><span class="p">)</span>
+        <span class="c1"># invocar recursivamente la función</span>
+        <span class="n">_sift</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">high</span><span class="p">,</span> <span class="n">sort_crit</span><span class="p">)</span></div>
 
 </pre></div>
 

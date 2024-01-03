@@ -68,6 +68,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">Código de módulo</a></li>
+          <li class="breadcrumb-item"><a href="../DataStructures.html">DISClib.DataStructures</a></li>
       <li class="breadcrumb-item active">DISClib.DataStructures.doublelinkedlist</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -115,7 +116,7 @@
 
 <span class="nd">@dataclass</span>
 <div class="viewcode-block" id="DoubleLinked">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked">[documentos]</a>
 <span class="k">class</span> <span class="nc">DoubleLinked</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">T</span><span class="p">]):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;**DoubleLinked** representa una estructura de datos para una lista doblemente enlazada/encadenada (*DoubleLinked*). Implementada con Generic[T] y @dataclass para que sea una estructura de datos genérica.</span>
 
@@ -187,7 +188,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="DoubleLinked.__post_init__">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.__post_init__">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.__post_init__">[documentos]</a>
     <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*__post_init__()* configura los parametros personalizados por el usuario al crear el *DoubleLinked*. En caso de no estar definidos, se asignan los valores por defecto, puede cargar listas nativas con el parametro *iodata* de python dentro de la estructura.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -211,7 +212,7 @@
 
 
 <div class="viewcode-block" id="DoubleLinked.default_cmp_function">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.default_cmp_function">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.default_cmp_function">[documentos]</a>
     <span class="k">def</span> <span class="nf">default_cmp_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elm1</span><span class="p">,</span> <span class="n">elm2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*default_cmp_function()* es la función de comparación por defecto para comparar elementos dentro del *DoubleLinked*, es una función crucial para que la estructura funcione correctamente.</span>
 
@@ -230,7 +231,7 @@
 
 
 <div class="viewcode-block" id="DoubleLinked._handle_error">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked._handle_error">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked._handle_error">[documentos]</a>
     <span class="k">def</span> <span class="nf">_handle_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">err</span><span class="p">:</span> <span class="ne">Exception</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*_handle_error()* función propia de la estructura que maneja los errores que se pueden presentar en el *DoubleLinked*.</span>
 
@@ -246,7 +247,7 @@
 
 
 <div class="viewcode-block" id="DoubleLinked._check_type">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked._check_type">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked._check_type">[documentos]</a>
     <span class="k">def</span> <span class="nf">_check_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*_check_type()* función propia de la estructura que revisa si el tipo de dato del elemento que se desea agregar al *DoubleLinked* es del mismo tipo contenido dentro de los elementos del *DoubleLinked*.</span>
 
@@ -275,7 +276,7 @@
 
     <span class="c1"># @property</span>
 <div class="viewcode-block" id="DoubleLinked.is_empty">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.is_empty">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.is_empty">[documentos]</a>
     <span class="k">def</span> <span class="nf">is_empty</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*is_empty()* revisa si el *DoubleLinked* está vacío.</span>
 
@@ -293,7 +294,7 @@
 
     <span class="c1"># @property</span>
 <div class="viewcode-block" id="DoubleLinked.size">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.size">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.size">[documentos]</a>
     <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*size()* devuelve el número de elementos que actualmente contiene el *DoubleLinked*.</span>
 
@@ -310,7 +311,7 @@
 
 
 <div class="viewcode-block" id="DoubleLinked.add_first">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.add_first">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.add_first">[documentos]</a>
     <span class="k">def</span> <span class="nf">add_first</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*add_first()* adiciona un elemento al inicio del *DoubleLinked*.</span>
 
@@ -339,7 +340,7 @@
 
 
 <div class="viewcode-block" id="DoubleLinked.add_last">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.add_last">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.add_last">[documentos]</a>
     <span class="k">def</span> <span class="nf">add_last</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*add_last()* adiciona un elemento al final del *DoubleLinked*.</span>
 
@@ -367,7 +368,7 @@
 
 
 <div class="viewcode-block" id="DoubleLinked.add_element">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.add_element">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.add_element">[documentos]</a>
     <span class="k">def</span> <span class="nf">add_element</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*add_element()* adiciona un elemento en una posición especifica del *DoubleLinked*.</span>
 
@@ -411,7 +412,7 @@
 
 
 <div class="viewcode-block" id="DoubleLinked.get_first">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.get_first">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.get_first">[documentos]</a>
     <span class="k">def</span> <span class="nf">get_first</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*get_first()* lee el primer elemento del *DoubleLinked*.</span>
 
@@ -434,7 +435,7 @@
 
 
 <div class="viewcode-block" id="DoubleLinked.get_last">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.get_last">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.get_last">[documentos]</a>
     <span class="k">def</span> <span class="nf">get_last</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*get_last()* lee el último elemento del *DoubleLinked*.</span>
 
@@ -457,7 +458,7 @@
 
 
 <div class="viewcode-block" id="DoubleLinked.get_element">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.get_element">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.get_element">[documentos]</a>
     <span class="k">def</span> <span class="nf">get_element</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*get_element()* lee un elemento en una posición especifica del *DoubleLinked*.</span>
 
@@ -499,7 +500,7 @@
 
 
 <div class="viewcode-block" id="DoubleLinked.remove_first">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.remove_first">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.remove_first">[documentos]</a>
     <span class="k">def</span> <span class="nf">remove_first</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*remove_first()* elimina el primer elemento del *DoubleLinked*.</span>
 
@@ -530,7 +531,7 @@
 
 
 <div class="viewcode-block" id="DoubleLinked.remove_last">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.remove_last">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.remove_last">[documentos]</a>
     <span class="k">def</span> <span class="nf">remove_last</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*remove_last()* elimina el último elemento del *DoubleLinked*.</span>
 
@@ -561,7 +562,7 @@
 
 
 <div class="viewcode-block" id="DoubleLinked.remove_element">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.remove_element">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.remove_element">[documentos]</a>
     <span class="k">def</span> <span class="nf">remove_element</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*remove_element()* elimina un elemento en una posición especifica del *DoubleLinked*.</span>
 
@@ -614,7 +615,7 @@
 
 
 <div class="viewcode-block" id="DoubleLinked.compare_elements">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.compare_elements">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.compare_elements">[documentos]</a>
     <span class="k">def</span> <span class="nf">compare_elements</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elem1</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="n">elem2</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*compare_elements()* compara dos elementos dentro del *DoubleLinked* según la función de comparación de la estructura.</span>
 
@@ -639,7 +640,7 @@
 
 
 <div class="viewcode-block" id="DoubleLinked.find">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.find">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.find">[documentos]</a>
     <span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*find()* busca el elemento dentro del *DoubleLinked* y devuelve su posición o -1 si no lo encuentra.</span>
 
@@ -672,7 +673,7 @@
 
 
 <div class="viewcode-block" id="DoubleLinked.change_info">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.change_info">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.change_info">[documentos]</a>
     <span class="k">def</span> <span class="nf">change_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_info</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*change_info()* cambia la información de un elemento en la posición especificada del *DoubleLinked*.</span>
 
@@ -713,7 +714,7 @@
 
 
 <div class="viewcode-block" id="DoubleLinked.exchange">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.exchange">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.exchange">[documentos]</a>
     <span class="k">def</span> <span class="nf">exchange</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pos1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">pos2</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*exchange()* intercambia la información de dos elementos en dos posiciones especificadas del *DoubleLinked*.</span>
 
@@ -742,7 +743,7 @@
 
 
 <div class="viewcode-block" id="DoubleLinked.sublist">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.sublist">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.sublist">[documentos]</a>
     <span class="k">def</span> <span class="nf">sublist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">end</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;DoubleLinked[T]&quot;</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*sublist()* crea una sublista de la estructura según dos posiciones dentro del *DoubleLinked* original.</span>
 
@@ -777,7 +778,7 @@
 
 
 <div class="viewcode-block" id="DoubleLinked.concat">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.concat">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.concat">[documentos]</a>
     <span class="k">def</span> <span class="nf">concat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="s2">&quot;DoubleLinked[T]&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;DoubleLinked[T]&quot;</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*concat()* concatena dos estructuras de datos *DoubleLinked* para crear una estructura con los elementos de las dos estructuras.</span>
 
@@ -822,7 +823,7 @@
 
 
 <div class="viewcode-block" id="DoubleLinked.__iter__">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.__iter__">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.__iter__">[documentos]</a>
     <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*__iter__()* iterador nativo de Python personalizado para el *DoubleLinked*. Permite utilizar los ciclos *for* de Python para recorrer los elementos de la estructura en orden ascendente.</span>
 
@@ -840,7 +841,7 @@
 
 
 <div class="viewcode-block" id="DoubleLinked.__reversed__">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.__reversed__">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.__reversed__">[documentos]</a>
     <span class="k">def</span> <span class="fm">__reversed__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*__reversed__* iterador nativo de Python personalizado para el *DoubleLinked*. Permite utilizar los ciclos *for* de Python para recorrer los elementos de la estructura en orden descendente.</span>
 
@@ -858,7 +859,7 @@
 
 
 <div class="viewcode-block" id="DoubleLinked.__len__">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.__len__">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked.__len__">[documentos]</a>
     <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*__len__()* función nativa de Python personalizada para el *DoubleLinked*. Permite utilizar la función *len()* de Python para recuperar el tamaño del *DoubleLinked*.</span>
 

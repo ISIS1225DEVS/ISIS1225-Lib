@@ -89,31 +89,20 @@
 
 <span class="c1"># native python modules</span>
 <span class="c1"># import modules for defining the list types</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Callable</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span>
 <span class="c1"># import inspect for getting the name of the current function</span>
 <span class="kn">import</span> <span class="nn">inspect</span>
 
 <span class="c1"># custom modules</span>
-<span class="kn">from</span> <span class="nn">DISClib.DataStructures.arraylist</span> <span class="kn">import</span> <span class="n">ArrayList</span>
-<span class="kn">from</span> <span class="nn">DISClib.DataStructures.singlelinkedlist</span> <span class="kn">import</span> <span class="n">SingleLinked</span>
-<span class="kn">from</span> <span class="nn">DISClib.DataStructures.doublelinkedlist</span> <span class="kn">import</span> <span class="n">DoubleLinked</span>
+<span class="kn">from</span> <span class="nn">DISClib.DataStructures</span> <span class="kn">import</span> <span class="n">List</span>
 <span class="c1"># generic error handling and type checking</span>
 <span class="kn">from</span> <span class="nn">DISClib.Utils.error</span> <span class="kn">import</span> <span class="n">error_handler</span>
 <span class="kn">from</span> <span class="nn">DISClib.Utils.default</span> <span class="kn">import</span> <span class="n">T</span>
 
 <span class="c1"># checking custom modules</span>
+<span class="k">assert</span> <span class="n">List</span>
 <span class="k">assert</span> <span class="n">error_handler</span>
 <span class="k">assert</span> <span class="n">T</span>
-
-<span class="c1"># sort available list types</span>
-<span class="c1"># :arg: List: list type</span>
-<div class="viewcode-block" id="List">
-<a class="viewcode-back" href="../../../../autoapi/DISClib/Algorithms/Sorting/insertionsort/index.html#DISClib.Algorithms.Sorting.insertionsort.List">[documentos]</a>
-<span class="n">List</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span><span class="n">ArrayList</span><span class="p">,</span> <span class="n">SingleLinked</span><span class="p">,</span> <span class="n">DoubleLinked</span><span class="p">]</span></div>
-
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Lista de tipos de estructuras que se pueden ordenar por el algoritmo de ordenamiento (ADT *List* y sus estructuras especificas *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* y *Stack*)</span>
-<span class="sd">&quot;&quot;&quot;</span>
 
 
 <span class="c1"># TODO alternative function name: insertion_sort</span>

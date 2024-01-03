@@ -32,6 +32,8 @@ List = Union[ArrayList, SingleLinked, DoubleLinked]
 """
 Lista de tipos de estructuras que se pueden ordenar por el algoritmo de ordenamiento (ADT *List* y sus estructuras especificas *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* y *Stack*)
 """
+
+
 def bogo_sort(lst: List, sort_crit: Callable[[T, T], bool]) -> List:
     """*bogo_sort()* ordena una lista de elementos utilizando el algoritmo de ordenamiento por azar (bogo sort).
 
@@ -42,18 +44,17 @@ def bogo_sort(lst: List, sort_crit: Callable[[T, T], bool]) -> List:
     Returns:
         List: La lista ordenada.
     """
-    
     try:
-        lt_size = lst.size() # tamaño de la lista
-        
-        while not is_sorted(lst, sort_crit, lt_size):  # revisa si la lista esta ordenada
-            
-           for pos in range(0, lt_size-1):                          
-               random_pos = random.randint(0, lt_size-1) #se genera un indice aleatorio que este dentro de la lista
-               lst.exchange(pos, random_pos)             #se intercambia el elemento actual con el del indice generado                  
-        
+        # recuperar el tamaño de la lista
+        lt_size = lst.size()
+        # mientras la lista no este ordenada
+        while not _is_sorted(lst, sort_crit):
+            for i in range(0, lt_size - 1):
+                # genera un indice aleatorio que este dentro de la lista
+                rand_i = random.randint(0, lt_size - 1)
+                # se intercambia el elemento actual con el del indice generado
+                lst.exchange(i, rand_i)
         return lst
-    
     except Exception as err:
         # get current module and function name
         cur_context = __name__.split(".")[-1]
@@ -62,27 +63,20 @@ def bogo_sort(lst: List, sort_crit: Callable[[T, T], bool]) -> List:
         error_handler(cur_context, cur_function, err)
 
 
-
-def is_sorted(lst: List, sort_crit: Callable[[T, T],bool] , size: int) -> bool:
-    """*is_sorted()* revisa si una lista está organizada de acuerdo al criterio de comparación.
+def _is_sorted(lst: List, sort_crit: Callable[[T, T], bool]) -> bool:
+    """*_is_sorted()* revisa si una lista está organizada de acuerdo al criterio de comparación.
 
     Args:
         lst (List): La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*.
         sort_crit (Callable[[T, T], bool]): Es una función definida por el usuario que representa el criterio de ordenamiento. Recibe dos elementos pertenecientes al ADT **List** y retorna *True* si el primer elemento es menor que el segundo elemento, y *False* en caso contrario.
-        size (int): El tamaño de la lista.
+
     Returns:
-        True: Si la lista está ordenada.
-        False: Si la lista no está ordenada.
+        bool: devuelve *True* si la lista está ordenada, *False* en caso contrario.
     """
-    
-    for pos in range(0,size-1):
-        if not sort_crit(lst.get_element(pos) , lst.get_element(pos+1)):      
-            #si dos elementos consecutivos no estan ordenados
+    lt_size = lst.size()
+    # recorre la lista de elementos
+    for i in range(0, lt_size - 1):
+        if not sort_crit(lst.get_element(i), lst.get_element(i + 1)):
+            # si dos elementos consecutivos no estan ordenados
             return False
-        
-        
     return True
-
-
-
-

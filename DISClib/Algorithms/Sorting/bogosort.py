@@ -10,28 +10,20 @@ Este módulo contiene la implementación del algoritmo de ordenamiento por azar 
 # native python modules
 import random
 # import modules for defining the list types
-from typing import Union, Callable
+from typing import Callable
 # import inspect for getting the name of the current function
 import inspect
 
 # custom modules
-from DISClib.DataStructures.arraylist import ArrayList
-from DISClib.DataStructures.singlelinkedlist import SingleLinked
-from DISClib.DataStructures.doublelinkedlist import DoubleLinked
+from DISClib.DataStructures import List
 # generic error handling and type checking
 from DISClib.Utils.error import error_handler
 from DISClib.Utils.default import T
 
 # checking custom modules
+assert List
 assert error_handler
 assert T
-
-# sort available list types
-# :arg: List: list type
-List = Union[ArrayList, SingleLinked, DoubleLinked]
-"""
-Lista de tipos de estructuras que se pueden ordenar por el algoritmo de ordenamiento (ADT *List* y sus estructuras especificas *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* y *Stack*)
-"""
 
 
 def bogo_sort(lst: List, sort_crit: Callable[[T, T], bool]) -> List:

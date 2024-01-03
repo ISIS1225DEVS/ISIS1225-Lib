@@ -12,7 +12,7 @@ from DISClib.Algorithms.Sorting.shellsort import shell_sort as shs
 from DISClib.Algorithms.Sorting.quicksort import quick_sort as qks
 from DISClib.Algorithms.Sorting.mergesort import merge_sort as mgs
 from DISClib.Algorithms.Sorting.heapsort import heap_sort as hps
-from DISClib.Algorithms.Sorting.bogosort import sort as bgs
+from DISClib.Algorithms.Sorting.bogosort import bogo_sort as bgs
 
 import random
 # from DISClib.ADT.lists import List2
@@ -427,46 +427,13 @@ if __name__ == "__main__":
 
     print("sorting!")
     print(t)
-    hps(t, stcrit)
+    bgs(t, stcrit)
     print(t)
     for i in t:
         print(i)
 
-    a = Queue(iodata=(6, 3, 5, 1, 2, 4))
-    hps(a, stcrit)
+    a = Queue(iodata=(10, 6, 3, 5, 1, 2, 4, 8, 9))
+    bgs(a, stcrit)
     print(a)
     for i in a:
         print(i)
-
-
-# # Solution 2, Recursion, Time O(nlogn), Space (logn)
-# def heapSort(arr):
-#     n = len(arr)
-#     print(range(n//2, -1, -1))
-#     for i in range(n//2, -1, -1): 
-#         # print(i)# Build heap
-#         heapify(arr, n, i)
-    
-#     for i in range(n-1, 0, -1):  # sort
-#         print(i)
-#         arr[i], arr[0] = arr[0], arr[i]  # Swap
-#         heapify(arr, i, 0)  # Heapify
-# # Heapify, recursion, Time O(logn), Space O(logn)
-
-
-# def heapify(arr, size, i):
-#     larger = i
-#     left = 2 * i + 1
-#     right = 2 * i + 2
-#     if left < size and arr[i] < arr[left]:
-#         larger = left
-#     if right < size and arr[larger] < arr[right]:
-#         larger = right
-#     if larger != i:
-#         arr[i], arr[larger] = arr[larger], arr[i]  # swap
-#         heapify(arr, size, larger)  # heapify again
-
-
-# arr = [19, 33, 4, 61, 5, 38, -36, 21, 0]
-# heapSort(arr)
-# print("Heap sort (recursion): " + str(arr))

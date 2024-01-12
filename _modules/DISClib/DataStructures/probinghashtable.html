@@ -135,7 +135,7 @@
 <span class="c1"># default load factor for separating chaining</span>
 <span class="c1"># :data: DEFAULT_PROBING_ALPHA</span>
 <div class="viewcode-block" id="DEFAULT_PROBING_ALPHA">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.probinghashtable.DEFAULT_PROBING_ALPHA">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.DEFAULT_PROBING_ALPHA">[documentos]</a>
 <span class="n">DEFAULT_PROBING_ALPHA</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.50</span></div>
 
 <span class="sd">&quot;&quot;&quot;</span>
@@ -144,7 +144,7 @@
 
 <span class="c1"># :data: MAX_PROBING_ALPHA</span>
 <div class="viewcode-block" id="MAX_PROBING_ALPHA">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.probinghashtable.MAX_PROBING_ALPHA">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.MAX_PROBING_ALPHA">[documentos]</a>
 <span class="n">MAX_PROBING_ALPHA</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.80</span></div>
 
 <span class="sd">&quot;&quot;&quot;</span>
@@ -153,7 +153,7 @@
 
 <span class="c1"># :data: MIN_PROBING_ALPHA</span>
 <div class="viewcode-block" id="MIN_PROBING_ALPHA">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.probinghashtable.MIN_PROBING_ALPHA">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.MIN_PROBING_ALPHA">[documentos]</a>
 <span class="n">MIN_PROBING_ALPHA</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.20</span></div>
 
 <span class="sd">&quot;&quot;&quot;</span>
@@ -162,7 +162,7 @@
 
 <span class="c1"># :data: EMPTY</span>
 <div class="viewcode-block" id="EMPTY">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.probinghashtable.EMPTY">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.EMPTY">[documentos]</a>
 <span class="n">EMPTY</span> <span class="o">=</span> <span class="s2">&quot;__EMPTY__&quot;</span></div>
 
 <span class="sd">&quot;&quot;&quot;</span>
@@ -172,7 +172,7 @@
 
 <span class="nd">@dataclass</span>
 <div class="viewcode-block" id="LinearProbing">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.probinghashtable.LinearProbing">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing">[documentos]</a>
 <span class="k">class</span> <span class="nc">LinearProbing</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">T</span><span class="p">]):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;**LinearProbing** representa la estructura de datos de una tabla de hash con el método de encadenamiento por separación (*LinearProbing*). En la estructura la información se almacena en registros (parejas llave-valor) donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato. El indice es un *ArrayList* donde cada elemento es un espacio (*slot*) de la tabla de hash, y cada espacio (*slot*) contiene un registro *MapEntry* (pareja llave-valor) o está vacío (None | EMPTY</span>
 
@@ -185,7 +185,7 @@
     <span class="c1"># input tuples from python list</span>
     <span class="c1"># :attr: iodata</span>
 <div class="viewcode-block" id="LinearProbing.iodata">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.probinghashtable.LinearProbing.iodata">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing.iodata">[documentos]</a>
     <span class="n">iodata</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">T</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -195,7 +195,7 @@
     <span class="c1"># boolean to indicate if the hash table can be rehashed</span>
     <span class="c1"># :attr: rehashable</span>
 <div class="viewcode-block" id="LinearProbing.rehashable">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.probinghashtable.LinearProbing.rehashable">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing.rehashable">[documentos]</a>
     <span class="n">rehashable</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -205,7 +205,7 @@
     <span class="c1"># reserved space for the hash table</span>
     <span class="c1"># :attr: nentries</span>
 <div class="viewcode-block" id="LinearProbing.nentries">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.probinghashtable.LinearProbing.nentries">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing.nentries">[documentos]</a>
     <span class="n">nentries</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -217,7 +217,7 @@
     <span class="c1"># starting capacity (M|m) for the hash table</span>
     <span class="c1"># :attr: mcapacity</span>
 <div class="viewcode-block" id="LinearProbing.mcapacity">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.probinghashtable.LinearProbing.mcapacity">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing.mcapacity">[documentos]</a>
     <span class="n">mcapacity</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -227,7 +227,7 @@
     <span class="c1"># starting load factor (alpha) for the hash table</span>
     <span class="c1"># :attr: alpha</span>
 <div class="viewcode-block" id="LinearProbing.alpha">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.probinghashtable.LinearProbing.alpha">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing.alpha">[documentos]</a>
     <span class="n">alpha</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="n">DEFAULT_PROBING_ALPHA</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -239,7 +239,7 @@
     <span class="c1"># the cmp_function is used to compare emtries, not defined by default</span>
     <span class="c1"># :attr: cmp_function</span>
 <div class="viewcode-block" id="LinearProbing.cmp_function">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.probinghashtable.LinearProbing.cmp_function">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing.cmp_function">[documentos]</a>
     <span class="n">cmp_function</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">[[</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="p">],</span> <span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -249,7 +249,7 @@
     <span class="c1"># actual place to store the entries in the hash table</span>
     <span class="c1"># :attr: hash_table</span>
 <div class="viewcode-block" id="LinearProbing.hash_table">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.probinghashtable.LinearProbing.hash_table">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing.hash_table">[documentos]</a>
     <span class="n">hash_table</span><span class="p">:</span> <span class="n">ArrayList</span><span class="p">[</span><span class="n">MapEntry</span><span class="p">[</span><span class="n">T</span><span class="p">]]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="n">ArrayList</span><span class="p">)</span></div>
 
 
@@ -260,7 +260,7 @@
     <span class="c1"># the key is used to compare entries, not defined by default</span>
     <span class="c1"># :attr: key</span>
 <div class="viewcode-block" id="LinearProbing.key">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.probinghashtable.LinearProbing.key">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing.key">[documentos]</a>
     <span class="n">key</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">DEFAULT_DICT_KEY</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -270,7 +270,7 @@
     <span class="c1"># prime number (P) for the MAD compression function</span>
     <span class="c1"># :attr: prime</span>
 <div class="viewcode-block" id="LinearProbing.prime">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.probinghashtable.LinearProbing.prime">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing.prime">[documentos]</a>
     <span class="n">prime</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">DEFAULT_PRIME</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -282,7 +282,7 @@
     <span class="c1"># private scale (a) factor for the mad compression function</span>
     <span class="c1"># :attr: _scale</span>
 <div class="viewcode-block" id="LinearProbing._scale">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.probinghashtable.LinearProbing._scale">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing._scale">[documentos]</a>
     <span class="n">_scale</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -291,7 +291,7 @@
     <span class="c1"># private shift (b) factor for the mad compression function</span>
     <span class="c1"># :attr: _shift</span>
 <div class="viewcode-block" id="LinearProbing._shift">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.probinghashtable.LinearProbing._shift">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing._shift">[documentos]</a>
     <span class="n">_shift</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -301,7 +301,7 @@
     <span class="c1"># current factor (alpha) for the working hash table</span>
     <span class="c1"># :attr: _cur_alpha</span>
 <div class="viewcode-block" id="LinearProbing._cur_alpha">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.probinghashtable.LinearProbing._cur_alpha">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing._cur_alpha">[documentos]</a>
     <span class="n">_cur_alpha</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -311,7 +311,7 @@
     <span class="c1"># minimum load factor (alpha) for the hash table</span>
     <span class="c1"># :attr: min_alpha</span>
 <div class="viewcode-block" id="LinearProbing.min_alpha">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.probinghashtable.LinearProbing.min_alpha">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing.min_alpha">[documentos]</a>
     <span class="n">min_alpha</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="n">MIN_PROBING_ALPHA</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -321,7 +321,7 @@
     <span class="c1"># maximum load factor (alpha) for the hash table</span>
     <span class="c1"># :attr: max_alpha</span>
 <div class="viewcode-block" id="LinearProbing.max_alpha">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.probinghashtable.LinearProbing.max_alpha">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing.max_alpha">[documentos]</a>
     <span class="n">max_alpha</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="n">MAX_PROBING_ALPHA</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -332,7 +332,7 @@
     <span class="c1"># FIXME inconsistent use of _size and size()</span>
     <span class="c1"># :attr: _size</span>
 <div class="viewcode-block" id="LinearProbing._size">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.probinghashtable.LinearProbing._size">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing._size">[documentos]</a>
     <span class="n">_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -341,7 +341,7 @@
 
     <span class="c1"># :attr: collisions</span>
 <div class="viewcode-block" id="LinearProbing._collisions">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.probinghashtable.LinearProbing._collisions">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing._collisions">[documentos]</a>
     <span class="n">_collisions</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -351,7 +351,7 @@
     <span class="c1"># the type of the entry keys in the hash table</span>
     <span class="c1"># :attr: _key_type</span>
 <div class="viewcode-block" id="LinearProbing._key_type">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.probinghashtable.LinearProbing._key_type">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing._key_type">[documentos]</a>
     <span class="n">_key_type</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">type</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -361,7 +361,7 @@
     <span class="c1"># the type of the entry values in the hash table</span>
     <span class="c1"># :attr: _value_type</span>
 <div class="viewcode-block" id="LinearProbing._value_type">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.probinghashtable.LinearProbing._value_type">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing._value_type">[documentos]</a>
     <span class="n">_value_type</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">type</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></div>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -369,7 +369,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="LinearProbing.__post_init__">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.probinghashtable.LinearProbing.__post_init__">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing.__post_init__">[documentos]</a>
     <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*__post_init__()* configura los parametros personalizados por el usuario al crear el *LinearProbing*. En caso de no estar definidos, se asignan los valores por defecto, puede cargar listas nativas con el parametro *iodata* de python dentro de la estructura.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -421,7 +421,7 @@
 
 
 <div class="viewcode-block" id="LinearProbing.default_cmp_function">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.probinghashtable.LinearProbing.default_cmp_function">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing.default_cmp_function">[documentos]</a>
     <span class="k">def</span> <span class="nf">default_cmp_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key1</span><span class="p">,</span> <span class="n">entry2</span><span class="p">:</span> <span class="n">MapEntry</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*default_cmp_function()* es la función de comparación por defecto para comparar la llave de un elemento vs. el registro (pareja llave-valor) o *MapEntry* que se desea agregar al *LinearProbing*, es una función crucial para que la estructura funcione correctamente.</span>
 
@@ -440,7 +440,7 @@
 
 
 <div class="viewcode-block" id="LinearProbing._handle_error">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.probinghashtable.LinearProbing._handle_error">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing._handle_error">[documentos]</a>
     <span class="k">def</span> <span class="nf">_handle_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">err</span><span class="p">:</span> <span class="ne">Exception</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*_handle_error()* función propia de la estructura que maneja los errores que se pueden presentar en el *LinearProbing*.</span>
 
@@ -456,7 +456,7 @@
 
 
 <div class="viewcode-block" id="LinearProbing._check_type">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.probinghashtable.LinearProbing._check_type">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing._check_type">[documentos]</a>
     <span class="k">def</span> <span class="nf">_check_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entry</span><span class="p">:</span> <span class="n">MapEntry</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*_check_type()* función propia de la estructura que revisa si el tipo de dato del registro (pareja llave-valor) que se desea agregar al *LinearProbing* es del mismo tipo contenido dentro de los *MapEntry* del *LinearProbing*.</span>
 
@@ -493,7 +493,7 @@
 
     <span class="c1"># @property</span>
 <div class="viewcode-block" id="LinearProbing.is_empty">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.probinghashtable.LinearProbing.is_empty">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing.is_empty">[documentos]</a>
     <span class="k">def</span> <span class="nf">is_empty</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*is_empty()* revisa si el *LinearProbing* está vacío.</span>
 
@@ -509,7 +509,7 @@
 
     <span class="c1"># @property</span>
 <div class="viewcode-block" id="LinearProbing.size">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.probinghashtable.LinearProbing.size">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing.size">[documentos]</a>
     <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*size()* devuelve el numero de entradas *MapEntry* que actualmente contiene el *LinearProbing*.</span>
 
@@ -524,7 +524,7 @@
 
 
 <div class="viewcode-block" id="LinearProbing.contains">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.probinghashtable.LinearProbing.contains">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing.contains">[documentos]</a>
     <span class="k">def</span> <span class="nf">contains</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*contains()* responde si el *LinearProbing* contiene un registro *MapEntry* con la llave *key*.</span>
 
@@ -561,7 +561,7 @@
 
 
 <div class="viewcode-block" id="LinearProbing.put">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.probinghashtable.LinearProbing.put">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing.put">[documentos]</a>
     <span class="k">def</span> <span class="nf">put</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*put()* agrega una nuevo registro *MapEntry* al *LinearProbing*, si la llave *key* ya existe en el *LinearProbing* se reemplaza su valor *value*.</span>
 
@@ -617,7 +617,7 @@
 
 
 <div class="viewcode-block" id="LinearProbing.get">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.probinghashtable.LinearProbing.get">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing.get">[documentos]</a>
     <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">MapEntry</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*get()* recupera el registro *MapEntry* cuya llave *key* sea ogial a la que se encuentre dentro del *LinearProbing*, si no existe un registro con la llave, devuelve *None*.</span>
 
@@ -653,7 +653,7 @@
 
 
 <div class="viewcode-block" id="LinearProbing.check_slots">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.probinghashtable.LinearProbing.check_slots">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing.check_slots">[documentos]</a>
     <span class="k">def</span> <span class="nf">check_slots</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">SingleLinked</span><span class="p">[</span><span class="n">MapEntry</span><span class="p">]]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*check_slots()* recupera la lista (*SingleLinked*) de registros (parejas llave-valor) asociadas a la llave *key* dentro del *LinearProbing*. Recupera los *MapEntry* con el mismo hash y si no existe, devuelve *None*.</span>
 
@@ -698,7 +698,7 @@
 
 
 <div class="viewcode-block" id="LinearProbing.remove">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.probinghashtable.LinearProbing.remove">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing.remove">[documentos]</a>
     <span class="k">def</span> <span class="nf">remove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*remove()* elimina el registro *MapEntry* cuya llave *key* sea igual a la que se encuentre dentro del *LinearProbing*, si no existe un registro con la llave, genera un error.</span>
 
@@ -749,7 +749,7 @@
 
 
 <div class="viewcode-block" id="LinearProbing.keys">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.probinghashtable.LinearProbing.keys">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing.keys">[documentos]</a>
     <span class="k">def</span> <span class="nf">keys</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SingleLinked</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*keys()* devuelve una lista (*SingleLinked*) con todas las llaves (*key*) de los registros (*MapEntry*) del *LinearProbing*.</span>
 
@@ -767,7 +767,7 @@
 
 
 <div class="viewcode-block" id="LinearProbing.values">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.probinghashtable.LinearProbing.values">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing.values">[documentos]</a>
     <span class="k">def</span> <span class="nf">values</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SingleLinked</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*values()* devuelve una lista (*SingleLinked*) con todos los valores de los registros (*MapEntry*) del *LinearProbing*.</span>
 
@@ -785,7 +785,7 @@
 
 
 <div class="viewcode-block" id="LinearProbing.entries">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.probinghashtable.LinearProbing.entries">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing.entries">[documentos]</a>
     <span class="k">def</span> <span class="nf">entries</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SingleLinked</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*entries()* devuelve una lista (*SingleLinked*) con tuplas de todas los registros (*MapEntry*) del *LinearProbing*. Cada tupla contiene en la primera posición la llave (*key*) y en la segunda posición el valor (*value*) del registro.</span>
 
@@ -806,7 +806,7 @@
 
 
 <div class="viewcode-block" id="LinearProbing._find_slot">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.probinghashtable.LinearProbing._find_slot">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing._find_slot">[documentos]</a>
     <span class="k">def</span> <span class="nf">_find_slot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hkey</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*_find_slot()* encuentra el indice del registro *MapEtry* en el *LinearProbing*, si el registro no existe, devuelve el indice del primer registro disponible.</span>
 
@@ -876,7 +876,7 @@
 
 
 <div class="viewcode-block" id="LinearProbing._is_available">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.probinghashtable.LinearProbing._is_available">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing._is_available">[documentos]</a>
     <span class="k">def</span> <span class="nf">_is_available</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entry</span><span class="p">:</span> <span class="n">MapEntry</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*_is_available()* permite verificar si un registro *MapEntry* está disponible en el *LinearProbing*. Es decir si la llave es nula (None) o vacía (EMPTY).</span>
 
@@ -896,7 +896,7 @@
 
 
 <div class="viewcode-block" id="LinearProbing.rehash">
-<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.probinghashtable.LinearProbing.rehash">[documentos]</a>
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing.rehash">[documentos]</a>
     <span class="k">def</span> <span class="nf">rehash</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;*rehash()* reconstruye la tabla de hash con una nueva capacidad (*M*) y un nuevo factor de carga (*alpha*) según los límites configurados por los parametros *max_alpha* y *min_alpha*.</span>
 
@@ -950,6 +950,17 @@
                         <span class="bp">self</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="LinearProbing.__len__">
+<a class="viewcode-back" href="../../../autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.LinearProbing.__len__">[documentos]</a>
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*__len__()* función nativa de Python personalizada para el *LinearProbing*. Permite utilizar la función *len()* de Python para recuperar el tamaño del *LinearProbing*.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            int: tamaño del *LinearProbing*.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span></div>
 </div>
 
 </pre></div>

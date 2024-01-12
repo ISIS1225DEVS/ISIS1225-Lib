@@ -346,4 +346,12 @@ Attributes
       Si el factor de carga (*alpha) es menor que el límite inferior (*min_alpha*), se reduce a la mitad la capacidad (*M*) de la tabla buscando el siguiente número primo (*P*) reconstruyendo la tabla.
 
 
+   .. py:method:: __len__() -> int
+
+      *__len__()* función nativa de Python personalizada para el *SeparateChaining*. Permite utilizar la función *len()* de Python para recuperar el tamaño del *SeparateChaining*.
+
+      :returns: tamaño del *SeparateChaining*.
+      :rtype: int
+
+
 

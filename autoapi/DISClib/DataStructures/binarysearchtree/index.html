@@ -1,0 +1,560 @@
+﻿<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <link sizes="16x16" href="https://secure.example.com/favicon/favicon-16x16.png" rel="icon" type="image/png">
+    <link sizes="32x32" href="https://secure.example.com/favicon/favicon-32x32.png" rel="icon" type="image/png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../_static/apple-touch-icon-180x180.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DISClib.DataStructures.binarysearchtree &mdash; documentación de DISClib - 0.0.1</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/fonts.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../../_static/documentation_options.js?v=6fcc102b"></script>
+        <script src="../../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+        <script src="../../../../_static/translations.js?v=efdbd0b9"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../../../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../../../search.html" />
+    <link rel="next" title="DISClib.DataStructures.bst" href="../bst/index.html" />
+    <link rel="prev" title="DISClib.DataStructures.arraylist" href="../arraylist/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            DISClib
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../modules.html">DISClib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../testmd.html">Example Markdown</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib</span></code></a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../ADT/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.ADT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../Algorithms/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.Algorithms</span></code></a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.DataStructures</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../Utils/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.Utils</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">DISClib</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib</span></code></a></li>
+          <li class="breadcrumb-item"><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.DataStructures</span></code></a></li>
+      <li class="breadcrumb-item active"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.DataStructures.binarysearchtree</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/autoapi/DISClib/DataStructures/binarysearchtree/index.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-DISClib.DataStructures.binarysearchtree">
+<span id="disclib-datastructures-binarysearchtree"></span><h1><a class="reference internal" href="#module-DISClib.DataStructures.binarysearchtree" title="DISClib.DataStructures.binarysearchtree"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DISClib.DataStructures.binarysearchtree</span></code></a><a class="headerlink" href="#module-DISClib.DataStructures.binarysearchtree" title="Link to this heading"></a></h1>
+<p># TODO: agregar descripción del módulo</p>
+<p><em>IMPORTANTE:</em> Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.</p></li>
+<li><p>Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H. Goldwasser.</p></li>
+</ol>
+</div></blockquote>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#DISClib.DataStructures.binarysearchtree.BSTree" title="DISClib.DataStructures.binarysearchtree.BSTree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BSTree</span></code></a></p></td>
+<td><p><strong>BSTree</strong> representa la estructura de datos de una tabla de hash con el método de encadenamiento por separación (<em>BSTree</em>). En la estructura la información se almacena en registros (parejas llave-valor) donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato. El indice es un <em>ArrayList</em> donde cada elemento es un espacio (<em>slot</em>) de la tabla de hash, y cada espacio (<em>slot</em>) contiene un registro <em>MapEntry</em> (pareja llave-valor) o está vacío (None | EMPTY</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt class="sig sig-object py" id="DISClib.DataStructures.binarysearchtree.BSTree">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.binarysearchtree.</span></span><span class="sig-name descname"><span class="pre">BSTree</span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/binarysearchtree.html#BSTree"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.binarysearchtree.BSTree" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Generic</span></code>[<a class="reference internal" href="../../Utils/default/index.html#DISClib.Utils.default.T" title="DISClib.Utils.default.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DISClib.Utils.default.T</span></code></a>]</p>
+<p><strong>BSTree</strong> representa la estructura de datos de una tabla de hash con el método de encadenamiento por separación (<em>BSTree</em>). En la estructura la información se almacena en registros (parejas llave-valor) donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato. El indice es un <em>ArrayList</em> donde cada elemento es un espacio (<em>slot</em>) de la tabla de hash, y cada espacio (<em>slot</em>) contiene un registro <em>MapEntry</em> (pareja llave-valor) o está vacío (None | EMPTY</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Generic</strong> (<em>T</em>) – TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.</p>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>ADT de tipo <em>BSTree</em> o tabla de hash con separación por encadenamiento.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#DISClib.DataStructures.binarysearchtree.BSTree" title="DISClib.DataStructures.binarysearchtree.BSTree">BSTree</a></p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.binarysearchtree.BSTree.iodata">
+<span class="sig-name descname"><span class="pre">iodata</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/binarysearchtree.html#BSTree.iodata"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.binarysearchtree.BSTree.iodata" title="Link to this definition"></a></dt>
+<dd><p>Lista nativa de Python personalizable por el usuario para inicializar la estructura. Por defecto es <em>None</em> y el usuario puede incluirla como argumento al crear la estructura.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.binarysearchtree.BSTree.rehashable">
+<span class="sig-name descname"><span class="pre">rehashable</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/binarysearchtree.html#BSTree.rehashable"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.binarysearchtree.BSTree.rehashable" title="Link to this definition"></a></dt>
+<dd><p>Es el operador que indica si la tabla de hash se puede reconstruir utilizando el método de <em>rehash</em>, por defecto es “True”.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.binarysearchtree.BSTree.nentries">
+<span class="sig-name descname"><span class="pre">nentries</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/binarysearchtree.html#BSTree.nentries"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.binarysearchtree.BSTree.nentries" title="Link to this definition"></a></dt>
+<dd><p>espacio inicial reservado para la tabla de hash (n), por defecto es 1, pero debe configurarse según el número de entradas que se espera almacenar.</p>
+<p><em>Nota</em>: el espacio reservado (n) no es la capacidad (M) de la tabla de hash.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.binarysearchtree.BSTree.mcapacity">
+<span class="sig-name descname"><span class="pre">mcapacity</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/binarysearchtree.html#BSTree.mcapacity"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.binarysearchtree.BSTree.mcapacity" title="Link to this definition"></a></dt>
+<dd><p>Es la capacidad (M) con la que se inicializa la tabla de hash.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.binarysearchtree.BSTree.alpha">
+<span class="sig-name descname"><span class="pre">alpha</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/binarysearchtree.html#BSTree.alpha"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.binarysearchtree.BSTree.alpha" title="Link to this definition"></a></dt>
+<dd><p>Es el factor de carga (<em>alpha</em>) con el que se inicializa la tabla de hash, por defecto es 0.50.</p>
+<p><em>Nota</em>: alpha = n/M (n: número de entradas esperadas, M: capacidad de la tabla de hash).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.binarysearchtree.BSTree.cmp_function">
+<span class="sig-name descname"><span class="pre">cmp_function</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/binarysearchtree.html#BSTree.cmp_function"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.binarysearchtree.BSTree.cmp_function" title="Link to this definition"></a></dt>
+<dd><p>Función de comparación personalizable por el usuario para reconocer los registros (pareja llave-valor) dentro del <em>BSTree</em>. Por defecto es la función <em>lt_default_cmp_funcion()</em> propia de <em>DISClib</em>, puede ser un parametro al crear la estructura.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.binarysearchtree.BSTree.hash_table">
+<span class="sig-name descname"><span class="pre">hash_table</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList" title="DISClib.DataStructures.arraylist.ArrayList"><span class="pre">ArrayList</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../mapentry/index.html#DISClib.DataStructures.mapentry.MapEntry" title="DISClib.DataStructures.mapentry.MapEntry"><span class="pre">MapEntry</span></a><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/binarysearchtree.html#BSTree.hash_table"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.binarysearchtree.BSTree.hash_table" title="Link to this definition"></a></dt>
+<dd><p>Es el indice de la tabla Hash donde se almacenan los <em>Buckets</em>. Por defecto es un <em>ArrayList</em> vacío que se inicializa con la capacidad (M) configurada.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.binarysearchtree.BSTree.key">
+<span class="sig-name descname"><span class="pre">key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/binarysearchtree.html#BSTree.key"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.binarysearchtree.BSTree.key" title="Link to this definition"></a></dt>
+<dd><p>Nombre de la llave personalizable por el usuario utilizada para reconocer los registros (pareja llave-valor) dentro del <em>BSTree</em>. Por defecto es la llave de diccionario (<em>dict</em>) <em>DEFAULT_DICT_KEY = “id”</em> propia de <em>DISClib</em>, puede ser un parametro al crear la estructura.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.binarysearchtree.BSTree.prime">
+<span class="sig-name descname"><span class="pre">prime</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/binarysearchtree.html#BSTree.prime"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.binarysearchtree.BSTree.prime" title="Link to this definition"></a></dt>
+<dd><p>Es el número entero primo (P) utilizado para calcular el hash para la llave de la tabla utilizando la función de compresión MAD. Por defecto es 109345121 definido en el parametro <em>DEFAULT_PRIME</em> propio de <em>DISClib</em>.</p>
+<p><em>Nota:</em> la función MAD es: <em>h(k) = ((a*k + b) mod P) mod M</em>, donde <em>a</em> y <em>b</em> son números enteros aleatorios, <em>P</em> es un número primo y <em>M</em> es la capacidad de la tabla de hash.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.binarysearchtree.BSTree._scale">
+<span class="sig-name descname"><span class="pre">_scale</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/binarysearchtree.html#BSTree._scale"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.binarysearchtree.BSTree._scale" title="Link to this definition"></a></dt>
+<dd><p>Es el número entero propio de la estructura utilizado como pendiente (a) en la función MAD para calcular el código hash de la llave.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.binarysearchtree.BSTree._shift">
+<span class="sig-name descname"><span class="pre">_shift</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/binarysearchtree.html#BSTree._shift"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.binarysearchtree.BSTree._shift" title="Link to this definition"></a></dt>
+<dd><p>Es el número entero propio de la estructura utilizado como desplazamiento (b) de la función MAD para calcular el código hash de la llave.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.binarysearchtree.BSTree._cur_alpha">
+<span class="sig-name descname"><span class="pre">_cur_alpha</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/binarysearchtree.html#BSTree._cur_alpha"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.binarysearchtree.BSTree._cur_alpha" title="Link to this definition"></a></dt>
+<dd><p>Es el factor de carga (<em>alpha</em>) actual de la tabla de hash.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.binarysearchtree.BSTree.min_alpha">
+<span class="sig-name descname"><span class="pre">min_alpha</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/binarysearchtree.html#BSTree.min_alpha"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.binarysearchtree.BSTree.min_alpha" title="Link to this definition"></a></dt>
+<dd><p>Es el factor de carga (<em>alpha</em>) mínimo de la tabla de hash, por defecto es 0.20 definido en el parametro <em>MIN_PROBING_ALPHA</em> propio de <em>DISClib</em>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.binarysearchtree.BSTree.max_alpha">
+<span class="sig-name descname"><span class="pre">max_alpha</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/binarysearchtree.html#BSTree.max_alpha"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.binarysearchtree.BSTree.max_alpha" title="Link to this definition"></a></dt>
+<dd><p>Es el factor de carga máximo de la tabla de hash, por defecto es 0.80 definido en el parametro <em>MAX_PROBING_ALPHA</em> propio de <em>DISClib</em>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.binarysearchtree.BSTree._size">
+<span class="sig-name descname"><span class="pre">_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/binarysearchtree.html#BSTree._size"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.binarysearchtree.BSTree._size" title="Link to this definition"></a></dt>
+<dd><p>Es el número de entradas (n) que contiene la estructura, por defecto es 0 y se actualiza con cada operación que modifica la estructura.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.binarysearchtree.BSTree._collisions">
+<span class="sig-name descname"><span class="pre">_collisions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/binarysearchtree.html#BSTree._collisions"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.binarysearchtree.BSTree._collisions" title="Link to this definition"></a></dt>
+<dd><p>Es el número entero para contar las colisiones en la estructura, por defecto es 0 y se actualiza con cada operación que modifica la estructura.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.binarysearchtree.BSTree._key_type">
+<span class="sig-name descname"><span class="pre">_key_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">type</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/binarysearchtree.html#BSTree._key_type"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.binarysearchtree.BSTree._key_type" title="Link to this definition"></a></dt>
+<dd><p>Es el tipo de dato para las llaves de los registros (pareja llave-valor) que contiene la tabla de hash, por defecto es <em>None</em> y se configura al cargar la primer registro.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.binarysearchtree.BSTree._value_type">
+<span class="sig-name descname"><span class="pre">_value_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">type</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/binarysearchtree.html#BSTree._value_type"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.binarysearchtree.BSTree._value_type" title="Link to this definition"></a></dt>
+<dd><p>Es el tipo de dato para los valores de los registros (pareja llave-valor) que contiene la tabla de hash, por defecto es <em>None</em> y se configura al cargar la primer registro.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.binarysearchtree.BSTree.__post_init__">
+<span class="sig-name descname"><span class="pre">__post_init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/binarysearchtree.html#BSTree.__post_init__"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.binarysearchtree.BSTree.__post_init__" title="Link to this definition"></a></dt>
+<dd><p><em>__post_init__()</em> configura los parametros personalizados por el usuario al crear el <em>BSTree</em>. En caso de no estar definidos, se asignan los valores por defecto, puede cargar listas nativas con el parametro <em>iodata</em> de python dentro de la estructura.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.binarysearchtree.BSTree.default_cmp_function">
+<span class="sig-name descname"><span class="pre">default_cmp_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../mapentry/index.html#DISClib.DataStructures.mapentry.MapEntry" title="DISClib.DataStructures.mapentry.MapEntry"><span class="pre">MapEntry</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/binarysearchtree.html#BSTree.default_cmp_function"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.binarysearchtree.BSTree.default_cmp_function" title="Link to this definition"></a></dt>
+<dd><p><em>default_cmp_function()</em> es la función de comparación por defecto para comparar la llave de un elemento vs. el registro (pareja llave-valor) o <em>MapEntry</em> que se desea agregar al <em>BSTree</em>, es una función crucial para que la estructura funcione correctamente.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key1</strong> (<em>Any</em>) – llave (<em>key</em>) de la primer registro a comparar.</p></li>
+<li><p><strong>entry2</strong> (<a class="reference internal" href="../mapentry/index.html#DISClib.DataStructures.mapentry.MapEntry" title="DISClib.DataStructures.mapentry.MapEntry"><em>MapEntry</em></a>) – segundo registro (pareja llave-valor) a comparar.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>respuesta de la comparación entre los elementos, 0 si las llaves (<em>key</em>) son iguales, 1 si key1 es mayor que la llave (<em>key</em>) de entry2, -1 si key1 es menor.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.binarysearchtree.BSTree._handle_error">
+<span class="sig-name descname"><span class="pre">_handle_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">err</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Exception</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/binarysearchtree.html#BSTree._handle_error"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.binarysearchtree.BSTree._handle_error" title="Link to this definition"></a></dt>
+<dd><p><em>_handle_error()</em> función propia de la estructura que maneja los errores que se pueden presentar en el <em>BSTree</em>.</p>
+<p>Si se presenta un error en <em>BSTree</em>, se formatea el error según el contexto (paquete/módulo/clase), la función (método) que lo generó y lo reenvia al componente superior en la jerarquía <em>DISCLib</em> para manejarlo segun se considere conveniente el usuario.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>err</strong> (<em>Exception</em>) – Excepción que se generó en el <em>BSTree</em>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.binarysearchtree.BSTree._check_type">
+<span class="sig-name descname"><span class="pre">_check_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../mapentry/index.html#DISClib.DataStructures.mapentry.MapEntry" title="DISClib.DataStructures.mapentry.MapEntry"><span class="pre">MapEntry</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/binarysearchtree.html#BSTree._check_type"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.binarysearchtree.BSTree._check_type" title="Link to this definition"></a></dt>
+<dd><p><em>_check_type()</em> función propia de la estructura que revisa si el tipo de dato del registro (pareja llave-valor) que se desea agregar al <em>BSTree</em> es del mismo tipo contenido dentro de los <em>MapEntry</em> del <em>BSTree</em>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>element</strong> (<em>T</em>) – elemento que se desea procesar en <em>BSTree</em>.</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TypeError</strong> – error si el tipo de dato del elemento que se desea agregar no es el mismo que el tipo de dato de los elementos que ya contiene el <em>BSTree</em>.</p>
+</dd>
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>operador que indica si el ADT <em>BSTree</em> es del mismo tipo que el elemento que se desea procesar.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.binarysearchtree.BSTree.is_empty">
+<span class="sig-name descname"><span class="pre">is_empty</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/binarysearchtree.html#BSTree.is_empty"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.binarysearchtree.BSTree.is_empty" title="Link to this definition"></a></dt>
+<dd><p><em>is_empty()</em> revisa si el <em>BSTree</em> está vacío.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>operador que indica si la estructura <em>BSTree</em> está vacía.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.binarysearchtree.BSTree.size">
+<span class="sig-name descname"><span class="pre">size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/binarysearchtree.html#BSTree.size"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.binarysearchtree.BSTree.size" title="Link to this definition"></a></dt>
+<dd><p><em>size()</em> devuelve el numero de entradas <em>MapEntry</em> que actualmente contiene el <em>BSTree</em>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tamaño de la estructura <em>BSTree</em>.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.binarysearchtree.BSTree.contains">
+<span class="sig-name descname"><span class="pre">contains</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/binarysearchtree.html#BSTree.contains"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.binarysearchtree.BSTree.contains" title="Link to this definition"></a></dt>
+<dd><p><em>contains()</em> responde si el <em>BSTree</em> contiene un registro <em>MapEntry</em> con la llave <em>key</em>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>key</strong> (<em>T</em>) – llave del registro (pareja llave-valor) que se desea buscar en el <em>BSTree</em>.</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>IndexError</strong> – error si la estructura está vacía.</p>
+</dd>
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>operador que indica si el <em>BSTree</em> contiene o no un registro con la llave <em>key</em>.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.binarysearchtree.BSTree.put">
+<span class="sig-name descname"><span class="pre">put</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/binarysearchtree.html#BSTree.put"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.binarysearchtree.BSTree.put" title="Link to this definition"></a></dt>
+<dd><p><em>put()</em> agrega una nuevo registro <em>MapEntry</em> al <em>BSTree</em>, si la llave <em>key</em> ya existe en el <em>BSTree</em> se reemplaza su valor <em>value</em>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> (<em>T</em>) – llave asociada la nuevo <em>MapEntry</em>.</p></li>
+<li><p><strong>value</strong> (<em>T</em>) – el valor asociado al nuevo <em>MapEntry</em>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – si la operación no se puede realizar, se invoca la función <em>_handle_error()</em> para manejar el error.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.binarysearchtree.BSTree.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../mapentry/index.html#DISClib.DataStructures.mapentry.MapEntry" title="DISClib.DataStructures.mapentry.MapEntry"><span class="pre">MapEntry</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/binarysearchtree.html#BSTree.get"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.binarysearchtree.BSTree.get" title="Link to this definition"></a></dt>
+<dd><p><em>get()</em> recupera el registro <em>MapEntry</em> cuya llave <em>key</em> sea ogial a la que se encuentre dentro del <em>BSTree</em>, si no existe un registro con la llave, devuelve <em>None</em>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>key</strong> (<em>T</em>) – llave asociada al <em>MapEntry</em> que se desea buscar.</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>IndexError</strong> – error si la estructura está vacía.</p>
+</dd>
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>MapEntry</em> asociado a la llave <em>key</em> que se desea. <em>None</em> si no se encuentra.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>Optional[<a class="reference internal" href="../mapentry/index.html#DISClib.DataStructures.mapentry.MapEntry" title="DISClib.DataStructures.mapentry.MapEntry">MapEntry</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.binarysearchtree.BSTree.check_slots">
+<span class="sig-name descname"><span class="pre">check_slots</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../singlelinkedlist/index.html#DISClib.DataStructures.singlelinkedlist.SingleLinked" title="DISClib.DataStructures.singlelinkedlist.SingleLinked"><span class="pre">SingleLinked</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../mapentry/index.html#DISClib.DataStructures.mapentry.MapEntry" title="DISClib.DataStructures.mapentry.MapEntry"><span class="pre">MapEntry</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/binarysearchtree.html#BSTree.check_slots"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.binarysearchtree.BSTree.check_slots" title="Link to this definition"></a></dt>
+<dd><p><em>check_slots()</em> recupera la lista (<em>SingleLinked</em>) de registros (parejas llave-valor) asociadas a la llave <em>key</em> dentro del <em>BSTree</em>. Recupera los <em>MapEntry</em> con el mismo hash y si no existe, devuelve <em>None</em>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>key</strong> (<em>T</em>) – llave asociada a los <em>MapEntry</em> y <em>Slots</em> que se desean buscar.</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – error si la estructura está vacía.</p>
+</dd>
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>lista sencillamente encadenada (<em>SingleLinked</em>) con todas los <em>MapEntry</em> asociados a la llave <em>key</em> dentro del <em>BSTree</em>.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>Optional[<a class="reference internal" href="../singlelinkedlist/index.html#DISClib.DataStructures.singlelinkedlist.SingleLinked" title="DISClib.DataStructures.singlelinkedlist.SingleLinked">SingleLinked</a>[<a class="reference internal" href="../mapentry/index.html#DISClib.DataStructures.mapentry.MapEntry" title="DISClib.DataStructures.mapentry.MapEntry">MapEntry</a>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.binarysearchtree.BSTree.remove">
+<span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DISClib.Utils.default.T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/binarysearchtree.html#BSTree.remove"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.binarysearchtree.BSTree.remove" title="Link to this definition"></a></dt>
+<dd><p><em>remove()</em> elimina el registro <em>MapEntry</em> cuya llave <em>key</em> sea igual a la que se encuentre dentro del <em>BSTree</em>, si no existe un registro con la llave, genera un error.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>key</strong> (<em>T</em>) – llave asociada al <em>MapEntry</em> que se desea eliminar.</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>IndexError</strong> – error si la estructura está vacía.</p></li>
+<li><p><strong>IndexError</strong> – error si el registro que se desea eliminar no existe dentro del <em>BSTree</em>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>registro <em>MapEntry</em> que se eliminó del <em>BSTree</em>. <em>None</em> si no existe el registro asociada a la llave <em>key</em>.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>Optional[<a class="reference internal" href="../mapentry/index.html#DISClib.DataStructures.mapentry.MapEntry" title="DISClib.DataStructures.mapentry.MapEntry">MapEntry</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.binarysearchtree.BSTree.keys">
+<span class="sig-name descname"><span class="pre">keys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../singlelinkedlist/index.html#DISClib.DataStructures.singlelinkedlist.SingleLinked" title="DISClib.DataStructures.singlelinkedlist.SingleLinked"><span class="pre">SingleLinked</span></a><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/binarysearchtree.html#BSTree.keys"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.binarysearchtree.BSTree.keys" title="Link to this definition"></a></dt>
+<dd><p><em>keys()</em> devuelve una lista (<em>SingleLinked</em>) con todas las llaves (<em>key</em>) de los registros (<em>MapEntry</em>) del <em>BSTree</em>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>lista (<em>SingleLinked</em>) con todas las llaves (<em>key</em>) del <em>BSTree</em>.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="../singlelinkedlist/index.html#DISClib.DataStructures.singlelinkedlist.SingleLinked" title="DISClib.DataStructures.singlelinkedlist.SingleLinked">SingleLinked</a>[T]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.binarysearchtree.BSTree.values">
+<span class="sig-name descname"><span class="pre">values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../singlelinkedlist/index.html#DISClib.DataStructures.singlelinkedlist.SingleLinked" title="DISClib.DataStructures.singlelinkedlist.SingleLinked"><span class="pre">SingleLinked</span></a><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/binarysearchtree.html#BSTree.values"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.binarysearchtree.BSTree.values" title="Link to this definition"></a></dt>
+<dd><p><em>values()</em> devuelve una lista (<em>SingleLinked</em>) con todos los valores de los registros (<em>MapEntry</em>) del <em>BSTree</em>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>lista (<em>SingleLinked</em>) con todos los valores (<em>value</em>) del <em>BSTree</em>.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="../singlelinkedlist/index.html#DISClib.DataStructures.singlelinkedlist.SingleLinked" title="DISClib.DataStructures.singlelinkedlist.SingleLinked">SingleLinked</a>[T]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.binarysearchtree.BSTree.entries">
+<span class="sig-name descname"><span class="pre">entries</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../singlelinkedlist/index.html#DISClib.DataStructures.singlelinkedlist.SingleLinked" title="DISClib.DataStructures.singlelinkedlist.SingleLinked"><span class="pre">SingleLinked</span></a><span class="p"><span class="pre">[</span></span><span class="pre">DISClib.Utils.default.T</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/binarysearchtree.html#BSTree.entries"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.binarysearchtree.BSTree.entries" title="Link to this definition"></a></dt>
+<dd><p><em>entries()</em> devuelve una lista (<em>SingleLinked</em>) con tuplas de todas los registros (<em>MapEntry</em>) del <em>BSTree</em>. Cada tupla contiene en la primera posición la llave (<em>key</em>) y en la segunda posición el valor (<em>value</em>) del registro.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>lista (<em>SingleLinked</em>) de tuplas con todas los registros del <em>BSTree</em>.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="../singlelinkedlist/index.html#DISClib.DataStructures.singlelinkedlist.SingleLinked" title="DISClib.DataStructures.singlelinkedlist.SingleLinked">SingleLinked</a>[T]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.binarysearchtree.BSTree._find_slot">
+<span class="sig-name descname"><span class="pre">_find_slot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hkey</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DISClib.Utils.default.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/binarysearchtree.html#BSTree._find_slot"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.binarysearchtree.BSTree._find_slot" title="Link to this definition"></a></dt>
+<dd><p><em>_find_slot()</em> encuentra el indice del registro <em>MapEtry</em> en el <em>BSTree</em>, si el registro no existe, devuelve el indice del primer registro disponible.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hkey</strong> (<em>int</em>) – indice del registro (pareja llave-valor) en el <em>BSTree</em>.</p></li>
+<li><p><strong>key</strong> (<em>T</em>) – llave del registro (pareja llave-valor) que se desea buscar.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>devuelve el indice negativo si encuentra espacio disponible (None | EMPTY) o si el registro no existe, devuelve el indice positivo si el registro existe.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.binarysearchtree.BSTree._is_available">
+<span class="sig-name descname"><span class="pre">_is_available</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../mapentry/index.html#DISClib.DataStructures.mapentry.MapEntry" title="DISClib.DataStructures.mapentry.MapEntry"><span class="pre">MapEntry</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/binarysearchtree.html#BSTree._is_available"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.binarysearchtree.BSTree._is_available" title="Link to this definition"></a></dt>
+<dd><p><em>_is_available()</em> permite verificar si un registro <em>MapEntry</em> está disponible en el <em>BSTree</em>. Es decir si la llave es nula (None) o vacía (EMPTY).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>entry</strong> (<a class="reference internal" href="../mapentry/index.html#DISClib.DataStructures.mapentry.MapEntry" title="DISClib.DataStructures.mapentry.MapEntry"><em>MapEntry</em></a>) – registro (pareja llave-valor) que se desea verificar.</p>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>operador que indica si el registro está disponible o no en el <em>BSTree</em>.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.binarysearchtree.BSTree.rehash">
+<span class="sig-name descname"><span class="pre">rehash</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../../_modules/DISClib/DataStructures/binarysearchtree.html#BSTree.rehash"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.binarysearchtree.BSTree.rehash" title="Link to this definition"></a></dt>
+<dd><p><em>rehash()</em> reconstruye la tabla de hash con una nueva capacidad (<em>M</em>) y un nuevo factor de carga (<em>alpha</em>) según los límites configurados por los parametros <em>max_alpha</em> y <em>min_alpha</em>.</p>
+<p>Si el factor de carga (<em>alpha</em>) es mayor que el límite superior (<em>max_alpha</em>), se duplica la capacidad (<em>M</em>) buscando el siguiente número primo (<em>P</em>) reconstruyendo la tabla.</p>
+<p>Si el factor de carga (<em>alpha) es menor que el límite inferior (*min_alpha</em>), se reduce a la mitad la capacidad (<em>M</em>) de la tabla buscando el siguiente número primo (<em>P</em>) reconstruyendo la tabla.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="../arraylist/index.html" class="btn btn-neutral float-left" title="DISClib.DataStructures.arraylist" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="../bst/index.html" class="btn btn-neutral float-right" title="DISClib.DataStructures.bst" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor Uniandes, Bogotá - Colombia, Sur América,
+             Facultad de Ingeniería, DISC Desarrollado
+             para ISIS-1225, EDA.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

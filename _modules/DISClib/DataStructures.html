@@ -83,18 +83,33 @@
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="c1"># custom modules</span>
+<span class="c1"># M1</span>
 <span class="kn">from</span> <span class="nn">DISClib.DataStructures.arraylist</span> <span class="kn">import</span> <span class="n">ArrayList</span>
 <span class="kn">from</span> <span class="nn">DISClib.DataStructures.singlelinkedlist</span> <span class="kn">import</span> <span class="n">SingleLinked</span>
 <span class="kn">from</span> <span class="nn">DISClib.DataStructures.doublelinkedlist</span> <span class="kn">import</span> <span class="n">DoubleLinked</span>
 
-<span class="c1"># sort available list types</span>
+<span class="c1"># M2</span>
+<span class="kn">from</span> <span class="nn">DISClib.DataStructures.chaininghashtable</span> <span class="kn">import</span> <span class="n">SeparateChaining</span>
+<span class="kn">from</span> <span class="nn">DISClib.DataStructures.probinghashtable</span> <span class="kn">import</span> <span class="n">LinearProbing</span>
+
+<span class="c1"># union of available list types for sorting</span>
 <span class="c1"># :arg: List: list type</span>
 <div class="viewcode-block" id="List">
 <a class="viewcode-back" href="../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.List">[documentos]</a>
 <span class="n">List</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span><span class="n">ArrayList</span><span class="p">,</span> <span class="n">SingleLinked</span><span class="p">,</span> <span class="n">DoubleLinked</span><span class="p">]</span></div>
 
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Lista de tipos de estructuras que se pueden ordenar por el algoritmo de ordenamiento (ADT *List* y sus estructuras especificas *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* y *Stack*)</span>
+<span class="sd">Lista de estructuras que se pueden ordenar por el algoritmo de ordenamiento (ADT *List* y sus estructuras especificas *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* y *Stack*)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># union of available hash table types for hashing</span>
+<span class="c1"># :arg: HashTable: hash table type</span>
+<div class="viewcode-block" id="HashTable">
+<a class="viewcode-back" href="../../autoapi/DISClib/DataStructures/index.html#DISClib.DataStructures.HashTable">[documentos]</a>
+<span class="n">HashTable</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span><span class="n">SeparateChaining</span><span class="p">,</span> <span class="n">LinearProbing</span><span class="p">]</span></div>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Lista de tipos de estructuras que pueden cambiar su mecánica de hashing (ADT *HashTable* y sus estructuras especificas *SeparateChaining* y *LinearProbing*)</span>
 <span class="sd">&quot;&quot;&quot;</span>
 </pre></div>
 

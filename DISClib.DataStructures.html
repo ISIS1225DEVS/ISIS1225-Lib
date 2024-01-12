@@ -1978,8 +1978,78 @@ en la última posición</p>
 <section id="disclib-datastructures-rbtnode-module">
 <h2>DISClib.DataStructures.rbtnode module<a class="headerlink" href="#disclib-datastructures-rbtnode-module" title="Link to this heading"></a></h2>
 </section>
-<section id="disclib-datastructures-redblacktree-module">
-<h2>DISClib.DataStructures.redblacktree module<a class="headerlink" href="#disclib-datastructures-redblacktree-module" title="Link to this heading"></a></h2>
+<section id="module-DISClib.DataStructures.redblacktree">
+<span id="disclib-datastructures-redblacktree-module"></span><h2>DISClib.DataStructures.redblacktree module<a class="headerlink" href="#module-DISClib.DataStructures.redblacktree" title="Link to this heading"></a></h2>
+<p># TODO: agregar descripción del módulo</p>
+<p><em>IMPORTANTE:</em> Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.</p></li>
+<li><p>Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H. Goldwasser.</p></li>
+</ol>
+</div></blockquote>
+<dl class="py class">
+<dt class="sig sig-object py" id="DISClib.DataStructures.redblacktree.RedBlackTree">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.redblacktree.</span></span><span class="sig-name descname"><span class="pre">RedBlackTree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">iodata:</span> <span class="pre">~typing.List[~DISClib.Utils.default.T]</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">cmp_function:</span> <span class="pre">~typing.Callable[[~DISClib.Utils.default.T,</span> <span class="pre">~DISClib.Utils.default.T],</span> <span class="pre">int]</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">elements:</span> <span class="pre">~typing.List[~DISClib.Utils.default.T]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;,</span> <span class="pre">key:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">_size:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/DISClib/DataStructures/redblacktree.html#RedBlackTree"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.redblacktree.RedBlackTree" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<a class="reference internal" href="autoapi/DISClib/Utils/default/index.html#DISClib.Utils.default.T" title="DISClib.Utils.default.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code></a>]</p>
+<p><strong>RedBlackTree</strong> representa la estructura de datos para arreglos dinamicos (Array List), Implementada con Generic[T] y &#64;dataclass para que sea una estructura de datos genérica.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Generic</strong> (<em>T</em>) – TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.</p>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>ADT de tipo RedBlackTree o Arreglo Dinámico.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="autoapi/DISClib/DataStructures/redblacktree/index.html#DISClib.DataStructures.redblacktree.RedBlackTree" title="DISClib.DataStructures.redblacktree.RedBlackTree">RedBlackTree</a></p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.redblacktree.RedBlackTree.cmp_function">
+<span class="sig-name descname"><span class="pre">cmp_function</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="_modules/DISClib/DataStructures/redblacktree.html#RedBlackTree.cmp_function"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.redblacktree.RedBlackTree.cmp_function" title="Link to this definition"></a></dt>
+<dd><p>Función de comparación personalizable por el usuario para reconocer los elementos dentro de la estructura. Es un argumento configurable al crear la estructura. Por defecto es la función <em>lt_default_cmp_funcion()</em> propia de <em>DISClib</em>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DISClib.DataStructures.redblacktree.RedBlackTree.default_cmp_function">
+<span class="sig-name descname"><span class="pre">default_cmp_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elm1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elm2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/DISClib/DataStructures/redblacktree.html#RedBlackTree.default_cmp_function"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.redblacktree.RedBlackTree.default_cmp_function" title="Link to this definition"></a></dt>
+<dd><p><em>default_cmp_function()</em> procesa con algoritmica por defecto la lista de elementos que procesa el RedBlackTree. Es una función crucial para que la estructura de datos funcione correctamente.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>elm1</strong> (<em>Any</em>) – primer elemento a comparar.</p></li>
+<li><p><strong>elm2</strong> (<em>Any</em>) – segundo elemento a comparar.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>respuesta de la comparación entre los elementos, 0 si son iguales, 1 si elm1 es mayor que elm2, -1 si elm1 es menor.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.redblacktree.RedBlackTree.elements">
+<span class="sig-name descname"><span class="pre">elements</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></em><a class="reference internal" href="_modules/DISClib/DataStructures/redblacktree.html#RedBlackTree.elements"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.redblacktree.RedBlackTree.elements" title="Link to this definition"></a></dt>
+<dd><p>Lista nativa de Python que contiene los elementos de la estructura.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.redblacktree.RedBlackTree.iodata">
+<span class="sig-name descname"><span class="pre">iodata</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="_modules/DISClib/DataStructures/redblacktree.html#RedBlackTree.iodata"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.redblacktree.RedBlackTree.iodata" title="Link to this definition"></a></dt>
+<dd><p>Lista nativa de Python personalizable por el usuario para inicializar la estructura. Por defecto es <em>None</em> y el usuario puede incluirla como argumento al crear la estructura.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DISClib.DataStructures.redblacktree.RedBlackTree.key">
+<span class="sig-name descname"><span class="pre">key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="_modules/DISClib/DataStructures/redblacktree.html#RedBlackTree.key"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.redblacktree.RedBlackTree.key" title="Link to this definition"></a></dt>
+<dd><p>Nombre de la llave opcional que se utiliza para comparar los elementos del RedBlackTree, Por defecto es <em>None</em> y el <em>__post_init__()</em> configura la llave por defecto la llave “id” en <em>DEFAULT_DICT_KEY</em>.</p>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 <section id="module-DISClib.DataStructures.singlelinkedlist">
 <span id="disclib-datastructures-singlelinkedlist-module"></span><h2>DISClib.DataStructures.singlelinkedlist module<a class="headerlink" href="#module-DISClib.DataStructures.singlelinkedlist" title="Link to this heading"></a></h2>
@@ -2384,9 +2454,16 @@ en la última posición</p>
 <section id="module-DISClib.DataStructures">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-DISClib.DataStructures" title="Link to this heading"></a></h2>
 <dl class="py data">
+<dt class="sig sig-object py" id="DISClib.DataStructures.HashTable">
+<span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.</span></span><span class="sig-name descname"><span class="pre">HashTable</span></span><a class="reference internal" href="_modules/DISClib/DataStructures.html#HashTable"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.HashTable" title="Link to this definition"></a></dt>
+<dd><p>Lista de tipos de estructuras que pueden cambiar su mecánica de hashing (ADT <em>HashTable</em> y sus estructuras especificas <em>SeparateChaining</em> y <em>LinearProbing</em>)</p>
+<p>alias de <code class="xref py py-obj docutils literal notranslate"><span class="pre">Union</span></code>[<a class="reference internal" href="autoapi/DISClib/DataStructures/chaininghashtable/index.html#DISClib.DataStructures.chaininghashtable.SeparateChaining" title="DISClib.DataStructures.chaininghashtable.SeparateChaining"><code class="xref py py-class docutils literal notranslate"><span class="pre">SeparateChaining</span></code></a>, <a class="reference internal" href="autoapi/DISClib/DataStructures/probinghashtable/index.html#DISClib.DataStructures.probinghashtable.LinearProbing" title="DISClib.DataStructures.probinghashtable.LinearProbing"><code class="xref py py-class docutils literal notranslate"><span class="pre">LinearProbing</span></code></a>]</p>
+</dd></dl>
+
+<dl class="py data">
 <dt class="sig sig-object py" id="DISClib.DataStructures.List">
 <span class="sig-prename descclassname"><span class="pre">DISClib.DataStructures.</span></span><span class="sig-name descname"><span class="pre">List</span></span><a class="reference internal" href="_modules/DISClib/DataStructures.html#List"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#DISClib.DataStructures.List" title="Link to this definition"></a></dt>
-<dd><p>Lista de tipos de estructuras que se pueden ordenar por el algoritmo de ordenamiento (ADT <em>List</em> y sus estructuras especificas <em>ArrayList</em>, <em>LinkedList</em>, <em>DoubleLinkedList</em>, <em>Queue</em> y <em>Stack</em>)</p>
+<dd><p>Lista de estructuras que se pueden ordenar por el algoritmo de ordenamiento (ADT <em>List</em> y sus estructuras especificas <em>ArrayList</em>, <em>LinkedList</em>, <em>DoubleLinkedList</em>, <em>Queue</em> y <em>Stack</em>)</p>
 <p>alias de <code class="xref py py-obj docutils literal notranslate"><span class="pre">Union</span></code>[<a class="reference internal" href="autoapi/DISClib/DataStructures/arraylist/index.html#DISClib.DataStructures.arraylist.ArrayList" title="DISClib.DataStructures.arraylist.ArrayList"><code class="xref py py-class docutils literal notranslate"><span class="pre">ArrayList</span></code></a>, <a class="reference internal" href="autoapi/DISClib/DataStructures/singlelinkedlist/index.html#DISClib.DataStructures.singlelinkedlist.SingleLinked" title="DISClib.DataStructures.singlelinkedlist.SingleLinked"><code class="xref py py-class docutils literal notranslate"><span class="pre">SingleLinked</span></code></a>, <a class="reference internal" href="autoapi/DISClib/DataStructures/doublelinkedlist/index.html#DISClib.DataStructures.doublelinkedlist.DoubleLinked" title="DISClib.DataStructures.doublelinkedlist.DoubleLinked"><code class="xref py py-class docutils literal notranslate"><span class="pre">DoubleLinked</span></code></a>]</p>
 </dd></dl>
 

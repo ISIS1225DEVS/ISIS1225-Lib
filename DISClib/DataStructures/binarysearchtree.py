@@ -1,91 +1,47 @@
-"""
-Este ADT representa una tabla de hash con el método de sondeo lineal (**LinearProbing**). Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.
-
-En particular tiene funciones para encontrar espacio (*slots*) y registros (pareja llave-valor) disponibles en la tabla en caso de colisiones segun el metodo de sondeo lineal.
+﻿"""
+# TODO: agregar descripción del módulo
 
 *IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:
 
     #. Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.
     #. Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H. Goldwasser.
 """
+
 # native python modules
-# import dataclass to define the hash table
+# import dataclass to define the array list
 from dataclasses import dataclass, field
-# import modules for defining the entry type in the hash table
+# import modules for defining the element's type in the array
 from typing import List, Optional, Callable, Generic
 # import inspect for getting the name of the current function
 import inspect
-# random module for the MAD compression function
-import random
 
 # custom modules
+from DISClib.DataStructures.treenode import BSTNode
 # generic error handling and type checking
-from DISClib.DataStructures.mapentry import MapEntry
-from DISClib.DataStructures.arraylist import ArrayList
-from DISClib.DataStructures.singlelinkedlist import SingleLinked
-# util functions for the hash table
-from DISClib.Utils.numbers import next_prime
-from DISClib.Utils.numbers import hash_compress
 from DISClib.Utils.error import error_handler
-# default cmp function for the hash table
-from DISClib.Utils.default import ht_default_cmp_funcion
-# default data type for the hash table
+from DISClib.Utils.default import lt_default_cmp_funcion
 from DISClib.Utils.default import T
-from DISClib.Utils.default import VALID_DATA_TYPE_LT
 from DISClib.Utils.default import DEFAULT_DICT_KEY
 from DISClib.Utils.default import VALID_IO_TYPE
-from DISClib.Utils.default import DEFAULT_PRIME
-
 
 # checking custom modules
-assert MapEntry
-assert ArrayList
-assert SingleLinked
-assert next_prime
-assert hash_compress
+assert BSTNode
 assert error_handler
-assert ht_default_cmp_funcion
+assert lt_default_cmp_funcion
 assert T
-assert VALID_DATA_TYPE_LT
 assert DEFAULT_DICT_KEY
 assert VALID_IO_TYPE
-assert DEFAULT_PRIME
-
-# default load factor for separating chaining
-# :data: DEFAULT_PROBING_ALPHA
-DEFAULT_PROBING_ALPHA: float = 0.50
-"""
-Factor de carga (*alpha*) por defecto e ideal para el *LinearProbing*, por defecto es 0.50.
-"""
-
-# :data: MAX_PROBING_ALPHA
-MAX_PROBING_ALPHA: float = 0.80
-"""
-Factor de carga (*alpha*) máximo para el *LinearProbing*, por defecto es 0.80.
-"""
-
-# :data: MIN_PROBING_ALPHA
-MIN_PROBING_ALPHA: float = 0.20
-"""
-Factor de carga (*alpha*) mínimo para el *LinearProbing*, por defecto es 0.20
-"""
-
-# :data: EMPTY
-EMPTY = "__EMPTY__"
-"""
-Constante que representa un registro vacío en el *LinearProbing*, por defecto es "__EMPTY__".
-"""
 
 
 @dataclass
-class LinearProbing(Generic[T]):
-    """**LinearProbing** representa la estructura de datos de una tabla de hash con el método de encadenamiento por separación (*LinearProbing*). En la estructura la información se almacena en registros (parejas llave-valor) donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato. El indice es un *ArrayList* donde cada elemento es un espacio (*slot*) de la tabla de hash, y cada espacio (*slot*) contiene un registro *MapEntry* (pareja llave-valor) o está vacío (None | EMPTY
+class BSTree(Generic[T]):
+    """**BSTree** representa la estructura de datos de una tabla de hash con el método de encadenamiento por separación (*BSTree*). En la estructura la información se almacena en registros (parejas llave-valor) donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato. El indice es un *ArrayList* donde cada elemento es un espacio (*slot*) de la tabla de hash, y cada espacio (*slot*) contiene un registro *MapEntry* (pareja llave-valor) o está vacío (None | EMPTY
 
     Args:
         Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.
 
     Returns:
-        LinearProbing: ADT de tipo *LinearProbing* o tabla de hash con separación por encadenamiento.
+        BSTree: ADT de tipo *BSTree* o tabla de hash con separación por encadenamiento.
     """
     # input tuples from python list
     # :attr: iodata
@@ -130,7 +86,7 @@ class LinearProbing(Generic[T]):
     # :attr: cmp_function
     cmp_function: Optional[Callable[[T, T], int]] = None
     """
-    Función de comparación personalizable por el usuario para reconocer los registros (pareja llave-valor) dentro del *LinearProbing*. Por defecto es la función *lt_default_cmp_funcion()* propia de *DISClib*, puede ser un parametro al crear la estructura.
+    Función de comparación personalizable por el usuario para reconocer los registros (pareja llave-valor) dentro del *BSTree*. Por defecto es la función *lt_default_cmp_funcion()* propia de *DISClib*, puede ser un parametro al crear la estructura.
     """
 
     # actual place to store the entries in the hash table
@@ -145,7 +101,7 @@ class LinearProbing(Generic[T]):
     # :attr: key
     key: Optional[str] = DEFAULT_DICT_KEY
     """
-    Nombre de la llave personalizable por el usuario utilizada para reconocer los registros (pareja llave-valor) dentro del *LinearProbing*. Por defecto es la llave de diccionario (*dict*) *DEFAULT_DICT_KEY = 'id'* propia de *DISClib*, puede ser un parametro al crear la estructura.
+    Nombre de la llave personalizable por el usuario utilizada para reconocer los registros (pareja llave-valor) dentro del *BSTree*. Por defecto es la llave de diccionario (*dict*) *DEFAULT_DICT_KEY = 'id'* propia de *DISClib*, puede ser un parametro al crear la estructura.
     """
 
     # prime number (P) for the MAD compression function
@@ -220,7 +176,7 @@ class LinearProbing(Generic[T]):
     """
 
     def __post_init__(self) -> None:
-        """*__post_init__()* configura los parametros personalizados por el usuario al crear el *LinearProbing*. En caso de no estar definidos, se asignan los valores por defecto, puede cargar listas nativas con el parametro *iodata* de python dentro de la estructura.
+        """*__post_init__()* configura los parametros personalizados por el usuario al crear el *BSTree*. En caso de no estar definidos, se asignan los valores por defecto, puede cargar listas nativas con el parametro *iodata* de python dentro de la estructura.
         """
         try:
             # setting capacity
@@ -269,7 +225,7 @@ class LinearProbing(Generic[T]):
             self._handle_error(err)
 
     def default_cmp_function(self, key1, entry2: MapEntry) -> int:
-        """*default_cmp_function()* es la función de comparación por defecto para comparar la llave de un elemento vs. el registro (pareja llave-valor) o *MapEntry* que se desea agregar al *LinearProbing*, es una función crucial para que la estructura funcione correctamente.
+        """*default_cmp_function()* es la función de comparación por defecto para comparar la llave de un elemento vs. el registro (pareja llave-valor) o *MapEntry* que se desea agregar al *BSTree*, es una función crucial para que la estructura funcione correctamente.
 
         Args:
             key1 (Any): llave (*key*) de la primer registro a comparar.
@@ -285,12 +241,12 @@ class LinearProbing(Generic[T]):
             self._handle_error(err)
 
     def _handle_error(self, err: Exception) -> None:
-        """*_handle_error()* función propia de la estructura que maneja los errores que se pueden presentar en el *LinearProbing*.
+        """*_handle_error()* función propia de la estructura que maneja los errores que se pueden presentar en el *BSTree*.
 
-        Si se presenta un error en *LinearProbing*, se formatea el error según el contexto (paquete/módulo/clase), la función (método) que lo generó y lo reenvia al componente superior en la jerarquía *DISCLib* para manejarlo segun se considere conveniente el usuario.
+        Si se presenta un error en *BSTree*, se formatea el error según el contexto (paquete/módulo/clase), la función (método) que lo generó y lo reenvia al componente superior en la jerarquía *DISCLib* para manejarlo segun se considere conveniente el usuario.
 
         Args:
-            err (Exception): Excepción que se generó en el *LinearProbing*.
+            err (Exception): Excepción que se generó en el *BSTree*.
         """
         # TODO check usability of this function
         cur_context = self.__class__.__name__
@@ -298,16 +254,16 @@ class LinearProbing(Generic[T]):
         error_handler(cur_context, cur_function, err)
 
     def _check_type(self, entry: MapEntry) -> bool:
-        """*_check_type()* función propia de la estructura que revisa si el tipo de dato del registro (pareja llave-valor) que se desea agregar al *LinearProbing* es del mismo tipo contenido dentro de los *MapEntry* del *LinearProbing*.
+        """*_check_type()* función propia de la estructura que revisa si el tipo de dato del registro (pareja llave-valor) que se desea agregar al *BSTree* es del mismo tipo contenido dentro de los *MapEntry* del *BSTree*.
 
         Args:
-            element (T): elemento que se desea procesar en *LinearProbing*.
+            element (T): elemento que se desea procesar en *BSTree*.
 
         Raises:
-            TypeError: error si el tipo de dato del elemento que se desea agregar no es el mismo que el tipo de dato de los elementos que ya contiene el *LinearProbing*.
+            TypeError: error si el tipo de dato del elemento que se desea agregar no es el mismo que el tipo de dato de los elementos que ya contiene el *BSTree*.
 
         Returns:
-            bool: operador que indica si el ADT *LinearProbing* es del mismo tipo que el elemento que se desea procesar.
+            bool: operador que indica si el ADT *BSTree* es del mismo tipo que el elemento que se desea procesar.
         """
         # TODO check usability of this function
         # if datastruct is empty, set the entry type
@@ -332,10 +288,10 @@ class LinearProbing(Generic[T]):
 
     # @property
     def is_empty(self) -> bool:
-        """*is_empty()* revisa si el *LinearProbing* está vacío.
+        """*is_empty()* revisa si el *BSTree* está vacío.
 
         Returns:
-            bool: operador que indica si la estructura *LinearProbing* está vacía.
+            bool: operador que indica si la estructura *BSTree* está vacía.
         """
         # TODO change the method name to "empty" or @property "empty"?
         try:
@@ -345,10 +301,10 @@ class LinearProbing(Generic[T]):
 
     # @property
     def size(self) -> int:
-        """*size()* devuelve el numero de entradas *MapEntry* que actualmente contiene el *LinearProbing*.
+        """*size()* devuelve el numero de entradas *MapEntry* que actualmente contiene el *BSTree*.
 
         Returns:
-            int: tamaño de la estructura *LinearProbing*.
+            int: tamaño de la estructura *BSTree*.
         """
         # TODO change the method to @property "size"?
         try:
@@ -357,16 +313,16 @@ class LinearProbing(Generic[T]):
             self._handle_error(err)
 
     def contains(self, key: T) -> bool:
-        """*contains()* responde si el *LinearProbing* contiene un registro *MapEntry* con la llave *key*.
+        """*contains()* responde si el *BSTree* contiene un registro *MapEntry* con la llave *key*.
 
         Args:
-            key (T): llave del registro (pareja llave-valor) que se desea buscar en el *LinearProbing*.
+            key (T): llave del registro (pareja llave-valor) que se desea buscar en el *BSTree*.
 
         Raises:
             IndexError: error si la estructura está vacía.
 
         Returns:
-            bool: operador que indica si el *LinearProbing* contiene o no un registro con la llave *key*.
+            bool: operador que indica si el *BSTree* contiene o no un registro con la llave *key*.
         """
         try:
             if self.is_empty():
@@ -391,7 +347,7 @@ class LinearProbing(Generic[T]):
             self._handle_error(err)
 
     def put(self, key: T, value: T) -> None:
-        """*put()* agrega una nuevo registro *MapEntry* al *LinearProbing*, si la llave *key* ya existe en el *LinearProbing* se reemplaza su valor *value*.
+        """*put()* agrega una nuevo registro *MapEntry* al *BSTree*, si la llave *key* ya existe en el *BSTree* se reemplaza su valor *value*.
 
         Args:
             key (T): llave asociada la nuevo *MapEntry*.
@@ -444,7 +400,7 @@ class LinearProbing(Generic[T]):
             self._handle_error(err)
 
     def get(self, key: T) -> Optional[MapEntry]:
-        """*get()* recupera el registro *MapEntry* cuya llave *key* sea ogial a la que se encuentre dentro del *LinearProbing*, si no existe un registro con la llave, devuelve *None*.
+        """*get()* recupera el registro *MapEntry* cuya llave *key* sea ogial a la que se encuentre dentro del *BSTree*, si no existe un registro con la llave, devuelve *None*.
 
         Args:
             key (T): llave asociada al *MapEntry* que se desea buscar.
@@ -477,7 +433,7 @@ class LinearProbing(Generic[T]):
             self._handle_error(err)
 
     def check_slots(self, key: T) -> Optional[SingleLinked[MapEntry]]:
-        """*check_slots()* recupera la lista (*SingleLinked*) de registros (parejas llave-valor) asociadas a la llave *key* dentro del *LinearProbing*. Recupera los *MapEntry* con el mismo hash y si no existe, devuelve *None*.
+        """*check_slots()* recupera la lista (*SingleLinked*) de registros (parejas llave-valor) asociadas a la llave *key* dentro del *BSTree*. Recupera los *MapEntry* con el mismo hash y si no existe, devuelve *None*.
 
         Args:
             key (T): llave asociada a los *MapEntry* y *Slots* que se desean buscar.
@@ -486,7 +442,7 @@ class LinearProbing(Generic[T]):
             Exception: error si la estructura está vacía.
 
         Returns:
-            Optional[SingleLinked[MapEntry]]: lista sencillamente encadenada (*SingleLinked*) con todas los *MapEntry* asociados a la llave *key* dentro del *LinearProbing*.
+            Optional[SingleLinked[MapEntry]]: lista sencillamente encadenada (*SingleLinked*) con todas los *MapEntry* asociados a la llave *key* dentro del *BSTree*.
         """
         try:
             if self.is_empty():
@@ -519,17 +475,17 @@ class LinearProbing(Generic[T]):
             self._handle_error(err)
 
     def remove(self, key: T) -> Optional[T]:
-        """*remove()* elimina el registro *MapEntry* cuya llave *key* sea igual a la que se encuentre dentro del *LinearProbing*, si no existe un registro con la llave, genera un error.
+        """*remove()* elimina el registro *MapEntry* cuya llave *key* sea igual a la que se encuentre dentro del *BSTree*, si no existe un registro con la llave, genera un error.
 
         Args:
             key (T): llave asociada al *MapEntry* que se desea eliminar.
 
         Raises:
             IndexError: error si la estructura está vacía.
-            IndexError: error si el registro que se desea eliminar no existe dentro del *LinearProbing*.
+            IndexError: error si el registro que se desea eliminar no existe dentro del *BSTree*.
 
         Returns:
-            Optional[MapEntry]: registro *MapEntry* que se eliminó del *LinearProbing*. *None* si no existe el registro asociada a la llave *key*.
+            Optional[MapEntry]: registro *MapEntry* que se eliminó del *BSTree*. *None* si no existe el registro asociada a la llave *key*.
         """
         try:
             if self.is_empty():
@@ -567,10 +523,10 @@ class LinearProbing(Generic[T]):
             self._handle_error(err)
 
     def keys(self) -> SingleLinked[T]:
-        """*keys()* devuelve una lista (*SingleLinked*) con todas las llaves (*key*) de los registros (*MapEntry*) del *LinearProbing*.
+        """*keys()* devuelve una lista (*SingleLinked*) con todas las llaves (*key*) de los registros (*MapEntry*) del *BSTree*.
 
         Returns:
-            SingleLinked[T]: lista (*SingleLinked*) con todas las llaves (*key*) del *LinearProbing*.
+            SingleLinked[T]: lista (*SingleLinked*) con todas las llaves (*key*) del *BSTree*.
         """
         try:
             keys_lt = SingleLinked(key=self.key)
@@ -582,10 +538,10 @@ class LinearProbing(Generic[T]):
             self._handle_error(err)
 
     def values(self) -> SingleLinked[T]:
-        """*values()* devuelve una lista (*SingleLinked*) con todos los valores de los registros (*MapEntry*) del *LinearProbing*.
+        """*values()* devuelve una lista (*SingleLinked*) con todos los valores de los registros (*MapEntry*) del *BSTree*.
 
         Returns:
-            SingleLinked[T]: lista (*SingleLinked*) con todos los valores (*value*) del *LinearProbing*.
+            SingleLinked[T]: lista (*SingleLinked*) con todos los valores (*value*) del *BSTree*.
         """
         try:
             values_lt = SingleLinked(key=self.key)
@@ -597,10 +553,10 @@ class LinearProbing(Generic[T]):
             self._handle_error(err)
 
     def entries(self) -> SingleLinked[T]:
-        """*entries()* devuelve una lista (*SingleLinked*) con tuplas de todas los registros (*MapEntry*) del *LinearProbing*. Cada tupla contiene en la primera posición la llave (*key*) y en la segunda posición el valor (*value*) del registro.
+        """*entries()* devuelve una lista (*SingleLinked*) con tuplas de todas los registros (*MapEntry*) del *BSTree*. Cada tupla contiene en la primera posición la llave (*key*) y en la segunda posición el valor (*value*) del registro.
 
         Returns:
-            SingleLinked[T]: lista (*SingleLinked*) de tuplas con todas los registros del *LinearProbing*.
+            SingleLinked[T]: lista (*SingleLinked*) de tuplas con todas los registros del *BSTree*.
         """
         try:
             entries_lt = SingleLinked(key=self.key)
@@ -615,10 +571,10 @@ class LinearProbing(Generic[T]):
             self._handle_error(err)
 
     def _find_slot(self, hkey: int, key: T) -> int:
-        """*_find_slot()* encuentra el indice del registro *MapEtry* en el *LinearProbing*, si el registro no existe, devuelve el indice del primer registro disponible.
+        """*_find_slot()* encuentra el indice del registro *MapEtry* en el *BSTree*, si el registro no existe, devuelve el indice del primer registro disponible.
 
         Args:
-            hkey (int): indice del registro (pareja llave-valor) en el *LinearProbing*.
+            hkey (int): indice del registro (pareja llave-valor) en el *BSTree*.
             key (T): llave del registro (pareja llave-valor) que se desea buscar.
 
         Returns:
@@ -682,13 +638,13 @@ class LinearProbing(Generic[T]):
             self._handle_error(err)
 
     def _is_available(self, entry: MapEntry) -> bool:
-        """*_is_available()* permite verificar si un registro *MapEntry* está disponible en el *LinearProbing*. Es decir si la llave es nula (None) o vacía (EMPTY).
+        """*_is_available()* permite verificar si un registro *MapEntry* está disponible en el *BSTree*. Es decir si la llave es nula (None) o vacía (EMPTY).
 
         Args:
             entry (MapEntry): registro (pareja llave-valor) que se desea verificar.
 
         Returns:
-            bool: operador que indica si el registro está disponible o no en el *LinearProbing*.
+            bool: operador que indica si el registro está disponible o no en el *BSTree*.
         """
         # assume the slot is unavailable
         available = False
@@ -751,11 +707,3 @@ class LinearProbing(Generic[T]):
                         self.put(key, value)
         except Exception as err:
             self._handle_error(err)
-
-    def __len__(self) -> int:
-        """*__len__()* función nativa de Python personalizada para el *LinearProbing*. Permite utilizar la función *len()* de Python para recuperar el tamaño del *LinearProbing*.
-
-        Returns:
-            int: tamaño del *LinearProbing*.
-        """
-        return self._size

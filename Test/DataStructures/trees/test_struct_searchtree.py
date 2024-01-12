@@ -10,8 +10,8 @@ from typing import TypeVar
 
 
 # importing the classes to test
-from DISClib.DataStructures.bstree import BinarySearchTree as BST
-from DISClib.DataStructures.bstree import BSTNode
+from DISClib.DataStructures.binarysearchtree import BinarySearchTree as BST
+from DISClib.DataStructures.binarysearchtree import BSTNode
 # from DISClib.DataStructures.binarysearchtree import KDimensionalTree as KDT
 # from DISClib.DataStructures.binarysearchtree import KDTNode
 # importing the data to test

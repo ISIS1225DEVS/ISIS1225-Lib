@@ -653,3 +653,11 @@ class SeparateChaining(Generic[T]):
                             self.put(key, value)
         except Exception as err:
             self._handle_error(err)
+
+    def __len__(self) -> int:
+        """*__len__()* función nativa de Python personalizada para el *SeparateChaining*. Permite utilizar la función *len()* de Python para recuperar el tamaño del *SeparateChaining*.
+
+        Returns:
+            int: tamaño del *SeparateChaining*.
+        """
+        return self._size

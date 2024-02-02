@@ -7,7 +7,7 @@ import unittest
 import pytest
 
 # import the module to test
-from DISClib.ADT.dynamic import DynamicImporter
+from Src.DISClib.ADT.dynamic import DynamicImporter
 
 # import the data to test
 from Test.Data.test_data import get_dynamic_test_data

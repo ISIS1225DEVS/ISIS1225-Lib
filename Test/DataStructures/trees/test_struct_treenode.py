@@ -7,10 +7,10 @@ import unittest
 import pytest
 
 # importing the modules to test
-from DISClib.DataStructures.treenode import BSTNode
-from DISClib.DataStructures.treenode import KDTNode
-from DISClib.DataStructures.treenode import RBTNode
-from DISClib.DataStructures.treenode import AVLNode
+from Src.DISClib.DataStructures.treenode import BSTNode
+from Src.DISClib.DataStructures.treenode import KDTNode
+from Src.DISClib.DataStructures.treenode import RBTNode
+from Src.DISClib.DataStructures.treenode import AVLNode
 
 # importing the data to test
 from Test.Data.test_data import get_nodetree_test_data

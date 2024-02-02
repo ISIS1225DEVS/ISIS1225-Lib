@@ -171,8 +171,8 @@ For the moment the **DISClib** is available as a local dependency in your projec
 1. Import the necessary **DISClib** ADT modules into your project with the command:
 
    ```python
-    from DISClib.ADT import list as lt
-    from DISClib.ADT import maps as mp
+    from Src.DISClib.ADT import list as lt
+    from Src.DISClib.ADT import maps as mp
    ```
 
 1. Start coding!

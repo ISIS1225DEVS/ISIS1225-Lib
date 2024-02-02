@@ -1,7 +1,7 @@
 import pytest
 # import Test.bst as bst
-from DISClib.ADT import trees as omap
-from DISClib.ADT.lists import List as lt
+from Src.DISClib.lib.ADT import trees as omap
+from Src.DISClib.ADT.lists import List as lt
 # assert bst
 
 

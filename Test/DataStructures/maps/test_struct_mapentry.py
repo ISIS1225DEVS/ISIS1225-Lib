@@ -7,7 +7,7 @@ import unittest
 import pytest
 
 # import the module to test
-from DISClib.DataStructures.mapentry import MapEntry
+from Src.DISClib.DataStructures.mapentry import MapEntry
 
 # import the data to test
 from Test.Data.test_data import get_mapentry_test_data

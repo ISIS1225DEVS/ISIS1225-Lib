@@ -1,9 +1,9 @@
 import pytest
 import unittest
 # import Test.graph as graph
-from DISClib.ADT import graph as g
-from DISClib.ADT import queue as q
-from DISClib.Algorithms.Graphs import prim
+from Src.DISClib.ADT import graph as g
+from Src.DISClib.ADT import queue as q
+from Src.DISClib.Algorithms.Graphs import prim
 # assert graph
 
 

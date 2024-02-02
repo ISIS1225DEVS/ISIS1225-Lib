@@ -172,8 +172,8 @@ Por el momento, la librería **DISClib** está disponible como una dependencia l
 1. Importe los módulos ADT **DISClib** necesarios en su proyecto con las lineas de codigo:
 
    ```python
-    from DISClib.ADT import list as lt
-    from DISClib.ADT import maps as mp
+    from Src.DISClib.ADT import list as lt
+    from Src.DISClib.ADT import maps as mp
    ```
 
 1. ¡Empieza a programar!

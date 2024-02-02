@@ -1,9 +1,9 @@
 import pytest
 import unittest
 # import Test.graph as graph
-from DISClib.ADT import graph as g
-from DISClib.ADT import stack
-from DISClib.Algorithms.Graphs import cycles as c
+from Src.DISClib.ADT import graph as g
+from Src.DISClib.ADT import stack
+from Src.DISClib.Algorithms.Graphs import cycles as c
 # assert graph
 
 

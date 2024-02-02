@@ -9,16 +9,16 @@ import pytest
 from typing import TypeVar
 
 # import the module to test
-from DISClib.ADT.maps import Map
-from DISClib.ADT.maps import clone_mp
-from DISClib.ADT.maps import translate_mp
-from DISClib.ADT.maps import STRUCT_PGK_PATH
+from Src.DISClib.ADT.maps import Map
+from Src.DISClib.ADT.maps import clone_mp
+from Src.DISClib.ADT.maps import translate_mp
+from Src.DISClib.ADT.maps import STRUCT_PGK_PATH
 
 # import de data structures modules
-from DISClib.DataStructures.chaininghashtable import SeparateChaining
-from DISClib.DataStructures.probinghashtable import LinearProbing
-from DISClib.DataStructures.singlelinkedlist import SingleLinked
-from DISClib.DataStructures.mapentry import MapEntry
+from Src.DISClib.DataStructures.chaininghashtable import SeparateChaining
+from Src.DISClib.DataStructures.probinghashtable import LinearProbing
+from Src.DISClib.DataStructures.singlelinkedlist import SingleLinked
+from Src.DISClib.DataStructures.mapentry import MapEntry
 
 # import the data to test
 from Test.Data.test_data import get_maps_test_data

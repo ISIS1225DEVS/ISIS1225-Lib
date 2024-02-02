@@ -1,8 +1,8 @@
 import pytest
 import unittest
 # import Test.graph as graph
-from DISClib.ADT import graph as g
-from DISClib.Algorithms.Graphs import scc
+from Src.DISClib.ADT import graph as g
+from Src.DISClib.Algorithms.Graphs import scc
 # assert graph
 
 

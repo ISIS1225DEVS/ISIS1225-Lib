@@ -1,10 +1,10 @@
 import pytest
 import unittest
 # import Test.graph as graph
-from DISClib.DataStructures import adjcomponents as e
-from DISClib.ADT import graph as g
-from DISClib.ADT import stack as stk
-from DISClib.Algorithms.Graphs import bfs
+from Src.DISClib.DataStructures import adjcomponents as e
+from Src.DISClib.ADT import graph as g
+from Src.DISClib.ADT import stack as stk
+from Src.DISClib.Algorithms.Graphs import bfs
 # assert graph
 
 

@@ -22,8 +22,8 @@
 
 import pytest
 # import Test.sorting as cf
-from DISClib.ADT import lists as lt
-from DISClib.Algorithms.Sorting import insertionsort as sa
+from Src.DISClib.ADT import lists as lt
+from Src.DISClib.Algorithms.Sorting import insertionsort as sa
 
 
 @pytest.fixture

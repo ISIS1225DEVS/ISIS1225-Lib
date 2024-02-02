@@ -8,9 +8,9 @@ import pytest
 import random
 
 # importing the classes to test
-from DISClib.DataStructures.arraylist import ArrayList
-from DISClib.DataStructures.singlelinkedlist import SingleLinked
-from DISClib.DataStructures.doublelinkedlist import DoubleLinked
+from Src.DISClib.DataStructures.arraylist import ArrayList
+from Src.DISClib.DataStructures.singlelinkedlist import SingleLinked
+from Src.DISClib.DataStructures.doublelinkedlist import DoubleLinked
 
 # importing the data to test the classes
 from Test.Data.test_data import get_list_test_data

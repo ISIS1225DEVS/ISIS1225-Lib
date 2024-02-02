@@ -10,8 +10,8 @@ from typing import TypeVar
 
 
 # importing the classes to test
-from DISClib.DataStructures.adjcomponents import Edge
-from DISClib.DataStructures.adjcomponents import Vertex
+from Src.DISClib.DataStructures.adjcomponents import Edge
+from Src.DISClib.DataStructures.adjcomponents import Vertex
 
 # importing the data to test
 from Test.Data.test_data import get_gedgevertex_test_data

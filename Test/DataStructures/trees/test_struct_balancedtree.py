@@ -10,11 +10,11 @@ from typing import TypeVar
 
 
 # importing the classes to test
-from DISClib.DataStructures.leftleaningrbtree import LeftLeanRedBlackTree as LLRBT
-# from DISClib.DataStructures.rbtree import RedBlackTree as RBT
-from DISClib.DataStructures.treenode import RBTNode
-# from DISClib.DataStructures.avltree import AVLTree as AVL
-# from DISClib.DataStructures.avltree import AVLNode
+from Src.DISClib.DataStructures.leftleaningrbtree import LeftLeanRedBlackTree as LLRBT
+# from Src.DISClib.DataStructures.rbtree import RedBlackTree as RBT
+from Src.DISClib.DataStructures.treenode import RBTNode
+# from Src.DISClib.DataStructures.avltree import AVLTree as AVL
+# from Src.DISClib.DataStructures.avltree import AVLNode
 # importing the data to test
 from Test.Data.test_data import get_balancetree_test_data
 

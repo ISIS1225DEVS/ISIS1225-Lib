@@ -10,11 +10,11 @@ from typing import TypeVar
 
 
 # importing the classes to test
-from DISClib.DataStructures.adjlist import AdjacencyList
+from Src.DISClib.DataStructures.adjlist import AdjacencyList
 # adjlist import AdjancencyList
-from DISClib.DataStructures.adjmatrix import AdjacencyMatrix
-from DISClib.DataStructures.adjcomponents import Edge
-from DISClib.DataStructures.adjcomponents import Vertex
+from Src.DISClib.DataStructures.adjmatrix import AdjacencyMatrix
+from Src.DISClib.DataStructures.adjcomponents import Edge
+from Src.DISClib.DataStructures.adjcomponents import Vertex
 
 # importing the data to test
 from Test.Data.test_data import get_graph_test_data

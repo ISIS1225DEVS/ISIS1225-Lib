@@ -7,9 +7,9 @@ import unittest
 import pytest
 
 # importing the modules to test
-from DISClib.DataStructures.node import Node
-from DISClib.DataStructures.listnode import SingleNode
-from DISClib.DataStructures.listnode import DoubleNode
+from Src.DISClib.DataStructures.node import Node
+from Src.DISClib.DataStructures.listnode import SingleNode
+from Src.DISClib.DataStructures.listnode import DoubleNode
 
 # importing the data to test
 from Test.Data.test_data import get_nodelist_test_data

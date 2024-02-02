@@ -1,8 +1,8 @@
 import pytest
 # import Test.omap as omap
-from DISClib.ADT import trees as om
-from DISClib.ADT import lists as lt
-from DISClib.Algorithms.Trees import traversal as tv
+from Src.DISClib.ADT import trees as om
+from Src.DISClib.ADT import lists as lt
+from Src.DISClib.Algorithms.Trees import traversal as tv
 # assert omap
 
 

@@ -532,7 +532,7 @@ def get_lists_test_data():
         _type_: _description_
     """
     parameters = dict(
-        TEST_ROOT_PGK_PATH="DISClib.DataStructures",
+        TEST_ROOT_PGK_PATH="Src.DISClib.DataStructures",
         TEST_STRUCT_DICT={
             "ArrayList": "arraylist",
             "SingleLinked": "singlelinkedlist",
@@ -543,7 +543,7 @@ def get_lists_test_data():
             "ArrayList": "arraylist",
             "SingleLinked": "singlelinkedlist",
         },
-        ERR_ROOT_PGK_PATH="DISClib.ErrDataStructures",
+        ERR_ROOT_PGK_PATH="Src.DISClib.ErrDataStructures",
         ERR_STRUCT_DICT={
             "FakeListA": "fakelista",
             "FakeListB": "fakelistb",
@@ -561,7 +561,7 @@ def get_maps_test_data():
         _type_: _description_
     """
     parameters = dict(
-        TEST_ROOT_PGK_PATH="DISClib.DataStructures",
+        TEST_ROOT_PGK_PATH="Src.DISClib.DataStructures",
         TEST_STRUCT_DICT={
             "SeparateChaining": "chaininghashtable",
             "LinearProbing": "probinghashtable",
@@ -570,7 +570,7 @@ def get_maps_test_data():
             "LinearProbing": "probinghashtable",
             "SeparateChaining": "chaininghashtable",
         },
-        ERR_ROOT_PGK_PATH="DISClib.ErrDataStructures",
+        ERR_ROOT_PGK_PATH="Src.DISClib.ErrDataStructures",
         ERR_STRUCT_DICT={
             "FakeHashTableA": "faketableA",
             "FakeHashTableB": "faketableB",

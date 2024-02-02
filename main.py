@@ -1,21 +1,21 @@
-﻿from DISClib.ADT.lists import List
-from DISClib.ADT.stack import Stack
-from DISClib.ADT.lists import clone_lt
-from DISClib.ADT.lists import translate_lt
-from DISClib.ADT.queue import Queue
-# from DISClib.ADT.stack import Stack
-from DISClib.ADT.maps import Map
-from DISClib.DataStructures.mapentry import MapEntry
-from DISClib.Algorithms.Sorting.selectionsort import selection_sort as ses
-from DISClib.Algorithms.Sorting.insertionsort import insertion_sort as ins
-from DISClib.Algorithms.Sorting.shellsort import shell_sort as shs
-from DISClib.Algorithms.Sorting.quicksort import quick_sort as qks
-from DISClib.Algorithms.Sorting.mergesort import merge_sort as mgs
-from DISClib.Algorithms.Sorting.heapsort import heap_sort as hps
-from DISClib.Algorithms.Sorting.bogosort import bogo_sort as bgs
+﻿from Src.DISClib.ADT.lists import List
+from Src.DISClib.ADT.stack import Stack
+from Src.DISClib.ADT.lists import clone_lt
+from Src.DISClib.ADT.lists import translate_lt
+from Src.DISClib.ADT.queue import Queue
+# from Src.DISClib.ADT.stack import Stack
+from Src.DISClib.ADT.maps import Map
+from Src.DISClib.DataStructures.mapentry import MapEntry
+from Src.DISClib.Algorithms.Sorting.selectionsort import selection_sort as ses
+from Src.DISClib.Algorithms.Sorting.insertionsort import insertion_sort as ins
+from Src.DISClib.Algorithms.Sorting.shellsort import shell_sort as shs
+from Src.DISClib.Algorithms.Sorting.quicksort import quick_sort as qks
+from Src.DISClib.Algorithms.Sorting.mergesort import merge_sort as mgs
+from Src.DISClib.Algorithms.Sorting.heapsort import heap_sort as hps
+from Src.DISClib.Algorithms.Sorting.bogosort import bogo_sort as bgs
 
 import random
-# from DISClib.ADT.lists import List2
+# from Src.DISClib.ADT.lists import List2
 from dataclasses import dataclass
 from typing import Generic, Optional, TypeVar
 

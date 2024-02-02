@@ -9,15 +9,15 @@ import unittest
 import pytest
 
 # import the module to test
-from DISClib.ADT.lists import List
-from DISClib.ADT.lists import clone_lt
-from DISClib.ADT.lists import translate_lt
-from DISClib.ADT.lists import STRUCT_PGK_PATH
+from Src.DISClib.ADT.lists import List
+from Src.DISClib.ADT.lists import clone_lt
+from Src.DISClib.ADT.lists import translate_lt
+from Src.DISClib.ADT.lists import STRUCT_PGK_PATH
 
 # import de data structures modules
-from DISClib.DataStructures.arraylist import ArrayList
-from DISClib.DataStructures.singlelinkedlist import SingleLinked
-from DISClib.DataStructures.doublelinkedlist import DoubleLinked
+from Src.DISClib.DataStructures.arraylist import ArrayList
+from Src.DISClib.DataStructures.singlelinkedlist import SingleLinked
+from Src.DISClib.DataStructures.doublelinkedlist import DoubleLinked
 
 # import the data to test
 from Test.Data.test_data import get_lists_test_data

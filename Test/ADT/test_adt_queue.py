@@ -7,7 +7,7 @@ import unittest
 import pytest
 
 # import the module to test
-from DISClib.ADT.queue import Queue
+from Src.DISClib.ADT.queue import Queue
 
 # import the data to test
 from Test.Data.test_data import get_list_test_data

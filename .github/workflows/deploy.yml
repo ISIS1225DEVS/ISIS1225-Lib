@@ -25,9 +25,9 @@ jobs:
                 for topic in topics:
                     repos = api.search.repos(f'topic:{topic} user:ISIS1225DEVS')
                     for repo in repos['items']:
-                        print(f"Pushing to {repo['full_name']}")
-                        os.system(f"git clone https://github.com/{repo['full_name']}.git")
-                        os.system(f"rm -rf {repo['name']}/DISClib/ && cp -r DISClib/ {repo['name']}/DISClib/")
+                        print(f""Pushing to {repo['full_name']}"")
+                        os.system(f""git clone https://github.com/{repo['full_name']}.git"")
+                        os.system(f""rm -rf {repo['name']}/DISClib/ && cp -r DISClib/ {repo['name']}/DISClib/"")
                         commit_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-                        os.system(f"cd {repo['name']} && git add . && git commit -m \"Updating DISClib to the latest - #{commit_time}\" && git push")
+                        os.system(f""cd {repo['name']} && git add . && git commit -m \"Updating DISClib to the latest - #{commit_time}\" && git push"")
                 "

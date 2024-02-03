@@ -1,0 +1,1865 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Uniandes, Bogotá - Colombia, Sur América,
+# This file is distributed under the same license as the DISClib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: DISClib \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-03 00:09-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:2
+msgid ":py:mod:`Src.DISClib.DataStructures`"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:8
+msgid "Submodules"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:36
+msgid "Package Contents"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:39
+msgid "Classes"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:51:<autosummary>:1
+msgid ":py:obj:`ArrayList <Src.DISClib.DataStructures.ArrayList>`\\"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:66
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:51:<autosummary>:1
+msgid ""
+"**ArrayList** representa la estructura de datos para arreglos dinamicos "
+"(*ArrayList*), Implementada con Generic[T] y @dataclass para que sea una "
+"estructura de datos genérica."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:51:<autosummary>:1
+msgid ":py:obj:`SingleLinked <Src.DISClib.DataStructures.SingleLinked>`\\"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:365
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:51:<autosummary>:1
+msgid ""
+"**SingleLinked** representa una estructura de datos dinámica de tipo "
+"lista sensillamente encadenada (*SingleLinked*), Implementada con "
+"Generic[T] y @dataclass para que sea una estructura de datos genérica."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:51:<autosummary>:1
+msgid ":py:obj:`DoubleLinked <Src.DISClib.DataStructures.DoubleLinked>`\\"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:669
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:51:<autosummary>:1
+msgid ""
+"**DoubleLinked** representa una estructura de datos para una lista "
+"doblemente enlazada/encadenada (*DoubleLinked*). Implementada con "
+"Generic[T] y @dataclass para que sea una estructura de datos genérica."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:51:<autosummary>:1
+msgid ":py:obj:`SeparateChaining <Src.DISClib.DataStructures.SeparateChaining>`\\"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:979
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:51:<autosummary>:1
+msgid ""
+"**SeparateChaining** representa la estructura de datos de una tabla de "
+"hash con el método de encadenamiento por separación (*SeparateChaining*)."
+" En la estructura la información se almacena en registros (parejas llave-"
+"valor) donde la llave es única para cada valor y el valor puede ser "
+"cualquier tipo de dato. El indice es un *ArrayList* donde cada elemento "
+"es un *Bucket* que contiene los registros *MapEntry* que sufren "
+"colisiones en la tabla de hash."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:51:<autosummary>:1
+msgid ":py:obj:`LinearProbing <Src.DISClib.DataStructures.LinearProbing>`\\"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1261
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:51:<autosummary>:1
+msgid ""
+"**LinearProbing** representa la estructura de datos de una tabla de hash "
+"con el método de encadenamiento por separación (*LinearProbing*). En la "
+"estructura la información se almacena en registros (parejas llave-valor) "
+"donde la llave es única para cada valor y el valor puede ser cualquier "
+"tipo de dato. El indice es un *ArrayList* donde cada elemento es un "
+"espacio (*slot*) de la tabla de hash, y cada espacio (*slot*) contiene un"
+" registro *MapEntry* (pareja llave-valor) o está vacío (None | EMPTY"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:53
+msgid "Attributes"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:60:<autosummary>:1
+msgid ":py:obj:`List <Src.DISClib.DataStructures.List>`\\"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1564
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:60:<autosummary>:1
+msgid ""
+"Lista de estructuras que se pueden ordenar por el algoritmo de "
+"ordenamiento (ADT *List* y sus estructuras especificas *ArrayList*, "
+"*LinkedList*, *DoubleLinkedList*, *Queue* y *Stack*)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:60:<autosummary>:1
+msgid ":py:obj:`HashTable <Src.DISClib.DataStructures.HashTable>`\\"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1568
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:60:<autosummary>:1
+msgid ""
+"Lista de tipos de estructuras que pueden cambiar su mecánica de hashing "
+"(ADT *HashTable* y sus estructuras especificas *SeparateChaining* y "
+"*LinearProbing*)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:64
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:363
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:667
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:977
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1259
+msgid "Bases: :py:obj:`Generic`\\ [\\ :py:obj:`Src.DISClib.Utils.default.T`\\ ]"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst
+msgid "Parámetros"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:68
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:367
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:671
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:981
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1263
+msgid ""
+"TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una "
+"estructura de datos genéricas en python."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst
+msgid "Devuelve"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:71
+msgid "ADT de tipo *ArrayList* o Arreglo Dinámico."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst
+msgid "Tipo del valor devuelto"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:77
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:376
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:680
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:990
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1272
+msgid ""
+"Lista nativa de Python personalizable por el usuario para inicializar la "
+"estructura. Por defecto es *None* y el usuario puede incluirla como "
+"argumento al crear la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:82
+msgid ""
+"Función de comparación personalizable por el usuario para reconocer los "
+"elementos dentro del *ArrayList*. Por defecto es la función "
+"*lt_default_cmp_funcion()* propia de *DISClib*, puede ser un parametro al"
+" crear la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:87
+msgid "Lista nativa de Python que contiene los elementos de la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:92
+msgid ""
+"Nombre de la llave personalizable por el usuario utilizada para reconocer"
+" los elementos dentro del *ArrayList*. Por defecto es la llave de "
+"diccionario (*dict*) *DEFAULT_DICT_KEY = 'id'* propia de *DISClib*, puede"
+" ser un parametro al crear la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:98
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:402
+msgid ""
+"Es el número de elementos que contiene la estructura, por defecto es 0 y "
+"se actualiza con cada operación que modifica la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:102
+msgid ""
+"*__post_init__()* configura los parametros personalizados por el usuario "
+"al crear el *ArrayList*. En caso de no estar definidos, se asignan los "
+"valores por defecto, puede cargar listas nativas con el parametro "
+"*iodata* de python dentro de la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:108
+msgid ""
+"*default_cmp_function()* es la función de comparación por defecto para "
+"comparar elementos dentro del *ArrayList*, es una función crucial para "
+"que la estructura funcione correctamente."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:110
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:414
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:717
+msgid "primer elemento a comparar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:112
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:416
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:719
+msgid "segundo elemento a comparar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:115
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:419
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:722
+msgid ""
+"respuesta de la comparación entre los elementos, 0 si son iguales, 1 si "
+"elm1 es mayor que elm2, -1 si elm1 es menor."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:121
+msgid ""
+"*_handle_error()* función propia de la estructura que maneja los errores "
+"que se pueden presentar en el *ArrayList*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:123
+msgid ""
+"Si se presenta un error en *ArrayList*, se formatea el error según el "
+"contexto (paquete/módulo/clase), la función (método) que lo generó y lo "
+"reenvia al componente superior en la jerarquía *DISCLib* para manejarlo "
+"segun se considere conveniente el usuario."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:125
+msgid "Excepción que se generó en el *ArrayList*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:131
+msgid ""
+"*_check_type()* función propia de la estructura que revisa si el tipo de "
+"dato del elemento que se desea agregar al *ArrayList* es del mismo tipo "
+"contenido dentro de los elementos del *ArrayList*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:133
+msgid "elemento que se desea procesar en *ArrayList*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:136
+msgid ""
+"operador que indica si el ADT *ArrayList* es del mismo tipo que el "
+"elemento que se desea procesar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst
+msgid "Muestra"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:139
+msgid ""
+"error si el tipo de dato del elemento que se desea agregar no es el mismo"
+" que el tipo de dato de los elementos que ya contiene el *ArrayList*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:144
+msgid "*is_empty()* revisa si el *ArrayList* está vacío."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:146
+msgid "operador que indica si la estructura *ArrayList* está vacía."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:152
+msgid ""
+"*size()* devuelve el número de elementos que actualmente contiene el "
+"*ArrayList*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:154
+msgid "tamaño de la estructura *ArrayList*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:160
+msgid "*add_first()* adiciona un elemento al inicio del *ArrayList*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:162
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:172
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:182
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:466
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:476
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:486
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:769
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:779
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:789
+msgid "elemento que se desea agregar a la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:165
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:175
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:469
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:479
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:772
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:782
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1171
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1453
+msgid ""
+"si la operación no se puede realizar, se invoca la función "
+"*_handle_error()* para manejar el error."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:170
+msgid "*add_last()* adiciona un elemento al final del *ArrayList*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:180
+msgid ""
+"*add_element()* adiciona un elemento en una posición especifica del "
+"*ArrayList*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:184
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:488
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:791
+msgid "posición en la que se desea agregar el elemento."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:187
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:219
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:253
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:295
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:491
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:523
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:557
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:599
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:794
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:826
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:860
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:902
+msgid "error si la posición es inválida."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:188
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:195
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:205
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:218
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:229
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:239
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:252
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:294
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:307
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:321
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:492
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:499
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:509
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:522
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:533
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:543
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:556
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:598
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:611
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:625
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:795
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:802
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:812
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:825
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:836
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:846
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:859
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:901
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:914
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:928
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1156
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1181
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1194
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1207
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1438
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1463
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1476
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1489
+msgid "error si la estructura está vacía."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:193
+msgid "*get_first()* lee el primer elemento del *ArrayList*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:197
+msgid "el primer elemento del *ArrayList*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:203
+msgid "*get_last()* lee el último elemento del *ArrayList*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:207
+msgid "el ultimo elemento del *ArrayList*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:213
+msgid ""
+"*get_element()* lee un elemento en una posición especifica del "
+"*ArrayList*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:215
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:519
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:822
+msgid "posición del elemento que se desea leer."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:221
+msgid "el elemento en la posición especifica del *ArrayList*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:227
+msgid "*remove_first()* elimina el primer elemento del *ArrayList*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:231
+msgid "el primer elemento eliminado del *ArrayList*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:237
+msgid "*remove_last()* elimina el último elemento del *ArrayList*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:241
+msgid "el ultimo elemento eliminado del *ArrayList*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:247
+msgid ""
+"*remove_element()* elimina un elemento en una posición especifica del "
+"*ArrayList*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:249
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:553
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:856
+msgid "posición del elemento que se desea eliminar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:255
+msgid "el elemento eliminado del *ArrayList*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:261
+msgid ""
+"*compare_elements()* compara dos elementos dentro del *ArrayList* según "
+"la función de comparación de la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:263
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:567
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:870
+msgid "Primer elemento a comparar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:265
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:569
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:872
+msgid "Segundo elemento a comparar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:268
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:572
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:875
+msgid "error si la función de comparación no está definida."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:270
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:574
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:877
+msgid ""
+"-1 si elem1 es menor que elem2, 0 si son iguales, 1 si elem1 es mayor que"
+" elem2."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:276
+msgid ""
+"*find()* busca el elemento dentro del *ArrayList* y devuelve su posición "
+"o -1 si no lo encuentra."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:278
+msgid "elemento que se desea revisar en el *ArrayList*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:281
+msgid "la posición del elemento en el *ArrayList*, -1 si no está."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:287
+msgid ""
+"*change_info()* cambia la información de un elemento en la posición "
+"especificada del *ArrayList*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:289
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:593
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:896
+msgid "nueva información que se desea para el elemento."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:291
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:595
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:898
+msgid "posición del elemento que se desea cambiar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:300
+msgid ""
+"*exchange()* intercambia la información de dos elementos en dos "
+"posiciones especificadas del *ArrayList*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:302
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:606
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:909
+msgid "posición del primer elemento."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:304
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:608
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:911
+msgid "posición del segundo elemento."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:308
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:612
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:915
+msgid "error si la posición del primer elemento es inválida."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:309
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:613
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:916
+msgid "error si la posición del segundo elemento es inválida."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:314
+msgid ""
+"*sublist()* crea una sublista de la estructura según dos posiciones "
+"dentro del *ArrayList* original."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:316
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:620
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:923
+msgid "posición inicial de la sublista."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:318
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:622
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:925
+msgid "posición final de la sublista."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:322
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:626
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:929
+msgid "error si la posición inicial o final son inválidas."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:324
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:628
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:931
+msgid ""
+"una sublista de la estructura original con la función de comparación y la"
+" llave de la estructura original."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:330
+msgid ""
+"*concat()* concatena dos estructuras de datos *ArrayList* para crear una "
+"estructura con los elementos de las dos estructuras."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:332
+msgid ""
+"estructura de datos *ArrayList* que se desea concatenar con la estructura"
+" original."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:335
+msgid "error si la estructura que se desea concatenar no es un *ArrayList*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:336
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:640
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:943
+msgid ""
+"error si la llave de la estructura que se desea unir no es la misma que "
+"la llave de la estructura original."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:337
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:641
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:944
+msgid ""
+"error si la función de comparación de la estructura que se desea unir no "
+"es la misma que la función de comparación de la estructura original."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:339
+msgid ""
+"Estructura de datos original *ArrayList* que contiene los elementos de "
+"las dos estructuras originales."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:345
+msgid ""
+"*__iter__()* iterador nativo de Python personalizado para el *ArrayList*."
+" Permite utilizar los ciclos *for* de Python para recorrer los elementos "
+"de la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:347
+msgid "iterador Python sobre los elementos del *ArrayList*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:353
+msgid ""
+"*__len__()* función nativa de Python personalizada para el *ArrayList*. "
+"Permite utilizar la función *len()* de Python para recuperar el tamaño "
+"del *ArrayList*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:355
+msgid "tamaño del *ArrayList*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:370
+msgid "ADT de tipo *SingleLinked* o Lista Sensillamente Encadenada."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:381
+msgid ""
+"Función de comparación personalizable por el usuario para reconocer los "
+"elementos dentro del *SingleLinked*. Por defecto es la función "
+"*lt_default_cmp_funcion()* propia de *DISClib*, puede ser un parametro al"
+" crear la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:386
+msgid "Representa la referencia en memoria al primer nodo del *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:391
+msgid "Representa la referencia en memoria al último nodo del *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:396
+msgid ""
+"Nombre de la llave personalizable por el usuario utilizada para reconocer"
+" los elementos dentro del *SingleLinked*. Por defecto es la llave de "
+"diccionario (*dict*)*DEFAULT_DICT_KEY = 'id'* propia de *DISClib*, puede "
+"ser un parametro al crear la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:406
+msgid ""
+"*__post_init__()* configura los parametros personalizados por el usuario "
+"al crear el *SingleLinked*. En caso de no estar definidos, se asignan los"
+" valores por defecto, puede cargar listas nativas con el parametro "
+"*iodata* de python dentro de la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:412
+msgid ""
+"*default_cmp_function()* es la función de comparación por defecto para "
+"comparar elementos dentro del *SingleLinked*, es una función crucial para"
+" que la estructura funcione correctamente."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:425
+msgid ""
+"*_handle_error()* función propia de la estructura que maneja los errores "
+"que se pueden presentar en el *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:427
+msgid ""
+"Si se presenta un error en *SingleLinked*, se formatea el error según el "
+"contexto (paquete/módulo/clase), la función (método) que lo generó y lo "
+"reenvia al componente superior en la jerarquía *DISCLib* para manejarlo "
+"segun se considere conveniente el usuario."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:429
+msgid "Excepción que se generó en el *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:435
+msgid ""
+"*_check_type()* función propia de la estructura que revisa si el tipo de "
+"dato del elemento que se desea agregar al *SingleLinked* es del mismo "
+"tipo contenido dentro de los elementos del *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:437
+msgid "elemento que se desea procesar en *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:440
+msgid ""
+"error si el tipo de dato del elemento que se desea agregar no es el mismo"
+" que el tipo de dato de los elementos que ya contiene el *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:442
+msgid ""
+"operador que indica si el ADT *SingleLinked* es del mismo tipo que el "
+"elemento que se desea procesar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:448
+msgid "*is_empty()* revisa si el *SingleLinked* está vacío."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:450
+msgid "operador que indica si la estructura *SingleLinked* está vacía."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:456
+msgid ""
+"*size()* devuelve el número de elementos que actualmente contiene el "
+"*SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:458
+msgid "tamaño de la estructura *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:464
+msgid "*add_first()* adiciona un elemento al inicio del *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:474
+msgid "*add_last()* adiciona un elemento al final del *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:484
+msgid ""
+"*add_element()* adiciona un elemento en una posición especifica del "
+"*SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:497
+msgid "*get_first()* lee el primer elemento del *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:501
+msgid "el primer elemento del *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:507
+msgid "*get_last()* lee el último elemento del *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:511
+msgid "el ultimo elemento del *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:517
+msgid ""
+"*get_element()* lee un elemento en una posición especifica del "
+"*SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:525
+msgid "el elemento en la posición especifica del *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:531
+msgid "*remove_first()* elimina el primer elemento del *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:535
+msgid "el primer elemento eliminado del *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:541
+msgid "*remove_last()* elimina el último elemento del *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:545
+msgid "el ultimo elemento eliminado del *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:551
+msgid ""
+"*remove_element()* elimina un elemento en una posición especifica del "
+"*SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:559
+msgid "el elemento eliminado del *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:565
+msgid ""
+"*compare_elements()* compara dos elementos dentro del *SingleLinked* "
+"según la función de comparación de la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:580
+msgid ""
+"*find()* busca el elemento dentro del *SingleLinked* y devuelve su "
+"posición o -1 si no lo encuentra."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:582
+msgid "elemento que se desea revisar en el *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:585
+msgid "la posición del elemento en el *SingleLinked*, -1 si no está."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:591
+msgid ""
+"*change_info()* cambia la información de un elemento en la posición "
+"especificada del *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:604
+msgid ""
+"*exchange()* intercambia la información de dos elementos en dos "
+"posiciones especificadas del *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:618
+msgid ""
+"*sublist()* crea una sublista de la estructura según dos posiciones "
+"dentro del *SingleLinked* original."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:634
+msgid ""
+"*concat()* concatena dos estructuras de datos *SingleLinked* para crear "
+"una estructura con los elementos de las dos estructuras."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:636
+msgid ""
+"estructura de datos *SingleLinked* que se desea concatenar con la "
+"estructura original."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:639
+msgid "error si la estructura que se desea concatenar no es un *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:643
+msgid ""
+"Estructura de datos original *SingleLinked* que contiene los elementos de"
+" las dos estructuras originales."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:649
+msgid ""
+"*__iter__()* iterador nativo de Python personalizado para el "
+"*SingleLinked*. Permite utilizar los ciclos *for* de Python para recorrer"
+" los elementos de la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:651
+msgid "iterador Python sobre los elementos del *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:657
+msgid ""
+"*__len__()* función nativa de Python personalizada para el "
+"*SingleLinked*. Permite utilizar la función *len()* de Python para "
+"recuperar el tamaño del *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:659
+msgid "tamaño del *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:674
+msgid "ADT de tipo *DoubleLinked* o Lista Doblemente Encadenada."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:685
+msgid ""
+"Función de comparación personalizable por el usuario para reconocer los "
+"elementos dentro del *DoubleLinked*. Por defecto es la función "
+"*lt_default_cmp_funcion()* propia de *DISClib*, puede ser un parametro al"
+" crear la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:690
+msgid ""
+"Representa el nodo sentinela de la cabecera de la estructura (header), "
+"por defecto es un *DoubleNode* vacío."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:695
+msgid ""
+"Representa el nodo sentinela del colero de la estructura (trailer), por "
+"defecto es un *DoubleNode* vacío."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:700
+msgid ""
+"Nombre de la llave personalizable por el usuario utilizada para reconocer"
+" los elementos dentro del *DoubleLinked*. Por defecto es la llave de "
+"diccionario (*dict*) *DEFAULT_DICT_KEY = 'id'* propia de *DISClib*, puede"
+" ser un parametro al crear la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:705
+msgid ""
+"Es el número de elementos que contiene la estructura, por defecto es 0, "
+"en algunos casos es -1 para ajustar por los nodos sentinelas de la "
+"estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:709
+msgid ""
+"*__post_init__()* configura los parametros personalizados por el usuario "
+"al crear el *DoubleLinked*. En caso de no estar definidos, se asignan los"
+" valores por defecto, puede cargar listas nativas con el parametro "
+"*iodata* de python dentro de la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:715
+msgid ""
+"*default_cmp_function()* es la función de comparación por defecto para "
+"comparar elementos dentro del *DoubleLinked*, es una función crucial para"
+" que la estructura funcione correctamente."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:728
+msgid ""
+"*_handle_error()* función propia de la estructura que maneja los errores "
+"que se pueden presentar en el *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:730
+msgid ""
+"Si se presenta un error en *DoubleLinked*, se formatea el error según el "
+"contexto (paquete/módulo/clase), la función (método) que lo generó y lo "
+"reenvia al componente superior en la jerarquía *DISCLib* para manejarlo "
+"segun se considere conveniente el usuario."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:732
+msgid "Excepción que se generó en el *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:738
+msgid ""
+"*_check_type()* función propia de la estructura que revisa si el tipo de "
+"dato del elemento que se desea agregar al *DoubleLinked* es del mismo "
+"tipo contenido dentro de los elementos del *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:740
+msgid "elemento que se desea procesar en *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:743
+msgid ""
+"error si el tipo de dato del elemento que se desea agregar no es el mismo"
+" que el tipo de dato de los elementos que ya contiene el *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:745
+msgid ""
+"operador que indica si el ADT *DoubleLinked* es del mismo tipo que el "
+"elemento que se desea procesar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:751
+msgid "*is_empty()* revisa si el *DoubleLinked* está vacío."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:753
+msgid "operador que indica si la estructura *DoubleLinked* está vacía."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:759
+msgid ""
+"*size()* devuelve el número de elementos que actualmente contiene el "
+"*DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:761
+msgid "tamaño de la estructura *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:767
+msgid "*add_first()* adiciona un elemento al inicio del *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:777
+msgid "*add_last()* adiciona un elemento al final del *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:787
+msgid ""
+"*add_element()* adiciona un elemento en una posición especifica del "
+"*DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:800
+msgid "*get_first()* lee el primer elemento del *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:804
+msgid "el primer elemento del *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:810
+msgid "*get_last()* lee el último elemento del *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:814
+msgid "el ultimo elemento del *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:820
+msgid ""
+"*get_element()* lee un elemento en una posición especifica del "
+"*DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:828
+msgid "el elemento en la posición especifica del *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:834
+msgid "*remove_first()* elimina el primer elemento del *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:838
+msgid "el primer elemento eliminado del *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:844
+msgid "*remove_last()* elimina el último elemento del *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:848
+msgid "el ultimo elemento eliminado del *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:854
+msgid ""
+"*remove_element()* elimina un elemento en una posición especifica del "
+"*DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:862
+msgid "el elemento eliminado del *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:868
+msgid ""
+"*compare_elements()* compara dos elementos dentro del *DoubleLinked* "
+"según la función de comparación de la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:883
+msgid ""
+"*find()* busca el elemento dentro del *DoubleLinked* y devuelve su "
+"posición o -1 si no lo encuentra."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:885
+msgid "elemento que se desea revisar en el *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:888
+msgid "la posición del elemento en el *DoubleLinked*, -1 si no está."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:894
+msgid ""
+"*change_info()* cambia la información de un elemento en la posición "
+"especificada del *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:907
+msgid ""
+"*exchange()* intercambia la información de dos elementos en dos "
+"posiciones especificadas del *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:921
+msgid ""
+"*sublist()* crea una sublista de la estructura según dos posiciones "
+"dentro del *DoubleLinked* original."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:937
+msgid ""
+"*concat()* concatena dos estructuras de datos *DoubleLinked* para crear "
+"una estructura con los elementos de las dos estructuras."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:939
+msgid ""
+"estructura de datos *DoubleLinked* que se desea concatenar con la "
+"estructura original."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:942
+msgid "error si la estructura que se desea concatenar no es un *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:946
+msgid ""
+"Estructura de datos original *DoubleLinked* que contiene los elementos de"
+" las dos estructuras originales."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:952
+msgid ""
+"*__iter__()* iterador nativo de Python personalizado para el "
+"*DoubleLinked*. Permite utilizar los ciclos *for* de Python para recorrer"
+" los elementos de la estructura en orden ascendente."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:954
+msgid "iterador Python sobre los elementos del *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:960
+msgid ""
+"*__reversed__* iterador nativo de Python personalizado para el "
+"*DoubleLinked*. Permite utilizar los ciclos *for* de Python para recorrer"
+" los elementos de la estructura en orden descendente."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst
+msgid "Campos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:962
+msgid "*iterator* -- iterador Python sobre los elementos del *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:967
+msgid ""
+"*__len__()* función nativa de Python personalizada para el "
+"*DoubleLinked*. Permite utilizar la función *len()* de Python para "
+"recuperar el tamaño del *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:969
+msgid "tamaño del *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:984
+msgid ""
+"ADT de tipo *SeparateChaining* o tabla de hash con separación por "
+"encadenamiento."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:996
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1278
+msgid ""
+"Es el operador que indica si la tabla de hash se puede reconstruir "
+"utilizando el método de *rehash*, por defecto es 'True'."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1002
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1284
+msgid ""
+"espacio inicial reservado para la tabla de hash (n), por defecto es 1, "
+"pero debe configurarse según el número de entradas que se espera "
+"almacenar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1004
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1286
+msgid ""
+"*Nota*: el espacio reservado (n) no es la capacidad (M) de la tabla de "
+"hash."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1010
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1292
+msgid "Es la capacidad (M) con la que se inicializa la tabla de hash."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1015
+msgid ""
+"Es el factor de carga (*alpha*) con el que se inicializa la tabla de "
+"hash, por defecto es 4.0."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1017
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1299
+msgid ""
+"*Nota*: alpha = n/M (n: número de entradas esperadas, M: capacidad de la "
+"tabla de hash)."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1022
+msgid ""
+"Función de comparación personalizable por el usuario para reconocer los "
+"registros (pareja llave-valor) dentro del *SeparateChaining*. Por defecto"
+" es la función *lt_default_cmp_funcion()* propia de *DISClib*, puede ser "
+"un parametro al crear la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1027
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1309
+msgid ""
+"Es el indice de la tabla Hash donde se almacenan los *Buckets*. Por "
+"defecto es un *ArrayList* vacío que se inicializa con la capacidad (M) "
+"configurada."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1032
+msgid ""
+"Nombre de la llave personalizable por el usuario utilizada para reconocer"
+" los registros (pareja llave-valor) dentro del *SeparateChaining*. Por "
+"defecto es la llave de diccionario (*dict*) *DEFAULT_DICT_KEY = 'id'* "
+"propia de *DISClib*, puede ser un parametro al crear la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1037
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1319
+msgid ""
+"Es el número entero primo (P) utilizado para calcular el hash para la "
+"llave de la tabla utilizando la función de compresión MAD. Por defecto es"
+" 109345121 definido en el parametro *DEFAULT_PRIME* propio de *DISClib*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1039
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1321
+msgid ""
+"*Nota:* la función MAD es: *h(k) = ((a*k + b) mod P) mod M*, donde *a* y "
+"*b* son números enteros aleatorios, *P* es un número primo y *M* es la "
+"capacidad de la tabla de hash."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1045
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1327
+msgid ""
+"Es el número entero propio de la estructura utilizado como pendiente (a) "
+"en la función MAD para calcular el código hash de la llave."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1051
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1333
+msgid ""
+"Es el número entero propio de la estructura utilizado como desplazamiento"
+" (b) de la función MAD para calcular el código hash de la llave."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1057
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1339
+msgid "Es el factor de carga (*alpha*) actual de la tabla de hash."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1062
+msgid ""
+"Es el factor de carga (*alpha*) mínimo de la tabla de hash, por defecto "
+"es 2.0 definido en el parametro *MIN_CHAINING_ALPHA* propio de *DISClib*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1067
+msgid ""
+"Es el factor de carga máximo de la tabla de hash, por defecto es 8.0 "
+"definido en el parametro *MAX_CHAINING_ALPHA* propio de *DISClib*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1073
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1355
+msgid ""
+"Es el número de entradas (n) que contiene la estructura, por defecto es 0"
+" y se actualiza con cada operación que modifica la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1079
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1361
+msgid ""
+"Es el número entero para contar las colisiones en la estructura, por "
+"defecto es 0 y se actualiza con cada operación que modifica la "
+"estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1084
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1366
+msgid ""
+"Es el tipo de dato para las llaves de los registros (pareja llave-valor) "
+"que contiene la tabla de hash, por defecto es *None* y se configura al "
+"cargar la primer registro."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1089
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1371
+msgid ""
+"Es el tipo de dato para los valores de los registros (pareja llave-valor)"
+" que contiene la tabla de hash, por defecto es *None* y se configura al "
+"cargar la primer registro."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1093
+msgid ""
+"*__post_init__()* configura los parametros personalizados por el usuario "
+"al crear el *SeparateChaining*. En caso de no estar definidos, se asignan"
+" los valores por defecto, puede cargar listas nativas con el parametro "
+"*iodata* de python dentro de la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1099
+msgid ""
+"*default_cmp_function()* es la función de comparación por defecto para "
+"comparar la llave de un elemento vs. el registro (pareja llave-valor) o "
+"*MapEntry* que se desea agregar al *SeparateChaining*, es una función "
+"crucial para que la estructura funcione correctamente."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1101
+msgid "llave (*key*) del primer registro a comparar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1103
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1385
+msgid "segundo registro (pareja llave-valor) a comparar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1106
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1388
+msgid ""
+"respuesta de la comparación entre los elementos, 0 si las llaves (*key*) "
+"son iguales, 1 si key1 es mayor que la llave (*key*) de entry2, -1 si "
+"key1 es menor."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1112
+msgid ""
+"*_handle_error()* función propia de la estructura que maneja los errores "
+"que se pueden presentar en el *SeparateChaining*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1114
+msgid ""
+"Si se presenta un error en *SeparateChaining*, se formatea el error según"
+" el contexto (paquete/módulo/clase), la función (método) que lo generó y "
+"lo reenvia al componente superior en la jerarquía *DISCLib* para "
+"manejarlo segun se considere conveniente el usuario."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1116
+msgid "Excepción que se generó en el *SeparateChaining*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1122
+msgid ""
+"*_check_type()* función propia de la estructura que revisa si el tipo de "
+"dato del registro (pareja llave-valor) que se desea agregar al "
+"*SeparateChaining* es del mismo tipo contenido dentro de los *MapEntry* "
+"del *SeparateChaining*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1124
+msgid "elemento que se desea procesar en *SeparateChaining*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1127
+msgid ""
+"error si el tipo de dato del elemento que se desea agregar no es el mismo"
+" que el tipo de dato de los elementos que ya contiene el "
+"*SeparateChaining*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1129
+msgid ""
+"operador que indica si el ADT *SeparateChaining* es del mismo tipo que el"
+" elemento que se desea procesar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1135
+msgid "*is_empty()* revisa si el *SeparateChaining* está vacío."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1137
+msgid "operador que indica si la estructura *SeparateChaining* está vacía."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1143
+msgid ""
+"*size()* devuelve el numero de entradas *MapEntry* que actualmente "
+"contiene el *SeparateChaining*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1145
+msgid "tamaño de la estructura *SeparateChaining*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1151
+msgid ""
+"*contains()* responde si el *SeparateChaining* contiene un registro "
+"*MapEntry* con la llave *key*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1153
+msgid ""
+"llave del registro (pareja llave-valor) que se desea buscar en el "
+"*SeparateChaining*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1158
+msgid ""
+"operador que indica si el *SeparateChaining* contiene o no un registro "
+"con la llave *key*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1164
+msgid ""
+"*put()* agrega un nuevo registro *MapEntry* al *SeparateChaining*, si la "
+"llave *key* ya existe en el *SeparateChaining* se reemplaza su valor "
+"*value*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1166
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1448
+msgid "llave asociada la nuevo *MapEntry*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1168
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1450
+msgid "el valor asociado al nuevo *MapEntry*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1176
+msgid ""
+"*get()* recupera el registro *MapEntry* cuya llave *key* sea ogial a la "
+"que se encuentre dentro del *SeparateChaining*, si no existe un registro "
+"con la llave, devuelve *None*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1178
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1460
+msgid "llave asociada al *MapEntry* que se desea buscar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1183
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1465
+msgid ""
+"*MapEntry* asociado a la llave *key* que se desea. *None* si no se "
+"encuentra."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1189
+msgid ""
+"*check_bucket()* revisa el *Bucket* asociado a la llave *key* dentro del "
+"*SeparateChaining*. Recupera todo el *Bucket* asociado a la llave y si no"
+" existe, devuelve *None*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1191
+msgid "llave asociada al *Bucket* que se desea revisar"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1196
+msgid ""
+"*Bucket* asociado a la llave *key* que se desea. *None* si no se "
+"encuentra."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1202
+msgid ""
+"*remove()* elimina el registro *MapEntry* cuya llave *key* sea igual a la"
+" que se encuentre dentro del *SeparateChaining*, si no existe un registro"
+" con la llave, genera un error."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1204
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1486
+msgid "llave asociada al *MapEntry* que se desea eliminar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1208
+msgid ""
+"error si el registro que se desea eliminar no existe dentro del "
+"*SeparateChaining*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1210
+msgid ""
+"registro *MapEntry* que se eliminó del *SeparateChaining*. *None* si no "
+"existe el registro asociada a la llave *key*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1216
+msgid ""
+"*keys()* devuelve una lista (*SingleLinked*) con todas las llaves (*key*)"
+" de los registros (*MapEntry*) del *SeparateChaining*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1218
+msgid ""
+"lista (*SingleLinked*) con todas las llaves (*key*) del "
+"*SeparateChaining*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1224
+msgid ""
+"*values()* devuelve una lista (*SingleLinked*) con todos los valores de "
+"los registros (*MapEntry*) del *SeparateChaining*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1226
+msgid ""
+"lista (*SingleLinked*) con todos los valores (*value*) del "
+"*SeparateChaining*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1232
+msgid ""
+"*entries()* devuelve una lista (*SingleLinked*) con tuplas de todas los "
+"registros (*MapEntry*) del *SeparateChaining*. Cada tupla contiene en la "
+"primera posición la llave (*key*) y en la segunda posición el valor "
+"(*value*) del registro."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1234
+msgid ""
+"lista (*SingleLinked*) de tuplas con todas los registros del "
+"*SeparateChaining*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1240
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1546
+msgid ""
+"*rehash()* reconstruye la tabla de hash con una nueva capacidad (*M*) y "
+"un nuevo factor de carga (*alpha*) según los límites configurados por los"
+" parametros *max_alpha* y *min_alpha*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1242
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1548
+msgid ""
+"Si el factor de carga (*alpha*) es mayor que el límite superior "
+"(*max_alpha*), se duplica la capacidad (*M*) buscando el siguiente número"
+" primo (*P*) reconstruyendo la tabla."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1244
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1550
+msgid ""
+"Si el factor de carga (*alpha) es menor que el límite inferior "
+"(*min_alpha*), se reduce a la mitad la capacidad (*M*) de la tabla "
+"buscando el siguiente número primo (*P*) reconstruyendo la tabla."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1249
+msgid ""
+"*__len__()* función nativa de Python personalizada para el "
+"*SeparateChaining*. Permite utilizar la función *len()* de Python para "
+"recuperar el tamaño del *SeparateChaining*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1251
+msgid "tamaño del *SeparateChaining*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1266
+msgid ""
+"ADT de tipo *LinearProbing* o tabla de hash con separación por "
+"encadenamiento."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1297
+msgid ""
+"Es el factor de carga (*alpha*) con el que se inicializa la tabla de "
+"hash, por defecto es 0.50."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1304
+msgid ""
+"Función de comparación personalizable por el usuario para reconocer los "
+"registros (pareja llave-valor) dentro del *LinearProbing*. Por defecto es"
+" la función *lt_default_cmp_funcion()* propia de *DISClib*, puede ser un "
+"parametro al crear la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1314
+msgid ""
+"Nombre de la llave personalizable por el usuario utilizada para reconocer"
+" los registros (pareja llave-valor) dentro del *LinearProbing*. Por "
+"defecto es la llave de diccionario (*dict*) *DEFAULT_DICT_KEY = 'id'* "
+"propia de *DISClib*, puede ser un parametro al crear la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1344
+msgid ""
+"Es el factor de carga (*alpha*) mínimo de la tabla de hash, por defecto "
+"es 0.20 definido en el parametro *MIN_PROBING_ALPHA* propio de *DISClib*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1349
+msgid ""
+"Es el factor de carga máximo de la tabla de hash, por defecto es 0.80 "
+"definido en el parametro *MAX_PROBING_ALPHA* propio de *DISClib*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1375
+msgid ""
+"*__post_init__()* configura los parametros personalizados por el usuario "
+"al crear el *LinearProbing*. En caso de no estar definidos, se asignan "
+"los valores por defecto, puede cargar listas nativas con el parametro "
+"*iodata* de python dentro de la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1381
+msgid ""
+"*default_cmp_function()* es la función de comparación por defecto para "
+"comparar la llave de un elemento vs. el registro (pareja llave-valor) o "
+"*MapEntry* que se desea agregar al *LinearProbing*, es una función "
+"crucial para que la estructura funcione correctamente."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1383
+msgid "llave (*key*) de la primer registro a comparar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1394
+msgid ""
+"*_handle_error()* función propia de la estructura que maneja los errores "
+"que se pueden presentar en el *LinearProbing*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1396
+msgid ""
+"Si se presenta un error en *LinearProbing*, se formatea el error según el"
+" contexto (paquete/módulo/clase), la función (método) que lo generó y lo "
+"reenvia al componente superior en la jerarquía *DISCLib* para manejarlo "
+"segun se considere conveniente el usuario."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1398
+msgid "Excepción que se generó en el *LinearProbing*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1404
+msgid ""
+"*_check_type()* función propia de la estructura que revisa si el tipo de "
+"dato del registro (pareja llave-valor) que se desea agregar al "
+"*LinearProbing* es del mismo tipo contenido dentro de los *MapEntry* del "
+"*LinearProbing*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1406
+msgid "elemento que se desea procesar en *LinearProbing*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1409
+msgid ""
+"error si el tipo de dato del elemento que se desea agregar no es el mismo"
+" que el tipo de dato de los elementos que ya contiene el *LinearProbing*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1411
+msgid ""
+"operador que indica si el ADT *LinearProbing* es del mismo tipo que el "
+"elemento que se desea procesar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1417
+msgid "*is_empty()* revisa si el *LinearProbing* está vacío."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1419
+msgid "operador que indica si la estructura *LinearProbing* está vacía."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1425
+msgid ""
+"*size()* devuelve el numero de entradas *MapEntry* que actualmente "
+"contiene el *LinearProbing*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1427
+msgid "tamaño de la estructura *LinearProbing*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1433
+msgid ""
+"*contains()* responde si el *LinearProbing* contiene un registro "
+"*MapEntry* con la llave *key*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1435
+msgid ""
+"llave del registro (pareja llave-valor) que se desea buscar en el "
+"*LinearProbing*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1440
+msgid ""
+"operador que indica si el *LinearProbing* contiene o no un registro con "
+"la llave *key*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1446
+msgid ""
+"*put()* agrega una nuevo registro *MapEntry* al *LinearProbing*, si la "
+"llave *key* ya existe en el *LinearProbing* se reemplaza su valor "
+"*value*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1458
+msgid ""
+"*get()* recupera el registro *MapEntry* cuya llave *key* sea ogial a la "
+"que se encuentre dentro del *LinearProbing*, si no existe un registro con"
+" la llave, devuelve *None*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1471
+msgid ""
+"*check_slots()* recupera la lista (*SingleLinked*) de registros (parejas "
+"llave-valor) asociadas a la llave *key* dentro del *LinearProbing*. "
+"Recupera los *MapEntry* con el mismo hash y si no existe, devuelve "
+"*None*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1473
+msgid "llave asociada a los *MapEntry* y *Slots* que se desean buscar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1478
+msgid ""
+"lista sencillamente encadenada (*SingleLinked*) con todas los *MapEntry* "
+"asociados a la llave *key* dentro del *LinearProbing*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1484
+msgid ""
+"*remove()* elimina el registro *MapEntry* cuya llave *key* sea igual a la"
+" que se encuentre dentro del *LinearProbing*, si no existe un registro "
+"con la llave, genera un error."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1490
+msgid ""
+"error si el registro que se desea eliminar no existe dentro del "
+"*LinearProbing*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1492
+msgid ""
+"registro *MapEntry* que se eliminó del *LinearProbing*. *None* si no "
+"existe el registro asociada a la llave *key*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1498
+msgid ""
+"*keys()* devuelve una lista (*SingleLinked*) con todas las llaves (*key*)"
+" de los registros (*MapEntry*) del *LinearProbing*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1500
+msgid "lista (*SingleLinked*) con todas las llaves (*key*) del *LinearProbing*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1506
+msgid ""
+"*values()* devuelve una lista (*SingleLinked*) con todos los valores de "
+"los registros (*MapEntry*) del *LinearProbing*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1508
+msgid ""
+"lista (*SingleLinked*) con todos los valores (*value*) del "
+"*LinearProbing*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1514
+msgid ""
+"*entries()* devuelve una lista (*SingleLinked*) con tuplas de todas los "
+"registros (*MapEntry*) del *LinearProbing*. Cada tupla contiene en la "
+"primera posición la llave (*key*) y en la segunda posición el valor "
+"(*value*) del registro."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1516
+msgid ""
+"lista (*SingleLinked*) de tuplas con todas los registros del "
+"*LinearProbing*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1522
+msgid ""
+"*_find_slot()* encuentra el indice del registro *MapEtry* en el "
+"*LinearProbing*, si el registro no existe, devuelve el indice del primer "
+"registro disponible."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1524
+msgid "indice del registro (pareja llave-valor) en el *LinearProbing*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1526
+msgid "llave del registro (pareja llave-valor) que se desea buscar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1529
+msgid ""
+"devuelve el indice negativo si encuentra espacio disponible (None | "
+"EMPTY) o si el registro no existe, devuelve el indice positivo si el "
+"registro existe."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1535
+msgid ""
+"*_is_available()* permite verificar si un registro *MapEntry* está "
+"disponible en el *LinearProbing*. Es decir si la llave es nula (None) o "
+"vacía (EMPTY)."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1537
+msgid "registro (pareja llave-valor) que se desea verificar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1540
+msgid ""
+"operador que indica si el registro está disponible o no en el "
+"*LinearProbing*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1555
+msgid ""
+"*__len__()* función nativa de Python personalizada para el "
+"*LinearProbing*. Permite utilizar la función *len()* de Python para "
+"recuperar el tamaño del *LinearProbing*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/index.rst:1557
+msgid "tamaño del *LinearProbing*."
+msgstr ""
+

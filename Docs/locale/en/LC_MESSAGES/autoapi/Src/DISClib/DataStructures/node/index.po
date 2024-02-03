@@ -1,0 +1,160 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Uniandes, Bogotá - Colombia, Sur América,
+# This file is distributed under the same license as the DISClib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: DISClib \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-03 00:09-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../autoapi/Src/DISClib/DataStructures/node/index.rst:2
+msgid ":py:mod:`Src.DISClib.DataStructures.node`"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/node/index.rst:8
+msgid ""
+"Este ADT representa un nodo **Node** de información de una estructura de "
+"datos dinámica, las cuales pueden ser: listas sencillas, listas "
+"doblemente encadenadas, pilas, colas, BST, RBT, entre otras."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/node/index.rst:10
+msgid ""
+"*IMPORTANTE:* Este código y sus especificaciones para Python están "
+"basados en las implementaciones propuestas por los siguientes "
+"autores/libros:"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/node/index.rst:12
+msgid "Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/node/index.rst:13
+msgid ""
+"Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H."
+" Goldwasser."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/node/index.rst:18
+msgid "Module Contents"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/node/index.rst:21
+msgid "Classes"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/node/index.rst:29:<autosummary>:1
+msgid ":py:obj:`Node <Src.DISClib.DataStructures.node.Node>`\\"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/node/index.rst:35
+#: ../../autoapi/Src/DISClib/DataStructures/node/index.rst:29:<autosummary>:1
+msgid ""
+"**Node** Es el ADT que representar la información de un nodo de una "
+"estructura de datos dinámica y las funciones basicas para acceder a ella."
+" Puede utilizarse para representar un nodo de una lista sencilla o "
+"doblemente encadenada."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/node/index.rst:33
+msgid "Bases: :py:obj:`Generic`\\ [\\ :py:obj:`Src.DISClib.Utils.default.T`\\ ]"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/node/index.rst
+msgid "Parámetros"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/node/index.rst:37
+msgid ""
+"TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una "
+"estructura de datos genéricas en python."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/node/index.rst
+msgid "Devuelve"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/node/index.rst:40
+msgid "ADT de tipo *Node* o nodo de información."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/node/index.rst
+msgid "Tipo del valor devuelto"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/node/index.rst:46
+msgid "Es la información contenida en el nodo."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/node/index.rst:50
+msgid ""
+"*_handle_error()* función propia de la estructura que maneja los errores "
+"que se pueden presentar en el *Node*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/node/index.rst:52
+msgid ""
+"Si se presenta un error en *SingleLinked*, se formatea el error según el "
+"contexto (paquete/módulo/clase), la función (método) que lo generó y lo "
+"reenvia al componente superior en la jerarquía *DISCLib* para manejarlo "
+"segun se considere conveniente el usuario."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/node/index.rst:54
+msgid "Excepción que se generó en el *Node*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/node/index.rst:60
+msgid ""
+"*_check_type()* función propia de la estructura que verifica que la "
+"información de *Node* sea del tipo adecuado."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/node/index.rst:62
+msgid "elemento que se desea procesar en *Node*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/node/index.rst
+msgid "Muestra"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/node/index.rst:65
+msgid ""
+"error si el tipo de dato del elemento que se desea agregar no es el mismo"
+" que el tipo de dato de los elementos que ya contiene el *Node*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/node/index.rst:67
+msgid ""
+"operador que indica si el ADT *Node* es del mismo tipo que el elemento "
+"que se desea procesar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/node/index.rst:73
+msgid "*set_info()* establece la información de *Node*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/node/index.rst:75
+msgid "información que se desea actualizar en *Node*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/node/index.rst:81
+msgid "*get_info()* recupera la información de *Node*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/node/index.rst:83
+msgid "información de *Node*."
+msgstr ""
+

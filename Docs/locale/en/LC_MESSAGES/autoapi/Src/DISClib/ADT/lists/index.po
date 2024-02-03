@@ -1,0 +1,169 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Uniandes, Bogotá - Colombia, Sur América,
+# This file is distributed under the same license as the DISClib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: DISClib \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-03 00:09-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../autoapi/Src/DISClib/ADT/lists/index.rst:2
+msgid ":py:mod:`Src.DISClib.ADT.lists`"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/lists/index.rst:8
+msgid ""
+"Este módulo implementa el tipo abstracto de datos (TAD) lista. "
+"Dinámicamente se puede implementar sobre una estructura de datos sea "
+"encadenada de forma sencilla (SingleLinked), doble (DoubleLinked) o como "
+"un arreglo dinámico (ArrayList)."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/lists/index.rst:10
+msgid ""
+"*IMPORTANTE:* Este código y sus especificaciones para Python están "
+"basados en las implementaciones propuestas por los siguientes "
+"autores/libros:"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/lists/index.rst:12
+msgid "Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/lists/index.rst:13
+msgid ""
+"Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H."
+" Goldwasser."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/lists/index.rst:18
+msgid "Module Contents"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/lists/index.rst:22
+msgid "Functions"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/lists/index.rst:31:<autosummary>:1
+msgid ""
+":py:obj:`List <Src.DISClib.ADT.lists.List>`\\ \\(→ "
+"Src.DISClib.Utils.default.T\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/lists/index.rst:47
+#: ../../autoapi/Src/DISClib/ADT/lists/index.rst:31:<autosummary>:1
+msgid ""
+"*List()* Función dinámica que que retorna una instancia del ADT List "
+"según el tipo de estructura de datos seleccionada por el usuario."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/lists/index.rst:31:<autosummary>:1
+msgid ""
+":py:obj:`clone_lt <Src.DISClib.ADT.lists.clone_lt>`\\ \\(→ "
+"Src.DISClib.Utils.default.T\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/lists/index.rst:60
+#: ../../autoapi/Src/DISClib/ADT/lists/index.rst:31:<autosummary>:1
+msgid ""
+"*clone()* copia una instancia del ADT List con una estructura de datos "
+"seleccionada."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/lists/index.rst:31:<autosummary>:1
+msgid ""
+":py:obj:`translate_lt <Src.DISClib.ADT.lists.translate_lt>`\\ \\(→ "
+"Src.DISClib.Utils.default.T\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/lists/index.rst:71
+#: ../../autoapi/Src/DISClib/ADT/lists/index.rst:31:<autosummary>:1
+msgid ""
+"*translate()* Transforma una instancia del ADT List con una estructura de"
+" datos seleccionada en otra instancia del ADT List con otra estructura de"
+" datos seleccionada."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/lists/index.rst:33
+msgid "Attributes"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/lists/index.rst:39:<autosummary>:1
+msgid ":py:obj:`ADT_LT_MOD_DICT <Src.DISClib.ADT.lists.ADT_LT_MOD_DICT>`\\"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/lists/index.rst:43
+#: ../../autoapi/Src/DISClib/ADT/lists/index.rst:39:<autosummary>:1
+msgid ""
+"Referencia a los posibles módulos de implementación del ADT List. Pueden "
+"ser \"ArrayList\", \"SingleLinked\" o \"DoubleLinked\"."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/lists/index.rst
+msgid "Parámetros"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/lists/index.rst:49
+msgid ""
+"Tipo de estructura de datos a instanciar. Por defecto es \"ArrayList\". "
+"Puende ser \"ArrayList\", \"SingleLinked\" o \"DoubleLinked\"."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/lists/index.rst
+msgid "Muestra"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/lists/index.rst:52
+msgid "error si el tipo de estructura de datos seleccionada no es válida."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/lists/index.rst
+msgid "Devuelve"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/lists/index.rst:54
+#: ../../autoapi/Src/DISClib/ADT/lists/index.rst:80
+msgid ""
+"instancia del ADT List que puede ser \"ArrayList\", \"SingleLinked\" o "
+"\"DoubleLinked\"."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/lists/index.rst
+msgid "Tipo del valor devuelto"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/lists/index.rst:62
+msgid "instancia del ADT *List* a copiar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/lists/index.rst:65
+msgid "copia independiente de la instancia del ADT *List*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/lists/index.rst:73
+msgid "instancia del ADT List a transformar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/lists/index.rst:75
+msgid ""
+"Tipo de estructura de datos objetivo a instanciar. Por defecto es "
+"\"SingleLinked\". Puenden ser \"ArrayList\", \"SingleLinked\" o "
+"\"DoubleLinked\"."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/lists/index.rst:78
+msgid "error si el tipo de estructura de datos no es válido."
+msgstr ""
+

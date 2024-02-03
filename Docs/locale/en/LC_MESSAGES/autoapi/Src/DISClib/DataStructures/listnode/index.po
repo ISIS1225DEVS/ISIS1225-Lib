@@ -1,0 +1,158 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Uniandes, Bogotá - Colombia, Sur América,
+# This file is distributed under the same license as the DISClib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: DISClib \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-03 00:09-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../autoapi/Src/DISClib/DataStructures/listnode/index.rst:2
+msgid ":py:mod:`Src.DISClib.DataStructures.listnode`"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/listnode/index.rst:8
+msgid ""
+"Estos ADTs representan los nodos para una lista sencillamente encadenada "
+"(**SingleNode**) y una lista doblemente encadenada (**DoubleNode**)."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/listnode/index.rst:10
+msgid ""
+"Estos nodos se utilizan respectivamente en las estructuras dinámicas de "
+"lista sencillamente encadenada (**LinkedList**) y lista doblemente "
+"encadenada (**DoubleLinkedList**). Las cuales NO tienen un tamaño fijo y "
+"pueden crecer indefinidamente en la memoria disponible."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/listnode/index.rst:12
+msgid ""
+"*IMPORTANTE:* Este código y sus especificaciones para Python están "
+"basados en las implementaciones propuestas por los siguientes "
+"autores/libros:"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/listnode/index.rst:14
+msgid "Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/listnode/index.rst:15
+msgid ""
+"Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H."
+" Goldwasser."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/listnode/index.rst:20
+msgid "Module Contents"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/listnode/index.rst:23
+msgid "Classes"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/listnode/index.rst:32:<autosummary>:1
+msgid ":py:obj:`SingleNode <Src.DISClib.DataStructures.listnode.SingleNode>`\\"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/listnode/index.rst:38
+#: ../../autoapi/Src/DISClib/DataStructures/listnode/index.rst:32:<autosummary>:1
+msgid ""
+"**SingleNode** representa un nodo de una lista sencillamente encadenada. "
+"Basada en el ADT *Node* que contiene la información del nodo."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/listnode/index.rst:32:<autosummary>:1
+msgid ":py:obj:`DoubleNode <Src.DISClib.DataStructures.listnode.DoubleNode>`\\"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/listnode/index.rst:67
+#: ../../autoapi/Src/DISClib/DataStructures/listnode/index.rst:32:<autosummary>:1
+msgid ""
+"**DoubleNode** representa un nodo de una lista doblemente encadenada. "
+"Basada en el ADT *SingleNode* que contiene la información del nodo."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/listnode/index.rst:36
+msgid ""
+"Bases: :py:obj:`Src.DISClib.DataStructures.node.Node`, "
+":py:obj:`Generic`\\ [\\ :py:obj:`Src.DISClib.Utils.default.T`\\ ]"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/listnode/index.rst
+msgid "Parámetros"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/listnode/index.rst:40
+#: ../../autoapi/Src/DISClib/DataStructures/listnode/index.rst:69
+msgid "ADT base para implementar un nodo con información genérica."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/listnode/index.rst:42
+#: ../../autoapi/Src/DISClib/DataStructures/listnode/index.rst:71
+msgid ""
+"TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una "
+"estructura de datos genéricas en python."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/listnode/index.rst
+msgid "Devuelve"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/listnode/index.rst:45
+msgid "ADT para un *SingleNode* o nodo para una lista sencillamente encadenada."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/listnode/index.rst
+msgid "Tipo del valor devuelto"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/listnode/index.rst:51
+msgid "Referencia al siguiente nodo de la lista."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/listnode/index.rst:55
+msgid ""
+"*next()* recupera la referencia el siguiente nodo de la lista. Si no "
+"existe retorna *None*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/listnode/index.rst:57
+msgid "referencia al siguiente *Node* de la lista si existe."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/listnode/index.rst:65
+msgid ""
+"Bases: :py:obj:`SingleNode`, :py:obj:`Generic`\\ [\\ "
+":py:obj:`Src.DISClib.Utils.default.T`\\ ]"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/listnode/index.rst:74
+msgid "ADT para un *DoubleNode* o nodo para una lista doblemente encadenada."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/listnode/index.rst:80
+msgid "Referencia al anterior nodo anterior de la lista."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/listnode/index.rst:84
+msgid ""
+"*prev()* recupera la referencia al anterior *DoubleNode* de la lista. Si "
+"no existe retorna *None*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/listnode/index.rst:86
+msgid "referencia al anterior *DoubleNode* si existe."
+msgstr ""
+

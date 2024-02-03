@@ -1,0 +1,216 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Uniandes, Bogotá - Colombia, Sur América,
+# This file is distributed under the same license as the DISClib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: DISClib \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-03 00:09-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:2
+msgid ":py:mod:`Src.DISClib.ADT.indexminpq`"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:8
+msgid ""
+"# TODO cambiar comentarios de lincencia segun estandard del equipo * "
+"Copyright 2020, Departamento de sistemas y Computación, * Universidad de "
+"Los Andes * * Desarrollado para el curso ISIS1225 - Estructuras de Datos "
+"y Algoritmos * * * This program is free software: you can redistribute it"
+" and/or modify * it under the terms of the GNU General Public License as "
+"published by * the Free Software Foundation, either version 3 of the "
+"License, or * (at your option) any later version. * * This program is "
+"distributed in the hope that it will be useful, * but WITHOUT ANY "
+"WARRANTY; without even the implied warranty of * MERCHANTABILITY or "
+"FITNESS FOR A PARTICULAR PURPOSE.  See the * GNU General Public License "
+"for more details. * * You should have received a copy of the GNU General "
+"Public License * along with this program.  If not, see "
+"<http://www.gnu.org/licenses/>."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:27
+msgid "Contribución de:"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:29
+msgid "Dario Correal"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:36
+msgid "Module Contents"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:40
+msgid "Functions"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:55:<autosummary>:1
+msgid ""
+":py:obj:`newIndexMinPQ <Src.DISClib.ADT.indexminpq.newIndexMinPQ>`\\ "
+"\\(cmpfunction\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:58
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:55:<autosummary>:1
+msgid "Crea un cola de prioridad indexada orientada a menor"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:55:<autosummary>:1
+msgid ":py:obj:`isEmpty <Src.DISClib.ADT.indexminpq.isEmpty>`\\ \\(iminpq\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:69
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:55:<autosummary>:1
+msgid "Informa si una cola de prioridad indexada es vacia"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:55:<autosummary>:1
+msgid ":py:obj:`size <Src.DISClib.ADT.indexminpq.size>`\\ \\(iminpq\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:80
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:55:<autosummary>:1
+msgid "Retorna el número de elementos en la cola de prioridad indexada"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:55:<autosummary>:1
+msgid ""
+":py:obj:`insert <Src.DISClib.ADT.indexminpq.insert>`\\ \\(iminpq\\, "
+"key\\, index\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:91
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:55:<autosummary>:1
+msgid "Inserta la llave key con prioridad index"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:55:<autosummary>:1
+msgid ":py:obj:`delMin <Src.DISClib.ADT.indexminpq.delMin>`\\ \\(iminpq\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:102
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:55:<autosummary>:1
+msgid "Elimina el elemento de mayor prioridad"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:55:<autosummary>:1
+msgid ""
+":py:obj:`decreaseKey <Src.DISClib.ADT.indexminpq.decreaseKey>`\\ "
+"\\(iminpq\\, key\\, newindex\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:113
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:55:<autosummary>:1
+msgid "Decrementa el indice de un llave"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:55:<autosummary>:1
+msgid ""
+":py:obj:`increaseKey <Src.DISClib.ADT.indexminpq.increaseKey>`\\ "
+"\\(iminpq\\, key\\, newindex\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:126
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:55:<autosummary>:1
+msgid "Incrementa el indice de un llave"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:55:<autosummary>:1
+msgid ":py:obj:`min <Src.DISClib.ADT.indexminpq.min>`\\ \\(iminpq\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:139
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:55:<autosummary>:1
+msgid "Retorna la llave de mayor prioridad"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:55:<autosummary>:1
+msgid ""
+":py:obj:`contains <Src.DISClib.ADT.indexminpq.contains>`\\ \\(iminpq\\, "
+"element\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:150
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:55:<autosummary>:1
+msgid "Indica si la llave key se encuentra en el heap"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst
+msgid "Parámetros"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:60
+msgid "La función de comparacion"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst
+msgid "Devuelve"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:62
+msgid "Una nueva cola de prioridad indexada"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst
+msgid "Muestra"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:71
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:82
+msgid "La cola de prioridad indexada a revisar"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:73
+msgid "True si esta vacia"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:84
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:106
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:119
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:132
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:143
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:154
+msgid "El numero de elementos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:93
+msgid "La cola de prioridad"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:95
+msgid "La cola de prioridad con la nueva paraja indexada"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:104
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:115
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:128
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:141
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:152
+msgid "El heap a revisar"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:116
+msgid "la llave a decrementar"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:117
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:130
+msgid "El nuevo indice de la llave"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/indexminpq/index.rst:129
+msgid "la llave a incrementar"
+msgstr ""
+

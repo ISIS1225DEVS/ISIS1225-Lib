@@ -1,0 +1,201 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Uniandes, Bogotá - Colombia, Sur América,
+# This file is distributed under the same license as the DISClib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: DISClib \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-03 00:09-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjmatrix/index.rst:2
+msgid ":py:mod:`Src.DISClib.DataStructures.adjmatrix`"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjmatrix/index.rst:8
+msgid "# TODO: agregar descripción del módulo"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjmatrix/index.rst:10
+msgid ""
+"*IMPORTANTE:* Este código y sus especificaciones para Python están "
+"basados en las implementaciones propuestas por los siguientes "
+"autores/libros:"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjmatrix/index.rst:12
+msgid "Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjmatrix/index.rst:13
+msgid ""
+"Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H."
+" Goldwasser."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjmatrix/index.rst:18
+msgid "Module Contents"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjmatrix/index.rst:21
+msgid "Classes"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjmatrix/index.rst:29:<autosummary>:1
+msgid ""
+":py:obj:`AdjacencyMatrix "
+"<Src.DISClib.DataStructures.adjmatrix.AdjacencyMatrix>`\\"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjmatrix/index.rst:35
+#: ../../autoapi/Src/DISClib/DataStructures/adjmatrix/index.rst:29:<autosummary>:1
+msgid ""
+"**AdjacencyMatrix** representa la estructura de datos para arreglos "
+"dinamicos (Array List), Implementada con Generic[T] y @dataclass para que"
+" sea una estructura de datos genérica."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjmatrix/index.rst:33
+msgid "Bases: :py:obj:`Generic`\\ [\\ :py:obj:`Src.DISClib.Utils.default.T`\\ ]"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjmatrix/index.rst
+msgid "Parámetros"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjmatrix/index.rst:37
+msgid ""
+"TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una "
+"estructura de datos genéricas en python."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjmatrix/index.rst
+msgid "Devuelve"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjmatrix/index.rst:40
+msgid "ADT de tipo AdjacencyMatrix o Arreglo Dinámico."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjmatrix/index.rst
+msgid "Tipo del valor devuelto"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjmatrix/index.rst:46
+msgid ""
+"Lista nativa de Python personalizable por el usuario para inicializar la "
+"estructura. Por defecto es *None* y el usuario puede incluirla como "
+"argumento al crear la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjmatrix/index.rst:51
+msgid ""
+"Función de comparación personalizable por el usuario para reconocer los "
+"elementos dentro de la estructura. Es un argumento configurable al crear "
+"la estructura. Por defecto es la función *lt_default_cmp_funcion()* "
+"propia de *DISClib*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjmatrix/index.rst:56
+msgid "Lista nativa de Python que contiene los elementos de la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjmatrix/index.rst:61
+msgid ""
+"Nombre de la llave opcional que se utiliza para comparar los elementos "
+"del AdjacencyList, Por defecto es *None* y el *__post_init__()* configura"
+" la llave por defecto la llave 'id' en *DEFAULT_DICT_KEY*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjmatrix/index.rst:67
+msgid ""
+"Es el número de elementos que contiene la estructura, por defecto es 0 y "
+"se actualiza con cada operación que modifica la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjmatrix/index.rst:71
+msgid ""
+"*__post_init__()* configura los valores por defecto para la llave ('key')"
+" y la función de comparación ('cmp_function'). Si el usuario incluye una "
+"lista nativa de python como argumento, se agrega a la lista de elementos "
+"del AdjacencyMatrix."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjmatrix/index.rst:77
+msgid ""
+"*default_cmp_function()* procesa con algoritmica por defecto la lista de "
+"elementos que procesa el AdjacencyMatrix. Es una función crucial para que"
+" la estructura de datos funcione correctamente."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjmatrix/index.rst:79
+msgid "primer elemento a comparar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjmatrix/index.rst:81
+msgid "segundo elemento a comparar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjmatrix/index.rst:84
+msgid ""
+"respuesta de la comparación entre los elementos, 0 si son iguales, 1 si "
+"elm1 es mayor que elm2, -1 si elm1 es menor."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjmatrix/index.rst:90
+msgid ""
+"*_handle_error()* función privada que maneja los errores que se pueden "
+"presentar en el AdjacencyMatrix."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjmatrix/index.rst:92
+msgid ""
+"Si se presenta un error en AdjacencyMatrix, se formatea el error según el"
+" contexto (paquete/clase), la función que lo generó y lo reenvia al "
+"componente superior en la jerarquía de llamados para manejarlo segun se "
+"considere conveniente."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjmatrix/index.rst:94
+msgid "Excepción que se generó en el AdjacencyMatrix."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjmatrix/index.rst:100
+msgid ""
+"*_check_type()* función privada que verifica que el tipo de dato del "
+"elemento que se quiere agregar al AdjacencyMatrix sea del mismo tipo "
+"contenido dentro de los elementos del AdjacencyMatrix."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjmatrix/index.rst
+msgid "Muestra"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjmatrix/index.rst:102
+msgid ""
+"error si el tipo de dato del elemento que se quiere agregar no es el "
+"mismo que el tipo de dato de los elementos que ya contiene el "
+"AdjacencyMatrix."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjmatrix/index.rst:104
+msgid "elemento que se quiere procesar en AdjacencyMatrix."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjmatrix/index.rst:107
+msgid ""
+"operador que indica si el ADT AdjacencyMatrix es del mismo tipo que el "
+"elemento que se quiere procesar."
+msgstr ""
+

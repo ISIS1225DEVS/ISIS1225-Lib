@@ -1,0 +1,140 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Uniandes, Bogotá - Colombia, Sur América,
+# This file is distributed under the same license as the DISClib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: DISClib \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-03 00:09-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../autoapi/Src/DISClib/ADT/queue/index.rst:2
+msgid ":py:mod:`Src.DISClib.ADT.queue`"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/queue/index.rst:8
+msgid ""
+"Este ADT representa una cola/fila implementada sobre una lista. Esta cola"
+" o fila (queue) es una estructura de datos que permite almacenar una "
+"colección de elementos y operar sobre ellos en el mismo orden en que "
+"fueron agregados (FIFO)."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/queue/index.rst:10
+msgid ""
+"La implementación de la cola se realiza sobre una lista simplemente "
+"encadenada (SingleLinked) para garantizar que las operaciones de agregar "
+"y eliminar elementos se realicen en tiempo constante y no consumir "
+"memoria innecesaria."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/queue/index.rst:15
+msgid ""
+"*IMPORTANTE:* Este código y sus especificaciones para Python están "
+"basados en las implementaciones propuestas por los siguientes "
+"autores/libros:"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/queue/index.rst:17
+msgid "Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/queue/index.rst:18
+msgid ""
+"Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H."
+" Goldwasser."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/queue/index.rst:23
+msgid "Module Contents"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/queue/index.rst:26
+msgid "Classes"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/queue/index.rst:34:<autosummary>:1
+msgid ":py:obj:`Queue <Src.DISClib.ADT.queue.Queue>`\\"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/queue/index.rst:40
+#: ../../autoapi/Src/DISClib/ADT/queue/index.rst:34:<autosummary>:1
+msgid ""
+"**Queue** representa una cola implementada sobre una lista sencillamente "
+"encadenada (*SingleLinked*) y @dataclass para que sea una estructura de "
+"datos genérica. Esta cola o fila (*Queue*) es un Tipo Abstracto de Datos "
+"(TAD/ADT) que permite almacenar una colección de elementos y operarlos en"
+" el mismo orden en que fueron agregados (FIFO - Firts In First Out)."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/queue/index.rst:38
+msgid "Bases: :py:obj:`Src.DISClib.DataStructures.singlelinkedlist.SingleLinked`"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/queue/index.rst:42
+msgid ""
+"*IMPORTANTE:* *Queue* extiende de la clase *SingleLinked*, por lo que "
+"hereda todos sus parametros internos y funciones."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/queue/index.rst
+msgid "Parámetros"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/queue/index.rst:44
+msgid ""
+"ADT *DISClib* que implementa las funciones básicas de una lista "
+"sencillamente encadenada."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/queue/index.rst
+msgid "Devuelve"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/queue/index.rst:47
+msgid ""
+"ADT de tipo *Queue*, Cola o Fila, implementado sobre una lista "
+"sencillamente encadenada."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/queue/index.rst
+msgid "Tipo del valor devuelto"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/queue/index.rst:52
+msgid "*enqueue()* encola o agrega un elemento en el final del ADT *Queue*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/queue/index.rst:54
+msgid "el elemento que se quiere agregar al ADT *Queue*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/queue/index.rst:60
+msgid ""
+"*dequeue()* desencola o remueve el elemento en la primera posición del "
+"ADT *Queue*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/queue/index.rst:62
+msgid "el elemento de la primera posición del ADT *Queue*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/queue/index.rst:68
+msgid "*peek()* lee el primer elemento del ADT *Queue* sin eliminarlo."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/queue/index.rst:70
+msgid "el elemento en la primera posición del ADT *Queue*."
+msgstr ""
+

@@ -1,0 +1,314 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Uniandes, Bogotá - Colombia, Sur América,
+# This file is distributed under the same license as the DISClib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: DISClib \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-03 00:09-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:2
+msgid ":py:mod:`Src.DISClib.DataStructures.treenode`"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:8
+msgid ""
+"Los ADTs en este módulo representan los nodos para diferentes tipos de "
+"árboles binarios o mapas ordenados. Estos incluyen los nodos para árboles"
+" de búsqueda (**BSTNode**), nodos para árboles rojo-negro (**RBTNode**), "
+"nodos para árboles AVL (**AVLNode**) y nodos árboles K-d (**KDTNode**)."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:10
+msgid ""
+"Estos nodos se utilizan respectivamente en los ADT de árboles binarios de"
+" búsqueda o BST (Binary Search Tree), árboles rojo-negro o RBT (Red-Black"
+" Tree), árboles rojo-negro orientados a la izquierda p LLRBT (Left-"
+"Leaning Red-Black Tree), árboles AVL (Adelson-Velsky & Landis Tree) y "
+"árboles k-dimensionales (K-d Tree)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:12
+msgid ""
+"En **DISCLib** las estructuras están asociadas a las implementaciones en "
+"**BSTree**, **RBTree**, **LLRBTree**, **AVLTree** y **KDTree**."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:14
+msgid ""
+"*IMPORTANTE:* Este código y sus especificaciones para Python están "
+"basados en las implementaciones propuestas por los siguientes "
+"autores/libros:"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:16
+msgid "Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:17
+msgid ""
+"Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H."
+" Goldwasser."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:22
+msgid "Module Contents"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:25
+msgid "Classes"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:36:<autosummary>:1
+msgid ":py:obj:`BSTNode <Src.DISClib.DataStructures.treenode.BSTNode>`\\"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:61
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:36:<autosummary>:1
+msgid ""
+"**BSTNode** representa un nodo de un árbol binario de búsqueda o BST "
+"(Binary Search Tree). Basada en el ADT *MapEntry* que contiene la "
+"información del nodo (pareja llave-valor)."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:36:<autosummary>:1
+msgid ":py:obj:`RBTNode <Src.DISClib.DataStructures.treenode.RBTNode>`\\"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:117
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:36:<autosummary>:1
+msgid ""
+"**RBTNode** representa un nodo de un árbol rojo-negro (RBT: Red-Black "
+"Tree), o un árbol rojo-negro orientados a la izquierda (LLRBT: Left-"
+"Leaning Red-Black Tree) que contiene la información del nodo (pareja "
+"llave-valor)."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:36:<autosummary>:1
+msgid ":py:obj:`KDTNode <Src.DISClib.DataStructures.treenode.KDTNode>`\\"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:172
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:36:<autosummary>:1
+msgid ""
+"**KDTreeNode** representa un nodo de un árbol k-dimensionales o K-d Tree."
+" Basada en el ADT *BSTNode* que contiene la información del nodo (pareja "
+"llave-valor)."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:36:<autosummary>:1
+msgid ":py:obj:`AVLNode <Src.DISClib.DataStructures.treenode.AVLNode>`\\"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:198
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:36:<autosummary>:1
+msgid ""
+"**AVLNode** representa un nodo de un árbol AVL (Adelson-Velsky & Landis "
+"Tree). Basada en el ADT *BSTNode* que contiene la información del nodo "
+"(pareja llave-valor)."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:38
+msgid "Attributes"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:45:<autosummary>:1
+msgid ":py:obj:`RED <Src.DISClib.DataStructures.treenode.RED>`\\"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:49
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:54
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:45:<autosummary>:1
+msgid "Variable para representar el color negro en un nodo RBT."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:45:<autosummary>:1
+msgid ":py:obj:`BLACK <Src.DISClib.DataStructures.treenode.BLACK>`\\"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:59
+msgid ""
+"Bases: :py:obj:`Src.DISClib.DataStructures.mapentry.MapEntry`, "
+":py:obj:`Generic`\\ [\\ :py:obj:`Src.DISClib.Utils.default.T`\\ ]"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst
+msgid "Parámetros"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:63
+msgid "ADT base para implementar una pareja llave-valor."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:65
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:121
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:176
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:202
+msgid ""
+"TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una "
+"estructura de datos genéricas en python."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst
+msgid "Devuelve"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:68
+msgid "ADT para un *BSTNode* o nodo para un árbol binario de búsqueda."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst
+msgid "Tipo del valor devuelto"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:74
+msgid "Referencia al nodo izquierdo del árbol."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:79
+msgid "Referencia al nodo derecho del árbol."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:85
+msgid ""
+"Tamaño del subárbol que cuelga de este nodo (número de nodos en el "
+"subárbol)."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:89
+msgid ""
+"*left()* recupera la referencia al nodo izquierdo del árbol. Si no existe"
+" retorna *None*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:91
+msgid "referencia al nodo izquierdo del árbol si existe."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:97
+msgid ""
+"*right()* recupera la referencia al nodo derecho del árbol. Si no existe "
+"retorna *None*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:99
+msgid "referencia al nodo derecho del árbol si existe."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:105
+msgid "*size()* recupera el tamaño del subárbol que cuelga de este nodo."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:107
+msgid "tamaño del subárbol que cuelga de este nodo."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:115
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:170
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:196
+msgid ""
+"Bases: :py:obj:`BSTNode`, :py:obj:`Generic`\\ [\\ "
+":py:obj:`Src.DISClib.Utils.default.T`\\ ]"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:119
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:174
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:200
+msgid "ADT base para implementar un nodo para un árbol binario de búsqueda."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:127
+msgid "Referencia al nodo padre del árbol."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:132
+msgid "Color del nodo, por defecto es rojo."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:136
+msgid ""
+"*parent()* recupera la referencia al nodo padre del árbol. Si no existe "
+"retorna *None*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:138
+msgid "referencia al nodo padre del árbol si existe."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:144
+msgid "*color()* recupera el color del nodo."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:146
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:154
+msgid "color del nodo."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:152
+msgid "*set_color()* establece el color del nodo."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:160
+msgid "*is_red()* informa si el nodo es rojo."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:162
+msgid "True si el nodo es rojo, False de lo contrario."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:182
+msgid ""
+"Dimensión para dividir el nodo (si es *None*, dividir en la dimensión más"
+" grande)."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:186
+msgid ""
+"*get_dimension()* recupera la dimensión para dividir el nodo. Si no "
+"existe retorna *None*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:188
+msgid "dimensión para dividir el nodo si existe."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:209
+msgid "Factor de balance de altura del nodo."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:213
+msgid "*height()* recupera el factor de balance del nodo."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:215
+msgid "factor de balance del nodo."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:221
+msgid "*left_height()* recupera la altura del subárbol izquierdo del nodo."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:223
+msgid "altura del subárbol izquierdo del nodo."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:229
+msgid "*right_height()* recupera la altura del subárbol derecho del nodo."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/treenode/index.rst:231
+msgid "altura del subárbol derecho del nodo."
+msgstr ""
+

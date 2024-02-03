@@ -59,16 +59,16 @@ gettext_compact = False
 
 # autoapi configuration
 autoapi_dirs = [
-    os.path.join(os.path.dirname(__file__), "..", "Src", "DISClib"),
+    os.path.join(os.path.dirname(__file__), "..", "src")
 ]
-print(autoapi_dirs)
+# print(autoapi_dirs)
 
 # myst_parser configuration
-# source_suffix = {
-#     ".rst": "restructuredtext",
-#     # ".txt": "markdown",
-#     ".md": "markdown",
-# }
+source_suffix = {
+    ".rst": "restructuredtext",
+    # ".txt": "markdown",
+    # ".md": "markdown",
+}
 
 # myst extensions to enable
 # intall them with: pip install...

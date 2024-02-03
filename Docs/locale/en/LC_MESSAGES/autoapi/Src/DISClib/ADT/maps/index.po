@@ -1,0 +1,169 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Uniandes, Bogotá - Colombia, Sur América,
+# This file is distributed under the same license as the DISClib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: DISClib \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-03 00:09-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../autoapi/Src/DISClib/ADT/maps/index.rst:2
+msgid ":py:mod:`Src.DISClib.ADT.maps`"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/maps/index.rst:8
+msgid ""
+"Este módulo implementa el tipo abstracto de datos (TAD) Map sin orden. Se"
+" puede implementar sobre una estructura de datos Hash Table, con "
+"resolución de colisiones por sondeo lineal (Linear Probing) o "
+"encadenamiento por separado (Separate Chaining)."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/maps/index.rst:10
+msgid ""
+"*IMPORTANTE:* Este código y sus especificaciones para Python están "
+"basados en las implementaciones propuestas por los siguientes "
+"autores/libros:"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/maps/index.rst:12
+msgid "Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/maps/index.rst:13
+msgid ""
+"Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H."
+" Goldwasser."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/maps/index.rst:18
+msgid "Module Contents"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/maps/index.rst:22
+msgid "Functions"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/maps/index.rst:31:<autosummary>:1
+msgid ""
+":py:obj:`Map <Src.DISClib.ADT.maps.Map>`\\ \\(→ "
+"Src.DISClib.Utils.default.T\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/maps/index.rst:47
+#: ../../autoapi/Src/DISClib/ADT/maps/index.rst:31:<autosummary>:1
+msgid ""
+"*Map()* Función dinámica que retorna una instancia del ADT Map según el "
+"tipo de estructura de datos seleccionada por el usuario."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/maps/index.rst:31:<autosummary>:1
+msgid ""
+":py:obj:`clone_mp <Src.DISClib.ADT.maps.clone_mp>`\\ \\(→ "
+"Src.DISClib.Utils.default.T\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/maps/index.rst:60
+#: ../../autoapi/Src/DISClib/ADT/maps/index.rst:31:<autosummary>:1
+msgid ""
+"*clone_mp()* copia una instancia del ADT Map con una estructura de datos "
+"seleccionada."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/maps/index.rst:31:<autosummary>:1
+msgid ""
+":py:obj:`translate_mp <Src.DISClib.ADT.maps.translate_mp>`\\ \\(→ "
+"Src.DISClib.Utils.default.T\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/maps/index.rst:71
+#: ../../autoapi/Src/DISClib/ADT/maps/index.rst:31:<autosummary>:1
+msgid ""
+"*translate_mp()* Transforma una instancia del ADT Map con una estructura "
+"de datos seleccionada en otra instancia del ADT Map con otra estructura "
+"de datos seleccionada."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/maps/index.rst:33
+msgid "Attributes"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/maps/index.rst:39:<autosummary>:1
+msgid ":py:obj:`ADT_HT_MOD_DICT <Src.DISClib.ADT.maps.ADT_HT_MOD_DICT>`\\"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/maps/index.rst:43
+#: ../../autoapi/Src/DISClib/ADT/maps/index.rst:39:<autosummary>:1
+msgid ""
+"Referencia a los posibles módulos de implementación del ADT Map. Pueden "
+"ser \"SeparateChaining\" o \"LinearProbing\"."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/maps/index.rst
+msgid "Parámetros"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/maps/index.rst:49
+msgid ""
+"Tipo de estructura de datos a instanciar. Por defecto es "
+"\"SeparateChaining\". Puende ser \"SeparateChaining\" o "
+"\"LinearProbing\"."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/maps/index.rst
+msgid "Muestra"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/maps/index.rst:52
+msgid "error si el tipo de estructura de datos seleccionada no es válida."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/maps/index.rst
+msgid "Devuelve"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/maps/index.rst:54
+#: ../../autoapi/Src/DISClib/ADT/maps/index.rst:80
+msgid ""
+"instancia del ADT Map que puede ser \"SeparateChaining\" o "
+"\"LinearProbing\"."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/maps/index.rst
+msgid "Tipo del valor devuelto"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/maps/index.rst:62
+msgid "instancia del ADT *Map* a copiar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/maps/index.rst:65
+msgid "copia independiente de la instancia del ADT *Map*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/maps/index.rst:73
+msgid "instancia del ADT Map a transformar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/maps/index.rst:75
+msgid ""
+"Tipo de estructura de datos objetivo a instanciar. Por defecto es "
+"\"LinearProbing\". Puenden ser \"SeparateChaining\" o \"LinearProbing\"."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/maps/index.rst:78
+msgid "error si el tipo de estructura de datos no es válido."
+msgstr ""
+

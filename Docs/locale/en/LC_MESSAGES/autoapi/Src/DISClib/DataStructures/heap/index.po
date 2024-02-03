@@ -1,0 +1,277 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Uniandes, Bogotá - Colombia, Sur América,
+# This file is distributed under the same license as the DISClib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: DISClib \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-03 00:09-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:2
+msgid ":py:mod:`Src.DISClib.DataStructures.heap`"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:8
+msgid "Copyright 2020, Departamento de sistemas y Computación,"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:9
+msgid "Universidad de Los Andes"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:11
+msgid "Desarrollado para el curso ISIS1225 - Estructuras de Datos y Algoritmos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:14
+msgid "This program is free software: you can redistribute it and/or modify"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:15
+msgid "it under the terms of the GNU General Public License as published by"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:16
+msgid "the Free Software Foundation, either version 3 of the License, or"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:17
+msgid "(at your option) any later version."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:19
+msgid "This program is distributed in the hope that it will be useful,"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:20
+msgid "but WITHOUT ANY WARRANTY; without even the implied warranty of"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:21
+msgid "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:22
+msgid "GNU General Public License for more details."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:24
+msgid "You should have received a copy of the GNU General Public License"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:25
+msgid "along with this program.  If not, see <http://www.gnu.org/licenses/>."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:27
+msgid "Contribución de:"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:29
+msgid "Dario Correal"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:35
+msgid "Module Contents"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:39
+msgid "Functions"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:55:<autosummary>:1
+msgid ""
+":py:obj:`newHeap <Src.DISClib.DataStructures.heap.newHeap>`\\ "
+"\\(cmpfunction\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:55:<autosummary>:1
+msgid "Crea un nuevo heap basado en un arreglo, cuyo primer elemento"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:55:<autosummary>:1
+msgid ":py:obj:`size <Src.DISClib.DataStructures.heap.size>`\\ \\(heap\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:71
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:55:<autosummary>:1
+msgid "Retorna el número de elementos en el heap"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:55:<autosummary>:1
+msgid ":py:obj:`isEmpty <Src.DISClib.DataStructures.heap.isEmpty>`\\ \\(heap\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:82
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:55:<autosummary>:1
+msgid "Indica si el heap está vacío"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:55:<autosummary>:1
+msgid ":py:obj:`min <Src.DISClib.DataStructures.heap.min>`\\ \\(heap\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:93
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:55:<autosummary>:1
+msgid "Retorna el primer elemento del heap, es decir el menor elemento"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:55:<autosummary>:1
+msgid ""
+":py:obj:`insert <Src.DISClib.DataStructures.heap.insert>`\\ \\(heap\\, "
+"element\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:55:<autosummary>:1
+msgid "Guarda la pareja llave-valor en el heap. Lo guarda en la última"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:55:<autosummary>:1
+msgid ":py:obj:`delMin <Src.DISClib.DataStructures.heap.delMin>`\\ \\(heap\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:55:<autosummary>:1
+msgid "Retorna el menor elemento del heap y lo elimina."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:55:<autosummary>:1
+msgid ":py:obj:`swim <Src.DISClib.DataStructures.heap.swim>`\\ \\(heap\\, pos\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:55:<autosummary>:1
+msgid "Ubica en el lugar indicado un elemento adicionado"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:55:<autosummary>:1
+msgid ":py:obj:`sink <Src.DISClib.DataStructures.heap.sink>`\\ \\(heap\\, pos\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:142
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:55:<autosummary>:1
+msgid "Ubica en la posición correcta un elemento ubicado en la raíz del heap"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:55:<autosummary>:1
+msgid ""
+":py:obj:`greater <Src.DISClib.DataStructures.heap.greater>`\\ \\(heap\\, "
+"element1\\, element2\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:154
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:55:<autosummary>:1
+msgid "Indica si el elemento 1 es mayor que el elemento 2"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:55:<autosummary>:1
+msgid ""
+":py:obj:`exchange <Src.DISClib.DataStructures.heap.exchange>`\\ "
+"\\(heap\\, posa\\, posb\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:159
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:55:<autosummary>:1
+msgid "Intercambia los elementos en las posiciones posa y posb del heap"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:58
+msgid ""
+"Crea un nuevo heap basado en un arreglo, cuyo primer elemento es "
+"inicializado en None y no será utilizado"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst
+msgid "Parámetros"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:61
+msgid "La función de comparacion"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:62
+msgid "El numero de elementos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst
+msgid "Devuelve"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:64
+msgid "El heap"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst
+msgid "Muestra"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:73
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:84
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:95
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:107
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:120
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:132
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:144
+msgid "El arreglo con la informacion"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:75
+msgid "El tamaño del heap"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:86
+msgid "True si el heap es vacio"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:97
+msgid "El menor elemento del heap"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:104
+msgid ""
+"Guarda la pareja llave-valor en el heap. Lo guarda en la última posición "
+"y luego hace swim del elemento"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:108
+msgid "El elemento a guardar"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:110
+msgid "El heap con el nuevo elemento"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:117
+msgid ""
+"Retorna el menor elemento del heap y lo elimina. Se reemplaza con el "
+"último elemento y se hace sink."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:122
+msgid "El menor elemento eliminado"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:129
+msgid "Ubica en el lugar indicado un elemento adicionado en la última posición"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:133
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:145
+msgid "posicion en el arreglo a revisar"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:135
+#: ../../autoapi/Src/DISClib/DataStructures/heap/index.rst:147
+msgid "El arreglo en forma de heap"
+msgstr ""
+

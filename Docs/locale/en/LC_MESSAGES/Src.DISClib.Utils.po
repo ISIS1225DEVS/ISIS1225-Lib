@@ -1,0 +1,315 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Uniandes, Bogotá - Colombia, Sur América,
+# This file is distributed under the same license as the DISClib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: DISClib \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-03 00:09-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../Src.DISClib.Utils.rst:2
+msgid "Src.DISClib.Utils package"
+msgstr ""
+
+#: ../../Src.DISClib.Utils.rst:5
+msgid "Submodules"
+msgstr ""
+
+#: ../../Src.DISClib.Utils.rst:8
+msgid "Src.DISClib.Utils.default module"
+msgstr ""
+
+#: Src.DISClib.Utils.default:1 of
+msgid ""
+"Módulo con variables globales y funciones de comparación por defecto para"
+" uso por todo *DISClib* y sus ADTs."
+msgstr ""
+
+#: Src.DISClib.Utils.default:3 Src.DISClib.Utils.error:3
+#: Src.DISClib.Utils.numbers:3 of
+msgid ""
+"*IMPORTANTE:* Este código y sus especificaciones para Python están "
+"basados en las implementaciones propuestas por los siguientes "
+"autores/libros:"
+msgstr ""
+
+#: Src.DISClib.Utils.default:5 Src.DISClib.Utils.error:5
+#: Src.DISClib.Utils.numbers:5 of
+msgid "Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne."
+msgstr ""
+
+#: Src.DISClib.Utils.default:6 Src.DISClib.Utils.error:6
+#: Src.DISClib.Utils.numbers:6 of
+msgid ""
+"Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H."
+" Goldwasser."
+msgstr ""
+
+#: ../../docstring Src.DISClib.Utils.default.DEFAULT_DICT_KEY:1 of
+msgid "Llave por defecto para comparar diccionarios dentro de los ADTs."
+msgstr ""
+
+#: ../../docstring Src.DISClib.Utils.default.DEFAULT_PRIME:1 of
+msgid ""
+"Número primo grande por defecto para la función de compresión MAD en las "
+"tablas de Hash."
+msgstr ""
+
+#: Src.DISClib.Utils.default.T:1 of
+msgid ""
+"Variable nativa de Python para definir una estructura de datos genérica "
+"en los ADTs."
+msgstr ""
+
+#: ../../docstring Src.DISClib.Utils.default.VALID_DATA_TYPE_LT:1 of
+msgid ""
+"Tupla con los tipos de datos nativos en Python que son comparables en los"
+" ADTs."
+msgstr ""
+
+#: ../../docstring Src.DISClib.Utils.default.VALID_IO_TYPE:1 of
+msgid ""
+"Tupla con los tipos de datos nativos en Python que son válidos para "
+"entrada y salida de datos al inicializar un ADT."
+msgstr ""
+
+#: Src.DISClib.Utils.default.ht_default_cmp_funcion_old:1 of
+msgid ""
+"*ht_default_cmp_funcion()* función de comparación por defecto para los "
+"elementos del ADT Map (HashTable). pueden ser de tipo nativo o definido "
+"por el usuario."
+msgstr ""
+
+#: Src.DISClib.Utils.default.ht_default_cmp_funcion_old
+#: Src.DISClib.Utils.default.lt_default_cmp_funcion
+#: Src.DISClib.Utils.error.error_handler
+#: Src.DISClib.Utils.numbers.hash_compress Src.DISClib.Utils.numbers.is_prime
+#: Src.DISClib.Utils.numbers.next_prime
+#: Src.DISClib.Utils.numbers.previous_prime of
+msgid "Parámetros"
+msgstr ""
+
+#: Src.DISClib.Utils.default.ht_default_cmp_funcion_old:3 of
+msgid "la llave (key) de la primera entrada (pareja llave-valor) a comparar."
+msgstr ""
+
+#: Src.DISClib.Utils.default.ht_default_cmp_funcion_old:5 of
+msgid ""
+"segunda entrada (pareja llave-valor) a comparar de tipo *MapEntry*. puede"
+" contener cualquier tipo de estructura, dato o ADT."
+msgstr ""
+
+#: Src.DISClib.Utils.default.ht_default_cmp_funcion_old
+#: Src.DISClib.Utils.default.lt_default_cmp_funcion
+#: Src.DISClib.Utils.error.error_handler of
+msgid "Muestra"
+msgstr ""
+
+#: Src.DISClib.Utils.default.ht_default_cmp_funcion_old:8 of
+msgid "error de tipo de dato si las llaves no son comparables."
+msgstr ""
+
+#: Src.DISClib.Utils.default.ht_default_cmp_funcion_old
+#: Src.DISClib.Utils.default.lt_default_cmp_funcion
+#: Src.DISClib.Utils.numbers.hash_compress Src.DISClib.Utils.numbers.is_prime
+#: Src.DISClib.Utils.numbers.next_prime
+#: Src.DISClib.Utils.numbers.previous_prime of
+msgid "Devuelve"
+msgstr ""
+
+#: Src.DISClib.Utils.default.ht_default_cmp_funcion_old:10 of
+msgid ""
+"retorna -1 si key1 es menor que la llave de entry2, 0 si las llaves son "
+"iguales y 1 si la llave key1 es mayor que la llave de entry2."
+msgstr ""
+
+#: Src.DISClib.Utils.default.ht_default_cmp_funcion_old
+#: Src.DISClib.Utils.default.lt_default_cmp_funcion
+#: Src.DISClib.Utils.numbers.hash_compress Src.DISClib.Utils.numbers.is_prime
+#: Src.DISClib.Utils.numbers.next_prime
+#: Src.DISClib.Utils.numbers.previous_prime of
+msgid "Tipo del valor devuelto"
+msgstr ""
+
+#: Src.DISClib.Utils.default.lt_default_cmp_funcion:1 of
+msgid ""
+"*lt_default_cmp_funcion()* función de comparación por defecto para los "
+"elementos del ADT List (ArrayList, SingleLinked, DoubleLinked). pueden "
+"ser de tipo nativo o definido por el usuario."
+msgstr ""
+
+#: Src.DISClib.Utils.default.lt_default_cmp_funcion:3 of
+msgid ""
+"llave para comparar los elementos de tipo diccionario que entrega el ADT "
+"List."
+msgstr ""
+
+#: Src.DISClib.Utils.default.lt_default_cmp_funcion:5 of
+msgid "primer elemento a comparar."
+msgstr ""
+
+#: Src.DISClib.Utils.default.lt_default_cmp_funcion:7 of
+msgid "segundo elemento a comparar."
+msgstr ""
+
+#: Src.DISClib.Utils.default.lt_default_cmp_funcion:10 of
+msgid ""
+"error de tipo de dato si los elementos de tipo nativo en Python no son "
+"comparables."
+msgstr ""
+
+#: Src.DISClib.Utils.default.lt_default_cmp_funcion:11 of
+msgid "error de clave si la llave para comparar los diccionarios no existe."
+msgstr ""
+
+#: Src.DISClib.Utils.default.lt_default_cmp_funcion:12 of
+msgid "error de tipo de dato si los elementos no son comparables."
+msgstr ""
+
+#: Src.DISClib.Utils.default.lt_default_cmp_funcion:14 of
+msgid ""
+"retorna -1 si elm1 es menor que elm2, 0 si son iguales y 1 si elm1 es "
+"mayor que elm2."
+msgstr ""
+
+#: ../../Src.DISClib.Utils.rst:16
+msgid "Src.DISClib.Utils.error module"
+msgstr ""
+
+#: Src.DISClib.Utils.error:1 of
+msgid "Módulo para manejar errores genéricos en los ADTs y todo *DISCLib*."
+msgstr ""
+
+#: Src.DISClib.Utils.error.error_handler:1 of
+msgid ""
+"*error_handler()* recibe el contexto, nombre de la función y la excepción"
+" para lanzar un mensaje de error detallado y el traceback."
+msgstr ""
+
+#: Src.DISClib.Utils.error.error_handler:3 of
+msgid "nombre del contexto donde ocurrió el error."
+msgstr ""
+
+#: Src.DISClib.Utils.error.error_handler:5 of
+msgid "nombre de la función donde ocurrió el error."
+msgstr ""
+
+#: Src.DISClib.Utils.error.error_handler:7 of
+msgid "excepción lanzada."
+msgstr ""
+
+#: Src.DISClib.Utils.error.error_handler:10 of
+msgid "excepción con el mensaje de error detallado y el traceback."
+msgstr ""
+
+#: ../../Src.DISClib.Utils.rst:24
+msgid "Src.DISClib.Utils.memory module"
+msgstr ""
+
+#: ../../Src.DISClib.Utils.rst:32
+msgid "Src.DISClib.Utils.numbers module"
+msgstr ""
+
+#: Src.DISClib.Utils.numbers:1 of
+msgid ""
+"Módulo con funciones de utilidad para el manejo de datos en los mapas no "
+"ordenados en *DISClib*. Especificamente para tablas de Hash por "
+"Encadenamiento Separado (Separate Chaining) y tablas de Hash por Sondeo "
+"Lineal (Linear Probing)."
+msgstr ""
+
+#: Src.DISClib.Utils.numbers:8 of
+msgid ""
+"*NOTA:* código contribuido por Sanjit_Prasad en "
+"https://www.geeksforgeeks.org/prime-numbers/"
+msgstr ""
+
+#: Src.DISClib.Utils.numbers.hash_compress:1 of
+msgid ""
+"*hash_compress()* función de compresión para los índices de las tablas de"
+" Hash utilizando el método MAD (Multiply-Add-and-Divide). MAD se define "
+"como: hash_compress(y) = ((a*y + b) % p) % M, donde:"
+msgstr ""
+
+#: Src.DISClib.Utils.numbers.hash_compress:3 of
+msgid ""
+"a (scale) y b (shift) enteros aleatoreos dentro del intervalo [0,p-1], "
+"con a > 0 p (prime) es un primo mayor a M, M (capacity) es el tamaño de "
+"la tabla, primo"
+msgstr ""
+
+#: Src.DISClib.Utils.numbers.hash_compress:7 of
+msgid ""
+"llave para calcular el índice en la tabla de Hash, Puede ser cualquier "
+"tipo de dato nativo en Python o definido por el usuario."
+msgstr ""
+
+#: Src.DISClib.Utils.numbers.hash_compress:9 of
+msgid "pendiente de la función de compresión."
+msgstr ""
+
+#: Src.DISClib.Utils.numbers.hash_compress:11 of
+msgid "desplazamiento de la función de compresión."
+msgstr ""
+
+#: Src.DISClib.Utils.numbers.hash_compress:13 of
+msgid "número  primo mucho mayor a la capacidad de la tabla de Hash."
+msgstr ""
+
+#: Src.DISClib.Utils.numbers.hash_compress:15 of
+msgid "tamaño de la tabla de Hash, es un número primo para evitar colisiones."
+msgstr ""
+
+#: Src.DISClib.Utils.numbers.hash_compress:18 of
+msgid "el índice del elemento en la tabla de Hash."
+msgstr ""
+
+#: Src.DISClib.Utils.numbers.is_prime:1 of
+msgid "*is_prime()* revisa si un número es primo o no."
+msgstr ""
+
+#: Src.DISClib.Utils.numbers.is_prime:3 of
+msgid "número entero para verificar si es primo."
+msgstr ""
+
+#: Src.DISClib.Utils.numbers.is_prime:6 of
+msgid "si el número es primo o no."
+msgstr ""
+
+#: Src.DISClib.Utils.numbers.next_prime:1 of
+msgid "*next_prime()* devuelve el siguiente número primo mayor que n."
+msgstr ""
+
+#: Src.DISClib.Utils.numbers.next_prime:3
+#: Src.DISClib.Utils.numbers.previous_prime:3 of
+msgid "número entero para calcular el siguiente número primo."
+msgstr ""
+
+#: Src.DISClib.Utils.numbers.next_prime:6 of
+msgid "el siguiente número primo mayor que n."
+msgstr ""
+
+#: Src.DISClib.Utils.numbers.previous_prime:1 of
+msgid "*previous_prime()* devuelve el número primo anterior a n."
+msgstr ""
+
+#: Src.DISClib.Utils.numbers.previous_prime:6 of
+msgid "el siguiente número primo menor que n."
+msgstr ""
+
+#: ../../Src.DISClib.Utils.rst:40
+msgid "Module contents"
+msgstr ""
+

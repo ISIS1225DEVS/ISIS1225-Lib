@@ -1,0 +1,2961 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Uniandes, Bogotá - Colombia, Sur América,
+# This file is distributed under the same license as the DISClib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: DISClib \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-03 00:09-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../Src.DISClib.DataStructures.rst:2
+msgid "Src.DISClib.DataStructures package"
+msgstr ""
+
+#: ../../Src.DISClib.DataStructures.rst:5
+msgid "Submodules"
+msgstr ""
+
+#: ../../Src.DISClib.DataStructures.rst:8
+msgid "Src.DISClib.DataStructures.adjcomponents module"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjcomponents:1 of
+msgid "# TODO agregar descripcion del modulo y del ADT que implementa!!!"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjcomponents:3
+#: Src.DISClib.DataStructures.adjlist:3 Src.DISClib.DataStructures.adjmatrix:3
+#: Src.DISClib.DataStructures.arraylist:3
+#: Src.DISClib.DataStructures.chaininghashtable:5
+#: Src.DISClib.DataStructures.doublelinkedlist:3
+#: Src.DISClib.DataStructures.leftleaningrbtree:3
+#: Src.DISClib.DataStructures.listnode:5 Src.DISClib.DataStructures.mapentry:7
+#: Src.DISClib.DataStructures.node:3
+#: Src.DISClib.DataStructures.probinghashtable:5
+#: Src.DISClib.DataStructures.redblacktree:3
+#: Src.DISClib.DataStructures.singlelinkedlist:3
+#: Src.DISClib.DataStructures.treenode:7 of
+msgid ""
+"*IMPORTANTE:* Este código y sus especificaciones para Python están "
+"basados en las implementaciones propuestas por los siguientes "
+"autores/libros:"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjcomponents:5
+#: Src.DISClib.DataStructures.adjlist:5 Src.DISClib.DataStructures.adjmatrix:5
+#: Src.DISClib.DataStructures.arraylist:5
+#: Src.DISClib.DataStructures.chaininghashtable:7
+#: Src.DISClib.DataStructures.doublelinkedlist:5
+#: Src.DISClib.DataStructures.leftleaningrbtree:5
+#: Src.DISClib.DataStructures.listnode:7 Src.DISClib.DataStructures.mapentry:9
+#: Src.DISClib.DataStructures.node:5
+#: Src.DISClib.DataStructures.probinghashtable:7
+#: Src.DISClib.DataStructures.redblacktree:5
+#: Src.DISClib.DataStructures.singlelinkedlist:5
+#: Src.DISClib.DataStructures.treenode:9 of
+msgid "Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne."
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjcomponents:6
+#: Src.DISClib.DataStructures.adjlist:6 Src.DISClib.DataStructures.adjmatrix:6
+#: Src.DISClib.DataStructures.arraylist:6
+#: Src.DISClib.DataStructures.chaininghashtable:8
+#: Src.DISClib.DataStructures.doublelinkedlist:6
+#: Src.DISClib.DataStructures.leftleaningrbtree:6
+#: Src.DISClib.DataStructures.listnode:8 Src.DISClib.DataStructures.mapentry:10
+#: Src.DISClib.DataStructures.node:6
+#: Src.DISClib.DataStructures.probinghashtable:8
+#: Src.DISClib.DataStructures.redblacktree:6
+#: Src.DISClib.DataStructures.singlelinkedlist:6
+#: Src.DISClib.DataStructures.treenode:10 of
+msgid ""
+"Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H."
+" Goldwasser."
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjcomponents.Edge:1
+#: Src.DISClib.DataStructures.adjcomponents.Vertex:1
+#: Src.DISClib.DataStructures.adjlist.AdjacencyList:1
+#: Src.DISClib.DataStructures.adjmatrix.AdjacencyMatrix:1
+#: Src.DISClib.DataStructures.arraylist.ArrayList:1
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining:1
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked:1
+#: Src.DISClib.DataStructures.leftleaningrbtree.LeftLeanRedBlackTree:1
+#: Src.DISClib.DataStructures.mapentry.MapEntry:1
+#: Src.DISClib.DataStructures.node.Node:1
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing:1
+#: Src.DISClib.DataStructures.redblacktree.RedBlackTree:1
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked:1 of
+msgid ""
+"Bases: :py:class:`~typing.Generic`\\ "
+"[:py:obj:`~Src.DISClib.Utils.default.T`]"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjcomponents.Edge:1 of
+msgid "Edge _summary_"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjcomponents.Edge
+#: Src.DISClib.DataStructures.adjcomponents.Vertex
+#: Src.DISClib.DataStructures.adjlist.AdjacencyList
+#: Src.DISClib.DataStructures.adjlist.AdjacencyList.default_cmp_function
+#: Src.DISClib.DataStructures.adjlist.addEdge
+#: Src.DISClib.DataStructures.adjlist.adjacentEdges
+#: Src.DISClib.DataStructures.adjlist.adjacents
+#: Src.DISClib.DataStructures.adjlist.containsVertex
+#: Src.DISClib.DataStructures.adjlist.degree
+#: Src.DISClib.DataStructures.adjlist.edges
+#: Src.DISClib.DataStructures.adjlist.getEdge
+#: Src.DISClib.DataStructures.adjlist.indegree
+#: Src.DISClib.DataStructures.adjlist.insertVertex
+#: Src.DISClib.DataStructures.adjlist.newGraph
+#: Src.DISClib.DataStructures.adjlist.numEdges
+#: Src.DISClib.DataStructures.adjlist.numVertices
+#: Src.DISClib.DataStructures.adjlist.outdegree
+#: Src.DISClib.DataStructures.adjlist.removeVertex
+#: Src.DISClib.DataStructures.adjmatrix.AdjacencyMatrix
+#: Src.DISClib.DataStructures.adjmatrix.AdjacencyMatrix.default_cmp_function
+#: Src.DISClib.DataStructures.arraylist.ArrayList
+#: Src.DISClib.DataStructures.arraylist.ArrayList.add_element
+#: Src.DISClib.DataStructures.arraylist.ArrayList.add_first
+#: Src.DISClib.DataStructures.arraylist.ArrayList.add_last
+#: Src.DISClib.DataStructures.arraylist.ArrayList.change_info
+#: Src.DISClib.DataStructures.arraylist.ArrayList.compare_elements
+#: Src.DISClib.DataStructures.arraylist.ArrayList.concat
+#: Src.DISClib.DataStructures.arraylist.ArrayList.default_cmp_function
+#: Src.DISClib.DataStructures.arraylist.ArrayList.exchange
+#: Src.DISClib.DataStructures.arraylist.ArrayList.find
+#: Src.DISClib.DataStructures.arraylist.ArrayList.get_element
+#: Src.DISClib.DataStructures.arraylist.ArrayList.remove_element
+#: Src.DISClib.DataStructures.arraylist.ArrayList.sublist
+#: Src.DISClib.DataStructures.chaininghashtable.Bucket
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.check_bucket
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.contains
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.default_cmp_function
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.get
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.put
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.remove
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.add_element
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.add_first
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.add_last
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.change_info
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.compare_elements
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.concat
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.default_cmp_function
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.exchange
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.find
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.get_element
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.remove_element
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.sublist
+#: Src.DISClib.DataStructures.heap.delMin
+#: Src.DISClib.DataStructures.heap.insert
+#: Src.DISClib.DataStructures.heap.isEmpty Src.DISClib.DataStructures.heap.min
+#: Src.DISClib.DataStructures.heap.newHeap Src.DISClib.DataStructures.heap.sink
+#: Src.DISClib.DataStructures.heap.size Src.DISClib.DataStructures.heap.swim
+#: Src.DISClib.DataStructures.leftleaningrbtree.LeftLeanRedBlackTree
+#: Src.DISClib.DataStructures.leftleaningrbtree.LeftLeanRedBlackTree.default_cmp_function
+#: Src.DISClib.DataStructures.listnode.DoubleNode
+#: Src.DISClib.DataStructures.listnode.SingleNode
+#: Src.DISClib.DataStructures.mapentry.MapEntry
+#: Src.DISClib.DataStructures.mapentry.MapEntry.set_key
+#: Src.DISClib.DataStructures.mapentry.MapEntry.set_value
+#: Src.DISClib.DataStructures.node.Node
+#: Src.DISClib.DataStructures.node.Node.set_info
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.check_slots
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.contains
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.default_cmp_function
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.get
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.put
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.remove
+#: Src.DISClib.DataStructures.redblacktree.RedBlackTree
+#: Src.DISClib.DataStructures.redblacktree.RedBlackTree.default_cmp_function
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.add_element
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.add_first
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.add_last
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.change_info
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.compare_elements
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.concat
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.default_cmp_function
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.exchange
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.find
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.get_element
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_element
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.sublist
+#: Src.DISClib.DataStructures.treenode.AVLNode
+#: Src.DISClib.DataStructures.treenode.BSTNode
+#: Src.DISClib.DataStructures.treenode.KDTNode
+#: Src.DISClib.DataStructures.treenode.RBTNode
+#: Src.DISClib.DataStructures.treenode.RBTNode.set_color of
+msgid "Parámetros"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjcomponents.Edge:3
+#: Src.DISClib.DataStructures.adjcomponents.Vertex:3 of
+msgid "_description_"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjcomponents.Vertex:1 of
+msgid "Vertex _summary_"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjcomponents.compareedges:1 of
+msgid "Compara dos arcos y retorna True si son iguales"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjcomponents.either:1 of
+msgid "Retorna el vertice A del arco"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjcomponents.newEdge:1 of
+msgid "Crea un nuevo arco entrelos vertices va y vb"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjcomponents.other:1 of
+msgid "Retorna el vertice B del arco"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjcomponents.weight:1 of
+msgid "Retorna el peso de un arco"
+msgstr ""
+
+#: ../../Src.DISClib.DataStructures.rst:16
+msgid "Src.DISClib.DataStructures.adjlist module"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist:1 Src.DISClib.DataStructures.adjmatrix:1
+#: Src.DISClib.DataStructures.leftleaningrbtree:1
+#: Src.DISClib.DataStructures.redblacktree:1 of
+msgid "# TODO: agregar descripción del módulo"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.AdjacencyList:1 of
+msgid ""
+"**AdjacencyList** representa la estructura de datos para arreglos "
+"dinamicos (Array List), Implementada con Generic[T] y @dataclass para que"
+" sea una estructura de datos genérica."
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.AdjacencyList:3
+#: Src.DISClib.DataStructures.adjmatrix.AdjacencyMatrix:3
+#: Src.DISClib.DataStructures.arraylist.ArrayList:3
+#: Src.DISClib.DataStructures.chaininghashtable.Bucket:7
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining:3
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked:3
+#: Src.DISClib.DataStructures.leftleaningrbtree.LeftLeanRedBlackTree:3
+#: Src.DISClib.DataStructures.listnode.DoubleNode:5
+#: Src.DISClib.DataStructures.listnode.SingleNode:5
+#: Src.DISClib.DataStructures.mapentry.MapEntry:3
+#: Src.DISClib.DataStructures.node.Node:3
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing:3
+#: Src.DISClib.DataStructures.redblacktree.RedBlackTree:3
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked:3
+#: Src.DISClib.DataStructures.treenode.AVLNode:5
+#: Src.DISClib.DataStructures.treenode.BSTNode:5
+#: Src.DISClib.DataStructures.treenode.KDTNode:5
+#: Src.DISClib.DataStructures.treenode.RBTNode:5 of
+msgid ""
+"TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una "
+"estructura de datos genéricas en python."
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.AdjacencyList
+#: Src.DISClib.DataStructures.adjlist.AdjacencyList.default_cmp_function
+#: Src.DISClib.DataStructures.adjlist.addEdge
+#: Src.DISClib.DataStructures.adjlist.adjacentEdges
+#: Src.DISClib.DataStructures.adjlist.adjacents
+#: Src.DISClib.DataStructures.adjlist.containsVertex
+#: Src.DISClib.DataStructures.adjlist.degree
+#: Src.DISClib.DataStructures.adjlist.edges
+#: Src.DISClib.DataStructures.adjlist.getEdge
+#: Src.DISClib.DataStructures.adjlist.indegree
+#: Src.DISClib.DataStructures.adjlist.insertVertex
+#: Src.DISClib.DataStructures.adjlist.newGraph
+#: Src.DISClib.DataStructures.adjlist.numEdges
+#: Src.DISClib.DataStructures.adjlist.numVertices
+#: Src.DISClib.DataStructures.adjlist.outdegree
+#: Src.DISClib.DataStructures.adjlist.removeVertex
+#: Src.DISClib.DataStructures.adjlist.vertices
+#: Src.DISClib.DataStructures.adjmatrix.AdjacencyMatrix
+#: Src.DISClib.DataStructures.adjmatrix.AdjacencyMatrix.default_cmp_function
+#: Src.DISClib.DataStructures.arraylist.ArrayList
+#: Src.DISClib.DataStructures.arraylist.ArrayList.compare_elements
+#: Src.DISClib.DataStructures.arraylist.ArrayList.concat
+#: Src.DISClib.DataStructures.arraylist.ArrayList.default_cmp_function
+#: Src.DISClib.DataStructures.arraylist.ArrayList.find
+#: Src.DISClib.DataStructures.arraylist.ArrayList.get_element
+#: Src.DISClib.DataStructures.arraylist.ArrayList.get_first
+#: Src.DISClib.DataStructures.arraylist.ArrayList.get_last
+#: Src.DISClib.DataStructures.arraylist.ArrayList.is_empty
+#: Src.DISClib.DataStructures.arraylist.ArrayList.remove_element
+#: Src.DISClib.DataStructures.arraylist.ArrayList.remove_first
+#: Src.DISClib.DataStructures.arraylist.ArrayList.remove_last
+#: Src.DISClib.DataStructures.arraylist.ArrayList.size
+#: Src.DISClib.DataStructures.arraylist.ArrayList.sublist
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.check_bucket
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.contains
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.default_cmp_function
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.entries
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.get
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.is_empty
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.keys
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.remove
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.size
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.values
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.compare_elements
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.concat
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.default_cmp_function
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.find
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.get_element
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.get_first
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.get_last
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.is_empty
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.remove_element
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.remove_first
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.remove_last
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.size
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.sublist
+#: Src.DISClib.DataStructures.heap.delMin
+#: Src.DISClib.DataStructures.heap.insert
+#: Src.DISClib.DataStructures.heap.isEmpty Src.DISClib.DataStructures.heap.min
+#: Src.DISClib.DataStructures.heap.newHeap Src.DISClib.DataStructures.heap.sink
+#: Src.DISClib.DataStructures.heap.size Src.DISClib.DataStructures.heap.swim
+#: Src.DISClib.DataStructures.leftleaningrbtree.LeftLeanRedBlackTree
+#: Src.DISClib.DataStructures.leftleaningrbtree.LeftLeanRedBlackTree.default_cmp_function
+#: Src.DISClib.DataStructures.listnode.DoubleNode
+#: Src.DISClib.DataStructures.listnode.DoubleNode.prev
+#: Src.DISClib.DataStructures.listnode.SingleNode
+#: Src.DISClib.DataStructures.listnode.SingleNode.next
+#: Src.DISClib.DataStructures.mapentry.MapEntry
+#: Src.DISClib.DataStructures.mapentry.MapEntry.get_key
+#: Src.DISClib.DataStructures.mapentry.MapEntry.get_value
+#: Src.DISClib.DataStructures.node.Node
+#: Src.DISClib.DataStructures.node.Node.get_info
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.check_slots
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.contains
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.default_cmp_function
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.entries
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.get
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.is_empty
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.keys
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.remove
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.size
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.values
+#: Src.DISClib.DataStructures.redblacktree.RedBlackTree
+#: Src.DISClib.DataStructures.redblacktree.RedBlackTree.default_cmp_function
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.compare_elements
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.concat
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.default_cmp_function
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.find
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.get_element
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.get_first
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.get_last
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.is_empty
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_element
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_first
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_last
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.size
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.sublist
+#: Src.DISClib.DataStructures.treenode.AVLNode.height
+#: Src.DISClib.DataStructures.treenode.AVLNode.left_height
+#: Src.DISClib.DataStructures.treenode.AVLNode.right_height
+#: Src.DISClib.DataStructures.treenode.BSTNode
+#: Src.DISClib.DataStructures.treenode.BSTNode.left
+#: Src.DISClib.DataStructures.treenode.BSTNode.right
+#: Src.DISClib.DataStructures.treenode.BSTNode.size
+#: Src.DISClib.DataStructures.treenode.KDTNode.get_dimension
+#: Src.DISClib.DataStructures.treenode.RBTNode.color
+#: Src.DISClib.DataStructures.treenode.RBTNode.is_red
+#: Src.DISClib.DataStructures.treenode.RBTNode.parent of
+msgid "Devuelve"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.AdjacencyList:6 of
+msgid "ADT de tipo AdjacencyList o Arreglo Dinámico."
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.AdjacencyList
+#: Src.DISClib.DataStructures.adjlist.AdjacencyList.default_cmp_function
+#: Src.DISClib.DataStructures.adjmatrix.AdjacencyMatrix
+#: Src.DISClib.DataStructures.adjmatrix.AdjacencyMatrix.default_cmp_function
+#: Src.DISClib.DataStructures.arraylist.ArrayList
+#: Src.DISClib.DataStructures.arraylist.ArrayList.compare_elements
+#: Src.DISClib.DataStructures.arraylist.ArrayList.concat
+#: Src.DISClib.DataStructures.arraylist.ArrayList.default_cmp_function
+#: Src.DISClib.DataStructures.arraylist.ArrayList.find
+#: Src.DISClib.DataStructures.arraylist.ArrayList.get_element
+#: Src.DISClib.DataStructures.arraylist.ArrayList.get_first
+#: Src.DISClib.DataStructures.arraylist.ArrayList.get_last
+#: Src.DISClib.DataStructures.arraylist.ArrayList.is_empty
+#: Src.DISClib.DataStructures.arraylist.ArrayList.remove_element
+#: Src.DISClib.DataStructures.arraylist.ArrayList.remove_first
+#: Src.DISClib.DataStructures.arraylist.ArrayList.remove_last
+#: Src.DISClib.DataStructures.arraylist.ArrayList.size
+#: Src.DISClib.DataStructures.arraylist.ArrayList.sublist
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.check_bucket
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.contains
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.default_cmp_function
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.entries
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.get
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.is_empty
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.keys
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.remove
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.size
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.values
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.compare_elements
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.concat
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.default_cmp_function
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.find
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.get_element
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.get_first
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.get_last
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.is_empty
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.remove_element
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.remove_first
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.remove_last
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.size
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.sublist
+#: Src.DISClib.DataStructures.leftleaningrbtree.LeftLeanRedBlackTree
+#: Src.DISClib.DataStructures.leftleaningrbtree.LeftLeanRedBlackTree.default_cmp_function
+#: Src.DISClib.DataStructures.listnode.DoubleNode
+#: Src.DISClib.DataStructures.listnode.DoubleNode.prev
+#: Src.DISClib.DataStructures.listnode.SingleNode
+#: Src.DISClib.DataStructures.listnode.SingleNode.next
+#: Src.DISClib.DataStructures.mapentry.MapEntry
+#: Src.DISClib.DataStructures.mapentry.MapEntry.get_key
+#: Src.DISClib.DataStructures.mapentry.MapEntry.get_value
+#: Src.DISClib.DataStructures.node.Node
+#: Src.DISClib.DataStructures.node.Node.get_info
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.check_slots
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.contains
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.default_cmp_function
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.entries
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.get
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.is_empty
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.keys
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.remove
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.size
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.values
+#: Src.DISClib.DataStructures.redblacktree.RedBlackTree
+#: Src.DISClib.DataStructures.redblacktree.RedBlackTree.default_cmp_function
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.compare_elements
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.concat
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.default_cmp_function
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.find
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.get_element
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.get_first
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.get_last
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.is_empty
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_element
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_first
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_last
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.size
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.sublist
+#: Src.DISClib.DataStructures.treenode.AVLNode.height
+#: Src.DISClib.DataStructures.treenode.AVLNode.left_height
+#: Src.DISClib.DataStructures.treenode.AVLNode.right_height
+#: Src.DISClib.DataStructures.treenode.BSTNode
+#: Src.DISClib.DataStructures.treenode.BSTNode.left
+#: Src.DISClib.DataStructures.treenode.BSTNode.right
+#: Src.DISClib.DataStructures.treenode.BSTNode.size
+#: Src.DISClib.DataStructures.treenode.KDTNode.get_dimension
+#: Src.DISClib.DataStructures.treenode.RBTNode.color
+#: Src.DISClib.DataStructures.treenode.RBTNode.is_red
+#: Src.DISClib.DataStructures.treenode.RBTNode.parent of
+msgid "Tipo del valor devuelto"
+msgstr ""
+
+#: ../../docstring
+#: Src.DISClib.DataStructures.adjlist.AdjacencyList.cmp_function:1
+#: Src.DISClib.DataStructures.adjmatrix.AdjacencyMatrix.cmp_function:1
+#: Src.DISClib.DataStructures.leftleaningrbtree.LeftLeanRedBlackTree.cmp_function:1
+#: Src.DISClib.DataStructures.redblacktree.RedBlackTree.cmp_function:1 of
+msgid ""
+"Función de comparación personalizable por el usuario para reconocer los "
+"elementos dentro de la estructura. Es un argumento configurable al crear "
+"la estructura. Por defecto es la función *lt_default_cmp_funcion()* "
+"propia de *DISClib*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.AdjacencyList.default_cmp_function:1 of
+msgid ""
+"*default_cmp_function()* procesa con algoritmica por defecto la lista de "
+"elementos que procesa el AdjacencyList. Es una función crucial para que "
+"la estructura de datos funcione correctamente."
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.AdjacencyList.default_cmp_function:3
+#: Src.DISClib.DataStructures.adjmatrix.AdjacencyMatrix.default_cmp_function:3
+#: Src.DISClib.DataStructures.arraylist.ArrayList.default_cmp_function:3
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.default_cmp_function:3
+#: Src.DISClib.DataStructures.leftleaningrbtree.LeftLeanRedBlackTree.default_cmp_function:3
+#: Src.DISClib.DataStructures.redblacktree.RedBlackTree.default_cmp_function:3
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.default_cmp_function:3
+#: of
+msgid "primer elemento a comparar."
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.AdjacencyList.default_cmp_function:5
+#: Src.DISClib.DataStructures.adjmatrix.AdjacencyMatrix.default_cmp_function:5
+#: Src.DISClib.DataStructures.arraylist.ArrayList.default_cmp_function:5
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.default_cmp_function:5
+#: Src.DISClib.DataStructures.leftleaningrbtree.LeftLeanRedBlackTree.default_cmp_function:5
+#: Src.DISClib.DataStructures.redblacktree.RedBlackTree.default_cmp_function:5
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.default_cmp_function:5
+#: of
+msgid "segundo elemento a comparar."
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.AdjacencyList.default_cmp_function:8
+#: Src.DISClib.DataStructures.adjmatrix.AdjacencyMatrix.default_cmp_function:8
+#: Src.DISClib.DataStructures.arraylist.ArrayList.default_cmp_function:8
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.default_cmp_function:8
+#: Src.DISClib.DataStructures.leftleaningrbtree.LeftLeanRedBlackTree.default_cmp_function:8
+#: Src.DISClib.DataStructures.redblacktree.RedBlackTree.default_cmp_function:8
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.default_cmp_function:8
+#: of
+msgid ""
+"respuesta de la comparación entre los elementos, 0 si son iguales, 1 si "
+"elm1 es mayor que elm2, -1 si elm1 es menor."
+msgstr ""
+
+#: ../../docstring Src.DISClib.DataStructures.adjlist.AdjacencyList.elements:1
+#: Src.DISClib.DataStructures.adjmatrix.AdjacencyMatrix.elements:1
+#: Src.DISClib.DataStructures.arraylist.ArrayList.elements:1
+#: Src.DISClib.DataStructures.leftleaningrbtree.LeftLeanRedBlackTree.elements:1
+#: Src.DISClib.DataStructures.redblacktree.RedBlackTree.elements:1 of
+msgid "Lista nativa de Python que contiene los elementos de la estructura."
+msgstr ""
+
+#: ../../docstring Src.DISClib.DataStructures.adjlist.AdjacencyList.iodata:1
+#: Src.DISClib.DataStructures.adjmatrix.AdjacencyMatrix.iodata:1
+#: Src.DISClib.DataStructures.arraylist.ArrayList.iodata:1
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.iodata:1
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.iodata:1
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.iodata:1
+#: Src.DISClib.DataStructures.redblacktree.RedBlackTree.iodata:1
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.iodata:1 of
+msgid ""
+"Lista nativa de Python personalizable por el usuario para inicializar la "
+"estructura. Por defecto es *None* y el usuario puede incluirla como "
+"argumento al crear la estructura."
+msgstr ""
+
+#: ../../docstring Src.DISClib.DataStructures.adjlist.AdjacencyList.key:1
+#: Src.DISClib.DataStructures.adjmatrix.AdjacencyMatrix.key:1 of
+msgid ""
+"Nombre de la llave opcional que se utiliza para comparar los elementos "
+"del AdjacencyList, Por defecto es *None* y el *__post_init__()* configura"
+" la llave por defecto la llave 'id' en *DEFAULT_DICT_KEY*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.addEdge:1 of
+msgid ""
+"Agrega un arco entre los vertices vertexa ---- vertexb, con peso weight. "
+"Si el grafo es no dirigido se adiciona dos veces el mismo arco, en el "
+"mismo orden Si el grafo es dirigido se adiciona solo el arco vertexa --> "
+"vertexb"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.addEdge:6
+#: Src.DISClib.DataStructures.adjlist.adjacentEdges:4
+#: Src.DISClib.DataStructures.adjlist.adjacents:3
+#: Src.DISClib.DataStructures.adjlist.containsVertex:3
+#: Src.DISClib.DataStructures.adjlist.degree:3
+#: Src.DISClib.DataStructures.adjlist.edges:3
+#: Src.DISClib.DataStructures.adjlist.getEdge:3
+#: Src.DISClib.DataStructures.adjlist.indegree:3
+#: Src.DISClib.DataStructures.adjlist.insertVertex:3
+#: Src.DISClib.DataStructures.adjlist.numEdges:3
+#: Src.DISClib.DataStructures.adjlist.numVertices:3
+#: Src.DISClib.DataStructures.adjlist.outdegree:3
+#: Src.DISClib.DataStructures.adjlist.removeVertex:3 of
+msgid "El grafo sobre el que se ejecuta la operacion"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.addEdge:7
+#: Src.DISClib.DataStructures.adjlist.getEdge:4 of
+msgid "Vertice de inicio"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.addEdge:8 of
+msgid "Vertice de destino"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.addEdge:9 of
+msgid "peso del arco"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.addEdge:11 of
+msgid "El grafo con el nuevo arco"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.addEdge
+#: Src.DISClib.DataStructures.adjlist.adjacentEdges
+#: Src.DISClib.DataStructures.adjlist.adjacents
+#: Src.DISClib.DataStructures.adjlist.containsVertex
+#: Src.DISClib.DataStructures.adjlist.degree
+#: Src.DISClib.DataStructures.adjlist.edges
+#: Src.DISClib.DataStructures.adjlist.getEdge
+#: Src.DISClib.DataStructures.adjlist.indegree
+#: Src.DISClib.DataStructures.adjlist.insertVertex
+#: Src.DISClib.DataStructures.adjlist.newGraph
+#: Src.DISClib.DataStructures.adjlist.numEdges
+#: Src.DISClib.DataStructures.adjlist.numVertices
+#: Src.DISClib.DataStructures.adjlist.outdegree
+#: Src.DISClib.DataStructures.adjlist.removeVertex
+#: Src.DISClib.DataStructures.adjlist.vertices
+#: Src.DISClib.DataStructures.arraylist.ArrayList.add_element
+#: Src.DISClib.DataStructures.arraylist.ArrayList.add_first
+#: Src.DISClib.DataStructures.arraylist.ArrayList.add_last
+#: Src.DISClib.DataStructures.arraylist.ArrayList.change_info
+#: Src.DISClib.DataStructures.arraylist.ArrayList.compare_elements
+#: Src.DISClib.DataStructures.arraylist.ArrayList.concat
+#: Src.DISClib.DataStructures.arraylist.ArrayList.exchange
+#: Src.DISClib.DataStructures.arraylist.ArrayList.get_element
+#: Src.DISClib.DataStructures.arraylist.ArrayList.get_first
+#: Src.DISClib.DataStructures.arraylist.ArrayList.get_last
+#: Src.DISClib.DataStructures.arraylist.ArrayList.remove_element
+#: Src.DISClib.DataStructures.arraylist.ArrayList.remove_first
+#: Src.DISClib.DataStructures.arraylist.ArrayList.remove_last
+#: Src.DISClib.DataStructures.arraylist.ArrayList.sublist
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.check_bucket
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.contains
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.get
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.put
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.remove
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.add_element
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.add_first
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.add_last
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.change_info
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.compare_elements
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.concat
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.exchange
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.get_element
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.get_first
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.get_last
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.remove_element
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.remove_first
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.remove_last
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.sublist
+#: Src.DISClib.DataStructures.heap.delMin
+#: Src.DISClib.DataStructures.heap.insert
+#: Src.DISClib.DataStructures.heap.isEmpty Src.DISClib.DataStructures.heap.min
+#: Src.DISClib.DataStructures.heap.newHeap Src.DISClib.DataStructures.heap.sink
+#: Src.DISClib.DataStructures.heap.size Src.DISClib.DataStructures.heap.swim
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.check_slots
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.contains
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.get
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.put
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.remove
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.add_element
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.add_first
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.add_last
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.change_info
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.compare_elements
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.concat
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.exchange
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.get_element
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.get_first
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.get_last
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_element
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_first
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_last
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.sublist of
+msgid "Muestra"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.adjacentEdges:1 of
+msgid ""
+"Retorna una lista con todos los arcos asociados a los vértices adyacentes"
+" de vertex"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.adjacentEdges:5
+#: Src.DISClib.DataStructures.adjlist.adjacents:4 of
+msgid "El vertice del que se quiere la lista"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.adjacentEdges:7 of
+msgid "La lista de arcos adyacentes"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.adjacents:1 of
+msgid "Retorna una lista con todos los vertices adyacentes al vertice vertex"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.adjacents:6 of
+msgid "La lista de adyacencias"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.containsVertex:1 of
+msgid "Retorna si el vertice vertex esta presente en el grafo"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.containsVertex:4 of
+msgid "Vertice que se busca"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.containsVertex:6 of
+msgid "True si el vertice esta presente"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.degree:1 of
+msgid "Retorna el numero de arcos asociados al vertice vertex"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.degree:4
+#: Src.DISClib.DataStructures.adjlist.indegree:4
+#: Src.DISClib.DataStructures.adjlist.outdegree:4 of
+msgid "El vertice del que se desea conocer el grado"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.degree:6
+#: Src.DISClib.DataStructures.adjlist.indegree:6
+#: Src.DISClib.DataStructures.adjlist.outdegree:6 of
+msgid "El grado del vertice"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.edges:1 of
+msgid "Retorna una lista con todos los arcos del grafo graph"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.edges:5 of
+msgid "Una lista con los arcos del grafo"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.getEdge:1 of
+msgid "Retorna el arco asociado a los vertices vertexa ---- vertexb"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.getEdge:5 of
+msgid "Vertice destino"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.getEdge:7 of
+msgid "El arco que une los verices vertexa y vertexb"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.indegree:1 of
+msgid "Retorna el numero de arcos que llegan al vertice vertex"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.insertVertex:1 of
+msgid "Inserta el vertice vertex en el grafo graph"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.insertVertex:4 of
+msgid "El vertice que se desea insertar"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.insertVertex:6 of
+msgid "El grafo graph con el nuevo vertice"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.newGraph:1 of
+msgid "Crea un grafo vacio"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.newGraph:3 of
+msgid "Tamaño inicial del grafo"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.newGraph:4 of
+msgid "Funcion de comparacion"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.newGraph:5 of
+msgid "Indica si el grafo es dirigido o no"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.newGraph:7 of
+msgid "Un nuevo grafo vacío"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.numEdges:1 of
+msgid "Retorna el numero de arcos en el grafo graph"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.numEdges:5
+#: Src.DISClib.DataStructures.adjlist.numVertices:5 of
+msgid "El numero de vertices del grafo"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.numVertices:1 of
+msgid "Retorna el numero de vertices del  grafo graph"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.outdegree:1 of
+msgid "Retorna el numero de arcos que salen del grafo vertex"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.removeVertex:1 of
+msgid "Remueve el vertice vertex del grafo graph"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.removeVertex:4 of
+msgid "El vertice que se desea remover"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.removeVertex:6 of
+msgid "El grafo sin el vertice vertex"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.vertices:1 of
+msgid ""
+"Retorna una lista con todos los vertices del grafo graph :param graph: El"
+" grafo sobre el que se ejecuta la operacion"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjlist.vertices:4 of
+msgid "La lista con los vertices del grafo"
+msgstr ""
+
+#: ../../Src.DISClib.DataStructures.rst:24
+msgid "Src.DISClib.DataStructures.adjmatrix module"
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjmatrix.AdjacencyMatrix:1 of
+msgid ""
+"**AdjacencyMatrix** representa la estructura de datos para arreglos "
+"dinamicos (Array List), Implementada con Generic[T] y @dataclass para que"
+" sea una estructura de datos genérica."
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjmatrix.AdjacencyMatrix:6 of
+msgid "ADT de tipo AdjacencyMatrix o Arreglo Dinámico."
+msgstr ""
+
+#: Src.DISClib.DataStructures.adjmatrix.AdjacencyMatrix.default_cmp_function:1
+#: of
+msgid ""
+"*default_cmp_function()* procesa con algoritmica por defecto la lista de "
+"elementos que procesa el AdjacencyMatrix. Es una función crucial para que"
+" la estructura de datos funcione correctamente."
+msgstr ""
+
+#: ../../Src.DISClib.DataStructures.rst:32
+msgid "Src.DISClib.DataStructures.arraylist module"
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist:1 of
+msgid ""
+"Este ADT representa una estructura de datos lineal, específicamente un "
+"arreglo dinámico (**ArrayList**). El arreglo dinámico es una estructura "
+"de datos que permite almacenar un conjunto de elementos del mismo tipo, "
+"en la cual se puede acceder y procesar sus elementos utilizando las "
+"funciones propias de la estructura."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList:1 of
+msgid ""
+"**ArrayList** representa la estructura de datos para arreglos dinamicos "
+"(*ArrayList*), Implementada con Generic[T] y @dataclass para que sea una "
+"estructura de datos genérica."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList:6 of
+msgid "ADT de tipo *ArrayList* o Arreglo Dinámico."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.add_element:1 of
+msgid ""
+"*add_element()* adiciona un elemento en una posición especifica del "
+"*ArrayList*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.add_element:3
+#: Src.DISClib.DataStructures.arraylist.ArrayList.add_first:3
+#: Src.DISClib.DataStructures.arraylist.ArrayList.add_last:3
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.add_element:3
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.add_first:3
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.add_last:3
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.add_element:3
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.add_first:3
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.add_last:3 of
+msgid "elemento que se desea agregar a la estructura."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.add_element:5
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.add_element:5
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.add_element:5 of
+msgid "posición en la que se desea agregar el elemento."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.add_element:8
+#: Src.DISClib.DataStructures.arraylist.ArrayList.change_info:9
+#: Src.DISClib.DataStructures.arraylist.ArrayList.get_element:7
+#: Src.DISClib.DataStructures.arraylist.ArrayList.remove_element:7
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.add_element:8
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.change_info:9
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.get_element:7
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.remove_element:7
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.add_element:8
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.change_info:9
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.get_element:7
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_element:7 of
+msgid "error si la posición es inválida."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.add_element:9
+#: Src.DISClib.DataStructures.arraylist.ArrayList.change_info:8
+#: Src.DISClib.DataStructures.arraylist.ArrayList.exchange:8
+#: Src.DISClib.DataStructures.arraylist.ArrayList.get_element:6
+#: Src.DISClib.DataStructures.arraylist.ArrayList.get_first:3
+#: Src.DISClib.DataStructures.arraylist.ArrayList.get_last:3
+#: Src.DISClib.DataStructures.arraylist.ArrayList.remove_element:6
+#: Src.DISClib.DataStructures.arraylist.ArrayList.remove_first:3
+#: Src.DISClib.DataStructures.arraylist.ArrayList.remove_last:3
+#: Src.DISClib.DataStructures.arraylist.ArrayList.sublist:8
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.check_bucket:6
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.contains:6
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.get:6
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.remove:6
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.add_element:9
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.change_info:8
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.exchange:8
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.get_element:6
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.get_first:3
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.get_last:3
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.remove_element:6
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.remove_first:3
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.remove_last:3
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.sublist:8
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.check_slots:6
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.contains:6
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.get:6
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.remove:6
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.add_element:9
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.change_info:8
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.exchange:8
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.get_element:6
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.get_first:3
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.get_last:3
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_element:6
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_first:3
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_last:3
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.sublist:8 of
+msgid "error si la estructura está vacía."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.add_first:1 of
+msgid "*add_first()* adiciona un elemento al inicio del *ArrayList*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.add_first:6
+#: Src.DISClib.DataStructures.arraylist.ArrayList.add_last:6
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.put:8
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.add_first:6
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.add_last:6
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.put:8
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.add_first:6
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.add_last:6 of
+msgid ""
+"si la operación no se puede realizar, se invoca la función "
+"*_handle_error()* para manejar el error."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.add_last:1 of
+msgid "*add_last()* adiciona un elemento al final del *ArrayList*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.change_info:1 of
+msgid ""
+"*change_info()* cambia la información de un elemento en la posición "
+"especificada del *ArrayList*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.change_info:3
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.change_info:3
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.change_info:3 of
+msgid "nueva información que se desea para el elemento."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.change_info:5
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.change_info:5
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.change_info:5 of
+msgid "posición del elemento que se desea cambiar."
+msgstr ""
+
+#: ../../docstring
+#: Src.DISClib.DataStructures.arraylist.ArrayList.cmp_function:1 of
+msgid ""
+"Función de comparación personalizable por el usuario para reconocer los "
+"elementos dentro del *ArrayList*. Por defecto es la función "
+"*lt_default_cmp_funcion()* propia de *DISClib*, puede ser un parametro al"
+" crear la estructura."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.compare_elements:1 of
+msgid ""
+"*compare_elements()* compara dos elementos dentro del *ArrayList* según "
+"la función de comparación de la estructura."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.compare_elements:3
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.compare_elements:3
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.compare_elements:3
+#: of
+msgid "Primer elemento a comparar."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.compare_elements:5
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.compare_elements:5
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.compare_elements:5
+#: of
+msgid "Segundo elemento a comparar."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.compare_elements:8
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.compare_elements:8
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.compare_elements:8
+#: of
+msgid "error si la función de comparación no está definida."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.compare_elements:10
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.compare_elements:10
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.compare_elements:10
+#: of
+msgid ""
+"-1 si elem1 es menor que elem2, 0 si son iguales, 1 si elem1 es mayor que"
+" elem2."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.concat:1 of
+msgid ""
+"*concat()* concatena dos estructuras de datos *ArrayList* para crear una "
+"estructura con los elementos de las dos estructuras."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.concat:3 of
+msgid ""
+"estructura de datos *ArrayList* que se desea concatenar con la estructura"
+" original."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.concat:6 of
+msgid "error si la estructura que se desea concatenar no es un *ArrayList*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.concat:7
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.concat:7
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.concat:7 of
+msgid ""
+"error si la llave de la estructura que se desea unir no es la misma que "
+"la llave de la estructura original."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.concat:8
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.concat:8
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.concat:8 of
+msgid ""
+"error si la función de comparación de la estructura que se desea unir no "
+"es la misma que la función de comparación de la estructura original."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.concat:10 of
+msgid ""
+"Estructura de datos original *ArrayList* que contiene los elementos de "
+"las dos estructuras originales."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.default_cmp_function:1 of
+msgid ""
+"*default_cmp_function()* es la función de comparación por defecto para "
+"comparar elementos dentro del *ArrayList*, es una función crucial para "
+"que la estructura funcione correctamente."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.exchange:1 of
+msgid ""
+"*exchange()* intercambia la información de dos elementos en dos "
+"posiciones especificadas del *ArrayList*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.exchange:3
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.exchange:3
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.exchange:3 of
+msgid "posición del primer elemento."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.exchange:5
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.exchange:5
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.exchange:5 of
+msgid "posición del segundo elemento."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.exchange:9
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.exchange:9
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.exchange:9 of
+msgid "error si la posición del primer elemento es inválida."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.exchange:10
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.exchange:10
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.exchange:10 of
+msgid "error si la posición del segundo elemento es inválida."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.find:1 of
+msgid ""
+"*find()* busca el elemento dentro del *ArrayList* y devuelve su posición "
+"o -1 si no lo encuentra."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.find:3 of
+msgid "elemento que se desea revisar en el *ArrayList*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.find:6 of
+msgid "la posición del elemento en el *ArrayList*, -1 si no está."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.get_element:1 of
+msgid ""
+"*get_element()* lee un elemento en una posición especifica del "
+"*ArrayList*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.get_element:3
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.get_element:3
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.get_element:3 of
+msgid "posición del elemento que se desea leer."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.get_element:9 of
+msgid "el elemento en la posición especifica del *ArrayList*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.get_first:1 of
+msgid "*get_first()* lee el primer elemento del *ArrayList*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.get_first:5 of
+msgid "el primer elemento del *ArrayList*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.get_last:1 of
+msgid "*get_last()* lee el último elemento del *ArrayList*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.get_last:5 of
+msgid "el ultimo elemento del *ArrayList*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.is_empty:1 of
+msgid "*is_empty()* revisa si el *ArrayList* está vacío."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.is_empty:3 of
+msgid "operador que indica si la estructura *ArrayList* está vacía."
+msgstr ""
+
+#: ../../docstring Src.DISClib.DataStructures.arraylist.ArrayList.key:1 of
+msgid ""
+"Nombre de la llave personalizable por el usuario utilizada para reconocer"
+" los elementos dentro del *ArrayList*. Por defecto es la llave de "
+"diccionario (*dict*) *DEFAULT_DICT_KEY = 'id'* propia de *DISClib*, puede"
+" ser un parametro al crear la estructura."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.remove_element:1 of
+msgid ""
+"*remove_element()* elimina un elemento en una posición especifica del "
+"*ArrayList*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.remove_element:3
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.remove_element:3
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_element:3 of
+msgid "posición del elemento que se desea eliminar."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.remove_element:9 of
+msgid "el elemento eliminado del *ArrayList*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.remove_first:1 of
+msgid "*remove_first()* elimina el primer elemento del *ArrayList*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.remove_first:5 of
+msgid "el primer elemento eliminado del *ArrayList*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.remove_last:1 of
+msgid "*remove_last()* elimina el último elemento del *ArrayList*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.remove_last:5 of
+msgid "el ultimo elemento eliminado del *ArrayList*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.size:1 of
+msgid ""
+"*size()* devuelve el número de elementos que actualmente contiene el "
+"*ArrayList*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.size:3 of
+msgid "tamaño de la estructura *ArrayList*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.sublist:1 of
+msgid ""
+"*sublist()* crea una sublista de la estructura según dos posiciones "
+"dentro del *ArrayList* original."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.sublist:3
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.sublist:3
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.sublist:3 of
+msgid "posición inicial de la sublista."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.sublist:5
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.sublist:5
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.sublist:5 of
+msgid "posición final de la sublista."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.sublist:9
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.sublist:9
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.sublist:9 of
+msgid "error si la posición inicial o final son inválidas."
+msgstr ""
+
+#: Src.DISClib.DataStructures.arraylist.ArrayList.sublist:11
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.sublist:11
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.sublist:11 of
+msgid ""
+"una sublista de la estructura original con la función de comparación y la"
+" llave de la estructura original."
+msgstr ""
+
+#: ../../Src.DISClib.DataStructures.rst:40
+msgid "Src.DISClib.DataStructures.binarysearchtree module"
+msgstr ""
+
+#: ../../Src.DISClib.DataStructures.rst:48
+msgid "Src.DISClib.DataStructures.bst module"
+msgstr ""
+
+#: ../../Src.DISClib.DataStructures.rst:56
+msgid "Src.DISClib.DataStructures.chaininghashtable module"
+msgstr ""
+
+#: Src.DISClib.DataStructures.chaininghashtable:1 of
+msgid ""
+"Este ADT representa una tabla de hash con el método de encadenamiento por"
+" de separación (**SeparateChaining**). Donde la llave es única para cada "
+"valor y el valor puede ser cualquier tipo de dato."
+msgstr ""
+
+#: Src.DISClib.DataStructures.chaininghashtable:3 of
+msgid ""
+"Ademas, contiene la estructura **Bucket** basada en una lista "
+"sencillamente enlazada (*SingleLinked*) donde se almacenan los registros "
+"(parejas llave-valor) que sufren colisiones en la tabla de hash."
+msgstr ""
+
+#: Src.DISClib.DataStructures.chaininghashtable.Bucket:1 of
+msgid ""
+"Bases: "
+":py:class:`~Src.DISClib.DataStructures.singlelinkedlist.SingleLinked`, "
+":py:class:`~typing.Generic`\\ [:py:obj:`~Src.DISClib.Utils.default.T`]"
+msgstr ""
+
+#: Src.DISClib.DataStructures.chaininghashtable.Bucket:1 of
+msgid ""
+"**Bucket** representa un bucket de una tabla de hash con el método de "
+"encadenamiento por separación (Separate Chaining). La estructura esta "
+"basada (hereda) en una lista sencillamente enlazada (*SingleLinked*) de "
+"*DISCLib*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.chaininghashtable.Bucket:3 of
+msgid ""
+"Clase que representa un bucket de una tabla de hash. Esta clase hereda de"
+" la clase SingleLinked de DISCLib para representar un bucket de una tabla"
+" de hash con el método de encadenamiento por separación (Separate "
+"Chaining)."
+msgstr ""
+
+#: Src.DISClib.DataStructures.chaininghashtable.Bucket:5 of
+msgid ""
+"Lista sencillamente encadenada para representar un *Bucket* en "
+"*SeparateChaining*. Hereda de *SingleLinked*."
+msgstr ""
+
+#: ../../docstring
+#: Src.DISClib.DataStructures.chaininghashtable.DEFAULT_CHAINING_ALPHA:1 of
+msgid ""
+"Factor de carga (*alpha*) por defecto e ideal para el *SeparateChaining*,"
+" por defecto es 4.0."
+msgstr ""
+
+#: ../../docstring
+#: Src.DISClib.DataStructures.chaininghashtable.MAX_CHAINING_ALPHA:1 of
+msgid ""
+"Factor de carga (*alpha*) máximo para el *SeparateChaining*, por defecto "
+"es 8.0."
+msgstr ""
+
+#: ../../docstring
+#: Src.DISClib.DataStructures.chaininghashtable.MIN_CHAINING_ALPHA:1 of
+msgid ""
+"Factor de carga (*alpha*) mínimo para el *SeparateChaining*, por defecto "
+"es 2.0."
+msgstr ""
+
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining:1 of
+msgid ""
+"**SeparateChaining** representa la estructura de datos de una tabla de "
+"hash con el método de encadenamiento por separación (*SeparateChaining*)."
+" En la estructura la información se almacena en registros (parejas llave-"
+"valor) donde la llave es única para cada valor y el valor puede ser "
+"cualquier tipo de dato. El indice es un *ArrayList* donde cada elemento "
+"es un *Bucket* que contiene los registros *MapEntry* que sufren "
+"colisiones en la tabla de hash."
+msgstr ""
+
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining:6 of
+msgid ""
+"ADT de tipo *SeparateChaining* o tabla de hash con separación por "
+"encadenamiento."
+msgstr ""
+
+#: ../../docstring
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.alpha:1 of
+msgid ""
+"Es el factor de carga (*alpha*) con el que se inicializa la tabla de "
+"hash, por defecto es 4.0."
+msgstr ""
+
+#: ../../docstring
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.alpha:3
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.alpha:3 of
+msgid ""
+"*Nota*: alpha = n/M (n: número de entradas esperadas, M: capacidad de la "
+"tabla de hash)."
+msgstr ""
+
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.check_bucket:1
+#: of
+msgid ""
+"*check_bucket()* revisa el *Bucket* asociado a la llave *key* dentro del "
+"*SeparateChaining*. Recupera todo el *Bucket* asociado a la llave y si no"
+" existe, devuelve *None*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.check_bucket:3
+#: of
+msgid "llave asociada al *Bucket* que se desea revisar"
+msgstr ""
+
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.check_bucket:8
+#: of
+msgid ""
+"*Bucket* asociado a la llave *key* que se desea. *None* si no se "
+"encuentra."
+msgstr ""
+
+#: ../../docstring
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.cmp_function:1
+#: of
+msgid ""
+"Función de comparación personalizable por el usuario para reconocer los "
+"registros (pareja llave-valor) dentro del *SeparateChaining*. Por defecto"
+" es la función *lt_default_cmp_funcion()* propia de *DISClib*, puede ser "
+"un parametro al crear la estructura."
+msgstr ""
+
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.contains:1 of
+msgid ""
+"*contains()* responde si el *SeparateChaining* contiene un registro "
+"*MapEntry* con la llave *key*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.contains:3 of
+msgid ""
+"llave del registro (pareja llave-valor) que se desea buscar en el "
+"*SeparateChaining*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.contains:8 of
+msgid ""
+"operador que indica si el *SeparateChaining* contiene o no un registro "
+"con la llave *key*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.default_cmp_function:1
+#: of
+msgid ""
+"*default_cmp_function()* es la función de comparación por defecto para "
+"comparar la llave de un elemento vs. el registro (pareja llave-valor) o "
+"*MapEntry* que se desea agregar al *SeparateChaining*, es una función "
+"crucial para que la estructura funcione correctamente."
+msgstr ""
+
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.default_cmp_function:3
+#: of
+msgid "llave (*key*) del primer registro a comparar."
+msgstr ""
+
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.default_cmp_function:5
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.default_cmp_function:5
+#: of
+msgid "segundo registro (pareja llave-valor) a comparar."
+msgstr ""
+
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.default_cmp_function:8
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.default_cmp_function:8
+#: of
+msgid ""
+"respuesta de la comparación entre los elementos, 0 si las llaves (*key*) "
+"son iguales, 1 si key1 es mayor que la llave (*key*) de entry2, -1 si "
+"key1 es menor."
+msgstr ""
+
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.entries:1 of
+msgid ""
+"*entries()* devuelve una lista (*SingleLinked*) con tuplas de todas los "
+"registros (*MapEntry*) del *SeparateChaining*. Cada tupla contiene en la "
+"primera posición la llave (*key*) y en la segunda posición el valor "
+"(*value*) del registro."
+msgstr ""
+
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.entries:3 of
+msgid ""
+"lista (*SingleLinked*) de tuplas con todas los registros del "
+"*SeparateChaining*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.get:1 of
+msgid ""
+"*get()* recupera el registro *MapEntry* cuya llave *key* sea ogial a la "
+"que se encuentre dentro del *SeparateChaining*, si no existe un registro "
+"con la llave, devuelve *None*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.get:3
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.get:3 of
+msgid "llave asociada al *MapEntry* que se desea buscar."
+msgstr ""
+
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.get:8
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.get:8 of
+msgid ""
+"*MapEntry* asociado a la llave *key* que se desea. *None* si no se "
+"encuentra."
+msgstr ""
+
+#: ../../docstring
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.hash_table:1
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.hash_table:1 of
+msgid ""
+"Es el indice de la tabla Hash donde se almacenan los *Buckets*. Por "
+"defecto es un *ArrayList* vacío que se inicializa con la capacidad (M) "
+"configurada."
+msgstr ""
+
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.is_empty:1 of
+msgid "*is_empty()* revisa si el *SeparateChaining* está vacío."
+msgstr ""
+
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.is_empty:3 of
+msgid "operador que indica si la estructura *SeparateChaining* está vacía."
+msgstr ""
+
+#: ../../docstring
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.key:1 of
+msgid ""
+"Nombre de la llave personalizable por el usuario utilizada para reconocer"
+" los registros (pareja llave-valor) dentro del *SeparateChaining*. Por "
+"defecto es la llave de diccionario (*dict*) *DEFAULT_DICT_KEY = 'id'* "
+"propia de *DISClib*, puede ser un parametro al crear la estructura."
+msgstr ""
+
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.keys:1 of
+msgid ""
+"*keys()* devuelve una lista (*SingleLinked*) con todas las llaves (*key*)"
+" de los registros (*MapEntry*) del *SeparateChaining*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.keys:3 of
+msgid ""
+"lista (*SingleLinked*) con todas las llaves (*key*) del "
+"*SeparateChaining*."
+msgstr ""
+
+#: ../../docstring
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.max_alpha:1 of
+msgid ""
+"Es el factor de carga máximo de la tabla de hash, por defecto es 8.0 "
+"definido en el parametro *MAX_CHAINING_ALPHA* propio de *DISClib*."
+msgstr ""
+
+#: ../../docstring
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.mcapacity:1
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.mcapacity:1 of
+msgid "Es la capacidad (M) con la que se inicializa la tabla de hash."
+msgstr ""
+
+#: ../../docstring
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.min_alpha:1 of
+msgid ""
+"Es el factor de carga (*alpha*) mínimo de la tabla de hash, por defecto "
+"es 2.0 definido en el parametro *MIN_CHAINING_ALPHA* propio de *DISClib*."
+msgstr ""
+
+#: ../../docstring
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.nentries:1
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.nentries:1 of
+msgid ""
+"espacio inicial reservado para la tabla de hash (n), por defecto es 1, "
+"pero debe configurarse según el número de entradas que se espera "
+"almacenar."
+msgstr ""
+
+#: ../../docstring
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.nentries:3
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.nentries:3 of
+msgid ""
+"*Nota*: el espacio reservado (n) no es la capacidad (M) de la tabla de "
+"hash."
+msgstr ""
+
+#: ../../docstring
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.prime:1
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.prime:1 of
+msgid ""
+"Es el número entero primo (P) utilizado para calcular el hash para la "
+"llave de la tabla utilizando la función de compresión MAD. Por defecto es"
+" 109345121 definido en el parametro *DEFAULT_PRIME* propio de *DISClib*."
+msgstr ""
+
+#: ../../docstring
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.prime:3
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.prime:3 of
+msgid ""
+"*Nota:* la función MAD es: *h(k) = ((a*k + b) mod P) mod M*, donde *a* y "
+"*b* son números enteros aleatorios, *P* es un número primo y *M* es la "
+"capacidad de la tabla de hash."
+msgstr ""
+
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.put:1 of
+msgid ""
+"*put()* agrega un nuevo registro *MapEntry* al *SeparateChaining*, si la "
+"llave *key* ya existe en el *SeparateChaining* se reemplaza su valor "
+"*value*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.put:3
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.put:3 of
+msgid "llave asociada la nuevo *MapEntry*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.put:5
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.put:5 of
+msgid "el valor asociado al nuevo *MapEntry*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.rehash:1
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.rehash:1 of
+msgid ""
+"*rehash()* reconstruye la tabla de hash con una nueva capacidad (*M*) y "
+"un nuevo factor de carga (*alpha*) según los límites configurados por los"
+" parametros *max_alpha* y *min_alpha*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.rehash:3
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.rehash:3 of
+msgid ""
+"Si el factor de carga (*alpha*) es mayor que el límite superior "
+"(*max_alpha*), se duplica la capacidad (*M*) buscando el siguiente número"
+" primo (*P*) reconstruyendo la tabla."
+msgstr ""
+
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.rehash:5
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.rehash:5 of
+msgid ""
+"Si el factor de carga (*alpha) es menor que el límite inferior "
+"(*min_alpha*), se reduce a la mitad la capacidad (*M*) de la tabla "
+"buscando el siguiente número primo (*P*) reconstruyendo la tabla."
+msgstr ""
+
+#: ../../docstring
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.rehashable:1
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.rehashable:1 of
+msgid ""
+"Es el operador que indica si la tabla de hash se puede reconstruir "
+"utilizando el método de *rehash*, por defecto es 'True'."
+msgstr ""
+
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.remove:1 of
+msgid ""
+"*remove()* elimina el registro *MapEntry* cuya llave *key* sea igual a la"
+" que se encuentre dentro del *SeparateChaining*, si no existe un registro"
+" con la llave, genera un error."
+msgstr ""
+
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.remove:3
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.remove:3 of
+msgid "llave asociada al *MapEntry* que se desea eliminar."
+msgstr ""
+
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.remove:7 of
+msgid ""
+"error si el registro que se desea eliminar no existe dentro del "
+"*SeparateChaining*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.remove:9 of
+msgid ""
+"registro *MapEntry* que se eliminó del *SeparateChaining*. *None* si no "
+"existe el registro asociada a la llave *key*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.size:1 of
+msgid ""
+"*size()* devuelve el numero de entradas *MapEntry* que actualmente "
+"contiene el *SeparateChaining*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.size:3 of
+msgid "tamaño de la estructura *SeparateChaining*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.values:1 of
+msgid ""
+"*values()* devuelve una lista (*SingleLinked*) con todos los valores de "
+"los registros (*MapEntry*) del *SeparateChaining*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.chaininghashtable.SeparateChaining.values:3 of
+msgid ""
+"lista (*SingleLinked*) con todos los valores (*value*) del "
+"*SeparateChaining*."
+msgstr ""
+
+#: ../../Src.DISClib.DataStructures.rst:64
+msgid "Src.DISClib.DataStructures.doublelinkedlist module"
+msgstr ""
+
+#: Src.DISClib.DataStructures.doublelinkedlist:1 of
+msgid ""
+"Este ADT representa una estructura de datos lineal, específicamente una "
+"lista doblemente enlazada/encadenada (**DoubleLinked**). Esta estructura "
+"de datos es una secuencia de nodos enlazados, donde cada nodo contiene un"
+" elemento de información, una referencia al siguiente, y al anterior nodo"
+" en la secuencia. Esto le permite a la lista un crecimiento y reducción "
+"dinámico en la memoria disponible."
+msgstr ""
+
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked:1 of
+msgid ""
+"**DoubleLinked** representa una estructura de datos para una lista "
+"doblemente enlazada/encadenada (*DoubleLinked*). Implementada con "
+"Generic[T] y @dataclass para que sea una estructura de datos genérica."
+msgstr ""
+
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked:6 of
+msgid "ADT de tipo *DoubleLinked* o Lista Doblemente Encadenada."
+msgstr ""
+
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.add_element:1 of
+msgid ""
+"*add_element()* adiciona un elemento en una posición especifica del "
+"*DoubleLinked*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.add_first:1 of
+msgid "*add_first()* adiciona un elemento al inicio del *DoubleLinked*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.add_last:1 of
+msgid "*add_last()* adiciona un elemento al final del *DoubleLinked*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.change_info:1 of
+msgid ""
+"*change_info()* cambia la información de un elemento en la posición "
+"especificada del *DoubleLinked*."
+msgstr ""
+
+#: ../../docstring
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.cmp_function:1 of
+msgid ""
+"Función de comparación personalizable por el usuario para reconocer los "
+"elementos dentro del *DoubleLinked*. Por defecto es la función "
+"*lt_default_cmp_funcion()* propia de *DISClib*, puede ser un parametro al"
+" crear la estructura."
+msgstr ""
+
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.compare_elements:1
+#: of
+msgid ""
+"*compare_elements()* compara dos elementos dentro del *DoubleLinked* "
+"según la función de comparación de la estructura."
+msgstr ""
+
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.concat:1 of
+msgid ""
+"*concat()* concatena dos estructuras de datos *DoubleLinked* para crear "
+"una estructura con los elementos de las dos estructuras."
+msgstr ""
+
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.concat:3 of
+msgid ""
+"estructura de datos *DoubleLinked* que se desea concatenar con la "
+"estructura original."
+msgstr ""
+
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.concat:6 of
+msgid "error si la estructura que se desea concatenar no es un *DoubleLinked*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.concat:10 of
+msgid ""
+"Estructura de datos original *DoubleLinked* que contiene los elementos de"
+" las dos estructuras originales."
+msgstr ""
+
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.default_cmp_function:1
+#: of
+msgid ""
+"*default_cmp_function()* es la función de comparación por defecto para "
+"comparar elementos dentro del *DoubleLinked*, es una función crucial para"
+" que la estructura funcione correctamente."
+msgstr ""
+
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.exchange:1 of
+msgid ""
+"*exchange()* intercambia la información de dos elementos en dos "
+"posiciones especificadas del *DoubleLinked*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.find:1 of
+msgid ""
+"*find()* busca el elemento dentro del *DoubleLinked* y devuelve su "
+"posición o -1 si no lo encuentra."
+msgstr ""
+
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.find:3 of
+msgid "elemento que se desea revisar en el *DoubleLinked*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.find:6 of
+msgid "la posición del elemento en el *DoubleLinked*, -1 si no está."
+msgstr ""
+
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.get_element:1 of
+msgid ""
+"*get_element()* lee un elemento en una posición especifica del "
+"*DoubleLinked*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.get_element:9 of
+msgid "el elemento en la posición especifica del *DoubleLinked*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.get_first:1 of
+msgid "*get_first()* lee el primer elemento del *DoubleLinked*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.get_first:5 of
+msgid "el primer elemento del *DoubleLinked*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.get_last:1 of
+msgid "*get_last()* lee el último elemento del *DoubleLinked*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.get_last:5 of
+msgid "el ultimo elemento del *DoubleLinked*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.is_empty:1 of
+msgid "*is_empty()* revisa si el *DoubleLinked* está vacío."
+msgstr ""
+
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.is_empty:3 of
+msgid "operador que indica si la estructura *DoubleLinked* está vacía."
+msgstr ""
+
+#: ../../docstring
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.key:1 of
+msgid ""
+"Nombre de la llave personalizable por el usuario utilizada para reconocer"
+" los elementos dentro del *DoubleLinked*. Por defecto es la llave de "
+"diccionario (*dict*) *DEFAULT_DICT_KEY = 'id'* propia de *DISClib*, puede"
+" ser un parametro al crear la estructura."
+msgstr ""
+
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.remove_element:1 of
+msgid ""
+"*remove_element()* elimina un elemento en una posición especifica del "
+"*DoubleLinked*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.remove_element:9 of
+msgid "el elemento eliminado del *DoubleLinked*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.remove_first:1 of
+msgid "*remove_first()* elimina el primer elemento del *DoubleLinked*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.remove_first:5 of
+msgid "el primer elemento eliminado del *DoubleLinked*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.remove_last:1 of
+msgid "*remove_last()* elimina el último elemento del *DoubleLinked*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.remove_last:5 of
+msgid "el ultimo elemento eliminado del *DoubleLinked*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.size:1 of
+msgid ""
+"*size()* devuelve el número de elementos que actualmente contiene el "
+"*DoubleLinked*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.size:3 of
+msgid "tamaño de la estructura *DoubleLinked*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.sublist:1 of
+msgid ""
+"*sublist()* crea una sublista de la estructura según dos posiciones "
+"dentro del *DoubleLinked* original."
+msgstr ""
+
+#: ../../Src.DISClib.DataStructures.rst:72
+msgid "Src.DISClib.DataStructures.heap module"
+msgstr ""
+
+#: Src.DISClib.DataStructures.heap:1 of
+msgid "Copyright 2020, Departamento de sistemas y Computación,"
+msgstr ""
+
+#: Src.DISClib.DataStructures.heap:2 of
+msgid "Universidad de Los Andes"
+msgstr ""
+
+#: Src.DISClib.DataStructures.heap:4 Src.DISClib.DataStructures.iminpqnode:3 of
+msgid "Desarrollado para el curso ISIS1225 - Estructuras de Datos y Algoritmos"
+msgstr ""
+
+#: Src.DISClib.DataStructures.heap:7 Src.DISClib.DataStructures.iminpqnode:6 of
+msgid "This program is free software: you can redistribute it and/or modify"
+msgstr ""
+
+#: Src.DISClib.DataStructures.heap:8 Src.DISClib.DataStructures.iminpqnode:7 of
+msgid "it under the terms of the GNU General Public License as published by"
+msgstr ""
+
+#: Src.DISClib.DataStructures.heap:9 Src.DISClib.DataStructures.iminpqnode:8 of
+msgid "the Free Software Foundation, either version 3 of the License, or"
+msgstr ""
+
+#: Src.DISClib.DataStructures.heap:10 Src.DISClib.DataStructures.iminpqnode:9
+#: of
+msgid "(at your option) any later version."
+msgstr ""
+
+#: Src.DISClib.DataStructures.heap:12 Src.DISClib.DataStructures.iminpqnode:11
+#: of
+msgid "This program is distributed in the hope that it will be useful,"
+msgstr ""
+
+#: Src.DISClib.DataStructures.heap:13 Src.DISClib.DataStructures.iminpqnode:12
+#: of
+msgid "but WITHOUT ANY WARRANTY; without even the implied warranty of"
+msgstr ""
+
+#: Src.DISClib.DataStructures.heap:14 Src.DISClib.DataStructures.iminpqnode:13
+#: of
+msgid "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the"
+msgstr ""
+
+#: Src.DISClib.DataStructures.heap:15 Src.DISClib.DataStructures.iminpqnode:14
+#: of
+msgid "GNU General Public License for more details."
+msgstr ""
+
+#: Src.DISClib.DataStructures.heap:17 Src.DISClib.DataStructures.iminpqnode:16
+#: of
+msgid "You should have received a copy of the GNU General Public License"
+msgstr ""
+
+#: Src.DISClib.DataStructures.heap:18 Src.DISClib.DataStructures.iminpqnode:17
+#: of
+msgid "along with this program.  If not, see <http://www.gnu.org/licenses/>."
+msgstr ""
+
+#: Src.DISClib.DataStructures.heap:20 of
+msgid "Contribución de:"
+msgstr ""
+
+#: Src.DISClib.DataStructures.heap:22 of
+msgid "Dario Correal"
+msgstr ""
+
+#: Src.DISClib.DataStructures.heap.delMin:1 of
+msgid ""
+"Retorna el menor elemento del heap y lo elimina. Se reemplaza con el "
+"último elemento y se hace sink."
+msgstr ""
+
+#: Src.DISClib.DataStructures.heap.delMin:4
+#: Src.DISClib.DataStructures.heap.insert:4
+#: Src.DISClib.DataStructures.heap.isEmpty:3
+#: Src.DISClib.DataStructures.heap.min:3 Src.DISClib.DataStructures.heap.sink:3
+#: Src.DISClib.DataStructures.heap.size:3
+#: Src.DISClib.DataStructures.heap.swim:4 of
+msgid "El arreglo con la informacion"
+msgstr ""
+
+#: Src.DISClib.DataStructures.heap.delMin:6 of
+msgid "El menor elemento eliminado"
+msgstr ""
+
+#: Src.DISClib.DataStructures.heap.exchange:1 of
+msgid "Intercambia los elementos en las posiciones posa y posb del heap"
+msgstr ""
+
+#: Src.DISClib.DataStructures.heap.greater:1 of
+msgid "Indica si el elemento 1 es mayor que el elemento 2"
+msgstr ""
+
+#: Src.DISClib.DataStructures.heap.insert:1 of
+msgid ""
+"Guarda la pareja llave-valor en el heap. Lo guarda en la última posición "
+"y luego hace swim del elemento"
+msgstr ""
+
+#: Src.DISClib.DataStructures.heap.insert:5 of
+msgid "El elemento a guardar"
+msgstr ""
+
+#: Src.DISClib.DataStructures.heap.insert:7 of
+msgid "El heap con el nuevo elemento"
+msgstr ""
+
+#: Src.DISClib.DataStructures.heap.isEmpty:1 of
+msgid "Indica si el heap está vacío"
+msgstr ""
+
+#: Src.DISClib.DataStructures.heap.isEmpty:5 of
+msgid "True si el heap es vacio"
+msgstr ""
+
+#: Src.DISClib.DataStructures.heap.min:1 of
+msgid "Retorna el primer elemento del heap, es decir el menor elemento"
+msgstr ""
+
+#: Src.DISClib.DataStructures.heap.min:5 of
+msgid "El menor elemento del heap"
+msgstr ""
+
+#: Src.DISClib.DataStructures.heap.newHeap:1 of
+msgid ""
+"Crea un nuevo heap basado en un arreglo, cuyo primer elemento es "
+"inicializado en None y no será utilizado"
+msgstr ""
+
+#: Src.DISClib.DataStructures.heap.newHeap:4 of
+msgid "La función de comparacion"
+msgstr ""
+
+#: Src.DISClib.DataStructures.heap.newHeap:5 of
+msgid "El numero de elementos"
+msgstr ""
+
+#: Src.DISClib.DataStructures.heap.newHeap:7 of
+msgid "El heap"
+msgstr ""
+
+#: Src.DISClib.DataStructures.heap.sink:1 of
+msgid "Ubica en la posición correcta un elemento ubicado en la raíz del heap"
+msgstr ""
+
+#: Src.DISClib.DataStructures.heap.sink:4
+#: Src.DISClib.DataStructures.heap.swim:5 of
+msgid "posicion en el arreglo a revisar"
+msgstr ""
+
+#: Src.DISClib.DataStructures.heap.sink:6
+#: Src.DISClib.DataStructures.heap.swim:7 of
+msgid "El arreglo en forma de heap"
+msgstr ""
+
+#: Src.DISClib.DataStructures.heap.size:1 of
+msgid "Retorna el número de elementos en el heap"
+msgstr ""
+
+#: Src.DISClib.DataStructures.heap.size:5 of
+msgid "El tamaño del heap"
+msgstr ""
+
+#: Src.DISClib.DataStructures.heap.swim:1 of
+msgid "Ubica en el lugar indicado un elemento adicionado en la última posición"
+msgstr ""
+
+#: ../../Src.DISClib.DataStructures.rst:80
+msgid "Src.DISClib.DataStructures.iminpqnode module"
+msgstr ""
+
+#: Src.DISClib.DataStructures.iminpqnode:1 of
+msgid ""
+"Copyright 2020, Departamento de sistemas y Computación, Universidad de "
+"Los Andes"
+msgstr ""
+
+#: ../../Src.DISClib.DataStructures.rst:88
+msgid "Src.DISClib.DataStructures.indexheap module"
+msgstr ""
+
+#: ../../Src.DISClib.DataStructures.rst:96
+msgid "Src.DISClib.DataStructures.leftleaningrbtree module"
+msgstr ""
+
+#: Src.DISClib.DataStructures.leftleaningrbtree.LeftLeanRedBlackTree:1 of
+msgid ""
+"**LeftLeanRedBlackTree** representa la estructura de datos para arreglos "
+"dinamicos (Array List), Implementada con Generic[T] y @dataclass para que"
+" sea una estructura de datos genérica."
+msgstr ""
+
+#: Src.DISClib.DataStructures.leftleaningrbtree.LeftLeanRedBlackTree:6 of
+msgid "ADT de tipo LeftLeanRedBlackTree o Arreglo Dinámico."
+msgstr ""
+
+#: Src.DISClib.DataStructures.leftleaningrbtree.LeftLeanRedBlackTree.default_cmp_function:1
+#: of
+msgid ""
+"*default_cmp_function()* procesa con algoritmica por defecto la lista de "
+"elementos que procesa el LeftLeanRedBlackTree. Es una función crucial "
+"para que la estructura de datos funcione correctamente."
+msgstr ""
+
+#: ../../docstring
+#: Src.DISClib.DataStructures.leftleaningrbtree.LeftLeanRedBlackTree.iodata:1
+#: of
+msgid ""
+"Lista nativa de Python personalizable por el usuario para inicializar la "
+"estructura. Por defecto es *None* y el usuario puede incluirla como "
+"argumento al crear la estructura.uctura.uctura.uctura."
+msgstr ""
+
+#: ../../docstring
+#: Src.DISClib.DataStructures.leftleaningrbtree.LeftLeanRedBlackTree.key:1 of
+msgid ""
+"Nombre de la llave opcional que se utiliza para comparar los elementos "
+"del LeftLeanRedBlackTree, Por defecto es *None* y el *__post_init__()* "
+"configura la llave por defecto la llave 'id' en *DEFAULT_DICT_KEY*."
+msgstr ""
+
+#: ../../Src.DISClib.DataStructures.rst:104
+msgid "Src.DISClib.DataStructures.listnode module"
+msgstr ""
+
+#: Src.DISClib.DataStructures.listnode:1 of
+msgid ""
+"Estos ADTs representan los nodos para una lista sencillamente encadenada "
+"(**SingleNode**) y una lista doblemente encadenada (**DoubleNode**)."
+msgstr ""
+
+#: Src.DISClib.DataStructures.listnode:3 of
+msgid ""
+"Estos nodos se utilizan respectivamente en las estructuras dinámicas de "
+"lista sencillamente encadenada (**LinkedList**) y lista doblemente "
+"encadenada (**DoubleLinkedList**). Las cuales NO tienen un tamaño fijo y "
+"pueden crecer indefinidamente en la memoria disponible."
+msgstr ""
+
+#: Src.DISClib.DataStructures.listnode.DoubleNode:1 of
+msgid ""
+"Bases: :py:class:`~Src.DISClib.DataStructures.listnode.SingleNode`, "
+":py:class:`~typing.Generic`\\ [:py:obj:`~Src.DISClib.Utils.default.T`]"
+msgstr ""
+
+#: Src.DISClib.DataStructures.listnode.DoubleNode:1 of
+msgid ""
+"**DoubleNode** representa un nodo de una lista doblemente encadenada. "
+"Basada en el ADT *SingleNode* que contiene la información del nodo."
+msgstr ""
+
+#: Src.DISClib.DataStructures.listnode.DoubleNode:3
+#: Src.DISClib.DataStructures.listnode.SingleNode:3 of
+msgid "ADT base para implementar un nodo con información genérica."
+msgstr ""
+
+#: Src.DISClib.DataStructures.listnode.DoubleNode:8 of
+msgid "ADT para un *DoubleNode* o nodo para una lista doblemente encadenada."
+msgstr ""
+
+#: Src.DISClib.DataStructures.listnode.DoubleNode.prev:1 of
+msgid ""
+"*prev()* recupera la referencia al anterior *DoubleNode* de la lista. Si "
+"no existe retorna *None*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.listnode.DoubleNode.prev:3 of
+msgid "referencia al anterior *DoubleNode* si existe."
+msgstr ""
+
+#: Src.DISClib.DataStructures.listnode.SingleNode:1 of
+msgid ""
+"Bases: :py:class:`~Src.DISClib.DataStructures.node.Node`, "
+":py:class:`~typing.Generic`\\ [:py:obj:`~Src.DISClib.Utils.default.T`]"
+msgstr ""
+
+#: Src.DISClib.DataStructures.listnode.SingleNode:1 of
+msgid ""
+"**SingleNode** representa un nodo de una lista sencillamente encadenada. "
+"Basada en el ADT *Node* que contiene la información del nodo."
+msgstr ""
+
+#: Src.DISClib.DataStructures.listnode.SingleNode:8 of
+msgid "ADT para un *SingleNode* o nodo para una lista sencillamente encadenada."
+msgstr ""
+
+#: Src.DISClib.DataStructures.listnode.SingleNode.next:1 of
+msgid ""
+"*next()* recupera la referencia el siguiente nodo de la lista. Si no "
+"existe retorna *None*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.listnode.SingleNode.next:3 of
+msgid "referencia al siguiente *Node* de la lista si existe."
+msgstr ""
+
+#: ../../Src.DISClib.DataStructures.rst:112
+msgid "Src.DISClib.DataStructures.mapentry module"
+msgstr ""
+
+#: Src.DISClib.DataStructures.mapentry:1 of
+msgid ""
+"Este ADT representa la registro de un Mapa no Ordenado (**MapEntry**), el"
+" cual es una estructura de datos para almacenar la información en parejas"
+" de llave-valor (key-value). La llave (*key*) es un identificador único "
+"para cada valor (*value*) almacenado en el Mapa no Ordenado (*Map*). Por "
+"su parte, el valor (*value*) puede ser cualquier tipo de dato."
+msgstr ""
+
+#: Src.DISClib.DataStructures.mapentry:3 of
+msgid ""
+"En el caso de las tablas de Hash, la llave (*key*) es el resultado de "
+"aplicar una función hash al valor (*value*) almacenado en el Mapa no "
+"Ordenado (*Map*). Esta estructura de datos es fundamental para "
+"implementar otros mapas no ordenados como: tablas de símbolos, "
+"diccionarios, entre otros."
+msgstr ""
+
+#: Src.DISClib.DataStructures.mapentry:5 of
+msgid ""
+"*DISCLib* utiliza el *MapEntry* para guardar la información de las tablas"
+" de Hash por Encadenamiento Separado (*SeparateChaining*) y las tablas "
+"por Sondeo Lineal (*LinearProbing)."
+msgstr ""
+
+#: Src.DISClib.DataStructures.mapentry.MapEntry:1 of
+msgid ""
+"**MapEntry** representa un registro de un mapa no ordenado, contiene la "
+"llave (*key*) y el valor (*value*). Donde la llave es única para cada "
+"valor y el valor puede ser cualquier tipo de dato."
+msgstr ""
+
+#: Src.DISClib.DataStructures.mapentry.MapEntry:6 of
+msgid "ADT de tipo *MapEntry* o registro de un mapa no ordenado."
+msgstr ""
+
+#: Src.DISClib.DataStructures.mapentry.MapEntry.get_key:1 of
+msgid "*get_key()* recupera la llave 'key' contenida en el registro del mapa."
+msgstr ""
+
+#: Src.DISClib.DataStructures.mapentry.MapEntry.get_key:3 of
+msgid "la llave del registro del mapa."
+msgstr ""
+
+#: Src.DISClib.DataStructures.mapentry.MapEntry.get_value:1 of
+msgid "*get_value()* recupera el valor 'value' contenido en el registro del mapa."
+msgstr ""
+
+#: Src.DISClib.DataStructures.mapentry.MapEntry.get_value:3 of
+msgid "el valor del registro del mapa."
+msgstr ""
+
+#: Src.DISClib.DataStructures.mapentry.MapEntry.set_key:1 of
+msgid "*set_key()* introduce una nueva llave 'key' al registro del mapa."
+msgstr ""
+
+#: Src.DISClib.DataStructures.mapentry.MapEntry.set_key:3 of
+msgid "la nueva llave del registro del mapa."
+msgstr ""
+
+#: Src.DISClib.DataStructures.mapentry.MapEntry.set_value:1 of
+msgid "*set_value()* introduce un nuevo valor 'value' al registro del mapa."
+msgstr ""
+
+#: Src.DISClib.DataStructures.mapentry.MapEntry.set_value:3 of
+msgid "el nuevo valor del registro del mapa."
+msgstr ""
+
+#: ../../Src.DISClib.DataStructures.rst:120
+msgid "Src.DISClib.DataStructures.node module"
+msgstr ""
+
+#: Src.DISClib.DataStructures.node:1 of
+msgid ""
+"Este ADT representa un nodo **Node** de información de una estructura de "
+"datos dinámica, las cuales pueden ser: listas sencillas, listas "
+"doblemente encadenadas, pilas, colas, BST, RBT, entre otras."
+msgstr ""
+
+#: Src.DISClib.DataStructures.node.Node:1 of
+msgid ""
+"**Node** Es el ADT que representar la información de un nodo de una "
+"estructura de datos dinámica y las funciones basicas para acceder a ella."
+" Puede utilizarse para representar un nodo de una lista sencilla o "
+"doblemente encadenada."
+msgstr ""
+
+#: Src.DISClib.DataStructures.node.Node:6 of
+msgid "ADT de tipo *Node* o nodo de información."
+msgstr ""
+
+#: Src.DISClib.DataStructures.node.Node.get_info:1 of
+msgid "*get_info()* recupera la información de *Node*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.node.Node.get_info:3 of
+msgid "información de *Node*."
+msgstr ""
+
+#: ../../docstring Src.DISClib.DataStructures.node.Node.info:1 of
+msgid "Es la información contenida en el nodo."
+msgstr ""
+
+#: Src.DISClib.DataStructures.node.Node.set_info:1 of
+msgid "*set_info()* establece la información de *Node*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.node.Node.set_info:3 of
+msgid "información que se desea actualizar en *Node*."
+msgstr ""
+
+#: ../../Src.DISClib.DataStructures.rst:128
+msgid "Src.DISClib.DataStructures.probinghashtable module"
+msgstr ""
+
+#: Src.DISClib.DataStructures.probinghashtable:1 of
+msgid ""
+"Este ADT representa una tabla de hash con el método de sondeo lineal "
+"(**LinearProbing**). Donde la llave es única para cada valor y el valor "
+"puede ser cualquier tipo de dato."
+msgstr ""
+
+#: Src.DISClib.DataStructures.probinghashtable:3 of
+msgid ""
+"En particular tiene funciones para encontrar espacio (*slots*) y "
+"registros (pareja llave-valor) disponibles en la tabla en caso de "
+"colisiones segun el metodo de sondeo lineal."
+msgstr ""
+
+#: ../../docstring
+#: Src.DISClib.DataStructures.probinghashtable.DEFAULT_PROBING_ALPHA:1 of
+msgid ""
+"Factor de carga (*alpha*) por defecto e ideal para el *LinearProbing*, "
+"por defecto es 0.50."
+msgstr ""
+
+#: ../../docstring Src.DISClib.DataStructures.probinghashtable.EMPTY:1 of
+msgid ""
+"Constante que representa un registro vacío en el *LinearProbing*, por "
+"defecto es \"__EMPTY__\"."
+msgstr ""
+
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing:1 of
+msgid ""
+"**LinearProbing** representa la estructura de datos de una tabla de hash "
+"con el método de encadenamiento por separación (*LinearProbing*). En la "
+"estructura la información se almacena en registros (parejas llave-valor) "
+"donde la llave es única para cada valor y el valor puede ser cualquier "
+"tipo de dato. El indice es un *ArrayList* donde cada elemento es un "
+"espacio (*slot*) de la tabla de hash, y cada espacio (*slot*) contiene un"
+" registro *MapEntry* (pareja llave-valor) o está vacío (None | EMPTY"
+msgstr ""
+
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing:6 of
+msgid ""
+"ADT de tipo *LinearProbing* o tabla de hash con separación por "
+"encadenamiento."
+msgstr ""
+
+#: ../../docstring
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.alpha:1 of
+msgid ""
+"Es el factor de carga (*alpha*) con el que se inicializa la tabla de "
+"hash, por defecto es 0.50."
+msgstr ""
+
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.check_slots:1 of
+msgid ""
+"*check_slots()* recupera la lista (*SingleLinked*) de registros (parejas "
+"llave-valor) asociadas a la llave *key* dentro del *LinearProbing*. "
+"Recupera los *MapEntry* con el mismo hash y si no existe, devuelve "
+"*None*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.check_slots:3 of
+msgid "llave asociada a los *MapEntry* y *Slots* que se desean buscar."
+msgstr ""
+
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.check_slots:8 of
+msgid ""
+"lista sencillamente encadenada (*SingleLinked*) con todas los *MapEntry* "
+"asociados a la llave *key* dentro del *LinearProbing*."
+msgstr ""
+
+#: ../../docstring
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.cmp_function:1 of
+msgid ""
+"Función de comparación personalizable por el usuario para reconocer los "
+"registros (pareja llave-valor) dentro del *LinearProbing*. Por defecto es"
+" la función *lt_default_cmp_funcion()* propia de *DISClib*, puede ser un "
+"parametro al crear la estructura."
+msgstr ""
+
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.contains:1 of
+msgid ""
+"*contains()* responde si el *LinearProbing* contiene un registro "
+"*MapEntry* con la llave *key*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.contains:3 of
+msgid ""
+"llave del registro (pareja llave-valor) que se desea buscar en el "
+"*LinearProbing*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.contains:8 of
+msgid ""
+"operador que indica si el *LinearProbing* contiene o no un registro con "
+"la llave *key*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.default_cmp_function:1
+#: of
+msgid ""
+"*default_cmp_function()* es la función de comparación por defecto para "
+"comparar la llave de un elemento vs. el registro (pareja llave-valor) o "
+"*MapEntry* que se desea agregar al *LinearProbing*, es una función "
+"crucial para que la estructura funcione correctamente."
+msgstr ""
+
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.default_cmp_function:3
+#: of
+msgid "llave (*key*) de la primer registro a comparar."
+msgstr ""
+
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.entries:1 of
+msgid ""
+"*entries()* devuelve una lista (*SingleLinked*) con tuplas de todas los "
+"registros (*MapEntry*) del *LinearProbing*. Cada tupla contiene en la "
+"primera posición la llave (*key*) y en la segunda posición el valor "
+"(*value*) del registro."
+msgstr ""
+
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.entries:3 of
+msgid ""
+"lista (*SingleLinked*) de tuplas con todas los registros del "
+"*LinearProbing*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.get:1 of
+msgid ""
+"*get()* recupera el registro *MapEntry* cuya llave *key* sea ogial a la "
+"que se encuentre dentro del *LinearProbing*, si no existe un registro con"
+" la llave, devuelve *None*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.is_empty:1 of
+msgid "*is_empty()* revisa si el *LinearProbing* está vacío."
+msgstr ""
+
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.is_empty:3 of
+msgid "operador que indica si la estructura *LinearProbing* está vacía."
+msgstr ""
+
+#: ../../docstring
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.key:1 of
+msgid ""
+"Nombre de la llave personalizable por el usuario utilizada para reconocer"
+" los registros (pareja llave-valor) dentro del *LinearProbing*. Por "
+"defecto es la llave de diccionario (*dict*) *DEFAULT_DICT_KEY = 'id'* "
+"propia de *DISClib*, puede ser un parametro al crear la estructura."
+msgstr ""
+
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.keys:1 of
+msgid ""
+"*keys()* devuelve una lista (*SingleLinked*) con todas las llaves (*key*)"
+" de los registros (*MapEntry*) del *LinearProbing*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.keys:3 of
+msgid "lista (*SingleLinked*) con todas las llaves (*key*) del *LinearProbing*."
+msgstr ""
+
+#: ../../docstring
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.max_alpha:1 of
+msgid ""
+"Es el factor de carga máximo de la tabla de hash, por defecto es 0.80 "
+"definido en el parametro *MAX_PROBING_ALPHA* propio de *DISClib*."
+msgstr ""
+
+#: ../../docstring
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.min_alpha:1 of
+msgid ""
+"Es el factor de carga (*alpha*) mínimo de la tabla de hash, por defecto "
+"es 0.20 definido en el parametro *MIN_PROBING_ALPHA* propio de *DISClib*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.put:1 of
+msgid ""
+"*put()* agrega una nuevo registro *MapEntry* al *LinearProbing*, si la "
+"llave *key* ya existe en el *LinearProbing* se reemplaza su valor "
+"*value*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.remove:1 of
+msgid ""
+"*remove()* elimina el registro *MapEntry* cuya llave *key* sea igual a la"
+" que se encuentre dentro del *LinearProbing*, si no existe un registro "
+"con la llave, genera un error."
+msgstr ""
+
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.remove:7 of
+msgid ""
+"error si el registro que se desea eliminar no existe dentro del "
+"*LinearProbing*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.remove:9 of
+msgid ""
+"registro *MapEntry* que se eliminó del *LinearProbing*. *None* si no "
+"existe el registro asociada a la llave *key*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.size:1 of
+msgid ""
+"*size()* devuelve el numero de entradas *MapEntry* que actualmente "
+"contiene el *LinearProbing*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.size:3 of
+msgid "tamaño de la estructura *LinearProbing*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.values:1 of
+msgid ""
+"*values()* devuelve una lista (*SingleLinked*) con todos los valores de "
+"los registros (*MapEntry*) del *LinearProbing*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.probinghashtable.LinearProbing.values:3 of
+msgid ""
+"lista (*SingleLinked*) con todos los valores (*value*) del "
+"*LinearProbing*."
+msgstr ""
+
+#: ../../docstring
+#: Src.DISClib.DataStructures.probinghashtable.MAX_PROBING_ALPHA:1 of
+msgid ""
+"Factor de carga (*alpha*) máximo para el *LinearProbing*, por defecto es "
+"0.80."
+msgstr ""
+
+#: ../../docstring
+#: Src.DISClib.DataStructures.probinghashtable.MIN_PROBING_ALPHA:1 of
+msgid ""
+"Factor de carga (*alpha*) mínimo para el *LinearProbing*, por defecto es "
+"0.20"
+msgstr ""
+
+#: ../../Src.DISClib.DataStructures.rst:136
+msgid "Src.DISClib.DataStructures.rbt module"
+msgstr ""
+
+#: ../../Src.DISClib.DataStructures.rst:144
+msgid "Src.DISClib.DataStructures.redblacktree module"
+msgstr ""
+
+#: Src.DISClib.DataStructures.redblacktree.RedBlackTree:1 of
+msgid ""
+"**RedBlackTree** representa la estructura de datos para arreglos "
+"dinamicos (Array List), Implementada con Generic[T] y @dataclass para que"
+" sea una estructura de datos genérica."
+msgstr ""
+
+#: Src.DISClib.DataStructures.redblacktree.RedBlackTree:6 of
+msgid "ADT de tipo RedBlackTree o Arreglo Dinámico."
+msgstr ""
+
+#: Src.DISClib.DataStructures.redblacktree.RedBlackTree.default_cmp_function:1
+#: of
+msgid ""
+"*default_cmp_function()* procesa con algoritmica por defecto la lista de "
+"elementos que procesa el RedBlackTree. Es una función crucial para que la"
+" estructura de datos funcione correctamente."
+msgstr ""
+
+#: ../../docstring Src.DISClib.DataStructures.redblacktree.RedBlackTree.key:1
+#: of
+msgid ""
+"Nombre de la llave opcional que se utiliza para comparar los elementos "
+"del RedBlackTree, Por defecto es *None* y el *__post_init__()* configura "
+"la llave por defecto la llave 'id' en *DEFAULT_DICT_KEY*."
+msgstr ""
+
+#: ../../Src.DISClib.DataStructures.rst:152
+msgid "Src.DISClib.DataStructures.singlelinkedlist module"
+msgstr ""
+
+#: Src.DISClib.DataStructures.singlelinkedlist:1 of
+msgid ""
+"Este ADT representa una estructura de datos lineal, específicamente una "
+"lista sensillamente enlazada/encadenada (**SingleLinked**). Esta "
+"estructura de datos es una secuencia de nodos enlazados, donde cada nodo "
+"contiene un elemento de información y una referencia al siguiente nodo en"
+" la secuencia. Esto le permite a la lista un crecimiento y reducción "
+"dinámico en la memoria disponible."
+msgstr ""
+
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked:1 of
+msgid ""
+"**SingleLinked** representa una estructura de datos dinámica de tipo "
+"lista sensillamente encadenada (*SingleLinked*), Implementada con "
+"Generic[T] y @dataclass para que sea una estructura de datos genérica."
+msgstr ""
+
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked:6 of
+msgid "ADT de tipo *SingleLinked* o Lista Sensillamente Encadenada."
+msgstr ""
+
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.add_element:1 of
+msgid ""
+"*add_element()* adiciona un elemento en una posición especifica del "
+"*SingleLinked*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.add_first:1 of
+msgid "*add_first()* adiciona un elemento al inicio del *SingleLinked*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.add_last:1 of
+msgid "*add_last()* adiciona un elemento al final del *SingleLinked*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.change_info:1 of
+msgid ""
+"*change_info()* cambia la información de un elemento en la posición "
+"especificada del *SingleLinked*."
+msgstr ""
+
+#: ../../docstring
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.cmp_function:1 of
+msgid ""
+"Función de comparación personalizable por el usuario para reconocer los "
+"elementos dentro del *SingleLinked*. Por defecto es la función "
+"*lt_default_cmp_funcion()* propia de *DISClib*, puede ser un parametro al"
+" crear la estructura."
+msgstr ""
+
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.compare_elements:1
+#: of
+msgid ""
+"*compare_elements()* compara dos elementos dentro del *SingleLinked* "
+"según la función de comparación de la estructura."
+msgstr ""
+
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.concat:1 of
+msgid ""
+"*concat()* concatena dos estructuras de datos *SingleLinked* para crear "
+"una estructura con los elementos de las dos estructuras."
+msgstr ""
+
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.concat:3 of
+msgid ""
+"estructura de datos *SingleLinked* que se desea concatenar con la "
+"estructura original."
+msgstr ""
+
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.concat:6 of
+msgid "error si la estructura que se desea concatenar no es un *SingleLinked*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.concat:10 of
+msgid ""
+"Estructura de datos original *SingleLinked* que contiene los elementos de"
+" las dos estructuras originales."
+msgstr ""
+
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.default_cmp_function:1
+#: of
+msgid ""
+"*default_cmp_function()* es la función de comparación por defecto para "
+"comparar elementos dentro del *SingleLinked*, es una función crucial para"
+" que la estructura funcione correctamente."
+msgstr ""
+
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.exchange:1 of
+msgid ""
+"*exchange()* intercambia la información de dos elementos en dos "
+"posiciones especificadas del *SingleLinked*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.find:1 of
+msgid ""
+"*find()* busca el elemento dentro del *SingleLinked* y devuelve su "
+"posición o -1 si no lo encuentra."
+msgstr ""
+
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.find:3 of
+msgid "elemento que se desea revisar en el *SingleLinked*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.find:6 of
+msgid "la posición del elemento en el *SingleLinked*, -1 si no está."
+msgstr ""
+
+#: ../../docstring
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.first:1 of
+msgid "Representa la referencia en memoria al primer nodo del *SingleLinked*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.get_element:1 of
+msgid ""
+"*get_element()* lee un elemento en una posición especifica del "
+"*SingleLinked*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.get_element:9 of
+msgid "el elemento en la posición especifica del *SingleLinked*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.get_first:1 of
+msgid "*get_first()* lee el primer elemento del *SingleLinked*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.get_first:5 of
+msgid "el primer elemento del *SingleLinked*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.get_last:1 of
+msgid "*get_last()* lee el último elemento del *SingleLinked*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.get_last:5 of
+msgid "el ultimo elemento del *SingleLinked*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.is_empty:1 of
+msgid "*is_empty()* revisa si el *SingleLinked* está vacío."
+msgstr ""
+
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.is_empty:3 of
+msgid "operador que indica si la estructura *SingleLinked* está vacía."
+msgstr ""
+
+#: ../../docstring
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.key:1 of
+msgid ""
+"Nombre de la llave personalizable por el usuario utilizada para reconocer"
+" los elementos dentro del *SingleLinked*. Por defecto es la llave de "
+"diccionario (*dict*)*DEFAULT_DICT_KEY = 'id'* propia de *DISClib*, puede "
+"ser un parametro al crear la estructura."
+msgstr ""
+
+#: ../../docstring
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.last:1 of
+msgid "Representa la referencia en memoria al último nodo del *SingleLinked*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_element:1 of
+msgid ""
+"*remove_element()* elimina un elemento en una posición especifica del "
+"*SingleLinked*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_element:9 of
+msgid "el elemento eliminado del *SingleLinked*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_first:1 of
+msgid "*remove_first()* elimina el primer elemento del *SingleLinked*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_first:5 of
+msgid "el primer elemento eliminado del *SingleLinked*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_last:1 of
+msgid "*remove_last()* elimina el último elemento del *SingleLinked*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.remove_last:5 of
+msgid "el ultimo elemento eliminado del *SingleLinked*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.size:1 of
+msgid ""
+"*size()* devuelve el número de elementos que actualmente contiene el "
+"*SingleLinked*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.size:3 of
+msgid "tamaño de la estructura *SingleLinked*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.singlelinkedlist.SingleLinked.sublist:1 of
+msgid ""
+"*sublist()* crea una sublista de la estructura según dos posiciones "
+"dentro del *SingleLinked* original."
+msgstr ""
+
+#: ../../Src.DISClib.DataStructures.rst:160
+msgid "Src.DISClib.DataStructures.treenode module"
+msgstr ""
+
+#: Src.DISClib.DataStructures.treenode:1 of
+msgid ""
+"Los ADTs en este módulo representan los nodos para diferentes tipos de "
+"árboles binarios o mapas ordenados. Estos incluyen los nodos para árboles"
+" de búsqueda (**BSTNode**), nodos para árboles rojo-negro (**RBTNode**), "
+"nodos para árboles AVL (**AVLNode**) y nodos árboles K-d (**KDTNode**)."
+msgstr ""
+
+#: Src.DISClib.DataStructures.treenode:3 of
+msgid ""
+"Estos nodos se utilizan respectivamente en los ADT de árboles binarios de"
+" búsqueda o BST (Binary Search Tree), árboles rojo-negro o RBT (Red-Black"
+" Tree), árboles rojo-negro orientados a la izquierda p LLRBT (Left-"
+"Leaning Red-Black Tree), árboles AVL (Adelson-Velsky & Landis Tree) y "
+"árboles k-dimensionales (K-d Tree)"
+msgstr ""
+
+#: Src.DISClib.DataStructures.treenode:5 of
+msgid ""
+"En **DISCLib** las estructuras están asociadas a las implementaciones en "
+"**BSTree**, **RBTree**, **LLRBTree**, **AVLTree** y **KDTree**."
+msgstr ""
+
+#: Src.DISClib.DataStructures.treenode.AVLNode:1
+#: Src.DISClib.DataStructures.treenode.KDTNode:1
+#: Src.DISClib.DataStructures.treenode.RBTNode:1 of
+msgid ""
+"Bases: :py:class:`~Src.DISClib.DataStructures.treenode.BSTNode`, "
+":py:class:`~typing.Generic`\\ [:py:obj:`~Src.DISClib.Utils.default.T`]"
+msgstr ""
+
+#: Src.DISClib.DataStructures.treenode.AVLNode:1 of
+msgid ""
+"**AVLNode** representa un nodo de un árbol AVL (Adelson-Velsky & Landis "
+"Tree). Basada en el ADT *BSTNode* que contiene la información del nodo "
+"(pareja llave-valor)."
+msgstr ""
+
+#: Src.DISClib.DataStructures.treenode.AVLNode:3
+#: Src.DISClib.DataStructures.treenode.KDTNode:3
+#: Src.DISClib.DataStructures.treenode.RBTNode:3 of
+msgid "ADT base para implementar un nodo para un árbol binario de búsqueda."
+msgstr ""
+
+#: Src.DISClib.DataStructures.treenode.AVLNode.height:1 of
+msgid "*height()* recupera el factor de balance del nodo."
+msgstr ""
+
+#: Src.DISClib.DataStructures.treenode.AVLNode.height:3 of
+msgid "factor de balance del nodo."
+msgstr ""
+
+#: Src.DISClib.DataStructures.treenode.AVLNode.left_height:1 of
+msgid "*left_height()* recupera la altura del subárbol izquierdo del nodo."
+msgstr ""
+
+#: Src.DISClib.DataStructures.treenode.AVLNode.left_height:3 of
+msgid "altura del subárbol izquierdo del nodo."
+msgstr ""
+
+#: Src.DISClib.DataStructures.treenode.AVLNode.right_height:1 of
+msgid "*right_height()* recupera la altura del subárbol derecho del nodo."
+msgstr ""
+
+#: Src.DISClib.DataStructures.treenode.AVLNode.right_height:3 of
+msgid "altura del subárbol derecho del nodo."
+msgstr ""
+
+#: ../../docstring Src.DISClib.DataStructures.treenode.BLACK:1
+#: Src.DISClib.DataStructures.treenode.RED:1 of
+msgid "Variable para representar el color negro en un nodo RBT."
+msgstr ""
+
+#: Src.DISClib.DataStructures.treenode.BSTNode:1 of
+msgid ""
+"Bases: :py:class:`~Src.DISClib.DataStructures.mapentry.MapEntry`, "
+":py:class:`~typing.Generic`\\ [:py:obj:`~Src.DISClib.Utils.default.T`]"
+msgstr ""
+
+#: Src.DISClib.DataStructures.treenode.BSTNode:1 of
+msgid ""
+"**BSTNode** representa un nodo de un árbol binario de búsqueda o BST "
+"(Binary Search Tree). Basada en el ADT *MapEntry* que contiene la "
+"información del nodo (pareja llave-valor)."
+msgstr ""
+
+#: Src.DISClib.DataStructures.treenode.BSTNode:3 of
+msgid "ADT base para implementar una pareja llave-valor."
+msgstr ""
+
+#: Src.DISClib.DataStructures.treenode.BSTNode:8 of
+msgid "ADT para un *BSTNode* o nodo para un árbol binario de búsqueda."
+msgstr ""
+
+#: Src.DISClib.DataStructures.treenode.BSTNode.left:1 of
+msgid ""
+"*left()* recupera la referencia al nodo izquierdo del árbol. Si no existe"
+" retorna *None*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.treenode.BSTNode.left:3 of
+msgid "referencia al nodo izquierdo del árbol si existe."
+msgstr ""
+
+#: Src.DISClib.DataStructures.treenode.BSTNode.right:1 of
+msgid ""
+"*right()* recupera la referencia al nodo derecho del árbol. Si no existe "
+"retorna *None*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.treenode.BSTNode.right:3 of
+msgid "referencia al nodo derecho del árbol si existe."
+msgstr ""
+
+#: Src.DISClib.DataStructures.treenode.BSTNode.size:1 of
+msgid "*size()* recupera el tamaño del subárbol que cuelga de este nodo."
+msgstr ""
+
+#: Src.DISClib.DataStructures.treenode.BSTNode.size:3 of
+msgid "tamaño del subárbol que cuelga de este nodo."
+msgstr ""
+
+#: Src.DISClib.DataStructures.treenode.KDTNode:1 of
+msgid ""
+"**KDTreeNode** representa un nodo de un árbol k-dimensionales o K-d Tree."
+" Basada en el ADT *BSTNode* que contiene la información del nodo (pareja "
+"llave-valor)."
+msgstr ""
+
+#: Src.DISClib.DataStructures.treenode.KDTNode.get_dimension:1 of
+msgid ""
+"*get_dimension()* recupera la dimensión para dividir el nodo. Si no "
+"existe retorna *None*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.treenode.KDTNode.get_dimension:3 of
+msgid "dimensión para dividir el nodo si existe."
+msgstr ""
+
+#: ../../docstring Src.DISClib.DataStructures.treenode.KDTNode.split_dim:1 of
+msgid ""
+"Dimensión para dividir el nodo (si es *None*, dividir en la dimensión más"
+" grande)."
+msgstr ""
+
+#: Src.DISClib.DataStructures.treenode.RBTNode:1 of
+msgid ""
+"**RBTNode** representa un nodo de un árbol rojo-negro (RBT: Red-Black "
+"Tree), o un árbol rojo-negro orientados a la izquierda (LLRBT: Left-"
+"Leaning Red-Black Tree) que contiene la información del nodo (pareja "
+"llave-valor)."
+msgstr ""
+
+#: Src.DISClib.DataStructures.treenode.RBTNode.color:1 of
+msgid "*color()* recupera el color del nodo."
+msgstr ""
+
+#: Src.DISClib.DataStructures.treenode.RBTNode.color:3
+#: Src.DISClib.DataStructures.treenode.RBTNode.set_color:3 of
+msgid "color del nodo."
+msgstr ""
+
+#: Src.DISClib.DataStructures.treenode.RBTNode.is_red:1 of
+msgid "*is_red()* informa si el nodo es rojo."
+msgstr ""
+
+#: Src.DISClib.DataStructures.treenode.RBTNode.is_red:3 of
+msgid "True si el nodo es rojo, False de lo contrario."
+msgstr ""
+
+#: Src.DISClib.DataStructures.treenode.RBTNode.parent:1 of
+msgid ""
+"*parent()* recupera la referencia al nodo padre del árbol. Si no existe "
+"retorna *None*."
+msgstr ""
+
+#: Src.DISClib.DataStructures.treenode.RBTNode.parent:3 of
+msgid "referencia al nodo padre del árbol si existe."
+msgstr ""
+
+#: Src.DISClib.DataStructures.treenode.RBTNode.set_color:1 of
+msgid "*set_color()* establece el color del nodo."
+msgstr ""
+
+#: ../../Src.DISClib.DataStructures.rst:168
+msgid "Module contents"
+msgstr ""
+
+#: ../../docstring of typing.Union:1
+msgid ""
+"Lista de tipos de estructuras que pueden cambiar su mecánica de hashing "
+"(ADT *HashTable* y sus estructuras especificas *SeparateChaining* y "
+"*LinearProbing*)"
+msgstr ""
+
+#: ../../docstring of typing.Union:1
+msgid ""
+"Lista de estructuras que se pueden ordenar por el algoritmo de "
+"ordenamiento (ADT *List* y sus estructuras especificas *ArrayList*, "
+"*LinkedList*, *DoubleLinkedList*, *Queue* y *Stack*)"
+msgstr ""
+

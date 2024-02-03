@@ -1,0 +1,514 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Uniandes, Bogotá - Colombia, Sur América,
+# This file is distributed under the same license as the DISClib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: DISClib \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-03 00:09-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:2
+msgid ":py:mod:`Src.DISClib.DataStructures.doublelinkedlist`"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:8
+msgid ""
+"Este ADT representa una estructura de datos lineal, específicamente una "
+"lista doblemente enlazada/encadenada (**DoubleLinked**). Esta estructura "
+"de datos es una secuencia de nodos enlazados, donde cada nodo contiene un"
+" elemento de información, una referencia al siguiente, y al anterior nodo"
+" en la secuencia. Esto le permite a la lista un crecimiento y reducción "
+"dinámico en la memoria disponible."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:10
+msgid ""
+"*IMPORTANTE:* Este código y sus especificaciones para Python están "
+"basados en las implementaciones propuestas por los siguientes "
+"autores/libros:"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:12
+msgid "Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:13
+msgid ""
+"Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H."
+" Goldwasser."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:18
+msgid "Module Contents"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:21
+msgid "Classes"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:29:<autosummary>:1
+msgid ""
+":py:obj:`DoubleLinked "
+"<Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked>`\\"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:35
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:29:<autosummary>:1
+msgid ""
+"**DoubleLinked** representa una estructura de datos para una lista "
+"doblemente enlazada/encadenada (*DoubleLinked*). Implementada con "
+"Generic[T] y @dataclass para que sea una estructura de datos genérica."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:33
+msgid "Bases: :py:obj:`Generic`\\ [\\ :py:obj:`Src.DISClib.Utils.default.T`\\ ]"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst
+msgid "Parámetros"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:37
+msgid ""
+"TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una "
+"estructura de datos genéricas en python."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst
+msgid "Devuelve"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:40
+msgid "ADT de tipo *DoubleLinked* o Lista Doblemente Encadenada."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst
+msgid "Tipo del valor devuelto"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:46
+msgid ""
+"Lista nativa de Python personalizable por el usuario para inicializar la "
+"estructura. Por defecto es *None* y el usuario puede incluirla como "
+"argumento al crear la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:51
+msgid ""
+"Función de comparación personalizable por el usuario para reconocer los "
+"elementos dentro del *DoubleLinked*. Por defecto es la función "
+"*lt_default_cmp_funcion()* propia de *DISClib*, puede ser un parametro al"
+" crear la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:56
+msgid ""
+"Representa el nodo sentinela de la cabecera de la estructura (header), "
+"por defecto es un *DoubleNode* vacío."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:61
+msgid ""
+"Representa el nodo sentinela del colero de la estructura (trailer), por "
+"defecto es un *DoubleNode* vacío."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:66
+msgid ""
+"Nombre de la llave personalizable por el usuario utilizada para reconocer"
+" los elementos dentro del *DoubleLinked*. Por defecto es la llave de "
+"diccionario (*dict*) *DEFAULT_DICT_KEY = 'id'* propia de *DISClib*, puede"
+" ser un parametro al crear la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:71
+msgid ""
+"Es el número de elementos que contiene la estructura, por defecto es 0, "
+"en algunos casos es -1 para ajustar por los nodos sentinelas de la "
+"estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:75
+msgid ""
+"*__post_init__()* configura los parametros personalizados por el usuario "
+"al crear el *DoubleLinked*. En caso de no estar definidos, se asignan los"
+" valores por defecto, puede cargar listas nativas con el parametro "
+"*iodata* de python dentro de la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:81
+msgid ""
+"*default_cmp_function()* es la función de comparación por defecto para "
+"comparar elementos dentro del *DoubleLinked*, es una función crucial para"
+" que la estructura funcione correctamente."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:83
+msgid "primer elemento a comparar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:85
+msgid "segundo elemento a comparar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:88
+msgid ""
+"respuesta de la comparación entre los elementos, 0 si son iguales, 1 si "
+"elm1 es mayor que elm2, -1 si elm1 es menor."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:94
+msgid ""
+"*_handle_error()* función propia de la estructura que maneja los errores "
+"que se pueden presentar en el *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:96
+msgid ""
+"Si se presenta un error en *DoubleLinked*, se formatea el error según el "
+"contexto (paquete/módulo/clase), la función (método) que lo generó y lo "
+"reenvia al componente superior en la jerarquía *DISCLib* para manejarlo "
+"segun se considere conveniente el usuario."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:98
+msgid "Excepción que se generó en el *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:104
+msgid ""
+"*_check_type()* función propia de la estructura que revisa si el tipo de "
+"dato del elemento que se desea agregar al *DoubleLinked* es del mismo "
+"tipo contenido dentro de los elementos del *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:106
+msgid "elemento que se desea procesar en *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst
+msgid "Muestra"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:109
+msgid ""
+"error si el tipo de dato del elemento que se desea agregar no es el mismo"
+" que el tipo de dato de los elementos que ya contiene el *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:111
+msgid ""
+"operador que indica si el ADT *DoubleLinked* es del mismo tipo que el "
+"elemento que se desea procesar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:117
+msgid "*is_empty()* revisa si el *DoubleLinked* está vacío."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:119
+msgid "operador que indica si la estructura *DoubleLinked* está vacía."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:125
+msgid ""
+"*size()* devuelve el número de elementos que actualmente contiene el "
+"*DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:127
+msgid "tamaño de la estructura *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:133
+msgid "*add_first()* adiciona un elemento al inicio del *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:135
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:145
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:155
+msgid "elemento que se desea agregar a la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:138
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:148
+msgid ""
+"si la operación no se puede realizar, se invoca la función "
+"*_handle_error()* para manejar el error."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:143
+msgid "*add_last()* adiciona un elemento al final del *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:153
+msgid ""
+"*add_element()* adiciona un elemento en una posición especifica del "
+"*DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:157
+msgid "posición en la que se desea agregar el elemento."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:160
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:192
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:226
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:268
+msgid "error si la posición es inválida."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:161
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:168
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:178
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:191
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:202
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:212
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:225
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:267
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:280
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:294
+msgid "error si la estructura está vacía."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:166
+msgid "*get_first()* lee el primer elemento del *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:170
+msgid "el primer elemento del *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:176
+msgid "*get_last()* lee el último elemento del *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:180
+msgid "el ultimo elemento del *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:186
+msgid ""
+"*get_element()* lee un elemento en una posición especifica del "
+"*DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:188
+msgid "posición del elemento que se desea leer."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:194
+msgid "el elemento en la posición especifica del *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:200
+msgid "*remove_first()* elimina el primer elemento del *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:204
+msgid "el primer elemento eliminado del *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:210
+msgid "*remove_last()* elimina el último elemento del *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:214
+msgid "el ultimo elemento eliminado del *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:220
+msgid ""
+"*remove_element()* elimina un elemento en una posición especifica del "
+"*DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:222
+msgid "posición del elemento que se desea eliminar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:228
+msgid "el elemento eliminado del *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:234
+msgid ""
+"*compare_elements()* compara dos elementos dentro del *DoubleLinked* "
+"según la función de comparación de la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:236
+msgid "Primer elemento a comparar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:238
+msgid "Segundo elemento a comparar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:241
+msgid "error si la función de comparación no está definida."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:243
+msgid ""
+"-1 si elem1 es menor que elem2, 0 si son iguales, 1 si elem1 es mayor que"
+" elem2."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:249
+msgid ""
+"*find()* busca el elemento dentro del *DoubleLinked* y devuelve su "
+"posición o -1 si no lo encuentra."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:251
+msgid "elemento que se desea revisar en el *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:254
+msgid "la posición del elemento en el *DoubleLinked*, -1 si no está."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:260
+msgid ""
+"*change_info()* cambia la información de un elemento en la posición "
+"especificada del *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:262
+msgid "nueva información que se desea para el elemento."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:264
+msgid "posición del elemento que se desea cambiar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:273
+msgid ""
+"*exchange()* intercambia la información de dos elementos en dos "
+"posiciones especificadas del *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:275
+msgid "posición del primer elemento."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:277
+msgid "posición del segundo elemento."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:281
+msgid "error si la posición del primer elemento es inválida."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:282
+msgid "error si la posición del segundo elemento es inválida."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:287
+msgid ""
+"*sublist()* crea una sublista de la estructura según dos posiciones "
+"dentro del *DoubleLinked* original."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:289
+msgid "posición inicial de la sublista."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:291
+msgid "posición final de la sublista."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:295
+msgid "error si la posición inicial o final son inválidas."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:297
+msgid ""
+"una sublista de la estructura original con la función de comparación y la"
+" llave de la estructura original."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:303
+msgid ""
+"*concat()* concatena dos estructuras de datos *DoubleLinked* para crear "
+"una estructura con los elementos de las dos estructuras."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:305
+msgid ""
+"estructura de datos *DoubleLinked* que se desea concatenar con la "
+"estructura original."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:308
+msgid "error si la estructura que se desea concatenar no es un *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:309
+msgid ""
+"error si la llave de la estructura que se desea unir no es la misma que "
+"la llave de la estructura original."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:310
+msgid ""
+"error si la función de comparación de la estructura que se desea unir no "
+"es la misma que la función de comparación de la estructura original."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:312
+msgid ""
+"Estructura de datos original *DoubleLinked* que contiene los elementos de"
+" las dos estructuras originales."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:318
+msgid ""
+"*__iter__()* iterador nativo de Python personalizado para el "
+"*DoubleLinked*. Permite utilizar los ciclos *for* de Python para recorrer"
+" los elementos de la estructura en orden ascendente."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:320
+msgid "iterador Python sobre los elementos del *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:326
+msgid ""
+"*__reversed__* iterador nativo de Python personalizado para el "
+"*DoubleLinked*. Permite utilizar los ciclos *for* de Python para recorrer"
+" los elementos de la estructura en orden descendente."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst
+msgid "Campos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:328
+msgid "*iterator* -- iterador Python sobre los elementos del *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:333
+msgid ""
+"*__len__()* función nativa de Python personalizada para el "
+"*DoubleLinked*. Permite utilizar la función *len()* de Python para "
+"recuperar el tamaño del *DoubleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.rst:335
+msgid "tamaño del *DoubleLinked*."
+msgstr ""
+

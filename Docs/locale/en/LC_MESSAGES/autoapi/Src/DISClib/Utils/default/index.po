@@ -1,0 +1,219 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Uniandes, Bogotá - Colombia, Sur América,
+# This file is distributed under the same license as the DISClib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: DISClib \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-03 00:09-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../autoapi/Src/DISClib/Utils/default/index.rst:2
+msgid ":py:mod:`Src.DISClib.Utils.default`"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/default/index.rst:8
+msgid ""
+"Módulo con variables globales y funciones de comparación por defecto para"
+" uso por todo *DISClib* y sus ADTs."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/default/index.rst:10
+msgid ""
+"*IMPORTANTE:* Este código y sus especificaciones para Python están "
+"basados en las implementaciones propuestas por los siguientes "
+"autores/libros:"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/default/index.rst:12
+msgid "Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/default/index.rst:13
+msgid ""
+"Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H."
+" Goldwasser."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/default/index.rst:18
+msgid "Module Contents"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/default/index.rst:22
+msgid "Functions"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/default/index.rst:31:<autosummary>:1
+msgid ""
+":py:obj:`lt_default_cmp_funcion "
+"<Src.DISClib.Utils.default.lt_default_cmp_funcion>`\\ \\(→ int\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/default/index.rst:74
+#: ../../autoapi/Src/DISClib/Utils/default/index.rst:31:<autosummary>:1
+msgid ""
+"*lt_default_cmp_funcion()* función de comparación por defecto para los "
+"elementos del ADT List (ArrayList, SingleLinked, DoubleLinked). pueden "
+"ser de tipo nativo o definido por el usuario."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/default/index.rst:31:<autosummary>:1
+msgid ""
+":py:obj:`ht_default_cmp_funcion_old "
+"<Src.DISClib.Utils.default.ht_default_cmp_funcion_old>`\\ \\(→ int\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/default/index.rst:93
+#: ../../autoapi/Src/DISClib/Utils/default/index.rst:31:<autosummary>:1
+msgid ""
+"*ht_default_cmp_funcion()* función de comparación por defecto para los "
+"elementos del ADT Map (HashTable). pueden ser de tipo nativo o definido "
+"por el usuario."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/default/index.rst:31:<autosummary>:1
+msgid ""
+":py:obj:`ht_default_cmp_funcion "
+"<Src.DISClib.Utils.default.ht_default_cmp_funcion>`\\ \\(→ int\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/default/index.rst:33
+msgid "Attributes"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/default/index.rst:43:<autosummary>:1
+msgid ""
+":py:obj:`VALID_DATA_TYPE_LT "
+"<Src.DISClib.Utils.default.VALID_DATA_TYPE_LT>`\\"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/default/index.rst:48
+#: ../../autoapi/Src/DISClib/Utils/default/index.rst:43:<autosummary>:1
+msgid ""
+"Tupla con los tipos de datos nativos en Python que son comparables en los"
+" ADTs."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/default/index.rst:43:<autosummary>:1
+msgid ":py:obj:`DEFAULT_DICT_KEY <Src.DISClib.Utils.default.DEFAULT_DICT_KEY>`\\"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/default/index.rst:54
+#: ../../autoapi/Src/DISClib/Utils/default/index.rst:43:<autosummary>:1
+msgid "Llave por defecto para comparar diccionarios dentro de los ADTs."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/default/index.rst:43:<autosummary>:1
+msgid ":py:obj:`VALID_IO_TYPE <Src.DISClib.Utils.default.VALID_IO_TYPE>`\\"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/default/index.rst:60
+#: ../../autoapi/Src/DISClib/Utils/default/index.rst:43:<autosummary>:1
+msgid ""
+"Tupla con los tipos de datos nativos en Python que son válidos para "
+"entrada y salida de datos al inicializar un ADT."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/default/index.rst:43:<autosummary>:1
+msgid ":py:obj:`DEFAULT_PRIME <Src.DISClib.Utils.default.DEFAULT_PRIME>`\\"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/default/index.rst:66
+#: ../../autoapi/Src/DISClib/Utils/default/index.rst:43:<autosummary>:1
+msgid ""
+"Número primo grande por defecto para la función de compresión MAD en las "
+"tablas de Hash."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/default/index.rst:43:<autosummary>:1
+msgid ":py:obj:`T <Src.DISClib.Utils.default.T>`\\"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/default/index.rst:70
+#: ../../autoapi/Src/DISClib/Utils/default/index.rst:43:<autosummary>:1
+msgid ""
+"Variable nativa de Python para definir una estructura de datos genérica "
+"en los ADTs."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/default/index.rst
+msgid "Parámetros"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/default/index.rst:76
+msgid ""
+"llave para comparar los elementos de tipo diccionario que entrega el ADT "
+"List."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/default/index.rst:78
+msgid "primer elemento a comparar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/default/index.rst:80
+msgid "segundo elemento a comparar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/default/index.rst
+msgid "Muestra"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/default/index.rst:83
+msgid ""
+"error de tipo de dato si los elementos de tipo nativo en Python no son "
+"comparables."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/default/index.rst:84
+msgid "error de clave si la llave para comparar los diccionarios no existe."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/default/index.rst:85
+msgid "error de tipo de dato si los elementos no son comparables."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/default/index.rst
+msgid "Devuelve"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/default/index.rst:87
+msgid ""
+"retorna -1 si elm1 es menor que elm2, 0 si son iguales y 1 si elm1 es "
+"mayor que elm2."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/default/index.rst
+msgid "Tipo del valor devuelto"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/default/index.rst:95
+msgid "la llave (key) de la primera entrada (pareja llave-valor) a comparar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/default/index.rst:97
+msgid ""
+"segunda entrada (pareja llave-valor) a comparar de tipo *MapEntry*. puede"
+" contener cualquier tipo de estructura, dato o ADT."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/default/index.rst:100
+msgid "error de tipo de dato si las llaves no son comparables."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/default/index.rst:102
+msgid ""
+"retorna -1 si key1 es menor que la llave de entry2, 0 si las llaves son "
+"iguales y 1 si la llave key1 es mayor que la llave de entry2."
+msgstr ""
+

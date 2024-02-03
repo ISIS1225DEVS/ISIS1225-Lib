@@ -1,0 +1,964 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Uniandes, Bogotá - Colombia, Sur América,
+# This file is distributed under the same license as the DISClib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: DISClib \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-03 00:09-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../Src.DISClib.ADT.rst:2
+msgid "Src.DISClib.ADT package"
+msgstr ""
+
+#: ../../Src.DISClib.ADT.rst:5
+msgid "Submodules"
+msgstr ""
+
+#: ../../Src.DISClib.ADT.rst:8
+msgid "Src.DISClib.ADT.dynamic module"
+msgstr ""
+
+#: Src.DISClib.ADT.dynamic:1 of
+msgid ""
+"Este módulo permite importar dinámicamente otros módulos, funciones y "
+"estructuras de datos (ADTs) dentro de *DISClib*. En ves de importar los "
+"ADTs de manera estática, se puede importar dinámicamente según la "
+"configuración de un diccionario (o archivo JSON) y las especificaciones "
+"del usuario."
+msgstr ""
+
+#: Src.DISClib.ADT.dynamic:3 Src.DISClib.ADT.lists:3 Src.DISClib.ADT.maps:3
+#: Src.DISClib.ADT.queue:8 Src.DISClib.ADT.stack:8 of
+msgid ""
+"*IMPORTANTE:* Este código y sus especificaciones para Python están "
+"basados en las implementaciones propuestas por los siguientes "
+"autores/libros:"
+msgstr ""
+
+#: Src.DISClib.ADT.dynamic:5 Src.DISClib.ADT.lists:5 Src.DISClib.ADT.maps:5
+#: Src.DISClib.ADT.queue:10 Src.DISClib.ADT.stack:10 of
+msgid "Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne."
+msgstr ""
+
+#: Src.DISClib.ADT.dynamic:6 Src.DISClib.ADT.lists:6 Src.DISClib.ADT.maps:6
+#: Src.DISClib.ADT.queue:11 Src.DISClib.ADT.stack:11 of
+msgid ""
+"Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H."
+" Goldwasser."
+msgstr ""
+
+#: ../../docstring Src.DISClib.ADT.dynamic.ADT_PGK_PATH:1 of
+msgid "Ruta relativa del paquete principal para crear los ADTs."
+msgstr ""
+
+#: Src.DISClib.ADT.dynamic.DynamicImporter:1 of
+msgid "Bases: :py:class:`object`"
+msgstr ""
+
+#: Src.DISClib.ADT.dynamic.DynamicImporter:1 of
+msgid ""
+"**DynamicImporter** permite importar dinámicamente módulos y clases de "
+"módulos según la configuración de un archivo JSON y las especificaciones "
+"del usuario."
+msgstr ""
+
+#: Src.DISClib.ADT.dynamic.DynamicImporter Src.DISClib.ADT.graph.addEdge
+#: Src.DISClib.ADT.graph.adjacentEdges Src.DISClib.ADT.graph.adjacents
+#: Src.DISClib.ADT.graph.containsVertex Src.DISClib.ADT.graph.degree
+#: Src.DISClib.ADT.graph.edges Src.DISClib.ADT.graph.getEdge
+#: Src.DISClib.ADT.graph.indegree Src.DISClib.ADT.graph.insertVertex
+#: Src.DISClib.ADT.graph.newGraph Src.DISClib.ADT.graph.numEdges
+#: Src.DISClib.ADT.graph.numVertices Src.DISClib.ADT.graph.outdegree
+#: Src.DISClib.ADT.graph.removeVertex Src.DISClib.ADT.graph.vertices
+#: Src.DISClib.ADT.lists.List Src.DISClib.ADT.lists.translate_lt
+#: Src.DISClib.ADT.maps.Map Src.DISClib.ADT.maps.translate_mp
+#: Src.DISClib.ADT.trees.ceiling Src.DISClib.ADT.trees.contains
+#: Src.DISClib.ADT.trees.deleteMax Src.DISClib.ADT.trees.deleteMin
+#: Src.DISClib.ADT.trees.floor Src.DISClib.ADT.trees.get
+#: Src.DISClib.ADT.trees.height Src.DISClib.ADT.trees.isEmpty
+#: Src.DISClib.ADT.trees.keySet Src.DISClib.ADT.trees.keys
+#: Src.DISClib.ADT.trees.maxKey Src.DISClib.ADT.trees.minKey
+#: Src.DISClib.ADT.trees.newMap Src.DISClib.ADT.trees.put
+#: Src.DISClib.ADT.trees.rank Src.DISClib.ADT.trees.remove
+#: Src.DISClib.ADT.trees.select Src.DISClib.ADT.trees.size
+#: Src.DISClib.ADT.trees.valueSet Src.DISClib.ADT.trees.values of
+msgid "Muestra"
+msgstr ""
+
+#: Src.DISClib.ADT.dynamic.DynamicImporter:3 of
+msgid "no se puede importar el módulo especificado."
+msgstr ""
+
+#: Src.DISClib.ADT.dynamic.DynamicImporter
+#: Src.DISClib.ADT.dynamic.DynamicImporter.get_instance
+#: Src.DISClib.ADT.graph.addEdge Src.DISClib.ADT.graph.adjacentEdges
+#: Src.DISClib.ADT.graph.adjacents Src.DISClib.ADT.graph.containsVertex
+#: Src.DISClib.ADT.graph.degree Src.DISClib.ADT.graph.edges
+#: Src.DISClib.ADT.graph.getEdge Src.DISClib.ADT.graph.indegree
+#: Src.DISClib.ADT.graph.insertVertex Src.DISClib.ADT.graph.newGraph
+#: Src.DISClib.ADT.graph.numEdges Src.DISClib.ADT.graph.numVertices
+#: Src.DISClib.ADT.graph.outdegree Src.DISClib.ADT.graph.removeVertex
+#: Src.DISClib.ADT.graph.vertices Src.DISClib.ADT.lists.List
+#: Src.DISClib.ADT.lists.clone_lt Src.DISClib.ADT.lists.translate_lt
+#: Src.DISClib.ADT.maps.Map Src.DISClib.ADT.maps.clone_mp
+#: Src.DISClib.ADT.maps.translate_mp Src.DISClib.ADT.queue.Queue
+#: Src.DISClib.ADT.queue.Queue.dequeue Src.DISClib.ADT.queue.Queue.peek
+#: Src.DISClib.ADT.stack.Stack Src.DISClib.ADT.stack.Stack.pop
+#: Src.DISClib.ADT.stack.Stack.top Src.DISClib.ADT.trees.ceiling
+#: Src.DISClib.ADT.trees.contains Src.DISClib.ADT.trees.deleteMax
+#: Src.DISClib.ADT.trees.deleteMin Src.DISClib.ADT.trees.floor
+#: Src.DISClib.ADT.trees.get Src.DISClib.ADT.trees.height
+#: Src.DISClib.ADT.trees.isEmpty Src.DISClib.ADT.trees.keySet
+#: Src.DISClib.ADT.trees.keys Src.DISClib.ADT.trees.maxKey
+#: Src.DISClib.ADT.trees.minKey Src.DISClib.ADT.trees.newMap
+#: Src.DISClib.ADT.trees.put Src.DISClib.ADT.trees.rank
+#: Src.DISClib.ADT.trees.remove Src.DISClib.ADT.trees.select
+#: Src.DISClib.ADT.trees.size Src.DISClib.ADT.trees.valueSet
+#: Src.DISClib.ADT.trees.values of
+msgid "Devuelve"
+msgstr ""
+
+#: Src.DISClib.ADT.dynamic.DynamicImporter:5 of
+msgid "instancia de la clase dinámica."
+msgstr ""
+
+#: Src.DISClib.ADT.dynamic.DynamicImporter
+#: Src.DISClib.ADT.dynamic.DynamicImporter.get_instance
+#: Src.DISClib.ADT.lists.List Src.DISClib.ADT.lists.clone_lt
+#: Src.DISClib.ADT.lists.translate_lt Src.DISClib.ADT.maps.Map
+#: Src.DISClib.ADT.maps.clone_mp Src.DISClib.ADT.maps.translate_mp
+#: Src.DISClib.ADT.queue.Queue Src.DISClib.ADT.queue.Queue.dequeue
+#: Src.DISClib.ADT.queue.Queue.peek Src.DISClib.ADT.stack.Stack
+#: Src.DISClib.ADT.stack.Stack.pop Src.DISClib.ADT.stack.Stack.top of
+msgid "Tipo del valor devuelto"
+msgstr ""
+
+#: Src.DISClib.ADT.dynamic.DynamicImporter.get_instance:1 of
+msgid ""
+"*get_instance()* retorna la instancia de la clase concreta seleccionada "
+"por el usuario."
+msgstr ""
+
+#: Src.DISClib.ADT.dynamic.DynamicImporter.get_instance:3 of
+msgid "instancia de la clase concreta seleccionada."
+msgstr ""
+
+#: ../../docstring Src.DISClib.ADT.dynamic.DynamicImporter.implementation:1 of
+msgid "Nombre del paquete en el directorio dentro del código fuente."
+msgstr ""
+
+#: ../../docstring Src.DISClib.ADT.dynamic.DynamicImporter.package:1 of
+msgid "Nombre del paquete en el directorio de compilación."
+msgstr ""
+
+#: ../../docstring Src.DISClib.ADT.dynamic.STRUCT_PGK_PATH:1 of
+msgid "Ruta relativa del paquete principal para las estructuras de datos."
+msgstr ""
+
+#: ../../Src.DISClib.ADT.rst:16
+msgid "Src.DISClib.ADT.graph module"
+msgstr ""
+
+#: Src.DISClib.ADT.graph:1 of
+msgid ""
+"# TODO cambiar comentarios de lincencia segun estandard del equipo * "
+"Copyright 2020, Departamento de sistemas y Computación, * Universidad de "
+"Los Andes * * Desarrollado para el curso ISIS1225 - Estructuras de Datos "
+"y Algoritmos * * * This program is free software: you can redistribute it"
+" and/or modify * it under the terms of the GNU General Public License as "
+"published by * the Free Software Foundation, either version 3 of the "
+"License, or * (at your option) any later version. * * This program is "
+"distributed in the hope that it will be useful, * but WITHOUT ANY "
+"WARRANTY; without even the implied warranty of * MERCHANTABILITY or "
+"FITNESS FOR A PARTICULAR PURPOSE.  See the * GNU General Public License "
+"for more details. * * You should have received a copy of the GNU General "
+"Public License * along with this program.  If not, see "
+"<http://www.gnu.org/licenses/>. * * Contribución de: * * Dario Correal *"
+msgstr ""
+
+#: Src.DISClib.ADT.graph.addEdge:1 of
+msgid ""
+"Agrega un arco entre los vertices vertexa ---- vertexb, con peso weight. "
+"Si el grafo es no dirigido se adiciona dos veces el mismo arco, en el "
+"mismo orden Si el grafo es dirigido se adiciona solo el arco vertexa --> "
+"vertexb"
+msgstr ""
+
+#: Src.DISClib.ADT.graph.addEdge Src.DISClib.ADT.graph.adjacentEdges
+#: Src.DISClib.ADT.graph.adjacents Src.DISClib.ADT.graph.containsVertex
+#: Src.DISClib.ADT.graph.degree Src.DISClib.ADT.graph.edges
+#: Src.DISClib.ADT.graph.getEdge Src.DISClib.ADT.graph.indegree
+#: Src.DISClib.ADT.graph.insertVertex Src.DISClib.ADT.graph.newGraph
+#: Src.DISClib.ADT.graph.numEdges Src.DISClib.ADT.graph.numVertices
+#: Src.DISClib.ADT.graph.outdegree Src.DISClib.ADT.graph.removeVertex
+#: Src.DISClib.ADT.lists.List Src.DISClib.ADT.lists.clone_lt
+#: Src.DISClib.ADT.lists.translate_lt Src.DISClib.ADT.maps.Map
+#: Src.DISClib.ADT.maps.clone_mp Src.DISClib.ADT.maps.translate_mp
+#: Src.DISClib.ADT.queue.Queue Src.DISClib.ADT.queue.Queue.enqueue
+#: Src.DISClib.ADT.stack.Stack Src.DISClib.ADT.stack.Stack.push
+#: Src.DISClib.ADT.trees.keys Src.DISClib.ADT.trees.values of
+msgid "Parámetros"
+msgstr ""
+
+#: Src.DISClib.ADT.graph.addEdge:6 Src.DISClib.ADT.graph.adjacentEdges:4
+#: Src.DISClib.ADT.graph.adjacents:3 Src.DISClib.ADT.graph.containsVertex:3
+#: Src.DISClib.ADT.graph.degree:3 Src.DISClib.ADT.graph.edges:3
+#: Src.DISClib.ADT.graph.getEdge:3 Src.DISClib.ADT.graph.indegree:3
+#: Src.DISClib.ADT.graph.insertVertex:3 Src.DISClib.ADT.graph.numEdges:3
+#: Src.DISClib.ADT.graph.numVertices:3 Src.DISClib.ADT.graph.outdegree:3
+#: Src.DISClib.ADT.graph.removeVertex:3 of
+msgid "El grafo sobre el que se ejecuta la operacion"
+msgstr ""
+
+#: Src.DISClib.ADT.graph.addEdge:7 Src.DISClib.ADT.graph.getEdge:4 of
+msgid "Vertice de inicio"
+msgstr ""
+
+#: Src.DISClib.ADT.graph.addEdge:8 of
+msgid "Vertice de destino"
+msgstr ""
+
+#: Src.DISClib.ADT.graph.addEdge:9 of
+msgid "peso del arco"
+msgstr ""
+
+#: Src.DISClib.ADT.graph.addEdge:11 of
+msgid "El grafo con el nuevo arco"
+msgstr ""
+
+#: Src.DISClib.ADT.graph.adjacentEdges:1 of
+msgid ""
+"Retorna una lista con todos los arcos asociados a los vértices adyacentes"
+" de vertex"
+msgstr ""
+
+#: Src.DISClib.ADT.graph.adjacentEdges:5 Src.DISClib.ADT.graph.adjacents:4 of
+msgid "El vertice del que se quiere la lista"
+msgstr ""
+
+#: Src.DISClib.ADT.graph.adjacentEdges:7 of
+msgid "La lista de arcos adyacentes"
+msgstr ""
+
+#: Src.DISClib.ADT.graph.adjacents:1 of
+msgid "Retorna una lista con todos los vertices adyacentes al vertice vertex"
+msgstr ""
+
+#: Src.DISClib.ADT.graph.adjacents:6 of
+msgid "La lista de adyacencias"
+msgstr ""
+
+#: Src.DISClib.ADT.graph.containsVertex:1 of
+msgid "Retorna si el vertice vertex esta presente en el grafo"
+msgstr ""
+
+#: Src.DISClib.ADT.graph.containsVertex:4 of
+msgid "Vertice que se busca"
+msgstr ""
+
+#: Src.DISClib.ADT.graph.containsVertex:6 of
+msgid "True si el vertice esta presente"
+msgstr ""
+
+#: Src.DISClib.ADT.graph.degree:1 of
+msgid "Retorna el numero de arcos asociados al vertice vertex"
+msgstr ""
+
+#: Src.DISClib.ADT.graph.degree:4 Src.DISClib.ADT.graph.indegree:4
+#: Src.DISClib.ADT.graph.outdegree:4 of
+msgid "El vertice del que se desea conocer el grado"
+msgstr ""
+
+#: Src.DISClib.ADT.graph.degree:6 Src.DISClib.ADT.graph.indegree:6
+#: Src.DISClib.ADT.graph.outdegree:6 of
+msgid "El grado del vertice"
+msgstr ""
+
+#: Src.DISClib.ADT.graph.edges:1 of
+msgid "Retorna una lista con todos los arcos del grafo graph"
+msgstr ""
+
+#: Src.DISClib.ADT.graph.edges:5 of
+msgid "Una lista con los arcos del grafo"
+msgstr ""
+
+#: Src.DISClib.ADT.graph.getEdge:1 of
+msgid "Retorna el arco asociado a los vertices vertexa ---- vertexb"
+msgstr ""
+
+#: Src.DISClib.ADT.graph.getEdge:5 of
+msgid "Vertice destino"
+msgstr ""
+
+#: Src.DISClib.ADT.graph.getEdge:7 of
+msgid "El arco que une los verices vertexa y vertexb"
+msgstr ""
+
+#: Src.DISClib.ADT.graph.graphSelector:1 Src.DISClib.ADT.trees.mapSelector:1 of
+msgid "Carga dinamicamente el import de la estructura de datos seleccionada"
+msgstr ""
+
+#: Src.DISClib.ADT.graph.indegree:1 of
+msgid "Retorna el numero de arcos que llegan al vertice vertex"
+msgstr ""
+
+#: Src.DISClib.ADT.graph.insertVertex:1 of
+msgid "Inserta el vertice vertex en el grafo graph"
+msgstr ""
+
+#: Src.DISClib.ADT.graph.insertVertex:4 of
+msgid "El vertice que se desea insertar"
+msgstr ""
+
+#: Src.DISClib.ADT.graph.insertVertex:6 of
+msgid "El grafo graph con el nuevo vertice"
+msgstr ""
+
+#: Src.DISClib.ADT.graph.newGraph:1 of
+msgid "Crea un grafo vacio"
+msgstr ""
+
+#: Src.DISClib.ADT.graph.newGraph:3 of
+msgid "Tamaño inicial del grafo"
+msgstr ""
+
+#: Src.DISClib.ADT.graph.newGraph:4 of
+msgid "Funcion de comparacion"
+msgstr ""
+
+#: Src.DISClib.ADT.graph.newGraph:5 of
+msgid "Indica si el grafo es dirigido o no"
+msgstr ""
+
+#: Src.DISClib.ADT.graph.newGraph:6 of
+msgid "Estructura de datos utilizada"
+msgstr ""
+
+#: Src.DISClib.ADT.graph.newGraph:8 of
+msgid "Un nuevo grafo vacío"
+msgstr ""
+
+#: Src.DISClib.ADT.graph.numEdges:1 of
+msgid "Retorna el numero de arcos en el grafo graph"
+msgstr ""
+
+#: Src.DISClib.ADT.graph.numEdges:5 Src.DISClib.ADT.graph.numVertices:5 of
+msgid "El numero de vertices del grafo"
+msgstr ""
+
+#: Src.DISClib.ADT.graph.numVertices:1 of
+msgid "Retorna el numero de vertices del  grafo graph"
+msgstr ""
+
+#: Src.DISClib.ADT.graph.outdegree:1 of
+msgid "Retorna el numero de arcos que salen del grafo vertex"
+msgstr ""
+
+#: Src.DISClib.ADT.graph.removeVertex:1 of
+msgid "Remueve el vertice vertex del grafo graph"
+msgstr ""
+
+#: Src.DISClib.ADT.graph.removeVertex:4 of
+msgid "El vertice que se desea remover"
+msgstr ""
+
+#: Src.DISClib.ADT.graph.removeVertex:6 of
+msgid "El grafo sin el vertice vertex"
+msgstr ""
+
+#: Src.DISClib.ADT.graph.vertices:1 of
+msgid ""
+"Retorna una lista con todos los vertices del grafo graph :param graph: El"
+" grafo sobre el que se ejecuta la operacion"
+msgstr ""
+
+#: Src.DISClib.ADT.graph.vertices:4 of
+msgid "La lista con los vertices del grafo"
+msgstr ""
+
+#: ../../Src.DISClib.ADT.rst:24
+msgid "Src.DISClib.ADT.indexminpq module"
+msgstr ""
+
+#: ../../Src.DISClib.ADT.rst:32
+msgid "Src.DISClib.ADT.lists module"
+msgstr ""
+
+#: Src.DISClib.ADT.lists:1 of
+msgid ""
+"Este módulo implementa el tipo abstracto de datos (TAD) lista. "
+"Dinámicamente se puede implementar sobre una estructura de datos sea "
+"encadenada de forma sencilla (SingleLinked), doble (DoubleLinked) o como "
+"un arreglo dinámico (ArrayList)."
+msgstr ""
+
+#: ../../docstring Src.DISClib.ADT.lists.ADT_LT_MOD_DICT:1 of
+msgid ""
+"Referencia a los posibles módulos de implementación del ADT List. Pueden "
+"ser \"ArrayList\", \"SingleLinked\" o \"DoubleLinked\"."
+msgstr ""
+
+#: Src.DISClib.ADT.lists.List:1 of
+msgid ""
+"*List()* Función dinámica que que retorna una instancia del ADT List "
+"según el tipo de estructura de datos seleccionada por el usuario."
+msgstr ""
+
+#: Src.DISClib.ADT.lists.List:3 of
+msgid ""
+"Tipo de estructura de datos a instanciar. Por defecto es \"ArrayList\". "
+"Puende ser \"ArrayList\", \"SingleLinked\" o \"DoubleLinked\"."
+msgstr ""
+
+#: Src.DISClib.ADT.lists.List:6 Src.DISClib.ADT.maps.Map:6 of
+msgid "error si el tipo de estructura de datos seleccionada no es válida."
+msgstr ""
+
+#: Src.DISClib.ADT.lists.List:8 Src.DISClib.ADT.lists.translate_lt:10 of
+msgid ""
+"instancia del ADT List que puede ser \"ArrayList\", \"SingleLinked\" o "
+"\"DoubleLinked\"."
+msgstr ""
+
+#: Src.DISClib.ADT.lists.clone_lt:1 of
+msgid ""
+"*clone()* copia una instancia del ADT List con una estructura de datos "
+"seleccionada."
+msgstr ""
+
+#: Src.DISClib.ADT.lists.clone_lt:3 of
+msgid "instancia del ADT *List* a copiar."
+msgstr ""
+
+#: Src.DISClib.ADT.lists.clone_lt:6 of
+msgid "copia independiente de la instancia del ADT *List*."
+msgstr ""
+
+#: Src.DISClib.ADT.lists.translate_lt:1 of
+msgid ""
+"*translate()* Transforma una instancia del ADT List con una estructura de"
+" datos seleccionada en otra instancia del ADT List con otra estructura de"
+" datos seleccionada."
+msgstr ""
+
+#: Src.DISClib.ADT.lists.translate_lt:3 of
+msgid "instancia del ADT List a transformar."
+msgstr ""
+
+#: Src.DISClib.ADT.lists.translate_lt:5 of
+msgid ""
+"Tipo de estructura de datos objetivo a instanciar. Por defecto es "
+"\"SingleLinked\". Puenden ser \"ArrayList\", \"SingleLinked\" o "
+"\"DoubleLinked\"."
+msgstr ""
+
+#: Src.DISClib.ADT.lists.translate_lt:8 Src.DISClib.ADT.maps.translate_mp:8 of
+msgid "error si el tipo de estructura de datos no es válido."
+msgstr ""
+
+#: ../../Src.DISClib.ADT.rst:40
+msgid "Src.DISClib.ADT.maps module"
+msgstr ""
+
+#: Src.DISClib.ADT.maps:1 of
+msgid ""
+"Este módulo implementa el tipo abstracto de datos (TAD) Map sin orden. Se"
+" puede implementar sobre una estructura de datos Hash Table, con "
+"resolución de colisiones por sondeo lineal (Linear Probing) o "
+"encadenamiento por separado (Separate Chaining)."
+msgstr ""
+
+#: ../../docstring Src.DISClib.ADT.maps.ADT_HT_MOD_DICT:1 of
+msgid ""
+"Referencia a los posibles módulos de implementación del ADT Map. Pueden "
+"ser \"SeparateChaining\" o \"LinearProbing\"."
+msgstr ""
+
+#: Src.DISClib.ADT.maps.Map:1 of
+msgid ""
+"*Map()* Función dinámica que retorna una instancia del ADT Map según el "
+"tipo de estructura de datos seleccionada por el usuario."
+msgstr ""
+
+#: Src.DISClib.ADT.maps.Map:3 of
+msgid ""
+"Tipo de estructura de datos a instanciar. Por defecto es "
+"\"SeparateChaining\". Puende ser \"SeparateChaining\" o "
+"\"LinearProbing\"."
+msgstr ""
+
+#: Src.DISClib.ADT.maps.Map:8 Src.DISClib.ADT.maps.translate_mp:10 of
+msgid ""
+"instancia del ADT Map que puede ser \"SeparateChaining\" o "
+"\"LinearProbing\"."
+msgstr ""
+
+#: Src.DISClib.ADT.maps.clone_mp:1 of
+msgid ""
+"*clone_mp()* copia una instancia del ADT Map con una estructura de datos "
+"seleccionada."
+msgstr ""
+
+#: Src.DISClib.ADT.maps.clone_mp:3 of
+msgid "instancia del ADT *Map* a copiar."
+msgstr ""
+
+#: Src.DISClib.ADT.maps.clone_mp:6 of
+msgid "copia independiente de la instancia del ADT *Map*."
+msgstr ""
+
+#: Src.DISClib.ADT.maps.translate_mp:1 of
+msgid ""
+"*translate_mp()* Transforma una instancia del ADT Map con una estructura "
+"de datos seleccionada en otra instancia del ADT Map con otra estructura "
+"de datos seleccionada."
+msgstr ""
+
+#: Src.DISClib.ADT.maps.translate_mp:3 of
+msgid "instancia del ADT Map a transformar."
+msgstr ""
+
+#: Src.DISClib.ADT.maps.translate_mp:5 of
+msgid ""
+"Tipo de estructura de datos objetivo a instanciar. Por defecto es "
+"\"LinearProbing\". Puenden ser \"SeparateChaining\" o \"LinearProbing\"."
+msgstr ""
+
+#: ../../Src.DISClib.ADT.rst:48
+msgid "Src.DISClib.ADT.minpq module"
+msgstr ""
+
+#: ../../Src.DISClib.ADT.rst:56
+msgid "Src.DISClib.ADT.queue module"
+msgstr ""
+
+#: Src.DISClib.ADT.queue:1 of
+msgid ""
+"Este ADT representa una cola/fila implementada sobre una lista. Esta cola"
+" o fila (queue) es una estructura de datos que permite almacenar una "
+"colección de elementos y operar sobre ellos en el mismo orden en que "
+"fueron agregados (FIFO)."
+msgstr ""
+
+#: Src.DISClib.ADT.queue:3 of
+msgid ""
+"La implementación de la cola se realiza sobre una lista simplemente "
+"encadenada (SingleLinked) para garantizar que las operaciones de agregar "
+"y eliminar elementos se realicen en tiempo constante y no consumir "
+"memoria innecesaria."
+msgstr ""
+
+#: Src.DISClib.ADT.queue.Queue:1 of
+msgid ""
+"Bases: "
+":py:class:`~Src.DISClib.DataStructures.singlelinkedlist.SingleLinked`"
+msgstr ""
+
+#: Src.DISClib.ADT.queue.Queue:1 of
+msgid ""
+"**Queue** representa una cola implementada sobre una lista sencillamente "
+"encadenada (*SingleLinked*) y @dataclass para que sea una estructura de "
+"datos genérica. Esta cola o fila (*Queue*) es un Tipo Abstracto de Datos "
+"(TAD/ADT) que permite almacenar una colección de elementos y operarlos en"
+" el mismo orden en que fueron agregados (FIFO - Firts In First Out)."
+msgstr ""
+
+#: Src.DISClib.ADT.queue.Queue:3 of
+msgid ""
+"*IMPORTANTE:* *Queue* extiende de la clase *SingleLinked*, por lo que "
+"hereda todos sus parametros internos y funciones."
+msgstr ""
+
+#: Src.DISClib.ADT.queue.Queue:5 of
+msgid ""
+"ADT *DISClib* que implementa las funciones básicas de una lista "
+"sencillamente encadenada."
+msgstr ""
+
+#: Src.DISClib.ADT.queue.Queue:8 of
+msgid ""
+"ADT de tipo *Queue*, Cola o Fila, implementado sobre una lista "
+"sencillamente encadenada."
+msgstr ""
+
+#: Src.DISClib.ADT.queue.Queue.dequeue:1 of
+msgid ""
+"*dequeue()* desencola o remueve el elemento en la primera posición del "
+"ADT *Queue*."
+msgstr ""
+
+#: Src.DISClib.ADT.queue.Queue.dequeue:3 of
+msgid "el elemento de la primera posición del ADT *Queue*."
+msgstr ""
+
+#: Src.DISClib.ADT.queue.Queue.enqueue:1 of
+msgid "*enqueue()* encola o agrega un elemento en el final del ADT *Queue*."
+msgstr ""
+
+#: Src.DISClib.ADT.queue.Queue.enqueue:3 of
+msgid "el elemento que se quiere agregar al ADT *Queue*."
+msgstr ""
+
+#: Src.DISClib.ADT.queue.Queue.peek:1 of
+msgid "*peek()* lee el primer elemento del ADT *Queue* sin eliminarlo."
+msgstr ""
+
+#: Src.DISClib.ADT.queue.Queue.peek:3 of
+msgid "el elemento en la primera posición del ADT *Queue*."
+msgstr ""
+
+#: ../../Src.DISClib.ADT.rst:64
+msgid "Src.DISClib.ADT.stack module"
+msgstr ""
+
+#: Src.DISClib.ADT.stack:1 of
+msgid ""
+"Este ADT representa una pila implementada sobre una lista doblemente "
+"encadenada. Esta pila (Stack) es un Tipo Abstracto de Datos (TAD/ADT) que"
+" permite almacenar una colección de elementos y operarlos en el mismo "
+"orden en que fueron agregados (LIFO - Last In First Out)."
+msgstr ""
+
+#: Src.DISClib.ADT.stack:3 of
+msgid ""
+"La implementación de la cola se realiza sobre una lista doblemente "
+"encadenada (DoubleLinked) para garantizar que las operaciones de agregar "
+"y eliminar elementos se realicen en tiempo constante y no consumir "
+"memoria innecesaria."
+msgstr ""
+
+#: Src.DISClib.ADT.stack.Stack:1 of
+msgid ""
+"Bases: "
+":py:class:`~Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked`"
+msgstr ""
+
+#: Src.DISClib.ADT.stack.Stack:1 of
+msgid ""
+"**Stack** representa una pila implementada sobre una lista doblemente "
+"encadenada (*DoubleLinked*) y @dataclass para que sea una estructura de "
+"datos genérica. Esta pila (*Stack*) es un Tipo Abstracto de Datos "
+"(TAD/ADT) que permite almacenar una colección de elementos y operarlos en"
+" el mismo orden en que fueron agregados (LIFO - Last In First Out)."
+msgstr ""
+
+#: Src.DISClib.ADT.stack.Stack:3 of
+msgid ""
+"**IMPORTANTE:** *Stack* extiende de la clase *DoubleLinked*, por lo que "
+"hereda todos sus parametros internos y funciones."
+msgstr ""
+
+#: Src.DISClib.ADT.stack.Stack:5 of
+msgid ""
+"ADT *DISClib* que implementa las funciones básicas de una lista "
+"doblemente encadenada."
+msgstr ""
+
+#: Src.DISClib.ADT.stack.Stack:8 of
+msgid ""
+"ADT de tipo *Stack* o Pila, implementado sobre una lista doblemente "
+"encadenada."
+msgstr ""
+
+#: Src.DISClib.ADT.stack.Stack.pop:1 of
+msgid "*pop()* elimina o remueve el elemento en tope del ADT *Stack*."
+msgstr ""
+
+#: Src.DISClib.ADT.stack.Stack.pop:3 of
+msgid "el elemento de la posición más alta (tope) del ADT *Stack*."
+msgstr ""
+
+#: Src.DISClib.ADT.stack.Stack.push:1 of
+msgid "*push()* inserta o agrega un elemento en el tope del *Stack*."
+msgstr ""
+
+#: Src.DISClib.ADT.stack.Stack.push:3 of
+msgid "el elemento que se quiere agregar al *Stack*."
+msgstr ""
+
+#: Src.DISClib.ADT.stack.Stack.top:1 of
+msgid "*top()* lee el elemento ubicado en el tope del ADT *Stack* sin eliminarlo."
+msgstr ""
+
+#: Src.DISClib.ADT.stack.Stack.top:3 of
+msgid "el elemento en la posición más alta (tope) del ADT *Stack*."
+msgstr ""
+
+#: ../../Src.DISClib.ADT.rst:72
+msgid "Src.DISClib.ADT.trees module"
+msgstr ""
+
+#: Src.DISClib.ADT.trees:1 of
+msgid "Copyright 2020, Departamento de sistemas y Computación"
+msgstr ""
+
+#: Src.DISClib.ADT.trees:2 of
+msgid "Universidad de Los Andes"
+msgstr ""
+
+#: Src.DISClib.ADT.trees:5 of
+msgid "Desarrolado para el curso ISIS1225 - Estructuras de Datos y Algoritmos"
+msgstr ""
+
+#: Src.DISClib.ADT.trees:8 of
+msgid "This program is free software: you can redistribute it and/or modify"
+msgstr ""
+
+#: Src.DISClib.ADT.trees:9 of
+msgid "it under the terms of the GNU General Public License as published by"
+msgstr ""
+
+#: Src.DISClib.ADT.trees:10 of
+msgid "the Free Software Foundation, either version 3 of the License, or"
+msgstr ""
+
+#: Src.DISClib.ADT.trees:11 of
+msgid "(at your option) any later version."
+msgstr ""
+
+#: Src.DISClib.ADT.trees:13 of
+msgid "This program is distributed in the hope that it will be useful,"
+msgstr ""
+
+#: Src.DISClib.ADT.trees:14 of
+msgid "but WITHOUT ANY WARRANTY; without even the implied warranty of"
+msgstr ""
+
+#: Src.DISClib.ADT.trees:15 of
+msgid "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the"
+msgstr ""
+
+#: Src.DISClib.ADT.trees:16 of
+msgid "GNU General Public License for more details."
+msgstr ""
+
+#: Src.DISClib.ADT.trees:18 of
+msgid "You should have received a copy of the GNU General Public License"
+msgstr ""
+
+#: Src.DISClib.ADT.trees:19 of
+msgid "along with this program.  If not, see <http://www.gnu.org/licenses/>."
+msgstr ""
+
+#: Src.DISClib.ADT.trees:21 of
+msgid "Contribución de:"
+msgstr ""
+
+#: Src.DISClib.ADT.trees:23 of
+msgid "Dario Correal"
+msgstr ""
+
+#: Src.DISClib.ADT.trees.ceiling:1 of
+msgid ""
+"Retorna la llave mas pequeña en la tabla de simbolos, mayor o igual a la "
+"llave key :param map: La tabla de simbolos :param key: la llave de "
+"búsqueda"
+msgstr ""
+
+#: Src.DISClib.ADT.trees.ceiling:6 Src.DISClib.ADT.trees.rank:5
+#: Src.DISClib.ADT.trees.select:5 of
+msgid "La llave más pequeña mayor o igual a Key"
+msgstr ""
+
+#: Src.DISClib.ADT.trees.contains:1 of
+msgid ""
+"Informa si la llave key se encuentra en la tabla de hash :param map: La "
+"tabla de simbolos :param key: La llave a buscar"
+msgstr ""
+
+#: Src.DISClib.ADT.trees.contains:5 of
+msgid "True si la llave está presente, False en caso contrario"
+msgstr ""
+
+#: Src.DISClib.ADT.trees.deleteMax:1 of
+msgid ""
+"Encuentra y remueve la mayor llave de la tabla de simbolos y su valor "
+"asociado :param map: La tabla de simbolos"
+msgstr ""
+
+#: Src.DISClib.ADT.trees.deleteMax:5 of
+msgid "La tabla de simbolos sin la mayor llave"
+msgstr ""
+
+#: Src.DISClib.ADT.trees.deleteMin:1 of
+msgid ""
+"Encuentra y remueve la menor llave de la tabla de simbolos y su valor "
+"asociado :param map: La tabla de simbolos"
+msgstr ""
+
+#: Src.DISClib.ADT.trees.deleteMin:5 of
+msgid "La tabla de simbolos sin la menor llave"
+msgstr ""
+
+#: Src.DISClib.ADT.trees.floor:1 of
+msgid ""
+"Retorna la llave mas grande en la tabla de simbolos, menor o igual a la "
+"llave key :param map: La tabla de simbolos :param key: La llave de "
+"búsqueda"
+msgstr ""
+
+#: Src.DISClib.ADT.trees.floor:6 of
+msgid "La llave más grande menor o igual a key"
+msgstr ""
+
+#: Src.DISClib.ADT.trees.get:1 of
+msgid ""
+"Retorna la pareja lleve-valor con llave igual a key :param map: La tabla "
+"de simbolos :param key: La llave asociada a la pareja"
+msgstr ""
+
+#: Src.DISClib.ADT.trees.get:5 of
+msgid "La tabla de simbolos con la nueva pareja"
+msgstr ""
+
+#: Src.DISClib.ADT.trees.height:1 of
+msgid "Retorna la altura del arbol de busqueda :param map: La tabla de simbolos"
+msgstr ""
+
+#: Src.DISClib.ADT.trees.height:4 of
+msgid "La altura del arbol"
+msgstr ""
+
+#: Src.DISClib.ADT.trees.isEmpty:1 of
+msgid ""
+"Informa si la tabla de simbolos se encuentra vacia :param map: La tabla "
+"de simbolos"
+msgstr ""
+
+#: Src.DISClib.ADT.trees.isEmpty:4 of
+msgid "True si la tabla es vacía, False en caso contrario"
+msgstr ""
+
+#: Src.DISClib.ADT.trees.keySet:1 of
+msgid ""
+"Retorna una lista con todas las llaves de la tabla :param map: La tabla "
+"de simbolos"
+msgstr ""
+
+#: Src.DISClib.ADT.trees.keySet:4 of
+msgid "Una lista con todas las llaves de la tabla"
+msgstr ""
+
+#: Src.DISClib.ADT.trees.keys:1 of
+msgid "Retorna todas las llaves del arbol que se encuentren entre [keylo, keyhi]"
+msgstr ""
+
+#: Src.DISClib.ADT.trees.keys:4 Src.DISClib.ADT.trees.put:7
+#: Src.DISClib.ADT.trees.remove:5 Src.DISClib.ADT.trees.values:4 of
+msgid "La tabla de simbolos"
+msgstr ""
+
+#: Src.DISClib.ADT.trees.keys:5 Src.DISClib.ADT.trees.values:5 of
+msgid "límite inferior"
+msgstr ""
+
+#: Src.DISClib.ADT.trees.keys:6 Src.DISClib.ADT.trees.values:6 of
+msgid "límite superiorr"
+msgstr ""
+
+#: Src.DISClib.ADT.trees.keys:8 Src.DISClib.ADT.trees.values:8 of
+msgid "Las llaves en el rago especificado"
+msgstr ""
+
+#: Src.DISClib.ADT.trees.maxKey:1 of
+msgid ""
+"Retorna la mayor llave de la tabla de simbolos :param map: La tabla de "
+"simbolos"
+msgstr ""
+
+#: Src.DISClib.ADT.trees.maxKey:4 of
+msgid "La mayor llave de la tabla"
+msgstr ""
+
+#: Src.DISClib.ADT.trees.minKey:1 of
+msgid ""
+"Retorna la menor llave de la tabla de simbolos :param map: La tabla de "
+"simbolos"
+msgstr ""
+
+#: Src.DISClib.ADT.trees.minKey:4 of
+msgid "La menor llave de la tabla"
+msgstr ""
+
+#: Src.DISClib.ADT.trees.newMap:1 of
+msgid ""
+"Crea una tabla de simbolos ordenada. :param maptype: El tipo de map "
+"ordenado a utilizar"
+msgstr ""
+
+#: Src.DISClib.ADT.trees.newMap:3 of
+msgid "'BST' o 'RBT'"
+msgstr ""
+
+#: Src.DISClib.ADT.trees.newMap:5 of
+msgid "La tabla de símbolos ordenada sin elementos"
+msgstr ""
+
+#: Src.DISClib.ADT.trees.put:1 of
+msgid ""
+"Ingresa una pareja llave,valor. Si la llave ya existe, se reemplaza el "
+"valor. :param map: La tabla de simbolos ordenada :param key: La llave "
+"asociada a la pareja :param value: El valor asociado a la pareja"
+msgstr ""
+
+#: Src.DISClib.ADT.trees.rank:1 of
+msgid ""
+"Retorna el número de llaves en la tabla estrictamente menores que key "
+":param map: La tabla de simbolos :param pos: la pos-esima llave mas "
+"pequeña"
+msgstr ""
+
+#: Src.DISClib.ADT.trees.remove:1 of
+msgid ""
+"Elimina la pareja llave,valor, donde llave == key. :param map: La tabla "
+"de simbolos :param key: La llave asociada a la pareja"
+msgstr ""
+
+#: Src.DISClib.ADT.trees.select:1 of
+msgid ""
+"Retorna la siguiente llave a la k-esima llave mas pequeña de la tabla "
+":param map: La tabla de simbolos :param pos: la pos-esima llave mas "
+"pequeña"
+msgstr ""
+
+#: Src.DISClib.ADT.trees.size:1 of
+msgid ""
+"Retorna el número de entradas en la tabla de simbolos :param map: La "
+"tabla de simbolos"
+msgstr ""
+
+#: Src.DISClib.ADT.trees.size:4 of
+msgid "El número de elementos en la tabla"
+msgstr ""
+
+#: Src.DISClib.ADT.trees.valueSet:1 of
+msgid ""
+"Construye una lista con los valores de la tabla :param map: La tabla con "
+"los elementos"
+msgstr ""
+
+#: Src.DISClib.ADT.trees.valueSet:4 of
+msgid "Una lista con todos los valores"
+msgstr ""
+
+#: Src.DISClib.ADT.trees.values:1 of
+msgid "Retorna todas los valores del arbol que se encuentren entre [keylo, keyhi]"
+msgstr ""
+
+#: ../../Src.DISClib.ADT.rst:80
+msgid "Module contents"
+msgstr ""
+

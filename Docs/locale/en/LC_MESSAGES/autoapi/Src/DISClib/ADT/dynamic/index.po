@@ -1,0 +1,143 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Uniandes, Bogotá - Colombia, Sur América,
+# This file is distributed under the same license as the DISClib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: DISClib \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-03 00:09-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../autoapi/Src/DISClib/ADT/dynamic/index.rst:2
+msgid ":py:mod:`Src.DISClib.ADT.dynamic`"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/dynamic/index.rst:8
+msgid ""
+"Este módulo permite importar dinámicamente otros módulos, funciones y "
+"estructuras de datos (ADTs) dentro de *DISClib*. En ves de importar los "
+"ADTs de manera estática, se puede importar dinámicamente según la "
+"configuración de un diccionario (o archivo JSON) y las especificaciones "
+"del usuario."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/dynamic/index.rst:10
+msgid ""
+"*IMPORTANTE:* Este código y sus especificaciones para Python están "
+"basados en las implementaciones propuestas por los siguientes "
+"autores/libros:"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/dynamic/index.rst:12
+msgid "Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/dynamic/index.rst:13
+msgid ""
+"Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H."
+" Goldwasser."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/dynamic/index.rst:18
+msgid "Module Contents"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/dynamic/index.rst:21
+msgid "Classes"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/dynamic/index.rst:29:<autosummary>:1
+msgid ":py:obj:`DynamicImporter <Src.DISClib.ADT.dynamic.DynamicImporter>`\\"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/dynamic/index.rst:54
+#: ../../autoapi/Src/DISClib/ADT/dynamic/index.rst:29:<autosummary>:1
+msgid ""
+"**DynamicImporter** permite importar dinámicamente módulos y clases de "
+"módulos según la configuración de un archivo JSON y las especificaciones "
+"del usuario."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/dynamic/index.rst:31
+msgid "Attributes"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/dynamic/index.rst:38:<autosummary>:1
+msgid ":py:obj:`STRUCT_PGK_PATH <Src.DISClib.ADT.dynamic.STRUCT_PGK_PATH>`\\"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/dynamic/index.rst:43
+#: ../../autoapi/Src/DISClib/ADT/dynamic/index.rst:38:<autosummary>:1
+msgid "Ruta relativa del paquete principal para las estructuras de datos."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/dynamic/index.rst:38:<autosummary>:1
+msgid ":py:obj:`ADT_PGK_PATH <Src.DISClib.ADT.dynamic.ADT_PGK_PATH>`\\"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/dynamic/index.rst:49
+#: ../../autoapi/Src/DISClib/ADT/dynamic/index.rst:38:<autosummary>:1
+msgid "Ruta relativa del paquete principal para crear los ADTs."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/dynamic/index.rst
+msgid "Muestra"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/dynamic/index.rst:56
+msgid "no se puede importar el módulo especificado."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/dynamic/index.rst
+msgid "Devuelve"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/dynamic/index.rst:58
+msgid "instancia de la clase dinámica."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/dynamic/index.rst
+msgid "Tipo del valor devuelto"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/dynamic/index.rst:65
+msgid "Nombre del paquete en el directorio de compilación."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/dynamic/index.rst:71
+msgid "Nombre del paquete en el directorio dentro del código fuente."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/dynamic/index.rst:75
+msgid "Referencia privada al módulo dinámico."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/dynamic/index.rst:79
+msgid "Referencia privada a la clase dinámica seleccionada."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/dynamic/index.rst:83
+msgid "Referencia privada a la instancia de la clase dinámica seleccionada."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/dynamic/index.rst:87
+msgid ""
+"*get_instance()* retorna la instancia de la clase concreta seleccionada "
+"por el usuario."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/dynamic/index.rst:89
+msgid "instancia de la clase concreta seleccionada."
+msgstr ""
+

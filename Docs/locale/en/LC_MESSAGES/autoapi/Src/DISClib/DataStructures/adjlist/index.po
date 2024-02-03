@@ -1,0 +1,508 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Uniandes, Bogotá - Colombia, Sur América,
+# This file is distributed under the same license as the DISClib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: DISClib \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-03 00:09-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:2
+msgid ":py:mod:`Src.DISClib.DataStructures.adjlist`"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:8
+msgid "# TODO: agregar descripción del módulo"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:10
+msgid ""
+"*IMPORTANTE:* Este código y sus especificaciones para Python están "
+"basados en las implementaciones propuestas por los siguientes "
+"autores/libros:"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:12
+msgid "Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:13
+msgid ""
+"Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H."
+" Goldwasser."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:18
+msgid "Module Contents"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:21
+msgid "Classes"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:28:<autosummary>:1
+msgid ""
+":py:obj:`AdjacencyList "
+"<Src.DISClib.DataStructures.adjlist.AdjacencyList>`\\"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:57
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:28:<autosummary>:1
+msgid ""
+"**AdjacencyList** representa la estructura de datos para arreglos "
+"dinamicos (Array List), Implementada con Generic[T] y @dataclass para que"
+" sea una estructura de datos genérica."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:30
+msgid "Functions"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:51:<autosummary>:1
+msgid ""
+":py:obj:`newGraph <Src.DISClib.DataStructures.adjlist.newGraph>`\\ "
+"\\(size\\, cmpfunction\\, directed\\, type\\, datastructure\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:136
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:51:<autosummary>:1
+msgid "Crea un grafo vacio"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:51:<autosummary>:1
+msgid ""
+":py:obj:`insertVertex "
+"<Src.DISClib.DataStructures.adjlist.insertVertex>`\\ \\(graph\\, "
+"vertex\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:149
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:51:<autosummary>:1
+msgid "Inserta el vertice vertex en el grafo graph"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:51:<autosummary>:1
+msgid ""
+":py:obj:`removeVertex "
+"<Src.DISClib.DataStructures.adjlist.removeVertex>`\\ \\(graph\\, "
+"vertex\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:161
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:51:<autosummary>:1
+msgid "Remueve el vertice vertex del grafo graph"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:51:<autosummary>:1
+msgid ""
+":py:obj:`numVertices <Src.DISClib.DataStructures.adjlist.numVertices>`\\ "
+"\\(graph\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:173
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:51:<autosummary>:1
+msgid "Retorna el numero de vertices del  grafo graph"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:51:<autosummary>:1
+msgid ""
+":py:obj:`numEdges <Src.DISClib.DataStructures.adjlist.numEdges>`\\ "
+"\\(graph\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:184
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:51:<autosummary>:1
+msgid "Retorna el numero de arcos en el grafo graph"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:51:<autosummary>:1
+msgid ""
+":py:obj:`vertices <Src.DISClib.DataStructures.adjlist.vertices>`\\ "
+"\\(graph\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:51:<autosummary>:1
+msgid "Retorna una lista con todos los vertices del grafo graph"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:51:<autosummary>:1
+msgid ":py:obj:`edges <Src.DISClib.DataStructures.adjlist.edges>`\\ \\(graph\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:205
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:51:<autosummary>:1
+msgid "Retorna una lista con todos los arcos del grafo graph"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:51:<autosummary>:1
+msgid ""
+":py:obj:`degree <Src.DISClib.DataStructures.adjlist.degree>`\\ "
+"\\(graph\\, vertex\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:216
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:51:<autosummary>:1
+msgid "Retorna el numero de arcos asociados al vertice vertex"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:51:<autosummary>:1
+msgid ""
+":py:obj:`indegree <Src.DISClib.DataStructures.adjlist.indegree>`\\ "
+"\\(graph\\, vertex\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:228
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:51:<autosummary>:1
+msgid "Retorna el numero de arcos que llegan al vertice vertex"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:51:<autosummary>:1
+msgid ""
+":py:obj:`outdegree <Src.DISClib.DataStructures.adjlist.outdegree>`\\ "
+"\\(graph\\, vertex\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:240
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:51:<autosummary>:1
+msgid "Retorna el numero de arcos que salen del grafo vertex"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:51:<autosummary>:1
+msgid ""
+":py:obj:`getEdge <Src.DISClib.DataStructures.adjlist.getEdge>`\\ "
+"\\(graph\\, vertexa\\, vertexb\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:252
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:51:<autosummary>:1
+msgid "Retorna el arco asociado a los vertices vertexa ---- vertexb"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:51:<autosummary>:1
+msgid ""
+":py:obj:`containsVertex "
+"<Src.DISClib.DataStructures.adjlist.containsVertex>`\\ \\(graph\\, "
+"vertex\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:265
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:51:<autosummary>:1
+msgid "Retorna si el vertice vertex esta presente en el grafo"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:51:<autosummary>:1
+msgid ""
+":py:obj:`addEdge <Src.DISClib.DataStructures.adjlist.addEdge>`\\ "
+"\\(graph\\, vertexa\\, vertexb\\[\\, weight\\]\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:51:<autosummary>:1
+msgid "Agrega un arco entre los vertices vertexa ---- vertexb, con peso weight."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:51:<autosummary>:1
+msgid ""
+":py:obj:`adjacents <Src.DISClib.DataStructures.adjlist.adjacents>`\\ "
+"\\(graph\\, vertex\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:294
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:51:<autosummary>:1
+msgid "Retorna una lista con todos los vertices adyacentes al vertice vertex"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:51:<autosummary>:1
+msgid ""
+":py:obj:`adjacentEdges "
+"<Src.DISClib.DataStructures.adjlist.adjacentEdges>`\\ \\(graph\\, "
+"vertex\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:51:<autosummary>:1
+msgid "Retorna una lista con todos los arcos asociados a los vértices"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:55
+msgid "Bases: :py:obj:`Generic`\\ [\\ :py:obj:`Src.DISClib.Utils.default.T`\\ ]"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst
+msgid "Parámetros"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:59
+msgid ""
+"TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una "
+"estructura de datos genéricas en python."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst
+msgid "Devuelve"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:62
+msgid "ADT de tipo AdjacencyList o Arreglo Dinámico."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst
+msgid "Tipo del valor devuelto"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:68
+msgid ""
+"Lista nativa de Python personalizable por el usuario para inicializar la "
+"estructura. Por defecto es *None* y el usuario puede incluirla como "
+"argumento al crear la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:73
+msgid ""
+"Función de comparación personalizable por el usuario para reconocer los "
+"elementos dentro de la estructura. Es un argumento configurable al crear "
+"la estructura. Por defecto es la función *lt_default_cmp_funcion()* "
+"propia de *DISClib*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:78
+msgid "Lista nativa de Python que contiene los elementos de la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:83
+msgid ""
+"Nombre de la llave opcional que se utiliza para comparar los elementos "
+"del AdjacencyList, Por defecto es *None* y el *__post_init__()* configura"
+" la llave por defecto la llave 'id' en *DEFAULT_DICT_KEY*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:89
+msgid ""
+"Es el número de elementos que contiene la estructura, por defecto es 0 y "
+"se actualiza con cada operación que modifica la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:93
+msgid ""
+"*__post_init__()* configura los valores por defecto para la llave ('key')"
+" y la función de comparación ('cmp_function'). Si el usuario incluye una "
+"lista nativa de python como argumento, se agrega a la lista de elementos "
+"del AdjacencyList."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:99
+msgid ""
+"*default_cmp_function()* procesa con algoritmica por defecto la lista de "
+"elementos que procesa el AdjacencyList. Es una función crucial para que "
+"la estructura de datos funcione correctamente."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:101
+msgid "primer elemento a comparar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:103
+msgid "segundo elemento a comparar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:106
+msgid ""
+"respuesta de la comparación entre los elementos, 0 si son iguales, 1 si "
+"elm1 es mayor que elm2, -1 si elm1 es menor."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:112
+msgid ""
+"*_handle_error()* función privada que maneja los errores que se pueden "
+"presentar en el AdjacencyList."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:114
+msgid ""
+"Si se presenta un error en AdjacencyList, se formatea el error según el "
+"contexto (paquete/clase), la función que lo generó y lo reenvia al "
+"componente superior en la jerarquía de llamados para manejarlo segun se "
+"considere conveniente."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:116
+msgid "Excepción que se generó en el AdjacencyList."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:122
+msgid ""
+"*_check_type()* función privada que verifica que el tipo de dato del "
+"elemento que se quiere agregar al AdjacencyList sea del mismo tipo "
+"contenido dentro de los elementos del AdjacencyList."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst
+msgid "Muestra"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:124
+msgid ""
+"error si el tipo de dato del elemento que se quiere agregar no es el "
+"mismo que el tipo de dato de los elementos que ya contiene el "
+"AdjacencyList."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:126
+msgid "elemento que se quiere procesar en AdjacencyList."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:129
+msgid ""
+"operador que indica si el ADT AdjacencyList es del mismo tipo que el "
+"elemento que se quiere procesar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:138
+msgid "Tamaño inicial del grafo"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:139
+msgid "Funcion de comparacion"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:140
+msgid "Indica si el grafo es dirigido o no"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:142
+msgid "Un nuevo grafo vacío"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:151
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:163
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:175
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:186
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:207
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:218
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:230
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:242
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:254
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:267
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:282
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:296
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:309
+msgid "El grafo sobre el que se ejecuta la operacion"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:152
+msgid "El vertice que se desea insertar"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:154
+msgid "El grafo graph con el nuevo vertice"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:164
+msgid "El vertice que se desea remover"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:166
+msgid "El grafo sin el vertice vertex"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:177
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:188
+msgid "El numero de vertices del grafo"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:195
+msgid ""
+"Retorna una lista con todos los vertices del grafo graph :param graph: El"
+" grafo sobre el que se ejecuta la operacion"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:198
+msgid "La lista con los vertices del grafo"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:209
+msgid "Una lista con los arcos del grafo"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:219
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:231
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:243
+msgid "El vertice del que se desea conocer el grado"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:221
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:233
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:245
+msgid "El grado del vertice"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:255
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:283
+msgid "Vertice de inicio"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:256
+msgid "Vertice destino"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:258
+msgid "El arco que une los verices vertexa y vertexb"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:268
+msgid "Vertice que se busca"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:270
+msgid "True si el vertice esta presente"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:277
+msgid ""
+"Agrega un arco entre los vertices vertexa ---- vertexb, con peso weight. "
+"Si el grafo es no dirigido se adiciona dos veces el mismo arco, en el "
+"mismo orden Si el grafo es dirigido se adiciona solo el arco vertexa --> "
+"vertexb"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:284
+msgid "Vertice de destino"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:285
+msgid "peso del arco"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:287
+msgid "El grafo con el nuevo arco"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:297
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:310
+msgid "El vertice del que se quiere la lista"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:299
+msgid "La lista de adyacencias"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:306
+msgid ""
+"Retorna una lista con todos los arcos asociados a los vértices adyacentes"
+" de vertex"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjlist/index.rst:312
+msgid "La lista de arcos adyacentes"
+msgstr ""
+

@@ -1,0 +1,220 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Uniandes, Bogotá - Colombia, Sur América,
+# This file is distributed under the same license as the DISClib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: DISClib \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-03 00:09-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:2
+msgid ":py:mod:`Src.DISClib.ADT.minpq`"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:8
+msgid "Copyright 2020, Departamento de sistemas y Computación,"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:9
+msgid "Universidad de Los Andes"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:11
+msgid "Desarrollado para el curso ISIS1225 - Estructuras de Datos y Algoritmos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:14
+msgid "This program is free software: you can redistribute it and/or modify"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:15
+msgid "it under the terms of the GNU General Public License as published by"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:16
+msgid "the Free Software Foundation, either version 3 of the License, or"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:17
+msgid "(at your option) any later version."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:19
+msgid "This program is distributed in the hope that it will be useful,"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:20
+msgid "but WITHOUT ANY WARRANTY; without even the implied warranty of"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:21
+msgid "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:22
+msgid "GNU General Public License for more details."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:24
+msgid "You should have received a copy of the GNU General Public License"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:25
+msgid "along with this program.  If not, see <http://www.gnu.org/licenses/>."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:27
+msgid "Contribución de:"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:29
+msgid "Dario Correal"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:35
+msgid "Module Contents"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:39
+msgid "Functions"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:51:<autosummary>:1
+msgid ":py:obj:`newMinPQ <Src.DISClib.ADT.minpq.newMinPQ>`\\ \\(cmpfunction\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:54
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:51:<autosummary>:1
+msgid "Crea un cola de prioridad orientada a menor"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:51:<autosummary>:1
+msgid ":py:obj:`size <Src.DISClib.ADT.minpq.size>`\\ \\(minpq\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:51:<autosummary>:1
+msgid "Retorna el número de elementos en la MinPQ"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:51:<autosummary>:1
+msgid ":py:obj:`isEmpty <Src.DISClib.ADT.minpq.isEmpty>`\\ \\(minpq\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:76
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:51:<autosummary>:1
+msgid "Indica si la MinPQ está vacía"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:51:<autosummary>:1
+msgid ":py:obj:`min <Src.DISClib.ADT.minpq.min>`\\ \\(minpq\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:87
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:51:<autosummary>:1
+msgid "Retorna el primer elemento de la MinPQ, es decir el menor elemento"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:51:<autosummary>:1
+msgid ":py:obj:`insert <Src.DISClib.ADT.minpq.insert>`\\ \\(minpq\\, element\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:51:<autosummary>:1
+msgid "Guarda el elemento 'element' en la cola de prioridad."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:51:<autosummary>:1
+msgid ":py:obj:`delMin <Src.DISClib.ADT.minpq.delMin>`\\ \\(minpq\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:51:<autosummary>:1
+msgid "Retorna el menor elemento de la MinPQ y lo elimina."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst
+msgid "Parámetros"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:56
+msgid "La función de comparacion"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:57
+msgid "El numero de elementos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst
+msgid "Devuelve"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:59
+msgid "El heap"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst
+msgid "Muestra"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:66
+msgid ""
+"Retorna el número de elementos en la MinPQ :param minpq: la cola de "
+"prioridad"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:69
+msgid "El tamaño de la MinPQ"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:78
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:101
+msgid "El arreglo con la informacion"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:80
+msgid "True si esta vacia"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:89
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:114
+msgid "La cola de prioridad"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:91
+msgid "El menor elemento de la MinPQ"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:98
+msgid ""
+"Guarda el elemento 'element' en la cola de prioridad. Lo guarda en la "
+"última posición y luego hace swim del elemento"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:102
+msgid "El elemento a guardar"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:104
+msgid "La MinPQ con el nuevo elemento"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:111
+msgid ""
+"Retorna el menor elemento de la MinPQ y lo elimina. Se reemplaza con el "
+"último elemento y se hace sink."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/minpq/index.rst:116
+msgid "El menor elemento eliminado"
+msgstr ""
+

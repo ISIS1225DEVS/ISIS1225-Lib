@@ -1,0 +1,288 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Uniandes, Bogotá - Colombia, Sur América,
+# This file is distributed under the same license as the DISClib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: DISClib \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-03 00:09-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:2
+msgid ":py:mod:`Src.DISClib.DataStructures.indexheap`"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:8
+msgid ""
+"# TODO cambiar comentarios de lincencia segun estandard del equipo * "
+"Copyright 2020, Departamento de sistemas y Computación, * Universidad de "
+"Los Andes * * * Desarrolado para el curso ISIS1225 - Estructuras de Datos"
+" y Algoritmos * * * This program is free software: you can redistribute "
+"it and/or modify * it under the terms of the GNU General Public License "
+"as published by * the Free Software Foundation, either version 3 of the "
+"License, or * (at your option) any later version. * * This program is "
+"distributed in the hope that it will be useful, * but WITHOUT ANY "
+"WARRANTY; without even the implied warranty of * MERCHANTABILITY or "
+"FITNESS FOR A PARTICULAR PURPOSE.  See the * GNU General Public License "
+"for more details. * * You should have received a copy of the GNU General "
+"Public License * along with this program.  If not, see "
+"<http://www.gnu.org/licenses/>."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:32
+msgid "Module Contents"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:36
+msgid "Functions"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:55:<autosummary>:1
+msgid ""
+":py:obj:`newIndexHeap "
+"<Src.DISClib.DataStructures.indexheap.newIndexHeap>`\\ \\(cmpfunction\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:58
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:55:<autosummary>:1
+msgid "Crea un cola de prioridad indexada orientada a menor"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:55:<autosummary>:1
+msgid ""
+":py:obj:`insert <Src.DISClib.DataStructures.indexheap.insert>`\\ "
+"\\(iheap\\, key\\, index\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:70
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:55:<autosummary>:1
+msgid "Inserta la llave key con prioridad index"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:55:<autosummary>:1
+msgid ""
+":py:obj:`isEmpty <Src.DISClib.DataStructures.indexheap.isEmpty>`\\ "
+"\\(iheap\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:81
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:55:<autosummary>:1
+msgid "Informa si una cola de prioridad indexada es vacia"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:55:<autosummary>:1
+msgid ":py:obj:`size <Src.DISClib.DataStructures.indexheap.size>`\\ \\(iheap\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:92
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:55:<autosummary>:1
+msgid "Retorna el número de elementos en el heap"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:55:<autosummary>:1
+msgid ""
+":py:obj:`contains <Src.DISClib.DataStructures.indexheap.contains>`\\ "
+"\\(iheap\\, key\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:103
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:55:<autosummary>:1
+msgid "Indica si la llave key se encuentra en el heap"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:55:<autosummary>:1
+msgid ":py:obj:`min <Src.DISClib.DataStructures.indexheap.min>`\\ \\(iheap\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:114
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:55:<autosummary>:1
+msgid "Retorna el primer elemento del heap, es decir el menor elemento"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:55:<autosummary>:1
+msgid ""
+":py:obj:`delMin <Src.DISClib.DataStructures.indexheap.delMin>`\\ "
+"\\(iheap\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:55:<autosummary>:1
+msgid "Retorna el menor elemento del heap y lo elimina."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:55:<autosummary>:1
+msgid ""
+":py:obj:`decreaseKey "
+"<Src.DISClib.DataStructures.indexheap.decreaseKey>`\\ \\(iheap\\, key\\, "
+"newindex\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:137
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:55:<autosummary>:1
+msgid "Decrementa el indice de un llave"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:55:<autosummary>:1
+msgid ""
+":py:obj:`increaseKey "
+"<Src.DISClib.DataStructures.indexheap.increaseKey>`\\ \\(iheap\\, key\\, "
+"newindex\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:150
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:55:<autosummary>:1
+msgid "Incrementa el indice de un llave"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:55:<autosummary>:1
+msgid ""
+":py:obj:`exchange <Src.DISClib.DataStructures.indexheap.exchange>`\\ "
+"\\(iheap\\, i\\, j\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:163
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:55:<autosummary>:1
+msgid "Intercambia los elementos en las posiciones i y j del heap"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:55:<autosummary>:1
+msgid ""
+":py:obj:`greater <Src.DISClib.DataStructures.indexheap.greater>`\\ "
+"\\(iheap\\, parent\\, element\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:55:<autosummary>:1
+msgid "Indica si el index de parent es mayor"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:55:<autosummary>:1
+msgid ""
+":py:obj:`swim <Src.DISClib.DataStructures.indexheap.swim>`\\ \\(iheap\\, "
+"pos\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:55:<autosummary>:1
+msgid "Deja en el lugar indicado un elemento adicionado"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:55:<autosummary>:1
+msgid ""
+":py:obj:`sink <Src.DISClib.DataStructures.indexheap.sink>`\\ \\(iheap\\, "
+"pos\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:187
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:55:<autosummary>:1
+msgid "Deja en la posición correcta un elemento ubicado en la raíz del heap"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst
+msgid "Parámetros"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:60
+msgid "La función de comparacion"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:61
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:96
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:107
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:118
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:143
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:156
+msgid "El numero de elementos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst
+msgid "Devuelve"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:63
+msgid "Una nueva cola de prioridad indexada"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst
+msgid "Muestra"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:72
+msgid "El heap indexado"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:74
+msgid "El iheap con la nueva paraja indexada"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:83
+msgid "El heap indexado a revisar"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:85
+msgid "True si esta vacia"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:94
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:105
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:116
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:128
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:139
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:152
+msgid "El heap a revisar"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:125
+msgid ""
+"Retorna el menor elemento del heap y lo elimina. Se reemplaza con el "
+"último elemento y se hace sink."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:130
+msgid "La llave asociada al mayor indice"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:140
+msgid "la llave a decrementar"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:141
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:154
+msgid "El nuevo indice de la llave"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:153
+msgid "la llave a incrementar"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:168
+msgid "Indica si el index de parent es mayor que index de element"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:174
+msgid "Deja en el lugar indicado un elemento adicionado en la última posición"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:177
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:189
+msgid "El arreglo con la informacion"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:178
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:190
+msgid "posicion en el arreglo a revisar"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:180
+#: ../../autoapi/Src/DISClib/DataStructures/indexheap/index.rst:192
+msgid "El arreglo en forma de heap"
+msgstr ""
+

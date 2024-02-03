@@ -1,0 +1,494 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Uniandes, Bogotá - Colombia, Sur América,
+# This file is distributed under the same license as the DISClib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: DISClib \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-03 00:09-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:2
+msgid ":py:mod:`Src.DISClib.DataStructures.singlelinkedlist`"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:8
+msgid ""
+"Este ADT representa una estructura de datos lineal, específicamente una "
+"lista sensillamente enlazada/encadenada (**SingleLinked**). Esta "
+"estructura de datos es una secuencia de nodos enlazados, donde cada nodo "
+"contiene un elemento de información y una referencia al siguiente nodo en"
+" la secuencia. Esto le permite a la lista un crecimiento y reducción "
+"dinámico en la memoria disponible."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:10
+msgid ""
+"*IMPORTANTE:* Este código y sus especificaciones para Python están "
+"basados en las implementaciones propuestas por los siguientes "
+"autores/libros:"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:12
+msgid "Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:13
+msgid ""
+"Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H."
+" Goldwasser."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:18
+msgid "Module Contents"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:21
+msgid "Classes"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:29:<autosummary>:1
+msgid ""
+":py:obj:`SingleLinked "
+"<Src.DISClib.DataStructures.singlelinkedlist.SingleLinked>`\\"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:35
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:29:<autosummary>:1
+msgid ""
+"**SingleLinked** representa una estructura de datos dinámica de tipo "
+"lista sensillamente encadenada (*SingleLinked*), Implementada con "
+"Generic[T] y @dataclass para que sea una estructura de datos genérica."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:33
+msgid "Bases: :py:obj:`Generic`\\ [\\ :py:obj:`Src.DISClib.Utils.default.T`\\ ]"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst
+msgid "Parámetros"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:37
+msgid ""
+"TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una "
+"estructura de datos genéricas en python."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst
+msgid "Devuelve"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:40
+msgid "ADT de tipo *SingleLinked* o Lista Sensillamente Encadenada."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst
+msgid "Tipo del valor devuelto"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:46
+msgid ""
+"Lista nativa de Python personalizable por el usuario para inicializar la "
+"estructura. Por defecto es *None* y el usuario puede incluirla como "
+"argumento al crear la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:51
+msgid ""
+"Función de comparación personalizable por el usuario para reconocer los "
+"elementos dentro del *SingleLinked*. Por defecto es la función "
+"*lt_default_cmp_funcion()* propia de *DISClib*, puede ser un parametro al"
+" crear la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:56
+msgid "Representa la referencia en memoria al primer nodo del *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:61
+msgid "Representa la referencia en memoria al último nodo del *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:66
+msgid ""
+"Nombre de la llave personalizable por el usuario utilizada para reconocer"
+" los elementos dentro del *SingleLinked*. Por defecto es la llave de "
+"diccionario (*dict*)*DEFAULT_DICT_KEY = 'id'* propia de *DISClib*, puede "
+"ser un parametro al crear la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:72
+msgid ""
+"Es el número de elementos que contiene la estructura, por defecto es 0 y "
+"se actualiza con cada operación que modifica la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:76
+msgid ""
+"*__post_init__()* configura los parametros personalizados por el usuario "
+"al crear el *SingleLinked*. En caso de no estar definidos, se asignan los"
+" valores por defecto, puede cargar listas nativas con el parametro "
+"*iodata* de python dentro de la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:82
+msgid ""
+"*default_cmp_function()* es la función de comparación por defecto para "
+"comparar elementos dentro del *SingleLinked*, es una función crucial para"
+" que la estructura funcione correctamente."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:84
+msgid "primer elemento a comparar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:86
+msgid "segundo elemento a comparar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:89
+msgid ""
+"respuesta de la comparación entre los elementos, 0 si son iguales, 1 si "
+"elm1 es mayor que elm2, -1 si elm1 es menor."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:95
+msgid ""
+"*_handle_error()* función propia de la estructura que maneja los errores "
+"que se pueden presentar en el *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:97
+msgid ""
+"Si se presenta un error en *SingleLinked*, se formatea el error según el "
+"contexto (paquete/módulo/clase), la función (método) que lo generó y lo "
+"reenvia al componente superior en la jerarquía *DISCLib* para manejarlo "
+"segun se considere conveniente el usuario."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:99
+msgid "Excepción que se generó en el *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:105
+msgid ""
+"*_check_type()* función propia de la estructura que revisa si el tipo de "
+"dato del elemento que se desea agregar al *SingleLinked* es del mismo "
+"tipo contenido dentro de los elementos del *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:107
+msgid "elemento que se desea procesar en *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst
+msgid "Muestra"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:110
+msgid ""
+"error si el tipo de dato del elemento que se desea agregar no es el mismo"
+" que el tipo de dato de los elementos que ya contiene el *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:112
+msgid ""
+"operador que indica si el ADT *SingleLinked* es del mismo tipo que el "
+"elemento que se desea procesar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:118
+msgid "*is_empty()* revisa si el *SingleLinked* está vacío."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:120
+msgid "operador que indica si la estructura *SingleLinked* está vacía."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:126
+msgid ""
+"*size()* devuelve el número de elementos que actualmente contiene el "
+"*SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:128
+msgid "tamaño de la estructura *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:134
+msgid "*add_first()* adiciona un elemento al inicio del *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:136
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:146
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:156
+msgid "elemento que se desea agregar a la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:139
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:149
+msgid ""
+"si la operación no se puede realizar, se invoca la función "
+"*_handle_error()* para manejar el error."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:144
+msgid "*add_last()* adiciona un elemento al final del *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:154
+msgid ""
+"*add_element()* adiciona un elemento en una posición especifica del "
+"*SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:158
+msgid "posición en la que se desea agregar el elemento."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:161
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:193
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:227
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:269
+msgid "error si la posición es inválida."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:162
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:169
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:179
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:192
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:203
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:213
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:226
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:268
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:281
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:295
+msgid "error si la estructura está vacía."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:167
+msgid "*get_first()* lee el primer elemento del *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:171
+msgid "el primer elemento del *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:177
+msgid "*get_last()* lee el último elemento del *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:181
+msgid "el ultimo elemento del *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:187
+msgid ""
+"*get_element()* lee un elemento en una posición especifica del "
+"*SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:189
+msgid "posición del elemento que se desea leer."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:195
+msgid "el elemento en la posición especifica del *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:201
+msgid "*remove_first()* elimina el primer elemento del *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:205
+msgid "el primer elemento eliminado del *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:211
+msgid "*remove_last()* elimina el último elemento del *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:215
+msgid "el ultimo elemento eliminado del *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:221
+msgid ""
+"*remove_element()* elimina un elemento en una posición especifica del "
+"*SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:223
+msgid "posición del elemento que se desea eliminar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:229
+msgid "el elemento eliminado del *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:235
+msgid ""
+"*compare_elements()* compara dos elementos dentro del *SingleLinked* "
+"según la función de comparación de la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:237
+msgid "Primer elemento a comparar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:239
+msgid "Segundo elemento a comparar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:242
+msgid "error si la función de comparación no está definida."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:244
+msgid ""
+"-1 si elem1 es menor que elem2, 0 si son iguales, 1 si elem1 es mayor que"
+" elem2."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:250
+msgid ""
+"*find()* busca el elemento dentro del *SingleLinked* y devuelve su "
+"posición o -1 si no lo encuentra."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:252
+msgid "elemento que se desea revisar en el *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:255
+msgid "la posición del elemento en el *SingleLinked*, -1 si no está."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:261
+msgid ""
+"*change_info()* cambia la información de un elemento en la posición "
+"especificada del *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:263
+msgid "nueva información que se desea para el elemento."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:265
+msgid "posición del elemento que se desea cambiar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:274
+msgid ""
+"*exchange()* intercambia la información de dos elementos en dos "
+"posiciones especificadas del *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:276
+msgid "posición del primer elemento."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:278
+msgid "posición del segundo elemento."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:282
+msgid "error si la posición del primer elemento es inválida."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:283
+msgid "error si la posición del segundo elemento es inválida."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:288
+msgid ""
+"*sublist()* crea una sublista de la estructura según dos posiciones "
+"dentro del *SingleLinked* original."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:290
+msgid "posición inicial de la sublista."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:292
+msgid "posición final de la sublista."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:296
+msgid "error si la posición inicial o final son inválidas."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:298
+msgid ""
+"una sublista de la estructura original con la función de comparación y la"
+" llave de la estructura original."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:304
+msgid ""
+"*concat()* concatena dos estructuras de datos *SingleLinked* para crear "
+"una estructura con los elementos de las dos estructuras."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:306
+msgid ""
+"estructura de datos *SingleLinked* que se desea concatenar con la "
+"estructura original."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:309
+msgid "error si la estructura que se desea concatenar no es un *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:310
+msgid ""
+"error si la llave de la estructura que se desea unir no es la misma que "
+"la llave de la estructura original."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:311
+msgid ""
+"error si la función de comparación de la estructura que se desea unir no "
+"es la misma que la función de comparación de la estructura original."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:313
+msgid ""
+"Estructura de datos original *SingleLinked* que contiene los elementos de"
+" las dos estructuras originales."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:319
+msgid ""
+"*__iter__()* iterador nativo de Python personalizado para el "
+"*SingleLinked*. Permite utilizar los ciclos *for* de Python para recorrer"
+" los elementos de la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:321
+msgid "iterador Python sobre los elementos del *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:327
+msgid ""
+"*__len__()* función nativa de Python personalizada para el "
+"*SingleLinked*. Permite utilizar la función *len()* de Python para "
+"recuperar el tamaño del *SingleLinked*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/singlelinkedlist/index.rst:329
+msgid "tamaño del *SingleLinked*."
+msgstr ""
+

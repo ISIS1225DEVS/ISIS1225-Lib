@@ -19,27 +19,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.13.1\n"
 
-#: ../../index.rst:9
-msgid "Contents:"
+#: ../../autoapi/index.rst:2
+msgid "API Reference"
 msgstr ""
 
-#: ../../index.rst:7
-msgid "Welcome to DISClib's documentation!"
+#: ../../autoapi/index.rst:4
+msgid "This page contains auto-generated API reference documentation [#f1]_."
 msgstr ""
 
-#: ../../index.rst:18
-msgid "Indices and tables"
-msgstr ""
-
-#: ../../index.rst:20
-msgid ":ref:`genindex`"
-msgstr ""
-
-#: ../../index.rst:21
-msgid ":ref:`modindex`"
-msgstr ""
-
-#: ../../index.rst:22
-msgid ":ref:`search`"
+#: ../../autoapi/index.rst:10
+msgid ""
+"Created with `sphinx-autoapi <https://github.com/readthedocs/sphinx-"
+"autoapi>`_"
 msgstr ""
 

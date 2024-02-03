@@ -19,27 +19,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.13.1\n"
 
-#: ../../index.rst:9
-msgid "Contents:"
+#: ../../Src.DISClib.rst:2
+msgid "Src.DISClib package"
 msgstr ""
 
-#: ../../index.rst:7
-msgid "Welcome to DISClib's documentation!"
+#: ../../Src.DISClib.rst:5
+msgid "Subpackages"
 msgstr ""
 
-#: ../../index.rst:18
-msgid "Indices and tables"
-msgstr ""
-
-#: ../../index.rst:20
-msgid ":ref:`genindex`"
-msgstr ""
-
-#: ../../index.rst:21
-msgid ":ref:`modindex`"
-msgstr ""
-
-#: ../../index.rst:22
-msgid ":ref:`search`"
+#: ../../Src.DISClib.rst:16
+msgid "Module contents"
 msgstr ""
 

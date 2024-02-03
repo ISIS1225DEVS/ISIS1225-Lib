@@ -1,0 +1,743 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Uniandes, Bogotá - Colombia, Sur América,
+# This file is distributed under the same license as the DISClib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: DISClib \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-03 00:09-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:2
+msgid ":py:mod:`Src.DISClib.DataStructures.bst`"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:8
+msgid "Copyright 2020, Departamento de sistemas y Computación"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:9
+msgid "Universidad de Los Andes"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:12
+msgid "Desarrollado para el curso ISIS1225 - Estructuras de Datos y Algoritmos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:15
+msgid "This program is free software: you can redistribute it and/or modify"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:16
+msgid "it under the terms of the GNU General Public License as published by"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:17
+msgid "the Free Software Foundation, either version 3 of the License, or"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:18
+msgid "(at your option) any later version."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:20
+msgid "This program is distributed in the hope that it will be useful,"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:21
+msgid "but WITHOUT ANY WARRANTY; without even the implied warranty of"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:22
+msgid "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:23
+msgid "GNU General Public License for more details."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:25
+msgid "You should have received a copy of the GNU General Public License"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:26
+msgid "along with this program.  If not, see <http://www.gnu.org/licenses/>."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:28
+msgid "Contribución de:"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:30
+msgid "Dario Correal"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:36
+msgid "Module Contents"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:40
+msgid "Functions"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid ""
+":py:obj:`newMap <Src.DISClib.DataStructures.bst.newMap>`\\ \\(omaptype\\,"
+" cmpfunction\\, datastructure\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid "Crea una tabla de simbolos ordenada."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid ""
+":py:obj:`put <Src.DISClib.DataStructures.bst.put>`\\ \\(bst\\, key\\, "
+"value\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid "Ingresa una pareja llave,valor. Si la llave ya existe,"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid ":py:obj:`get <Src.DISClib.DataStructures.bst.get>`\\ \\(bst\\, key\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid "Retorna la pareja lleve-valor con llave igual  a key"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid ""
+":py:obj:`remove <Src.DISClib.DataStructures.bst.remove>`\\ \\(bst\\, "
+"key\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid "Elimina la pareja llave,valor, donde llave == key."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid ""
+":py:obj:`contains <Src.DISClib.DataStructures.bst.contains>`\\ \\(bst\\, "
+"key\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid "Informa si la llave key se encuentra en la tabla de hash"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid ":py:obj:`size <Src.DISClib.DataStructures.bst.size>`\\ \\(bst\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid "Retorna el número de entradas en la tabla de simbolos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid ":py:obj:`isEmpty <Src.DISClib.DataStructures.bst.isEmpty>`\\ \\(bst\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid "Informa si la tabla de simbolos se encuentra vacia"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid ":py:obj:`keySet <Src.DISClib.DataStructures.bst.keySet>`\\ \\(bst\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid "Retorna una lista con todas las llaves de la tabla"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid ":py:obj:`valueSet <Src.DISClib.DataStructures.bst.valueSet>`\\ \\(bst\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid "Construye una lista con los valores de la tabla"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid ":py:obj:`minKey <Src.DISClib.DataStructures.bst.minKey>`\\ \\(bst\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid "Retorna la menor llave de la tabla de simbolos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid ":py:obj:`maxKey <Src.DISClib.DataStructures.bst.maxKey>`\\ \\(bst\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid "Retorna la mayor llave de la tabla de simbolos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid ":py:obj:`deleteMin <Src.DISClib.DataStructures.bst.deleteMin>`\\ \\(bst\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid "Encuentra y remueve la menor llave de la tabla de simbolos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid ":py:obj:`deleteMax <Src.DISClib.DataStructures.bst.deleteMax>`\\ \\(bst\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid "Encuentra y remueve la mayor llave de la tabla de simbolos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid ":py:obj:`floor <Src.DISClib.DataStructures.bst.floor>`\\ \\(bst\\, key\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid "Retorna la llave mas grande en la tabla de simbolos,"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid ""
+":py:obj:`ceiling <Src.DISClib.DataStructures.bst.ceiling>`\\ \\(bst\\, "
+"key\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid "Retorna la llave mas pequeña en la tabla de simbolos,"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid ""
+":py:obj:`select <Src.DISClib.DataStructures.bst.select>`\\ \\(bst\\, "
+"pos\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid "Retorna la siguiente llave a la k-esima llave mas pequeña de la tabla"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid ":py:obj:`rank <Src.DISClib.DataStructures.bst.rank>`\\ \\(bst\\, key\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid "Retorna el número de llaves en la tabla estrictamente menores que key"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid ":py:obj:`height <Src.DISClib.DataStructures.bst.height>`\\ \\(bst\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid "Retorna la altura del arbol de busqueda"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid ""
+":py:obj:`keys <Src.DISClib.DataStructures.bst.keys>`\\ \\(bst\\, keylo\\,"
+" keyhi\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid "Retorna todas las llaves del arbol que se encuentren entre"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid ""
+":py:obj:`values <Src.DISClib.DataStructures.bst.values>`\\ \\(bst\\, "
+"keylo\\, keyhi\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid "Retorna todas los valores del arbol que se encuentren entre"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid ""
+":py:obj:`insertNode <Src.DISClib.DataStructures.bst.insertNode>`\\ "
+"\\(root\\, key\\, value\\, cmpfunction\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid ""
+":py:obj:`getNode <Src.DISClib.DataStructures.bst.getNode>`\\ \\(root\\, "
+"key\\, cmpfunction\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid ""
+":py:obj:`removeNode <Src.DISClib.DataStructures.bst.removeNode>`\\ "
+"\\(root\\, key\\, cmpfunction\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid ":py:obj:`sizeTree <Src.DISClib.DataStructures.bst.sizeTree>`\\ \\(root\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid "Retornar el número de entradas en la a partir un punto dado"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid ""
+":py:obj:`valueSetTree <Src.DISClib.DataStructures.bst.valueSetTree>`\\ "
+"\\(root\\, klist\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid "Construye una lista con los valorers de la tabla"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid ""
+":py:obj:`keySetTree <Src.DISClib.DataStructures.bst.keySetTree>`\\ "
+"\\(root\\, klist\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid "Construye una lista con las llaves de la tabla"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid ""
+":py:obj:`minKeyNode <Src.DISClib.DataStructures.bst.minKeyNode>`\\ "
+"\\(root\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid ""
+":py:obj:`maxKeyNode <Src.DISClib.DataStructures.bst.maxKeyNode>`\\ "
+"\\(root\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid ""
+":py:obj:`deleteMinTree <Src.DISClib.DataStructures.bst.deleteMinTree>`\\ "
+"\\(root\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid ""
+":py:obj:`deleteMaxTree <Src.DISClib.DataStructures.bst.deleteMaxTree>`\\ "
+"\\(root\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid ""
+":py:obj:`floorKey <Src.DISClib.DataStructures.bst.floorKey>`\\ \\(root\\,"
+" key\\, cmpfunction\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid ""
+":py:obj:`ceilingKey <Src.DISClib.DataStructures.bst.ceilingKey>`\\ "
+"\\(root\\, key\\, cmpfunction\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid ""
+":py:obj:`selectKey <Src.DISClib.DataStructures.bst.selectKey>`\\ "
+"\\(root\\, key\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid "Retorna la k-esima llave mas pequeña de la tabla"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid ""
+":py:obj:`rankKeys <Src.DISClib.DataStructures.bst.rankKeys>`\\ \\(root\\,"
+" key\\, cmpfunction\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid ""
+":py:obj:`heightTree <Src.DISClib.DataStructures.bst.heightTree>`\\ "
+"\\(root\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid ""
+":py:obj:`keysRange <Src.DISClib.DataStructures.bst.keysRange>`\\ "
+"\\(root\\, keylo\\, keyhi\\, lstkeys\\, cmpfunction\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid "Retorna todas las llaves del arbol en un rango dado"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid ""
+":py:obj:`valuesRange <Src.DISClib.DataStructures.bst.valuesRange>`\\ "
+"\\(root\\, keylo\\, keyhi\\, lstvalues\\, cmpfunction\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid "Retorna todas los valores del arbol en un rango dado por"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:84:<autosummary>:1
+msgid ""
+":py:obj:`defaultfunction "
+"<Src.DISClib.DataStructures.bst.defaultfunction>`\\ \\(key1\\, key2\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:87
+msgid ""
+"Crea una tabla de simbolos ordenada. :param compfunction: La función de "
+"comparacion"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst
+msgid "Devuelve"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:90
+msgid "La tabla de símbolos ordenada sin elementos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst
+msgid "Muestra"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:97
+msgid ""
+"Ingresa una pareja llave,valor. Si la llave ya existe, se reemplaza el "
+"valor. :param bst: El BST :param key: La llave asociada a la pareja "
+":param value: El valor asociado a la pareja"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:103
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:316
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:328
+msgid "El arbol con la nueva pareja"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:110
+msgid ""
+"Retorna la pareja lleve-valor con llave igual  a key :param bst: El arbol"
+" de búsqueda :param key: La llave asociada a la pareja"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:114
+msgid "La pareja llave-valor en caso de que haya sido encontrada"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:121
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:335
+msgid ""
+"Elimina la pareja llave,valor, donde llave == key. :param bst: El arbol "
+"de búsqueda :param key: La llave asociada a la pareja"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:125
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:339
+msgid "El arbol sin la pareja key-value"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:132
+msgid ""
+"Informa si la llave key se encuentra en la tabla de hash :param bst: El "
+"arbol de búsqueda :param key: La llave a buscar"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:136
+msgid "True si la llave está presente False en caso contrario"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:143
+msgid ""
+"Retorna el número de entradas en la tabla de simbolos :param bst: El "
+"arbol de búsqueda"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:146
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:349
+msgid "El número de elementos en la tabla"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:153
+msgid ""
+"Informa si la tabla de simbolos se encuentra vacia :param bst: El arbol "
+"de búsqueda"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:156
+msgid "True si la tabla es vacía, False en caso contrario"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:163
+msgid ""
+"Retorna una lista con todas las llaves de la tabla :param bst: La tabla "
+"de simbolos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:166
+msgid "Una lista con todas las llaves de la tabla"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:173
+msgid ""
+"Construye una lista con los valores de la tabla :param bst: La tabla con "
+"los elementos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:176
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:360
+msgid "Una lista con todos los valores"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:183
+msgid ""
+"Retorna la menor llave de la tabla de simbolos :param bst: La tabla de "
+"simbolos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:186
+msgid "La menor llave de la tabla"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:193
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:388
+msgid ""
+"Retorna la mayor llave de la tabla de simbolos :param bst: La tabla de "
+"simbolos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:196
+msgid "La mayor llave de la tabla"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:203
+msgid ""
+"Encuentra y remueve la menor llave de la tabla de simbolos y su valor "
+"asociado :param bst: La tabla de simbolos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:207
+msgid "La tabla de simbolos sin la menor llave"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:214
+msgid ""
+"Encuentra y remueve la mayor llave de la tabla de simbolos y su valor "
+"asociado :param bst: La tabla de simbolos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:218
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:424
+msgid "La tabla de simbolos sin la mayor llave"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:225
+msgid ""
+"Retorna la llave mas grande en la tabla de simbolos, menor o igual a la "
+"llave key :param bst: La tabla de simbolos :param key: La llave de "
+"búsqueda"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:230
+msgid "La llave más grande menor o igual a key"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:237
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:431
+msgid ""
+"Retorna la llave mas pequeña en la tabla de simbolos, mayor o igual a la "
+"llave key :param bst: La tabla de simbolos :param key: la llave de "
+"búsqueda"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:242
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:253
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:436
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:447
+msgid "La llave más pequeña mayor o igual a Key"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:249
+msgid ""
+"Retorna la siguiente llave a la k-esima llave mas pequeña de la tabla "
+":param bst: La tabla de simbolos :param pos: la pos-esima llave mas "
+"pequeña"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:260
+msgid ""
+"Retorna el número de llaves en la tabla estrictamente menores que key "
+":param bst: La tabla de simbolos :param key: La llave de búsqueda"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:264
+msgid "El nuemero de llaves encontradas"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:271
+msgid "Retorna la altura del arbol de busqueda :param bst: La tabla de simbolos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:274
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:468
+msgid "La altura del arbol"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:281
+msgid "Retorna todas las llaves del arbol que se encuentren entre [keylo, keyhi]"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst
+msgid "Parámetros"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:284
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:298
+msgid "La tabla de simbolos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:285
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:299
+msgid "límite inferior"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:286
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:300
+msgid "límite superiorr"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:288
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:302
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:480
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:493
+msgid "Las llaves en el rago especificado"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:295
+msgid "Retorna todas los valores del arbol que se encuentren entre [keylo, keyhi]"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:309
+msgid ""
+"Ingresa una pareja llave,valor. Si la llave ya existe, se reemplaza el "
+"valor. :param root: La raiz del arbol :param key: La llave asociada a la "
+"pareja :param value: El valor asociado a la pareja :param cmpfunction: "
+"Función de comparación"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:323
+msgid ""
+"Retorna la pareja lleve-valor con llave igual  a key :param root: El "
+"arbol de búsqueda :param key: La llave asociada a la pareja :param "
+"cmpfunction: Función de comparación"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:346
+msgid ""
+"Retornar el número de entradas en la a partir un punto dado :param root: "
+"El arbol de búsqueda"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:356
+msgid ""
+"Construye una lista con los valorers de la tabla :param root: El arbol "
+"con los elementos :param klist: La lista de respuesta"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:367
+msgid ""
+"Construye una lista con las llaves de la tabla :param root: El arbol con "
+"los elementos :param klist: La lista de respuesta"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:371
+msgid "Una lista con todos las llaves"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:378
+msgid ""
+"Retorna la menor llave de la tabla de simbolos :param root: La raiz del "
+"arbol de busqueda"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:381
+msgid "El elemento mas izquierdo del arbol"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:391
+msgid "El elemento mas derecho del árbol"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:398
+msgid ""
+"Encuentra y remueve la menor llave de la tabla de simbolos y su valor "
+"asociado :param root: La raiz del arbol de busqueda"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:402
+msgid "El arbol de busqueda"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:409
+msgid ""
+"Encuentra y remueve la mayor llave de la tabla de simbolos y su valor "
+"asociado :param root: el arbol de busqueda"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:413
+msgid "El árbol de búsqueda sin la mayor llave"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:420
+msgid ""
+"Retorna la llave mas grande en la tabla de simbolos, menor o igual a la "
+"llave key :param bst: La tabla de simbolos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:443
+msgid ""
+"Retorna la k-esima llave mas pequeña de la tabla :param bst: La tabla de "
+"simbolos :param key: la llave de búsqueda"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:454
+msgid ""
+"Retorna el número de llaves en la tabla estrictamente menores que key "
+":param bst: La tabla de simbolos :param key: la llave de busqueda"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:458
+msgid "El numero de llaves"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:465
+msgid "Retorna la altura del arbol de busqueda :param root: La tabla de simbolos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:475
+msgid ""
+"Retorna todas las llaves del arbol en un rango dado :param bst: La tabla "
+"de simbolos :param keylo: límite inferior :param keylohi: límite "
+"superiorr"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/bst/index.rst:487
+msgid ""
+"Retorna todas los valores del arbol en un rango dado por [keylo, keyhi] "
+":param bst: La tabla de simbolos :param keylo: límite inferior :param "
+"keylohi: límite superior"
+msgstr ""
+

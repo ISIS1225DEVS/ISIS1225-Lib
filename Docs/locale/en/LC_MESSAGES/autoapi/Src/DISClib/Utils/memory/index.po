@@ -19,27 +19,21 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.13.1\n"
 
-#: ../../index.rst:9
-msgid "Contents:"
+#: ../../autoapi/Src/DISClib/Utils/memory/index.rst:2
+msgid ":py:mod:`Src.DISClib.Utils.memory`"
 msgstr ""
 
-#: ../../index.rst:7
-msgid "Welcome to DISClib's documentation!"
+#: ../../autoapi/Src/DISClib/Utils/memory/index.rst:8
+msgid "Module Contents"
 msgstr ""
 
-#: ../../index.rst:18
-msgid "Indices and tables"
+#: ../../autoapi/Src/DISClib/Utils/memory/index.rst:12
+msgid "Functions"
 msgstr ""
 
-#: ../../index.rst:20
-msgid ":ref:`genindex`"
-msgstr ""
-
-#: ../../index.rst:21
-msgid ":ref:`modindex`"
-msgstr ""
-
-#: ../../index.rst:22
-msgid ":ref:`search`"
+#: ../../autoapi/Src/DISClib/Utils/memory/index.rst:19:<autosummary>:1
+msgid ""
+":py:obj:`slot_dataclass <Src.DISClib.Utils.memory.slot_dataclass>`\\ "
+"\\(cls\\)"
 msgstr ""
 

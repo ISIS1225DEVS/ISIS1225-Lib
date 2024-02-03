@@ -1,0 +1,109 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Uniandes, Bogotá - Colombia, Sur América,
+# This file is distributed under the same license as the DISClib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: DISClib \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-03 00:09-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../Src.DISClib.Algorithms.Trees.rst:2
+msgid "Src.DISClib.Algorithms.Trees package"
+msgstr ""
+
+#: ../../Src.DISClib.Algorithms.Trees.rst:5
+msgid "Submodules"
+msgstr ""
+
+#: ../../Src.DISClib.Algorithms.Trees.rst:8
+msgid "Src.DISClib.Algorithms.Trees.traversal module"
+msgstr ""
+
+#: Src.DISClib.Algorithms.Trees.traversal:1 of
+msgid "Copyright 2020, Departamento de sistemas y Computación"
+msgstr ""
+
+#: Src.DISClib.Algorithms.Trees.traversal:2 of
+msgid "Universidad de Los Andes"
+msgstr ""
+
+#: Src.DISClib.Algorithms.Trees.traversal:5 of
+msgid "Desarrolado para el curso ISIS1225 - Estructuras de Datos y Algoritmos"
+msgstr ""
+
+#: Src.DISClib.Algorithms.Trees.traversal:8 of
+msgid "This program is free software: you can redistribute it and/or modify"
+msgstr ""
+
+#: Src.DISClib.Algorithms.Trees.traversal:9 of
+msgid "it under the terms of the GNU General Public License as published by"
+msgstr ""
+
+#: Src.DISClib.Algorithms.Trees.traversal:10 of
+msgid "the Free Software Foundation, either version 3 of the License, or"
+msgstr ""
+
+#: Src.DISClib.Algorithms.Trees.traversal:11 of
+msgid "(at your option) any later version."
+msgstr ""
+
+#: Src.DISClib.Algorithms.Trees.traversal:13 of
+msgid "This program is distributed in the hope that it will be useful,"
+msgstr ""
+
+#: Src.DISClib.Algorithms.Trees.traversal:14 of
+msgid "but WITHOUT ANY WARRANTY; without even the implied warranty of"
+msgstr ""
+
+#: Src.DISClib.Algorithms.Trees.traversal:15 of
+msgid "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the"
+msgstr ""
+
+#: Src.DISClib.Algorithms.Trees.traversal:16 of
+msgid "GNU General Public License for more details."
+msgstr ""
+
+#: Src.DISClib.Algorithms.Trees.traversal:18 of
+msgid "You should have received a copy of the GNU General Public License"
+msgstr ""
+
+#: Src.DISClib.Algorithms.Trees.traversal:19 of
+msgid "along with this program.  If not, see <http://www.gnu.org/licenses/>."
+msgstr ""
+
+#: Src.DISClib.Algorithms.Trees.traversal:21 of
+msgid "Contribución de:"
+msgstr ""
+
+#: Src.DISClib.Algorithms.Trees.traversal:23 of
+msgid "Dario Correal"
+msgstr ""
+
+#: Src.DISClib.Algorithms.Trees.traversal.inorder:1 of
+msgid "Implementa un recorrido inorder de un arbol binario"
+msgstr ""
+
+#: Src.DISClib.Algorithms.Trees.traversal.postorder:1 of
+msgid "Implementa un recorrido postorder de un arbol binario"
+msgstr ""
+
+#: Src.DISClib.Algorithms.Trees.traversal.preorder:1 of
+msgid "Implementa un recorrido preorder de un arbol binario"
+msgstr ""
+
+#: ../../Src.DISClib.Algorithms.Trees.rst:16
+msgid "Module contents"
+msgstr ""
+

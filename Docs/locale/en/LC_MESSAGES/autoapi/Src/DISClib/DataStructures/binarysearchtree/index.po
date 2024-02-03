@@ -1,0 +1,514 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Uniandes, Bogotá - Colombia, Sur América,
+# This file is distributed under the same license as the DISClib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: DISClib \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-03 00:09-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:2
+msgid ":py:mod:`Src.DISClib.DataStructures.binarysearchtree`"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:8
+msgid "# TODO: agregar descripción del módulo"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:10
+msgid ""
+"*IMPORTANTE:* Este código y sus especificaciones para Python están "
+"basados en las implementaciones propuestas por los siguientes "
+"autores/libros:"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:12
+msgid "Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:13
+msgid ""
+"Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H."
+" Goldwasser."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:18
+msgid "Module Contents"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:21
+msgid "Classes"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:29:<autosummary>:1
+msgid ":py:obj:`BSTree <Src.DISClib.DataStructures.binarysearchtree.BSTree>`\\"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:35
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:29:<autosummary>:1
+msgid ""
+"**BSTree** representa la estructura de datos de una tabla de hash con el "
+"método de encadenamiento por separación (*BSTree*). En la estructura la "
+"información se almacena en registros (parejas llave-valor) donde la llave"
+" es única para cada valor y el valor puede ser cualquier tipo de dato. El"
+" indice es un *ArrayList* donde cada elemento es un espacio (*slot*) de "
+"la tabla de hash, y cada espacio (*slot*) contiene un registro *MapEntry*"
+" (pareja llave-valor) o está vacío (None | EMPTY"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:33
+msgid "Bases: :py:obj:`Generic`\\ [\\ :py:obj:`Src.DISClib.Utils.default.T`\\ ]"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst
+msgid "Parámetros"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:37
+msgid ""
+"TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una "
+"estructura de datos genéricas en python."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst
+msgid "Devuelve"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:40
+msgid "ADT de tipo *BSTree* o tabla de hash con separación por encadenamiento."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst
+msgid "Tipo del valor devuelto"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:46
+msgid ""
+"Lista nativa de Python personalizable por el usuario para inicializar la "
+"estructura. Por defecto es *None* y el usuario puede incluirla como "
+"argumento al crear la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:52
+msgid ""
+"Es el operador que indica si la tabla de hash se puede reconstruir "
+"utilizando el método de *rehash*, por defecto es 'True'."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:58
+msgid ""
+"espacio inicial reservado para la tabla de hash (n), por defecto es 1, "
+"pero debe configurarse según el número de entradas que se espera "
+"almacenar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:60
+msgid ""
+"*Nota*: el espacio reservado (n) no es la capacidad (M) de la tabla de "
+"hash."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:66
+msgid "Es la capacidad (M) con la que se inicializa la tabla de hash."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:71
+msgid ""
+"Es el factor de carga (*alpha*) con el que se inicializa la tabla de "
+"hash, por defecto es 0.50."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:73
+msgid ""
+"*Nota*: alpha = n/M (n: número de entradas esperadas, M: capacidad de la "
+"tabla de hash)."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:78
+msgid ""
+"Función de comparación personalizable por el usuario para reconocer los "
+"registros (pareja llave-valor) dentro del *BSTree*. Por defecto es la "
+"función *lt_default_cmp_funcion()* propia de *DISClib*, puede ser un "
+"parametro al crear la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:83
+msgid ""
+"Es el indice de la tabla Hash donde se almacenan los *Buckets*. Por "
+"defecto es un *ArrayList* vacío que se inicializa con la capacidad (M) "
+"configurada."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:88
+msgid ""
+"Nombre de la llave personalizable por el usuario utilizada para reconocer"
+" los registros (pareja llave-valor) dentro del *BSTree*. Por defecto es "
+"la llave de diccionario (*dict*) *DEFAULT_DICT_KEY = 'id'* propia de "
+"*DISClib*, puede ser un parametro al crear la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:93
+msgid ""
+"Es el número entero primo (P) utilizado para calcular el hash para la "
+"llave de la tabla utilizando la función de compresión MAD. Por defecto es"
+" 109345121 definido en el parametro *DEFAULT_PRIME* propio de *DISClib*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:95
+msgid ""
+"*Nota:* la función MAD es: *h(k) = ((a*k + b) mod P) mod M*, donde *a* y "
+"*b* son números enteros aleatorios, *P* es un número primo y *M* es la "
+"capacidad de la tabla de hash."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:101
+msgid ""
+"Es el número entero propio de la estructura utilizado como pendiente (a) "
+"en la función MAD para calcular el código hash de la llave."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:107
+msgid ""
+"Es el número entero propio de la estructura utilizado como desplazamiento"
+" (b) de la función MAD para calcular el código hash de la llave."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:113
+msgid "Es el factor de carga (*alpha*) actual de la tabla de hash."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:118
+msgid ""
+"Es el factor de carga (*alpha*) mínimo de la tabla de hash, por defecto "
+"es 0.20 definido en el parametro *MIN_PROBING_ALPHA* propio de *DISClib*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:123
+msgid ""
+"Es el factor de carga máximo de la tabla de hash, por defecto es 0.80 "
+"definido en el parametro *MAX_PROBING_ALPHA* propio de *DISClib*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:129
+msgid ""
+"Es el número de entradas (n) que contiene la estructura, por defecto es 0"
+" y se actualiza con cada operación que modifica la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:135
+msgid ""
+"Es el número entero para contar las colisiones en la estructura, por "
+"defecto es 0 y se actualiza con cada operación que modifica la "
+"estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:140
+msgid ""
+"Es el tipo de dato para las llaves de los registros (pareja llave-valor) "
+"que contiene la tabla de hash, por defecto es *None* y se configura al "
+"cargar la primer registro."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:145
+msgid ""
+"Es el tipo de dato para los valores de los registros (pareja llave-valor)"
+" que contiene la tabla de hash, por defecto es *None* y se configura al "
+"cargar la primer registro."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:149
+msgid ""
+"*__post_init__()* configura los parametros personalizados por el usuario "
+"al crear el *BSTree*. En caso de no estar definidos, se asignan los "
+"valores por defecto, puede cargar listas nativas con el parametro "
+"*iodata* de python dentro de la estructura."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:155
+msgid ""
+"*default_cmp_function()* es la función de comparación por defecto para "
+"comparar la llave de un elemento vs. el registro (pareja llave-valor) o "
+"*MapEntry* que se desea agregar al *BSTree*, es una función crucial para "
+"que la estructura funcione correctamente."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:157
+msgid "llave (*key*) de la primer registro a comparar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:159
+msgid "segundo registro (pareja llave-valor) a comparar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:162
+msgid ""
+"respuesta de la comparación entre los elementos, 0 si las llaves (*key*) "
+"son iguales, 1 si key1 es mayor que la llave (*key*) de entry2, -1 si "
+"key1 es menor."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:168
+msgid ""
+"*_handle_error()* función propia de la estructura que maneja los errores "
+"que se pueden presentar en el *BSTree*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:170
+msgid ""
+"Si se presenta un error en *BSTree*, se formatea el error según el "
+"contexto (paquete/módulo/clase), la función (método) que lo generó y lo "
+"reenvia al componente superior en la jerarquía *DISCLib* para manejarlo "
+"segun se considere conveniente el usuario."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:172
+msgid "Excepción que se generó en el *BSTree*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:178
+msgid ""
+"*_check_type()* función propia de la estructura que revisa si el tipo de "
+"dato del registro (pareja llave-valor) que se desea agregar al *BSTree* "
+"es del mismo tipo contenido dentro de los *MapEntry* del *BSTree*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:180
+msgid "elemento que se desea procesar en *BSTree*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst
+msgid "Muestra"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:183
+msgid ""
+"error si el tipo de dato del elemento que se desea agregar no es el mismo"
+" que el tipo de dato de los elementos que ya contiene el *BSTree*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:185
+msgid ""
+"operador que indica si el ADT *BSTree* es del mismo tipo que el elemento "
+"que se desea procesar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:191
+msgid "*is_empty()* revisa si el *BSTree* está vacío."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:193
+msgid "operador que indica si la estructura *BSTree* está vacía."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:199
+msgid ""
+"*size()* devuelve el numero de entradas *MapEntry* que actualmente "
+"contiene el *BSTree*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:201
+msgid "tamaño de la estructura *BSTree*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:207
+msgid ""
+"*contains()* responde si el *BSTree* contiene un registro *MapEntry* con "
+"la llave *key*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:209
+msgid ""
+"llave del registro (pareja llave-valor) que se desea buscar en el "
+"*BSTree*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:212
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:237
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:250
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:263
+msgid "error si la estructura está vacía."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:214
+msgid ""
+"operador que indica si el *BSTree* contiene o no un registro con la llave"
+" *key*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:220
+msgid ""
+"*put()* agrega una nuevo registro *MapEntry* al *BSTree*, si la llave "
+"*key* ya existe en el *BSTree* se reemplaza su valor *value*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:222
+msgid "llave asociada la nuevo *MapEntry*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:224
+msgid "el valor asociado al nuevo *MapEntry*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:227
+msgid ""
+"si la operación no se puede realizar, se invoca la función "
+"*_handle_error()* para manejar el error."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:232
+msgid ""
+"*get()* recupera el registro *MapEntry* cuya llave *key* sea ogial a la "
+"que se encuentre dentro del *BSTree*, si no existe un registro con la "
+"llave, devuelve *None*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:234
+msgid "llave asociada al *MapEntry* que se desea buscar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:239
+msgid ""
+"*MapEntry* asociado a la llave *key* que se desea. *None* si no se "
+"encuentra."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:245
+msgid ""
+"*check_slots()* recupera la lista (*SingleLinked*) de registros (parejas "
+"llave-valor) asociadas a la llave *key* dentro del *BSTree*. Recupera los"
+" *MapEntry* con el mismo hash y si no existe, devuelve *None*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:247
+msgid "llave asociada a los *MapEntry* y *Slots* que se desean buscar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:252
+msgid ""
+"lista sencillamente encadenada (*SingleLinked*) con todas los *MapEntry* "
+"asociados a la llave *key* dentro del *BSTree*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:258
+msgid ""
+"*remove()* elimina el registro *MapEntry* cuya llave *key* sea igual a la"
+" que se encuentre dentro del *BSTree*, si no existe un registro con la "
+"llave, genera un error."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:260
+msgid "llave asociada al *MapEntry* que se desea eliminar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:264
+msgid "error si el registro que se desea eliminar no existe dentro del *BSTree*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:266
+msgid ""
+"registro *MapEntry* que se eliminó del *BSTree*. *None* si no existe el "
+"registro asociada a la llave *key*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:272
+msgid ""
+"*keys()* devuelve una lista (*SingleLinked*) con todas las llaves (*key*)"
+" de los registros (*MapEntry*) del *BSTree*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:274
+msgid "lista (*SingleLinked*) con todas las llaves (*key*) del *BSTree*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:280
+msgid ""
+"*values()* devuelve una lista (*SingleLinked*) con todos los valores de "
+"los registros (*MapEntry*) del *BSTree*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:282
+msgid "lista (*SingleLinked*) con todos los valores (*value*) del *BSTree*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:288
+msgid ""
+"*entries()* devuelve una lista (*SingleLinked*) con tuplas de todas los "
+"registros (*MapEntry*) del *BSTree*. Cada tupla contiene en la primera "
+"posición la llave (*key*) y en la segunda posición el valor (*value*) del"
+" registro."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:290
+msgid "lista (*SingleLinked*) de tuplas con todas los registros del *BSTree*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:296
+msgid ""
+"*_find_slot()* encuentra el indice del registro *MapEtry* en el *BSTree*,"
+" si el registro no existe, devuelve el indice del primer registro "
+"disponible."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:298
+msgid "indice del registro (pareja llave-valor) en el *BSTree*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:300
+msgid "llave del registro (pareja llave-valor) que se desea buscar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:303
+msgid ""
+"devuelve el indice negativo si encuentra espacio disponible (None | "
+"EMPTY) o si el registro no existe, devuelve el indice positivo si el "
+"registro existe."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:309
+msgid ""
+"*_is_available()* permite verificar si un registro *MapEntry* está "
+"disponible en el *BSTree*. Es decir si la llave es nula (None) o vacía "
+"(EMPTY)."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:311
+msgid "registro (pareja llave-valor) que se desea verificar."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:314
+msgid "operador que indica si el registro está disponible o no en el *BSTree*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:320
+msgid ""
+"*rehash()* reconstruye la tabla de hash con una nueva capacidad (*M*) y "
+"un nuevo factor de carga (*alpha*) según los límites configurados por los"
+" parametros *max_alpha* y *min_alpha*."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:322
+msgid ""
+"Si el factor de carga (*alpha*) es mayor que el límite superior "
+"(*max_alpha*), se duplica la capacidad (*M*) buscando el siguiente número"
+" primo (*P*) reconstruyendo la tabla."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/binarysearchtree/index.rst:324
+msgid ""
+"Si el factor de carga (*alpha) es menor que el límite inferior "
+"(*min_alpha*), se reduce a la mitad la capacidad (*M*) de la tabla "
+"buscando el siguiente número primo (*P*) reconstruyendo la tabla."
+msgstr ""
+

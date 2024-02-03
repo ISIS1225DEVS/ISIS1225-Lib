@@ -1,0 +1,379 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Uniandes, Bogotá - Colombia, Sur América,
+# This file is distributed under the same license as the DISClib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: DISClib \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-03 00:09-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:2
+msgid ":py:mod:`Src.DISClib.ADT.graph`"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:8
+msgid ""
+"# TODO cambiar comentarios de lincencia segun estandard del equipo * "
+"Copyright 2020, Departamento de sistemas y Computación, * Universidad de "
+"Los Andes * * Desarrollado para el curso ISIS1225 - Estructuras de Datos "
+"y Algoritmos * * * This program is free software: you can redistribute it"
+" and/or modify * it under the terms of the GNU General Public License as "
+"published by * the Free Software Foundation, either version 3 of the "
+"License, or * (at your option) any later version. * * This program is "
+"distributed in the hope that it will be useful, * but WITHOUT ANY "
+"WARRANTY; without even the implied warranty of * MERCHANTABILITY or "
+"FITNESS FOR A PARTICULAR PURPOSE.  See the * GNU General Public License "
+"for more details. * * You should have received a copy of the GNU General "
+"Public License * along with this program.  If not, see "
+"<http://www.gnu.org/licenses/>. * * Contribución de: * * Dario Correal *"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:36
+msgid "Module Contents"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:40
+msgid "Functions"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:62:<autosummary>:1
+msgid ""
+":py:obj:`newGraph <Src.DISClib.ADT.graph.newGraph>`\\ "
+"\\(\\[datastructure\\, directed\\, size\\, cmpfunction\\]\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:73
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:62:<autosummary>:1
+msgid "Crea un grafo vacio"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:62:<autosummary>:1
+msgid ""
+":py:obj:`insertVertex <Src.DISClib.ADT.graph.insertVertex>`\\ \\(graph\\,"
+" vertex\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:87
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:62:<autosummary>:1
+msgid "Inserta el vertice vertex en el grafo graph"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:62:<autosummary>:1
+msgid ""
+":py:obj:`removeVertex <Src.DISClib.ADT.graph.removeVertex>`\\ \\(graph\\,"
+" vertex\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:99
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:62:<autosummary>:1
+msgid "Remueve el vertice vertex del grafo graph"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:62:<autosummary>:1
+msgid ":py:obj:`numVertices <Src.DISClib.ADT.graph.numVertices>`\\ \\(graph\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:111
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:62:<autosummary>:1
+msgid "Retorna el numero de vertices del  grafo graph"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:62:<autosummary>:1
+msgid ":py:obj:`numEdges <Src.DISClib.ADT.graph.numEdges>`\\ \\(graph\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:122
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:62:<autosummary>:1
+msgid "Retorna el numero de arcos en el grafo graph"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:62:<autosummary>:1
+msgid ":py:obj:`vertices <Src.DISClib.ADT.graph.vertices>`\\ \\(graph\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:62:<autosummary>:1
+msgid "Retorna una lista con todos los vertices del grafo graph"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:62:<autosummary>:1
+msgid ":py:obj:`edges <Src.DISClib.ADT.graph.edges>`\\ \\(graph\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:143
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:62:<autosummary>:1
+msgid "Retorna una lista con todos los arcos del grafo graph"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:62:<autosummary>:1
+msgid ":py:obj:`degree <Src.DISClib.ADT.graph.degree>`\\ \\(graph\\, vertex\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:154
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:62:<autosummary>:1
+msgid "Retorna el numero de arcos asociados al vertice vertex"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:62:<autosummary>:1
+msgid ""
+":py:obj:`outdegree <Src.DISClib.ADT.graph.outdegree>`\\ \\(graph\\, "
+"vertex\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:166
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:62:<autosummary>:1
+msgid "Retorna el numero de arcos que salen del grafo vertex"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:62:<autosummary>:1
+msgid ""
+":py:obj:`indegree <Src.DISClib.ADT.graph.indegree>`\\ \\(graph\\, "
+"vertex\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:178
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:62:<autosummary>:1
+msgid "Retorna el numero de arcos que llegan al vertice vertex"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:62:<autosummary>:1
+msgid ""
+":py:obj:`getEdge <Src.DISClib.ADT.graph.getEdge>`\\ \\(graph\\, "
+"vertexa\\, vertexb\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:190
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:62:<autosummary>:1
+msgid "Retorna el arco asociado a los vertices vertexa ---- vertexb"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:62:<autosummary>:1
+msgid ""
+":py:obj:`addEdge <Src.DISClib.ADT.graph.addEdge>`\\ \\(graph\\, "
+"vertexa\\, vertexb\\[\\, weight\\]\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:62:<autosummary>:1
+msgid "Agrega un arco entre los vertices vertexa ---- vertexb, con peso weight."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:62:<autosummary>:1
+msgid ""
+":py:obj:`containsVertex <Src.DISClib.ADT.graph.containsVertex>`\\ "
+"\\(graph\\, vertex\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:220
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:62:<autosummary>:1
+msgid "Retorna si el vertice vertex esta presente en el grafo"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:62:<autosummary>:1
+msgid ""
+":py:obj:`adjacents <Src.DISClib.ADT.graph.adjacents>`\\ \\(graph\\, "
+"vertex\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:232
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:62:<autosummary>:1
+msgid "Retorna una lista con todos los vertices adyacentes al vertice vertex"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:62:<autosummary>:1
+msgid ""
+":py:obj:`adjacentEdges <Src.DISClib.ADT.graph.adjacentEdges>`\\ "
+"\\(graph\\, vertex\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:62:<autosummary>:1
+msgid "Retorna una lista con todos los arcos asociados a los vértices"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:62:<autosummary>:1
+msgid ""
+":py:obj:`graphSelector <Src.DISClib.ADT.graph.graphSelector>`\\ "
+"\\(datastructure\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:62:<autosummary>:1
+msgid "Carga dinamicamente el import de la estructura de datos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:64
+msgid "Attributes"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:70:<autosummary>:1
+msgid ":py:obj:`switch_module <Src.DISClib.ADT.graph.switch_module>`\\"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst
+msgid "Parámetros"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:75
+msgid "Tamaño inicial del grafo"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:76
+msgid "Funcion de comparacion"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:77
+msgid "Indica si el grafo es dirigido o no"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:78
+msgid "Estructura de datos utilizada"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst
+msgid "Devuelve"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:80
+msgid "Un nuevo grafo vacío"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst
+msgid "Muestra"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:89
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:101
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:113
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:124
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:145
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:156
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:168
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:180
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:192
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:208
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:222
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:234
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:247
+msgid "El grafo sobre el que se ejecuta la operacion"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:90
+msgid "El vertice que se desea insertar"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:92
+msgid "El grafo graph con el nuevo vertice"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:102
+msgid "El vertice que se desea remover"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:104
+msgid "El grafo sin el vertice vertex"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:115
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:126
+msgid "El numero de vertices del grafo"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:133
+msgid ""
+"Retorna una lista con todos los vertices del grafo graph :param graph: El"
+" grafo sobre el que se ejecuta la operacion"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:136
+msgid "La lista con los vertices del grafo"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:147
+msgid "Una lista con los arcos del grafo"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:157
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:169
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:181
+msgid "El vertice del que se desea conocer el grado"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:159
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:171
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:183
+msgid "El grado del vertice"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:193
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:209
+msgid "Vertice de inicio"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:194
+msgid "Vertice destino"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:196
+msgid "El arco que une los verices vertexa y vertexb"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:203
+msgid ""
+"Agrega un arco entre los vertices vertexa ---- vertexb, con peso weight. "
+"Si el grafo es no dirigido se adiciona dos veces el mismo arco, en el "
+"mismo orden Si el grafo es dirigido se adiciona solo el arco vertexa --> "
+"vertexb"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:210
+msgid "Vertice de destino"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:211
+msgid "peso del arco"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:213
+msgid "El grafo con el nuevo arco"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:223
+msgid "Vertice que se busca"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:225
+msgid "True si el vertice esta presente"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:235
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:248
+msgid "El vertice del que se quiere la lista"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:237
+msgid "La lista de adyacencias"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:244
+msgid ""
+"Retorna una lista con todos los arcos asociados a los vértices adyacentes"
+" de vertex"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:250
+msgid "La lista de arcos adyacentes"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/graph/index.rst:261
+msgid "Carga dinamicamente el import de la estructura de datos seleccionada"
+msgstr ""
+

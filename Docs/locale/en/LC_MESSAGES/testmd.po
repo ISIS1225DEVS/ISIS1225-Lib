@@ -1,0 +1,205 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Uniandes, Bogotá - Colombia, Sur América,
+# This file is distributed under the same license as the DISClib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: DISClib \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-03 00:09-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../testmd.md:1
+msgid "Example Markdown"
+msgstr ""
+
+#: ../../testmd.md:3
+msgid "h2 Heading"
+msgstr ""
+
+#: ../../testmd.md:4
+msgid "h3 Heading"
+msgstr ""
+
+#: ../../testmd.md:5
+msgid "h4 Heading"
+msgstr ""
+
+#: ../../testmd.md:6
+msgid "h5 Heading"
+msgstr ""
+
+#: ../../testmd.md:7
+msgid "h6 Heading"
+msgstr ""
+
+#: ../../testmd.md:10
+msgid "Horizontal Rules"
+msgstr ""
+
+#: ../../testmd.md:19
+msgid "Typographic replacements"
+msgstr ""
+
+#: ../../testmd.md:21
+msgid "Enable typographer option to see result."
+msgstr ""
+
+#: ../../testmd.md:23
+msgid "(c) (C) (r) (R) (tm) (TM) (p) (P) +-"
+msgstr ""
+
+#: ../../testmd.md:25
+msgid "test.. test... test..... test?..... test!...."
+msgstr ""
+
+#: ../../testmd.md:27
+msgid "!!!!!! ???? ,,  -- ---"
+msgstr ""
+
+#: ../../testmd.md:29
+msgid "\"Smartypants, double quotes\" and 'single quotes'"
+msgstr ""
+
+#: ../../testmd.md:32
+msgid "Emphasis"
+msgstr ""
+
+#: ../../testmd.md:34
+msgid "**This is bold text**"
+msgstr ""
+
+#: ../../testmd.md:36
+msgid "__This is bold text__"
+msgstr ""
+
+#: ../../testmd.md:38
+msgid "*This is italic text*"
+msgstr ""
+
+#: ../../testmd.md:40
+msgid "_This is italic text_"
+msgstr ""
+
+#: ../../testmd.md:42
+msgid "~~Strikethrough~~"
+msgstr ""
+
+#: ../../testmd.md:45
+msgid "Blockquotes"
+msgstr ""
+
+#: ../../testmd.md:48
+msgid "Blockquotes can also be nested..."
+msgstr ""
+
+#: ../../testmd.md:49
+msgid "...by using additional greater-than signs right next to each other..."
+msgstr ""
+
+#: ../../testmd.md:50
+msgid "...or with spaces between arrows."
+msgstr ""
+
+#: ../../testmd.md:53
+msgid "Lists"
+msgstr ""
+
+#: ../../testmd.md:55
+msgid "Unordered"
+msgstr ""
+
+#: ../../testmd.md:57
+msgid "Create a list by starting a line with `+`, `-`, or `*`"
+msgstr ""
+
+#: ../../testmd.md:58
+msgid "Sub-lists are made by indenting 2 spaces:"
+msgstr ""
+
+#: ../../testmd.md:59
+msgid "Marker character change forces new list start:"
+msgstr ""
+
+#: ../../testmd.md:60
+msgid "Ac tristique libero volutpat at"
+msgstr ""
+
+#: ../../testmd.md:61
+msgid "Facilisis in pretium nisl aliquet"
+msgstr ""
+
+#: ../../testmd.md:62
+msgid "Nulla volutpat aliquam velit"
+msgstr ""
+
+#: ../../testmd.md:63
+msgid "Very easy!"
+msgstr ""
+
+#: ../../testmd.md:65
+msgid "Ordered"
+msgstr ""
+
+#: ../../testmd.md:67
+msgid "Lorem ipsum dolor sit amet"
+msgstr ""
+
+#: ../../testmd.md:68
+msgid "Consectetur adipiscing elit"
+msgstr ""
+
+#: ../../testmd.md:69
+msgid "Integer molestie lorem at massa"
+msgstr ""
+
+#: ../../testmd.md:72
+msgid "You can use sequential numbers..."
+msgstr ""
+
+#: ../../testmd.md:73
+msgid "...or keep all the numbers as `1.`"
+msgstr ""
+
+#: ../../testmd.md:75
+msgid "Start numbering with offset:"
+msgstr ""
+
+#: ../../testmd.md:77
+msgid "foo"
+msgstr ""
+
+#: ../../testmd.md:78
+msgid "bar"
+msgstr ""
+
+#: ../../testmd.md:81
+msgid "Code"
+msgstr ""
+
+#: ../../testmd.md:83
+msgid "Inline `code`"
+msgstr ""
+
+#: ../../testmd.md:85
+msgid "Indented code"
+msgstr ""
+
+#: ../../testmd.md:93
+msgid "Block code \"fences\""
+msgstr ""
+
+#: ../../testmd.md:99
+msgid "Syntax highlighting"
+msgstr ""
+

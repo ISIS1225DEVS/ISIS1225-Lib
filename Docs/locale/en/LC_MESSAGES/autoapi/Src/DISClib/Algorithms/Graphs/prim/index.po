@@ -1,0 +1,205 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Uniandes, Bogotá - Colombia, Sur América,
+# This file is distributed under the same license as the DISClib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: DISClib \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-03 00:09-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/prim/index.rst:2
+msgid ":py:mod:`Src.DISClib.Algorithms.Graphs.prim`"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/prim/index.rst:8
+msgid "Copyright 2020, Departamento de sistemas y Computación,"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/prim/index.rst:9
+msgid "Universidad de Los Andes"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/prim/index.rst:11
+msgid "Desarrollado para el curso ISIS1225 - Estructuras de Datos y Algoritmos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/prim/index.rst:14
+msgid "This program is free software: you can redistribute it and/or modify"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/prim/index.rst:15
+msgid "it under the terms of the GNU General Public License as published by"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/prim/index.rst:16
+msgid "the Free Software Foundation, either version 3 of the License, or"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/prim/index.rst:17
+msgid "(at your option) any later version."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/prim/index.rst:19
+msgid "This program is distributed in the hope that it will be useful,"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/prim/index.rst:20
+msgid "but WITHOUT ANY WARRANTY; without even the implied warranty of"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/prim/index.rst:21
+msgid "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/prim/index.rst:22
+msgid "GNU General Public License for more details."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/prim/index.rst:24
+msgid "You should have received a copy of the GNU General Public License"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/prim/index.rst:25
+msgid "along with this program.  If not, see <http://www.gnu.org/licenses/>."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/prim/index.rst:27
+msgid "Contribución de:"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/prim/index.rst:29
+msgid "Dario Correal"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/prim/index.rst:35
+msgid "Module Contents"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/prim/index.rst:39
+msgid "Functions"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/prim/index.rst:51:<autosummary>:1
+msgid ""
+":py:obj:`PrimMST <Src.DISClib.Algorithms.Graphs.prim.PrimMST>`\\ "
+"\\(graph\\[\\, origin\\]\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/prim/index.rst:51:<autosummary>:1
+msgid "Implementa el algoritmo de Prim"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/prim/index.rst:51:<autosummary>:1
+msgid ""
+":py:obj:`prim <Src.DISClib.Algorithms.Graphs.prim.prim>`\\ \\(graph\\, "
+"search\\, v\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/prim/index.rst:51:<autosummary>
+msgid "param search"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/prim/index.rst:64
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/prim/index.rst:74
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/prim/index.rst:85
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/prim/index.rst:51:<autosummary>:1
+msgid "La estructura de busqueda"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/prim/index.rst:51:<autosummary>:1
+msgid ""
+":py:obj:`scan <Src.DISClib.Algorithms.Graphs.prim.scan>`\\ \\(graph\\, "
+"search\\, vertex\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/prim/index.rst:51:<autosummary>:1
+msgid ""
+":py:obj:`edgesMST <Src.DISClib.Algorithms.Graphs.prim.edgesMST>`\\ "
+"\\(graph\\, search\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/prim/index.rst:51:<autosummary>:1
+msgid ""
+":py:obj:`weightMST <Src.DISClib.Algorithms.Graphs.prim.weightMST>`\\ "
+"\\(graph\\, search\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/prim/index.rst:51:<autosummary>:1
+msgid ""
+":py:obj:`initSearch <Src.DISClib.Algorithms.Graphs.prim.initSearch>`\\ "
+"\\(graph\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/prim/index.rst:51:<autosummary>:1
+msgid "Inicializa la estructura de busqueda y deja"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/prim/index.rst:54
+msgid "Implementa el algoritmo de Prim :param graph: El grafo de busqueda"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/prim/index.rst
+msgid "Devuelve"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/prim/index.rst:57
+msgid "La estructura search con los MST"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/prim/index.rst
+msgid "Muestra"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/prim/index.rst
+msgid "Parámetros"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/prim/index.rst:65
+msgid "Vertice desde donde se relajan los pesos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/prim/index.rst:67
+msgid "El grafo con los arcos relajados"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/prim/index.rst:75
+msgid "El vertice destino"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/prim/index.rst:77
+msgid ""
+"El costo total para llegar de source a vertex. Infinito si no existe "
+"camino"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/prim/index.rst:86
+msgid "El vertice de destino"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/prim/index.rst:88
+msgid "Una pila con el camino entre source y vertex"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/prim/index.rst:98
+msgid ""
+"Inicializa la estructura de busqueda y deja todos los arcos en infinito. "
+"Se inserta en la cola el vertice source :param graph: El grafo a examinar"
+" :param source: El vertice fuente"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/prim/index.rst:104
+msgid "Estructura de busqueda inicializada"
+msgstr ""
+

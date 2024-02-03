@@ -1,0 +1,146 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Uniandes, Bogotá - Colombia, Sur América,
+# This file is distributed under the same license as the DISClib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: DISClib \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-03 00:09-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjcomponents/index.rst:2
+msgid ":py:mod:`Src.DISClib.DataStructures.adjcomponents`"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjcomponents/index.rst:8
+msgid "# TODO agregar descripcion del modulo y del ADT que implementa!!!"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjcomponents/index.rst:10
+msgid ""
+"*IMPORTANTE:* Este código y sus especificaciones para Python están "
+"basados en las implementaciones propuestas por los siguientes "
+"autores/libros:"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjcomponents/index.rst:12
+msgid "Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjcomponents/index.rst:13
+msgid ""
+"Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H."
+" Goldwasser."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjcomponents/index.rst:18
+msgid "Module Contents"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjcomponents/index.rst:21
+msgid "Classes"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjcomponents/index.rst:29:<autosummary>:1
+msgid ":py:obj:`Edge <Src.DISClib.DataStructures.adjcomponents.Edge>`\\"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjcomponents/index.rst:48
+#: ../../autoapi/Src/DISClib/DataStructures/adjcomponents/index.rst:29:<autosummary>:1
+msgid "Edge _summary_"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjcomponents/index.rst:29:<autosummary>:1
+msgid ":py:obj:`Vertex <Src.DISClib.DataStructures.adjcomponents.Vertex>`\\"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjcomponents/index.rst:59
+#: ../../autoapi/Src/DISClib/DataStructures/adjcomponents/index.rst:29:<autosummary>:1
+msgid "Vertex _summary_"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjcomponents/index.rst:31
+msgid "Functions"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjcomponents/index.rst:42:<autosummary>:1
+msgid ""
+":py:obj:`newEdge <Src.DISClib.DataStructures.adjcomponents.newEdge>`\\ "
+"\\(va\\, vb\\[\\, weight\\]\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjcomponents/index.rst:67
+#: ../../autoapi/Src/DISClib/DataStructures/adjcomponents/index.rst:42:<autosummary>:1
+msgid "Crea un nuevo arco entrelos vertices va y vb"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjcomponents/index.rst:42:<autosummary>:1
+msgid ""
+":py:obj:`weight <Src.DISClib.DataStructures.adjcomponents.weight>`\\ "
+"\\(edge\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjcomponents/index.rst:72
+#: ../../autoapi/Src/DISClib/DataStructures/adjcomponents/index.rst:42:<autosummary>:1
+msgid "Retorna el peso de un arco"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjcomponents/index.rst:42:<autosummary>:1
+msgid ""
+":py:obj:`either <Src.DISClib.DataStructures.adjcomponents.either>`\\ "
+"\\(edge\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjcomponents/index.rst:77
+#: ../../autoapi/Src/DISClib/DataStructures/adjcomponents/index.rst:42:<autosummary>:1
+msgid "Retorna el vertice A del arco"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjcomponents/index.rst:42:<autosummary>:1
+msgid ""
+":py:obj:`other <Src.DISClib.DataStructures.adjcomponents.other>`\\ "
+"\\(edge\\, veither\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjcomponents/index.rst:82
+#: ../../autoapi/Src/DISClib/DataStructures/adjcomponents/index.rst:42:<autosummary>:1
+msgid "Retorna el vertice B del arco"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjcomponents/index.rst:42:<autosummary>:1
+msgid ""
+":py:obj:`compareedges "
+"<Src.DISClib.DataStructures.adjcomponents.compareedges>`\\ \\(edge1\\, "
+"edge2\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjcomponents/index.rst:87
+#: ../../autoapi/Src/DISClib/DataStructures/adjcomponents/index.rst:42:<autosummary>:1
+msgid "Compara dos arcos y retorna True si son iguales"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjcomponents/index.rst:46
+#: ../../autoapi/Src/DISClib/DataStructures/adjcomponents/index.rst:57
+msgid "Bases: :py:obj:`Generic`\\ [\\ :py:obj:`Src.DISClib.Utils.default.T`\\ ]"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjcomponents/index.rst
+msgid "Parámetros"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/adjcomponents/index.rst:50
+#: ../../autoapi/Src/DISClib/DataStructures/adjcomponents/index.rst:61
+msgid "_description_"
+msgstr ""
+

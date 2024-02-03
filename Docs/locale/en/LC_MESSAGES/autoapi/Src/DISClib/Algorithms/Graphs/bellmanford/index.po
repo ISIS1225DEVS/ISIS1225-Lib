@@ -1,0 +1,246 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Uniandes, Bogotá - Colombia, Sur América,
+# This file is distributed under the same license as the DISClib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: DISClib \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-03 00:09-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst:2
+msgid ":py:mod:`Src.DISClib.Algorithms.Graphs.bellmanford`"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst:8
+msgid "Copyright 2020, Departamento de sistemas y Computación,"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst:9
+msgid "Universidad de Los Andes"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst:11
+msgid "Desarrollado para el curso ISIS1225 - Estructuras de Datos y Algoritmos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst:14
+msgid "This program is free software: you can redistribute it and/or modify"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst:15
+msgid "it under the terms of the GNU General Public License as published by"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst:16
+msgid "the Free Software Foundation, either version 3 of the License, or"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst:17
+msgid "(at your option) any later version."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst:19
+msgid "This program is distributed in the hope that it will be useful,"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst:20
+msgid "but WITHOUT ANY WARRANTY; without even the implied warranty of"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst:21
+msgid "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst:22
+msgid "GNU General Public License for more details."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst:24
+msgid "You should have received a copy of the GNU General Public License"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst:25
+msgid "along with this program.  If not, see <http://www.gnu.org/licenses/>."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst:27
+msgid "Contribución de:"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst:29
+msgid "Dario Correal"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst:35
+msgid "Module Contents"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst:39
+msgid "Functions"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst:53:<autosummary>:1
+msgid ""
+":py:obj:`BellmanFord "
+"<Src.DISClib.Algorithms.Graphs.bellmanford.BellmanFord>`\\ \\(graph\\, "
+"source\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst:53:<autosummary>:1
+msgid "Implementa el algoritmo de Bellman-Ford"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst:53:<autosummary>:1
+msgid ""
+":py:obj:`relax <Src.DISClib.Algorithms.Graphs.bellmanford.relax>`\\ "
+"\\(graph\\, search\\, v\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst:53:<autosummary>:1
+msgid "Relaja el peso de los arcos del grafo"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst:53:<autosummary>:1
+msgid ""
+":py:obj:`distTo <Src.DISClib.Algorithms.Graphs.bellmanford.distTo>`\\ "
+"\\(search\\, vertex\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst:53:<autosummary>:1
+msgid "Retorna el costo para llegar del vertice"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst:53:<autosummary>:1
+msgid ""
+":py:obj:`hasPathTo "
+"<Src.DISClib.Algorithms.Graphs.bellmanford.hasPathTo>`\\ \\(search\\, "
+"vertex\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst:53:<autosummary>:1
+msgid "Indica si hay camino entre source"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst:53:<autosummary>:1
+msgid ""
+":py:obj:`pathTo <Src.DISClib.Algorithms.Graphs.bellmanford.pathTo>`\\ "
+"\\(search\\, vertex\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst:53:<autosummary>:1
+msgid "Retorna el camino entre source y vertex"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst:53:<autosummary>:1
+msgid ""
+":py:obj:`findNegativeCycle "
+"<Src.DISClib.Algorithms.Graphs.bellmanford.findNegativeCycle>`\\ "
+"\\(graph\\, search\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst:115
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst:53:<autosummary>:1
+msgid "Identifica ciclos negativos en el grafo"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst:53:<autosummary>:1
+msgid ""
+":py:obj:`hasNegativecycle "
+"<Src.DISClib.Algorithms.Graphs.bellmanford.hasNegativecycle>`\\ "
+"\\(search\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst:53:<autosummary>:1
+msgid ""
+":py:obj:`initSearch "
+"<Src.DISClib.Algorithms.Graphs.bellmanford.initSearch>`\\ \\(graph\\, "
+"source\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst:53:<autosummary>:1
+msgid "Inicializa la estructura de busqueda y deja"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst:56
+msgid ""
+"Implementa el algoritmo de Bellman-Ford :param graph: El grafo de "
+"busqueda :param source: El vertice de inicio"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst
+msgid "Devuelve"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst:60
+msgid "La estructura search con los caminos de peso mínimos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst
+msgid "Muestra"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst:67
+msgid ""
+"Relaja el peso de los arcos del grafo :param search: La estructura de "
+"busqueda :param v: Vertice desde donde se relajan los pesos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst:71
+msgid "El grafo con los arcos relajados"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst:78
+msgid ""
+"Retorna el costo para llegar del vertice source al vertice vertex. :param"
+" search: La estructura de busqueda :param vertex: El vertice destino"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst:83
+msgid ""
+"El costo total para llegar de source a vertex. Infinito si no existe "
+"camino"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst:91
+msgid ""
+"Indica si hay camino entre source y vertex :param search: La estructura "
+"de busqueda :param vertex: El vertice de destino"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst:96
+msgid "True si existe camino"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst:103
+msgid ""
+"Retorna el camino entre source y vertex en una pila. :param search: La "
+"estructura de busqueda :param vertex: El vertice de destino"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst:108
+msgid "Una pila con el camino entre source y vertex"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst:123
+msgid ""
+"Inicializa la estructura de busqueda y deja todos los arcos en infinito. "
+"Se inserta en la cola el vertice source :param graph: El grafo a examinar"
+" :param source: El vertice fuente"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Algorithms/Graphs/bellmanford/index.rst:129
+msgid "Estructura de busqueda inicializada"
+msgstr ""
+

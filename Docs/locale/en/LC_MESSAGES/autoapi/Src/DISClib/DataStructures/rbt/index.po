@@ -1,0 +1,903 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Uniandes, Bogotá - Colombia, Sur América,
+# This file is distributed under the same license as the DISClib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: DISClib \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-03 00:09-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:2
+msgid ":py:mod:`Src.DISClib.DataStructures.rbt`"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:8
+msgid "Copyright 2020, Departamento de sistemas y Computación"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:9
+msgid "Universidad de Los Andes"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:12
+msgid "Desarrolado para el curso ISIS1225 - Estructuras de Datos y Algoritmos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:15
+msgid "This program is free software: you can redistribute it and/or modify"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:16
+msgid "it under the terms of the GNU General Public License as published by"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:17
+msgid "the Free Software Foundation, either version 3 of the License, or"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:18
+msgid "(at your option) any later version."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:20
+msgid "This program is distributed in the hope that it will be useful,"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:21
+msgid "but WITHOUT ANY WARRANTY; without even the implied warranty of"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:22
+msgid "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:23
+msgid "GNU General Public License for more details."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:25
+msgid "You should have received a copy of the GNU General Public License"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:26
+msgid "along with this program.  If not, see <http://www.gnu.org/licenses/>."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:28
+msgid "Contribución de:"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:30
+msgid "Dario Correal"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:36
+msgid "Module Contents"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:40
+msgid "Functions"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid ""
+":py:obj:`newMap <Src.DISClib.DataStructures.rbt.newMap>`\\ \\(omaptype\\,"
+" cmpfunction\\, datastructure\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid "Crea una tabla de simbolos ordenada."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid ""
+":py:obj:`put <Src.DISClib.DataStructures.rbt.put>`\\ \\(rbt\\, key\\, "
+"value\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid "Ingresa una pareja llave,valor. Si la llave ya existe,"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid ":py:obj:`get <Src.DISClib.DataStructures.rbt.get>`\\ \\(rbt\\, key\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:118
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid "Retorna la pareja llave, valor, cuya llave sea igual a key."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid ""
+":py:obj:`remove <Src.DISClib.DataStructures.rbt.remove>`\\ \\(rbt\\, "
+"key\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid "Elimina la pareja llave,valor, donde llave == key."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid ""
+":py:obj:`contains <Src.DISClib.DataStructures.rbt.contains>`\\ \\(rbt\\, "
+"key\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid "Retorna True si la llave key se encuentra en la tabla"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid ":py:obj:`size <Src.DISClib.DataStructures.rbt.size>`\\ \\(rbt\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid "Retorna el número de entradas en la tabla de simbolos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid ":py:obj:`isEmpty <Src.DISClib.DataStructures.rbt.isEmpty>`\\ \\(rbt\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid "Informa si la tabla de simbolos se encuentra vacia"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid ":py:obj:`keySet <Src.DISClib.DataStructures.rbt.keySet>`\\ \\(rbt\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid "Retorna una lista con todas las llaves de la tabla"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid ":py:obj:`valueSet <Src.DISClib.DataStructures.rbt.valueSet>`\\ \\(rbt\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid "Construye una lista con los valores de la tabla"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid ":py:obj:`minKey <Src.DISClib.DataStructures.rbt.minKey>`\\ \\(rbt\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid "Retorna la menor llave de la tabla de simbolos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid ":py:obj:`maxKey <Src.DISClib.DataStructures.rbt.maxKey>`\\ \\(rbt\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid "Retorna la mayor llave de la tabla de simbolos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid ":py:obj:`deleteMin <Src.DISClib.DataStructures.rbt.deleteMin>`\\ \\(rbt\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid "Encuentra y remueve la menor  llave de la tabla de simbolos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid ":py:obj:`deleteMax <Src.DISClib.DataStructures.rbt.deleteMax>`\\ \\(rbt\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid "Encuentra y remueve la mayor llave de la tabla de simbolos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid ":py:obj:`floor <Src.DISClib.DataStructures.rbt.floor>`\\ \\(rbt\\, key\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid "Retorna la llave mas grande en la tabla de simbolos, menor o"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid ""
+":py:obj:`ceiling <Src.DISClib.DataStructures.rbt.ceiling>`\\ \\(rbt\\, "
+"key\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid "Retorna la llave mas pequeña en la tabla de simbolos,"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid ""
+":py:obj:`select <Src.DISClib.DataStructures.rbt.select>`\\ \\(rbt\\, "
+"pos\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid "Retorna la siguiente llave a la k-esima llave mas pequeña de la tabla"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid ":py:obj:`rank <Src.DISClib.DataStructures.rbt.rank>`\\ \\(rbt\\, key\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid "Retorna el número de llaves en la tabla estrictamente menores que key"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid ":py:obj:`height <Src.DISClib.DataStructures.rbt.height>`\\ \\(rbt\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:288
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:418
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid "Retorna la altura del arbol"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid ""
+":py:obj:`keys <Src.DISClib.DataStructures.rbt.keys>`\\ \\(rbt\\, keylo\\,"
+" keyhi\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid "Retorna todas las llaves del arbol que se encuentren entre"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid ""
+":py:obj:`values <Src.DISClib.DataStructures.rbt.values>`\\ \\(rbt\\, "
+"keylo\\, keyhi\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid "Retorna todas los valores del arbol que se encuentren entre"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid ""
+":py:obj:`valueSetTree <Src.DISClib.DataStructures.rbt.valueSetTree>`\\ "
+"\\(root\\, klist\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid "Construye una lista con los valorers de la tabla"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid ""
+":py:obj:`keySetTree <Src.DISClib.DataStructures.rbt.keySetTree>`\\ "
+"\\(root\\, klist\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid "Construye una lista con las llaves de la tabla"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid ""
+":py:obj:`rotateLeft <Src.DISClib.DataStructures.rbt.rotateLeft>`\\ "
+"\\(rbt\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:348
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid "rotación izquierda para compensar dos enlaces rojos consecutivos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid ""
+":py:obj:`rotateRight <Src.DISClib.DataStructures.rbt.rotateRight>`\\ "
+"\\(rbt\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid "Rotación a la derecha para compensar un hijo rojo a la derecha"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid ""
+":py:obj:`flipNodeColor <Src.DISClib.DataStructures.rbt.flipNodeColor>`\\ "
+"\\(rbnode\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid "Cambia el color de un nodo"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid ""
+":py:obj:`flipColors <Src.DISClib.DataStructures.rbt.flipColors>`\\ "
+"\\(rbnode\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid "Cambia el color de un nodo y de sus dos hijos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid ":py:obj:`isRed <Src.DISClib.DataStructures.rbt.isRed>`\\ \\(rbnode\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid "Indica si un nodo del arbol es rojo"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid ":py:obj:`sizeTree <Src.DISClib.DataStructures.rbt.sizeTree>`\\ \\(root\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid "Retorna el número de entradas en la a partir un punto dado"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid ""
+":py:obj:`insertNode <Src.DISClib.DataStructures.rbt.insertNode>`\\ "
+"\\(root\\, key\\, value\\, cmpfunction\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid ""
+":py:obj:`heightTree <Src.DISClib.DataStructures.rbt.heightTree>`\\ "
+"\\(root\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid ""
+":py:obj:`getNode <Src.DISClib.DataStructures.rbt.getNode>`\\ \\(root\\, "
+"key\\, cmpfunction\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid ""
+":py:obj:`minKeyTree <Src.DISClib.DataStructures.rbt.minKeyTree>`\\ "
+"\\(root\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid ""
+":py:obj:`maxKeyTree <Src.DISClib.DataStructures.rbt.maxKeyTree>`\\ "
+"\\(root\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid ""
+":py:obj:`floorKey <Src.DISClib.DataStructures.rbt.floorKey>`\\ \\(root\\,"
+" key\\, cmpfunction\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid ""
+":py:obj:`ceilingKey <Src.DISClib.DataStructures.rbt.ceilingKey>`\\ "
+"\\(root\\, key\\, cmpfunction\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid ""
+":py:obj:`rankKeys <Src.DISClib.DataStructures.rbt.rankKeys>`\\ \\(root\\,"
+" key\\, cmpfunction\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid ""
+":py:obj:`keysRange <Src.DISClib.DataStructures.rbt.keysRange>`\\ "
+"\\(root\\, keylo\\, keyhi\\, lstkeys\\, cmpfunction\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid "Retorna todas las llaves del arbol en un rango dado"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid ""
+":py:obj:`valuesRange <Src.DISClib.DataStructures.rbt.valuesRange>`\\ "
+"\\(root\\, keylo\\, keyhi\\, lstvalues\\, cmpfunction\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid "Retorna todas los valores del arbol en un rango dado por"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid ""
+":py:obj:`selectKey <Src.DISClib.DataStructures.rbt.selectKey>`\\ "
+"\\(root\\, key\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid ""
+":py:obj:`deleteMinTree <Src.DISClib.DataStructures.rbt.deleteMinTree>`\\ "
+"\\(root\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid ""
+":py:obj:`deleteMaxTree <Src.DISClib.DataStructures.rbt.deleteMaxTree>`\\ "
+"\\(root\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid ""
+":py:obj:`moveRedRight <Src.DISClib.DataStructures.rbt.moveRedRight>`\\ "
+"\\(root\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid "Cambio de color durante el proceso de eliminacion"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid ""
+":py:obj:`moveRedLeft <Src.DISClib.DataStructures.rbt.moveRedLeft>`\\ "
+"\\(root\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid ":py:obj:`balance <Src.DISClib.DataStructures.rbt.balance>`\\ \\(root\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid "Balancea el arbol"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid ""
+":py:obj:`removeKey <Src.DISClib.DataStructures.rbt.removeKey>`\\ "
+"\\(root\\, key\\, cmpfunction\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:92:<autosummary>:1
+msgid ""
+":py:obj:`defaultfunction "
+"<Src.DISClib.DataStructures.rbt.defaultfunction>`\\ \\(key1\\, key2\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:95
+msgid ""
+"Crea una tabla de simbolos ordenada. :param compfunction: La función de "
+"comparacion"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst
+msgid "Devuelve"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:98
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:377
+msgid "La tabla de símbolos ordenada sin elementos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst
+msgid "Muestra"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:105
+msgid ""
+"Ingresa una pareja llave,valor. Si la llave ya existe, se reemplaza el "
+"valor. :param map: La tabla de simbolos ordenada :param key: La llave "
+"asociada a la pareja :param value: El valor asociado a la pareja"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:111
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:233
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:315
+msgid "La tabla de simbolos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst
+msgid "Parámetros"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:120
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:145
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:245
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:466
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:480
+msgid "El arbol de búsqueda"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:121
+msgid "La llave asociada a la pareja"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:123
+msgid "La pareja llave-valor en caso de que haya sido encontrada"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:130
+msgid ""
+"Elimina la pareja llave,valor, donde llave == key. :param rbt: El arbol "
+"de búsqueda :param key: La llave asociada a la pareja"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:134
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:592
+msgid "El arbol sin la pareja key-value"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:141
+msgid ""
+"Retorna True si la llave key se encuentra en la tabla o False en caso "
+"contrario. Es necesario proveer la función de comparación entre llaves."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:146
+msgid "La llave a buscar"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:148
+msgid "True si la llave se encuentra en la tabla"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:155
+msgid ""
+"Retorna el número de entradas en la tabla de simbolos :param rbt: El "
+"arbol de búsqueda"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:158
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:397
+msgid "El número de elementos en la tabla"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:165
+msgid ""
+"Informa si la tabla de simbolos se encuentra vacia :param bst: El arbol "
+"de búsqueda"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:168
+msgid "True si la tabla es vacía, False en caso contrario"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:175
+msgid ""
+"Retorna una lista con todas las llaves de la tabla :param rbt: La tabla "
+"de simbolos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:178
+msgid "Una lista con todas las llaves de la tabla"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:185
+msgid ""
+"Construye una lista con los valores de la tabla :param rbt: La tabla con "
+"los elementos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:188
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:330
+msgid "Una lista con todos los valores"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:195
+msgid ""
+"Retorna la menor llave de la tabla de simbolos :param rbt: El arbol de "
+"búsqueda"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:198
+msgid "Retorna la menor llave de la tabla"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:205
+msgid ""
+"Retorna la mayor llave de la tabla de simbolos :param rbt: El arbol de "
+"búsqueda"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:208
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:247
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:470
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:484
+msgid "Retorna la mayor llave de la tabla"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:215
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:538
+msgid ""
+"Encuentra y remueve la menor  llave de la tabla de simbolos y su valor "
+"asociado"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:218
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:231
+msgid "TODO: No implementada en esta versión"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:220
+msgid ""
+"rbt: La tabla de simbolos :returns: La tabla de simbolos sin la menor "
+"llave"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:228
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:549
+msgid ""
+"Encuentra y remueve la mayor llave de la tabla de simbolos y su valor "
+"asociado"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:235
+msgid "La tabla de simbolos sin la mayor llave"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:242
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:463
+msgid ""
+"Retorna la llave mas grande en la tabla de simbolos, menor o igual a la "
+"llave key"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:254
+msgid ""
+"Retorna la llave mas pequeña en la tabla de simbolos, mayor o igual a la "
+"llave key :param bst: La tabla de simbolos :param key: la llave de "
+"búsqueda"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:259
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:270
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:531
+msgid "La llave más pequeña mayor o igual a Key"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:266
+msgid ""
+"Retorna la siguiente llave a la k-esima llave mas pequeña de la tabla "
+":param rbt: La tabla de simbolos :param pos: la pos-esima llave mas "
+"pequeña"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:277
+msgid ""
+"Retorna el número de llaves en la tabla estrictamente menores que key "
+":param rbt: La tabla de simbolos :param key: La llave de búsqueda"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:281
+msgid "El nuemero de llaves encontradas"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:290
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:420
+msgid "El arbol con las parejas"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:292
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:422
+msgid "La altura del arbol"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:299
+msgid ""
+"Retorna todas las llaves del arbol que se encuentren entre [keylo, keyhi]"
+" :param bst: La tabla de simbolos :param keylo: límite inferior :param "
+"keylohi: límite superiorr"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:305
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:319
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:507
+msgid "Las llaves en el rago especificado"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:312
+msgid "Retorna todas los valores del arbol que se encuentren entre [keylo, keyhi]"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:316
+msgid "límite inferior"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:317
+msgid "límite superiorr"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:326
+msgid ""
+"Construye una lista con los valorers de la tabla :param root: El arbol "
+"con los elementos :param klist: La lista de respuesta"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:337
+msgid ""
+"Construye una lista con las llaves de la tabla :param root: El arbol con "
+"los elementos :param klist: La lista de respuesta"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:341
+msgid "Una lista con todos las llaves"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:353
+msgid ""
+"Rotación a la derecha para compensar un hijo rojo a la derecha :param "
+"rbt: El arbol a rotar"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:356
+msgid "El arbol rotado"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:363
+msgid "Cambia el color de un nodo :param rbnode: El nodo a cambiar"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:366
+msgid "El nodo con el color opuesto"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:373
+msgid ""
+"Cambia el color de un nodo y de sus dos hijos :param maptype: El tipo de "
+"map ordenado a utilizar"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:375
+msgid "'BST' o 'RBT'"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:384
+msgid "Indica si un nodo del arbol es rojo :param rbnode: El nodo a examinar"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:387
+msgid "True / False"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:394
+msgid ""
+"Retorna el número de entradas en la a partir un punto dado :param root: "
+"El arbol de búsqueda"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:404
+msgid ""
+"Ingresa una pareja llave,valor. Si la llave ya existe, se reemplaza el "
+"valor. :param root: La raiz del arbol :param key: La llave asociada a la "
+"pareja :param value: El valor asociado a la pareja :param cmpfunction: "
+"Función de comparación"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:411
+msgid "El arbol con la nueva pareja"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:429
+msgid ""
+"Retorna la pareja llave, valor, cuya llave sea igual a key. Es necesario "
+"proveer una función de comparación para las llaves."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:432
+msgid "El arbol rojo-negro"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:433
+msgid "La llave de busqueda"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:434
+msgid "función de comparación"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:436
+msgid "La pareja llave-valor"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:443
+msgid ""
+"Retorna la menor llave de la tabla de simbolos :param root: La raiz del "
+"arbol de busqueda"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:446
+msgid "El elemento mas izquierdo del arbol"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:453
+msgid ""
+"Retorna la mayor llave de la tabla de simbolos :param bst: La tabla de "
+"simbolos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:456
+msgid "El elemento mas derecho del árbol"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:467
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:481
+msgid "La llave"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:468
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:482
+msgid "Funcion de comparacion"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:477
+msgid ""
+"Retorna la llave mas pequeña en la tabla de simbolos, mayor o igual a la "
+"llave key"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:491
+msgid ""
+"Retorna el número de llaves en la tabla estrictamente menores que key "
+":param rbt: La tabla de simbolos :param key: La llave de busqueda"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:495
+msgid "El numero de llaves"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:502
+msgid ""
+"Retorna todas las llaves del arbol en un rango dado :param bst: La tabla "
+"de simbolos :param keylo: límite inferior :param keylohi: límite "
+"superiorr"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:514
+msgid ""
+"Retorna todas los valores del arbol en un rango dado por [keylo, keyhi] "
+":param bst: La tabla de simbolos :param keylo: límite inferior :param "
+"keylohi: límite superior"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:520
+msgid "Las llaves en el rango especificado"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:527
+msgid ""
+"Retorna la siguiente llave a la k-esima llave mas pequeña de la tabla "
+":param root: La tabla de simbolos :param key: la llave de búsqueda"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:541
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:552
+msgid ""
+"root: La tabla de simbolos :returns: La tabla de simbolos sin la menor "
+"llave"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:560
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:569
+msgid ""
+"Cambio de color durante el proceso de eliminacion root: La tabla de "
+"simbolos :returns: El arbol con un hijo iquierdo de root en negro"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:578
+msgid ""
+"Balancea el arbol root: Raiz del arbol a balancear :returns: El arbol "
+"balanceado"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/rbt/index.rst:587
+msgid ""
+"Elimina la pareja llave,valor, donde llave == key. :param root: El arbol "
+"de búsqueda :param key: La llave asociada a la pareja :param cmpfunction:"
+" La función de comparacion"
+msgstr ""
+

@@ -1,0 +1,212 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Uniandes, Bogotá - Colombia, Sur América,
+# This file is distributed under the same license as the DISClib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: DISClib \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-03 00:09-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../autoapi/Src/DISClib/DataStructures/mapentry/index.rst:2
+msgid ":py:mod:`Src.DISClib.DataStructures.mapentry`"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/mapentry/index.rst:8
+msgid ""
+"Este ADT representa la registro de un Mapa no Ordenado (**MapEntry**), el"
+" cual es una estructura de datos para almacenar la información en parejas"
+" de llave-valor (key-value). La llave (*key*) es un identificador único "
+"para cada valor (*value*) almacenado en el Mapa no Ordenado (*Map*). Por "
+"su parte, el valor (*value*) puede ser cualquier tipo de dato."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/mapentry/index.rst:10
+msgid ""
+"En el caso de las tablas de Hash, la llave (*key*) es el resultado de "
+"aplicar una función hash al valor (*value*) almacenado en el Mapa no "
+"Ordenado (*Map*). Esta estructura de datos es fundamental para "
+"implementar otros mapas no ordenados como: tablas de símbolos, "
+"diccionarios, entre otros."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/mapentry/index.rst:12
+msgid ""
+"*DISCLib* utiliza el *MapEntry* para guardar la información de las tablas"
+" de Hash por Encadenamiento Separado (*SeparateChaining*) y las tablas "
+"por Sondeo Lineal (*LinearProbing)."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/mapentry/index.rst:14
+msgid ""
+"*IMPORTANTE:* Este código y sus especificaciones para Python están "
+"basados en las implementaciones propuestas por los siguientes "
+"autores/libros:"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/mapentry/index.rst:16
+msgid "Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/mapentry/index.rst:17
+msgid ""
+"Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H."
+" Goldwasser."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/mapentry/index.rst:22
+msgid "Module Contents"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/mapentry/index.rst:25
+msgid "Classes"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/mapentry/index.rst:33:<autosummary>:1
+msgid ":py:obj:`MapEntry <Src.DISClib.DataStructures.mapentry.MapEntry>`\\"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/mapentry/index.rst:39
+#: ../../autoapi/Src/DISClib/DataStructures/mapentry/index.rst:33:<autosummary>:1
+msgid ""
+"**MapEntry** representa un registro de un mapa no ordenado, contiene la "
+"llave (*key*) y el valor (*value*). Donde la llave es única para cada "
+"valor y el valor puede ser cualquier tipo de dato."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/mapentry/index.rst:37
+msgid "Bases: :py:obj:`Generic`\\ [\\ :py:obj:`Src.DISClib.Utils.default.T`\\ ]"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/mapentry/index.rst
+msgid "Parámetros"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/mapentry/index.rst:41
+msgid ""
+"TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una "
+"estructura de datos genéricas en python."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/mapentry/index.rst
+msgid "Devuelve"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/mapentry/index.rst:44
+msgid "ADT de tipo *MapEntry* o registro de un mapa no ordenado."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/mapentry/index.rst
+msgid "Tipo del valor devuelto"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/mapentry/index.rst:50
+msgid "Es la llave del registro del mapa."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/mapentry/index.rst:55
+msgid "Es el valor del registro del mapa."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/mapentry/index.rst:59
+msgid ""
+"*_handle_error()* función privada para manejar los errores que se "
+"presentan en la clase MapEntry."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/mapentry/index.rst:61
+msgid ""
+"Si se presenta un error en el MapEntry, se formatea el error según el "
+"contexto (paquete/clase) y la función que lo generó, y lo reenvia al "
+"componente superior en la jerarquía de llamados para manejarlo segun se "
+"considere conveniente."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/mapentry/index.rst:63
+msgid "Excepción que se generó en el MapEntry."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/mapentry/index.rst:69
+msgid ""
+"*_check_key_type()* función privada que verifica que la información de la"
+" llave (key) del registro del mapa sea del tipo especificado."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/mapentry/index.rst:71
+msgid "llave que se quiere verificar en el registro del mapa."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/mapentry/index.rst
+msgid "Muestra"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/mapentry/index.rst:74
+#: ../../autoapi/Src/DISClib/DataStructures/mapentry/index.rst:87
+msgid "error si la información del registro del mapa no es del tipo adecuado."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/mapentry/index.rst:76
+msgid ""
+"operador que indica si el tipo de dato de la llave es el mismo que el "
+"tipo de dato de la llave que ya contiene la estructura de datos."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/mapentry/index.rst:82
+msgid ""
+"*_check_value_type()* función privada que verifica que la información del"
+" valor (value) en el registro del mapa sea del tipo especificado."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/mapentry/index.rst:84
+msgid "valor que se quiere verificar en el registro del mapa."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/mapentry/index.rst:89
+msgid ""
+"operador que indica si el tipo de dato del valor es el mismo que el tipo "
+"de dato de los elementos que ya contiene la estructura de datos."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/mapentry/index.rst:95
+msgid "*set_key()* introduce una nueva llave 'key' al registro del mapa."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/mapentry/index.rst:97
+msgid "la nueva llave del registro del mapa."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/mapentry/index.rst:103
+msgid "*set_value()* introduce un nuevo valor 'value' al registro del mapa."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/mapentry/index.rst:105
+msgid "el nuevo valor del registro del mapa."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/mapentry/index.rst:111
+msgid "*get_key()* recupera la llave 'key' contenida en el registro del mapa."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/mapentry/index.rst:113
+msgid "la llave del registro del mapa."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/mapentry/index.rst:119
+msgid "*get_value()* recupera el valor 'value' contenido en el registro del mapa."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/DataStructures/mapentry/index.rst:121
+msgid "el valor del registro del mapa."
+msgstr ""
+

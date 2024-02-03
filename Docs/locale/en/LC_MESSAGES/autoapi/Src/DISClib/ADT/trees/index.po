@@ -1,0 +1,494 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Uniandes, Bogotá - Colombia, Sur América,
+# This file is distributed under the same license as the DISClib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: DISClib \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-03 00:09-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:2
+msgid ":py:mod:`Src.DISClib.ADT.trees`"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:8
+msgid "Copyright 2020, Departamento de sistemas y Computación"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:9
+msgid "Universidad de Los Andes"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:12
+msgid "Desarrolado para el curso ISIS1225 - Estructuras de Datos y Algoritmos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:15
+msgid "This program is free software: you can redistribute it and/or modify"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:16
+msgid "it under the terms of the GNU General Public License as published by"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:17
+msgid "the Free Software Foundation, either version 3 of the License, or"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:18
+msgid "(at your option) any later version."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:20
+msgid "This program is distributed in the hope that it will be useful,"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:21
+msgid "but WITHOUT ANY WARRANTY; without even the implied warranty of"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:22
+msgid "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:23
+msgid "GNU General Public License for more details."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:25
+msgid "You should have received a copy of the GNU General Public License"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:26
+msgid "along with this program.  If not, see <http://www.gnu.org/licenses/>."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:28
+msgid "Contribución de:"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:30
+msgid "Dario Correal"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:36
+msgid "Module Contents"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:40
+msgid "Functions"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:67:<autosummary>:1
+msgid ""
+":py:obj:`newMap <Src.DISClib.ADT.trees.newMap>`\\ \\(\\[omaptype\\, "
+"cmpfunction\\]\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:67:<autosummary>:1
+msgid "Crea una tabla de simbolos ordenada."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:67:<autosummary>:1
+msgid ":py:obj:`put <Src.DISClib.ADT.trees.put>`\\ \\(map\\, key\\, value\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:67:<autosummary>:1
+msgid "Ingresa una pareja llave,valor. Si la llave ya existe,"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:67:<autosummary>:1
+msgid ":py:obj:`get <Src.DISClib.ADT.trees.get>`\\ \\(map\\, key\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:67:<autosummary>:1
+msgid "Retorna la pareja lleve-valor con llave igual a key"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:67:<autosummary>:1
+msgid ":py:obj:`remove <Src.DISClib.ADT.trees.remove>`\\ \\(map\\, key\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:67:<autosummary>:1
+msgid "Elimina la pareja llave,valor, donde llave == key."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:67:<autosummary>:1
+msgid ":py:obj:`contains <Src.DISClib.ADT.trees.contains>`\\ \\(map\\, key\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:67:<autosummary>:1
+msgid "Informa si la llave key se encuentra en la tabla de hash"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:67:<autosummary>:1
+msgid ":py:obj:`size <Src.DISClib.ADT.trees.size>`\\ \\(map\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:67:<autosummary>:1
+msgid "Retorna el número de entradas en la tabla de simbolos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:67:<autosummary>:1
+msgid ":py:obj:`isEmpty <Src.DISClib.ADT.trees.isEmpty>`\\ \\(map\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:67:<autosummary>:1
+msgid "Informa si la tabla de simbolos se encuentra vacia"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:67:<autosummary>:1
+msgid ":py:obj:`keySet <Src.DISClib.ADT.trees.keySet>`\\ \\(map\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:67:<autosummary>:1
+msgid "Retorna una lista con todas las llaves de la tabla"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:67:<autosummary>:1
+msgid ":py:obj:`valueSet <Src.DISClib.ADT.trees.valueSet>`\\ \\(map\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:67:<autosummary>:1
+msgid "Construye una lista con los valores de la tabla"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:67:<autosummary>:1
+msgid ":py:obj:`minKey <Src.DISClib.ADT.trees.minKey>`\\ \\(map\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:67:<autosummary>:1
+msgid "Retorna la menor llave de la tabla de simbolos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:67:<autosummary>:1
+msgid ":py:obj:`maxKey <Src.DISClib.ADT.trees.maxKey>`\\ \\(map\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:67:<autosummary>:1
+msgid "Retorna la mayor llave de la tabla de simbolos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:67:<autosummary>:1
+msgid ":py:obj:`deleteMin <Src.DISClib.ADT.trees.deleteMin>`\\ \\(map\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:67:<autosummary>:1
+msgid "Encuentra y remueve la menor llave de la tabla de simbolos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:67:<autosummary>:1
+msgid ":py:obj:`deleteMax <Src.DISClib.ADT.trees.deleteMax>`\\ \\(map\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:67:<autosummary>:1
+msgid "Encuentra y remueve la mayor llave de la tabla de simbolos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:67:<autosummary>:1
+msgid ":py:obj:`floor <Src.DISClib.ADT.trees.floor>`\\ \\(map\\, key\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:67:<autosummary>:1
+msgid "Retorna la llave mas grande en la tabla de simbolos,"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:67:<autosummary>:1
+msgid ":py:obj:`ceiling <Src.DISClib.ADT.trees.ceiling>`\\ \\(map\\, key\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:67:<autosummary>:1
+msgid "Retorna la llave mas pequeña en la tabla de simbolos,"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:67:<autosummary>:1
+msgid ":py:obj:`select <Src.DISClib.ADT.trees.select>`\\ \\(map\\, k\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:67:<autosummary>:1
+msgid "Retorna la siguiente llave a la k-esima llave mas pequeña de la tabla"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:67:<autosummary>:1
+msgid ":py:obj:`rank <Src.DISClib.ADT.trees.rank>`\\ \\(map\\, key\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:67:<autosummary>:1
+msgid "Retorna el número de llaves en la tabla estrictamente menores que key"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:67:<autosummary>:1
+msgid ":py:obj:`height <Src.DISClib.ADT.trees.height>`\\ \\(map\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:67:<autosummary>:1
+msgid "Retorna la altura del arbol de busqueda"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:67:<autosummary>:1
+msgid ":py:obj:`keys <Src.DISClib.ADT.trees.keys>`\\ \\(map\\, keylo\\, keyhi\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:67:<autosummary>:1
+msgid "Retorna todas las llaves del arbol que se encuentren entre"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:67:<autosummary>:1
+msgid ""
+":py:obj:`values <Src.DISClib.ADT.trees.values>`\\ \\(map\\, keylo\\, "
+"keyhi\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:67:<autosummary>:1
+msgid "Retorna todas los valores del arbol que se encuentren entre"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:67:<autosummary>:1
+msgid ""
+":py:obj:`mapSelector <Src.DISClib.ADT.trees.mapSelector>`\\ "
+"\\(datastructure\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:67:<autosummary>:1
+msgid "Carga dinamicamente el import de la estructura de datos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:69
+msgid "Attributes"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:75:<autosummary>:1
+msgid ":py:obj:`switch_module <Src.DISClib.ADT.trees.switch_module>`\\"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:78
+msgid ""
+"Crea una tabla de simbolos ordenada. :param maptype: El tipo de map "
+"ordenado a utilizar"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:80
+msgid "'BST' o 'RBT'"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst
+msgid "Devuelve"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:82
+msgid "La tabla de símbolos ordenada sin elementos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst
+msgid "Muestra"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:89
+msgid ""
+"Ingresa una pareja llave,valor. Si la llave ya existe, se reemplaza el "
+"valor. :param map: La tabla de simbolos ordenada :param key: La llave "
+"asociada a la pareja :param value: El valor asociado a la pareja"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:95
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:117
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:276
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:290
+msgid "La tabla de simbolos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:102
+msgid ""
+"Retorna la pareja lleve-valor con llave igual a key :param map: La tabla "
+"de simbolos :param key: La llave asociada a la pareja"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:106
+msgid "La tabla de simbolos con la nueva pareja"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:113
+msgid ""
+"Elimina la pareja llave,valor, donde llave == key. :param map: La tabla "
+"de simbolos :param key: La llave asociada a la pareja"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:124
+msgid ""
+"Informa si la llave key se encuentra en la tabla de hash :param map: La "
+"tabla de simbolos :param key: La llave a buscar"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:128
+msgid "True si la llave está presente, False en caso contrario"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:135
+msgid ""
+"Retorna el número de entradas en la tabla de simbolos :param map: La "
+"tabla de simbolos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:138
+msgid "El número de elementos en la tabla"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:145
+msgid ""
+"Informa si la tabla de simbolos se encuentra vacia :param map: La tabla "
+"de simbolos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:148
+msgid "True si la tabla es vacía, False en caso contrario"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:155
+msgid ""
+"Retorna una lista con todas las llaves de la tabla :param map: La tabla "
+"de simbolos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:158
+msgid "Una lista con todas las llaves de la tabla"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:165
+msgid ""
+"Construye una lista con los valores de la tabla :param map: La tabla con "
+"los elementos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:168
+msgid "Una lista con todos los valores"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:175
+msgid ""
+"Retorna la menor llave de la tabla de simbolos :param map: La tabla de "
+"simbolos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:178
+msgid "La menor llave de la tabla"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:185
+msgid ""
+"Retorna la mayor llave de la tabla de simbolos :param map: La tabla de "
+"simbolos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:188
+msgid "La mayor llave de la tabla"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:195
+msgid ""
+"Encuentra y remueve la menor llave de la tabla de simbolos y su valor "
+"asociado :param map: La tabla de simbolos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:199
+msgid "La tabla de simbolos sin la menor llave"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:206
+msgid ""
+"Encuentra y remueve la mayor llave de la tabla de simbolos y su valor "
+"asociado :param map: La tabla de simbolos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:210
+msgid "La tabla de simbolos sin la mayor llave"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:217
+msgid ""
+"Retorna la llave mas grande en la tabla de simbolos, menor o igual a la "
+"llave key :param map: La tabla de simbolos :param key: La llave de "
+"búsqueda"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:222
+msgid "La llave más grande menor o igual a key"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:229
+msgid ""
+"Retorna la llave mas pequeña en la tabla de simbolos, mayor o igual a la "
+"llave key :param map: La tabla de simbolos :param key: la llave de "
+"búsqueda"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:234
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:245
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:256
+msgid "La llave más pequeña mayor o igual a Key"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:241
+msgid ""
+"Retorna la siguiente llave a la k-esima llave mas pequeña de la tabla "
+":param map: La tabla de simbolos :param pos: la pos-esima llave mas "
+"pequeña"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:252
+msgid ""
+"Retorna el número de llaves en la tabla estrictamente menores que key "
+":param map: La tabla de simbolos :param pos: la pos-esima llave mas "
+"pequeña"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:263
+msgid "Retorna la altura del arbol de busqueda :param map: La tabla de simbolos"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:266
+msgid "La altura del arbol"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:273
+msgid "Retorna todas las llaves del arbol que se encuentren entre [keylo, keyhi]"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst
+msgid "Parámetros"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:277
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:291
+msgid "límite inferior"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:278
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:292
+msgid "límite superiorr"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:280
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:294
+msgid "Las llaves en el rago especificado"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:287
+msgid "Retorna todas los valores del arbol que se encuentren entre [keylo, keyhi]"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/ADT/trees/index.rst:305
+msgid "Carga dinamicamente el import de la estructura de datos seleccionada"
+msgstr ""
+

@@ -1,0 +1,280 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Uniandes, Bogotá - Colombia, Sur América,
+# This file is distributed under the same license as the DISClib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: DISClib \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-03 00:09-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../Src.DISClib.Algorithms.Sorting.rst:2
+msgid "Src.DISClib.Algorithms.Sorting package"
+msgstr ""
+
+#: ../../Src.DISClib.Algorithms.Sorting.rst:5
+msgid "Submodules"
+msgstr ""
+
+#: ../../Src.DISClib.Algorithms.Sorting.rst:8
+msgid "Src.DISClib.Algorithms.Sorting.bogosort module"
+msgstr ""
+
+#: Src.DISClib.Algorithms.Sorting.bogosort:1 of
+msgid ""
+"Este módulo contiene la implementación del algoritmo de ordenamiento por "
+"azar (bogo sort). El algoritmo puede aplicarse a cualquier secuencia de "
+"elementos que puedan ser comparados entre sí como los ADT *List* y sus "
+"estructuras especificas *ArrayList*, *LinkedList*, *DoubleLinkedList*, "
+"*Queue* y *Stack*"
+msgstr ""
+
+#: Src.DISClib.Algorithms.Sorting.bogosort:3
+#: Src.DISClib.Algorithms.Sorting.heapsort:3
+#: Src.DISClib.Algorithms.Sorting.insertionsort:3
+#: Src.DISClib.Algorithms.Sorting.mergesort:3
+#: Src.DISClib.Algorithms.Sorting.quicksort:3
+#: Src.DISClib.Algorithms.Sorting.selectionsort:3
+#: Src.DISClib.Algorithms.Sorting.shellsort:3 of
+msgid ""
+"*IMPORTANTE:* Este código y sus especificaciones para Python están "
+"basados en las implementaciones propuestas por los siguientes "
+"autores/libros:"
+msgstr ""
+
+#: Src.DISClib.Algorithms.Sorting.bogosort:5
+#: Src.DISClib.Algorithms.Sorting.heapsort:5
+#: Src.DISClib.Algorithms.Sorting.insertionsort:5
+#: Src.DISClib.Algorithms.Sorting.mergesort:5
+#: Src.DISClib.Algorithms.Sorting.quicksort:5
+#: Src.DISClib.Algorithms.Sorting.selectionsort:5
+#: Src.DISClib.Algorithms.Sorting.shellsort:5 of
+msgid "Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne."
+msgstr ""
+
+#: Src.DISClib.Algorithms.Sorting.bogosort:6
+#: Src.DISClib.Algorithms.Sorting.heapsort:6
+#: Src.DISClib.Algorithms.Sorting.insertionsort:6
+#: Src.DISClib.Algorithms.Sorting.mergesort:6
+#: Src.DISClib.Algorithms.Sorting.quicksort:6
+#: Src.DISClib.Algorithms.Sorting.selectionsort:6 of
+msgid ""
+"Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H."
+" Goldwasser."
+msgstr ""
+
+#: Src.DISClib.Algorithms.Sorting.bogosort.bogo_sort:1 of
+msgid ""
+"*bogo_sort()* ordena una lista de elementos utilizando el algoritmo de "
+"ordenamiento por azar (bogo sort)."
+msgstr ""
+
+#: Src.DISClib.Algorithms.Sorting.bogosort.bogo_sort
+#: Src.DISClib.Algorithms.Sorting.heapsort.heap_sort
+#: Src.DISClib.Algorithms.Sorting.insertionsort.insertion_sort
+#: Src.DISClib.Algorithms.Sorting.mergesort.merge_sort
+#: Src.DISClib.Algorithms.Sorting.quicksort.quick_sort
+#: Src.DISClib.Algorithms.Sorting.selectionsort.selection_sort
+#: Src.DISClib.Algorithms.Sorting.shellsort.shell_sort of
+msgid "Parámetros"
+msgstr ""
+
+#: Src.DISClib.Algorithms.Sorting.bogosort.bogo_sort:3
+#: Src.DISClib.Algorithms.Sorting.heapsort.heap_sort:3
+#: Src.DISClib.Algorithms.Sorting.insertionsort.insertion_sort:3
+#: Src.DISClib.Algorithms.Sorting.mergesort.merge_sort:3
+#: Src.DISClib.Algorithms.Sorting.quicksort.quick_sort:3
+#: Src.DISClib.Algorithms.Sorting.selectionsort.selection_sort:3
+#: Src.DISClib.Algorithms.Sorting.shellsort.shell_sort:3 of
+msgid ""
+"La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, "
+"*DoubleLinkedList*, *Queue* o *Stack*."
+msgstr ""
+
+#: Src.DISClib.Algorithms.Sorting.bogosort.bogo_sort:5
+#: Src.DISClib.Algorithms.Sorting.heapsort.heap_sort:5
+#: Src.DISClib.Algorithms.Sorting.insertionsort.insertion_sort:5
+#: Src.DISClib.Algorithms.Sorting.mergesort.merge_sort:5
+#: Src.DISClib.Algorithms.Sorting.quicksort.quick_sort:5
+#: Src.DISClib.Algorithms.Sorting.selectionsort.selection_sort:5
+#: Src.DISClib.Algorithms.Sorting.shellsort.shell_sort:5 of
+msgid ""
+"Es una función definida por el usuario que representa el criterio de "
+"ordenamiento. Recibe dos elementos pertenecientes al ADT **List** y "
+"retorna *True* si el primer elemento es menor que el segundo elemento, y "
+"*False* en caso contrario."
+msgstr ""
+
+#: Src.DISClib.Algorithms.Sorting.bogosort.bogo_sort
+#: Src.DISClib.Algorithms.Sorting.heapsort.heap_sort
+#: Src.DISClib.Algorithms.Sorting.insertionsort.insertion_sort
+#: Src.DISClib.Algorithms.Sorting.mergesort.merge_sort
+#: Src.DISClib.Algorithms.Sorting.quicksort.quick_sort
+#: Src.DISClib.Algorithms.Sorting.selectionsort.selection_sort
+#: Src.DISClib.Algorithms.Sorting.shellsort.shell_sort of
+msgid "Devuelve"
+msgstr ""
+
+#: Src.DISClib.Algorithms.Sorting.bogosort.bogo_sort:8
+#: Src.DISClib.Algorithms.Sorting.heapsort.heap_sort:8
+#: Src.DISClib.Algorithms.Sorting.insertionsort.insertion_sort:8
+#: Src.DISClib.Algorithms.Sorting.mergesort.merge_sort:8
+#: Src.DISClib.Algorithms.Sorting.quicksort.quick_sort:8
+#: Src.DISClib.Algorithms.Sorting.selectionsort.selection_sort:8
+#: Src.DISClib.Algorithms.Sorting.shellsort.shell_sort:8 of
+msgid "La lista ordenada."
+msgstr ""
+
+#: Src.DISClib.Algorithms.Sorting.bogosort.bogo_sort
+#: Src.DISClib.Algorithms.Sorting.heapsort.heap_sort
+#: Src.DISClib.Algorithms.Sorting.insertionsort.insertion_sort
+#: Src.DISClib.Algorithms.Sorting.mergesort.merge_sort
+#: Src.DISClib.Algorithms.Sorting.quicksort.quick_sort
+#: Src.DISClib.Algorithms.Sorting.selectionsort.selection_sort
+#: Src.DISClib.Algorithms.Sorting.shellsort.shell_sort of
+msgid "Tipo del valor devuelto"
+msgstr ""
+
+#: ../../Src.DISClib.Algorithms.Sorting.rst:16
+msgid "Src.DISClib.Algorithms.Sorting.heapsort module"
+msgstr ""
+
+#: Src.DISClib.Algorithms.Sorting.heapsort:1 of
+msgid ""
+"Este módulo contiene la implementación del algoritmo de ordenamiento por "
+"montículos (heap sort) un algoritmo creado por J.W.J. Williams que "
+"utiliza el principio de dividir y conquistar para ordenar una secuencia "
+"de elementos. El algoritmo puede aplicarse a cualquier secuencia de "
+"elementos que puedan ser comparados entre sí como los ADT *List* y sus "
+"estructuras especificas *ArrayList*, *LinkedList*, *DoubleLinkedList*, "
+"*Queue* y *Stack*"
+msgstr ""
+
+#: Src.DISClib.Algorithms.Sorting.heapsort.heap_sort:1 of
+msgid ""
+"*heap_sort()* ordena una lista de elementos utilizando el algoritmo de "
+"ordenamiento por montículos (heap sort)."
+msgstr ""
+
+#: ../../Src.DISClib.Algorithms.Sorting.rst:24
+msgid "Src.DISClib.Algorithms.Sorting.insertionsort module"
+msgstr ""
+
+#: Src.DISClib.Algorithms.Sorting.insertionsort:1 of
+msgid ""
+"Este módulo contiene la implementación del algoritmo de ordenamiento por "
+"inserción (insertion sort) creado por Konrad Zuse para ordenar una "
+"secuencia de elementos. El algoritmo puede aplicarse a cualquier "
+"secuencia de elementos que puedan ser comparados entre sí como los ADT "
+"*List* y sus estructuras especificas *ArrayList*, *LinkedList*, "
+"*DoubleLinkedList*, *Queue* y *Stack*"
+msgstr ""
+
+#: Src.DISClib.Algorithms.Sorting.insertionsort.insertion_sort:1 of
+msgid ""
+"*insertion_sort()* ordena una lista de elementos utilizando el algoritmo "
+"de ordenamiento por inserción (insertion sort)."
+msgstr ""
+
+#: ../../Src.DISClib.Algorithms.Sorting.rst:32
+msgid "Src.DISClib.Algorithms.Sorting.mergesort module"
+msgstr ""
+
+#: Src.DISClib.Algorithms.Sorting.mergesort:1 of
+msgid ""
+"Este módulo contiene la implementación del algoritmo de ordenamiento por "
+"selección por mezcla (merge sort) un algoritmo creado por John Von "
+"Neumann que utiliza el principio de dividir y conquistar para ordenar una"
+" secuencia de elementos. El algoritmo puede aplicarse a cualquier "
+"secuencia de elementos que puedan ser comparados entre sí como los ADT "
+"*List* y sus estructuras especificas *ArrayList*, *LinkedList*, "
+"*DoubleLinkedList*, *Queue* y *Stack*"
+msgstr ""
+
+#: Src.DISClib.Algorithms.Sorting.mergesort.merge_sort:1 of
+msgid ""
+"*merge_sort()* ordena una lista de elementos utilizando el algoritmo de "
+"ordenamiento por mezcla (merge sort)."
+msgstr ""
+
+#: ../../Src.DISClib.Algorithms.Sorting.rst:40
+msgid "Src.DISClib.Algorithms.Sorting.quicksort module"
+msgstr ""
+
+#: Src.DISClib.Algorithms.Sorting.quicksort:1 of
+msgid ""
+"Este módulo contiene la implementación del algoritmo de ordenamiento "
+"rápido (quick sort) un algoritmo creado por Tony Hoare que utiliza el "
+"principio de dividir y conquistar para ordenar una secuencia de "
+"elementos. El algoritmo puede aplicarse a cualquier secuencia de "
+"elementos que puedan ser comparados entre sí como los ADT *List* y sus "
+"estructuras especificas *ArrayList*, *LinkedList*, *DoubleLinkedList*, "
+"*Queue* y *Stack*"
+msgstr ""
+
+#: Src.DISClib.Algorithms.Sorting.quicksort.quick_sort:1 of
+msgid ""
+"*quick_sort()* ordena una lista de elementos utilizando el algoritmo de "
+"ordenamiento rápido (quick sort)."
+msgstr ""
+
+#: ../../Src.DISClib.Algorithms.Sorting.rst:48
+msgid "Src.DISClib.Algorithms.Sorting.selectionsort module"
+msgstr ""
+
+#: Src.DISClib.Algorithms.Sorting.selectionsort:1 of
+msgid ""
+"Este módulo contiene la implementación del algoritmo de ordenamiento por "
+"selección (selection sort). El algoritmo puede aplicarse a cualquier "
+"secuencia de elementos que puedan ser comparados entre sí como los ADT "
+"*List* y sus estructuras especificas *ArrayList*, *LinkedList*, "
+"*DoubleLinkedList*, *Queue* y *Stack*"
+msgstr ""
+
+#: Src.DISClib.Algorithms.Sorting.selectionsort.selection_sort:1 of
+msgid ""
+"*selection_sort()* ordena una lista de elementos utilizando el algoritmo "
+"de ordenamiento por selección (selection sort)."
+msgstr ""
+
+#: ../../Src.DISClib.Algorithms.Sorting.rst:56
+msgid "Src.DISClib.Algorithms.Sorting.shellsort module"
+msgstr ""
+
+#: Src.DISClib.Algorithms.Sorting.shellsort:1 of
+msgid ""
+"Este módulo contiene la implementación del algoritmo de ordenamiento por "
+"Shell (shell sort) creado por Donald Shell. El algoritmo puede aplicarse "
+"a cualquier secuencia de elementos que puedan ser comparados entre sí "
+"como los ADT *List* y sus estructuras especificas *ArrayList*, "
+"*LinkedList*, *DoubleLinkedList*, *Queue* y *Stack*"
+msgstr ""
+
+#: Src.DISClib.Algorithms.Sorting.shellsort:6 of
+msgid ""
+"#. Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, "
+"M.H. Goldwasser. # Se utiliza la secuencia de incrementos 3x+1: 1, 4, 13,"
+" 40, 121, 364, 109, (D. Knuth); Sedgewick: 1,5,19,41,109,209,929,2161,..."
+msgstr ""
+
+#: Src.DISClib.Algorithms.Sorting.shellsort.shell_sort:1 of
+msgid ""
+"*shell_sort()* ordena una lista de elementos utilizando el algoritmo de "
+"ordenamiento Shell (shell sort)."
+msgstr ""
+
+#: ../../Src.DISClib.Algorithms.Sorting.rst:64
+msgid "Module contents"
+msgstr ""
+

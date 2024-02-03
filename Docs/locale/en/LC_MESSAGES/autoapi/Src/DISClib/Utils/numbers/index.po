@@ -1,0 +1,178 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Uniandes, Bogotá - Colombia, Sur América,
+# This file is distributed under the same license as the DISClib package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: DISClib \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-03 00:09-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../autoapi/Src/DISClib/Utils/numbers/index.rst:2
+msgid ":py:mod:`Src.DISClib.Utils.numbers`"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/numbers/index.rst:8
+msgid ""
+"Módulo con funciones de utilidad para el manejo de datos en los mapas no "
+"ordenados en *DISClib*. Especificamente para tablas de Hash por "
+"Encadenamiento Separado (Separate Chaining) y tablas de Hash por Sondeo "
+"Lineal (Linear Probing)."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/numbers/index.rst:10
+msgid ""
+"*IMPORTANTE:* Este código y sus especificaciones para Python están "
+"basados en las implementaciones propuestas por los siguientes "
+"autores/libros:"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/numbers/index.rst:12
+msgid "Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/numbers/index.rst:13
+msgid ""
+"Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H."
+" Goldwasser."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/numbers/index.rst:15
+msgid ""
+"*NOTA:* código contribuido por Sanjit_Prasad en "
+"https://www.geeksforgeeks.org/prime-numbers/"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/numbers/index.rst:20
+msgid "Module Contents"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/numbers/index.rst:24
+msgid "Functions"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/numbers/index.rst:34:<autosummary>:1
+msgid ":py:obj:`is_prime <Src.DISClib.Utils.numbers.is_prime>`\\ \\(→ bool\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/numbers/index.rst:37
+#: ../../autoapi/Src/DISClib/Utils/numbers/index.rst:34:<autosummary>:1
+msgid "*is_prime()* revisa si un número es primo o no."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/numbers/index.rst:34:<autosummary>:1
+msgid ":py:obj:`next_prime <Src.DISClib.Utils.numbers.next_prime>`\\ \\(→ int\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/numbers/index.rst:48
+#: ../../autoapi/Src/DISClib/Utils/numbers/index.rst:34:<autosummary>:1
+msgid "*next_prime()* devuelve el siguiente número primo mayor que n."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/numbers/index.rst:34:<autosummary>:1
+msgid ""
+":py:obj:`previous_prime <Src.DISClib.Utils.numbers.previous_prime>`\\ "
+"\\(→ int\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/numbers/index.rst:59
+#: ../../autoapi/Src/DISClib/Utils/numbers/index.rst:34:<autosummary>:1
+msgid "*previous_prime()* devuelve el número primo anterior a n."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/numbers/index.rst:34:<autosummary>:1
+msgid ""
+":py:obj:`hash_compress <Src.DISClib.Utils.numbers.hash_compress>`\\ \\(→ "
+"int\\)"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/numbers/index.rst:34:<autosummary>:1
+msgid ""
+"*hash_compress()* función de compresión para los índices de las tablas de"
+" Hash utilizando el método MAD (Multiply-Add-and-Divide)."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/numbers/index.rst
+msgid "Parámetros"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/numbers/index.rst:39
+msgid "número entero para verificar si es primo."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/numbers/index.rst
+msgid "Devuelve"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/numbers/index.rst:42
+msgid "si el número es primo o no."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/numbers/index.rst
+msgid "Tipo del valor devuelto"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/numbers/index.rst:50
+#: ../../autoapi/Src/DISClib/Utils/numbers/index.rst:61
+msgid "número entero para calcular el siguiente número primo."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/numbers/index.rst:53
+msgid "el siguiente número primo mayor que n."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/numbers/index.rst:64
+msgid "el siguiente número primo menor que n."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/numbers/index.rst:70
+msgid ""
+"*hash_compress()* función de compresión para los índices de las tablas de"
+" Hash utilizando el método MAD (Multiply-Add-and-Divide). MAD se define "
+"como: hash_compress(y) = ((a*y + b) % p) % M, donde:"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/numbers/index.rst:72
+msgid ""
+"a (scale) y b (shift) enteros aleatoreos dentro del intervalo [0,p-1], "
+"con a > 0 p (prime) es un primo mayor a M, M (capacity) es el tamaño de "
+"la tabla, primo"
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/numbers/index.rst:76
+msgid ""
+"llave para calcular el índice en la tabla de Hash, Puede ser cualquier "
+"tipo de dato nativo en Python o definido por el usuario."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/numbers/index.rst:78
+msgid "pendiente de la función de compresión."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/numbers/index.rst:80
+msgid "desplazamiento de la función de compresión."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/numbers/index.rst:82
+msgid "número  primo mucho mayor a la capacidad de la tabla de Hash."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/numbers/index.rst:84
+msgid "tamaño de la tabla de Hash, es un número primo para evitar colisiones."
+msgstr ""
+
+#: ../../autoapi/Src/DISClib/Utils/numbers/index.rst:87
+msgid "el índice del elemento en la tabla de Hash."
+msgstr ""
+

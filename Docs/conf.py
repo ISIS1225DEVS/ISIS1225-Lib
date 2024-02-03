@@ -59,9 +59,9 @@ gettext_compact = False
 
 # autoapi configuration
 autoapi_dirs = [
-    os.path.join(os.path.dirname(__file__), "..", "DISClib"),
+    os.path.join(os.path.dirname(__file__), "..", "Src", "DISClib"),
 ]
-# print(autoapi_dirs)
+print(autoapi_dirs)
 
 # myst_parser configuration
 # source_suffix = {

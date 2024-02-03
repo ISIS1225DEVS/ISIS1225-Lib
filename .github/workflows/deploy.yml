@@ -34,5 +34,6 @@ jobs:
                         commit_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
                         commit_message = f'$Updating DISClib to the latest - {commit_time}$'
                         commit_message = commit_message.replace('$', chr(34))
+                        print(commit_message)
                         os.system(f'cd {repo_name} && git add . && git commit -m {commit_message} && git push')
                 "

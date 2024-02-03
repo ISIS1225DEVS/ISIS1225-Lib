@@ -7,9 +7,6 @@ jobs:
         name: Build and test
         runs-on: ubuntu-latest
 
-        env:
-            QUOTE: '"'
-
         steps:
             - uses: actions/checkout@v2
       

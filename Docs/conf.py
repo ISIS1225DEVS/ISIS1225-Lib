@@ -59,7 +59,7 @@ gettext_compact = False
 
 # autoapi configuration
 autoapi_dirs = [
-    os.path.join(os.path.dirname(__file__), "..", "src")
+    os.path.join(os.path.dirname(__file__), "..", "Src")
 ]
 # print(autoapi_dirs)
 

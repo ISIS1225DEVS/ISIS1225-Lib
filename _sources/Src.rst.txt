@@ -1,5 +1,5 @@
-DISClib package
-===============
+Src package
+===========
 
 Subpackages
 -----------
@@ -7,15 +7,12 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
-   DISClib.ADT
-   DISClib.Algorithms
-   DISClib.DataStructures
-   DISClib.Utils
+   Src.DISClib
 
 Module contents
 ---------------
 
-.. automodule:: DISClib
+.. automodule:: Src
    :members:
    :undoc-members:
    :show-inheritance:

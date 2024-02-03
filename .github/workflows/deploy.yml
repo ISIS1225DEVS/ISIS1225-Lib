@@ -36,6 +36,5 @@ jobs:
                         os.system(f'rm -rf {repo_name}/DISClib/ && cp -r DISClib/ {repo_name}/DISClib/')
                         commit_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
                         commit_message = f'Updating DISClib to the latest - {commit_time}'
-                        print(f'Commit message: {commit_message}')
                         os.system(f'cd {repo_name} && git add . && git commit -m ${{ env.QUOTE }}{commit_message}${{ env.QUOTE }} && git push')
                 "

@@ -20,6 +20,7 @@ jobs:
                 python -c "
                 import os
                 from ghapi.all import GhApi
+                from datetime import datetime
                 api = GhApi(token='${{ secrets.GITHUB_TOKEN }}')
                 topics = ['examples']
                 for topic in topics:

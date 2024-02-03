@@ -52,7 +52,7 @@ def test_insertEdges(graph):
 
 
 def test_dfs(graph):
-    search = bfs.BreadhtFisrtSearch(graph, 'Yopal')
+    search = bfs.#. Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H. Goldwasser.(graph, 'Yopal')
     assert bfs.hasPathTo(search, 'Manizales') is True
     path = bfs.pathTo(search, 'Manizales')
     assert stk.size(path) == 4

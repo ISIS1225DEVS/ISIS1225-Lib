@@ -1,0 +1,903 @@
+﻿<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Src.DISClib.DataStructures.doublelinkedlist &mdash; documentación de DISClib - 0.0.1</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/fonts.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../../_static/documentation_options.js?v=6fcc102b"></script>
+        <script src="../../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+        <script src="../../../../_static/translations.js?v=efdbd0b9"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../../../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            DISClib
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modules.html">DISClib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../testmd.html">Example Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">DISClib</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Código de módulo</a></li>
+          <li class="breadcrumb-item"><a href="../DataStructures.html">Src.DISClib.DataStructures</a></li>
+      <li class="breadcrumb-item active">Src.DISClib.DataStructures.doublelinkedlist</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Código fuente para Src.DISClib.DataStructures.doublelinkedlist</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Este ADT representa una estructura de datos lineal, específicamente una lista doblemente enlazada/encadenada (**DoubleLinked**). Esta estructura de datos es una secuencia de nodos enlazados, donde cada nodo contiene un elemento de información, una referencia al siguiente, y al anterior nodo en la secuencia. Esto le permite a la lista un crecimiento y reducción dinámico en la memoria disponible.</span>
+
+<span class="sd">*IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:</span>
+
+<span class="sd">    #. Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.</span>
+<span class="sd">    #. Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H. Goldwasser.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># native python modules</span>
+<span class="c1"># import dataclass to define the array list</span>
+<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
+<span class="c1"># import modules for defining the element&#39;s type in the array</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Generic</span>
+<span class="c1"># import inspect for getting the name of the current function</span>
+<span class="kn">import</span> <span class="nn">inspect</span>
+
+<span class="c1"># custom modules</span>
+<span class="c1"># node class for the linked list</span>
+<span class="kn">from</span> <span class="nn">Src.DISClib.DataStructures.listnode</span> <span class="kn">import</span> <span class="n">DoubleNode</span>
+<span class="c1"># generic error handling and type checking</span>
+<span class="kn">from</span> <span class="nn">Src.DISClib.Utils.error</span> <span class="kn">import</span> <span class="n">error_handler</span>
+<span class="kn">from</span> <span class="nn">Src.DISClib.Utils.default</span> <span class="kn">import</span> <span class="n">lt_default_cmp_funcion</span>
+<span class="kn">from</span> <span class="nn">Src.DISClib.Utils.default</span> <span class="kn">import</span> <span class="n">T</span>
+<span class="kn">from</span> <span class="nn">Src.DISClib.Utils.default</span> <span class="kn">import</span> <span class="n">DEFAULT_DICT_KEY</span>
+<span class="kn">from</span> <span class="nn">Src.DISClib.Utils.default</span> <span class="kn">import</span> <span class="n">VALID_IO_TYPE</span>
+
+<span class="c1"># checking custom modules</span>
+<span class="k">assert</span> <span class="n">error_handler</span>
+<span class="k">assert</span> <span class="n">lt_default_cmp_funcion</span>
+<span class="k">assert</span> <span class="n">T</span>
+<span class="k">assert</span> <span class="n">DEFAULT_DICT_KEY</span>
+<span class="k">assert</span> <span class="n">VALID_IO_TYPE</span>
+
+
+<span class="nd">@dataclass</span>
+<div class="viewcode-block" id="DoubleLinked">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/index.html#Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked">[documentos]</a>
+<span class="k">class</span> <span class="nc">DoubleLinked</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">T</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;**DoubleLinked** representa una estructura de datos para una lista doblemente enlazada/encadenada (*DoubleLinked*). Implementada con Generic[T] y @dataclass para que sea una estructura de datos genérica.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        Generic (T): TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        DoubleLinked: ADT de tipo *DoubleLinked* o Lista Doblemente Encadenada.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># input elements from python list</span>
+    <span class="c1"># :param iodata</span>
+<div class="viewcode-block" id="DoubleLinked.iodata">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.html#Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.iodata">[documentos]</a>
+    <span class="n">iodata</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">T</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Lista nativa de Python personalizable por el usuario para inicializar la estructura. Por defecto es *None* y el usuario puede incluirla como argumento al crear la estructura.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># the cmp_function is used to compare elements, not defined by default</span>
+    <span class="c1"># :attr: cmp_function</span>
+<div class="viewcode-block" id="DoubleLinked.cmp_function">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.html#Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.cmp_function">[documentos]</a>
+    <span class="n">cmp_function</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">[[</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="p">],</span> <span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Función de comparación personalizable por el usuario para reconocer los elementos dentro del *DoubleLinked*. Por defecto es la función *lt_default_cmp_funcion()* propia de *DISClib*, puede ser un parametro al crear la estructura.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># reference to the header node of the list, DoubleNode by default</span>
+    <span class="c1"># :attr: _header</span>
+<div class="viewcode-block" id="DoubleLinked._header">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.html#Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked._header">[documentos]</a>
+    <span class="n">_header</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">DoubleNode</span><span class="p">[</span><span class="n">T</span><span class="p">]]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span>
+        <span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">DoubleNode</span><span class="p">())</span></div>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Representa el nodo sentinela de la cabecera de la estructura (header), por defecto es un *DoubleNode* vacío.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># reference to the trailer node of the list, DoubleNode by default</span>
+    <span class="c1"># :attr: _trailer</span>
+<div class="viewcode-block" id="DoubleLinked._trailer">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.html#Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked._trailer">[documentos]</a>
+    <span class="n">_trailer</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">DoubleNode</span><span class="p">[</span><span class="n">T</span><span class="p">]]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span>
+        <span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">DoubleNode</span><span class="p">())</span></div>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Representa el nodo sentinela del colero de la estructura (trailer), por defecto es un *DoubleNode* vacío.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># the key is used to compare elements, not defined by default</span>
+    <span class="c1"># :attr: key</span>
+<div class="viewcode-block" id="DoubleLinked.key">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.html#Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.key">[documentos]</a>
+    <span class="n">key</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Nombre de la llave personalizable por el usuario utilizada para reconocer los elementos dentro del *DoubleLinked*. Por defecto es la llave de diccionario (*dict*) *DEFAULT_DICT_KEY = &#39;id&#39;* propia de *DISClib*, puede ser un parametro al crear la estructura.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># by default, the list is empty, -1 for the header and trailer nodes</span>
+    <span class="c1"># :attr: _size</span>
+<div class="viewcode-block" id="DoubleLinked._size">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/doublelinkedlist/index.html#Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked._size">[documentos]</a>
+    <span class="n">_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span></div>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Es el número de elementos que contiene la estructura, por defecto es 0, en algunos casos es -1 para ajustar por los nodos sentinelas de la estructura.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="DoubleLinked.__post_init__">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/index.html#Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.__post_init__">[documentos]</a>
+    <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*__post_init__()* configura los parametros personalizados por el usuario al crear el *DoubleLinked*. En caso de no estar definidos, se asignan los valores por defecto, puede cargar listas nativas con el parametro *iodata* de python dentro de la estructura.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># Link sentinel nodes</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="o">.</span><span class="n">_next</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_trailer</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_trailer</span><span class="o">.</span><span class="n">_prev</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span>
+            <span class="c1"># if the key is not defined, use the default</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">key</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">key</span> <span class="o">=</span> <span class="n">DEFAULT_DICT_KEY</span>     <span class="c1"># its &quot;id&quot; by default</span>
+            <span class="c1"># if the compare function is not defined, use the default</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cmp_function</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">cmp_function</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_cmp_function</span>
+            <span class="c1"># if input data is iterable add them to the DoubleLinked</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">iodata</span><span class="p">,</span> <span class="n">VALID_IO_TYPE</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">elm</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">iodata</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">elm</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">iodata</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DoubleLinked.default_cmp_function">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/index.html#Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.default_cmp_function">[documentos]</a>
+    <span class="k">def</span> <span class="nf">default_cmp_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elm1</span><span class="p">,</span> <span class="n">elm2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*default_cmp_function()* es la función de comparación por defecto para comparar elementos dentro del *DoubleLinked*, es una función crucial para que la estructura funcione correctamente.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            elm1 (Any): primer elemento a comparar.</span>
+<span class="sd">            elm2 (Any): segundo elemento a comparar.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            int: respuesta de la comparación entre los elementos, 0 si son iguales, 1 si elm1 es mayor que elm2, -1 si elm1 es menor.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># passing self as the first argument to simulate a method</span>
+            <span class="k">return</span> <span class="n">lt_default_cmp_funcion</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">,</span> <span class="n">elm1</span><span class="p">,</span> <span class="n">elm2</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DoubleLinked._handle_error">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/index.html#Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked._handle_error">[documentos]</a>
+    <span class="k">def</span> <span class="nf">_handle_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">err</span><span class="p">:</span> <span class="ne">Exception</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*_handle_error()* función propia de la estructura que maneja los errores que se pueden presentar en el *DoubleLinked*.</span>
+
+<span class="sd">        Si se presenta un error en *DoubleLinked*, se formatea el error según el contexto (paquete/módulo/clase), la función (método) que lo generó y lo reenvia al componente superior en la jerarquía *DISCLib* para manejarlo segun se considere conveniente el usuario.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            err (Exception): Excepción que se generó en el *DoubleLinked*.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># TODO check usability of this function</span>
+        <span class="n">cur_context</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
+        <span class="n">cur_function</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">currentframe</span><span class="p">()</span><span class="o">.</span><span class="n">f_code</span><span class="o">.</span><span class="n">co_name</span>
+        <span class="n">error_handler</span><span class="p">(</span><span class="n">cur_context</span><span class="p">,</span> <span class="n">cur_function</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DoubleLinked._check_type">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/index.html#Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked._check_type">[documentos]</a>
+    <span class="k">def</span> <span class="nf">_check_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*_check_type()* función propia de la estructura que revisa si el tipo de dato del elemento que se desea agregar al *DoubleLinked* es del mismo tipo contenido dentro de los elementos del *DoubleLinked*.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            element (T): elemento que se desea procesar en *DoubleLinked*.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            TypeError: error si el tipo de dato del elemento que se desea agregar no es el mismo que el tipo de dato de los elementos que ya contiene el *DoubleLinked*.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            bool: operador que indica si el ADT *DoubleLinked* es del mismo tipo que el elemento que se desea procesar.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># TODO check usability of this function</span>
+        <span class="c1"># if the structure is not empty, check the header element type</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">()</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="o">.</span><span class="n">next</span><span class="p">()</span><span class="o">.</span><span class="n">info</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># get the type of the next element to the header</span>
+            <span class="n">lt_type</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="o">.</span><span class="n">next</span><span class="p">()</span><span class="o">.</span><span class="n">get_info</span><span class="p">())</span>
+            <span class="c1"># raise an exception if the type is not valid</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">lt_type</span><span class="p">):</span>
+                <span class="n">err_msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Invalid data type: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">lt_type</span><span class="p">)</span><span class="si">}</span><span class="s2"> &quot;</span>
+                <span class="n">err_msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;for element info: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">element</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">err_msg</span><span class="p">)</span>
+        <span class="c1"># otherwise, any type is valid</span>
+        <span class="k">return</span> <span class="kc">True</span></div>
+
+
+    <span class="c1"># @property</span>
+<div class="viewcode-block" id="DoubleLinked.is_empty">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/index.html#Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.is_empty">[documentos]</a>
+    <span class="k">def</span> <span class="nf">is_empty</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*is_empty()* revisa si el *DoubleLinked* está vacío.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            bool: operador que indica si la estructura *DoubleLinked* está vacía.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># TODO change the method name to &quot;empty&quot; or @property &quot;empty&quot;?</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">False</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
+
+
+    <span class="c1"># @property</span>
+<div class="viewcode-block" id="DoubleLinked.size">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/index.html#Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.size">[documentos]</a>
+    <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*size()* devuelve el número de elementos que actualmente contiene el *DoubleLinked*.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            int: tamaño de la estructura *DoubleLinked*.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># TODO change the method to @property &quot;size&quot;?</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">return</span> <span class="mi">0</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DoubleLinked.add_first">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/index.html#Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.add_first">[documentos]</a>
+    <span class="k">def</span> <span class="nf">add_first</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*add_first()* adiciona un elemento al inicio del *DoubleLinked*.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            element (T): elemento que se desea agregar a la estructura.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            Exception: si la operación no se puede realizar, se invoca la función *_handle_error()* para manejar el error.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># if the element type is valid, add it to the list</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_type</span><span class="p">(</span><span class="n">element</span><span class="p">):</span>
+                <span class="c1"># new double node with the element and sentinel references</span>
+                <span class="n">new_node</span> <span class="o">=</span> <span class="n">DoubleNode</span><span class="p">(</span><span class="n">element</span><span class="p">,</span>
+                                      <span class="n">_prev</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="p">,</span>
+                                      <span class="n">_next</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="o">.</span><span class="n">next</span><span class="p">())</span>
+                <span class="c1"># completing the references</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="o">.</span><span class="n">_next</span><span class="o">.</span><span class="n">_prev</span> <span class="o">=</span> <span class="n">new_node</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="o">.</span><span class="n">_next</span> <span class="o">=</span> <span class="n">new_node</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DoubleLinked.add_last">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/index.html#Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.add_last">[documentos]</a>
+    <span class="k">def</span> <span class="nf">add_last</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*add_last()* adiciona un elemento al final del *DoubleLinked*.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            element (T): elemento que se desea agregar a la estructura.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            Exception: si la operación no se puede realizar, se invoca la función *_handle_error()* para manejar el error.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># if the element type is valid, add it to the list</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_type</span><span class="p">(</span><span class="n">element</span><span class="p">):</span>
+                <span class="c1"># create a new node</span>
+                <span class="n">new_node</span> <span class="o">=</span> <span class="n">DoubleNode</span><span class="p">(</span><span class="n">element</span><span class="p">,</span>
+                                      <span class="n">_prev</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_trailer</span><span class="o">.</span><span class="n">prev</span><span class="p">(),</span>
+                                      <span class="n">_next</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_trailer</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_trailer</span><span class="o">.</span><span class="n">_prev</span><span class="o">.</span><span class="n">_next</span> <span class="o">=</span> <span class="n">new_node</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_trailer</span><span class="o">.</span><span class="n">_prev</span> <span class="o">=</span> <span class="n">new_node</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DoubleLinked.add_element">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/index.html#Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.add_element">[documentos]</a>
+    <span class="k">def</span> <span class="nf">add_element</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*add_element()* adiciona un elemento en una posición especifica del *DoubleLinked*.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            element (T): elemento que se desea agregar a la estructura.</span>
+<span class="sd">            pos (int): posición en la que se desea agregar el elemento.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            IndexError: error si la posición es inválida.</span>
+<span class="sd">            IndexError: error si la estructura está vacía.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_type</span><span class="p">(</span><span class="n">element</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">pos</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">():</span>
+                        <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;Position is out of range&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">pos</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">add_first</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">pos</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">():</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+                    <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+                    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">pos</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+                        <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+                        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+                    <span class="c1"># create a new node</span>
+                    <span class="n">new_node</span> <span class="o">=</span> <span class="n">DoubleNode</span><span class="p">(</span><span class="n">element</span><span class="p">,</span>
+                                          <span class="n">_prev</span><span class="o">=</span><span class="n">current</span><span class="p">,</span>
+                                          <span class="n">_next</span><span class="o">=</span><span class="n">current</span><span class="o">.</span><span class="n">next</span><span class="p">())</span>
+                    <span class="n">current</span><span class="o">.</span><span class="n">_next</span><span class="o">.</span><span class="n">_prev</span> <span class="o">=</span> <span class="n">new_node</span>
+                    <span class="n">current</span><span class="o">.</span><span class="n">_next</span> <span class="o">=</span> <span class="n">new_node</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">=</span> <span class="mi">1</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;Empty data structure&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">TypeError</span><span class="p">,</span> <span class="ne">IndexError</span><span class="p">)</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DoubleLinked.get_first">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/index.html#Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.get_first">[documentos]</a>
+    <span class="k">def</span> <span class="nf">get_first</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*get_first()* lee el primer elemento del *DoubleLinked*.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            Exception: error si la estructura está vacía.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Optional[T]: el primer elemento del *DoubleLinked*.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">info</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
+                <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;Empty data structure&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="o">.</span><span class="n">next</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+                <span class="n">info</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">get_info</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">info</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DoubleLinked.get_last">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/index.html#Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.get_last">[documentos]</a>
+    <span class="k">def</span> <span class="nf">get_last</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*get_last()* lee el último elemento del *DoubleLinked*.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            Exception: error si la estructura está vacía.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">             Optional[T]: el ultimo elemento del *DoubleLinked*.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">info</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
+                <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;Empty data structure&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_trailer</span><span class="o">.</span><span class="n">prev</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_trailer</span><span class="o">.</span><span class="n">prev</span><span class="p">()</span>
+                <span class="n">info</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">get_info</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">info</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DoubleLinked.get_element">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/index.html#Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.get_element">[documentos]</a>
+    <span class="k">def</span> <span class="nf">get_element</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*get_element()* lee un elemento en una posición especifica del *DoubleLinked*.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            pos (int): posición del elemento que se desea leer.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            Exception: error si la estructura está vacía.</span>
+<span class="sd">            Exception: error si la posición es inválida.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">             Optional[T]: el elemento en la posición especifica del *DoubleLinked*.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">info</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
+                <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;Empty data structure&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">pos</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;Index&quot;</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="s2">&quot;is out of range&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">//</span> <span class="mi">2</span><span class="p">:</span>
+                    <span class="c1"># Start from the beginning</span>
+                    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+                    <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+                    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">pos</span><span class="p">:</span>
+                        <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+                        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c1"># Start from the end</span>
+                    <span class="n">i</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">-</span> <span class="mi">1</span>
+                    <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_trailer</span><span class="o">.</span><span class="n">prev</span><span class="p">()</span>
+                    <span class="k">while</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="n">pos</span><span class="p">:</span>
+                        <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">prev</span><span class="p">()</span>
+                        <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span>
+                <span class="n">info</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">get_info</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">info</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DoubleLinked.remove_first">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/index.html#Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.remove_first">[documentos]</a>
+    <span class="k">def</span> <span class="nf">remove_first</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*remove_first()* elimina el primer elemento del *DoubleLinked*.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            Exception: error si la estructura está vacía.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">             Optional[T]: el primer elemento eliminado del *DoubleLinked*.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">info</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
+                <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;Empty data structure&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="o">.</span><span class="n">next</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">first</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="o">.</span><span class="n">_next</span> <span class="o">=</span> <span class="n">first</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+                <span class="n">first</span><span class="o">.</span><span class="n">next</span><span class="p">()</span><span class="o">.</span><span class="n">_prev</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">-=</span> <span class="mi">1</span>
+                <span class="c1"># if the list is empty, reset the sentinel nodes</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_trailer</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_trailer</span><span class="o">.</span><span class="n">prev</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+                <span class="n">info</span> <span class="o">=</span> <span class="n">first</span><span class="o">.</span><span class="n">get_info</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">info</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DoubleLinked.remove_last">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/index.html#Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.remove_last">[documentos]</a>
+    <span class="k">def</span> <span class="nf">remove_last</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*remove_last()* elimina el último elemento del *DoubleLinked*.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            Exception: error si la estructura está vacía.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Optional[T]: el ultimo elemento eliminado del *DoubleLinked*.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">info</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
+                <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;Empty data structure&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_trailer</span><span class="o">.</span><span class="n">prev</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">last</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_trailer</span><span class="o">.</span><span class="n">prev</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_trailer</span><span class="o">.</span><span class="n">_prev</span> <span class="o">=</span> <span class="n">last</span><span class="o">.</span><span class="n">prev</span><span class="p">()</span>
+                <span class="n">last</span><span class="o">.</span><span class="n">prev</span><span class="p">()</span><span class="o">.</span><span class="n">_next</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_trailer</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">-=</span> <span class="mi">1</span>
+                <span class="c1"># if the list is empty, reset the sentinel nodes</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_trailer</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_trailer</span><span class="o">.</span><span class="n">prev</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+                <span class="n">info</span> <span class="o">=</span> <span class="n">last</span><span class="o">.</span><span class="n">get_info</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">info</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DoubleLinked.remove_element">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/index.html#Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.remove_element">[documentos]</a>
+    <span class="k">def</span> <span class="nf">remove_element</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*remove_element()* elimina un elemento en una posición especifica del *DoubleLinked*.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            pos (int): posición del elemento que se desea eliminar.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            IndexError: error si la estructura está vacía.</span>
+<span class="sd">            IndexError: error si la posición es inválida.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Optional[T]: el elemento eliminado del *DoubleLinked*.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">info</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
+                <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;Empty data structure&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">pos</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Index </span><span class="si">{</span><span class="n">pos</span><span class="si">}</span><span class="s2"> is out of range&quot;</span><span class="p">)</span>
+            <span class="c1"># Determine where to start based on the position</span>
+            <span class="c1"># if there is only one element, link the sentinel nodes</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="o">.</span><span class="n">next</span><span class="p">()</span><span class="o">.</span><span class="n">get_info</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="o">.</span><span class="n">_next</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_trailer</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_trailer</span><span class="o">.</span><span class="n">_prev</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span>
+                <span class="c1"># self.size() = -1</span>
+            <span class="k">elif</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">//</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="c1"># Start from the beginning</span>
+                <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+                <span class="k">while</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">pos</span><span class="p">:</span>
+                    <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+                    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># Start from the end</span>
+                <span class="n">i</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">-</span> <span class="mi">1</span>
+                <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_trailer</span><span class="o">.</span><span class="n">prev</span><span class="p">()</span>
+                <span class="k">while</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">pos</span><span class="p">:</span>
+                    <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">prev</span><span class="p">()</span>
+                    <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span>
+            <span class="c1"># removing node by index</span>
+            <span class="n">current</span><span class="o">.</span><span class="n">prev</span><span class="p">()</span><span class="o">.</span><span class="n">_next</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+            <span class="n">current</span><span class="o">.</span><span class="n">next</span><span class="p">()</span><span class="o">.</span><span class="n">_prev</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">prev</span><span class="p">()</span>
+            <span class="n">info</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">get_info</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">-=</span> <span class="mi">1</span>
+
+            <span class="k">return</span> <span class="n">info</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DoubleLinked.compare_elements">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/index.html#Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.compare_elements">[documentos]</a>
+    <span class="k">def</span> <span class="nf">compare_elements</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elem1</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="n">elem2</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*compare_elements()* compara dos elementos dentro del *DoubleLinked* según la función de comparación de la estructura.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            elem1 (T): Primer elemento a comparar.</span>
+<span class="sd">            elem2 (T): Segundo elemento a comparar.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            TypeError: error si la función de comparación no está definida.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            int: -1 si elem1 es menor que elem2, 0 si son iguales, 1 si elem1 es mayor que elem2.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># use the structure cmp function</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cmp_function</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cmp_function</span><span class="p">(</span><span class="n">elem1</span><span class="p">,</span> <span class="n">elem2</span><span class="p">)</span>
+            <span class="c1"># raise an exception if the cmp function is not defined</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Undefined compare function!!!&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DoubleLinked.find">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/index.html#Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.find">[documentos]</a>
+    <span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*find()* busca el elemento dentro del *DoubleLinked* y devuelve su posición o -1 si no lo encuentra.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            element (T): elemento que se desea revisar en el *DoubleLinked*.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            int: la posición del elemento en el *DoubleLinked*, -1 si no está.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">pos</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="c1"># setting the current node by the header</span>
+                <span class="n">node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+                <span class="n">found</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="k">while</span> <span class="ow">not</span> <span class="n">found</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">():</span>
+                    <span class="n">data</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">get_info</span><span class="p">()</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">compare_elements</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="n">found</span> <span class="o">=</span> <span class="kc">True</span>
+                        <span class="n">pos</span> <span class="o">=</span> <span class="n">i</span>
+                    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+                    <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">next</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">next</span><span class="p">()</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_trailer</span><span class="p">:</span>
+                            <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+                        <span class="c1"># node = node.next()</span>
+            <span class="k">return</span> <span class="n">pos</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DoubleLinked.change_info">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/index.html#Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.change_info">[documentos]</a>
+    <span class="k">def</span> <span class="nf">change_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_info</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*change_info()* cambia la información de un elemento en la posición especificada del *DoubleLinked*.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            new_info (T): nueva información que se desea para el elemento.</span>
+<span class="sd">            pos (int): posición del elemento que se desea cambiar.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            IndexError: error si la estructura está vacía.</span>
+<span class="sd">            IndexError: error si la posición es inválida.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># TODO change the method name to &quot;change_data()&quot; or &quot;update()&quot;?</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
+                <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;Empty data structure&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">pos</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;Index&quot;</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="s2">&quot;is out of range&quot;</span><span class="p">)</span>
+            <span class="c1"># if not self._check_type(new_info):</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_type</span><span class="p">(</span><span class="n">new_info</span><span class="p">):</span>
+                <span class="c1"># raise TypeError(&quot;Invalid element type&quot;)</span>
+                <span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">//</span> <span class="mi">2</span><span class="p">:</span>
+                    <span class="c1"># start from the beginning</span>
+                    <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+                    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+                    <span class="k">while</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">pos</span><span class="p">:</span>
+                        <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+                        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c1"># start from the end</span>
+                    <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_trailer</span><span class="o">.</span><span class="n">prev</span><span class="p">()</span>
+                    <span class="n">i</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span>
+                    <span class="k">while</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">pos</span><span class="p">:</span>
+                        <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">prev</span><span class="p">()</span>
+                        <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span>
+                <span class="n">current</span><span class="o">.</span><span class="n">set_info</span><span class="p">(</span><span class="n">new_info</span><span class="p">)</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">IndexError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">)</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DoubleLinked.exchange">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/index.html#Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.exchange">[documentos]</a>
+    <span class="k">def</span> <span class="nf">exchange</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pos1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">pos2</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*exchange()* intercambia la información de dos elementos en dos posiciones especificadas del *DoubleLinked*.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            pos1 (int): posición del primer elemento.</span>
+<span class="sd">            pos2 (int): posición del segundo elemento.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            Exception: error si la estructura está vacía.</span>
+<span class="sd">            Exception: error si la posición del primer elemento es inválida.</span>
+<span class="sd">            Exception: error si la posición del segundo elemento es inválida.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
+                <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;Empty data structure&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">pos1</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">pos1</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;Index&quot;</span><span class="p">,</span> <span class="n">pos1</span><span class="p">,</span> <span class="s2">&quot;is out of range&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">pos2</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">pos2</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;Index&quot;</span><span class="p">,</span> <span class="n">pos2</span><span class="p">,</span> <span class="s2">&quot;is out of range&quot;</span><span class="p">)</span>
+            <span class="n">info_pos1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">pos1</span><span class="p">)</span>
+            <span class="n">info_pos2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">pos2</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">change_info</span><span class="p">(</span><span class="n">info_pos2</span><span class="p">,</span> <span class="n">pos1</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">change_info</span><span class="p">(</span><span class="n">info_pos1</span><span class="p">,</span> <span class="n">pos2</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DoubleLinked.sublist">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/index.html#Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.sublist">[documentos]</a>
+    <span class="k">def</span> <span class="nf">sublist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">end</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;DoubleLinked[T]&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*sublist()* crea una sublista de la estructura según dos posiciones dentro del *DoubleLinked* original.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            start (int): posición inicial de la sublista.</span>
+<span class="sd">            end (int): posición final de la sublista.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            IndexError: error si la estructura está vacía.</span>
+<span class="sd">            IndexError: error si la posición inicial o final son inválidas.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            DoubleLinked[T]: una sublista de la estructura original con la función de comparación y la llave de la estructura original.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
+                <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;Empty data structure&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">start</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">end</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">start</span> <span class="o">&gt;</span> <span class="n">end</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid range: between [</span><span class="si">{</span><span class="n">start</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">end</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
+            <span class="n">sub_lt</span> <span class="o">=</span> <span class="n">DoubleLinked</span><span class="p">(</span><span class="n">cmp_function</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cmp_function</span><span class="p">,</span>
+                                  <span class="n">key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+            <span class="k">while</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">end</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="n">start</span><span class="p">:</span>
+                    <span class="n">sub_lt</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">current</span><span class="o">.</span><span class="n">get_info</span><span class="p">())</span>
+                <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+                <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">return</span> <span class="n">sub_lt</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">IndexError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">)</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DoubleLinked.concat">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/index.html#Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.concat">[documentos]</a>
+    <span class="k">def</span> <span class="nf">concat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="s2">&quot;DoubleLinked[T]&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;DoubleLinked[T]&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*concat()* concatena dos estructuras de datos *DoubleLinked* para crear una estructura con los elementos de las dos estructuras.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            other (DoubleLinked[T]): estructura de datos *DoubleLinked* que se desea concatenar con la estructura original.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            TypeError: error si la estructura que se desea concatenar no es un *DoubleLinked*.</span>
+<span class="sd">            TypeError: error si la llave de la estructura que se desea unir no es la misma que la llave de la estructura original.</span>
+<span class="sd">            TypeError: error si la función de comparación de la estructura que se desea unir no es la misma que la función de comparación de la estructura original.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            DoubleLinked[T]: Estructura de datos original *DoubleLinked* que contiene los elementos de las dos estructuras originales.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">DoubleLinked</span><span class="p">):</span>
+                <span class="n">err_msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Structure is not an DoubleLinked: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">other</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">err_msg</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">key</span> <span class="o">!=</span> <span class="n">other</span><span class="o">.</span><span class="n">key</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid key: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="si">}</span><span class="s2"> != </span><span class="si">{</span><span class="n">other</span><span class="o">.</span><span class="n">key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="c1"># checking functional code of the cmp function</span>
+
+            <span class="n">code1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cmp_function</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_code</span>
+            <span class="n">code2</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">cmp_function</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_code</span>
+            <span class="k">if</span> <span class="n">code1</span> <span class="o">!=</span> <span class="n">code2</span><span class="p">:</span>
+                <span class="n">err_msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Invalid compare function: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">cmp_function</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="n">err_msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot; != </span><span class="si">{</span><span class="n">other</span><span class="o">.</span><span class="n">cmp_function</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">err_msg</span><span class="p">)</span>
+
+            <span class="c1"># Link the last node with the first node of the other list</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_trailer</span><span class="o">.</span><span class="n">_prev</span><span class="o">.</span><span class="n">_next</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">_header</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+            <span class="n">other</span><span class="o">.</span><span class="n">_header</span><span class="o">.</span><span class="n">_next</span><span class="o">.</span><span class="n">_prev</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_trailer</span><span class="o">.</span><span class="n">prev</span><span class="p">()</span>
+
+            <span class="c1"># update the current trailer to the trailer of the other list</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_trailer</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">_trailer</span>
+
+            <span class="c1"># Update the size of the current list</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+            <span class="k">return</span> <span class="bp">self</span>
+        <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DoubleLinked.__iter__">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/index.html#Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.__iter__">[documentos]</a>
+    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*__iter__()* iterador nativo de Python personalizado para el *DoubleLinked*. Permite utilizar los ciclos *for* de Python para recorrer los elementos de la estructura en orden ascendente.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            __iter__: iterador Python sobre los elementos del *DoubleLinked*.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># FIXME do I need the try/except block?</span>
+            <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+            <span class="k">while</span> <span class="n">current</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_trailer</span><span class="p">:</span>
+                <span class="k">yield</span> <span class="n">current</span><span class="o">.</span><span class="n">get_info</span><span class="p">()</span>
+                <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DoubleLinked.__reversed__">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/index.html#Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.__reversed__">[documentos]</a>
+    <span class="k">def</span> <span class="fm">__reversed__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*__reversed__* iterador nativo de Python personalizado para el *DoubleLinked*. Permite utilizar los ciclos *for* de Python para recorrer los elementos de la estructura en orden descendente.</span>
+
+<span class="sd">        Yields:</span>
+<span class="sd">            iterator: iterador Python sobre los elementos del *DoubleLinked*.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># FIXME do I need the try/except block?</span>
+            <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_trailer</span><span class="o">.</span><span class="n">prev</span><span class="p">()</span>
+            <span class="k">while</span> <span class="n">current</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span><span class="p">:</span>
+                <span class="k">yield</span> <span class="n">current</span><span class="o">.</span><span class="n">get_info</span><span class="p">()</span>
+                <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">prev</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_handle_error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DoubleLinked.__len__">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/index.html#Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked.__len__">[documentos]</a>
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;*__len__()* función nativa de Python personalizada para el *DoubleLinked*. Permite utilizar la función *len()* de Python para recuperar el tamaño del *DoubleLinked*.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            int: tamaño del *DoubleLinked*.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor Uniandes, Bogotá - Colombia, Sur América,
+             Facultad de Ingeniería, DISC Desarrollado
+             para ISIS-1225, EDA.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

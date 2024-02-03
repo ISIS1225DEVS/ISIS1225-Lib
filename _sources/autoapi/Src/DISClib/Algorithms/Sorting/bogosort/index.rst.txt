@@ -1,0 +1,56 @@
+:py:mod:`Src.DISClib.Algorithms.Sorting.bogosort`
+=================================================
+
+.. py:module:: Src.DISClib.Algorithms.Sorting.bogosort
+
+.. autoapi-nested-parse::
+
+   Este módulo contiene la implementación del algoritmo de ordenamiento por azar (bogo sort). El algoritmo puede aplicarse a cualquier secuencia de elementos que puedan ser comparados entre sí como los ADT *List* y sus estructuras especificas *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* y *Stack*
+
+   *IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:
+
+       #. Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.
+       #. Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H. Goldwasser.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   Src.DISClib.Algorithms.Sorting.bogosort.bogo_sort
+   Src.DISClib.Algorithms.Sorting.bogosort._is_sorted
+
+
+
+.. py:function:: bogo_sort(lst: Src.DISClib.DataStructures.List, sort_crit: Callable[[Src.DISClib.Utils.default.T, Src.DISClib.Utils.default.T], bool]) -> Src.DISClib.DataStructures.List
+
+   *bogo_sort()* ordena una lista de elementos utilizando el algoritmo de ordenamiento por azar (bogo sort).
+
+   :param lst: La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*.
+   :type lst: List
+   :param sort_crit: Es una función definida por el usuario que representa el criterio de ordenamiento. Recibe dos elementos pertenecientes al ADT **List** y retorna *True* si el primer elemento es menor que el segundo elemento, y *False* en caso contrario.
+   :type sort_crit: Callable[[T, T], bool]
+
+   :returns: La lista ordenada.
+   :rtype: List
+
+
+.. py:function:: _is_sorted(lst: Src.DISClib.DataStructures.List, sort_crit: Callable[[Src.DISClib.Utils.default.T, Src.DISClib.Utils.default.T], bool]) -> bool
+
+   *_is_sorted()* revisa si una lista está organizada de acuerdo al criterio de comparación.
+
+   :param lst: La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*.
+   :type lst: List
+   :param sort_crit: Es una función definida por el usuario que representa el criterio de ordenamiento. Recibe dos elementos pertenecientes al ADT **List** y retorna *True* si el primer elemento es menor que el segundo elemento, y *False* en caso contrario.
+   :type sort_crit: Callable[[T, T], bool]
+
+   :returns: devuelve *True* si la lista está ordenada, *False* en caso contrario.
+   :rtype: bool
+
+

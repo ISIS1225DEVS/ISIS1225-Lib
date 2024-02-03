@@ -1,0 +1,120 @@
+:py:mod:`Src.DISClib.ADT.minpq`
+===============================
+
+.. py:module:: Src.DISClib.ADT.minpq
+
+.. autoapi-nested-parse::
+
+   * Copyright 2020, Departamento de sistemas y Computación,
+   * Universidad de Los Andes
+   *
+   * Desarrollado para el curso ISIS1225 - Estructuras de Datos y Algoritmos
+   *
+   *
+   * This program is free software: you can redistribute it and/or modify
+   * it under the terms of the GNU General Public License as published by
+   * the Free Software Foundation, either version 3 of the License, or
+   * (at your option) any later version.
+   *
+   * This program is distributed in the hope that it will be useful,
+   * but WITHOUT ANY WARRANTY; without even the implied warranty of
+   * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   * GNU General Public License for more details.
+   *
+   * You should have received a copy of the GNU General Public License
+   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+   *
+   * Contribución de:
+   *
+   * Dario Correal
+   *
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   Src.DISClib.ADT.minpq.newMinPQ
+   Src.DISClib.ADT.minpq.size
+   Src.DISClib.ADT.minpq.isEmpty
+   Src.DISClib.ADT.minpq.min
+   Src.DISClib.ADT.minpq.insert
+   Src.DISClib.ADT.minpq.delMin
+
+
+
+.. py:function:: newMinPQ(cmpfunction)
+
+   Crea un cola de prioridad orientada a menor
+
+   :param cmpfunction: La función de comparacion
+   :param size: El numero de elementos
+
+   :returns: El heap
+
+   :raises Exception:
+
+
+.. py:function:: size(minpq)
+
+   Retorna el número de elementos en la MinPQ
+   :param minpq: la cola de prioridad
+
+   :returns: El tamaño de la MinPQ
+
+   :raises Exception:
+
+
+.. py:function:: isEmpty(minpq)
+
+   Indica si la MinPQ está vacía
+
+   :param heap: El arreglo con la informacion
+
+   :returns: True si esta vacia
+
+   :raises Exception:
+
+
+.. py:function:: min(minpq)
+
+   Retorna el primer elemento de la MinPQ, es decir el menor elemento
+
+   :param minpq: La cola de prioridad
+
+   :returns: El menor elemento de la MinPQ
+
+   :raises Exception:
+
+
+.. py:function:: insert(minpq, element)
+
+   Guarda el elemento 'element' en la cola de prioridad.
+   Lo guarda en la última posición y luego hace swim del elemento
+
+   :param minpq: El arreglo con la informacion
+   :param element: El elemento a guardar
+
+   :returns: La MinPQ con el nuevo elemento
+
+   :raises Exception:
+
+
+.. py:function:: delMin(minpq)
+
+   Retorna el menor elemento de la MinPQ y lo elimina.
+   Se reemplaza con el último elemento y se hace sink.
+
+   :param minpq: La cola de prioridad
+
+   :returns: El menor elemento eliminado
+
+   :raises Exception:
+
+

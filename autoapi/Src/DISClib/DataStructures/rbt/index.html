@@ -1,0 +1,1034 @@
+﻿<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <link sizes="16x16" href="https://secure.example.com/favicon/favicon-16x16.png" rel="icon" type="image/png">
+    <link sizes="32x32" href="https://secure.example.com/favicon/favicon-32x32.png" rel="icon" type="image/png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../_static/apple-touch-icon-180x180.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Src.DISClib.DataStructures.rbt &mdash; documentación de DISClib - 0.0.1</title>
+      <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/fonts.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../../../_static/documentation_options.js?v=6fcc102b"></script>
+        <script src="../../../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../../../_static/copybutton.js?v=f281be69"></script>
+        <script src="../../../../../_static/translations.js?v=efdbd0b9"></script>
+    <script src="../../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../../../../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../../index.html" class="icon icon-home">
+            DISClib
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../modules.html">DISClib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../testmd.html">Example Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">DISClib</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Src.DISClib.DataStructures.rbt</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../../_sources/autoapi/Src/DISClib/DataStructures/rbt/index.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-Src.DISClib.DataStructures.rbt">
+<span id="src-disclib-datastructures-rbt"></span><h1><a class="reference internal" href="#module-Src.DISClib.DataStructures.rbt" title="Src.DISClib.DataStructures.rbt"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Src.DISClib.DataStructures.rbt</span></code></a><a class="headerlink" href="#module-Src.DISClib.DataStructures.rbt" title="Link to this heading"></a></h1>
+<ul class="simple">
+<li><p>Copyright 2020, Departamento de sistemas y Computación</p></li>
+<li><p>Universidad de Los Andes</p></li>
+<li></li>
+<li></li>
+<li><p>Desarrolado para el curso ISIS1225 - Estructuras de Datos y Algoritmos</p></li>
+<li></li>
+<li></li>
+<li><p>This program is free software: you can redistribute it and/or modify</p></li>
+<li><p>it under the terms of the GNU General Public License as published by</p></li>
+<li><p>the Free Software Foundation, either version 3 of the License, or</p></li>
+<li><p>(at your option) any later version.</p></li>
+<li></li>
+<li><p>This program is distributed in the hope that it will be useful,</p></li>
+<li><p>but WITHOUT ANY WARRANTY; without even the implied warranty of</p></li>
+<li><p>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</p></li>
+<li><p>GNU General Public License for more details.</p></li>
+<li></li>
+<li><p>You should have received a copy of the GNU General Public License</p></li>
+<li><p>along with this program.  If not, see &lt;<a class="reference external" href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</p></li>
+<li></li>
+<li><p>Contribución de:</p></li>
+<li></li>
+<li><p>Dario Correal</p></li>
+<li></li>
+</ul>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Src.DISClib.DataStructures.rbt.newMap" title="Src.DISClib.DataStructures.rbt.newMap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">newMap</span></code></a>(omaptype, cmpfunction, datastructure)</p></td>
+<td><p>Crea una tabla de simbolos ordenada.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Src.DISClib.DataStructures.rbt.put" title="Src.DISClib.DataStructures.rbt.put"><code class="xref py py-obj docutils literal notranslate"><span class="pre">put</span></code></a>(rbt, key, value)</p></td>
+<td><p>Ingresa una pareja llave,valor. Si la llave ya existe,</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Src.DISClib.DataStructures.rbt.get" title="Src.DISClib.DataStructures.rbt.get"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get</span></code></a>(rbt, key)</p></td>
+<td><p>Retorna la pareja llave, valor, cuya llave sea igual a key.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Src.DISClib.DataStructures.rbt.remove" title="Src.DISClib.DataStructures.rbt.remove"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove</span></code></a>(rbt, key)</p></td>
+<td><p>Elimina la pareja llave,valor, donde llave == key.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Src.DISClib.DataStructures.rbt.contains" title="Src.DISClib.DataStructures.rbt.contains"><code class="xref py py-obj docutils literal notranslate"><span class="pre">contains</span></code></a>(rbt, key)</p></td>
+<td><p>Retorna True si la llave key se encuentra en la tabla</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Src.DISClib.DataStructures.rbt.size" title="Src.DISClib.DataStructures.rbt.size"><code class="xref py py-obj docutils literal notranslate"><span class="pre">size</span></code></a>(rbt)</p></td>
+<td><p>Retorna el número de entradas en la tabla de simbolos</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Src.DISClib.DataStructures.rbt.isEmpty" title="Src.DISClib.DataStructures.rbt.isEmpty"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isEmpty</span></code></a>(rbt)</p></td>
+<td><p>Informa si la tabla de simbolos se encuentra vacia</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Src.DISClib.DataStructures.rbt.keySet" title="Src.DISClib.DataStructures.rbt.keySet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">keySet</span></code></a>(rbt)</p></td>
+<td><p>Retorna una lista con todas las llaves de la tabla</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Src.DISClib.DataStructures.rbt.valueSet" title="Src.DISClib.DataStructures.rbt.valueSet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">valueSet</span></code></a>(rbt)</p></td>
+<td><p>Construye una lista con los valores de la tabla</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Src.DISClib.DataStructures.rbt.minKey" title="Src.DISClib.DataStructures.rbt.minKey"><code class="xref py py-obj docutils literal notranslate"><span class="pre">minKey</span></code></a>(rbt)</p></td>
+<td><p>Retorna la menor llave de la tabla de simbolos</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Src.DISClib.DataStructures.rbt.maxKey" title="Src.DISClib.DataStructures.rbt.maxKey"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maxKey</span></code></a>(rbt)</p></td>
+<td><p>Retorna la mayor llave de la tabla de simbolos</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Src.DISClib.DataStructures.rbt.deleteMin" title="Src.DISClib.DataStructures.rbt.deleteMin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">deleteMin</span></code></a>(rbt)</p></td>
+<td><p>Encuentra y remueve la menor  llave de la tabla de simbolos</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Src.DISClib.DataStructures.rbt.deleteMax" title="Src.DISClib.DataStructures.rbt.deleteMax"><code class="xref py py-obj docutils literal notranslate"><span class="pre">deleteMax</span></code></a>(rbt)</p></td>
+<td><p>Encuentra y remueve la mayor llave de la tabla de simbolos</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Src.DISClib.DataStructures.rbt.floor" title="Src.DISClib.DataStructures.rbt.floor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">floor</span></code></a>(rbt, key)</p></td>
+<td><p>Retorna la llave mas grande en la tabla de simbolos, menor o</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Src.DISClib.DataStructures.rbt.ceiling" title="Src.DISClib.DataStructures.rbt.ceiling"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ceiling</span></code></a>(rbt, key)</p></td>
+<td><p>Retorna la llave mas pequeña en la tabla de simbolos,</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Src.DISClib.DataStructures.rbt.select" title="Src.DISClib.DataStructures.rbt.select"><code class="xref py py-obj docutils literal notranslate"><span class="pre">select</span></code></a>(rbt, pos)</p></td>
+<td><p>Retorna la siguiente llave a la k-esima llave mas pequeña de la tabla</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Src.DISClib.DataStructures.rbt.rank" title="Src.DISClib.DataStructures.rbt.rank"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rank</span></code></a>(rbt, key)</p></td>
+<td><p>Retorna el número de llaves en la tabla estrictamente menores que key</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Src.DISClib.DataStructures.rbt.height" title="Src.DISClib.DataStructures.rbt.height"><code class="xref py py-obj docutils literal notranslate"><span class="pre">height</span></code></a>(rbt)</p></td>
+<td><p>Retorna la altura del arbol</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Src.DISClib.DataStructures.rbt.keys" title="Src.DISClib.DataStructures.rbt.keys"><code class="xref py py-obj docutils literal notranslate"><span class="pre">keys</span></code></a>(rbt, keylo, keyhi)</p></td>
+<td><p>Retorna todas las llaves del arbol que se encuentren entre</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Src.DISClib.DataStructures.rbt.values" title="Src.DISClib.DataStructures.rbt.values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">values</span></code></a>(rbt, keylo, keyhi)</p></td>
+<td><p>Retorna todas los valores del arbol que se encuentren entre</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Src.DISClib.DataStructures.rbt.valueSetTree" title="Src.DISClib.DataStructures.rbt.valueSetTree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">valueSetTree</span></code></a>(root, klist)</p></td>
+<td><p>Construye una lista con los valorers de la tabla</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Src.DISClib.DataStructures.rbt.keySetTree" title="Src.DISClib.DataStructures.rbt.keySetTree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">keySetTree</span></code></a>(root, klist)</p></td>
+<td><p>Construye una lista con las llaves de la tabla</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Src.DISClib.DataStructures.rbt.rotateLeft" title="Src.DISClib.DataStructures.rbt.rotateLeft"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rotateLeft</span></code></a>(rbt)</p></td>
+<td><p>rotación izquierda para compensar dos enlaces rojos consecutivos</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Src.DISClib.DataStructures.rbt.rotateRight" title="Src.DISClib.DataStructures.rbt.rotateRight"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rotateRight</span></code></a>(rbt)</p></td>
+<td><p>Rotación a la derecha para compensar un hijo rojo a la derecha</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Src.DISClib.DataStructures.rbt.flipNodeColor" title="Src.DISClib.DataStructures.rbt.flipNodeColor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">flipNodeColor</span></code></a>(rbnode)</p></td>
+<td><p>Cambia el color de un nodo</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Src.DISClib.DataStructures.rbt.flipColors" title="Src.DISClib.DataStructures.rbt.flipColors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">flipColors</span></code></a>(rbnode)</p></td>
+<td><p>Cambia el color de un nodo y de sus dos hijos</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Src.DISClib.DataStructures.rbt.isRed" title="Src.DISClib.DataStructures.rbt.isRed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isRed</span></code></a>(rbnode)</p></td>
+<td><p>Indica si un nodo del arbol es rojo</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Src.DISClib.DataStructures.rbt.sizeTree" title="Src.DISClib.DataStructures.rbt.sizeTree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sizeTree</span></code></a>(root)</p></td>
+<td><p>Retorna el número de entradas en la a partir un punto dado</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Src.DISClib.DataStructures.rbt.insertNode" title="Src.DISClib.DataStructures.rbt.insertNode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">insertNode</span></code></a>(root, key, value, cmpfunction)</p></td>
+<td><p>Ingresa una pareja llave,valor. Si la llave ya existe,</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Src.DISClib.DataStructures.rbt.heightTree" title="Src.DISClib.DataStructures.rbt.heightTree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">heightTree</span></code></a>(root)</p></td>
+<td><p>Retorna la altura del arbol</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Src.DISClib.DataStructures.rbt.getNode" title="Src.DISClib.DataStructures.rbt.getNode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getNode</span></code></a>(root, key, cmpfunction)</p></td>
+<td><p>Retorna la pareja llave, valor, cuya llave sea igual a key.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Src.DISClib.DataStructures.rbt.minKeyTree" title="Src.DISClib.DataStructures.rbt.minKeyTree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">minKeyTree</span></code></a>(root)</p></td>
+<td><p>Retorna la menor llave de la tabla de simbolos</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Src.DISClib.DataStructures.rbt.maxKeyTree" title="Src.DISClib.DataStructures.rbt.maxKeyTree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maxKeyTree</span></code></a>(root)</p></td>
+<td><p>Retorna la mayor llave de la tabla de simbolos</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Src.DISClib.DataStructures.rbt.floorKey" title="Src.DISClib.DataStructures.rbt.floorKey"><code class="xref py py-obj docutils literal notranslate"><span class="pre">floorKey</span></code></a>(root, key, cmpfunction)</p></td>
+<td><p>Retorna la llave mas grande en la tabla de simbolos, menor o</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Src.DISClib.DataStructures.rbt.ceilingKey" title="Src.DISClib.DataStructures.rbt.ceilingKey"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ceilingKey</span></code></a>(root, key, cmpfunction)</p></td>
+<td><p>Retorna la llave mas pequeña en la tabla de simbolos,</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Src.DISClib.DataStructures.rbt.rankKeys" title="Src.DISClib.DataStructures.rbt.rankKeys"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rankKeys</span></code></a>(root, key, cmpfunction)</p></td>
+<td><p>Retorna el número de llaves en la tabla estrictamente menores que key</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Src.DISClib.DataStructures.rbt.keysRange" title="Src.DISClib.DataStructures.rbt.keysRange"><code class="xref py py-obj docutils literal notranslate"><span class="pre">keysRange</span></code></a>(root, keylo, keyhi, lstkeys, cmpfunction)</p></td>
+<td><p>Retorna todas las llaves del arbol en un rango dado</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Src.DISClib.DataStructures.rbt.valuesRange" title="Src.DISClib.DataStructures.rbt.valuesRange"><code class="xref py py-obj docutils literal notranslate"><span class="pre">valuesRange</span></code></a>(root, keylo, keyhi, lstvalues, cmpfunction)</p></td>
+<td><p>Retorna todas los valores del arbol en un rango dado por</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Src.DISClib.DataStructures.rbt.selectKey" title="Src.DISClib.DataStructures.rbt.selectKey"><code class="xref py py-obj docutils literal notranslate"><span class="pre">selectKey</span></code></a>(root, key)</p></td>
+<td><p>Retorna la siguiente llave a la k-esima llave mas pequeña de la tabla</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Src.DISClib.DataStructures.rbt.deleteMinTree" title="Src.DISClib.DataStructures.rbt.deleteMinTree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">deleteMinTree</span></code></a>(root)</p></td>
+<td><p>Encuentra y remueve la menor  llave de la tabla de simbolos</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Src.DISClib.DataStructures.rbt.deleteMaxTree" title="Src.DISClib.DataStructures.rbt.deleteMaxTree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">deleteMaxTree</span></code></a>(root)</p></td>
+<td><p>Encuentra y remueve la mayor llave de la tabla de simbolos</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Src.DISClib.DataStructures.rbt.moveRedRight" title="Src.DISClib.DataStructures.rbt.moveRedRight"><code class="xref py py-obj docutils literal notranslate"><span class="pre">moveRedRight</span></code></a>(root)</p></td>
+<td><p>Cambio de color durante el proceso de eliminacion</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Src.DISClib.DataStructures.rbt.moveRedLeft" title="Src.DISClib.DataStructures.rbt.moveRedLeft"><code class="xref py py-obj docutils literal notranslate"><span class="pre">moveRedLeft</span></code></a>(root)</p></td>
+<td><p>Cambio de color durante el proceso de eliminacion</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Src.DISClib.DataStructures.rbt.balance" title="Src.DISClib.DataStructures.rbt.balance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">balance</span></code></a>(root)</p></td>
+<td><p>Balancea el arbol</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Src.DISClib.DataStructures.rbt.removeKey" title="Src.DISClib.DataStructures.rbt.removeKey"><code class="xref py py-obj docutils literal notranslate"><span class="pre">removeKey</span></code></a>(root, key, cmpfunction)</p></td>
+<td><p>Elimina la pareja llave,valor, donde llave == key.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Src.DISClib.DataStructures.rbt.defaultfunction" title="Src.DISClib.DataStructures.rbt.defaultfunction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">defaultfunction</span></code></a>(key1, key2)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="Src.DISClib.DataStructures.rbt.newMap">
+<span class="sig-prename descclassname"><span class="pre">Src.DISClib.DataStructures.rbt.</span></span><span class="sig-name descname"><span class="pre">newMap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">omaptype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmpfunction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datastructure</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/Src/DISClib/DataStructures/rbt.html#newMap"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Src.DISClib.DataStructures.rbt.newMap" title="Link to this definition"></a></dt>
+<dd><p>Crea una tabla de simbolos ordenada.
+:param compfunction: La función de comparacion</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>La tabla de símbolos ordenada sin elementos</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Src.DISClib.DataStructures.rbt.put">
+<span class="sig-prename descclassname"><span class="pre">Src.DISClib.DataStructures.rbt.</span></span><span class="sig-name descname"><span class="pre">put</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rbt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/Src/DISClib/DataStructures/rbt.html#put"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Src.DISClib.DataStructures.rbt.put" title="Link to this definition"></a></dt>
+<dd><p>Ingresa una pareja llave,valor. Si la llave ya existe,
+se reemplaza el valor.
+:param map: La tabla de simbolos ordenada
+:param key: La llave asociada a la pareja
+:param value: El valor asociado a la pareja</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>La tabla de simbolos</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Src.DISClib.DataStructures.rbt.get">
+<span class="sig-prename descclassname"><span class="pre">Src.DISClib.DataStructures.rbt.</span></span><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rbt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/Src/DISClib/DataStructures/rbt.html#get"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Src.DISClib.DataStructures.rbt.get" title="Link to this definition"></a></dt>
+<dd><p>Retorna la pareja llave, valor, cuya llave sea igual a key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rbt</strong> – El arbol de búsqueda</p></li>
+<li><p><strong>key</strong> – La llave asociada a la pareja</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>La pareja llave-valor en caso de que haya sido encontrada</p>
+</dd>
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Src.DISClib.DataStructures.rbt.remove">
+<span class="sig-prename descclassname"><span class="pre">Src.DISClib.DataStructures.rbt.</span></span><span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rbt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/Src/DISClib/DataStructures/rbt.html#remove"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Src.DISClib.DataStructures.rbt.remove" title="Link to this definition"></a></dt>
+<dd><p>Elimina la pareja llave,valor, donde llave == key.
+:param rbt: El arbol de búsqueda
+:param key: La llave asociada a la pareja</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>El arbol sin la pareja key-value</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Src.DISClib.DataStructures.rbt.contains">
+<span class="sig-prename descclassname"><span class="pre">Src.DISClib.DataStructures.rbt.</span></span><span class="sig-name descname"><span class="pre">contains</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rbt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/Src/DISClib/DataStructures/rbt.html#contains"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Src.DISClib.DataStructures.rbt.contains" title="Link to this definition"></a></dt>
+<dd><p>Retorna True si la llave key se encuentra en la tabla
+o False en caso contrario.
+Es necesario proveer la función de comparación entre llaves.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rbt</strong> – El arbol de búsqueda</p></li>
+<li><p><strong>key</strong> – La llave a buscar</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>True si la llave se encuentra en la tabla</p>
+</dd>
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Src.DISClib.DataStructures.rbt.size">
+<span class="sig-prename descclassname"><span class="pre">Src.DISClib.DataStructures.rbt.</span></span><span class="sig-name descname"><span class="pre">size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rbt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/Src/DISClib/DataStructures/rbt.html#size"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Src.DISClib.DataStructures.rbt.size" title="Link to this definition"></a></dt>
+<dd><p>Retorna el número de entradas en la tabla de simbolos
+:param rbt: El arbol de búsqueda</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>El número de elementos en la tabla</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Src.DISClib.DataStructures.rbt.isEmpty">
+<span class="sig-prename descclassname"><span class="pre">Src.DISClib.DataStructures.rbt.</span></span><span class="sig-name descname"><span class="pre">isEmpty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rbt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/Src/DISClib/DataStructures/rbt.html#isEmpty"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Src.DISClib.DataStructures.rbt.isEmpty" title="Link to this definition"></a></dt>
+<dd><p>Informa si la tabla de simbolos se encuentra vacia
+:param bst: El arbol de búsqueda</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True si la tabla es vacía, False en caso contrario</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Src.DISClib.DataStructures.rbt.keySet">
+<span class="sig-prename descclassname"><span class="pre">Src.DISClib.DataStructures.rbt.</span></span><span class="sig-name descname"><span class="pre">keySet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rbt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/Src/DISClib/DataStructures/rbt.html#keySet"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Src.DISClib.DataStructures.rbt.keySet" title="Link to this definition"></a></dt>
+<dd><p>Retorna una lista con todas las llaves de la tabla
+:param rbt: La tabla de simbolos</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Una lista con todas las llaves de la tabla</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Src.DISClib.DataStructures.rbt.valueSet">
+<span class="sig-prename descclassname"><span class="pre">Src.DISClib.DataStructures.rbt.</span></span><span class="sig-name descname"><span class="pre">valueSet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rbt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/Src/DISClib/DataStructures/rbt.html#valueSet"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Src.DISClib.DataStructures.rbt.valueSet" title="Link to this definition"></a></dt>
+<dd><p>Construye una lista con los valores de la tabla
+:param rbt: La tabla con los elementos</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Una lista con todos los valores</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Src.DISClib.DataStructures.rbt.minKey">
+<span class="sig-prename descclassname"><span class="pre">Src.DISClib.DataStructures.rbt.</span></span><span class="sig-name descname"><span class="pre">minKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rbt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/Src/DISClib/DataStructures/rbt.html#minKey"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Src.DISClib.DataStructures.rbt.minKey" title="Link to this definition"></a></dt>
+<dd><p>Retorna la menor llave de la tabla de simbolos
+:param rbt: El arbol de búsqueda</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Retorna la menor llave de la tabla</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Src.DISClib.DataStructures.rbt.maxKey">
+<span class="sig-prename descclassname"><span class="pre">Src.DISClib.DataStructures.rbt.</span></span><span class="sig-name descname"><span class="pre">maxKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rbt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/Src/DISClib/DataStructures/rbt.html#maxKey"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Src.DISClib.DataStructures.rbt.maxKey" title="Link to this definition"></a></dt>
+<dd><p>Retorna la mayor llave de la tabla de simbolos
+:param rbt: El arbol de búsqueda</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Retorna la mayor llave de la tabla</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Src.DISClib.DataStructures.rbt.deleteMin">
+<span class="sig-prename descclassname"><span class="pre">Src.DISClib.DataStructures.rbt.</span></span><span class="sig-name descname"><span class="pre">deleteMin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rbt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/Src/DISClib/DataStructures/rbt.html#deleteMin"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Src.DISClib.DataStructures.rbt.deleteMin" title="Link to this definition"></a></dt>
+<dd><p>Encuentra y remueve la menor  llave de la tabla de simbolos
+y su valor asociado</p>
+<p>TODO: No implementada en esta versión</p>
+<p>rbt: La tabla de simbolos
+:returns: La tabla de simbolos sin la menor llave</p>
+<dl class="field-list simple">
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Src.DISClib.DataStructures.rbt.deleteMax">
+<span class="sig-prename descclassname"><span class="pre">Src.DISClib.DataStructures.rbt.</span></span><span class="sig-name descname"><span class="pre">deleteMax</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rbt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/Src/DISClib/DataStructures/rbt.html#deleteMax"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Src.DISClib.DataStructures.rbt.deleteMax" title="Link to this definition"></a></dt>
+<dd><p>Encuentra y remueve la mayor llave de la tabla de simbolos
+y su valor asociado</p>
+<p>TODO: No implementada en esta versión</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>rbt</strong> – La tabla de simbolos</p>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>La tabla de simbolos sin la mayor llave</p>
+</dd>
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Src.DISClib.DataStructures.rbt.floor">
+<span class="sig-prename descclassname"><span class="pre">Src.DISClib.DataStructures.rbt.</span></span><span class="sig-name descname"><span class="pre">floor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rbt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/Src/DISClib/DataStructures/rbt.html#floor"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Src.DISClib.DataStructures.rbt.floor" title="Link to this definition"></a></dt>
+<dd><p>Retorna la llave mas grande en la tabla de simbolos, menor o
+igual a la llave key</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>rbt</strong> – El arbol de búsqueda</p>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Retorna la mayor llave de la tabla</p>
+</dd>
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Src.DISClib.DataStructures.rbt.ceiling">
+<span class="sig-prename descclassname"><span class="pre">Src.DISClib.DataStructures.rbt.</span></span><span class="sig-name descname"><span class="pre">ceiling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rbt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/Src/DISClib/DataStructures/rbt.html#ceiling"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Src.DISClib.DataStructures.rbt.ceiling" title="Link to this definition"></a></dt>
+<dd><p>Retorna la llave mas pequeña en la tabla de simbolos,
+mayor o igual a la llave key
+:param bst: La tabla de simbolos
+:param key: la llave de búsqueda</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>La llave más pequeña mayor o igual a Key</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Src.DISClib.DataStructures.rbt.select">
+<span class="sig-prename descclassname"><span class="pre">Src.DISClib.DataStructures.rbt.</span></span><span class="sig-name descname"><span class="pre">select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rbt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/Src/DISClib/DataStructures/rbt.html#select"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Src.DISClib.DataStructures.rbt.select" title="Link to this definition"></a></dt>
+<dd><p>Retorna la siguiente llave a la k-esima llave mas pequeña de la tabla
+:param rbt: La tabla de simbolos
+:param pos: la pos-esima llave mas pequeña</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>La llave más pequeña mayor o igual a Key</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Src.DISClib.DataStructures.rbt.rank">
+<span class="sig-prename descclassname"><span class="pre">Src.DISClib.DataStructures.rbt.</span></span><span class="sig-name descname"><span class="pre">rank</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rbt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/Src/DISClib/DataStructures/rbt.html#rank"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Src.DISClib.DataStructures.rbt.rank" title="Link to this definition"></a></dt>
+<dd><p>Retorna el número de llaves en la tabla estrictamente menores que key
+:param rbt: La tabla de simbolos
+:param key: La llave de búsqueda</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>El nuemero de llaves encontradas</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Src.DISClib.DataStructures.rbt.height">
+<span class="sig-prename descclassname"><span class="pre">Src.DISClib.DataStructures.rbt.</span></span><span class="sig-name descname"><span class="pre">height</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rbt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/Src/DISClib/DataStructures/rbt.html#height"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Src.DISClib.DataStructures.rbt.height" title="Link to this definition"></a></dt>
+<dd><p>Retorna la altura del arbol</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>rbt</strong> – El arbol con las parejas</p>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>La altura del arbol</p>
+</dd>
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Src.DISClib.DataStructures.rbt.keys">
+<span class="sig-prename descclassname"><span class="pre">Src.DISClib.DataStructures.rbt.</span></span><span class="sig-name descname"><span class="pre">keys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rbt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keylo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keyhi</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/Src/DISClib/DataStructures/rbt.html#keys"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Src.DISClib.DataStructures.rbt.keys" title="Link to this definition"></a></dt>
+<dd><p>Retorna todas las llaves del arbol que se encuentren entre
+[keylo, keyhi]
+:param bst: La tabla de simbolos
+:param keylo: límite inferior
+:param keylohi: límite superiorr</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Las llaves en el rago especificado</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Src.DISClib.DataStructures.rbt.values">
+<span class="sig-prename descclassname"><span class="pre">Src.DISClib.DataStructures.rbt.</span></span><span class="sig-name descname"><span class="pre">values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rbt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keylo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keyhi</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/Src/DISClib/DataStructures/rbt.html#values"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Src.DISClib.DataStructures.rbt.values" title="Link to this definition"></a></dt>
+<dd><p>Retorna todas los valores del arbol que se encuentren entre
+[keylo, keyhi]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bst</strong> – La tabla de simbolos</p></li>
+<li><p><strong>keylo</strong> – límite inferior</p></li>
+<li><p><strong>keylohi</strong> – límite superiorr</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Las llaves en el rago especificado</p>
+</dd>
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Src.DISClib.DataStructures.rbt.valueSetTree">
+<span class="sig-prename descclassname"><span class="pre">Src.DISClib.DataStructures.rbt.</span></span><span class="sig-name descname"><span class="pre">valueSetTree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">klist</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/Src/DISClib/DataStructures/rbt.html#valueSetTree"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Src.DISClib.DataStructures.rbt.valueSetTree" title="Link to this definition"></a></dt>
+<dd><p>Construye una lista con los valorers de la tabla
+:param root: El arbol con los elementos
+:param klist: La lista de respuesta</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Una lista con todos los valores</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Src.DISClib.DataStructures.rbt.keySetTree">
+<span class="sig-prename descclassname"><span class="pre">Src.DISClib.DataStructures.rbt.</span></span><span class="sig-name descname"><span class="pre">keySetTree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">klist</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/Src/DISClib/DataStructures/rbt.html#keySetTree"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Src.DISClib.DataStructures.rbt.keySetTree" title="Link to this definition"></a></dt>
+<dd><p>Construye una lista con las llaves de la tabla
+:param root: El arbol con los elementos
+:param klist: La lista de respuesta</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Una lista con todos las llaves</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Src.DISClib.DataStructures.rbt.rotateLeft">
+<span class="sig-prename descclassname"><span class="pre">Src.DISClib.DataStructures.rbt.</span></span><span class="sig-name descname"><span class="pre">rotateLeft</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rbt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/Src/DISClib/DataStructures/rbt.html#rotateLeft"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Src.DISClib.DataStructures.rbt.rotateLeft" title="Link to this definition"></a></dt>
+<dd><p>rotación izquierda para compensar dos enlaces rojos consecutivos</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Src.DISClib.DataStructures.rbt.rotateRight">
+<span class="sig-prename descclassname"><span class="pre">Src.DISClib.DataStructures.rbt.</span></span><span class="sig-name descname"><span class="pre">rotateRight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rbt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/Src/DISClib/DataStructures/rbt.html#rotateRight"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Src.DISClib.DataStructures.rbt.rotateRight" title="Link to this definition"></a></dt>
+<dd><p>Rotación a la derecha para compensar un hijo rojo a la derecha
+:param rbt: El arbol a rotar</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>El arbol rotado</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Src.DISClib.DataStructures.rbt.flipNodeColor">
+<span class="sig-prename descclassname"><span class="pre">Src.DISClib.DataStructures.rbt.</span></span><span class="sig-name descname"><span class="pre">flipNodeColor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rbnode</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/Src/DISClib/DataStructures/rbt.html#flipNodeColor"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Src.DISClib.DataStructures.rbt.flipNodeColor" title="Link to this definition"></a></dt>
+<dd><p>Cambia el color de un nodo
+:param rbnode: El nodo a cambiar</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>El nodo con el color opuesto</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Src.DISClib.DataStructures.rbt.flipColors">
+<span class="sig-prename descclassname"><span class="pre">Src.DISClib.DataStructures.rbt.</span></span><span class="sig-name descname"><span class="pre">flipColors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rbnode</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/Src/DISClib/DataStructures/rbt.html#flipColors"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Src.DISClib.DataStructures.rbt.flipColors" title="Link to this definition"></a></dt>
+<dd><p>Cambia el color de un nodo y de sus dos hijos
+:param maptype: El tipo de map ordenado a utilizar</p>
+<blockquote>
+<div><p>“BST” o “RBT”</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>La tabla de símbolos ordenada sin elementos</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Src.DISClib.DataStructures.rbt.isRed">
+<span class="sig-prename descclassname"><span class="pre">Src.DISClib.DataStructures.rbt.</span></span><span class="sig-name descname"><span class="pre">isRed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rbnode</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/Src/DISClib/DataStructures/rbt.html#isRed"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Src.DISClib.DataStructures.rbt.isRed" title="Link to this definition"></a></dt>
+<dd><p>Indica si un nodo del arbol es rojo
+:param rbnode: El nodo a examinar</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True / False</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Src.DISClib.DataStructures.rbt.sizeTree">
+<span class="sig-prename descclassname"><span class="pre">Src.DISClib.DataStructures.rbt.</span></span><span class="sig-name descname"><span class="pre">sizeTree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/Src/DISClib/DataStructures/rbt.html#sizeTree"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Src.DISClib.DataStructures.rbt.sizeTree" title="Link to this definition"></a></dt>
+<dd><p>Retorna el número de entradas en la a partir un punto dado
+:param root: El arbol de búsqueda</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>El número de elementos en la tabla</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Src.DISClib.DataStructures.rbt.insertNode">
+<span class="sig-prename descclassname"><span class="pre">Src.DISClib.DataStructures.rbt.</span></span><span class="sig-name descname"><span class="pre">insertNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmpfunction</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/Src/DISClib/DataStructures/rbt.html#insertNode"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Src.DISClib.DataStructures.rbt.insertNode" title="Link to this definition"></a></dt>
+<dd><p>Ingresa una pareja llave,valor. Si la llave ya existe,
+se reemplaza el valor.
+:param root: La raiz del arbol
+:param key: La llave asociada a la pareja
+:param value: El valor asociado a la pareja
+:param cmpfunction: Función de comparación</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>El arbol con la nueva pareja</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Src.DISClib.DataStructures.rbt.heightTree">
+<span class="sig-prename descclassname"><span class="pre">Src.DISClib.DataStructures.rbt.</span></span><span class="sig-name descname"><span class="pre">heightTree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/Src/DISClib/DataStructures/rbt.html#heightTree"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Src.DISClib.DataStructures.rbt.heightTree" title="Link to this definition"></a></dt>
+<dd><p>Retorna la altura del arbol</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>root</strong> – El arbol con las parejas</p>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>La altura del arbol</p>
+</dd>
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Src.DISClib.DataStructures.rbt.getNode">
+<span class="sig-prename descclassname"><span class="pre">Src.DISClib.DataStructures.rbt.</span></span><span class="sig-name descname"><span class="pre">getNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmpfunction</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/Src/DISClib/DataStructures/rbt.html#getNode"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Src.DISClib.DataStructures.rbt.getNode" title="Link to this definition"></a></dt>
+<dd><p>Retorna la pareja llave, valor, cuya llave sea igual a key.
+Es necesario proveer una función de comparación para las llaves.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>root</strong> – El arbol rojo-negro</p></li>
+<li><p><strong>key</strong> – La llave de busqueda</p></li>
+<li><p><strong>cmpfunction</strong> – función de comparación</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>La pareja llave-valor</p>
+</dd>
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Src.DISClib.DataStructures.rbt.minKeyTree">
+<span class="sig-prename descclassname"><span class="pre">Src.DISClib.DataStructures.rbt.</span></span><span class="sig-name descname"><span class="pre">minKeyTree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/Src/DISClib/DataStructures/rbt.html#minKeyTree"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Src.DISClib.DataStructures.rbt.minKeyTree" title="Link to this definition"></a></dt>
+<dd><p>Retorna la menor llave de la tabla de simbolos
+:param root: La raiz del arbol de busqueda</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>El elemento mas izquierdo del arbol</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Src.DISClib.DataStructures.rbt.maxKeyTree">
+<span class="sig-prename descclassname"><span class="pre">Src.DISClib.DataStructures.rbt.</span></span><span class="sig-name descname"><span class="pre">maxKeyTree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/Src/DISClib/DataStructures/rbt.html#maxKeyTree"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Src.DISClib.DataStructures.rbt.maxKeyTree" title="Link to this definition"></a></dt>
+<dd><p>Retorna la mayor llave de la tabla de simbolos
+:param bst: La tabla de simbolos</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>El elemento mas derecho del árbol</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Src.DISClib.DataStructures.rbt.floorKey">
+<span class="sig-prename descclassname"><span class="pre">Src.DISClib.DataStructures.rbt.</span></span><span class="sig-name descname"><span class="pre">floorKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmpfunction</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/Src/DISClib/DataStructures/rbt.html#floorKey"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Src.DISClib.DataStructures.rbt.floorKey" title="Link to this definition"></a></dt>
+<dd><p>Retorna la llave mas grande en la tabla de simbolos, menor o
+igual a la llave key</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rbt</strong> – El arbol de búsqueda</p></li>
+<li><p><strong>key</strong> – La llave</p></li>
+<li><p><strong>cmpfunction</strong> – Funcion de comparacion</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Retorna la mayor llave de la tabla</p>
+</dd>
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Src.DISClib.DataStructures.rbt.ceilingKey">
+<span class="sig-prename descclassname"><span class="pre">Src.DISClib.DataStructures.rbt.</span></span><span class="sig-name descname"><span class="pre">ceilingKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmpfunction</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/Src/DISClib/DataStructures/rbt.html#ceilingKey"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Src.DISClib.DataStructures.rbt.ceilingKey" title="Link to this definition"></a></dt>
+<dd><p>Retorna la llave mas pequeña en la tabla de simbolos,
+mayor o igual a la llave key</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rbt</strong> – El arbol de búsqueda</p></li>
+<li><p><strong>key</strong> – La llave</p></li>
+<li><p><strong>cmpfunction</strong> – Funcion de comparacion</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Retorna la mayor llave de la tabla</p>
+</dd>
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Src.DISClib.DataStructures.rbt.rankKeys">
+<span class="sig-prename descclassname"><span class="pre">Src.DISClib.DataStructures.rbt.</span></span><span class="sig-name descname"><span class="pre">rankKeys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmpfunction</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/Src/DISClib/DataStructures/rbt.html#rankKeys"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Src.DISClib.DataStructures.rbt.rankKeys" title="Link to this definition"></a></dt>
+<dd><p>Retorna el número de llaves en la tabla estrictamente menores que key
+:param rbt: La tabla de simbolos
+:param key: La llave de busqueda</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>El numero de llaves</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Src.DISClib.DataStructures.rbt.keysRange">
+<span class="sig-prename descclassname"><span class="pre">Src.DISClib.DataStructures.rbt.</span></span><span class="sig-name descname"><span class="pre">keysRange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keylo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keyhi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lstkeys</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmpfunction</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/Src/DISClib/DataStructures/rbt.html#keysRange"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Src.DISClib.DataStructures.rbt.keysRange" title="Link to this definition"></a></dt>
+<dd><p>Retorna todas las llaves del arbol en un rango dado
+:param bst: La tabla de simbolos
+:param keylo: límite inferior
+:param keylohi: límite superiorr</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Las llaves en el rago especificado</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Src.DISClib.DataStructures.rbt.valuesRange">
+<span class="sig-prename descclassname"><span class="pre">Src.DISClib.DataStructures.rbt.</span></span><span class="sig-name descname"><span class="pre">valuesRange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keylo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keyhi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lstvalues</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmpfunction</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/Src/DISClib/DataStructures/rbt.html#valuesRange"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Src.DISClib.DataStructures.rbt.valuesRange" title="Link to this definition"></a></dt>
+<dd><p>Retorna todas los valores del arbol en un rango dado por
+[keylo, keyhi]
+:param bst: La tabla de simbolos
+:param keylo: límite inferior
+:param keylohi: límite superior</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Las llaves en el rango especificado</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Excep</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Src.DISClib.DataStructures.rbt.selectKey">
+<span class="sig-prename descclassname"><span class="pre">Src.DISClib.DataStructures.rbt.</span></span><span class="sig-name descname"><span class="pre">selectKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/Src/DISClib/DataStructures/rbt.html#selectKey"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Src.DISClib.DataStructures.rbt.selectKey" title="Link to this definition"></a></dt>
+<dd><p>Retorna la siguiente llave a la k-esima llave mas pequeña de la tabla
+:param root: La tabla de simbolos
+:param key: la llave de búsqueda</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>La llave más pequeña mayor o igual a Key</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Src.DISClib.DataStructures.rbt.deleteMinTree">
+<span class="sig-prename descclassname"><span class="pre">Src.DISClib.DataStructures.rbt.</span></span><span class="sig-name descname"><span class="pre">deleteMinTree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/Src/DISClib/DataStructures/rbt.html#deleteMinTree"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Src.DISClib.DataStructures.rbt.deleteMinTree" title="Link to this definition"></a></dt>
+<dd><p>Encuentra y remueve la menor  llave de la tabla de simbolos
+y su valor asociado</p>
+<p>root: La tabla de simbolos
+:returns: La tabla de simbolos sin la menor llave</p>
+<dl class="field-list simple">
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Src.DISClib.DataStructures.rbt.deleteMaxTree">
+<span class="sig-prename descclassname"><span class="pre">Src.DISClib.DataStructures.rbt.</span></span><span class="sig-name descname"><span class="pre">deleteMaxTree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/Src/DISClib/DataStructures/rbt.html#deleteMaxTree"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Src.DISClib.DataStructures.rbt.deleteMaxTree" title="Link to this definition"></a></dt>
+<dd><p>Encuentra y remueve la mayor llave de la tabla de simbolos
+y su valor asociado</p>
+<p>root: La tabla de simbolos
+:returns: La tabla de simbolos sin la menor llave</p>
+<dl class="field-list simple">
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Src.DISClib.DataStructures.rbt.moveRedRight">
+<span class="sig-prename descclassname"><span class="pre">Src.DISClib.DataStructures.rbt.</span></span><span class="sig-name descname"><span class="pre">moveRedRight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/Src/DISClib/DataStructures/rbt.html#moveRedRight"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Src.DISClib.DataStructures.rbt.moveRedRight" title="Link to this definition"></a></dt>
+<dd><p>Cambio de color durante el proceso de eliminacion
+root: La tabla de simbolos
+:returns: El arbol con un hijo iquierdo de root en negro</p>
+<dl class="field-list simple">
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Src.DISClib.DataStructures.rbt.moveRedLeft">
+<span class="sig-prename descclassname"><span class="pre">Src.DISClib.DataStructures.rbt.</span></span><span class="sig-name descname"><span class="pre">moveRedLeft</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/Src/DISClib/DataStructures/rbt.html#moveRedLeft"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Src.DISClib.DataStructures.rbt.moveRedLeft" title="Link to this definition"></a></dt>
+<dd><p>Cambio de color durante el proceso de eliminacion
+root: La tabla de simbolos
+:returns: El arbol con un hijo iquierdo de root en negro</p>
+<dl class="field-list simple">
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Src.DISClib.DataStructures.rbt.balance">
+<span class="sig-prename descclassname"><span class="pre">Src.DISClib.DataStructures.rbt.</span></span><span class="sig-name descname"><span class="pre">balance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/Src/DISClib/DataStructures/rbt.html#balance"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Src.DISClib.DataStructures.rbt.balance" title="Link to this definition"></a></dt>
+<dd><p>Balancea el arbol
+root: Raiz del arbol a balancear
+:returns: El arbol balanceado</p>
+<dl class="field-list simple">
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Src.DISClib.DataStructures.rbt.removeKey">
+<span class="sig-prename descclassname"><span class="pre">Src.DISClib.DataStructures.rbt.</span></span><span class="sig-name descname"><span class="pre">removeKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmpfunction</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/Src/DISClib/DataStructures/rbt.html#removeKey"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Src.DISClib.DataStructures.rbt.removeKey" title="Link to this definition"></a></dt>
+<dd><p>Elimina la pareja llave,valor, donde llave == key.
+:param root: El arbol de búsqueda
+:param key: La llave asociada a la pareja
+:param cmpfunction: La función de comparacion</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>El arbol sin la pareja key-value</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Src.DISClib.DataStructures.rbt.defaultfunction">
+<span class="sig-prename descclassname"><span class="pre">Src.DISClib.DataStructures.rbt.</span></span><span class="sig-name descname"><span class="pre">defaultfunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/Src/DISClib/DataStructures/rbt.html#defaultfunction"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Src.DISClib.DataStructures.rbt.defaultfunction" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor Uniandes, Bogotá - Colombia, Sur América,
+             Facultad de Ingeniería, DISC Desarrollado
+             para ISIS-1225, EDA.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

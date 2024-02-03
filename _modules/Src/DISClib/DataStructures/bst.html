@@ -1,0 +1,1150 @@
+﻿<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Src.DISClib.DataStructures.bst &mdash; documentación de DISClib - 0.0.1</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/fonts.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../../_static/documentation_options.js?v=6fcc102b"></script>
+        <script src="../../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+        <script src="../../../../_static/translations.js?v=efdbd0b9"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../../../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            DISClib
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modules.html">DISClib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../testmd.html">Example Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">DISClib</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Código de módulo</a></li>
+          <li class="breadcrumb-item"><a href="../DataStructures.html">Src.DISClib.DataStructures</a></li>
+      <li class="breadcrumb-item active">Src.DISClib.DataStructures.bst</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Código fuente para Src.DISClib.DataStructures.bst</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd"> * Copyright 2020, Departamento de sistemas y Computación</span>
+<span class="sd"> * Universidad de Los Andes</span>
+<span class="sd"> *</span>
+<span class="sd"> *</span>
+<span class="sd"> * Desarrollado para el curso ISIS1225 - Estructuras de Datos y Algoritmos</span>
+<span class="sd"> *</span>
+<span class="sd"> *</span>
+<span class="sd"> * This program is free software: you can redistribute it and/or modify</span>
+<span class="sd"> * it under the terms of the GNU General Public License as published by</span>
+<span class="sd"> * the Free Software Foundation, either version 3 of the License, or</span>
+<span class="sd"> * (at your option) any later version.</span>
+<span class="sd"> *</span>
+<span class="sd"> * This program is distributed in the hope that it will be useful,</span>
+<span class="sd"> * but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="sd"> * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="sd"> * GNU General Public License for more details.</span>
+<span class="sd"> *</span>
+<span class="sd"> * You should have received a copy of the GNU General Public License</span>
+<span class="sd"> * along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+<span class="sd"> *</span>
+<span class="sd"> * Contribución de:</span>
+<span class="sd"> *</span>
+<span class="sd"> * Dario Correal</span>
+<span class="sd"> *</span>
+<span class="sd"> &quot;&quot;&quot;</span>
+
+<span class="c1"># import config</span>
+<span class="kn">from</span> <span class="nn">Src.DISClib.DataStructures</span> <span class="kn">import</span> <span class="n">bstnode</span>
+<span class="kn">from</span> <span class="nn">Src.DISClib.Utils</span> <span class="kn">import</span> <span class="n">error</span> <span class="k">as</span> <span class="n">error</span>
+<span class="kn">from</span> <span class="nn">Src.DISClib.ADT</span> <span class="kn">import</span> <span class="n">lists</span> <span class="k">as</span> <span class="n">lt</span>
+<span class="c1"># assert config</span>
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Este código está basado en la implementación</span>
+<span class="sd">  propuesta por R.Sedgewick y Kevin Wayn|e en su libro</span>
+<span class="sd">  Algorithms, 4th Edition</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1">#  ------------------------------------------------------------</span>
+<span class="c1">#                       API TAD_BST</span>
+<span class="c1">#  ------------------------------------------------------------</span>
+<span class="c1"># GENERAL</span>
+<span class="c1">#FIXME Cambiar todas las funciones y variables al formato snake_case</span>
+<span class="c1">#TODO Explicar más a profundidad que tipo de excepciones y errores puede generar cada función</span>
+
+<span class="c1">#FIXME Agregar todos los parámetros a la documentación</span>
+<div class="viewcode-block" id="newMap">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.newMap">[documentos]</a>
+<span class="k">def</span> <span class="nf">newMap</span><span class="p">(</span><span class="n">omaptype</span><span class="p">,</span> <span class="n">cmpfunction</span><span class="p">,</span> <span class="n">datastructure</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Crea una tabla de simbolos ordenada.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        compfunction: La función de comparacion</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        La tabla de símbolos ordenada sin elementos</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1">#FIXME Modelar como un Dataclass</span>
+        <span class="n">bst</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;root&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+               <span class="s1">&#39;cmpfunction&#39;</span><span class="p">:</span> <span class="n">cmpfunction</span><span class="p">,</span>
+               <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">omaptype</span><span class="p">,</span>
+               <span class="s1">&#39;datastructure&#39;</span><span class="p">:</span> <span class="n">datastructure</span><span class="p">}</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="n">cmpfunction</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="n">bst</span><span class="p">[</span><span class="s1">&#39;cmpfunction&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">defaultfunction</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">bst</span><span class="p">[</span><span class="s1">&#39;cmpfunction&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cmpfunction</span>
+
+        <span class="k">return</span> <span class="n">bst</span>
+
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:NewMap&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="put">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.put">[documentos]</a>
+<span class="k">def</span> <span class="nf">put</span><span class="p">(</span><span class="n">bst</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Ingresa una pareja llave,valor. Si la llave ya existe,</span>
+<span class="sd">    se reemplaza el valor.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        bst: El BST</span>
+<span class="sd">        key: La llave asociada a la pareja</span>
+<span class="sd">        value: El valor asociado a la pareja</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        El arbol con la nueva pareja</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">bst</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">insertNode</span><span class="p">(</span><span class="n">bst</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">],</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">bst</span><span class="p">[</span><span class="s1">&#39;cmpfunction&#39;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">bst</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;Bst:Put&#39;</span><span class="p">)</span></div>
+
+
+<span class="c1">#FIXME Corregir errores de ortografía en la documentación</span>
+<span class="c1">#TODO Indicar que retorna un bstnode</span>
+<div class="viewcode-block" id="get">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.get">[documentos]</a>
+<span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="n">bst</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retorna la pareja lleve-valor con llave igual  a key</span>
+<span class="sd">    Args:</span>
+<span class="sd">        bst: El arbol de búsqueda</span>
+<span class="sd">        key: La llave asociada a la pareja</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        La pareja llave-valor en caso de que haya sido encontrada</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="n">getNode</span><span class="p">(</span><span class="n">bst</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">],</span> <span class="n">key</span><span class="p">,</span> <span class="n">bst</span><span class="p">[</span><span class="s1">&#39;cmpfunction&#39;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">node</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;Bst:get&#39;</span><span class="p">)</span></div>
+
+
+<span class="c1">#TODO Modificar documentación para que quede del mismo formato que las otras funciones</span>
+<div class="viewcode-block" id="remove">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.remove">[documentos]</a>
+<span class="k">def</span> <span class="nf">remove</span><span class="p">(</span><span class="n">bst</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Elimina la pareja llave,valor, donde llave == key.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        bst: El arbol de búsqueda</span>
+<span class="sd">        key: La llave asociada a la pareja</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        El arbol sin la pareja key-value</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">bst</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">removeNode</span><span class="p">(</span><span class="n">bst</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">],</span> <span class="n">key</span><span class="p">,</span> <span class="n">bst</span><span class="p">[</span><span class="s1">&#39;cmpfunction&#39;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">bst</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;Bst:Remove&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="contains">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.contains">[documentos]</a>
+<span class="k">def</span> <span class="nf">contains</span><span class="p">(</span><span class="n">bst</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Informa si la llave key se encuentra en la tabla de hash</span>
+<span class="sd">    Args:</span>
+<span class="sd">        bst: El arbol de búsqueda</span>
+<span class="sd">        key: La llave a buscar</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        True si la llave está presente False en caso contrario</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">get</span><span class="p">(</span><span class="n">bst</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;Bst:Contains&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="size">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.size">[documentos]</a>
+<span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="n">bst</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retorna el número de entradas en la tabla de simbolos</span>
+<span class="sd">    Args:</span>
+<span class="sd">        bst: El arbol de búsqueda</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        El número de elementos en la tabla</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">sizeTree</span><span class="p">(</span><span class="n">bst</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">])</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;Bst:size&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="isEmpty">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.isEmpty">[documentos]</a>
+<span class="k">def</span> <span class="nf">isEmpty</span><span class="p">(</span><span class="n">bst</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Informa si la tabla de simbolos se encuentra vacia</span>
+<span class="sd">    Args:</span>
+<span class="sd">        bst: El arbol de búsqueda</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        True si la tabla es vacía, False en caso contrario</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">bst</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:isempty&#39;</span><span class="p">)</span></div>
+
+
+<span class="c1">#TODO Indicar que retorna una lista de DISCLib</span>
+<div class="viewcode-block" id="keySet">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.keySet">[documentos]</a>
+<span class="k">def</span> <span class="nf">keySet</span><span class="p">(</span><span class="n">bst</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retorna una lista con todas las llaves de la tabla</span>
+<span class="sd">    Args:</span>
+<span class="sd">        bst: La tabla de simbolos</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        Una lista con todas las llaves de la tabla</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">klist</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">newList</span><span class="p">(</span><span class="s1">&#39;SINGLE_LINKED&#39;</span><span class="p">,</span> <span class="n">bst</span><span class="p">[</span><span class="s1">&#39;cmpfunction&#39;</span><span class="p">])</span>
+        <span class="n">klist</span> <span class="o">=</span> <span class="n">keySetTree</span><span class="p">(</span><span class="n">bst</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">],</span> <span class="n">klist</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">klist</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:KeySet&#39;</span><span class="p">)</span></div>
+
+
+<span class="c1">#TODO Indicar que retorna una lista de DISCLib</span>
+<div class="viewcode-block" id="valueSet">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.valueSet">[documentos]</a>
+<span class="k">def</span> <span class="nf">valueSet</span><span class="p">(</span><span class="n">bst</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Construye una lista con los valores de la tabla</span>
+<span class="sd">    Args:</span>
+<span class="sd">        bst: La tabla con los elementos</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        Una lista con todos los valores</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">vlist</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">newList</span><span class="p">(</span><span class="s1">&#39;SINGLE_LINKED&#39;</span><span class="p">,</span> <span class="n">bst</span><span class="p">[</span><span class="s1">&#39;cmpfunction&#39;</span><span class="p">])</span>
+        <span class="n">vlist</span> <span class="o">=</span> <span class="n">valueSetTree</span><span class="p">(</span><span class="n">bst</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">],</span> <span class="n">vlist</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">vlist</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:valueSet&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="minKey">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.minKey">[documentos]</a>
+<span class="k">def</span> <span class="nf">minKey</span><span class="p">(</span><span class="n">bst</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retorna la menor llave de la tabla de simbolos</span>
+<span class="sd">    Args:</span>
+<span class="sd">        bst: La tabla de simbolos</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        La menor llave de la tabla</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="n">minKeyNode</span><span class="p">(</span><span class="n">bst</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">])</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">node</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">node</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">node</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:minKey&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="maxKey">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.maxKey">[documentos]</a>
+<span class="k">def</span> <span class="nf">maxKey</span><span class="p">(</span><span class="n">bst</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retorna la mayor llave de la tabla de simbolos</span>
+<span class="sd">    Args:</span>
+<span class="sd">        bst: La tabla de simbolos</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        La mayor llave de la tabla</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="n">maxKeyNode</span><span class="p">(</span><span class="n">bst</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">])</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">node</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">node</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">node</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:maxKey&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="deleteMin">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.deleteMin">[documentos]</a>
+<span class="k">def</span> <span class="nf">deleteMin</span><span class="p">(</span><span class="n">bst</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Encuentra y remueve la menor llave de la tabla de simbolos</span>
+<span class="sd">    y su valor asociado</span>
+<span class="sd">    Args:</span>
+<span class="sd">        bst: La tabla de simbolos</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        La tabla de simbolos sin la menor llave</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">deleteMinTree</span><span class="p">(</span><span class="n">bst</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">])</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:deleteMin&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="deleteMax">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.deleteMax">[documentos]</a>
+<span class="k">def</span> <span class="nf">deleteMax</span><span class="p">(</span><span class="n">bst</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Encuentra y remueve la mayor llave de la tabla de simbolos</span>
+<span class="sd">    y su valor asociado</span>
+<span class="sd">    Args:</span>
+<span class="sd">        bst: La tabla de simbolos</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        La tabla de simbolos sin la mayor llave</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">deleteMaxTree</span><span class="p">(</span><span class="n">bst</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">])</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:deleteMax&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="floor">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.floor">[documentos]</a>
+<span class="k">def</span> <span class="nf">floor</span><span class="p">(</span><span class="n">bst</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retorna la llave mas grande en la tabla de simbolos,</span>
+<span class="sd">    menor o igual a la llave key</span>
+<span class="sd">    Args:</span>
+<span class="sd">        bst: La tabla de simbolos</span>
+<span class="sd">        key: La llave de búsqueda</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        La llave más grande menor o igual a key</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="n">floorKey</span><span class="p">(</span><span class="n">bst</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">],</span> <span class="n">key</span><span class="p">,</span> <span class="n">bst</span><span class="p">[</span><span class="s1">&#39;cmpfunction&#39;</span><span class="p">])</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">node</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">node</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">node</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:floor&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="ceiling">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.ceiling">[documentos]</a>
+<span class="k">def</span> <span class="nf">ceiling</span><span class="p">(</span><span class="n">bst</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retorna la llave mas pequeña en la tabla de simbolos,</span>
+<span class="sd">    mayor o igual a la llave key</span>
+<span class="sd">    Args:</span>
+<span class="sd">        bst: La tabla de simbolos</span>
+<span class="sd">        key: la llave de búsqueda</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        La llave más pequeña mayor o igual a Key</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="n">ceilingKey</span><span class="p">(</span><span class="n">bst</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">],</span> <span class="n">key</span><span class="p">,</span> <span class="n">bst</span><span class="p">[</span><span class="s1">&#39;cmpfunction&#39;</span><span class="p">])</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">node</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">node</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">node</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:ceiling&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="select">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.select">[documentos]</a>
+<span class="k">def</span> <span class="nf">select</span><span class="p">(</span><span class="n">bst</span><span class="p">,</span> <span class="n">pos</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retorna la siguiente llave a la k-esima llave mas pequeña de la tabla</span>
+<span class="sd">    Args:</span>
+<span class="sd">        bst: La tabla de simbolos</span>
+<span class="sd">        pos: la pos-esima llave mas pequeña</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        La llave más pequeña mayor o igual a Key</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="n">selectKey</span><span class="p">(</span><span class="n">bst</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">],</span> <span class="n">pos</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">node</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">node</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">node</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:Select&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="rank">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.rank">[documentos]</a>
+<span class="k">def</span> <span class="nf">rank</span><span class="p">(</span><span class="n">bst</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retorna el número de llaves en la tabla estrictamente menores que key</span>
+<span class="sd">    Args:</span>
+<span class="sd">        bst: La tabla de simbolos</span>
+<span class="sd">        key: La llave de búsqueda</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        El nuemero de llaves encontradas</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">rankKeys</span><span class="p">(</span><span class="n">bst</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">],</span> <span class="n">key</span><span class="p">,</span> <span class="n">bst</span><span class="p">[</span><span class="s1">&#39;cmpfunction&#39;</span><span class="p">])</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:rank&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="height">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.height">[documentos]</a>
+<span class="k">def</span> <span class="nf">height</span><span class="p">(</span><span class="n">bst</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retorna la altura del arbol de busqueda</span>
+<span class="sd">    Args:</span>
+<span class="sd">        bst: La tabla de simbolos</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        La altura del arbol</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">heightTree</span><span class="p">(</span><span class="n">bst</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">])</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:height&#39;</span><span class="p">)</span></div>
+
+
+<span class="c1">#TODO Indicar que retorna una lista de DISCLib</span>
+<div class="viewcode-block" id="keys">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.keys">[documentos]</a>
+<span class="k">def</span> <span class="nf">keys</span><span class="p">(</span><span class="n">bst</span><span class="p">,</span> <span class="n">keylo</span><span class="p">,</span> <span class="n">keyhi</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retorna todas las llaves del arbol que se encuentren entre</span>
+<span class="sd">    [keylo, keyhi]</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        bst: La tabla de simbolos</span>
+<span class="sd">        keylo: límite inferior</span>
+<span class="sd">        keylohi: límite superiorr</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        Las llaves en el rago especificado</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">lstkeys</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">newList</span><span class="p">(</span><span class="s1">&#39;SINGLE_LINKED&#39;</span><span class="p">,</span> <span class="n">bst</span><span class="p">[</span><span class="s1">&#39;cmpfunction&#39;</span><span class="p">])</span>
+        <span class="n">lstkeys</span> <span class="o">=</span> <span class="n">keysRange</span><span class="p">(</span><span class="n">bst</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">],</span> <span class="n">keylo</span><span class="p">,</span> <span class="n">keyhi</span><span class="p">,</span> <span class="n">lstkeys</span><span class="p">,</span>
+                            <span class="n">bst</span><span class="p">[</span><span class="s1">&#39;cmpfunction&#39;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">lstkeys</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:keys&#39;</span><span class="p">)</span></div>
+
+
+<span class="c1">#FIXME Modificar documentación del retorno</span>
+<span class="c1">#TODO Indicar que retorna una lista de DISCLib</span>
+<div class="viewcode-block" id="values">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.values">[documentos]</a>
+<span class="k">def</span> <span class="nf">values</span><span class="p">(</span><span class="n">bst</span><span class="p">,</span> <span class="n">keylo</span><span class="p">,</span> <span class="n">keyhi</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retorna todas los valores del arbol que se encuentren entre</span>
+<span class="sd">    [keylo, keyhi]</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        bst: La tabla de simbolos</span>
+<span class="sd">        keylo: límite inferior</span>
+<span class="sd">        keylohi: límite superiorr</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        Las llaves en el rago especificado</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">lstvalues</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">newList</span><span class="p">(</span><span class="s1">&#39;SINGLE_LINKED&#39;</span><span class="p">,</span> <span class="n">bst</span><span class="p">[</span><span class="s1">&#39;cmpfunction&#39;</span><span class="p">])</span>
+        <span class="n">lstvalues</span> <span class="o">=</span> <span class="n">valuesRange</span><span class="p">(</span><span class="n">bst</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">],</span> <span class="n">keylo</span><span class="p">,</span> <span class="n">keyhi</span><span class="p">,</span> <span class="n">lstvalues</span><span class="p">,</span>
+                                <span class="n">bst</span><span class="p">[</span><span class="s1">&#39;cmpfunction&#39;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">lstvalues</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:Values&#39;</span><span class="p">)</span></div>
+
+
+<span class="c1"># _____________________________________________________________________</span>
+<span class="c1">#            Funciones Helper</span>
+<span class="c1"># _____________________________________________________________________</span>
+
+
+<div class="viewcode-block" id="insertNode">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.insertNode">[documentos]</a>
+<span class="k">def</span> <span class="nf">insertNode</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">cmpfunction</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Ingresa una pareja llave,valor. Si la llave ya existe,</span>
+<span class="sd">    se reemplaza el valor.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        root: La raiz del arbol</span>
+<span class="sd">        key: La llave asociada a la pareja</span>
+<span class="sd">        value: El valor asociado a la pareja</span>
+<span class="sd">        cmpfunction : Función de comparación</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        El arbol con la nueva pareja</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">root</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="n">root</span> <span class="o">=</span> <span class="n">bstnode</span><span class="o">.</span><span class="n">newNode</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cmp</span> <span class="o">=</span> <span class="n">cmpfunction</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">root</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">])</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">cmp</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">):</span>           <span class="c1"># La llave a insertar es menor que la raiz</span>
+                <span class="n">root</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">insertNode</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">],</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span>
+                                          <span class="n">cmpfunction</span><span class="p">)</span>
+
+            <span class="k">elif</span> <span class="p">(</span><span class="n">cmp</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>        <span class="c1"># La llave a insertar es mayor que la raiz</span>
+                <span class="n">root</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">insertNode</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">],</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span>
+                                           <span class="n">cmpfunction</span><span class="p">)</span>
+
+            <span class="k">else</span><span class="p">:</span>                  <span class="c1"># La llave a insertar es igual que la raiz</span>
+                <span class="n">root</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="n">leftsize</span> <span class="o">=</span> <span class="n">sizeTree</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">])</span>
+        <span class="n">rightsize</span> <span class="o">=</span> <span class="n">sizeTree</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">])</span>
+        <span class="n">root</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">leftsize</span> <span class="o">+</span> <span class="n">rightsize</span>
+        <span class="k">return</span> <span class="n">root</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:insertNode&#39;</span><span class="p">)</span></div>
+
+
+<span class="c1">#FIXME Modificar documentación del retorno</span>
+<div class="viewcode-block" id="getNode">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.getNode">[documentos]</a>
+<span class="k">def</span> <span class="nf">getNode</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">cmpfunction</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retorna la pareja lleve-valor con llave igual  a key</span>
+<span class="sd">    Args:</span>
+<span class="sd">        root: El arbol de búsqueda</span>
+<span class="sd">        key: La llave asociada a la pareja</span>
+<span class="sd">        cmpfunction: Función de comparación</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        El arbol con la nueva pareja</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">root</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="n">cmp</span> <span class="o">=</span> <span class="n">cmpfunction</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">root</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">])</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">cmp</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="n">node</span> <span class="o">=</span> <span class="n">root</span>
+            <span class="k">elif</span> <span class="p">(</span><span class="n">cmp</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="n">node</span> <span class="o">=</span> <span class="n">getNode</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">],</span> <span class="n">key</span><span class="p">,</span> <span class="n">cmpfunction</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">node</span> <span class="o">=</span> <span class="n">getNode</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">],</span> <span class="n">key</span><span class="p">,</span> <span class="n">cmpfunction</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">node</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:getNode&#39;</span><span class="p">)</span></div>
+
+
+<span class="c1">#FIXME Agregar parámetro cmpfunction en la documentación.</span>
+<span class="c1">#TODO Modificar documentación para que siga el mismo formato que las demás funciones</span>
+<div class="viewcode-block" id="removeNode">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.removeNode">[documentos]</a>
+<span class="k">def</span> <span class="nf">removeNode</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">cmpfunction</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Elimina la pareja llave,valor, donde llave == key.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        bst: El arbol de búsqueda</span>
+<span class="sd">        key: La llave asociada a la pareja</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        El arbol sin la pareja key-value</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">root</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="n">cmp</span> <span class="o">=</span> <span class="n">cmpfunction</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">root</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">])</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">cmp</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>  <span class="c1"># La llave es la que se busca</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>   <span class="c1"># No tiene hijo derecho</span>
+                    <span class="k">return</span> <span class="n">root</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span>
+                <span class="k">elif</span> <span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>  <span class="c1"># No tiene hijo izquierdo</span>
+                    <span class="k">return</span> <span class="n">root</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>      <span class="c1"># se cambia por el menor de los mayores</span>
+                    <span class="n">elem</span> <span class="o">=</span> <span class="n">root</span>
+                    <span class="n">root</span> <span class="o">=</span> <span class="n">minKeyNode</span><span class="p">(</span><span class="n">elem</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">])</span>
+                    <span class="n">root</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">deleteMinTree</span><span class="p">(</span><span class="n">elem</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">])</span>
+                    <span class="n">root</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">elem</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="p">(</span><span class="n">cmp</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="n">root</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">removeNode</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">],</span> <span class="n">key</span><span class="p">,</span> <span class="n">cmpfunction</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">root</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">removeNode</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">],</span> <span class="n">key</span><span class="p">,</span> <span class="n">cmpfunction</span><span class="p">)</span>
+            <span class="n">root</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">sizeTree</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">])</span> <span class="o">+</span> <span class="n">sizeTree</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">root</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:removeNode&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="sizeTree">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.sizeTree">[documentos]</a>
+<span class="k">def</span> <span class="nf">sizeTree</span><span class="p">(</span><span class="n">root</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retornar el número de entradas en la a partir un punto dado</span>
+<span class="sd">    Args:</span>
+<span class="sd">        root: El arbol de búsqueda</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        El número de elementos en la tabla</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">root</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">root</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:sizeTree&#39;</span><span class="p">)</span></div>
+
+
+<span class="c1">#FIXME Corregir errores ortografía documentación</span>
+<div class="viewcode-block" id="valueSetTree">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.valueSetTree">[documentos]</a>
+<span class="k">def</span> <span class="nf">valueSetTree</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">klist</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Construye una lista con los valorers de la tabla</span>
+<span class="sd">    Args:</span>
+<span class="sd">        root: El arbol con los elementos</span>
+<span class="sd">        klist: La lista de respuesta</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        Una lista con todos los valores</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">root</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="n">valueSetTree</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">],</span> <span class="n">klist</span><span class="p">)</span>
+            <span class="n">lt</span><span class="o">.</span><span class="n">addLast</span><span class="p">(</span><span class="n">klist</span><span class="p">,</span> <span class="n">root</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">])</span>
+            <span class="n">valueSetTree</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">],</span> <span class="n">klist</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">klist</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:valueSetTree&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="keySetTree">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.keySetTree">[documentos]</a>
+<span class="k">def</span> <span class="nf">keySetTree</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">klist</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Construye una lista con las llaves de la tabla</span>
+<span class="sd">    Args:</span>
+<span class="sd">        root: El arbol con los elementos</span>
+<span class="sd">        klist: La lista de respuesta</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        Una lista con todos las llaves</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">root</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="n">keySetTree</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">],</span> <span class="n">klist</span><span class="p">)</span>
+            <span class="n">lt</span><span class="o">.</span><span class="n">addLast</span><span class="p">(</span><span class="n">klist</span><span class="p">,</span> <span class="n">root</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">])</span>
+            <span class="n">keySetTree</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">],</span> <span class="n">klist</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">klist</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:keySetTree&#39;</span><span class="p">)</span></div>
+
+
+<span class="c1">#TODO Cambiar documentación del retorno para que sea más entendible</span>
+<div class="viewcode-block" id="minKeyNode">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.minKeyNode">[documentos]</a>
+<span class="k">def</span> <span class="nf">minKeyNode</span><span class="p">(</span><span class="n">root</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retorna la menor llave de la tabla de simbolos</span>
+<span class="sd">    Args:</span>
+<span class="sd">        root: La raiz del arbol de busqueda</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        El elemento mas izquierdo del arbol</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="nb">min</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">root</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+                <span class="nb">min</span> <span class="o">=</span> <span class="n">root</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">min</span> <span class="o">=</span> <span class="n">minKeyNode</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="nb">min</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:minKeyNode&#39;</span><span class="p">)</span></div>
+
+
+<span class="c1">#FIXME Que los parametros de la documentación y el código tengan el mismo nombre</span>
+<span class="c1">#TODO Cambiar documentación del retorno para que sea más entendible</span>
+<div class="viewcode-block" id="maxKeyNode">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.maxKeyNode">[documentos]</a>
+<span class="k">def</span> <span class="nf">maxKeyNode</span><span class="p">(</span><span class="n">root</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retorna la mayor llave de la tabla de simbolos</span>
+<span class="sd">    Args:</span>
+<span class="sd">        bst: La tabla de simbolos</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        El elemento mas derecho del árbol</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="nb">max</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">root</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+                <span class="nb">max</span> <span class="o">=</span> <span class="n">root</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">max</span> <span class="o">=</span> <span class="n">maxKeyNode</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="nb">max</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:maxKeyNode&#39;</span><span class="p">)</span></div>
+
+
+<span class="c1">#FIXME Modificar documentación de retorno</span>
+<div class="viewcode-block" id="deleteMinTree">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.deleteMinTree">[documentos]</a>
+<span class="k">def</span> <span class="nf">deleteMinTree</span><span class="p">(</span><span class="n">root</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Encuentra y remueve la menor llave de la tabla de simbolos</span>
+<span class="sd">    y su valor asociado</span>
+<span class="sd">    Args:</span>
+<span class="sd">        root: La raiz del arbol de busqueda</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        El arbol de busqueda</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Excep</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">root</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">root</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">root</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">deleteMinTree</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">])</span>
+            <span class="n">root</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sizeTree</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">])</span> <span class="o">+</span> <span class="n">sizeTree</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">])</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">root</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:deleteMinTree&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="deleteMaxTree">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.deleteMaxTree">[documentos]</a>
+<span class="k">def</span> <span class="nf">deleteMaxTree</span><span class="p">(</span><span class="n">root</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Encuentra y remueve la mayor llave de la tabla de simbolos</span>
+<span class="sd">    y su valor asociado</span>
+<span class="sd">    Args:</span>
+<span class="sd">        root: el arbol de busqueda</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        El árbol de búsqueda sin la mayor llave</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Excep</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">root</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">root</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">root</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">deleteMaxTree</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">])</span>
+            <span class="n">root</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sizeTree</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">])</span> <span class="o">+</span> <span class="n">sizeTree</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">])</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">root</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:deleteMaxTree&#39;</span><span class="p">)</span></div>
+
+
+<span class="c1">#FIXME Explicar todos los parámetros en la documentación</span>
+<span class="c1">#FIXME Corregir la documentación del retorno</span>
+<div class="viewcode-block" id="floorKey">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.floorKey">[documentos]</a>
+<span class="k">def</span> <span class="nf">floorKey</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">cmpfunction</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retorna la llave mas grande en la tabla de simbolos,</span>
+<span class="sd">    menor o igual a la llave key</span>
+<span class="sd">    Args:</span>
+<span class="sd">        bst: La tabla de simbolos</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        La tabla de simbolos sin la mayor llave</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Excep</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">root</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="n">cmp</span> <span class="o">=</span> <span class="n">cmpfunction</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">root</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">])</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">cmp</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">root</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">cmp</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">floorKey</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">],</span> <span class="n">key</span><span class="p">,</span> <span class="n">cmpfunction</span><span class="p">)</span>
+            <span class="n">t</span> <span class="o">=</span> <span class="n">floorKey</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">],</span> <span class="n">key</span><span class="p">,</span> <span class="n">cmpfunction</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">t</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">t</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">root</span>
+        <span class="k">return</span> <span class="n">root</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:floorKey&#39;</span><span class="p">)</span></div>
+
+
+<span class="c1">#FIXME Explicar todos los parámetros en la documentación</span>
+<div class="viewcode-block" id="ceilingKey">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.ceilingKey">[documentos]</a>
+<span class="k">def</span> <span class="nf">ceilingKey</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">cmpfunction</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retorna la llave mas pequeña en la tabla de simbolos,</span>
+<span class="sd">    mayor o igual a la llave key</span>
+<span class="sd">    Args:</span>
+<span class="sd">        bst: La tabla de simbolos</span>
+<span class="sd">        key: la llave de búsqueda</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        La llave más pequeña mayor o igual a Key</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Excep</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">root</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="n">cmp</span> <span class="o">=</span> <span class="n">cmpfunction</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">root</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">])</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">cmp</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">root</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">cmp</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="n">t</span> <span class="o">=</span> <span class="n">ceilingKey</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">],</span> <span class="n">key</span><span class="p">,</span> <span class="n">cmpfunction</span><span class="p">)</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">t</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="n">t</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">root</span>
+            <span class="k">return</span> <span class="n">ceilingKey</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">],</span> <span class="n">key</span><span class="p">,</span> <span class="n">cmpfunction</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:ceilingKey&#39;</span><span class="p">)</span></div>
+
+
+<span class="c1">#FIXME Modificar documentación de retorno</span>
+<span class="c1">#FIXME Los nombres de los parámetros deben ser los mismo en código y documentación</span>
+<div class="viewcode-block" id="selectKey">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.selectKey">[documentos]</a>
+<span class="k">def</span> <span class="nf">selectKey</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retorna la k-esima llave mas pequeña de la tabla</span>
+<span class="sd">    Args:</span>
+<span class="sd">        bst: La tabla de simbolos</span>
+<span class="sd">        key: la llave de búsqueda</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        La llave más pequeña mayor o igual a Key</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Excep</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">root</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="n">cont</span> <span class="o">=</span> <span class="n">sizeTree</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">])</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">cont</span> <span class="o">&gt;</span> <span class="n">key</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">selectKey</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">],</span> <span class="n">key</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="p">(</span><span class="n">cont</span> <span class="o">&lt;</span> <span class="n">key</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">selectKey</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">],</span> <span class="n">key</span><span class="o">-</span><span class="n">cont</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">root</span>
+        <span class="k">return</span> <span class="n">root</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:selectKey&#39;</span><span class="p">)</span></div>
+
+
+<span class="c1">#FIXME Documentar de manera correcta los parámetros</span>
+<div class="viewcode-block" id="rankKeys">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.rankKeys">[documentos]</a>
+<span class="k">def</span> <span class="nf">rankKeys</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">cmpfunction</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retorna el número de llaves en la tabla estrictamente menores que key</span>
+<span class="sd">    Args:</span>
+<span class="sd">        bst: La tabla de simbolos</span>
+<span class="sd">        key: la llave de busqueda</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        El numero de llaves</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">root</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="n">cmp</span> <span class="o">=</span> <span class="n">cmpfunction</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">root</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">])</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">cmp</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">rankKeys</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">],</span> <span class="n">key</span><span class="p">,</span> <span class="n">cmpfunction</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="p">(</span><span class="n">cmp</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="n">leftsize</span> <span class="o">=</span> <span class="n">sizeTree</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">])</span>
+                <span class="n">rank</span> <span class="o">=</span> <span class="n">rankKeys</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">],</span> <span class="n">key</span><span class="p">,</span> <span class="n">cmpfunction</span><span class="p">)</span>
+                <span class="n">total</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">leftsize</span> <span class="o">+</span> <span class="n">rank</span>
+                <span class="k">return</span> <span class="n">total</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">sizeTree</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:ranKeys&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="heightTree">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.heightTree">[documentos]</a>
+<span class="k">def</span> <span class="nf">heightTree</span><span class="p">(</span><span class="n">root</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retorna la altura del arbol de busqueda</span>
+<span class="sd">    Args:</span>
+<span class="sd">        root: La tabla de simbolos</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        La altura del arbol</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Excep</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">root</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">1</span> <span class="o">+</span> <span class="nb">max</span><span class="p">(</span><span class="n">heightTree</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]),</span>
+                           <span class="n">heightTree</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]))</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:heihgTree&#39;</span><span class="p">)</span></div>
+
+
+<span class="c1">#FIXME Documentar de manera correcta los parámetros</span>
+<span class="c1">#TODO Indicar que retorna una lista de DISCLib</span>
+<div class="viewcode-block" id="keysRange">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.keysRange">[documentos]</a>
+<span class="k">def</span> <span class="nf">keysRange</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">keylo</span><span class="p">,</span> <span class="n">keyhi</span><span class="p">,</span> <span class="n">lstkeys</span><span class="p">,</span> <span class="n">cmpfunction</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retorna todas las llaves del arbol en un rango dado</span>
+<span class="sd">    Args:</span>
+<span class="sd">        bst: La tabla de simbolos</span>
+<span class="sd">        keylo: límite inferior</span>
+<span class="sd">        keylohi: límite superiorr</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        Las llaves en el rago especificado</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Excep</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">root</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="n">complo</span> <span class="o">=</span> <span class="n">cmpfunction</span><span class="p">(</span><span class="n">keylo</span><span class="p">,</span> <span class="n">root</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">])</span>
+            <span class="n">comphi</span> <span class="o">=</span> <span class="n">cmpfunction</span><span class="p">(</span><span class="n">keyhi</span><span class="p">,</span> <span class="n">root</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">])</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">complo</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="n">keysRange</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">],</span> <span class="n">keylo</span><span class="p">,</span> <span class="n">keyhi</span><span class="p">,</span> <span class="n">lstkeys</span><span class="p">,</span> <span class="n">cmpfunction</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">((</span><span class="n">complo</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">comphi</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)):</span>
+                <span class="n">lt</span><span class="o">.</span><span class="n">addLast</span><span class="p">(</span><span class="n">lstkeys</span><span class="p">,</span> <span class="n">root</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">])</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">comphi</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="n">keysRange</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">],</span> <span class="n">keylo</span><span class="p">,</span> <span class="n">keyhi</span><span class="p">,</span> <span class="n">lstkeys</span><span class="p">,</span> <span class="n">cmpfunction</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">lstkeys</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:keysRange&#39;</span><span class="p">)</span></div>
+
+
+<span class="c1">#FIXME Documentar de manera correcta los parámetros</span>
+<span class="c1">#FIXME Corregir documentación del retorno</span>
+<span class="c1">#TODO Indicar que retorna una lista de DISCLib</span>
+<div class="viewcode-block" id="valuesRange">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.valuesRange">[documentos]</a>
+<span class="k">def</span> <span class="nf">valuesRange</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">keylo</span><span class="p">,</span> <span class="n">keyhi</span><span class="p">,</span> <span class="n">lstvalues</span><span class="p">,</span> <span class="n">cmpfunction</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retorna todas los valores del arbol en un rango dado por</span>
+<span class="sd">    [keylo, keyhi]</span>
+<span class="sd">    Args:</span>
+<span class="sd">        bst: La tabla de simbolos</span>
+<span class="sd">        keylo: límite inferior</span>
+<span class="sd">        keylohi: límite superior</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        Las llaves en el rago especificado</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Excep</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">root</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="n">complo</span> <span class="o">=</span> <span class="n">cmpfunction</span><span class="p">(</span><span class="n">keylo</span><span class="p">,</span> <span class="n">root</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">])</span>
+            <span class="n">comphi</span> <span class="o">=</span> <span class="n">cmpfunction</span><span class="p">(</span><span class="n">keyhi</span><span class="p">,</span> <span class="n">root</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">])</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">complo</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="n">valuesRange</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">],</span> <span class="n">keylo</span><span class="p">,</span> <span class="n">keyhi</span><span class="p">,</span> <span class="n">lstvalues</span><span class="p">,</span>
+                            <span class="n">cmpfunction</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">((</span><span class="n">complo</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">comphi</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)):</span>
+                <span class="n">lt</span><span class="o">.</span><span class="n">addLast</span><span class="p">(</span><span class="n">lstvalues</span><span class="p">,</span> <span class="n">root</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">])</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">comphi</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="n">valuesRange</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">],</span> <span class="n">keylo</span><span class="p">,</span> <span class="n">keyhi</span><span class="p">,</span> <span class="n">lstvalues</span><span class="p">,</span>
+                            <span class="n">cmpfunction</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">lstvalues</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
+        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:valuesrange&#39;</span><span class="p">)</span></div>
+
+
+<span class="c1">#FIXME Documentar de manera correcta</span>
+<div class="viewcode-block" id="defaultfunction">
+<a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.defaultfunction">[documentos]</a>
+<span class="k">def</span> <span class="nf">defaultfunction</span><span class="p">(</span><span class="n">key1</span><span class="p">,</span> <span class="n">key2</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">key1</span> <span class="o">==</span> <span class="n">key2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">elif</span> <span class="n">key1</span> <span class="o">&lt;</span> <span class="n">key2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor Uniandes, Bogotá - Colombia, Sur América,
+             Facultad de Ingeniería, DISC Desarrollado
+             para ISIS-1225, EDA.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

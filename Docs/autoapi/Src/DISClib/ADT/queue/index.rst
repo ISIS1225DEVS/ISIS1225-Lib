@@ -1,0 +1,74 @@
+:py:mod:`Src.DISClib.ADT.queue`
+===============================
+
+.. py:module:: Src.DISClib.ADT.queue
+
+.. autoapi-nested-parse::
+
+   Este ADT representa una cola/fila implementada sobre una lista. Esta cola o fila (queue) es una estructura de datos que permite almacenar una colección de elementos y operar sobre ellos en el mismo orden en que fueron agregados (FIFO).
+
+   La implementación de la cola se realiza sobre una lista simplemente
+   encadenada (SingleLinked) para garantizar que las operaciones de agregar y
+   eliminar elementos se realicen en tiempo constante y no consumir memoria
+   innecesaria.
+
+   *IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:
+
+       #. Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.
+       #. Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H. Goldwasser.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   Src.DISClib.ADT.queue.Queue
+
+
+
+
+.. py:class:: Queue
+
+
+   Bases: :py:obj:`Src.DISClib.DataStructures.singlelinkedlist.SingleLinked`
+
+   **Queue** representa una cola implementada sobre una lista sencillamente encadenada (*SingleLinked*) y @dataclass para que sea una estructura de datos genérica. Esta cola o fila (*Queue*) es un Tipo Abstracto de Datos (TAD/ADT) que permite almacenar una colección de elementos y operarlos en el mismo orden en que fueron agregados (FIFO - Firts In First Out).
+
+   *IMPORTANTE:* *Queue* extiende de la clase *SingleLinked*, por lo que hereda todos sus parametros internos y funciones.
+
+   :param SingleLinked: ADT *DISClib* que implementa las funciones básicas de una lista sencillamente encadenada.
+   :type SingleLinked: dataclass
+
+   :returns: ADT de tipo *Queue*, Cola o Fila, implementado sobre una lista sencillamente encadenada.
+   :rtype: Queue
+
+   .. py:method:: enqueue(element: Src.DISClib.Utils.default.T) -> None
+
+      *enqueue()* encola o agrega un elemento en el final del ADT *Queue*.
+
+      :param element: el elemento que se quiere agregar al ADT *Queue*.
+      :type element: T
+
+
+   .. py:method:: dequeue() -> Src.DISClib.Utils.default.T
+
+      *dequeue()* desencola o remueve el elemento en la primera posición del ADT *Queue*.
+
+      :returns: el elemento de la primera posición del ADT *Queue*.
+      :rtype: T
+
+
+   .. py:method:: peek() -> Optional[Src.DISClib.Utils.default.T]
+
+      *peek()* lee el primer elemento del ADT *Queue* sin eliminarlo.
+
+      :returns: el elemento en la primera posición del ADT *Queue*.
+      :rtype: T
+
+
+

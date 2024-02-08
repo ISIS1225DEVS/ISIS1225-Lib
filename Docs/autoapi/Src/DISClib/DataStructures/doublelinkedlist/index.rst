@@ -1,0 +1,339 @@
+:py:mod:`Src.DISClib.DataStructures.doublelinkedlist`
+=====================================================
+
+.. py:module:: Src.DISClib.DataStructures.doublelinkedlist
+
+.. autoapi-nested-parse::
+
+   Este ADT representa una estructura de datos lineal, específicamente una lista doblemente enlazada/encadenada (**DoubleLinked**). Esta estructura de datos es una secuencia de nodos enlazados, donde cada nodo contiene un elemento de información, una referencia al siguiente, y al anterior nodo en la secuencia. Esto le permite a la lista un crecimiento y reducción dinámico en la memoria disponible.
+
+   *IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:
+
+       #. Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.
+       #. Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H. Goldwasser.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   Src.DISClib.DataStructures.doublelinkedlist.DoubleLinked
+
+
+
+
+.. py:class:: DoubleLinked
+
+
+   Bases: :py:obj:`Generic`\ [\ :py:obj:`Src.DISClib.Utils.default.T`\ ]
+
+   **DoubleLinked** representa una estructura de datos para una lista doblemente enlazada/encadenada (*DoubleLinked*). Implementada con Generic[T] y @dataclass para que sea una estructura de datos genérica.
+
+   :param Generic: TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.
+   :type Generic: T
+
+   :returns: ADT de tipo *DoubleLinked* o Lista Doblemente Encadenada.
+   :rtype: DoubleLinked
+
+   .. py:attribute:: iodata
+      :type: Optional[List[Src.DISClib.Utils.default.T]]
+
+      Lista nativa de Python personalizable por el usuario para inicializar la estructura. Por defecto es *None* y el usuario puede incluirla como argumento al crear la estructura.
+
+   .. py:attribute:: cmp_function
+      :type: Optional[Callable[[Src.DISClib.Utils.default.T, Src.DISClib.Utils.default.T], int]]
+
+      Función de comparación personalizable por el usuario para reconocer los elementos dentro del *DoubleLinked*. Por defecto es la función *lt_default_cmp_funcion()* propia de *DISClib*, puede ser un parametro al crear la estructura.
+
+   .. py:attribute:: _header
+      :type: Optional[Src.DISClib.DataStructures.listnode.DoubleNode[Src.DISClib.Utils.default.T]]
+
+      Representa el nodo sentinela de la cabecera de la estructura (header), por defecto es un *DoubleNode* vacío.
+
+   .. py:attribute:: _trailer
+      :type: Optional[Src.DISClib.DataStructures.listnode.DoubleNode[Src.DISClib.Utils.default.T]]
+
+      Representa el nodo sentinela del colero de la estructura (trailer), por defecto es un *DoubleNode* vacío.
+
+   .. py:attribute:: key
+      :type: Optional[str]
+
+      Nombre de la llave personalizable por el usuario utilizada para reconocer los elementos dentro del *DoubleLinked*. Por defecto es la llave de diccionario (*dict*) *DEFAULT_DICT_KEY = 'id'* propia de *DISClib*, puede ser un parametro al crear la estructura.
+
+   .. py:attribute:: _size
+      :type: int
+
+      Es el número de elementos que contiene la estructura, por defecto es 0, en algunos casos es -1 para ajustar por los nodos sentinelas de la estructura.
+
+   .. py:method:: __post_init__() -> None
+
+      *__post_init__()* configura los parametros personalizados por el usuario al crear el *DoubleLinked*. En caso de no estar definidos, se asignan los valores por defecto, puede cargar listas nativas con el parametro *iodata* de python dentro de la estructura.
+
+
+
+   .. py:method:: default_cmp_function(elm1, elm2) -> int
+
+      *default_cmp_function()* es la función de comparación por defecto para comparar elementos dentro del *DoubleLinked*, es una función crucial para que la estructura funcione correctamente.
+
+      :param elm1: primer elemento a comparar.
+      :type elm1: Any
+      :param elm2: segundo elemento a comparar.
+      :type elm2: Any
+
+      :returns: respuesta de la comparación entre los elementos, 0 si son iguales, 1 si elm1 es mayor que elm2, -1 si elm1 es menor.
+      :rtype: int
+
+
+   .. py:method:: _handle_error(err: Exception) -> None
+
+      *_handle_error()* función propia de la estructura que maneja los errores que se pueden presentar en el *DoubleLinked*.
+
+      Si se presenta un error en *DoubleLinked*, se formatea el error según el contexto (paquete/módulo/clase), la función (método) que lo generó y lo reenvia al componente superior en la jerarquía *DISCLib* para manejarlo segun se considere conveniente el usuario.
+
+      :param err: Excepción que se generó en el *DoubleLinked*.
+      :type err: Exception
+
+
+   .. py:method:: _check_type(element: Src.DISClib.Utils.default.T) -> bool
+
+      *_check_type()* función propia de la estructura que revisa si el tipo de dato del elemento que se desea agregar al *DoubleLinked* es del mismo tipo contenido dentro de los elementos del *DoubleLinked*.
+
+      :param element: elemento que se desea procesar en *DoubleLinked*.
+      :type element: T
+
+      :raises TypeError: error si el tipo de dato del elemento que se desea agregar no es el mismo que el tipo de dato de los elementos que ya contiene el *DoubleLinked*.
+
+      :returns: operador que indica si el ADT *DoubleLinked* es del mismo tipo que el elemento que se desea procesar.
+      :rtype: bool
+
+
+   .. py:method:: is_empty() -> bool
+
+      *is_empty()* revisa si el *DoubleLinked* está vacío.
+
+      :returns: operador que indica si la estructura *DoubleLinked* está vacía.
+      :rtype: bool
+
+
+   .. py:method:: size() -> int
+
+      *size()* devuelve el número de elementos que actualmente contiene el *DoubleLinked*.
+
+      :returns: tamaño de la estructura *DoubleLinked*.
+      :rtype: int
+
+
+   .. py:method:: add_first(element: Src.DISClib.Utils.default.T) -> None
+
+      *add_first()* adiciona un elemento al inicio del *DoubleLinked*.
+
+      :param element: elemento que se desea agregar a la estructura.
+      :type element: T
+
+      :raises Exception: si la operación no se puede realizar, se invoca la función *_handle_error()* para manejar el error.
+
+
+   .. py:method:: add_last(element: Src.DISClib.Utils.default.T) -> None
+
+      *add_last()* adiciona un elemento al final del *DoubleLinked*.
+
+      :param element: elemento que se desea agregar a la estructura.
+      :type element: T
+
+      :raises Exception: si la operación no se puede realizar, se invoca la función *_handle_error()* para manejar el error.
+
+
+   .. py:method:: add_element(element: Src.DISClib.Utils.default.T, pos: int) -> None
+
+      *add_element()* adiciona un elemento en una posición especifica del *DoubleLinked*.
+
+      :param element: elemento que se desea agregar a la estructura.
+      :type element: T
+      :param pos: posición en la que se desea agregar el elemento.
+      :type pos: int
+
+      :raises IndexError: error si la posición es inválida.
+      :raises IndexError: error si la estructura está vacía.
+
+
+   .. py:method:: get_first() -> Optional[Src.DISClib.Utils.default.T]
+
+      *get_first()* lee el primer elemento del *DoubleLinked*.
+
+      :raises Exception: error si la estructura está vacía.
+
+      :returns: el primer elemento del *DoubleLinked*.
+      :rtype: Optional[T]
+
+
+   .. py:method:: get_last() -> Optional[Src.DISClib.Utils.default.T]
+
+      *get_last()* lee el último elemento del *DoubleLinked*.
+
+      :raises Exception: error si la estructura está vacía.
+
+      :returns: el ultimo elemento del *DoubleLinked*.
+      :rtype: Optional[T]
+
+
+   .. py:method:: get_element(pos: int) -> Optional[Src.DISClib.Utils.default.T]
+
+      *get_element()* lee un elemento en una posición especifica del *DoubleLinked*.
+
+      :param pos: posición del elemento que se desea leer.
+      :type pos: int
+
+      :raises Exception: error si la estructura está vacía.
+      :raises Exception: error si la posición es inválida.
+
+      :returns: el elemento en la posición especifica del *DoubleLinked*.
+      :rtype: Optional[T]
+
+
+   .. py:method:: remove_first() -> Optional[Src.DISClib.Utils.default.T]
+
+      *remove_first()* elimina el primer elemento del *DoubleLinked*.
+
+      :raises Exception: error si la estructura está vacía.
+
+      :returns: el primer elemento eliminado del *DoubleLinked*.
+      :rtype: Optional[T]
+
+
+   .. py:method:: remove_last() -> Optional[Src.DISClib.Utils.default.T]
+
+      *remove_last()* elimina el último elemento del *DoubleLinked*.
+
+      :raises Exception: error si la estructura está vacía.
+
+      :returns: el ultimo elemento eliminado del *DoubleLinked*.
+      :rtype: Optional[T]
+
+
+   .. py:method:: remove_element(pos: int) -> Optional[Src.DISClib.Utils.default.T]
+
+      *remove_element()* elimina un elemento en una posición especifica del *DoubleLinked*.
+
+      :param pos: posición del elemento que se desea eliminar.
+      :type pos: int
+
+      :raises IndexError: error si la estructura está vacía.
+      :raises IndexError: error si la posición es inválida.
+
+      :returns: el elemento eliminado del *DoubleLinked*.
+      :rtype: Optional[T]
+
+
+   .. py:method:: compare_elements(elem1: Src.DISClib.Utils.default.T, elem2: Src.DISClib.Utils.default.T) -> int
+
+      *compare_elements()* compara dos elementos dentro del *DoubleLinked* según la función de comparación de la estructura.
+
+      :param elem1: Primer elemento a comparar.
+      :type elem1: T
+      :param elem2: Segundo elemento a comparar.
+      :type elem2: T
+
+      :raises TypeError: error si la función de comparación no está definida.
+
+      :returns: -1 si elem1 es menor que elem2, 0 si son iguales, 1 si elem1 es mayor que elem2.
+      :rtype: int
+
+
+   .. py:method:: find(element: Src.DISClib.Utils.default.T) -> int
+
+      *find()* busca el elemento dentro del *DoubleLinked* y devuelve su posición o -1 si no lo encuentra.
+
+      :param element: elemento que se desea revisar en el *DoubleLinked*.
+      :type element: T
+
+      :returns: la posición del elemento en el *DoubleLinked*, -1 si no está.
+      :rtype: int
+
+
+   .. py:method:: change_info(new_info: Src.DISClib.Utils.default.T, pos: int) -> None
+
+      *change_info()* cambia la información de un elemento en la posición especificada del *DoubleLinked*.
+
+      :param new_info: nueva información que se desea para el elemento.
+      :type new_info: T
+      :param pos: posición del elemento que se desea cambiar.
+      :type pos: int
+
+      :raises IndexError: error si la estructura está vacía.
+      :raises IndexError: error si la posición es inválida.
+
+
+   .. py:method:: exchange(pos1: int, pos2: int) -> None
+
+      *exchange()* intercambia la información de dos elementos en dos posiciones especificadas del *DoubleLinked*.
+
+      :param pos1: posición del primer elemento.
+      :type pos1: int
+      :param pos2: posición del segundo elemento.
+      :type pos2: int
+
+      :raises Exception: error si la estructura está vacía.
+      :raises Exception: error si la posición del primer elemento es inválida.
+      :raises Exception: error si la posición del segundo elemento es inválida.
+
+
+   .. py:method:: sublist(start: int, end: int) -> DoubleLinked[T]
+
+      *sublist()* crea una sublista de la estructura según dos posiciones dentro del *DoubleLinked* original.
+
+      :param start: posición inicial de la sublista.
+      :type start: int
+      :param end: posición final de la sublista.
+      :type end: int
+
+      :raises IndexError: error si la estructura está vacía.
+      :raises IndexError: error si la posición inicial o final son inválidas.
+
+      :returns: una sublista de la estructura original con la función de comparación y la llave de la estructura original.
+      :rtype: DoubleLinked[T]
+
+
+   .. py:method:: concat(other: DoubleLinked[T]) -> DoubleLinked[T]
+
+      *concat()* concatena dos estructuras de datos *DoubleLinked* para crear una estructura con los elementos de las dos estructuras.
+
+      :param other: estructura de datos *DoubleLinked* que se desea concatenar con la estructura original.
+      :type other: DoubleLinked[T]
+
+      :raises TypeError: error si la estructura que se desea concatenar no es un *DoubleLinked*.
+      :raises TypeError: error si la llave de la estructura que se desea unir no es la misma que la llave de la estructura original.
+      :raises TypeError: error si la función de comparación de la estructura que se desea unir no es la misma que la función de comparación de la estructura original.
+
+      :returns: Estructura de datos original *DoubleLinked* que contiene los elementos de las dos estructuras originales.
+      :rtype: DoubleLinked[T]
+
+
+   .. py:method:: __iter__()
+
+      *__iter__()* iterador nativo de Python personalizado para el *DoubleLinked*. Permite utilizar los ciclos *for* de Python para recorrer los elementos de la estructura en orden ascendente.
+
+      :returns: iterador Python sobre los elementos del *DoubleLinked*.
+      :rtype: __iter__
+
+
+   .. py:method:: __reversed__()
+
+      *__reversed__* iterador nativo de Python personalizado para el *DoubleLinked*. Permite utilizar los ciclos *for* de Python para recorrer los elementos de la estructura en orden descendente.
+
+      :Campos: *iterator* -- iterador Python sobre los elementos del *DoubleLinked*.
+
+
+   .. py:method:: __len__() -> int
+
+      *__len__()* función nativa de Python personalizada para el *DoubleLinked*. Permite utilizar la función *len()* de Python para recuperar el tamaño del *DoubleLinked*.
+
+      :returns: tamaño del *DoubleLinked*.
+      :rtype: int
+
+
+

@@ -1,0 +1,125 @@
+:py:mod:`Src.DISClib.DataStructures.mapentry`
+=============================================
+
+.. py:module:: Src.DISClib.DataStructures.mapentry
+
+.. autoapi-nested-parse::
+
+   Este ADT representa la registro de un Mapa no Ordenado (**MapEntry**), el cual es una estructura de datos para almacenar la información en parejas de llave-valor (key-value). La llave (*key*) es un identificador único para cada valor (*value*) almacenado en el Mapa no Ordenado (*Map*). Por su parte, el valor (*value*) puede ser cualquier tipo de dato.
+
+   En el caso de las tablas de Hash, la llave (*key*) es el resultado de aplicar una función hash al valor (*value*) almacenado en el Mapa no Ordenado (*Map*). Esta estructura de datos es fundamental para implementar otros mapas no ordenados como: tablas de símbolos, diccionarios, entre otros.
+
+   *DISCLib* utiliza el *MapEntry* para guardar la información de las tablas de Hash por Encadenamiento Separado (*SeparateChaining*) y las tablas por Sondeo Lineal (*LinearProbing).
+
+   *IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:
+
+       #. Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.
+       #. Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H. Goldwasser.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   Src.DISClib.DataStructures.mapentry.MapEntry
+
+
+
+
+.. py:class:: MapEntry
+
+
+   Bases: :py:obj:`Generic`\ [\ :py:obj:`Src.DISClib.Utils.default.T`\ ]
+
+   **MapEntry** representa un registro de un mapa no ordenado, contiene la llave (*key*) y el valor (*value*). Donde la llave es única para cada valor y el valor puede ser cualquier tipo de dato.
+
+   :param Generic: TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.
+   :type Generic: T
+
+   :returns: ADT de tipo *MapEntry* o registro de un mapa no ordenado.
+   :rtype: MapEntry
+
+   .. py:attribute:: _key
+      :type: Optional[Src.DISClib.Utils.default.T]
+
+      Es la llave del registro del mapa.
+
+   .. py:attribute:: _value
+      :type: Optional[Src.DISClib.Utils.default.T]
+
+      Es el valor del registro del mapa.
+
+   .. py:method:: _handle_error(err: Exception) -> None
+
+      *_handle_error()* función privada para manejar los errores que se presentan en la clase MapEntry.
+
+      Si se presenta un error en el MapEntry, se formatea el error según el contexto (paquete/clase) y la función que lo generó, y lo reenvia al componente superior en la jerarquía de llamados para manejarlo segun se considere conveniente.
+
+      :param err: Excepción que se generó en el MapEntry.
+      :type err: Exception
+
+
+   .. py:method:: _check_key_type(key: Src.DISClib.Utils.default.T) -> bool
+
+      *_check_key_type()* función privada que verifica que la información de la llave (key) del registro del mapa sea del tipo especificado.
+
+      :param key: llave que se quiere verificar en el registro del mapa.
+      :type key: T
+
+      :raises TypeError: error si la información del registro del mapa no es del tipo adecuado.
+
+      :returns: operador que indica si el tipo de dato de la llave es el mismo que el tipo de dato de la llave que ya contiene la estructura de datos.
+      :rtype: bool
+
+
+   .. py:method:: _check_value_type(value: Src.DISClib.Utils.default.T) -> bool
+
+      *_check_value_type()* función privada que verifica que la información del valor (value) en el registro del mapa sea del tipo especificado.
+
+      :param value: valor que se quiere verificar en el registro del mapa.
+      :type value: T
+
+      :raises TypeError: error si la información del registro del mapa no es del tipo adecuado.
+
+      :returns: operador que indica si el tipo de dato del valor es el mismo que el tipo de dato de los elementos que ya contiene la estructura de datos.
+      :rtype: bool
+
+
+   .. py:method:: set_key(key: Src.DISClib.Utils.default.T) -> None
+
+      *set_key()* introduce una nueva llave 'key' al registro del mapa.
+
+      :param key: la nueva llave del registro del mapa.
+      :type key: T
+
+
+   .. py:method:: set_value(value: Src.DISClib.Utils.default.T) -> None
+
+      *set_value()* introduce un nuevo valor 'value' al registro del mapa.
+
+      :param value: el nuevo valor del registro del mapa.
+      :type value: T
+
+
+   .. py:method:: get_key() -> Src.DISClib.Utils.default.T
+
+      *get_key()* recupera la llave 'key' contenida en el registro del mapa.
+
+      :returns: la llave del registro del mapa.
+      :rtype: T
+
+
+   .. py:method:: get_value() -> Src.DISClib.Utils.default.T
+
+      *get_value()* recupera el valor 'value' contenido en el registro del mapa.
+
+      :returns: el valor del registro del mapa.
+      :rtype: T
+
+
+

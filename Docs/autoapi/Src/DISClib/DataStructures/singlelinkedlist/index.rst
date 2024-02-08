@@ -1,0 +1,333 @@
+:py:mod:`Src.DISClib.DataStructures.singlelinkedlist`
+=====================================================
+
+.. py:module:: Src.DISClib.DataStructures.singlelinkedlist
+
+.. autoapi-nested-parse::
+
+   Este ADT representa una estructura de datos lineal, específicamente una lista sensillamente enlazada/encadenada (**SingleLinked**). Esta estructura de datos es una secuencia de nodos enlazados, donde cada nodo contiene un elemento de información y una referencia al siguiente nodo en la secuencia. Esto le permite a la lista un crecimiento y reducción dinámico en la memoria disponible.
+
+   *IMPORTANTE:* Este código y sus especificaciones para Python están basados en las implementaciones propuestas por los siguientes autores/libros:
+
+       #. Algorithms, 4th Edition, Robert Sedgewick y Kevin Wayne.
+       #. Data Structure and Algorithms in Python, M.T. Goodrich, R. Tamassia, M.H. Goldwasser.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   Src.DISClib.DataStructures.singlelinkedlist.SingleLinked
+
+
+
+
+.. py:class:: SingleLinked
+
+
+   Bases: :py:obj:`Generic`\ [\ :py:obj:`Src.DISClib.Utils.default.T`\ ]
+
+   **SingleLinked** representa una estructura de datos dinámica de tipo lista sensillamente encadenada (*SingleLinked*), Implementada con Generic[T] y @dataclass para que sea una estructura de datos genérica.
+
+   :param Generic: TAD (Tipo Abstracto de Datos) o ADT (Abstract Data Type) para una estructura de datos genéricas en python.
+   :type Generic: T
+
+   :returns: ADT de tipo *SingleLinked* o Lista Sensillamente Encadenada.
+   :rtype: SingleLinked
+
+   .. py:attribute:: iodata
+      :type: Optional[List[Src.DISClib.Utils.default.T]]
+
+      Lista nativa de Python personalizable por el usuario para inicializar la estructura. Por defecto es *None* y el usuario puede incluirla como argumento al crear la estructura.
+
+   .. py:attribute:: cmp_function
+      :type: Optional[Callable[[Src.DISClib.Utils.default.T, Src.DISClib.Utils.default.T], int]]
+
+      Función de comparación personalizable por el usuario para reconocer los elementos dentro del *SingleLinked*. Por defecto es la función *lt_default_cmp_funcion()* propia de *DISClib*, puede ser un parametro al crear la estructura.
+
+   .. py:attribute:: first
+      :type: Optional[Src.DISClib.DataStructures.listnode.SingleNode[Src.DISClib.Utils.default.T]]
+
+      Representa la referencia en memoria al primer nodo del *SingleLinked*.
+
+   .. py:attribute:: last
+      :type: Optional[Src.DISClib.DataStructures.listnode.SingleNode[Src.DISClib.Utils.default.T]]
+
+      Representa la referencia en memoria al último nodo del *SingleLinked*.
+
+   .. py:attribute:: key
+      :type: Optional[str]
+
+      Nombre de la llave personalizable por el usuario utilizada para reconocer los elementos dentro del *SingleLinked*. Por defecto es la llave de diccionario (*dict*)*DEFAULT_DICT_KEY = 'id'* propia de *DISClib*, puede ser un parametro al crear la estructura.
+
+   .. py:attribute:: _size
+      :type: int
+      :value: 0
+
+      Es el número de elementos que contiene la estructura, por defecto es 0 y se actualiza con cada operación que modifica la estructura.
+
+   .. py:method:: __post_init__() -> None
+
+      *__post_init__()* configura los parametros personalizados por el usuario al crear el *SingleLinked*. En caso de no estar definidos, se asignan los valores por defecto, puede cargar listas nativas con el parametro *iodata* de python dentro de la estructura.
+
+
+
+   .. py:method:: default_cmp_function(elm1, elm2) -> int
+
+      *default_cmp_function()* es la función de comparación por defecto para comparar elementos dentro del *SingleLinked*, es una función crucial para que la estructura funcione correctamente.
+
+      :param elm1: primer elemento a comparar.
+      :type elm1: Any
+      :param elm2: segundo elemento a comparar.
+      :type elm2: Any
+
+      :returns: respuesta de la comparación entre los elementos, 0 si son iguales, 1 si elm1 es mayor que elm2, -1 si elm1 es menor.
+      :rtype: int
+
+
+   .. py:method:: _handle_error(err: Exception) -> None
+
+      *_handle_error()* función propia de la estructura que maneja los errores que se pueden presentar en el *SingleLinked*.
+
+      Si se presenta un error en *SingleLinked*, se formatea el error según el contexto (paquete/módulo/clase), la función (método) que lo generó y lo reenvia al componente superior en la jerarquía *DISCLib* para manejarlo segun se considere conveniente el usuario.
+
+      :param err: Excepción que se generó en el *SingleLinked*.
+      :type err: Exception
+
+
+   .. py:method:: _check_type(element: Src.DISClib.Utils.default.T) -> bool
+
+      *_check_type()* función propia de la estructura que revisa si el tipo de dato del elemento que se desea agregar al *SingleLinked* es del mismo tipo contenido dentro de los elementos del *SingleLinked*.
+
+      :param element: elemento que se desea procesar en *SingleLinked*.
+      :type element: T
+
+      :raises TypeError: error si el tipo de dato del elemento que se desea agregar no es el mismo que el tipo de dato de los elementos que ya contiene el *SingleLinked*.
+
+      :returns: operador que indica si el ADT *SingleLinked* es del mismo tipo que el elemento que se desea procesar.
+      :rtype: bool
+
+
+   .. py:method:: is_empty() -> bool
+
+      *is_empty()* revisa si el *SingleLinked* está vacío.
+
+      :returns: operador que indica si la estructura *SingleLinked* está vacía.
+      :rtype: bool
+
+
+   .. py:method:: size() -> int
+
+      *size()* devuelve el número de elementos que actualmente contiene el *SingleLinked*.
+
+      :returns: tamaño de la estructura *SingleLinked*.
+      :rtype: int
+
+
+   .. py:method:: add_first(element: Src.DISClib.Utils.default.T) -> None
+
+      *add_first()* adiciona un elemento al inicio del *SingleLinked*.
+
+      :param element: elemento que se desea agregar a la estructura.
+      :type element: T
+
+      :raises Exception: si la operación no se puede realizar, se invoca la función *_handle_error()* para manejar el error.
+
+
+   .. py:method:: add_last(element: Src.DISClib.Utils.default.T) -> None
+
+      *add_last()* adiciona un elemento al final del *SingleLinked*.
+
+      :param element: elemento que se desea agregar a la estructura.
+      :type element: T
+
+      :raises Exception: si la operación no se puede realizar, se invoca la función *_handle_error()* para manejar el error.
+
+
+   .. py:method:: add_element(element: Src.DISClib.Utils.default.T, pos: int) -> None
+
+      *add_element()* adiciona un elemento en una posición especifica del *SingleLinked*.
+
+      :param element: elemento que se desea agregar a la estructura.
+      :type element: T
+      :param pos: posición en la que se desea agregar el elemento.
+      :type pos: int
+
+      :raises IndexError: error si la posición es inválida.
+      :raises IndexError: error si la estructura está vacía.
+
+
+   .. py:method:: get_first() -> Optional[Src.DISClib.Utils.default.T]
+
+      *get_first()* lee el primer elemento del *SingleLinked*.
+
+      :raises Exception: error si la estructura está vacía.
+
+      :returns: el primer elemento del *SingleLinked*.
+      :rtype: Optional[T]
+
+
+   .. py:method:: get_last() -> Optional[Src.DISClib.Utils.default.T]
+
+      *get_last()* lee el último elemento del *SingleLinked*.
+
+      :raises Exception: error si la estructura está vacía.
+
+      :returns: el ultimo elemento del *SingleLinked*.
+      :rtype: Optional[T]
+
+
+   .. py:method:: get_element(pos: int) -> Optional[Src.DISClib.Utils.default.T]
+
+      *get_element()* lee un elemento en una posición especifica del *SingleLinked*.
+
+      :param pos: posición del elemento que se desea leer.
+      :type pos: int
+
+      :raises Exception: error si la estructura está vacía.
+      :raises Exception: error si la posición es inválida.
+
+      :returns: el elemento en la posición especifica del *SingleLinked*.
+      :rtype: Optional[T]
+
+
+   .. py:method:: remove_first() -> Optional[Src.DISClib.Utils.default.T]
+
+      *remove_first()* elimina el primer elemento del *SingleLinked*.
+
+      :raises Exception: error si la estructura está vacía.
+
+      :returns: el primer elemento eliminado del *SingleLinked*.
+      :rtype: Optional[T]
+
+
+   .. py:method:: remove_last() -> Optional[Src.DISClib.Utils.default.T]
+
+      *remove_last()* elimina el último elemento del *SingleLinked*.
+
+      :raises Exception: error si la estructura está vacía.
+
+      :returns: el ultimo elemento eliminado del *SingleLinked*.
+      :rtype: Optional[T]
+
+
+   .. py:method:: remove_element(pos: int) -> Optional[Src.DISClib.Utils.default.T]
+
+      *remove_element()* elimina un elemento en una posición especifica del *SingleLinked*.
+
+      :param pos: posición del elemento que se desea eliminar.
+      :type pos: int
+
+      :raises IndexError: error si la estructura está vacía.
+      :raises IndexError: error si la posición es inválida.
+
+      :returns: el elemento eliminado del *SingleLinked*.
+      :rtype: Optional[T]
+
+
+   .. py:method:: compare_elements(elem1: Src.DISClib.Utils.default.T, elem2: Src.DISClib.Utils.default.T) -> int
+
+      *compare_elements()* compara dos elementos dentro del *SingleLinked* según la función de comparación de la estructura.
+
+      :param elem1: Primer elemento a comparar.
+      :type elem1: T
+      :param elem2: Segundo elemento a comparar.
+      :type elem2: T
+
+      :raises TypeError: error si la función de comparación no está definida.
+
+      :returns: -1 si elem1 es menor que elem2, 0 si son iguales, 1 si elem1 es mayor que elem2.
+      :rtype: int
+
+
+   .. py:method:: find(element: Src.DISClib.Utils.default.T) -> int
+
+      *find()* busca el elemento dentro del *SingleLinked* y devuelve su posición o -1 si no lo encuentra.
+
+      :param element: elemento que se desea revisar en el *SingleLinked*.
+      :type element: T
+
+      :returns: la posición del elemento en el *SingleLinked*, -1 si no está.
+      :rtype: int
+
+
+   .. py:method:: change_info(new_info: Src.DISClib.Utils.default.T, pos: int) -> None
+
+      *change_info()* cambia la información de un elemento en la posición especificada del *SingleLinked*.
+
+      :param new_info: nueva información que se desea para el elemento.
+      :type new_info: T
+      :param pos: posición del elemento que se desea cambiar.
+      :type pos: int
+
+      :raises IndexError: error si la estructura está vacía.
+      :raises IndexError: error si la posición es inválida.
+
+
+   .. py:method:: exchange(pos1: int, pos2: int) -> None
+
+      *exchange()* intercambia la información de dos elementos en dos posiciones especificadas del *SingleLinked*.
+
+      :param pos1: posición del primer elemento.
+      :type pos1: int
+      :param pos2: posición del segundo elemento.
+      :type pos2: int
+
+      :raises Exception: error si la estructura está vacía.
+      :raises Exception: error si la posición del primer elemento es inválida.
+      :raises Exception: error si la posición del segundo elemento es inválida.
+
+
+   .. py:method:: sublist(start: int, end: int) -> SingleLinked[T]
+
+      *sublist()* crea una sublista de la estructura según dos posiciones dentro del *SingleLinked* original.
+
+      :param start: posición inicial de la sublista.
+      :type start: int
+      :param end: posición final de la sublista.
+      :type end: int
+
+      :raises IndexError: error si la estructura está vacía.
+      :raises IndexError: error si la posición inicial o final son inválidas.
+
+      :returns: una sublista de la estructura original con la función de comparación y la llave de la estructura original.
+      :rtype: SingleLinked[T]
+
+
+   .. py:method:: concat(other: SingleLinked[T]) -> SingleLinked[T]
+
+      *concat()* concatena dos estructuras de datos *SingleLinked* para crear una estructura con los elementos de las dos estructuras.
+
+      :param other: estructura de datos *SingleLinked* que se desea concatenar con la estructura original.
+      :type other: SingleLinked[T]
+
+      :raises TypeError: error si la estructura que se desea concatenar no es un *SingleLinked*.
+      :raises TypeError: error si la llave de la estructura que se desea unir no es la misma que la llave de la estructura original.
+      :raises TypeError: error si la función de comparación de la estructura que se desea unir no es la misma que la función de comparación de la estructura original.
+
+      :returns: Estructura de datos original *SingleLinked* que contiene los elementos de las dos estructuras originales.
+      :rtype: SingleLinked[T]
+
+
+   .. py:method:: __iter__()
+
+      *__iter__()* iterador nativo de Python personalizado para el *SingleLinked*. Permite utilizar los ciclos *for* de Python para recorrer los elementos de la estructura.
+
+      :returns: iterador Python sobre los elementos del *SingleLinked*.
+      :rtype: __iter__
+
+
+   .. py:method:: __len__() -> int
+
+      *__len__()* función nativa de Python personalizada para el *SingleLinked*. Permite utilizar la función *len()* de Python para recuperar el tamaño del *SingleLinked*.
+
+      :returns: tamaño del *SingleLinked*.
+      :rtype: int
+
+
+

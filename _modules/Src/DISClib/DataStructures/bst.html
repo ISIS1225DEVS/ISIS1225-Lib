@@ -123,10 +123,10 @@
 <span class="c1">#                       API TAD_BST</span>
 <span class="c1">#  ------------------------------------------------------------</span>
 <span class="c1"># GENERAL</span>
-<span class="c1">#FIXME Cambiar todas las funciones y variables al formato snake_case</span>
-<span class="c1">#TODO Explicar más a profundidad que tipo de excepciones y errores puede generar cada función</span>
+<span class="c1"># FIXME Cambiar todas las funciones y variables al formato snake_case</span>
+<span class="c1"># TODO Explicar más a profundidad que tipo de excepciones y errores puede generar cada función</span>
 
-<span class="c1">#FIXME Agregar todos los parámetros a la documentación</span>
+<span class="c1"># FIXME Agregar todos los parámetros a la documentación</span>
 <div class="viewcode-block" id="newMap">
 <a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.newMap">[documentos]</a>
 <span class="k">def</span> <span class="nf">newMap</span><span class="p">(</span><span class="n">omaptype</span><span class="p">,</span> <span class="n">cmpfunction</span><span class="p">,</span> <span class="n">datastructure</span><span class="p">):</span>
@@ -140,7 +140,7 @@
 <span class="sd">        Exception</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="c1">#FIXME Modelar como un Dataclass</span>
+        <span class="c1"># FIXME Modelar como un Dataclass</span>
         <span class="n">bst</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;root&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
                <span class="s1">&#39;cmpfunction&#39;</span><span class="p">:</span> <span class="n">cmpfunction</span><span class="p">,</span>
                <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">omaptype</span><span class="p">,</span>
@@ -154,7 +154,7 @@
         <span class="k">return</span> <span class="n">bst</span>
 
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
-        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="c1"># FIXME Modificar nombre del error para que sea más claro.</span>
         <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:NewMap&#39;</span><span class="p">)</span></div>
 
 
@@ -178,12 +178,12 @@
         <span class="n">bst</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">insertNode</span><span class="p">(</span><span class="n">bst</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">],</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">bst</span><span class="p">[</span><span class="s1">&#39;cmpfunction&#39;</span><span class="p">])</span>
         <span class="k">return</span> <span class="n">bst</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
-        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="c1"># FIXME Modificar nombre del error para que sea más claro.</span>
         <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;Bst:Put&#39;</span><span class="p">)</span></div>
 
 
-<span class="c1">#FIXME Corregir errores de ortografía en la documentación</span>
-<span class="c1">#TODO Indicar que retorna un bstnode</span>
+<span class="c1"># FIXME Corregir errores de ortografía en la documentación</span>
+<span class="c1"># TODO Indicar que retorna un bstnode</span>
 <div class="viewcode-block" id="get">
 <a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.get">[documentos]</a>
 <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="n">bst</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
@@ -201,11 +201,11 @@
         <span class="n">node</span> <span class="o">=</span> <span class="n">getNode</span><span class="p">(</span><span class="n">bst</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">],</span> <span class="n">key</span><span class="p">,</span> <span class="n">bst</span><span class="p">[</span><span class="s1">&#39;cmpfunction&#39;</span><span class="p">])</span>
         <span class="k">return</span> <span class="n">node</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
-        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="c1"># FIXME Modificar nombre del error para que sea más claro.</span>
         <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;Bst:get&#39;</span><span class="p">)</span></div>
 
 
-<span class="c1">#TODO Modificar documentación para que quede del mismo formato que las otras funciones</span>
+<span class="c1"># TODO Modificar documentación para que quede del mismo formato que las otras funciones</span>
 <div class="viewcode-block" id="remove">
 <a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.remove">[documentos]</a>
 <span class="k">def</span> <span class="nf">remove</span><span class="p">(</span><span class="n">bst</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
@@ -223,7 +223,7 @@
         <span class="n">bst</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">removeNode</span><span class="p">(</span><span class="n">bst</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">],</span> <span class="n">key</span><span class="p">,</span> <span class="n">bst</span><span class="p">[</span><span class="s1">&#39;cmpfunction&#39;</span><span class="p">])</span>
         <span class="k">return</span> <span class="n">bst</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
-        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="c1"># FIXME Modificar nombre del error para que sea más claro.</span>
         <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;Bst:Remove&#39;</span><span class="p">)</span></div>
 
 
@@ -244,7 +244,7 @@
     <span class="k">try</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">(</span><span class="n">get</span><span class="p">(</span><span class="n">bst</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
-        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="c1"># FIXME Modificar nombre del error para que sea más claro.</span>
         <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;Bst:Contains&#39;</span><span class="p">)</span></div>
 
 
@@ -264,7 +264,7 @@
     <span class="k">try</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">sizeTree</span><span class="p">(</span><span class="n">bst</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">])</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
-        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="c1"># FIXME Modificar nombre del error para que sea más claro.</span>
         <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;Bst:size&#39;</span><span class="p">)</span></div>
 
 
@@ -284,11 +284,11 @@
     <span class="k">try</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">(</span><span class="n">bst</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
-        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="c1"># FIXME Modificar nombre del error para que sea más claro.</span>
         <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:isempty&#39;</span><span class="p">)</span></div>
 
 
-<span class="c1">#TODO Indicar que retorna una lista de DISCLib</span>
+<span class="c1"># TODO Indicar que retorna una lista de DISCLib</span>
 <div class="viewcode-block" id="keySet">
 <a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.keySet">[documentos]</a>
 <span class="k">def</span> <span class="nf">keySet</span><span class="p">(</span><span class="n">bst</span><span class="p">):</span>
@@ -306,11 +306,11 @@
         <span class="n">klist</span> <span class="o">=</span> <span class="n">keySetTree</span><span class="p">(</span><span class="n">bst</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">],</span> <span class="n">klist</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">klist</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
-        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="c1"># FIXME Modificar nombre del error para que sea más claro.</span>
         <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:KeySet&#39;</span><span class="p">)</span></div>
 
 
-<span class="c1">#TODO Indicar que retorna una lista de DISCLib</span>
+<span class="c1"># TODO Indicar que retorna una lista de DISCLib</span>
 <div class="viewcode-block" id="valueSet">
 <a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.valueSet">[documentos]</a>
 <span class="k">def</span> <span class="nf">valueSet</span><span class="p">(</span><span class="n">bst</span><span class="p">):</span>
@@ -328,7 +328,7 @@
         <span class="n">vlist</span> <span class="o">=</span> <span class="n">valueSetTree</span><span class="p">(</span><span class="n">bst</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">],</span> <span class="n">vlist</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">vlist</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
-        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="c1"># FIXME Modificar nombre del error para que sea más claro.</span>
         <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:valueSet&#39;</span><span class="p">)</span></div>
 
 
@@ -351,7 +351,7 @@
             <span class="k">return</span> <span class="n">node</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">node</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
-        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="c1"># FIXME Modificar nombre del error para que sea más claro.</span>
         <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:minKey&#39;</span><span class="p">)</span></div>
 
 
@@ -374,7 +374,7 @@
             <span class="k">return</span> <span class="n">node</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">node</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
-        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="c1"># FIXME Modificar nombre del error para que sea más claro.</span>
         <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:maxKey&#39;</span><span class="p">)</span></div>
 
 
@@ -394,7 +394,7 @@
     <span class="k">try</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">deleteMinTree</span><span class="p">(</span><span class="n">bst</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">])</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
-        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="c1"># FIXME Modificar nombre del error para que sea más claro.</span>
         <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:deleteMin&#39;</span><span class="p">)</span></div>
 
 
@@ -415,7 +415,7 @@
     <span class="k">try</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">deleteMaxTree</span><span class="p">(</span><span class="n">bst</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">])</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
-        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="c1"># FIXME Modificar nombre del error para que sea más claro.</span>
         <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:deleteMax&#39;</span><span class="p">)</span></div>
 
 
@@ -440,7 +440,7 @@
             <span class="k">return</span> <span class="n">node</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">node</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
-        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="c1"># FIXME Modificar nombre del error para que sea más claro.</span>
         <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:floor&#39;</span><span class="p">)</span></div>
 
 
@@ -465,7 +465,7 @@
             <span class="k">return</span> <span class="n">node</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">node</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
-        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="c1"># FIXME Modificar nombre del error para que sea más claro.</span>
         <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:ceiling&#39;</span><span class="p">)</span></div>
 
 
@@ -488,7 +488,7 @@
             <span class="k">return</span> <span class="n">node</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">node</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
-        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="c1"># FIXME Modificar nombre del error para que sea más claro.</span>
         <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:Select&#39;</span><span class="p">)</span></div>
 
 
@@ -509,7 +509,7 @@
     <span class="k">try</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">rankKeys</span><span class="p">(</span><span class="n">bst</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">],</span> <span class="n">key</span><span class="p">,</span> <span class="n">bst</span><span class="p">[</span><span class="s1">&#39;cmpfunction&#39;</span><span class="p">])</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
-        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="c1"># FIXME Modificar nombre del error para que sea más claro.</span>
         <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:rank&#39;</span><span class="p">)</span></div>
 
 
@@ -529,11 +529,11 @@
     <span class="k">try</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">heightTree</span><span class="p">(</span><span class="n">bst</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">])</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
-        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="c1"># FIXME Modificar nombre del error para que sea más claro.</span>
         <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:height&#39;</span><span class="p">)</span></div>
 
 
-<span class="c1">#TODO Indicar que retorna una lista de DISCLib</span>
+<span class="c1"># TODO Indicar que retorna una lista de DISCLib</span>
 <div class="viewcode-block" id="keys">
 <a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.keys">[documentos]</a>
 <span class="k">def</span> <span class="nf">keys</span><span class="p">(</span><span class="n">bst</span><span class="p">,</span> <span class="n">keylo</span><span class="p">,</span> <span class="n">keyhi</span><span class="p">):</span>
@@ -556,12 +556,12 @@
                             <span class="n">bst</span><span class="p">[</span><span class="s1">&#39;cmpfunction&#39;</span><span class="p">])</span>
         <span class="k">return</span> <span class="n">lstkeys</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
-        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="c1"># FIXME Modificar nombre del error para que sea más claro.</span>
         <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:keys&#39;</span><span class="p">)</span></div>
 
 
-<span class="c1">#FIXME Modificar documentación del retorno</span>
-<span class="c1">#TODO Indicar que retorna una lista de DISCLib</span>
+<span class="c1"># FIXME Modificar documentación del retorno</span>
+<span class="c1"># TODO Indicar que retorna una lista de DISCLib</span>
 <div class="viewcode-block" id="values">
 <a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.values">[documentos]</a>
 <span class="k">def</span> <span class="nf">values</span><span class="p">(</span><span class="n">bst</span><span class="p">,</span> <span class="n">keylo</span><span class="p">,</span> <span class="n">keyhi</span><span class="p">):</span>
@@ -584,7 +584,7 @@
                                 <span class="n">bst</span><span class="p">[</span><span class="s1">&#39;cmpfunction&#39;</span><span class="p">])</span>
         <span class="k">return</span> <span class="n">lstvalues</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
-        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="c1"># FIXME Modificar nombre del error para que sea más claro.</span>
         <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:Values&#39;</span><span class="p">)</span></div>
 
 
@@ -629,11 +629,11 @@
         <span class="n">root</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">leftsize</span> <span class="o">+</span> <span class="n">rightsize</span>
         <span class="k">return</span> <span class="n">root</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
-        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="c1"># FIXME Modificar nombre del error para que sea más claro.</span>
         <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:insertNode&#39;</span><span class="p">)</span></div>
 
 
-<span class="c1">#FIXME Modificar documentación del retorno</span>
+<span class="c1"># FIXME Modificar documentación del retorno</span>
 <div class="viewcode-block" id="getNode">
 <a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.getNode">[documentos]</a>
 <span class="k">def</span> <span class="nf">getNode</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">cmpfunction</span><span class="p">):</span>
@@ -660,12 +660,12 @@
                 <span class="n">node</span> <span class="o">=</span> <span class="n">getNode</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">],</span> <span class="n">key</span><span class="p">,</span> <span class="n">cmpfunction</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">node</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
-        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="c1"># FIXME Modificar nombre del error para que sea más claro.</span>
         <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:getNode&#39;</span><span class="p">)</span></div>
 
 
-<span class="c1">#FIXME Agregar parámetro cmpfunction en la documentación.</span>
-<span class="c1">#TODO Modificar documentación para que siga el mismo formato que las demás funciones</span>
+<span class="c1"># FIXME Agregar parámetro cmpfunction en la documentación.</span>
+<span class="c1"># TODO Modificar documentación para que siga el mismo formato que las demás funciones</span>
 <div class="viewcode-block" id="removeNode">
 <a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.removeNode">[documentos]</a>
 <span class="k">def</span> <span class="nf">removeNode</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">cmpfunction</span><span class="p">):</span>
@@ -699,7 +699,7 @@
             <span class="n">root</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">sizeTree</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">])</span> <span class="o">+</span> <span class="n">sizeTree</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">])</span>
         <span class="k">return</span> <span class="n">root</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
-        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="c1"># FIXME Modificar nombre del error para que sea más claro.</span>
         <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:removeNode&#39;</span><span class="p">)</span></div>
 
 
@@ -722,11 +722,11 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">root</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
-        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="c1"># FIXME Modificar nombre del error para que sea más claro.</span>
         <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:sizeTree&#39;</span><span class="p">)</span></div>
 
 
-<span class="c1">#FIXME Corregir errores ortografía documentación</span>
+<span class="c1"># FIXME Corregir errores ortografía documentación</span>
 <div class="viewcode-block" id="valueSetTree">
 <a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.valueSetTree">[documentos]</a>
 <span class="k">def</span> <span class="nf">valueSetTree</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">klist</span><span class="p">):</span>
@@ -747,7 +747,7 @@
             <span class="n">valueSetTree</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">],</span> <span class="n">klist</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">klist</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
-        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="c1"># FIXME Modificar nombre del error para que sea más claro.</span>
         <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:valueSetTree&#39;</span><span class="p">)</span></div>
 
 
@@ -772,11 +772,11 @@
             <span class="n">keySetTree</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">],</span> <span class="n">klist</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">klist</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
-        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="c1"># FIXME Modificar nombre del error para que sea más claro.</span>
         <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:keySetTree&#39;</span><span class="p">)</span></div>
 
 
-<span class="c1">#TODO Cambiar documentación del retorno para que sea más entendible</span>
+<span class="c1"># TODO Cambiar documentación del retorno para que sea más entendible</span>
 <div class="viewcode-block" id="minKeyNode">
 <a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.minKeyNode">[documentos]</a>
 <span class="k">def</span> <span class="nf">minKeyNode</span><span class="p">(</span><span class="n">root</span><span class="p">):</span>
@@ -798,12 +798,12 @@
                 <span class="nb">min</span> <span class="o">=</span> <span class="n">minKeyNode</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">])</span>
         <span class="k">return</span> <span class="nb">min</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
-        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="c1"># FIXME Modificar nombre del error para que sea más claro.</span>
         <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:minKeyNode&#39;</span><span class="p">)</span></div>
 
 
-<span class="c1">#FIXME Que los parametros de la documentación y el código tengan el mismo nombre</span>
-<span class="c1">#TODO Cambiar documentación del retorno para que sea más entendible</span>
+<span class="c1"># FIXME Que los parametros de la documentación y el código tengan el mismo nombre</span>
+<span class="c1"># TODO Cambiar documentación del retorno para que sea más entendible</span>
 <div class="viewcode-block" id="maxKeyNode">
 <a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.maxKeyNode">[documentos]</a>
 <span class="k">def</span> <span class="nf">maxKeyNode</span><span class="p">(</span><span class="n">root</span><span class="p">):</span>
@@ -825,11 +825,11 @@
                 <span class="nb">max</span> <span class="o">=</span> <span class="n">maxKeyNode</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">])</span>
         <span class="k">return</span> <span class="nb">max</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
-        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="c1"># FIXME Modificar nombre del error para que sea más claro.</span>
         <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:maxKeyNode&#39;</span><span class="p">)</span></div>
 
 
-<span class="c1">#FIXME Modificar documentación de retorno</span>
+<span class="c1"># FIXME Modificar documentación de retorno</span>
 <div class="viewcode-block" id="deleteMinTree">
 <a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.deleteMinTree">[documentos]</a>
 <span class="k">def</span> <span class="nf">deleteMinTree</span><span class="p">(</span><span class="n">root</span><span class="p">):</span>
@@ -852,7 +852,7 @@
             <span class="n">root</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sizeTree</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">])</span> <span class="o">+</span> <span class="n">sizeTree</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">])</span> <span class="o">+</span> <span class="mi">1</span>
         <span class="k">return</span> <span class="n">root</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
-        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="c1"># FIXME Modificar nombre del error para que sea más claro.</span>
         <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:deleteMinTree&#39;</span><span class="p">)</span></div>
 
 
@@ -879,12 +879,12 @@
             <span class="n">root</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sizeTree</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">])</span> <span class="o">+</span> <span class="n">sizeTree</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">])</span> <span class="o">+</span> <span class="mi">1</span>
         <span class="k">return</span> <span class="n">root</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
-        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="c1"># FIXME Modificar nombre del error para que sea más claro.</span>
         <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:deleteMaxTree&#39;</span><span class="p">)</span></div>
 
 
-<span class="c1">#FIXME Explicar todos los parámetros en la documentación</span>
-<span class="c1">#FIXME Corregir la documentación del retorno</span>
+<span class="c1"># FIXME Explicar todos los parámetros en la documentación</span>
+<span class="c1"># FIXME Corregir la documentación del retorno</span>
 <div class="viewcode-block" id="floorKey">
 <a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.floorKey">[documentos]</a>
 <span class="k">def</span> <span class="nf">floorKey</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">cmpfunction</span><span class="p">):</span>
@@ -912,11 +912,11 @@
                 <span class="k">return</span> <span class="n">root</span>
         <span class="k">return</span> <span class="n">root</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
-        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="c1"># FIXME Modificar nombre del error para que sea más claro.</span>
         <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:floorKey&#39;</span><span class="p">)</span></div>
 
 
-<span class="c1">#FIXME Explicar todos los parámetros en la documentación</span>
+<span class="c1"># FIXME Explicar todos los parámetros en la documentación</span>
 <div class="viewcode-block" id="ceilingKey">
 <a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.ceilingKey">[documentos]</a>
 <span class="k">def</span> <span class="nf">ceilingKey</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">cmpfunction</span><span class="p">):</span>
@@ -945,12 +945,12 @@
             <span class="k">return</span> <span class="n">ceilingKey</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">],</span> <span class="n">key</span><span class="p">,</span> <span class="n">cmpfunction</span><span class="p">)</span>
         <span class="k">return</span> <span class="kc">None</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
-        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="c1"># FIXME Modificar nombre del error para que sea más claro.</span>
         <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:ceilingKey&#39;</span><span class="p">)</span></div>
 
 
-<span class="c1">#FIXME Modificar documentación de retorno</span>
-<span class="c1">#FIXME Los nombres de los parámetros deben ser los mismo en código y documentación</span>
+<span class="c1"># FIXME Modificar documentación de retorno</span>
+<span class="c1"># FIXME Los nombres de los parámetros deben ser los mismo en código y documentación</span>
 <div class="viewcode-block" id="selectKey">
 <a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.selectKey">[documentos]</a>
 <span class="k">def</span> <span class="nf">selectKey</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
@@ -975,11 +975,11 @@
                 <span class="k">return</span> <span class="n">root</span>
         <span class="k">return</span> <span class="n">root</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
-        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="c1"># FIXME Modificar nombre del error para que sea más claro.</span>
         <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:selectKey&#39;</span><span class="p">)</span></div>
 
 
-<span class="c1">#FIXME Documentar de manera correcta los parámetros</span>
+<span class="c1"># FIXME Documentar de manera correcta los parámetros</span>
 <div class="viewcode-block" id="rankKeys">
 <a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.rankKeys">[documentos]</a>
 <span class="k">def</span> <span class="nf">rankKeys</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">cmpfunction</span><span class="p">):</span>
@@ -1007,7 +1007,7 @@
                 <span class="k">return</span> <span class="n">sizeTree</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">])</span>
         <span class="k">return</span> <span class="mi">0</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
-        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="c1"># FIXME Modificar nombre del error para que sea más claro.</span>
         <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:ranKeys&#39;</span><span class="p">)</span></div>
 
 
@@ -1031,12 +1031,12 @@
             <span class="k">return</span> <span class="mi">1</span> <span class="o">+</span> <span class="nb">max</span><span class="p">(</span><span class="n">heightTree</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]),</span>
                            <span class="n">heightTree</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]))</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
-        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="c1"># FIXME Modificar nombre del error para que sea más claro.</span>
         <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:heihgTree&#39;</span><span class="p">)</span></div>
 
 
-<span class="c1">#FIXME Documentar de manera correcta los parámetros</span>
-<span class="c1">#TODO Indicar que retorna una lista de DISCLib</span>
+<span class="c1"># FIXME Documentar de manera correcta los parámetros</span>
+<span class="c1"># TODO Indicar que retorna una lista de DISCLib</span>
 <div class="viewcode-block" id="keysRange">
 <a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.keysRange">[documentos]</a>
 <span class="k">def</span> <span class="nf">keysRange</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">keylo</span><span class="p">,</span> <span class="n">keyhi</span><span class="p">,</span> <span class="n">lstkeys</span><span class="p">,</span> <span class="n">cmpfunction</span><span class="p">):</span>
@@ -1064,13 +1064,13 @@
                 <span class="n">keysRange</span><span class="p">(</span><span class="n">root</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">],</span> <span class="n">keylo</span><span class="p">,</span> <span class="n">keyhi</span><span class="p">,</span> <span class="n">lstkeys</span><span class="p">,</span> <span class="n">cmpfunction</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">lstkeys</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
-        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="c1"># FIXME Modificar nombre del error para que sea más claro.</span>
         <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:keysRange&#39;</span><span class="p">)</span></div>
 
 
-<span class="c1">#FIXME Documentar de manera correcta los parámetros</span>
-<span class="c1">#FIXME Corregir documentación del retorno</span>
-<span class="c1">#TODO Indicar que retorna una lista de DISCLib</span>
+<span class="c1"># FIXME Documentar de manera correcta los parámetros</span>
+<span class="c1"># FIXME Corregir documentación del retorno</span>
+<span class="c1"># TODO Indicar que retorna una lista de DISCLib</span>
 <div class="viewcode-block" id="valuesRange">
 <a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.valuesRange">[documentos]</a>
 <span class="k">def</span> <span class="nf">valuesRange</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">keylo</span><span class="p">,</span> <span class="n">keyhi</span><span class="p">,</span> <span class="n">lstvalues</span><span class="p">,</span> <span class="n">cmpfunction</span><span class="p">):</span>
@@ -1101,11 +1101,11 @@
                             <span class="n">cmpfunction</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">lstvalues</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
-        <span class="c1">#FIXME Modificar nombre del error para que sea más claro.</span>
+        <span class="c1"># FIXME Modificar nombre del error para que sea más claro.</span>
         <span class="n">error</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="s1">&#39;BST:valuesrange&#39;</span><span class="p">)</span></div>
 
 
-<span class="c1">#FIXME Documentar de manera correcta</span>
+<span class="c1"># FIXME Documentar de manera correcta</span>
 <div class="viewcode-block" id="defaultfunction">
 <a class="viewcode-back" href="../../../../autoapi/Src/DISClib/DataStructures/bst/index.html#Src.DISClib.DataStructures.bst.defaultfunction">[documentos]</a>
 <span class="k">def</span> <span class="nf">defaultfunction</span><span class="p">(</span><span class="n">key1</span><span class="p">,</span> <span class="n">key2</span><span class="p">):</span>

@@ -42,10 +42,10 @@ from Src.DISClib.ADT import lists as lt
 #                       API TAD_BST
 #  ------------------------------------------------------------
 # GENERAL
-#FIXME Cambiar todas las funciones y variables al formato snake_case
-#TODO Explicar más a profundidad que tipo de excepciones y errores puede generar cada función
+# FIXME Cambiar todas las funciones y variables al formato snake_case
+# TODO Explicar más a profundidad que tipo de excepciones y errores puede generar cada función
 
-#FIXME Agregar todos los parámetros a la documentación
+# FIXME Agregar todos los parámetros a la documentación
 def newMap(omaptype, cmpfunction, datastructure):
     """
     Crea una tabla de simbolos ordenada.
@@ -57,7 +57,7 @@ def newMap(omaptype, cmpfunction, datastructure):
         Exception
     """
     try:
-        #FIXME Modelar como un Dataclass
+        # FIXME Modelar como un Dataclass
         bst = {'root': None,
                'cmpfunction': cmpfunction,
                'type': omaptype,
@@ -71,7 +71,7 @@ def newMap(omaptype, cmpfunction, datastructure):
         return bst
 
     except Exception as exp:
-        #FIXME Modificar nombre del error para que sea más claro.
+        # FIXME Modificar nombre del error para que sea más claro.
         error.reraise(exp, 'BST:NewMap')
 
 
@@ -92,11 +92,11 @@ def put(bst, key, value):
         bst['root'] = insertNode(bst['root'], key, value, bst['cmpfunction'])
         return bst
     except Exception as exp:
-        #FIXME Modificar nombre del error para que sea más claro.
+        # FIXME Modificar nombre del error para que sea más claro.
         error.reraise(exp, 'Bst:Put')
 
-#FIXME Corregir errores de ortografía en la documentación
-#TODO Indicar que retorna un bstnode
+# FIXME Corregir errores de ortografía en la documentación
+# TODO Indicar que retorna un bstnode
 def get(bst, key):
     """
     Retorna la pareja lleve-valor con llave igual  a key
@@ -112,10 +112,10 @@ def get(bst, key):
         node = getNode(bst['root'], key, bst['cmpfunction'])
         return node
     except Exception as exp:
-        #FIXME Modificar nombre del error para que sea más claro.
+        # FIXME Modificar nombre del error para que sea más claro.
         error.reraise(exp, 'Bst:get')
 
-#TODO Modificar documentación para que quede del mismo formato que las otras funciones
+# TODO Modificar documentación para que quede del mismo formato que las otras funciones
 def remove(bst, key):
     """
     Elimina la pareja llave,valor, donde llave == key.
@@ -131,7 +131,7 @@ def remove(bst, key):
         bst['root'] = removeNode(bst['root'], key, bst['cmpfunction'])
         return bst
     except Exception as exp:
-        #FIXME Modificar nombre del error para que sea más claro.
+        # FIXME Modificar nombre del error para que sea más claro.
         error.reraise(exp, 'Bst:Remove')
 
 
@@ -149,7 +149,7 @@ def contains(bst, key):
     try:
         return (get(bst, key) is not None)
     except Exception as exp:
-        #FIXME Modificar nombre del error para que sea más claro.
+        # FIXME Modificar nombre del error para que sea más claro.
         error.reraise(exp, 'Bst:Contains')
 
 
@@ -166,7 +166,7 @@ def size(bst):
     try:
         return sizeTree(bst['root'])
     except Exception as exp:
-        #FIXME Modificar nombre del error para que sea más claro.
+        # FIXME Modificar nombre del error para que sea más claro.
         error.reraise(exp, 'Bst:size')
 
 
@@ -183,10 +183,10 @@ def isEmpty(bst):
     try:
         return (bst['root'] is None)
     except Exception as exp:
-        #FIXME Modificar nombre del error para que sea más claro.
+        # FIXME Modificar nombre del error para que sea más claro.
         error.reraise(exp, 'BST:isempty')
 
-#TODO Indicar que retorna una lista de DISCLib
+# TODO Indicar que retorna una lista de DISCLib
 def keySet(bst):
     """
     Retorna una lista con todas las llaves de la tabla
@@ -202,10 +202,10 @@ def keySet(bst):
         klist = keySetTree(bst['root'], klist)
         return klist
     except Exception as exp:
-        #FIXME Modificar nombre del error para que sea más claro.
+        # FIXME Modificar nombre del error para que sea más claro.
         error.reraise(exp, 'BST:KeySet')
 
-#TODO Indicar que retorna una lista de DISCLib
+# TODO Indicar que retorna una lista de DISCLib
 def valueSet(bst):
     """
     Construye una lista con los valores de la tabla
@@ -221,7 +221,7 @@ def valueSet(bst):
         vlist = valueSetTree(bst['root'], vlist)
         return vlist
     except Exception as exp:
-        #FIXME Modificar nombre del error para que sea más claro.
+        # FIXME Modificar nombre del error para que sea más claro.
         error.reraise(exp, 'BST:valueSet')
 
 
@@ -241,7 +241,7 @@ def minKey(bst):
             return node['key']
         return node
     except Exception as exp:
-        #FIXME Modificar nombre del error para que sea más claro.
+        # FIXME Modificar nombre del error para que sea más claro.
         error.reraise(exp, 'BST:minKey')
 
 
@@ -261,7 +261,7 @@ def maxKey(bst):
             return node['key']
         return node
     except Exception as exp:
-        #FIXME Modificar nombre del error para que sea más claro.
+        # FIXME Modificar nombre del error para que sea más claro.
         error.reraise(exp, 'BST:maxKey')
 
 def deleteMin(bst):
@@ -278,7 +278,7 @@ def deleteMin(bst):
     try:
         return deleteMinTree(bst['root'])
     except Exception as exp:
-        #FIXME Modificar nombre del error para que sea más claro.
+        # FIXME Modificar nombre del error para que sea más claro.
         error.reraise(exp, 'BST:deleteMin')
 
 
@@ -296,7 +296,7 @@ def deleteMax(bst):
     try:
         return deleteMaxTree(bst['root'])
     except Exception as exp:
-        #FIXME Modificar nombre del error para que sea más claro.
+        # FIXME Modificar nombre del error para que sea más claro.
         error.reraise(exp, 'BST:deleteMax')
 
 
@@ -318,7 +318,7 @@ def floor(bst, key):
             return node['key']
         return node
     except Exception as exp:
-        #FIXME Modificar nombre del error para que sea más claro.
+        # FIXME Modificar nombre del error para que sea más claro.
         error.reraise(exp, 'BST:floor')
 
 
@@ -340,7 +340,7 @@ def ceiling(bst, key):
             return node['key']
         return node
     except Exception as exp:
-        #FIXME Modificar nombre del error para que sea más claro.
+        # FIXME Modificar nombre del error para que sea más claro.
         error.reraise(exp, 'BST:ceiling')
 
 def select(bst, pos):
@@ -360,7 +360,7 @@ def select(bst, pos):
             return node['key']
         return node
     except Exception as exp:
-        #FIXME Modificar nombre del error para que sea más claro.
+        # FIXME Modificar nombre del error para que sea más claro.
         error.reraise(exp, 'BST:Select')
 
 
@@ -378,7 +378,7 @@ def rank(bst, key):
     try:
         return rankKeys(bst['root'], key, bst['cmpfunction'])
     except Exception as exp:
-        #FIXME Modificar nombre del error para que sea más claro.
+        # FIXME Modificar nombre del error para que sea más claro.
         error.reraise(exp, 'BST:rank')
 
 
@@ -395,10 +395,10 @@ def height(bst):
     try:
         return heightTree(bst['root'])
     except Exception as exp:
-        #FIXME Modificar nombre del error para que sea más claro.
+        # FIXME Modificar nombre del error para que sea más claro.
         error.reraise(exp, 'BST:height')
 
-#TODO Indicar que retorna una lista de DISCLib
+# TODO Indicar que retorna una lista de DISCLib
 def keys(bst, keylo, keyhi):
     """
     Retorna todas las llaves del arbol que se encuentren entre
@@ -419,11 +419,11 @@ def keys(bst, keylo, keyhi):
                             bst['cmpfunction'])
         return lstkeys
     except Exception as exp:
-        #FIXME Modificar nombre del error para que sea más claro.
+        # FIXME Modificar nombre del error para que sea más claro.
         error.reraise(exp, 'BST:keys')
 
-#FIXME Modificar documentación del retorno
-#TODO Indicar que retorna una lista de DISCLib
+# FIXME Modificar documentación del retorno
+# TODO Indicar que retorna una lista de DISCLib
 def values(bst, keylo, keyhi):
     """
     Retorna todas los valores del arbol que se encuentren entre
@@ -444,7 +444,7 @@ def values(bst, keylo, keyhi):
                                 bst['cmpfunction'])
         return lstvalues
     except Exception as exp:
-        #FIXME Modificar nombre del error para que sea más claro.
+        # FIXME Modificar nombre del error para que sea más claro.
         error.reraise(exp, 'BST:Values')
 
 # _____________________________________________________________________
@@ -486,10 +486,10 @@ def insertNode(root, key, value, cmpfunction):
         root['size'] = 1 + leftsize + rightsize
         return root
     except Exception as exp:
-        #FIXME Modificar nombre del error para que sea más claro.
+        # FIXME Modificar nombre del error para que sea más claro.
         error.reraise(exp, 'BST:insertNode')
 
-#FIXME Modificar documentación del retorno
+# FIXME Modificar documentación del retorno
 def getNode(root, key, cmpfunction):
     """
     Retorna la pareja lleve-valor con llave igual  a key
@@ -514,11 +514,11 @@ def getNode(root, key, cmpfunction):
                 node = getNode(root['right'], key, cmpfunction)
         return node
     except Exception as exp:
-        #FIXME Modificar nombre del error para que sea más claro.
+        # FIXME Modificar nombre del error para que sea más claro.
         error.reraise(exp, 'BST:getNode')
 
-#FIXME Agregar parámetro cmpfunction en la documentación.
-#TODO Modificar documentación para que siga el mismo formato que las demás funciones
+# FIXME Agregar parámetro cmpfunction en la documentación.
+# TODO Modificar documentación para que siga el mismo formato que las demás funciones
 def removeNode(root, key, cmpfunction):
     """
     Elimina la pareja llave,valor, donde llave == key.
@@ -550,7 +550,7 @@ def removeNode(root, key, cmpfunction):
             root['size'] = 1 + sizeTree(root['left']) + sizeTree(root['right'])
         return root
     except Exception as exp:
-        #FIXME Modificar nombre del error para que sea más claro.
+        # FIXME Modificar nombre del error para que sea más claro.
         error.reraise(exp, 'BST:removeNode')
 
 
@@ -570,10 +570,10 @@ def sizeTree(root):
         else:
             return root['size']
     except Exception as exp:
-        #FIXME Modificar nombre del error para que sea más claro.
+        # FIXME Modificar nombre del error para que sea más claro.
         error.reraise(exp, 'BST:sizeTree')
 
-#FIXME Corregir errores ortografía documentación
+# FIXME Corregir errores ortografía documentación
 def valueSetTree(root, klist):
     """
     Construye una lista con los valorers de la tabla
@@ -592,7 +592,7 @@ def valueSetTree(root, klist):
             valueSetTree(root['right'], klist)
         return klist
     except Exception as exp:
-        #FIXME Modificar nombre del error para que sea más claro.
+        # FIXME Modificar nombre del error para que sea más claro.
         error.reraise(exp, 'BST:valueSetTree')
 
 
@@ -614,10 +614,10 @@ def keySetTree(root, klist):
             keySetTree(root['right'], klist)
         return klist
     except Exception as exp:
-        #FIXME Modificar nombre del error para que sea más claro.
+        # FIXME Modificar nombre del error para que sea más claro.
         error.reraise(exp, 'BST:keySetTree')
 
-#TODO Cambiar documentación del retorno para que sea más entendible
+# TODO Cambiar documentación del retorno para que sea más entendible
 def minKeyNode(root):
     """
     Retorna la menor llave de la tabla de simbolos
@@ -637,11 +637,11 @@ def minKeyNode(root):
                 min = minKeyNode(root['left'])
         return min
     except Exception as exp:
-        #FIXME Modificar nombre del error para que sea más claro.
+        # FIXME Modificar nombre del error para que sea más claro.
         error.reraise(exp, 'BST:minKeyNode')
 
-#FIXME Que los parametros de la documentación y el código tengan el mismo nombre
-#TODO Cambiar documentación del retorno para que sea más entendible
+# FIXME Que los parametros de la documentación y el código tengan el mismo nombre
+# TODO Cambiar documentación del retorno para que sea más entendible
 def maxKeyNode(root):
     """
     Retorna la mayor llave de la tabla de simbolos
@@ -661,10 +661,10 @@ def maxKeyNode(root):
                 max = maxKeyNode(root['right'])
         return max
     except Exception as exp:
-        #FIXME Modificar nombre del error para que sea más claro.
+        # FIXME Modificar nombre del error para que sea más claro.
         error.reraise(exp, 'BST:maxKeyNode')
 
-#FIXME Modificar documentación de retorno
+# FIXME Modificar documentación de retorno
 def deleteMinTree(root):
     """
     Encuentra y remueve la menor llave de la tabla de simbolos
@@ -685,7 +685,7 @@ def deleteMinTree(root):
             root['size'] = sizeTree(root['left']) + sizeTree(root['right']) + 1
         return root
     except Exception as exp:
-        #FIXME Modificar nombre del error para que sea más claro.
+        # FIXME Modificar nombre del error para que sea más claro.
         error.reraise(exp, 'BST:deleteMinTree')
 
 
@@ -709,11 +709,11 @@ def deleteMaxTree(root):
             root['size'] = sizeTree(root['left']) + sizeTree(root['right']) + 1
         return root
     except Exception as exp:
-        #FIXME Modificar nombre del error para que sea más claro.
+        # FIXME Modificar nombre del error para que sea más claro.
         error.reraise(exp, 'BST:deleteMaxTree')
 
-#FIXME Explicar todos los parámetros en la documentación
-#FIXME Corregir la documentación del retorno
+# FIXME Explicar todos los parámetros en la documentación
+# FIXME Corregir la documentación del retorno
 def floorKey(root, key, cmpfunction):
     """
     Retorna la llave mas grande en la tabla de simbolos,
@@ -739,10 +739,10 @@ def floorKey(root, key, cmpfunction):
                 return root
         return root
     except Exception as exp:
-        #FIXME Modificar nombre del error para que sea más claro.
+        # FIXME Modificar nombre del error para que sea más claro.
         error.reraise(exp, 'BST:floorKey')
 
-#FIXME Explicar todos los parámetros en la documentación
+# FIXME Explicar todos los parámetros en la documentación
 def ceilingKey(root, key, cmpfunction):
     """
     Retorna la llave mas pequeña en la tabla de simbolos,
@@ -769,11 +769,11 @@ def ceilingKey(root, key, cmpfunction):
             return ceilingKey(root['right'], key, cmpfunction)
         return None
     except Exception as exp:
-        #FIXME Modificar nombre del error para que sea más claro.
+        # FIXME Modificar nombre del error para que sea más claro.
         error.reraise(exp, 'BST:ceilingKey')
 
-#FIXME Modificar documentación de retorno
-#FIXME Los nombres de los parámetros deben ser los mismo en código y documentación
+# FIXME Modificar documentación de retorno
+# FIXME Los nombres de los parámetros deben ser los mismo en código y documentación
 def selectKey(root, key):
     """
     Retorna la k-esima llave mas pequeña de la tabla
@@ -796,10 +796,10 @@ def selectKey(root, key):
                 return root
         return root
     except Exception as exp:
-        #FIXME Modificar nombre del error para que sea más claro.
+        # FIXME Modificar nombre del error para que sea más claro.
         error.reraise(exp, 'BST:selectKey')
 
-#FIXME Documentar de manera correcta los parámetros
+# FIXME Documentar de manera correcta los parámetros
 def rankKeys(root, key, cmpfunction):
     """
     Retorna el número de llaves en la tabla estrictamente menores que key
@@ -825,7 +825,7 @@ def rankKeys(root, key, cmpfunction):
                 return sizeTree(root['left'])
         return 0
     except Exception as exp:
-        #FIXME Modificar nombre del error para que sea más claro.
+        # FIXME Modificar nombre del error para que sea más claro.
         error.reraise(exp, 'BST:ranKeys')
 
 
@@ -846,11 +846,11 @@ def heightTree(root):
             return 1 + max(heightTree(root['left']),
                            heightTree(root['right']))
     except Exception as exp:
-        #FIXME Modificar nombre del error para que sea más claro.
+        # FIXME Modificar nombre del error para que sea más claro.
         error.reraise(exp, 'BST:heihgTree')
 
-#FIXME Documentar de manera correcta los parámetros
-#TODO Indicar que retorna una lista de DISCLib
+# FIXME Documentar de manera correcta los parámetros
+# TODO Indicar que retorna una lista de DISCLib
 def keysRange(root, keylo, keyhi, lstkeys, cmpfunction):
     """
     Retorna todas las llaves del arbol en un rango dado
@@ -876,12 +876,12 @@ def keysRange(root, keylo, keyhi, lstkeys, cmpfunction):
                 keysRange(root['right'], keylo, keyhi, lstkeys, cmpfunction)
         return lstkeys
     except Exception as exp:
-        #FIXME Modificar nombre del error para que sea más claro.
+        # FIXME Modificar nombre del error para que sea más claro.
         error.reraise(exp, 'BST:keysRange')
 
-#FIXME Documentar de manera correcta los parámetros
-#FIXME Corregir documentación del retorno
-#TODO Indicar que retorna una lista de DISCLib
+# FIXME Documentar de manera correcta los parámetros
+# FIXME Corregir documentación del retorno
+# TODO Indicar que retorna una lista de DISCLib
 def valuesRange(root, keylo, keyhi, lstvalues, cmpfunction):
     """
     Retorna todas los valores del arbol en un rango dado por
@@ -910,10 +910,10 @@ def valuesRange(root, keylo, keyhi, lstvalues, cmpfunction):
                             cmpfunction)
         return lstvalues
     except Exception as exp:
-        #FIXME Modificar nombre del error para que sea más claro.
+        # FIXME Modificar nombre del error para que sea más claro.
         error.reraise(exp, 'BST:valuesrange')
 
-#FIXME Documentar de manera correcta
+# FIXME Documentar de manera correcta
 def defaultfunction(key1, key2):
     if key1 == key2:
         return 0

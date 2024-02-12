@@ -30,10 +30,10 @@ from Src.DISClib.ADT import maps as map
 from Src.DISClib.ADT import stack as stk
 from Src.DISClib.Utils import error as error
 
-#FIXME Cambiar todas las funciones y variables al formato snake_case
-#FIXME Tener consistencia con el nombre de las importaciones
-#TODO Explicar más a profundidad que tipo de excepciones y errores puede generar cada función
-#TODO Tener cuidado con el uso de diccionarios, ya que se convertirán en Data Classes
+# FIXME Cambiar todas las funciones y variables al formato snake_case
+# FIXME Tener consistencia con el nombre de las importaciones
+# TODO Explicar más a profundidad que tipo de excepciones y errores puede generar cada función
+# TODO Tener cuidado con el uso de diccionarios, ya que se convertirán en Data Classes
 
 def DepthFirstSearch(graph, source):
     """
@@ -64,7 +64,7 @@ def DepthFirstSearch(graph, source):
     except Exception as exp:
         error.reraise(exp, 'dfs:DFS')
 
-#FIXME Documentar de manera correcta los argumentos
+# FIXME Documentar de manera correcta los argumentos
 def dfsVertex(search, graph, vertex):
     """
     Funcion auxiliar para calcular un recorrido DFS
@@ -89,7 +89,7 @@ def dfsVertex(search, graph, vertex):
     except Exception as exp:
         error.reraise(exp, 'dfs:dfsVertex')
 
-#TODO Indicar en que caso retorna falso
+# TODO Indicar en que caso retorna falso
 def hasPathTo(search, vertex):
     """
     Indica si existe un camino entre el vertice source
@@ -110,7 +110,7 @@ def hasPathTo(search, vertex):
     except Exception as exp:
         error.reraise(exp, 'dfs:hasPathto')
 
-#FIXME Corregir errores de ortografía de la documentación
+# FIXME Corregir errores de ortografía de la documentación
 def pathTo(search, vertex):
     """
     Retorna el camino entre el vertices source y el

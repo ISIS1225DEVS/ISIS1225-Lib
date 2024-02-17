@@ -111,7 +111,7 @@
 <div class="viewcode-block" id="heap_sort">
 <a class="viewcode-back" href="../../../../../autoapi/Src/DISClib/Algorithms/Sorting/heapsort/index.html#Src.DISClib.Algorithms.Sorting.heapsort.heap_sort">[documentos]</a>
 <span class="k">def</span> <span class="nf">heap_sort</span><span class="p">(</span><span class="n">lst</span><span class="p">:</span> <span class="n">List</span><span class="p">,</span> <span class="n">sort_crit</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="p">],</span> <span class="nb">bool</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;*heap_sort()* ordena una lista de elementos utilizando el algoritmo de ordenamiento por montículos (heap sort).</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;*heap_sort()* ordena una lista de elementos utilizando el algoritmo de ordenamiento por montículos (heapsort).</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        lst (List): La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*.</span>
@@ -148,7 +148,7 @@
              <span class="n">low</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
              <span class="n">high</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
              <span class="n">sort_crit</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="p">],</span> <span class="nb">bool</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;*_heapify()* construye un montículo inicial del algoritmo de ordenamiento. Utiliza el criterio de ordenamiento para ajustar la lista al montículo y poder garantizar que los elementos tienen hijos izquierdos y derechos según el índice de árbol binario lleno reconstruido en el indice i*2+1 y i*2+2 respectivamente.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;*_heapify()* construye el montículo inicial del algoritmo de ordenamiento. Utiliza el criterio de ordenamiento para ajustar la lista al montículo y poder garantizar que los elementos tienen hijos izquierdos y derechos según el índice de árbol binario lleno reconstruido en el indice i*2+1 y i*2+2 respectivamente.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        lst (List): La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*.</span>
@@ -193,13 +193,13 @@
     <span class="n">i_right</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">low</span> <span class="o">+</span> <span class="mi">2</span>
 
     <span class="c1"># si el hijo izquierdo es mayor que el padre en el montículo</span>
-    <span class="k">if</span> <span class="n">i_left</span> <span class="o">&lt;</span> <span class="n">high</span> <span class="ow">and</span> <span class="n">sort_crit</span><span class="p">(</span><span class="n">lst</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">i_left</span><span class="p">),</span>
-                                   <span class="n">lst</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">parent</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">i_left</span> <span class="o">&lt;</span> <span class="n">high</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">sort_crit</span><span class="p">(</span><span class="n">lst</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">i_left</span><span class="p">),</span>
+                                       <span class="n">lst</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">parent</span><span class="p">)):</span>
         <span class="n">parent</span> <span class="o">=</span> <span class="n">i_left</span>
 
     <span class="c1"># si el hijo derecho es mayor que el padre en el montículo</span>
-    <span class="k">if</span> <span class="n">i_right</span> <span class="o">&lt;</span> <span class="n">high</span> <span class="ow">and</span> <span class="n">sort_crit</span><span class="p">(</span><span class="n">lst</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">i_right</span><span class="p">),</span>
-                                    <span class="n">lst</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">parent</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">i_right</span> <span class="o">&lt;</span> <span class="n">high</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">sort_crit</span><span class="p">(</span><span class="n">lst</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">i_right</span><span class="p">),</span>
+                                        <span class="n">lst</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">parent</span><span class="p">)):</span>
         <span class="n">parent</span> <span class="o">=</span> <span class="n">i_right</span>
 
     <span class="c1"># si el padre no es el elemento mas grande</span>

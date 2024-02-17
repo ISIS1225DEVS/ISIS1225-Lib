@@ -33,7 +33,7 @@ def heap_sort(lst: List, sort_crit: Callable[[T, T], bool]) -> List:
 
     Args:
         lst (List): La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*.
-        sort_crit (Callable[[T, T], bool]): Es una función definida por el usuario que representa el criterio de ordenamiento. Recibe dos elementos pertenecientes al ADT **List** y retorna *True* si el primer elemento es menor que el segundo elemento, y *False* en caso contrario.
+        sort_crit (Callable[[T, T], bool]): Es una función definida por el usuario que representa el criterio de ordenamiento. Recibe dos elementos pertenecientes al ADT **List** y retorna *True* si el primer elemento cumple con el criterio, y *False* en caso contrario.
 
     Returns:
         List: La lista ordenada.
@@ -69,7 +69,7 @@ def _heapify(lst: List,
         lst (List): La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*.
         low (int): límite inferior de la sublista a ordenar según el índice de árbol binario lleno reconstruido.
         high (int): límite superior de la sublista a ordenar según el índice de árbol binario lleno reconstruido.
-        sort_crit (Callable[[T, T], bool]): Es una función definida por el usuario que representa el criterio de ordenamiento. Recibe dos elementos pertenecientes al ADT **List** y retorna *True* si el primer elemento es menor que el segundo elemento, y *False* en caso contrario.
+        sort_crit (Callable[[T, T], bool]): Es una función definida por el usuario que representa el criterio de ordenamiento. Recibe dos elementos pertenecientes al ADT **List** y retorna *True* si el primer elemento cumple con el criterio, y *False* en caso contrario.
 
     Returns:
         List: lista ajustada al montículo según el criterio de ordenamiento.
@@ -95,7 +95,7 @@ def _sift(lst: List,
         lst (List): La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*.
         low (int): límite inferior de la sublista a ordenar según el índice del árbol binario lleno reconstruido.
         high (int): límite superior de la sublista a ordenar según el índice del árbol binario lleno reconstruido.
-        sort_crit (Callable[[T, T], bool]): Es una función definida por el usuario que representa el criterio de ordenamiento. Recibe dos elementos pertenecientes al ADT **List** y retorna *True* si el primer elemento es menor que el segundo elemento, y *False* en caso contrario.
+        sort_crit (Callable[[T, T], bool]): Es una función definida por el usuario que representa el criterio de ordenamiento. Recibe dos elementos pertenecientes al ADT **List** y retorna *True* si el primer elemento cumple con el criterio, y *False* en caso contrario.
     """
     # indice temporal del elemento padre
     parent = low

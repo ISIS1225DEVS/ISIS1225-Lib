@@ -29,7 +29,7 @@ assert T
 
 # TODO alternative function name: heap_sort
 def heap_sort(lst: List, sort_crit: Callable[[T, T], bool]) -> List:
-    """*heap_sort()* ordena una lista de elementos utilizando el algoritmo de ordenamiento por montículos (heap sort).
+    """*heap_sort()* ordena una lista de elementos utilizando el algoritmo de ordenamiento por montículos (heapsort).
 
     Args:
         lst (List): La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*.
@@ -63,7 +63,7 @@ def _heapify(lst: List,
              low: int,
              high: int,
              sort_crit: Callable[[T, T], bool]) -> List:
-    """*_heapify()* construye un montículo inicial del algoritmo de ordenamiento. Utiliza el criterio de ordenamiento para ajustar la lista al montículo y poder garantizar que los elementos tienen hijos izquierdos y derechos según el índice de árbol binario lleno reconstruido en el indice i*2+1 y i*2+2 respectivamente.
+    """*_heapify()* construye el montículo inicial del algoritmo de ordenamiento. Utiliza el criterio de ordenamiento para ajustar la lista al montículo y poder garantizar que los elementos tienen hijos izquierdos y derechos según el índice de árbol binario lleno reconstruido en el indice i*2+1 y i*2+2 respectivamente.
 
     Args:
         lst (List): La lista a ordenar. Puede ser *ArrayList*, *LinkedList*, *DoubleLinkedList*, *Queue* o *Stack*.
@@ -105,13 +105,13 @@ def _sift(lst: List,
     i_right = 2 * low + 2
 
     # si el hijo izquierdo es mayor que el padre en el montículo
-    if i_left < high and sort_crit(lst.get_element(i_left),
-                                   lst.get_element(parent)):
+    if i_left < high and not sort_crit(lst.get_element(i_left),
+                                       lst.get_element(parent)):
         parent = i_left
 
     # si el hijo derecho es mayor que el padre en el montículo
-    if i_right < high and sort_crit(lst.get_element(i_right),
-                                    lst.get_element(parent)):
+    if i_right < high and not sort_crit(lst.get_element(i_right),
+                                        lst.get_element(parent)):
         parent = i_right
 
     # si el padre no es el elemento mas grande

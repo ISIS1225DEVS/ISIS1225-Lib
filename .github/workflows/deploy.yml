@@ -1,0 +1,44 @@
+name: Deploy DISCLib
+
+on: [push]
+
+jobs:
+    build:
+        name: Build and test
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v2
+      
+            - name: Install dependencies
+              run: |
+                sudo apt-get install jq
+                pip install ghapi
+
+            - name: Set up Git user
+              run: |
+                git config --global user.email "isis1125@uniandes.edu.co"
+                git config --global user.name "EDA Uniandes DISC"
+      
+            - name: Push to multiple repos
+              run: |
+                python -c "
+                import os
+                from ghapi.all import GhApi
+                from datetime import datetime
+                api = GhApi(token='${{ secrets.GITHUB_TOKEN }}')
+                topics = ['examples']
+                for topic in topics:
+                    repos = api.search.repos(f'topic:{topic} user:ISIS1225DEVS')
+                    for repo in repos['items']:
+                        repo_full_name = repo['full_name']
+                        print(f'Pushing to {repo_full_name}')
+                        os.system(f'git clone https://github.com/{repo_full_name}.git')
+                        repo_name = repo['name']
+                        os.system(f'rm -rf {repo_name}/DISClib/ && cp -r DISClib/ {repo_name}/DISClib/')
+                        commit_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+                        commit_message = f'$$Updating DISClib to the latest - {commit_time}$$'
+                        commit_message = commit_message.replace('$$', chr(34))
+                        os.system(f'cd {repo_name} && git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/{repo_full_name}.git')
+                        os.system(f'cd {repo_name} && git add . && git commit -m {commit_message} && git push')
+                "
